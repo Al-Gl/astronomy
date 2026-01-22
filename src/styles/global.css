@@ -1,0 +1,163 @@
+/* ========================================
+   The Astronomy Space - Global Styles
+   ======================================== */
+
+/* CSS Custom Properties (Design Tokens) */
+:root {
+  /* Colors - Deep Space Theme */
+  --color-bg-primary: #000000;
+  --color-bg-secondary: #0f172a;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: rgba(255, 255, 255, 0.7);
+  --color-text-tertiary: rgba(255, 255, 255, 0.6);
+  --color-accent-blue: #3b82f6;
+  --color-accent-cyan: #06b6d4;
+
+  /* Spacing Scale */
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+
+  /* Typography */
+  --font-heading: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 3rem;
+  --font-size-5xl: 4rem;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(15, 23, 42, 0.4);
+  --glass-border: 1px solid rgba(148, 163, 184, 0.1);
+  --glass-blur: blur(10px);
+  --radius-lg: 1rem;
+}
+
+/* CSS Reset & Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+}
+
+/* Typography System */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+}
+
+p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--color-accent-blue);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-accent-cyan);
+}
+
+/* Starfield Background - Minimalist Dots */
+.starfield {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(1px 1px at 12% 8%, white, transparent),
+    radial-gradient(1px 1px at 88% 15%, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1px 1px at 24% 22%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 67% 18%, white, transparent),
+    radial-gradient(1px 1px at 45% 35%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 91% 42%, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 8% 48%, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1px 1px at 33% 55%, white, transparent),
+    radial-gradient(1px 1px at 78% 62%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 15% 70%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 52% 77%, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1px 1px at 85% 85%, white, transparent),
+    radial-gradient(1px 1px at 41% 91%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 70% 28%, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 28% 44%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 95% 58%, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1px 1px at 5% 82%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 62% 12%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 38% 68%, white, transparent),
+    radial-gradient(1px 1px at 82% 38%, rgba(255, 255, 255, 0.5), transparent);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/* Layout Utilities */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+/* Glassmorphism Effect */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: var(--radius-lg);
+}
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not (backdrop-filter: blur(10px)) {
+  .glass {
+    background: rgba(15, 23, 42, 0.85);
+  }
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focus Styles for Accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-accent-cyan);
+  outline-offset: 2px;
+}
