@@ -26,7 +26,53 @@ const {
     <title>{title}</title>
   </head>
   <body>
-    <div class="starfield"></div>
+    <!-- Stars Toggle -->
+    <button class="stars-toggle" id="starsToggle" aria-label="Toggle animated stars">
+      <svg class="toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M12 2L14.4 8.6L21 9.2L16 14L17.8 21L12 17.4L6.2 21L8 14L3 9.2L9.6 8.6L12 2Z"/>
+      </svg>
+      <span class="toggle-label">Stars</span>
+    </button>
+
+    <!-- Animated twinkling stars (hidden by default) -->
+    <div class="animated-stars" id="animatedStars">
+      <div class="star star-1"></div>
+      <div class="star star-2"></div>
+      <div class="star star-3"></div>
+      <div class="star star-4"></div>
+      <div class="star star-5"></div>
+      <div class="star star-6"></div>
+      <div class="star star-7"></div>
+      <div class="star star-8"></div>
+      <div class="star star-9"></div>
+      <div class="star star-10"></div>
+      <div class="star star-11"></div>
+      <div class="star star-12"></div>
+      <div class="star star-13"></div>
+      <div class="star star-14"></div>
+      <div class="star star-15"></div>
+      <div class="star star-16"></div>
+      <div class="star star-17"></div>
+      <div class="star star-18"></div>
+      <div class="star star-19"></div>
+      <div class="star star-20"></div>
+      <div class="star star-21"></div>
+      <div class="star star-22"></div>
+      <div class="star star-23"></div>
+      <div class="star star-24"></div>
+      <div class="star star-25"></div>
+      <div class="star star-26"></div>
+      <div class="star star-27"></div>
+      <div class="star star-28"></div>
+      <div class="star star-29"></div>
+      <div class="star star-30"></div>
+      <div class="star star-31"></div>
+      <div class="star star-32"></div>
+      <div class="star star-33"></div>
+      <div class="star star-34"></div>
+      <div class="star star-35"></div>
+      <div class="star star-36"></div>
+    </div>
     <div class="app-container">
       <header>
         <slot name="header" />
@@ -43,6 +89,28 @@ const {
   </body>
 </html>
 
+<script>
+  // Stars toggle functionality
+  const starsToggle = document.getElementById('starsToggle');
+  const animatedStars = document.getElementById('animatedStars');
+
+  // Check localStorage for saved preference (default: off)
+  const starsEnabled = localStorage.getItem('starsEnabled') === 'true';
+
+  // Apply initial state
+  if (starsEnabled) {
+    animatedStars?.classList.add('visible');
+    starsToggle?.classList.add('active');
+  }
+
+  // Toggle handler
+  starsToggle?.addEventListener('click', () => {
+    const isVisible = animatedStars?.classList.toggle('visible');
+    starsToggle.classList.toggle('active', isVisible);
+    localStorage.setItem('starsEnabled', isVisible ? 'true' : 'false');
+  });
+</script>
+
 <style>
   .app-container {
     position: relative;
@@ -54,5 +122,50 @@ const {
 
   main {
     flex: 1;
+  }
+
+  /* Stars Toggle Button */
+  .stars-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.75rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .stars-toggle:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .stars-toggle.active {
+    background: rgba(6, 182, 212, 0.15);
+    border-color: rgba(6, 182, 212, 0.3);
+    color: rgba(6, 182, 212, 0.9);
+  }
+
+  .toggle-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .stars-toggle.active .toggle-icon {
+    fill: rgba(6, 182, 212, 0.3);
+  }
+
+  .toggle-label {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 </style>

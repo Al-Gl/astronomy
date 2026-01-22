@@ -1,0 +1,292 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+---
+
+<MainLayout
+  title="Cosmic Atlas - The Astronomy Space"
+  description="Explore our comprehensive database of celestial objects including planets, stars, galaxies, and more"
+>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-title">Cosmic Atlas</h1>
+      <p class="hero-subtitle">
+        Your comprehensive guide to the celestial objects that fill our universe.
+        From the planets in our own solar system to distant galaxies billions of light-years away,
+        explore the wonders that astronomers have cataloged over centuries of observation.
+      </p>
+      <p class="hero-description">
+        Select a category below to begin your journey through the cosmos.
+      </p>
+    </div>
+  </section>
+
+  <!-- Categories Grid -->
+  <section class="categories">
+    <div class="container">
+      <div class="categories-grid">
+
+        <a href="/atlas/planets" class="category-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="1.5"/>
+              <ellipse cx="24" cy="24" rx="20" ry="5" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+              <path d="M14 18 Q24 16 34 20" stroke="currentColor" stroke-width="0.75" opacity="0.3"/>
+              <path d="M12 26 Q24 30 36 24" stroke="currentColor" stroke-width="0.75" opacity="0.3"/>
+            </svg>
+          </div>
+          <h2>Planets</h2>
+          <p>The worlds of our solar system and beyond</p>
+        </a>
+
+        <a href="/atlas/solar-system/" class="category-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="5" fill="currentColor"/>
+              <circle cx="24" cy="24" r="10" stroke="currentColor" stroke-width="0.75" opacity="0.3"/>
+              <circle cx="24" cy="24" r="15" stroke="currentColor" stroke-width="0.75" opacity="0.25"/>
+              <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="0.75" opacity="0.2"/>
+              <circle cx="34" cy="24" r="2" fill="currentColor" opacity="0.8"/>
+              <circle cx="17" cy="32" r="1.5" fill="currentColor" opacity="0.7"/>
+              <circle cx="8" cy="20" r="1.25" fill="currentColor" opacity="0.6"/>
+            </svg>
+          </div>
+          <h2>Solar System</h2>
+          <p>Our cosmic neighborhood and its celestial bodies</p>
+        </a>
+
+        <a href="/atlas/stars" class="category-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="8" fill="currentColor"/>
+              <circle cx="24" cy="24" r="12" stroke="currentColor" stroke-width="0.5" opacity="0.2"/>
+              <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="0.5" opacity="0.15"/>
+              <line x1="24" y1="4" x2="24" y2="10" stroke="currentColor" stroke-width="2" opacity="0.4"/>
+              <line x1="24" y1="38" x2="24" y2="44" stroke="currentColor" stroke-width="2" opacity="0.4"/>
+              <line x1="4" y1="24" x2="10" y2="24" stroke="currentColor" stroke-width="2" opacity="0.4"/>
+              <line x1="38" y1="24" x2="44" y2="24" stroke="currentColor" stroke-width="2" opacity="0.4"/>
+              <line x1="10" y1="10" x2="14" y2="14" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+              <line x1="34" y1="34" x2="38" y2="38" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+              <line x1="38" y1="10" x2="34" y2="14" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+              <line x1="10" y1="38" x2="14" y2="34" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+            </svg>
+          </div>
+          <h2>Stars</h2>
+          <p>Luminous spheres of plasma across the cosmos</p>
+        </a>
+
+        <a href="/atlas/galaxies" class="category-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="24" cy="24" rx="18" ry="6" stroke="currentColor" stroke-width="1.5" transform="rotate(-25 24 24)" opacity="0.7"/>
+              <ellipse cx="24" cy="24" rx="14" ry="4" stroke="currentColor" stroke-width="1" transform="rotate(-25 24 24)" opacity="0.5"/>
+              <circle cx="24" cy="24" r="4" fill="currentColor"/>
+              <circle cx="12" cy="18" r="1" fill="currentColor" opacity="0.5"/>
+              <circle cx="36" cy="30" r="1" fill="currentColor" opacity="0.5"/>
+              <circle cx="16" cy="28" r="0.75" fill="currentColor" opacity="0.4"/>
+              <circle cx="32" cy="20" r="0.75" fill="currentColor" opacity="0.4"/>
+            </svg>
+          </div>
+          <h2>Galaxies</h2>
+          <p>Island universes containing billions of stars</p>
+        </a>
+
+        <a href="/atlas/nebulae" class="category-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="0.75" opacity="0.2"/>
+              <circle cx="24" cy="24" r="10" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+              <circle cx="24" cy="24" r="6" stroke="currentColor" stroke-width="1.25" opacity="0.5"/>
+              <circle cx="24" cy="24" r="3" fill="currentColor" opacity="0.8"/>
+              <circle cx="16" cy="16" r="2" fill="currentColor" opacity="0.3"/>
+              <circle cx="32" cy="20" r="1.5" fill="currentColor" opacity="0.25"/>
+              <circle cx="20" cy="32" r="1.75" fill="currentColor" opacity="0.3"/>
+              <circle cx="30" cy="30" r="1.25" fill="currentColor" opacity="0.25"/>
+            </svg>
+          </div>
+          <h2>Nebulae</h2>
+          <p>Cosmic clouds where stars are born and die</p>
+        </a>
+
+        <a href="/atlas/constellations" class="category-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="2.5" fill="currentColor"/>
+              <circle cx="38" cy="14" r="2.5" fill="currentColor"/>
+              <circle cx="24" cy="24" r="2.5" fill="currentColor"/>
+              <circle cx="14" cy="38" r="2.5" fill="currentColor"/>
+              <circle cx="36" cy="36" r="2.5" fill="currentColor"/>
+              <line x1="10" y1="10" x2="38" y2="14" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+              <line x1="38" y1="14" x2="24" y2="24" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+              <line x1="24" y1="24" x2="14" y2="38" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+              <line x1="24" y1="24" x2="36" y2="36" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+              <line x1="10" y1="10" x2="24" y2="24" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            </svg>
+          </div>
+          <h2>Constellations</h2>
+          <p>Star patterns that map our night sky</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
+    <div class="container">
+      <h2 class="about-title">Exploring the Universe</h2>
+      <p class="about-text">
+        The Cosmic Atlas brings together data from centuries of astronomical observation,
+        from ancient star charts to modern space telescopes. Each category contains detailed
+        information about the objects that make up our universe, their properties, and their
+        place in the cosmic order.
+      </p>
+      <p class="about-text">
+        Whether you're researching for academic purposes, planning an observation session,
+        or simply curious about what lies beyond our planet, this atlas serves as your
+        starting point for discovery.
+      </p>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    padding: 6rem 0 4rem 0;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 400;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: 0.02em;
+    color: white;
+    line-height: 1.1;
+  }
+
+  .hero-subtitle {
+    font-size: 1.0625rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 40rem;
+    margin: 0 auto 1.5rem auto;
+    line-height: 1.8;
+  }
+
+  .hero-description {
+    font-size: 0.9375rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0;
+  }
+
+  /* Categories Grid */
+  .categories {
+    padding: 2rem 0 4rem 0;
+  }
+
+  .categories-grid {
+    display: grid;
+    gap: 1px;
+    grid-template-columns: 1fr;
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .category-card {
+    display: block;
+    padding: 2.5rem 2rem;
+    background: #000;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  .category-card:hover {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .card-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 0 1.25rem 0;
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.3s ease;
+  }
+
+  .card-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .category-card:hover .card-icon {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .category-card h2 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin: 0 0 0.5rem 0;
+    color: white;
+    letter-spacing: 0.01em;
+  }
+
+  .category-card p {
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0;
+    line-height: 1.6;
+    font-size: 0.875rem;
+    font-weight: 300;
+  }
+
+  /* About Section */
+  .about {
+    padding: 4rem 0 6rem 0;
+    max-width: 900px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .about .container {
+    text-align: center;
+  }
+
+  .about-title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: white;
+    margin: 0 0 2rem 0;
+    letter-spacing: 0.01em;
+  }
+
+  .about-text {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9375rem;
+    font-weight: 300;
+    line-height: 1.8;
+    margin: 0 0 1.5rem 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-text:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Tablet: 2-column */
+  @media (min-width: 640px) {
+    .categories-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Desktop: 3-column */
+  @media (min-width: 900px) {
+    .categories-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

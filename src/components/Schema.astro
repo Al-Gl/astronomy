@@ -1,0 +1,139 @@
+---
+/**
+ * Schema.astro - Reusable JSON-LD structured data component
+ * Supports BreadcrumbList, TechArticle, Article, and FAQPage schema types
+ */
+
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+interface ArticleData {
+  headline: string;
+  description: string;
+  datePublished: string;
+  dateModified: string;
+  author: string;
+  image?: string;
+  keywords?: string[];
+}
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  type: 'TechArticle' | 'Article' | 'BreadcrumbList' | 'FAQPage';
+  breadcrumbs?: BreadcrumbItem[];
+  article?: ArticleData;
+  faq?: FAQItem[];
+  siteUrl?: string;
+}
+
+const {
+  type,
+  breadcrumbs = [],
+  article,
+  faq = [],
+  siteUrl = 'https://theastronomyspace.com'
+} = Astro.props;
+
+// Generate BreadcrumbList schema
+function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": items.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": item.name,
+      "item": item.url.startsWith('http') ? item.url : `${siteUrl}${item.url}`
+    }))
+  };
+}
+
+// Generate TechArticle schema
+function generateTechArticleSchema(data: ArticleData) {
+  const schema: Record<string, any> = {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": data.headline,
+    "description": data.description,
+    "datePublished": data.datePublished,
+    "dateModified": data.dateModified,
+    "author": {
+      "@type": "Organization",
+      "name": data.author,
+      "url": siteUrl
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Astronomy Space",
+      "url": siteUrl,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${siteUrl}/favicon.svg`
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": Astro.url.href
+    }
+  };
+
+  if (data.image) {
+    schema.image = {
+      "@type": "ImageObject",
+      "url": data.image.startsWith('http') ? data.image : `${siteUrl}${data.image}`
+    };
+  }
+
+  if (data.keywords && data.keywords.length > 0) {
+    schema.keywords = data.keywords.join(', ');
+  }
+
+  return schema;
+}
+
+// Generate Article schema (for non-technical content)
+function generateArticleSchema(data: ArticleData) {
+  const schema = generateTechArticleSchema(data);
+  schema["@type"] = "Article";
+  return schema;
+}
+
+// Generate FAQPage schema
+function generateFAQSchema(items: FAQItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": items.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  };
+}
+
+// Build the appropriate schema based on type
+let schemaData: Record<string, any> | null = null;
+
+if (type === 'BreadcrumbList' && breadcrumbs.length > 0) {
+  schemaData = generateBreadcrumbSchema(breadcrumbs);
+} else if (type === 'TechArticle' && article) {
+  schemaData = generateTechArticleSchema(article);
+} else if (type === 'Article' && article) {
+  schemaData = generateArticleSchema(article);
+} else if (type === 'FAQPage' && faq.length > 0) {
+  schemaData = generateFAQSchema(faq);
+}
+---
+
+{schemaData && (
+  <script type="application/ld+json" set:html={JSON.stringify(schemaData, null, 2)} />
+)}
