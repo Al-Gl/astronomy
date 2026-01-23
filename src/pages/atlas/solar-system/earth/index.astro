@@ -1,0 +1,855 @@
+---
+import MainLayout from '../../../../layouts/MainLayout.astro';
+import Schema from '../../../../components/Schema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cosmic Atlas', url: '/atlas/' },
+  { name: 'Solar System', url: '/atlas/solar-system/' },
+  { name: 'Earth', url: '/atlas/solar-system/earth/' }
+];
+
+const articleData = {
+  headline: 'Earth: Our Home Planet - Complete Guide',
+  description: 'Comprehensive guide to Earth covering its unique features, atmosphere, geology, the Moon, and why our planet is the only known world to harbor life.',
+  datePublished: '2025-01-22',
+  dateModified: '2025-01-22',
+  author: 'The Astronomy Space',
+  image: '/images/Hero_earth.jpg',
+  keywords: ['Earth', 'planet', 'home planet', 'atmosphere', 'oceans', 'Moon', 'life', 'geology', 'magnetic field', 'pale blue dot']
+};
+
+const faqData = [
+  {
+    question: 'How old is Earth?',
+    answer: 'Earth is approximately 4.54 billion years old, determined through radiometric dating of meteorites and the oldest known Earth rocks. The planet formed from the solar nebula—the disk of gas and dust left over from the Sun\'s formation. Life appeared surprisingly early, with the oldest confirmed fossils dating back about 3.5 billion years.'
+  },
+  {
+    question: 'Why is Earth called the "Blue Planet"?',
+    answer: 'Earth is called the Blue Planet because about 71% of its surface is covered by water, which appears blue from space. When astronauts first photographed Earth from the Moon, they were struck by its vibrant blue color against the black void of space. The blue color comes from oceans absorbing red wavelengths of sunlight and reflecting blue wavelengths back into space.'
+  },
+  {
+    question: 'What makes Earth habitable?',
+    answer: 'Earth\'s habitability comes from a perfect combination of factors: its distance from the Sun places it in the "habitable zone" where liquid water can exist; a strong magnetic field shields the surface from harmful solar radiation; a thick atmosphere with the right mix of gases provides breathable air and regulates temperature; and plate tectonics recycles carbon and nutrients. No other known planet has all these features.'
+  },
+  {
+    question: 'How fast is Earth moving through space?',
+    answer: 'Earth moves through space at multiple speeds simultaneously. It rotates at about 1,670 km/h (1,037 mph) at the equator. It orbits the Sun at approximately 107,000 km/h (67,000 mph). The entire Solar System orbits the Milky Way\'s center at about 828,000 km/h (514,000 mph). And our galaxy moves through the universe at roughly 2.1 million km/h (1.3 million mph) relative to the cosmic microwave background.'
+  },
+  {
+    question: 'What would happen if Earth had no Moon?',
+    answer: 'Without the Moon, Earth would be dramatically different. Days would be only 6-8 hours long (the Moon has been slowing Earth\'s rotation for billions of years). Earth\'s axial tilt would wobble chaotically, causing extreme climate swings. Tides would be much weaker (only from the Sun). Some scientists believe life might never have evolved—or would be very different—without the Moon\'s stabilizing influence.'
+  },
+  {
+    question: 'Is Earth perfectly round?',
+    answer: 'No, Earth is not a perfect sphere. It\'s an "oblate spheroid"—slightly flattened at the poles and bulging at the equator due to its rotation. The equatorial diameter is about 43 km (27 miles) larger than the polar diameter. Additionally, Earth\'s surface has mountains, ocean trenches, and other features. If shrunk to the size of a billiard ball, however, Earth would actually be smoother than a regulation ball.'
+  }
+];
+---
+
+<MainLayout
+  title="Earth: Our Home Planet - Complete Guide | The Astronomy Space"
+  description="Comprehensive guide to Earth covering its unique features, atmosphere, geology, the Moon, and why our planet is the only known world to harbor life."
+>
+  <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
+  <Schema type="TechArticle" article={articleData} />
+  <Schema type="FAQPage" faq={faqData} />
+
+  <!-- Reading Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-image">
+      <img src="/images/Hero_earth.jpg" alt="Earth - The Blue Planet as seen from space showing oceans and clouds" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/atlas/">Cosmic Atlas</a></li>
+          <li><a href="/atlas/solar-system/">Solar System</a></li>
+          <li aria-current="page">Earth</li>
+        </ol>
+      </nav>
+      <h1>Earth</h1>
+      <p class="hero-subtitle">Our Pale Blue Dot</p>
+    </div>
+  </section>
+
+  <!-- Main Article Content -->
+  <article class="content-wrapper">
+    <div class="article-layout">
+
+      <!-- Sticky Table of Contents (Left Sidebar) -->
+      <aside class="toc-sidebar">
+        <nav class="toc" aria-label="Table of Contents">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#physical-characteristics">Physical Characteristics</a></li>
+            <li><a href="#atmosphere">Atmosphere</a></li>
+            <li><a href="#hydrosphere">Oceans & Water</a></li>
+            <li><a href="#geology">Geology & Interior</a></li>
+            <li><a href="#magnetic-field">Magnetic Field</a></li>
+            <li><a href="#life">Life on Earth</a></li>
+            <li><a href="#moon">The Moon</a></li>
+            <li><a href="#earth-from-space">Earth from Space</a></li>
+            <li><a href="#fun-facts">Interesting Facts</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-content">
+
+        <!-- Answer Capsule -->
+        <aside class="answer-capsule">
+          <div class="capsule-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <p>Earth is the third planet from the Sun and the only known world to harbor life. Our "Pale Blue Dot" is unique in the Solar System with its liquid water oceans, oxygen-rich atmosphere, protective magnetic field, and the remarkable diversity of life that has evolved over 4 billion years. Earth is also the only planet not named after a mythological god.</p>
+        </aside>
+
+        <!-- Introduction -->
+        <section id="introduction" class="content-section">
+          <h2>Introduction to Earth</h2>
+          <p>Earth—our home, our only home. Among the countless worlds in the universe, Earth stands alone as the only place where life is known to exist. From the depths of ocean trenches to the peaks of towering mountains, from scorching deserts to frozen poles, life has found a way to thrive in almost every corner of this remarkable planet.</p>
+
+          <p>The name "Earth" comes from Germanic and Old English words meaning "ground" or "soil." Interestingly, Earth is the only planet in our Solar System not named after a Greek or Roman deity. While Mars honors the god of war and Venus the goddess of love, our planet's name reflects our grounded perspective—we named it simply for what we stand on.</p>
+
+          <p>Earth orbits the Sun at an average distance of about 150 million kilometers (93 million miles), a distance so convenient for astronomical calculations that it's defined as 1 Astronomical Unit (AU). This distance places Earth squarely in the "Goldilocks zone"—not too hot, not too cold, but just right for liquid water to exist on the surface.</p>
+
+          <p>What makes Earth truly special isn't any single feature, but the extraordinary combination of factors that together create a habitable world: the right distance from the Sun, a protective magnetic field, an atmosphere with the right mix of gases, liquid water, and plate tectonics that recycle essential elements. Change any one of these factors significantly, and Earth might be as barren as Mars or as hellish as Venus.</p>
+        </section>
+
+        <!-- Physical Characteristics -->
+        <section id="physical-characteristics" class="content-section">
+          <h2>Physical Characteristics</h2>
+          <p>Earth is the largest of the four terrestrial (rocky) planets and the densest planet in the entire Solar System. Its size and composition give it enough gravity to hold onto a substantial atmosphere while allowing for a dynamic, geologically active surface.</p>
+
+          <div class="info-box glass">
+            <h3>Earth Quick Facts</h3>
+            <ul>
+              <li><strong>Diameter:</strong> 12,742 km (7,918 miles)</li>
+              <li><strong>Mass:</strong> 5.97 × 10²⁴ kg</li>
+              <li><strong>Surface Gravity:</strong> 9.81 m/s² (1 g)</li>
+              <li><strong>Average Temperature:</strong> 15°C (59°F)</li>
+              <li><strong>Day Length:</strong> 23 hours, 56 minutes, 4 seconds</li>
+              <li><strong>Year Length:</strong> 365.25 days</li>
+              <li><strong>Moons:</strong> 1 (The Moon)</li>
+              <li><strong>Distance from Sun:</strong> 150 million km (1 AU)</li>
+              <li><strong>Axial Tilt:</strong> 23.5 degrees</li>
+            </ul>
+          </div>
+
+          <p>Earth's axial tilt of 23.5 degrees is responsible for the seasons. As Earth orbits the Sun, different hemispheres receive more direct sunlight at different times of year. This tilt, remarkably stable thanks to the Moon's gravitational influence, creates the rhythm of seasons that has shaped the evolution of life.</p>
+
+          <p>The planet's surface is divided between land (29%) and water (71%). Earth is the only planet in the Solar System with liquid water on its surface in significant quantities—a feature visible from space that gives our planet its distinctive blue appearance. The surface constantly changes through plate tectonics, erosion, volcanic activity, and the influence of living organisms.</p>
+        </section>
+
+        <!-- Atmosphere -->
+        <section id="atmosphere" class="content-section">
+          <h2>The Atmosphere</h2>
+          <p>Earth's atmosphere is a thin shell of gases that protects life from the harsh environment of space. If Earth were the size of an apple, the atmosphere would be thinner than the apple's skin. Yet this delicate layer makes all the difference between a living world and a dead one.</p>
+
+          <h3>Composition</h3>
+          <p>The atmosphere consists of 78% nitrogen, 21% oxygen, 0.9% argon, 0.04% carbon dioxide, and trace amounts of other gases including water vapor (which varies from 0-4%). This composition is unique in the Solar System—no other planet has significant free oxygen in its atmosphere. The oxygen is almost entirely produced by photosynthetic life, primarily cyanobacteria and plants.</p>
+
+          <h3>Atmospheric Layers</h3>
+          <ul>
+            <li><strong>Troposphere (0-12 km):</strong> Where weather happens and where we live. Temperature decreases with altitude.</li>
+            <li><strong>Stratosphere (12-50 km):</strong> Contains the ozone layer, which absorbs harmful UV radiation. Temperature increases with altitude.</li>
+            <li><strong>Mesosphere (50-80 km):</strong> Where meteors burn up. The coldest layer, reaching -90°C.</li>
+            <li><strong>Thermosphere (80-700 km):</strong> Very thin air heated by solar radiation to over 1,000°C. Where auroras occur.</li>
+            <li><strong>Exosphere (700-10,000 km):</strong> The atmosphere fades into space. Satellites orbit here.</li>
+          </ul>
+
+          <h3>The Greenhouse Effect</h3>
+          <p>Earth's atmosphere traps heat through the greenhouse effect, raising the average surface temperature from about -18°C (without atmosphere) to about 15°C. While this natural greenhouse effect makes Earth habitable, the current increase in greenhouse gases from human activities is causing rapid global warming—one of the greatest challenges facing our civilization.</p>
+        </section>
+
+        <!-- Hydrosphere -->
+        <section id="hydrosphere" class="content-section">
+          <h2>Oceans and Water</h2>
+          <p>Water is perhaps Earth's most distinctive feature. Our planet holds about 1.4 billion cubic kilometers of water, with 97.5% in the oceans. This vast quantity of liquid water is found nowhere else in the Solar System's surface environments.</p>
+
+          <h3>The World Ocean</h3>
+          <p>Although we name five oceans (Pacific, Atlantic, Indian, Southern, and Arctic), they're all connected in a single global ocean system. The Pacific Ocean alone covers more area than all the land on Earth combined. The oceans contain 97% of Earth's water, and if all the land were smoothed flat, the ocean would cover the entire planet to a depth of about 2.7 kilometers.</p>
+
+          <h3>Ocean Extremes</h3>
+          <p>The deepest point on Earth is the Challenger Deep in the Mariana Trench, reaching 10,935 meters (35,876 feet) below sea level—deeper than Mount Everest is tall. The ocean floor features vast mountain ranges, deep trenches, hydrothermal vents, and underwater volcanoes. Less than 20% of the ocean floor has been mapped in detail.</p>
+
+          <h3>Where Did Earth's Water Come From?</h3>
+          <p>The origin of Earth's water remains debated. Some water may have been present in the rocks that formed Earth, released through volcanic activity. Additional water likely came from asteroid and comet impacts during the Late Heavy Bombardment period. Recent research suggests asteroids were the primary source, as the hydrogen isotope ratios in Earth's water match asteroids better than comets.</p>
+        </section>
+
+        <!-- Geology -->
+        <section id="geology" class="content-section">
+          <h2>Geology and Interior</h2>
+          <p>Earth's interior is far from static. Beneath our feet lies a dynamic system of moving rock, liquid metal, and a solid iron core—all driving the geological processes that shape our planet's surface.</p>
+
+          <h3>Earth's Layers</h3>
+          <ul>
+            <li><strong>Crust (0-70 km):</strong> The thin outer shell, divided into oceanic crust (5-10 km thick, denser) and continental crust (30-70 km thick, lighter). This is where we live.</li>
+            <li><strong>Mantle (70-2,900 km):</strong> Hot, slowly flowing rock that drives plate tectonics. The upper mantle is partially molten; the lower mantle is solid but flows over geological time.</li>
+            <li><strong>Outer Core (2,900-5,150 km):</strong> Liquid iron and nickel at 4,000-6,000°C. Convection in this layer generates Earth's magnetic field.</li>
+            <li><strong>Inner Core (5,150-6,371 km):</strong> Solid iron and nickel at temperatures up to 5,400°C—as hot as the Sun's surface. It's solid despite the heat because of immense pressure.</li>
+          </ul>
+
+          <h3>Plate Tectonics</h3>
+          <p>Earth is the only known planet with active plate tectonics. The crust is divided into about 15 major plates that float on the semi-fluid mantle, moving a few centimeters per year. Where plates collide, mountains rise; where they separate, new crust forms; where they slide past each other, earthquakes occur. This continuous recycling of crust regulates Earth's climate over millions of years and is thought to be essential for long-term habitability.</p>
+
+          <h3>Geological Time</h3>
+          <p>Earth's 4.54-billion-year history is divided into eons, eras, periods, and epochs. The earliest eon, the Hadean, was a hellish time of constant bombardment and volcanic activity. The Archean saw the first life emerge. The Proterozoic witnessed the rise of oxygen. And the current Phanerozoic eon—only the last 540 million years—encompasses most of the fossil record and the evolution of complex life.</p>
+        </section>
+
+        <!-- Magnetic Field -->
+        <section id="magnetic-field" class="content-section">
+          <h2>Earth's Magnetic Field</h2>
+          <p>Surrounding Earth is an invisible shield—the magnetosphere—generated by the churning liquid iron in the outer core. This magnetic field is crucial for life, protecting the surface from the relentless bombardment of solar radiation and cosmic rays.</p>
+
+          <h3>The Geodynamo</h3>
+          <p>Earth's magnetic field is generated by a process called the geodynamo. The liquid iron outer core, heated from below and cooled from above, undergoes convection—rising and sinking in complex patterns. Because iron is an electrical conductor and is in motion, it generates electric currents, which in turn produce the magnetic field. It's essentially a self-sustaining electromagnetic generator powered by Earth's internal heat.</p>
+
+          <h3>Protection from Space</h3>
+          <p>The magnetosphere extends tens of thousands of kilometers into space, deflecting the solar wind—a stream of charged particles from the Sun. Without this protection, the solar wind would strip away Earth's atmosphere over time (as happened to Mars, which lost its magnetic field billions of years ago) and radiation would make the surface uninhabitable.</p>
+
+          <h3>Auroras</h3>
+          <p>When solar particles do enter Earth's magnetic field near the poles, they collide with atmospheric gases and create the spectacular light shows known as auroras—the Northern Lights (aurora borealis) and Southern Lights (aurora australis). Different gases produce different colors: oxygen creates green and red, nitrogen produces blue and purple.</p>
+
+          <h3>Magnetic Reversals</h3>
+          <p>Earth's magnetic field is not static. It has reversed polarity hundreds of times throughout Earth's history, with the north and south magnetic poles switching places. These reversals happen irregularly, anywhere from a few thousand to millions of years apart. The last reversal occurred about 780,000 years ago. We may be in the early stages of another reversal now, as the magnetic field has weakened about 10% in the last 150 years.</p>
+        </section>
+
+        <!-- Life on Earth -->
+        <section id="life" class="content-section">
+          <h2>Life on Earth</h2>
+          <p>Earth teems with life in forms so diverse, we haven't finished counting them. From bacteria to blue whales, from archaea in volcanic vents to eagles soaring in the sky, life has colonized virtually every environment on our planet.</p>
+
+          <h3>The Origin of Life</h3>
+          <p>Life appeared on Earth remarkably early—within the first billion years of the planet's existence. The oldest confirmed fossils are stromatolites (layered structures formed by microbial mats) dating back about 3.5 billion years, though chemical evidence suggests life may have existed even earlier. How life first arose from non-living chemistry—a process called abiogenesis—remains one of science's greatest unsolved mysteries.</p>
+
+          <h3>The Tree of Life</h3>
+          <p>All known life on Earth shares a common ancestor and uses the same basic genetic code (DNA and RNA). Life is divided into three domains: Bacteria (simple single-celled organisms), Archaea (single-celled organisms often found in extreme environments), and Eukarya (organisms with complex cells, including all plants, animals, and fungi). Scientists estimate there are 8-10 million species on Earth, but we've only described about 1.5 million.</p>
+
+          <h3>Mass Extinctions</h3>
+          <p>Life on Earth has faced at least five major mass extinctions that killed off more than 75% of species each time. The most famous is the end-Cretaceous extinction 66 million years ago, when an asteroid impact ended the age of dinosaurs. Yet life has always recovered, often evolving into new and more diverse forms. Many scientists believe we are now in the midst of a sixth mass extinction, driven by human activities.</p>
+
+          <h3>Earth's Biosphere</h3>
+          <p>Living organisms don't just inhabit Earth—they've transformed it. The oxygen in our atmosphere was produced by photosynthetic life. The ozone layer that blocks UV radiation exists because of that oxygen. Soil is largely created by organisms. Life has even influenced Earth's geology and climate. In a very real sense, Earth's habitability is maintained by life itself.</p>
+        </section>
+
+        <!-- The Moon -->
+        <section id="moon" class="content-section">
+          <h2>The Moon</h2>
+          <p>Earth's constant companion, the Moon, is the fifth-largest satellite in the Solar System and is unusually large relative to its parent planet. The Moon has profoundly influenced Earth's evolution and continues to affect our planet today.</p>
+
+          <h3>Formation</h3>
+          <p>The leading theory for the Moon's origin is the Giant Impact Hypothesis. About 4.5 billion years ago, a Mars-sized body (sometimes called Theia) collided with the young Earth. The impact ejected massive amounts of debris into orbit, which coalesced to form the Moon. This explains why the Moon has a similar composition to Earth's mantle but lacks a significant iron core.</p>
+
+          <h3>Influence on Earth</h3>
+          <p>The Moon's gravitational pull creates ocean tides and has slowly slowed Earth's rotation over billions of years—our days were once only 6 hours long. Most importantly, the Moon stabilizes Earth's axial tilt, preventing the wild wobbles that would cause extreme climate swings. Without the Moon, Earth might be far less habitable.</p>
+
+          <h3>Exploration</h3>
+          <p>The Moon is the only celestial body beyond Earth that humans have visited. Between 1969 and 1972, twelve astronauts walked on the lunar surface during NASA's Apollo program, bringing back 382 kg of moon rocks. Today, multiple nations and private companies are planning return missions, with NASA's Artemis program aiming to establish a sustained human presence on the Moon.</p>
+
+          <p class="read-more">→ <a href="/atlas/solar-system/earth/moon/">Explore the Moon in detail</a></p>
+        </section>
+
+        <!-- Earth from Space -->
+        <section id="earth-from-space" class="content-section">
+          <h2>Earth from Space</h2>
+          <p>No one has expressed the cosmic perspective better than astronauts who have seen Earth from space. The view has profoundly changed many of them—a phenomenon called the "overview effect."</p>
+
+          <h3>The Pale Blue Dot</h3>
+          <p>In 1990, as the Voyager 1 spacecraft was leaving the Solar System, Carl Sagan convinced NASA to turn the camera around and take one last photograph of Earth from 6 billion kilometers away. In the resulting image, Earth appears as a tiny, pale blue dot suspended in a sunbeam. Sagan's reflection on this image has become one of the most famous passages in science writing:</p>
+
+          <blockquote class="quote-box glass">
+            <p>"Look again at that dot. That's here. That's home. That's us. On it everyone you love, everyone you know, everyone you ever heard of, every human being who ever was, lived out their lives... on a mote of dust suspended in a sunbeam."</p>
+            <cite>— Carl Sagan</cite>
+          </blockquote>
+
+          <h3>Earthrise</h3>
+          <p>One of the most famous photographs in history is "Earthrise," taken by Apollo 8 astronaut William Anders on December 24, 1968. It shows Earth rising above the lunar horizon—the first time humans had seen their home planet from another world. The image is credited with sparking the environmental movement and changing humanity's perspective on our place in the cosmos.</p>
+
+          <h3>The Blue Marble</h3>
+          <p>The "Blue Marble" photograph, taken by the Apollo 17 crew in 1972, shows a fully illuminated Earth and remains one of the most widely distributed images in history. It captures Africa, Antarctica, and the Arabian Peninsula, with swirling white clouds against the blue oceans. This image powerfully illustrates why Earth is called the Blue Planet.</p>
+        </section>
+
+        <!-- Interesting Facts -->
+        <section id="fun-facts" class="content-section">
+          <h2>Interesting Facts About Earth</h2>
+          <p>Our home planet is full of surprising facts that remind us how extraordinary and unique Earth truly is.</p>
+
+          <ul class="facts-list">
+            <li><strong>The Only Planet Not Named After a God:</strong> All other planets in our Solar System are named after Greek or Roman deities. Earth's name simply comes from Germanic words meaning "ground" or "soil."</li>
+
+            <li><strong>Constantly Gaining and Losing Mass:</strong> Earth gains about 40,000 tons of cosmic dust per year from space. But it loses about 95,000 tons of hydrogen and helium that escape from the upper atmosphere. Overall, Earth is slowly getting lighter.</li>
+
+            <li><strong>The Moon is Moving Away:</strong> The Moon is receding from Earth at about 3.8 centimeters per year. In the distant past, it was much closer; in the far future, it will appear smaller in the sky and total solar eclipses will no longer be possible.</li>
+
+            <li><strong>Days Are Getting Longer:</strong> Due to tidal friction, Earth's rotation is gradually slowing, making days about 1.4 milliseconds longer per century. 600 million years ago, a day was only about 21 hours long.</li>
+
+            <li><strong>Mount Everest Isn't the Tallest:</strong> While Everest has the highest elevation above sea level (8,849 m), Mauna Kea in Hawaii is the tallest mountain measured from base to peak (10,203 m), with most of it underwater.</li>
+
+            <li><strong>The Loneliest Spot:</strong> Point Nemo in the Pacific Ocean is the most remote location on Earth—2,688 km from the nearest land. The nearest humans are often astronauts on the ISS passing 400 km overhead.</li>
+
+            <li><strong>Lightning Never Stops:</strong> At any given moment, about 2,000 thunderstorms are happening on Earth, producing roughly 100 lightning strikes per second—over 8 million per day.</li>
+
+            <li><strong>Most of Earth is Dark:</strong> Despite the Sun, most of Earth's volume is in complete darkness. Sunlight only penetrates about 1 km into the ocean, and Earth's radius is 6,371 km.</li>
+          </ul>
+        </section>
+
+        <!-- External Resources -->
+        <section id="resources" class="content-section">
+          <h2>External Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://science.nasa.gov/earth/" target="_blank" rel="noopener">NASA Earth Science</a> - Official NASA page for Earth science research and satellite imagery</li>
+            <li><a href="https://en.wikipedia.org/wiki/Earth" target="_blank" rel="noopener">Earth on Wikipedia</a> - Comprehensive encyclopedia article</li>
+            <li><a href="https://earthobservatory.nasa.gov/" target="_blank" rel="noopener">NASA Earth Observatory</a> - Daily satellite images and stories about our changing planet</li>
+            <li><a href="https://climate.nasa.gov/" target="_blank" rel="noopener">NASA Climate</a> - Vital signs of the planet and climate science</li>
+          </ul>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="content-section faq-section">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-list">
+            {faqData.map((item) => (
+              <details class="faq-item">
+                <summary class="faq-question">{item.question}</summary>
+                <div class="faq-answer">
+                  <p>{item.answer}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </article>
+</MainLayout>
+
+<script>
+  // Reading Progress Bar
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    const progressBar = document.getElementById('progressBar');
+    if (progressBar) {
+      progressBar.style.width = scrollPercent + '%';
+    }
+  });
+
+  // Active TOC highlighting
+  const sections = document.querySelectorAll('.content-section');
+  const tocLinks = document.querySelectorAll('.toc a');
+
+  const observerOptions = {
+    rootMargin: '-20% 0% -70% 0%'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(section => observer.observe(section));
+</script>
+
+<style>
+  /* Progress Bar */
+  .progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+  }
+
+  .progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-blue));
+    transition: width 0.1s ease-out;
+  }
+
+  /* Hero Section */
+  .hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: var(--space-xl);
+  }
+
+  .hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    color: var(--color-accent-cyan);
+    font-weight: 500;
+  }
+
+  /* Breadcrumbs */
+  .breadcrumbs {
+    margin-bottom: var(--space-lg);
+  }
+
+  .breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumbs li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .breadcrumbs li:not(:last-child)::after {
+    content: '›';
+    color: var(--color-text-secondary);
+  }
+
+  .breadcrumbs a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumbs a:hover {
+    color: var(--color-accent-cyan);
+  }
+
+  .breadcrumbs li[aria-current="page"] {
+    color: var(--color-text-primary);
+  }
+
+  /* Article Layout with Sidebar */
+  .content-wrapper {
+    padding: var(--space-2xl) 0;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+    gap: var(--space-xl);
+  }
+
+  @media (min-width: 1024px) {
+    .article-layout {
+      grid-template-columns: 220px 1fr;
+      gap: var(--space-2xl);
+    }
+  }
+
+  /* Sticky TOC Sidebar */
+  .toc-sidebar {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .toc-sidebar {
+      display: block;
+    }
+
+    .toc {
+      position: sticky;
+      top: calc(var(--space-xl) + 3px);
+      max-height: calc(100vh - var(--space-2xl));
+      overflow-y: auto;
+    }
+  }
+
+  .toc h2 {
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-md);
+    color: var(--color-text-secondary);
+  }
+
+  .toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .toc li {
+    margin-bottom: 0.25rem;
+  }
+
+  .toc a {
+    display: block;
+    padding: 0.5rem 0;
+    padding-left: var(--space-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    transition: all 0.2s ease;
+  }
+
+  .toc a:hover {
+    color: var(--color-text-primary);
+    border-left-color: rgba(6, 182, 212, 0.5);
+  }
+
+  .toc a.active {
+    color: var(--color-accent-cyan);
+    border-left-color: var(--color-accent-cyan);
+  }
+
+  /* Main Content */
+  .main-content {
+    max-width: 800px;
+  }
+
+  /* Answer Capsule */
+  .answer-capsule {
+    display: flex;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .answer-capsule::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(6, 182, 212, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .capsule-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    color: var(--color-accent-cyan);
+    opacity: 0.8;
+  }
+
+  .capsule-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .answer-capsule p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-primary);
+    position: relative;
+  }
+
+  /* Content Sections */
+  .content-section {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .content-section h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+    color: var(--color-text-primary);
+  }
+
+  .content-section h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+    color: var(--color-accent-cyan);
+  }
+
+  .content-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+  }
+
+  .content-section ul,
+  .content-section ol {
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-lg);
+  }
+
+  .content-section li {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  /* Info Box */
+  .info-box {
+    padding: var(--space-lg);
+    margin: var(--space-lg) 0;
+  }
+
+  .info-box h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: var(--color-accent-blue);
+  }
+
+  .info-box ul {
+    margin: 0;
+    padding-left: var(--space-md);
+  }
+
+  .info-box li {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  /* Quote Box */
+  .quote-box {
+    padding: var(--space-lg);
+    margin: var(--space-lg) 0;
+    font-style: italic;
+  }
+
+  .quote-box p {
+    margin-bottom: var(--space-sm);
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--color-text-primary);
+  }
+
+  .quote-box cite {
+    display: block;
+    font-style: normal;
+    font-size: 0.95rem;
+    color: var(--color-accent-cyan);
+  }
+
+  /* Read More Link */
+  .read-more {
+    margin-top: var(--space-sm);
+    font-size: 1rem;
+  }
+
+  .read-more a {
+    color: var(--color-accent-cyan);
+    font-weight: 500;
+  }
+
+  /* Facts List */
+  .facts-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .facts-list li {
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .facts-list li:last-child {
+    border-bottom: none;
+  }
+
+  /* Resource List */
+  .resource-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .resource-list li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .resource-list li:last-child {
+    border-bottom: none;
+  }
+
+  .resource-list a {
+    color: var(--color-accent-cyan);
+    font-weight: 500;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .faq-item {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item[open] {
+    background: rgba(6, 182, 212, 0.05);
+    border-color: rgba(6, 182, 212, 0.2);
+  }
+
+  .faq-question {
+    padding: var(--space-md) var(--space-lg);
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.2s ease;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-accent-cyan);
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[open] .faq-question::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-question:hover {
+    color: var(--color-accent-cyan);
+  }
+
+  .faq-answer {
+    padding: 0 var(--space-lg) var(--space-lg);
+  }
+
+  .faq-answer p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+  }
+
+  /* Glassmorphism */
+  .glass {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 50vh;
+    }
+
+    .hero-content {
+      padding: var(--space-lg);
+    }
+
+    .article-layout {
+      padding: 0 var(--space-sm);
+    }
+
+    .answer-capsule {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .capsule-icon {
+      width: 32px;
+      height: 32px;
+    }
+  }
+</style>

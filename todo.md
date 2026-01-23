@@ -1,52 +1,142 @@
-# Todo: Redesign Homepage to Be More Unique and "Spacy"
+# Astronomy Website - Project Status
 
-## Problem
-Current design looks generic and "like some cheap AI website". Needs to be more unique and distinctively space-themed.
+## Last Updated: January 2025
 
-## Root Issues with Current Design
-- [ ] Emoji icons (🔭, ✨, 📡) feel cheap and placeholder-like
-- [ ] Standard centered grid layout is conventional
-- [ ] Basic glassmorphism has become too common
-- [ ] Static starfield lacks depth and movement
-- [ ] Card hover effects are generic
+---
 
-## Redesign Plan
+## Completed Features
 
-### 1. Replace Emoji Icons with Custom SVG Space Graphics
-- [ ] Create custom SVG icon for Observatory (telescope with stars)
-- [ ] Create custom SVG icon for Celestial Catalog (constellation map)
-- [ ] Create custom SVG icon for Cosmic Chronicles (shooting star/comet)
-- [ ] Style SVGs with gradients and glow effects
+### Schema Component
+- [x] Created `src/components/Schema.astro`
+- [x] Supports: BreadcrumbList, TechArticle, Article, FAQPage
 
-### 2. Create More Dynamic Starfield
-- [ ] Add multiple starfield layers with different speeds (parallax effect)
-- [ ] Include shooting stars animation
-- [ ] Add subtle nebula/cosmic dust effect with color gradients
+### Solar System Page (`/atlas/solar-system/`)
+- [x] Comprehensive content (~2500 words)
+- [x] Hero banner with image overlay
+- [x] Reading progress bar (fixed at top)
+- [x] Sticky TOC sidebar (desktop)
+- [x] Answer capsule
+- [x] FAQ section with schema markup
+- [x] BreadcrumbList + TechArticle + FAQPage schemas
 
-### 3. Redesign Card Layout for Uniqueness
-- [ ] Change from standard grid to orbital/asymmetric positioning
-- [ ] Add cosmic rays or connection lines between cards
-- [ ] Implement staggered reveal animations on scroll
+### Mars Page (`/atlas/solar-system/mars/`)
+- [x] Comprehensive content (10 sections)
+- [x] Hero banner with `Hero_mars.jpg`
+- [x] Reading progress bar
+- [x] Sticky TOC sidebar
+- [x] Answer capsule
+- [x] FAQ section (6 questions) with schema markup
+- [x] Fun facts section
+- [x] BreadcrumbList + TechArticle + FAQPage schemas
 
-### 4. Enhanced Glassmorphism
-- [ ] Add more pronounced blur with color tinting
-- [ ] Implement edge glow effects (simulating atmosphere)
-- [ ] Add subtle inner shadows for depth
+### Jupiter Page (`/atlas/solar-system/jupiter/`)
+- [x] Comprehensive content (10 sections)
+- [x] Hero banner with `Hero_jupiter.jpg`
+- [x] Reading progress bar
+- [x] Sticky TOC sidebar
+- [x] Answer capsule
+- [x] FAQ section (6 questions) with schema markup
+- [x] Interesting facts section
+- [x] External Resources section
+- [x] BreadcrumbList + TechArticle + FAQPage schemas
 
-### 5. Make Hero More Visually Striking
-- [ ] Add animated cosmic particles around title
-- [ ] Implement text shadow with multiple layers for depth
-- [ ] Add subtle pulse/breathing animation to subtitle
+### Earth Page (`/atlas/solar-system/earth/`)
+- [x] Comprehensive content (10 sections)
+- [x] Hero banner with `Hero_earth.jpg`
+- [x] Reading progress bar
+- [x] Sticky TOC sidebar
+- [x] Answer capsule
+- [x] FAQ section (6 questions) with schema markup
+- [x] Interesting facts section
+- [x] External Resources section
+- [x] BreadcrumbList + TechArticle + FAQPage schemas
+- [x] Link to Moon page
 
-### 6. Additional Space-Themed Touches
-- [ ] Add orbital rings or planet silhouettes in background
-- [ ] Implement cursor-following parallax effect
-- [ ] Add lens flare effect on key elements
+### Moon Page (`/atlas/solar-system/earth/moon/`)
+- [x] Comprehensive content (10 sections)
+- [x] Hero banner with `Hero_moon.jpg`
+- [x] Reading progress bar
+- [x] Sticky TOC sidebar
+- [x] Answer capsule
+- [x] FAQ section (6 questions) with schema markup
+- [x] Apollo missions section
+- [x] External Resources section
+- [x] BreadcrumbList + TechArticle + FAQPage schemas
 
-## Implementation Order
-1. Start with custom SVG icons (biggest visual impact)
-2. Enhance starfield animation (foundation improvement)
-3. Redesign card layout and positioning
-4. Add enhanced glassmorphism and effects
-5. Upgrade hero section visuals
-6. Final polish with additional space touches
+### Animated Stars
+- [x] 36 animated stars in MainLayout (global)
+- [x] Twinkle + drift animations
+- [x] Toggle button (top-right corner)
+- [x] Hidden by default, localStorage persistence
+- [x] Removed legacy static starfield
+
+---
+
+## Completed Tasks
+
+### Cross-Links and External Resources
+**Files:** `solar-system.astro`, `mars.astro`
+
+#### Solar System Page:
+- [x] Add link to Mars page from Mars subsection
+- [x] Add Mars link in FAQ (life question)
+- [x] Add Mars link in exploration section
+- [x] Add External Resources section (NASA, Wikipedia, NASA Eyes)
+
+#### Mars Page:
+- [x] Add External Resources section with NASA/Wikipedia links
+- [x] Add "Resources" to TOC
+
+---
+
+## File Structure
+
+```
+src/
+├── components/
+│   └── Schema.astro           # JSON-LD schema component
+├── layouts/
+│   └── MainLayout.astro       # Global layout with animated stars toggle
+├── pages/
+│   └── atlas/
+│       ├── index.astro        # Cosmic Atlas index
+│       ├── solar-system.astro # Solar System overview
+│       └── solar-system/
+│           ├── mars.astro     # Mars detail page
+│           ├── jupiter.astro  # Jupiter detail page
+│           └── earth/
+│               ├── index.astro # Earth detail page
+│               └── moon.astro  # Moon detail page
+└── styles/
+    └── global.css             # Global styles + animated stars CSS
+
+public/
+└── images/
+    ├── Hero_solar.jpg         # Solar System hero
+    ├── Hero_mars.jpg          # Mars hero
+    ├── Hero_jupiter.jpg       # Jupiter hero
+    ├── Hero_earth.jpg         # Earth hero
+    └── Hero_moon.jpg          # Moon hero
+```
+
+---
+
+## Future Content Pages (Ideas)
+- [x] `/atlas/solar-system/earth/`
+- [x] `/atlas/solar-system/earth/moon/`
+- [x] `/atlas/solar-system/jupiter/`
+- [x] `/atlas/solar-system/mars/`
+- [ ] `/atlas/solar-system/saturn/`
+- [ ] `/atlas/solar-system/venus/`
+- [ ] `/atlas/solar-system/mercury/`
+- [ ] `/atlas/stars/`
+- [ ] `/atlas/galaxies/`
+- [ ] `/atlas/nebulae/`
+
+---
+
+## Notes
+- All article pages use the same template pattern: hero, progress bar, sticky TOC, answer capsule, sections, FAQ
+- Schema component handles all JSON-LD structured data
+- CSS custom properties in global.css for consistent theming
+- Responsive design with breakpoints at 768px and 1024px

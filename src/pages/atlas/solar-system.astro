@@ -41,7 +41,7 @@ const faqData = [
   },
   {
     question: 'Is there life elsewhere in the Solar System?',
-    answer: 'No confirmed life has been found yet, but several locations are considered promising for potential microbial life: Mars (past or present subsurface life), Europa (subsurface ocean), Enceladus (water geysers), and Titan (complex organic chemistry).'
+    answer: 'No confirmed life has been found yet, but several locations are considered promising for potential microbial life: <a href="/atlas/solar-system/mars/">Mars</a> (past or present subsurface life), Europa (subsurface ocean), Enceladus (water geysers), and Titan (complex organic chemistry).'
   }
 ];
 ---
@@ -95,6 +95,7 @@ const faqData = [
             <li><a href="#other-objects">Other Objects</a></li>
             <li><a href="#formation">Formation & History</a></li>
             <li><a href="#exploration">Space Exploration</a></li>
+            <li><a href="#resources">Resources</a></li>
             <li><a href="#faq">FAQ</a></li>
           </ol>
         </nav>
@@ -162,10 +163,12 @@ const faqData = [
           <h3>Earth</h3>
           <p>Earth is the third planet from the Sun and the only known world to harbor life. Our planet's unique combination of factors—liquid water on the surface, a protective magnetic field, a nitrogen-oxygen atmosphere, and a stable orbit in the habitable zone—creates conditions that support an astonishing diversity of life forms.</p>
           <p>Earth's surface is 71% covered by water, a feature unique among the rocky planets. The planet's interior is differentiated into layers: a solid iron inner core, a liquid iron outer core (which generates Earth's magnetic field), a silicate mantle, and a thin crust. Plate tectonics continuously reshapes Earth's surface, creating mountains, ocean basins, and driving the carbon cycle that helps regulate our climate. Earth has one natural satellite, the Moon, which is unusually large relative to its parent planet and plays a crucial role in stabilizing Earth's axial tilt.</p>
+          <p class="read-more">→ <a href="/atlas/solar-system/earth/">Explore Earth in detail</a></p>
 
           <h3>Mars</h3>
           <p>Mars, the Red Planet, has captivated human imagination for centuries and remains the primary target for future human exploration. The planet's distinctive red color comes from iron oxide (rust) in its soil. Though only about half Earth's diameter, Mars hosts some of the Solar System's most impressive geological features.</p>
           <p>Olympus Mons, a shield volcano on Mars, is the largest known volcano in the Solar System, rising 22 kilometers above the surrounding terrain—nearly three times the height of Mount Everest. Valles Marineris, a vast canyon system, stretches over 4,000 kilometers long and up to 7 kilometers deep. Evidence of ancient river valleys, lake beds, and minerals that form in the presence of water suggests that Mars once had a thicker atmosphere and liquid water on its surface. Today, water exists primarily as ice at the polar caps and possibly as subsurface deposits. Mars has two small, irregularly shaped moons: Phobos and Deimos.</p>
+          <p class="read-more">→ <a href="/atlas/solar-system/mars/">Explore Mars in detail</a></p>
         </section>
 
         <!-- Outer Planets -->
@@ -176,6 +179,7 @@ const faqData = [
           <h3>Jupiter</h3>
           <p>Jupiter is the largest planet in the Solar System, so massive that it contains more than twice the mass of all other planets combined. This gas giant could fit over 1,300 Earths inside its volume. Jupiter's atmosphere displays distinctive bands of clouds and the famous Great Red Spot—a storm larger than Earth that has been raging for at least 400 years.</p>
           <p>Jupiter has no solid surface; its atmosphere gradually transitions into a liquid hydrogen ocean, then into metallic hydrogen at extreme pressures deep in the interior. The planet's rapid rotation (a day on Jupiter lasts just under 10 hours) creates powerful jet streams and a strong magnetic field—20,000 times more powerful than Earth's. Jupiter has at least 95 known moons, including the four large Galilean moons: Io (the most volcanically active body in the Solar System), Europa (which likely has a subsurface ocean of liquid water), Ganymede (the largest moon in the Solar System), and Callisto (a heavily cratered ice world).</p>
+          <p class="read-more">→ <a href="/atlas/solar-system/jupiter/">Explore Jupiter in detail</a></p>
 
           <h3>Saturn</h3>
           <p>Saturn is the second-largest planet and perhaps the most visually stunning, famous for its magnificent ring system. These rings, composed primarily of ice particles ranging from tiny grains to house-sized chunks, extend up to 282,000 kilometers from the planet's center but are remarkably thin—typically less than 100 meters thick.</p>
@@ -253,9 +257,19 @@ const faqData = [
           </ul>
 
           <h3>Current and Future Exploration</h3>
-          <p>Today, multiple spacecraft continue exploring the Solar System. Mars hosts several active rovers and orbiters. The Juno spacecraft orbits Jupiter, studying its atmosphere and interior. The Parker Solar Probe is making unprecedented close approaches to the Sun, while the James Webb Space Telescope observes Solar System objects with unprecedented detail.</p>
+          <p>Today, multiple spacecraft continue exploring the Solar System. <a href="/atlas/solar-system/mars/">Mars</a> hosts several active rovers and orbiters. The Juno spacecraft orbits Jupiter, studying its atmosphere and interior. The Parker Solar Probe is making unprecedented close approaches to the Sun, while the James Webb Space Telescope observes Solar System objects with unprecedented detail.</p>
 
           <p>Future missions include NASA's Europa Clipper (launching 2024) to study Jupiter's potentially habitable moon, and various planned missions to Venus, asteroids, and the outer Solar System. Human missions to Mars are being planned by multiple space agencies and private companies, potentially marking the next giant leap in human exploration.</p>
+        </section>
+
+        <!-- External Resources -->
+        <section id="resources" class="content-section">
+          <h2>External Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://solarsystem.nasa.gov/" target="_blank" rel="noopener">NASA Solar System Exploration</a> - Official NASA portal for Solar System science and missions</li>
+            <li><a href="https://en.wikipedia.org/wiki/Solar_System" target="_blank" rel="noopener">Solar System on Wikipedia</a> - Comprehensive encyclopedia article</li>
+            <li><a href="https://eyes.nasa.gov/apps/solar-system/" target="_blank" rel="noopener">NASA Eyes on the Solar System</a> - Interactive 3D visualization</li>
+          </ul>
         </section>
 
         <!-- FAQ Section -->
@@ -703,6 +717,37 @@ const faqData = [
     font-size: 1rem;
     line-height: 1.7;
     color: var(--color-text-secondary);
+  }
+
+  /* Read More Link */
+  .read-more {
+    margin-top: var(--space-sm);
+    font-size: 1rem;
+  }
+
+  .read-more a {
+    color: var(--color-accent-cyan);
+    font-weight: 500;
+  }
+
+  /* Resource List */
+  .resource-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .resource-list li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .resource-list li:last-child {
+    border-bottom: none;
+  }
+
+  .resource-list a {
+    color: var(--color-accent-cyan);
+    font-weight: 500;
   }
 
   /* Glassmorphism */

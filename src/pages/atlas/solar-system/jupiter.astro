@@ -1,0 +1,843 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import Schema from '../../../components/Schema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cosmic Atlas', url: '/atlas/' },
+  { name: 'Solar System', url: '/atlas/solar-system/' },
+  { name: 'Jupiter', url: '/atlas/solar-system/jupiter/' }
+];
+
+const articleData = {
+  headline: 'Jupiter: The King of Planets - Complete Guide',
+  description: 'Comprehensive guide to Jupiter covering its massive size, Great Red Spot, Galilean moons, exploration history, and fascinating facts. Discover why Jupiter is the king of our Solar System.',
+  datePublished: '2025-01-22',
+  dateModified: '2025-01-22',
+  author: 'The Astronomy Space',
+  image: '/images/Hero_jupiter.jpg',
+  keywords: ['Jupiter', 'gas giant', 'Great Red Spot', 'Galilean moons', 'Io', 'Europa', 'Ganymede', 'Callisto', 'Juno mission', 'NASA', 'planet exploration']
+};
+
+const faqData = [
+  {
+    question: 'How big is Jupiter compared to Earth?',
+    answer: 'Jupiter is enormous—over 1,300 Earths could fit inside it. Jupiter\'s diameter is about 139,820 kilometers (86,881 miles), roughly 11 times that of Earth. Despite its massive size, Jupiter rotates faster than any other planet, completing a day in just under 10 hours. Its mass is 318 times that of Earth and more than twice the mass of all other planets combined.'
+  },
+  {
+    question: 'What is the Great Red Spot?',
+    answer: 'The Great Red Spot is a massive anticyclonic storm that has been raging on Jupiter for at least 400 years—possibly much longer. It\'s so large that Earth could fit inside it. The storm features wind speeds of up to 680 km/h (430 mph) at its edges. Interestingly, the Great Red Spot has been shrinking over the past century; it was once three times Earth\'s diameter but is now about 1.3 times Earth\'s width.'
+  },
+  {
+    question: 'Does Jupiter have a solid surface?',
+    answer: 'No, Jupiter does not have a solid surface like Earth. As a gas giant, Jupiter is composed primarily of hydrogen and helium. Its atmosphere gradually transitions into denser layers: first liquid hydrogen, then metallic hydrogen at extreme pressures deep within. At its very center, Jupiter may have a rocky or metallic core, but scientists aren\'t certain of its exact composition.'
+  },
+  {
+    question: 'How many moons does Jupiter have?',
+    answer: 'Jupiter has at least 95 confirmed moons as of 2023, more than any other planet except Saturn. The four largest—Io, Europa, Ganymede, and Callisto—are called the Galilean moons because they were discovered by Galileo Galilei in 1610. Ganymede is the largest moon in the solar system, even bigger than Mercury. Europa is particularly exciting because it likely has a liquid water ocean beneath its icy surface.'
+  },
+  {
+    question: 'Could humans ever live on Jupiter?',
+    answer: 'Living on Jupiter itself would be impossible. There\'s no solid surface to land on, the pressure and temperatures increase dramatically as you descend, and the radiation environment is lethal. However, some of Jupiter\'s moons—particularly Europa and Ganymede—are considered potential sites for future human outposts, though significant technological challenges remain. Europa\'s subsurface ocean also makes it a prime target in the search for extraterrestrial life.'
+  },
+  {
+    question: 'Why does Jupiter have bands and stripes?',
+    answer: 'Jupiter\'s distinctive bands are created by differences in the composition and temperature of its atmospheric gases at different latitudes. The light-colored bands (zones) are regions of rising gas, while the dark bands (belts) are regions where gas is sinking. Jupiter\'s rapid rotation (just under 10 hours) stretches these weather patterns into the horizontal stripes we see. Powerful jet streams between these bands can reach speeds of 360 km/h (220 mph).'
+  }
+];
+---
+
+<MainLayout
+  title="Jupiter: The King of Planets - Complete Guide | The Astronomy Space"
+  description="Comprehensive guide to Jupiter covering its massive size, Great Red Spot, Galilean moons, exploration history, and fascinating facts. Discover why Jupiter is the king of our Solar System."
+>
+  <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
+  <Schema type="TechArticle" article={articleData} />
+  <Schema type="FAQPage" faq={faqData} />
+
+  <!-- Reading Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-image">
+      <img src="/images/Hero_jupiter.jpg" alt="Jupiter - The King of Planets showing its distinctive bands and Great Red Spot" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/atlas/">Cosmic Atlas</a></li>
+          <li><a href="/atlas/solar-system/">Solar System</a></li>
+          <li aria-current="page">Jupiter</li>
+        </ol>
+      </nav>
+      <h1>Jupiter</h1>
+      <p class="hero-subtitle">The King of Planets</p>
+    </div>
+  </section>
+
+  <!-- Main Article Content -->
+  <article class="content-wrapper">
+    <div class="article-layout">
+
+      <!-- Sticky Table of Contents (Left Sidebar) -->
+      <aside class="toc-sidebar">
+        <nav class="toc" aria-label="Table of Contents">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#physical-characteristics">Physical Characteristics</a></li>
+            <li><a href="#atmosphere">Atmosphere & Weather</a></li>
+            <li><a href="#great-red-spot">Great Red Spot</a></li>
+            <li><a href="#interior">Interior Structure</a></li>
+            <li><a href="#magnetic-field">Magnetic Field</a></li>
+            <li><a href="#rings">Ring System</a></li>
+            <li><a href="#moons">Moons</a></li>
+            <li><a href="#exploration">Exploration History</a></li>
+            <li><a href="#fun-facts">Interesting Facts</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-content">
+
+        <!-- Answer Capsule -->
+        <aside class="answer-capsule">
+          <div class="capsule-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <p>Jupiter is the fifth planet from the Sun and by far the largest in our Solar System—more massive than all other planets combined. This gas giant is famous for its colorful bands, the Great Red Spot storm, and its 95+ moons including the four large Galilean moons. Jupiter's immense gravity has shaped the Solar System and continues to protect Earth from asteroid impacts.</p>
+        </aside>
+
+        <!-- Introduction -->
+        <section id="introduction" class="content-section">
+          <h2>Introduction to Jupiter</h2>
+          <p>Jupiter, named after the king of the Roman gods, truly lives up to its regal title. As the largest planet in our Solar System, Jupiter is a world of superlatives: the fastest rotation, the strongest magnetic field, the most moons, and the most massive—containing more than twice the mass of all other planets combined.</p>
+
+          <p>Jupiter is classified as a gas giant, a type of planet composed primarily of hydrogen and helium rather than rock and metal. Unlike Earth, Jupiter has no solid surface to stand on. Instead, its atmosphere gradually transitions into liquid and eventually metallic hydrogen at extreme depths and pressures. If Jupiter had been about 80 times more massive, it would have become a star rather than a planet.</p>
+
+          <p>Visible to the naked eye since ancient times, Jupiter appears as one of the brightest objects in the night sky—outshone only by the Moon, Venus, and occasionally Mars. Through even a modest telescope, observers can see Jupiter's cloud bands and watch the dance of its four largest moons as they orbit the giant planet.</p>
+        </section>
+
+        <!-- Physical Characteristics -->
+        <section id="physical-characteristics" class="content-section">
+          <h2>Physical Characteristics</h2>
+          <p>Jupiter's sheer scale is difficult to comprehend. The planet is so large that all other planets in the Solar System could fit inside it with room to spare. Yet despite its enormous volume, Jupiter is composed of the lightest elements in the universe.</p>
+
+          <div class="info-box glass">
+            <h3>Jupiter Quick Facts</h3>
+            <ul>
+              <li><strong>Diameter:</strong> 139,820 km (86,881 miles) - 11 times Earth</li>
+              <li><strong>Mass:</strong> 1.898 × 10²⁷ kg (318 Earths)</li>
+              <li><strong>Volume:</strong> 1,321 Earths could fit inside</li>
+              <li><strong>Surface Gravity:</strong> 24.79 m/s² (2.5 times Earth's)</li>
+              <li><strong>Day Length:</strong> 9 hours, 56 minutes</li>
+              <li><strong>Year Length:</strong> 11.86 Earth years</li>
+              <li><strong>Moons:</strong> 95+ confirmed</li>
+              <li><strong>Distance from Sun:</strong> 778 million km (5.2 AU)</li>
+            </ul>
+          </div>
+
+          <p>Jupiter's rapid rotation—the fastest of any planet—causes the planet to bulge noticeably at its equator. The equatorial diameter is about 9,275 kilometers larger than the polar diameter. This oblate shape is visible even through small telescopes.</p>
+
+          <p>Despite having more than 300 times Earth's mass, Jupiter's average density is only about 1.33 g/cm³—just slightly denser than water. If you could find a bathtub large enough (and it were somehow possible), Saturn would float in water, but Jupiter would just barely sink.</p>
+        </section>
+
+        <!-- Atmosphere & Weather -->
+        <section id="atmosphere" class="content-section">
+          <h2>Atmosphere and Weather</h2>
+          <p>Jupiter's atmosphere is a dynamic, turbulent realm of swirling clouds, powerful storms, and jet streams that put Earth's weather to shame. The planet's iconic appearance—with its alternating light and dark horizontal bands—is created by complex atmospheric dynamics.</p>
+
+          <h3>Composition</h3>
+          <p>Jupiter's atmosphere is about 90% hydrogen and 10% helium by volume, with traces of methane, ammonia, water vapor, and other compounds. The colorful clouds we see are composed of ammonia ice crystals (white clouds), ammonium hydrosulfide (brown and orange), and water (deeper blue clouds). The exact compounds responsible for the vivid reds and oranges remain somewhat mysterious.</p>
+
+          <h3>Cloud Bands</h3>
+          <p>The light-colored bands are called zones, and the darker bands are called belts. Zones are regions where gas is rising and cooling, forming high-altitude ammonia ice clouds that appear white or light-colored. Belts are regions where gas is sinking, revealing darker, deeper cloud layers. The boundaries between these bands are marked by jet streams with wind speeds reaching 360 km/h (220 mph).</p>
+
+          <h3>Storms</h3>
+          <p>Jupiter hosts thousands of storms at any given time. Unlike Earth's storms, which typically last days or weeks, Jovian storms can persist for decades or even centuries. White ovals, brown barges, and the famous Great Red Spot are all examples of Jupiter's long-lived storm systems. Lightning on Jupiter is hundreds of times more powerful than Earth's lightning, producing brief flashes that have been photographed by multiple spacecraft.</p>
+        </section>
+
+        <!-- Great Red Spot -->
+        <section id="great-red-spot" class="content-section">
+          <h2>The Great Red Spot</h2>
+          <p>Jupiter's most famous feature is the Great Red Spot (GRS), a massive anticyclonic storm that has been observed for at least 400 years. First definitively identified in 1830, the storm may have been observed as early as 1665 by Giovanni Cassini, making it potentially the longest-observed storm in the Solar System.</p>
+
+          <h3>Size and Scale</h3>
+          <p>At its peak, the Great Red Spot was large enough to contain three Earths side by side. However, the storm has been shrinking over the past century. In the late 1800s, it measured about 40,000 kilometers across. Today, it's about 16,000 kilometers wide—still larger than Earth, but noticeably smaller than before. Scientists are uncertain whether it will eventually disappear entirely or stabilize at a smaller size.</p>
+
+          <h3>What Makes It Red?</h3>
+          <p>The exact cause of the Great Red Spot's distinctive color remains debated. Leading theories suggest that solar ultraviolet radiation breaks apart chemicals in Jupiter's upper atmosphere—possibly ammonia and acetylene—creating reddish compounds called chromophores. The deeper red color may indicate higher altitudes where more UV exposure occurs.</p>
+
+          <h3>Internal Dynamics</h3>
+          <p>The Great Red Spot is an anticyclone, meaning it rotates counterclockwise in Jupiter's southern hemisphere (opposite to cyclones like hurricanes on Earth). Winds at its edge reach speeds of about 680 km/h (430 mph), while the interior is relatively calm. The storm extends at least 300-500 kilometers deep into Jupiter's atmosphere and may penetrate even deeper.</p>
+        </section>
+
+        <!-- Interior Structure -->
+        <section id="interior" class="content-section">
+          <h2>Interior Structure</h2>
+          <p>Jupiter's interior remains one of planetary science's great mysteries. Without a solid surface, the planet's atmosphere simply gets denser and hotter as you descend, eventually transitioning through exotic states of matter found nowhere on Earth.</p>
+
+          <h3>Layers of Jupiter</h3>
+          <p>Jupiter's structure can be roughly divided into several layers:</p>
+          <ul>
+            <li><strong>Upper Atmosphere:</strong> The visible cloud layers, extending about 50 km deep, with temperatures around -145°C at the cloud tops.</li>
+            <li><strong>Lower Atmosphere:</strong> Deeper gaseous hydrogen that becomes increasingly dense with depth, transitioning smoothly into liquid hydrogen.</li>
+            <li><strong>Liquid Hydrogen:</strong> Below about 1,000 km, pressure is high enough that hydrogen exists as a liquid rather than a gas.</li>
+            <li><strong>Metallic Hydrogen:</strong> At about 20,000-25,000 km deep, pressure exceeds 2 million Earth atmospheres. Here, hydrogen is compressed so tightly that electrons move freely, making it act like a liquid metal. This layer generates Jupiter's powerful magnetic field.</li>
+            <li><strong>Core:</strong> At the center, Jupiter likely has a core of heavier elements—rock, metal, and possibly exotic compounds—though recent data from the Juno spacecraft suggests this core may be "fuzzy" or diffuse rather than solid.</li>
+          </ul>
+
+          <h3>Heat Output</h3>
+          <p>Jupiter radiates about 1.7 times more energy than it receives from the Sun. This excess heat is left over from the planet's formation and is slowly released as Jupiter continues to contract very gradually—shrinking by about 2 centimeters per year. This process, called Kelvin-Helmholtz contraction, converts gravitational energy into heat.</p>
+        </section>
+
+        <!-- Magnetic Field -->
+        <section id="magnetic-field" class="content-section">
+          <h2>Magnetic Field</h2>
+          <p>Jupiter possesses the most powerful magnetic field of any planet in the Solar System—about 20,000 times stronger than Earth's. This immense magnetic field creates a magnetosphere so large that, if visible, it would appear larger than the full Moon from Earth's surface.</p>
+
+          <h3>Radiation Belts</h3>
+          <p>Trapped within Jupiter's magnetic field are intense radiation belts that make the space around Jupiter one of the most hazardous environments in the Solar System. These belts contain electrons and ions accelerated to near the speed of light. The radiation is so intense that it would deliver a lethal dose to an unshielded human in minutes. Spacecraft visiting Jupiter must be heavily shielded, and even then, they risk damage to their electronics.</p>
+
+          <h3>Io's Volcanic Connection</h3>
+          <p>Jupiter's moon Io plays a crucial role in the planet's magnetic environment. Io's intense volcanic activity ejects about one ton of material into space per second. This material becomes ionized and forms a torus (donut-shaped ring) around Jupiter. The interaction between Io and Jupiter's magnetic field creates powerful electric currents and brilliant auroras at Jupiter's poles—far more spectacular than Earth's northern lights.</p>
+
+          <h3>Radio Emissions</h3>
+          <p>Jupiter is a powerful source of radio waves, emitting more radio energy than any other planet. These emissions were first detected in 1955 and come from electrons spiraling in Jupiter's magnetic field. Amateur radio astronomers can pick up Jupiter's radio noise with relatively simple equipment.</p>
+        </section>
+
+        <!-- Ring System -->
+        <section id="rings" class="content-section">
+          <h2>Ring System</h2>
+          <p>While Saturn is famous for its magnificent rings, Jupiter also has a ring system—though it's far more subtle. Jupiter's rings were discovered in 1979 by NASA's Voyager 1 spacecraft and are composed primarily of dust rather than ice.</p>
+
+          <h3>Ring Structure</h3>
+          <p>Jupiter's ring system consists of three main components:</p>
+          <ul>
+            <li><strong>Halo Ring:</strong> A thick, faint torus of particles extending inward from the main ring to Jupiter's cloud tops.</li>
+            <li><strong>Main Ring:</strong> A thin, relatively bright ring about 6,500 km wide.</li>
+            <li><strong>Gossamer Rings:</strong> Two very faint outer rings that extend to the orbits of the moons Amalthea and Thebe.</li>
+          </ul>
+
+          <h3>Origin</h3>
+          <p>Unlike Saturn's icy rings, Jupiter's rings are made of small, dark particles—likely rocky debris from micrometeorite impacts on Jupiter's inner moons. The rings are continuously replenished as dust is knocked off these moons and spirals inward toward Jupiter. Without this constant resupply, Jupiter's rings would disappear within a few thousand years.</p>
+        </section>
+
+        <!-- Moons -->
+        <section id="moons" class="content-section">
+          <h2>The Moons of Jupiter</h2>
+          <p>Jupiter is accompanied by a vast family of moons—at least 95 confirmed as of 2023. These range from tiny irregular captured asteroids just a few kilometers across to massive worlds larger than some planets. The four largest, discovered by Galileo Galilei in 1610, revolutionized our understanding of the cosmos.</p>
+
+          <h3>The Galilean Moons</h3>
+
+          <h4>Io</h4>
+          <p>Io is the most volcanically active body in the Solar System, with hundreds of active volcanoes continuously reshaping its surface. This volcanic fury is caused by tidal heating—Jupiter's immense gravity, combined with gravitational tugs from Europa and Ganymede, flexes Io's interior and generates heat. Io's volcanoes eject sulfur and sulfur dioxide, painting the moon in vivid yellows, oranges, and reds. No impact craters are visible because volcanic activity constantly resurfaces the moon.</p>
+
+          <h4>Europa</h4>
+          <p>Europa is one of the most exciting targets in the search for extraterrestrial life. Beneath its smooth, icy surface lies a global ocean containing more water than all of Earth's oceans combined. This ocean is kept liquid by tidal heating from Jupiter. The ice shell shows evidence of geological activity, with cracks, ridges, and regions where warm ice may have risen from below. NASA's Europa Clipper mission, launching in 2024, will investigate whether Europa could harbor life.</p>
+
+          <h4>Ganymede</h4>
+          <p>Ganymede is the largest moon in the Solar System—larger than the planet Mercury and about three-quarters the size of Mars. It's the only moon known to generate its own magnetic field, suggesting it has a liquid iron core similar to Earth's. Ganymede likely has a subsurface ocean sandwiched between layers of ice. Its surface is a mix of ancient, heavily cratered dark regions and younger, grooved lighter terrain.</p>
+
+          <h4>Callisto</h4>
+          <p>Callisto is the outermost Galilean moon and the most heavily cratered object in the Solar System. Its ancient surface has remained largely unchanged for 4 billion years because Callisto experiences minimal tidal heating. Despite its dead appearance, Callisto may also harbor a subsurface ocean. Its distance from Jupiter places it outside the most intense radiation belts, making it a potential base for future human exploration of the Jupiter system.</p>
+
+          <h3>Other Notable Moons</h3>
+          <p>Beyond the Galilean moons, Jupiter has dozens of smaller satellites. Amalthea, the largest inner moon, orbits within Jupiter's ring system and contributes material to the rings. The remaining moons are mostly small, irregular objects—likely captured asteroids and comets. Many of these outer moons orbit in retrograde (opposite to Jupiter's rotation), suggesting they were captured rather than forming alongside Jupiter.</p>
+        </section>
+
+        <!-- Exploration History -->
+        <section id="exploration" class="content-section">
+          <h2>Exploration History</h2>
+          <p>Jupiter has been visited by nine spacecraft, each mission revealing new wonders about this giant world and its moons. From the first flybys to dedicated orbiters, these missions have transformed our understanding of Jupiter.</p>
+
+          <h3>Historic Jupiter Missions</h3>
+          <ul class="mission-list">
+            <li><strong>Pioneer 10 (1973):</strong> First spacecraft to cross the asteroid belt and fly by Jupiter, returning the first close-up images</li>
+            <li><strong>Pioneer 11 (1974):</strong> Flew within 43,000 km of Jupiter's cloud tops, studying the planet's magnetic field and radiation</li>
+            <li><strong>Voyager 1 (1979):</strong> Discovered Jupiter's rings and active volcanoes on Io; provided detailed images of the Galilean moons</li>
+            <li><strong>Voyager 2 (1979):</strong> Continued Voyager 1's observations, discovering more about Jupiter's atmosphere and moons</li>
+            <li><strong>Ulysses (1992):</strong> Used Jupiter's gravity to swing into a polar orbit around the Sun</li>
+            <li><strong>Galileo (1995-2003):</strong> First Jupiter orbiter; deployed a probe into the atmosphere; extensively studied all four Galilean moons</li>
+            <li><strong>Cassini (2000):</strong> Brief flyby en route to Saturn, providing the most detailed global portrait of Jupiter</li>
+            <li><strong>New Horizons (2007):</strong> Gravity assist flyby en route to Pluto, testing instruments and studying Jupiter's system</li>
+            <li><strong>Juno (2016-present):</strong> Currently orbiting Jupiter in a polar orbit, studying its interior, magnetic field, and auroras</li>
+          </ul>
+
+          <h3>The Galileo Atmospheric Probe</h3>
+          <p>On December 7, 1995, the Galileo spacecraft released a probe that descended into Jupiter's atmosphere—the first and only probe to enter a gas giant. For 57 minutes, the probe transmitted data as it plunged through Jupiter's clouds, reaching a depth of about 160 km below the cloud tops before being destroyed by extreme heat and pressure. The probe measured wind speeds of up to 720 km/h and found less water than expected, likely because it entered an unusually dry region of the atmosphere.</p>
+
+          <h3>Juno's Ongoing Mission</h3>
+          <p>NASA's Juno spacecraft has been orbiting Jupiter since 2016, providing unprecedented data about the planet's interior, atmosphere, and magnetic field. Juno's polar orbit allows it to pass just 4,000 km above Jupiter's cloud tops—closer than any previous spacecraft. Its findings have revealed that Jupiter's core may be "fuzzy" rather than solid, that the Great Red Spot extends deeper than expected, and that Jupiter's magnetic field is far more complex than previously thought.</p>
+        </section>
+
+        <!-- Interesting Facts -->
+        <section id="fun-facts" class="content-section">
+          <h2>Interesting Facts About Jupiter</h2>
+          <p>Beyond the serious science, Jupiter is full of surprising and delightful details that showcase just how extraordinary this planet truly is.</p>
+
+          <ul class="facts-list">
+            <li><strong>Failed Star:</strong> Jupiter is sometimes called a "failed star" because it's composed of the same elements as the Sun (hydrogen and helium). However, it would need to be about 80 times more massive to ignite hydrogen fusion in its core.</li>
+
+            <li><strong>Planetary Protector:</strong> Jupiter's massive gravity acts as a cosmic vacuum cleaner, capturing or deflecting many asteroids and comets that might otherwise threaten Earth. The 1994 impact of Comet Shoemaker-Levy 9 into Jupiter demonstrated this protective role.</li>
+
+            <li><strong>Shortest Day:</strong> Despite being the largest planet, Jupiter has the shortest day of any planet in the Solar System—just 9 hours and 56 minutes. This rapid rotation is why Jupiter bulges at its equator.</li>
+
+            <li><strong>Ancient Observer:</strong> The Great Red Spot has been observed continuously since at least 1830, but astronomer Giovanni Cassini may have spotted it as early as 1665—making it potentially the longest-observed storm in history.</li>
+
+            <li><strong>You Can Hear Jupiter:</strong> Jupiter emits powerful radio waves that can be picked up with amateur radio equipment. The planet's radio "voice" sounds like ocean waves crashing on a beach, caused by electrons spiraling through its magnetic field.</li>
+
+            <li><strong>Diamond Rain:</strong> Some scientists theorize that lightning storms in Jupiter's atmosphere could break apart methane molecules, with the carbon atoms eventually forming diamonds that rain down into the planet's interior.</li>
+
+            <li><strong>Galileo's Revolution:</strong> When Galileo observed Jupiter's four large moons in 1610, he saw them orbiting Jupiter—not Earth. This was powerful evidence against the geocentric model and helped spark the Copernican revolution.</li>
+
+            <li><strong>Comet Graveyard:</strong> In 1994, fragments of Comet Shoemaker-Levy 9 slammed into Jupiter, leaving Earth-sized scars visible for months. It was the first time humans witnessed a collision between Solar System bodies.</li>
+          </ul>
+        </section>
+
+        <!-- External Resources -->
+        <section id="resources" class="content-section">
+          <h2>External Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://science.nasa.gov/jupiter/" target="_blank" rel="noopener">NASA Jupiter Overview</a> - Official NASA page with latest Jupiter science and imagery</li>
+            <li><a href="https://en.wikipedia.org/wiki/Jupiter" target="_blank" rel="noopener">Jupiter on Wikipedia</a> - Comprehensive encyclopedia article</li>
+            <li><a href="https://www.missionjuno.swri.edu/" target="_blank" rel="noopener">NASA Juno Mission</a> - Current mission studying Jupiter's atmosphere and interior</li>
+            <li><a href="https://europa.nasa.gov/" target="_blank" rel="noopener">NASA Europa Clipper</a> - Upcoming mission to explore Jupiter's ocean moon Europa</li>
+          </ul>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="content-section faq-section">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-list">
+            {faqData.map((item) => (
+              <details class="faq-item">
+                <summary class="faq-question">{item.question}</summary>
+                <div class="faq-answer">
+                  <p>{item.answer}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </article>
+</MainLayout>
+
+<script>
+  // Reading Progress Bar
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    const progressBar = document.getElementById('progressBar');
+    if (progressBar) {
+      progressBar.style.width = scrollPercent + '%';
+    }
+  });
+
+  // Active TOC highlighting
+  const sections = document.querySelectorAll('.content-section');
+  const tocLinks = document.querySelectorAll('.toc a');
+
+  const observerOptions = {
+    rootMargin: '-20% 0% -70% 0%'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(section => observer.observe(section));
+</script>
+
+<style>
+  /* Progress Bar */
+  .progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+  }
+
+  .progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-blue));
+    transition: width 0.1s ease-out;
+  }
+
+  /* Hero Section */
+  .hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: var(--space-xl);
+  }
+
+  .hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    color: var(--color-accent-cyan);
+    font-weight: 500;
+  }
+
+  /* Breadcrumbs */
+  .breadcrumbs {
+    margin-bottom: var(--space-lg);
+  }
+
+  .breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumbs li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .breadcrumbs li:not(:last-child)::after {
+    content: '›';
+    color: var(--color-text-secondary);
+  }
+
+  .breadcrumbs a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumbs a:hover {
+    color: var(--color-accent-cyan);
+  }
+
+  .breadcrumbs li[aria-current="page"] {
+    color: var(--color-text-primary);
+  }
+
+  /* Article Layout with Sidebar */
+  .content-wrapper {
+    padding: var(--space-2xl) 0;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+    gap: var(--space-xl);
+  }
+
+  @media (min-width: 1024px) {
+    .article-layout {
+      grid-template-columns: 220px 1fr;
+      gap: var(--space-2xl);
+    }
+  }
+
+  /* Sticky TOC Sidebar */
+  .toc-sidebar {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .toc-sidebar {
+      display: block;
+    }
+
+    .toc {
+      position: sticky;
+      top: calc(var(--space-xl) + 3px);
+      max-height: calc(100vh - var(--space-2xl));
+      overflow-y: auto;
+    }
+  }
+
+  .toc h2 {
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-md);
+    color: var(--color-text-secondary);
+  }
+
+  .toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .toc li {
+    margin-bottom: 0.25rem;
+  }
+
+  .toc a {
+    display: block;
+    padding: 0.5rem 0;
+    padding-left: var(--space-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    transition: all 0.2s ease;
+  }
+
+  .toc a:hover {
+    color: var(--color-text-primary);
+    border-left-color: rgba(6, 182, 212, 0.5);
+  }
+
+  .toc a.active {
+    color: var(--color-accent-cyan);
+    border-left-color: var(--color-accent-cyan);
+  }
+
+  /* Main Content */
+  .main-content {
+    max-width: 800px;
+  }
+
+  /* Answer Capsule */
+  .answer-capsule {
+    display: flex;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .answer-capsule::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(6, 182, 212, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .capsule-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    color: var(--color-accent-cyan);
+    opacity: 0.8;
+  }
+
+  .capsule-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .answer-capsule p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-primary);
+    position: relative;
+  }
+
+  /* Content Sections */
+  .content-section {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .content-section h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+    color: var(--color-text-primary);
+  }
+
+  .content-section h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+    color: var(--color-accent-cyan);
+  }
+
+  .content-section h4 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-sm);
+    color: var(--color-accent-blue);
+  }
+
+  .content-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+  }
+
+  .content-section ul,
+  .content-section ol {
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-lg);
+  }
+
+  .content-section li {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  /* Info Box */
+  .info-box {
+    padding: var(--space-lg);
+    margin: var(--space-lg) 0;
+  }
+
+  .info-box h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: var(--color-accent-blue);
+  }
+
+  .info-box ul {
+    margin: 0;
+    padding-left: var(--space-md);
+  }
+
+  .info-box li {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  /* Mission List */
+  .mission-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .mission-list li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .mission-list li:last-child {
+    border-bottom: none;
+  }
+
+  /* Facts List */
+  .facts-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .facts-list li {
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .facts-list li:last-child {
+    border-bottom: none;
+  }
+
+  /* Resource List */
+  .resource-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .resource-list li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .resource-list li:last-child {
+    border-bottom: none;
+  }
+
+  .resource-list a {
+    color: var(--color-accent-cyan);
+    font-weight: 500;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .faq-item {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item[open] {
+    background: rgba(6, 182, 212, 0.05);
+    border-color: rgba(6, 182, 212, 0.2);
+  }
+
+  .faq-question {
+    padding: var(--space-md) var(--space-lg);
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.2s ease;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-accent-cyan);
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[open] .faq-question::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-question:hover {
+    color: var(--color-accent-cyan);
+  }
+
+  .faq-answer {
+    padding: 0 var(--space-lg) var(--space-lg);
+  }
+
+  .faq-answer p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+  }
+
+  /* Glassmorphism */
+  .glass {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 50vh;
+    }
+
+    .hero-content {
+      padding: var(--space-lg);
+    }
+
+    .article-layout {
+      padding: 0 var(--space-sm);
+    }
+
+    .answer-capsule {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .capsule-icon {
+      width: 32px;
+      height: 32px;
+    }
+  }
+</style>

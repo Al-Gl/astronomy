@@ -26,6 +26,25 @@ const {
     <title>{title}</title>
   </head>
   <body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+      <div class="nav-container">
+        <a href="/" class="nav-brand">
+          <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v4m0 12v4M2 12h4m12 0h4"/>
+            <circle cx="12" cy="12" r="10"/>
+          </svg>
+          <span class="brand-name">The Astronomy Space</span>
+        </a>
+        <div class="nav-links">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/atlas/" class="nav-link">Cosmic Atlas</a>
+          <a href="/atlas/solar-system/" class="nav-link">Solar System</a>
+        </div>
+      </div>
+    </nav>
+
     <!-- Stars Toggle -->
     <button class="stars-toggle" id="starsToggle" aria-label="Toggle animated stars">
       <svg class="toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -124,6 +143,82 @@ const {
     flex: 1;
   }
 
+  /* Top Navigation */
+  .top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background: rgba(10, 15, 30, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--color-text-primary);
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+
+  .nav-brand:hover {
+    color: var(--color-accent-cyan);
+  }
+
+  .logo-icon {
+    width: 28px;
+    height: 28px;
+    color: var(--color-accent-cyan);
+    flex-shrink: 0;
+  }
+
+  .brand-name {
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .nav-link {
+    padding: 0.5rem 1rem;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover {
+    color: var(--color-text-primary);
+    background: rgba(6, 182, 212, 0.1);
+  }
+
+  /* Add padding to body to account for fixed nav */
+  .app-container {
+    padding-top: 60px;
+  }
+
   /* Stars Toggle Button */
   .stars-toggle {
     position: fixed;
@@ -167,5 +262,37 @@ const {
   .toggle-label {
     text-transform: uppercase;
     letter-spacing: 0.05em;
+  }
+
+  /* Responsive Navigation */
+  @media (max-width: 768px) {
+    .nav-container {
+      padding: 0.5rem 1rem;
+    }
+
+    .brand-name {
+      display: none;
+    }
+
+    .nav-links {
+      gap: 0.25rem;
+    }
+
+    .nav-link {
+      padding: 0.4rem 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    .stars-toggle {
+      top: 0.75rem;
+      right: 0.75rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .nav-link {
+      padding: 0.4rem 0.5rem;
+      font-size: 0.8rem;
+    }
   }
 </style>
