@@ -1,6 +1,7 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
 import Schema from '../../components/Schema.astro';
+import CelestialSystem from '../../components/CelestialSystem.astro';
 
 const breadcrumbs = [
   { name: 'Home', url: '/' },
@@ -192,6 +193,19 @@ const faqData = [
           <h3>Neptune</h3>
           <p>Neptune, the eighth and most distant planet, was the first planet discovered through mathematical prediction rather than direct observation. Astronomers noticed that Uranus's orbit was being perturbed by the gravity of an unseen object, leading to Neptune's discovery in 1846. This ice giant displays the most vivid blue color of any planet, again due to atmospheric methane.</p>
           <p>Despite receiving little solar energy due to its distance from the Sun, Neptune has the strongest sustained winds in the Solar System, reaching speeds of 2,100 kilometers per hour. The Great Dark Spot, observed by Voyager 2 in 1989, was a storm system similar to Jupiter's Great Red Spot, though subsequent observations showed it had dissipated. Neptune has 16 known moons, dominated by Triton—a captured Kuiper Belt object that orbits Neptune in the opposite direction (retrograde) to the planet's rotation. Triton has active geysers that eject nitrogen gas and is one of the coldest objects in the Solar System.</p>
+
+          <!-- Solar System Infographic -->
+          <figure class="infographic">
+            <img src="/images/solar_system_info.jpg" alt="Solar System infographic showing planets, distances, and key facts" loading="lazy" />
+            <figcaption>An overview of our Solar System's major bodies and their characteristics</figcaption>
+          </figure>
+
+          <!-- Interactive Orrery Model -->
+          <div class="orrery-inline">
+            <h3>See the Planets in Motion</h3>
+            <p class="orrery-description">Watch the relative orbital speeds of all eight planets. Mercury orbits fastest at 88 Earth days, while Neptune takes 165 years to complete one orbit.</p>
+            <CelestialSystem showLabels={true} />
+          </div>
         </section>
 
         <!-- Dwarf Planets -->
@@ -397,6 +411,30 @@ const faqData = [
     font-size: clamp(1.25rem, 3vw, 1.75rem);
     color: var(--color-accent-cyan);
     font-weight: 500;
+  }
+
+  /* Inline Orrery */
+  .orrery-inline {
+    margin: var(--space-2xl) 0;
+    padding: var(--space-xl);
+    background: linear-gradient(180deg, rgba(6, 182, 212, 0.03) 0%, transparent 100%);
+    border-radius: var(--radius-lg);
+    text-align: center;
+  }
+
+  .orrery-inline h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .orrery-inline .orrery-description {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    max-width: 600px;
+    margin: 0 auto var(--space-lg);
+    line-height: 1.6;
   }
 
   /* Breadcrumbs */
@@ -748,6 +786,30 @@ const faqData = [
   .resource-list a {
     color: var(--color-accent-cyan);
     font-weight: 500;
+  }
+
+  /* Infographic */
+  .infographic {
+    margin: var(--space-2xl) 0;
+    padding: 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--glass-bg);
+    border: var(--glass-border);
+  }
+
+  .infographic img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .infographic figcaption {
+    padding: var(--space-md);
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    font-style: italic;
   }
 
   /* Glassmorphism */

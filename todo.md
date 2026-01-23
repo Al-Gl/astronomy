@@ -18,6 +18,8 @@
 - [x] Answer capsule
 - [x] FAQ section with schema markup
 - [x] BreadcrumbList + TechArticle + FAQPage schemas
+- [x] Interactive CelestialSystem orrery component
+- [x] Solar System infographic
 
 ### Mars Page (`/atlas/solar-system/mars/`)
 - [x] Comprehensive content (10 sections)
@@ -70,6 +72,21 @@
 - [x] Hidden by default, localStorage persistence
 - [x] Removed legacy static starfield
 
+### CelestialSystem Orrery Component
+- [x] Created `src/components/CelestialSystem.astro`
+- [x] Modular component with props (bodies, sunSize, sunColor, etc.)
+- [x] All 8 planets: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune
+- [x] Realistic orbital speeds (compressed logarithmic scale based on NASA data)
+- [x] CSS keyframe animations for orbital motion
+- [x] Elliptical orbits via scaleY(0.85) transform
+- [x] Pulsing Sun with box-shadow animation
+- [x] Saturn's ring via CSS border
+- [x] Uranus (cyan/teal) and Neptune (deep blue) with radial gradients
+- [x] Counter-rotation to keep planets upright
+- [x] Responsive scaling for mobile
+- [x] Planet labels (showLabels prop)
+- [x] Moved to Outer Planets section (after infographic)
+
 ---
 
 ## Completed Tasks
@@ -94,7 +111,8 @@
 ```
 src/
 ├── components/
-│   └── Schema.astro           # JSON-LD schema component
+│   ├── Schema.astro           # JSON-LD schema component
+│   └── CelestialSystem.astro  # Animated orrery component
 ├── layouts/
 │   └── MainLayout.astro       # Global layout with animated stars toggle
 ├── pages/
@@ -116,7 +134,8 @@ public/
     ├── Hero_mars.jpg          # Mars hero
     ├── Hero_jupiter.jpg       # Jupiter hero
     ├── Hero_earth.jpg         # Earth hero
-    └── Hero_moon.jpg          # Moon hero
+    ├── Hero_moon.jpg          # Moon hero
+    └── solar_system_info.jpg  # Solar System infographic
 ```
 
 ---
