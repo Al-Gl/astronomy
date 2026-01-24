@@ -300,3 +300,219 @@ A comprehensive educational page about our Solar System.
 3. Test with Google Rich Results Test
 4. Check responsive layout at various breakpoints
 5. Verify breadcrumb links work correctly
+
+---
+
+## NASA APOD Integration - January 2026
+
+### What Was Added
+
+Integrated NASA's Astronomy Picture of the Day (APOD) API into the homepage to display daily astronomical imagery and information.
+
+### Changes Made
+
+#### 1. Environment Configuration
+- **File**: `.env` (created in project root)
+- **Content**: Added `NASA_API_KEY` environment variable
+- **Purpose**: Securely store NASA API key for APOD requests
+- **Default**: Set to `DEMO_KEY` as placeholder (user replaces with actual key)
+
+#### 2. Homepage Updates (`src/pages/index.astro`)
+
+**API Integration:**
+- Added fetch logic in frontmatter to retrieve APOD data at build time
+- Endpoint: `https://api.nasa.gov/planetary/apod`
+- Error handling: Gracefully fails without breaking the page
+- Supports both image and video media types
+
+**HTML Structure:**
+- New APOD section positioned between preview cards and about section
+- Conditional rendering - only shows if API call succeeds
+- Displays:
+  - Section title: "Astronomy Picture of the Day"
+  - Formatted date (e.g., "January 24, 2026")
+  - Media content (image or embedded video)
+  - Title of the APOD
+  - Full explanation text
+  - Copyright attribution (when present)
+
+**Layout:**
+- Mobile: Stacked layout (image on top, text below)
+- Desktop: Side-by-side grid (image left, text right)
+- Image links to high-resolution version
+- Videos embedded with responsive iframe (16:9 aspect ratio)
+
+**Styling:**
+- Matches existing minimalist design with black background
+- Subtle border: `rgba(255, 255, 255, 0.06)`
+- Section divider at top
+- Contained width: `max-width: 900px`
+- Typography:
+  - Title: 1.5rem, weight 400
+  - Date: 0.875rem, subtle color
+  - Subtitle: 1.25rem
+  - Explanation: 0.9375rem, weight 300, line-height 1.8
+  - Copyright: 0.8125rem, italic, subtle color
+- Hover effect on images: Slight opacity change
+- Responsive grid with 2rem gap
+
+### Files Modified/Created
+
+| File | Action | Description |
+|------|--------|-------------|
+| `.env` | Created | Environment variables for API keys |
+| `src/pages/index.astro` | Modified | Added APOD fetch logic, HTML section, and CSS styles |
+| `todo.md` | Modified | Added task tracking for APOD integration |
+
+### Technical Details
+
+**API Response Handling:**
+- Fetches data at build time (Astro static generation)
+- Handles both `media_type: "image"` and `media_type: "video"`
+- Displays high-resolution image link when available
+- Error logging to console for debugging
+- Graceful degradation - section hidden on API failure
+
+**Image Handling:**
+- Standard resolution displayed by default
+- Links to `hdurl` (high-res) when available
+- `loading="lazy"` for performance
+- Alt text from APOD title
+- Border radius and subtle border styling
+
+**Video Handling:**
+- Responsive iframe with 16:9 aspect ratio
+- Full YouTube/Vimeo embed support
+- Proper allow permissions for video playback
+- Frameborder removed for clean appearance
+
+### Design Philosophy
+
+The APOD section maintains the site's minimalist aesthetic:
+- No excessive decoration or gimmicks
+- Clean typography with proper hierarchy
+- Generous whitespace and padding
+- Subtle borders matching existing sections
+- Responsive design that works on all screen sizes
+- Integration feels natural, not "bolted on"
+
+### User Benefits
+
+1. **Fresh Content**: Homepage updates daily with new astronomical imagery
+2. **Educational Value**: Detailed explanations of cosmic phenomena
+3. **Professional Imagery**: NASA-curated high-quality space photos
+4. **Engagement**: Gives users a reason to return daily
+5. **Credibility**: Integration with official NASA API adds authority
+
+### Next Steps for User
+
+1. Replace `DEMO_KEY` in `.env` with actual NASA API key from https://api.nasa.gov/#signUp
+2. Test the implementation by running `npm run dev`
+3. Verify APOD section appears between preview cards and about section
+4. Check both image and video content types display correctly
+
+---
+
+## Logo, Footer, and Contact Page - January 2026
+
+### What Was Added
+
+Integrated custom logo image, added site footer with copyright and navigation, and created a contact page.
+
+### Changes Made
+
+#### 1. Logo Integration (`src/layouts/MainLayout.astro`)
+
+**Navigation Logo:**
+- Replaced SVG icon with `<img src="/images/logo.png">`
+- Updated `.logo-icon` CSS to use `object-fit: contain` for images
+- Removed color property (not applicable to images)
+- Logo maintains 28px x 28px size in navigation
+
+#### 2. Site Footer (`src/layouts/MainLayout.astro`)
+
+**Footer Structure:**
+- Added `.site-footer` section at bottom of all pages
+- Contains copyright notice: "© 2026 The Astronomy Space. All rights reserved."
+- Navigation link to Contact page
+- Responsive layout: horizontal on desktop, stacked on mobile
+
+**Footer Styling:**
+- Background: `rgba(0, 0, 0, 0.5)` with subtle top border
+- Typography: 0.875rem, light weight (300-400)
+- Subtle colors matching site aesthetic
+- 2rem vertical padding, 4rem top margin
+- Flexbox layout with space-between alignment
+- Mobile breakpoint at 640px (stacks vertically, center-aligned)
+
+#### 3. Contact Page (`src/pages/contact/index.astro`)
+
+**Page Structure:**
+- Hero section with title and subtitle
+- Two-column layout (desktop) / stacked (mobile)
+- Left column: Contact information and topics
+- Right column: Contact form
+
+**Contact Information Section:**
+- Email address link
+- Response time expectations
+- List of topics (questions, feedback, equipment, collaboration, bug reports)
+
+**Contact Form:**
+- Fields: Name, Email, Subject, Message
+- Styled to match site aesthetic
+- Form background: `rgba(255, 255, 255, 0.02)` with subtle border
+- Input fields: Semi-transparent with focus states
+- Submit button with hover effects
+- Form action: `/contact-submit` (to be implemented by backend)
+
+**Responsive Design:**
+- Mobile: Single column, stacked layout
+- Desktop (900px+): Two-column grid with 3rem gap
+- Form wrapper with padding and border
+- All inputs have focus states
+
+### Files Modified/Created
+
+| File | Action | Description |
+|------|--------|-------------|
+| `src/layouts/MainLayout.astro` | Modified | Updated logo from SVG to PNG image, added footer section |
+| `src/pages/contact/index.astro` | Created | New contact page with form and information |
+
+### Design Philosophy
+
+**Logo:**
+- Custom branding with logo.png image
+- Consistent sizing across all pages
+- Maintains site's minimal aesthetic
+
+**Footer:**
+- Minimal, unobtrusive design
+- Always accessible navigation
+- Professional copyright notice
+- Matches site's color scheme and typography
+
+**Contact Page:**
+- Clear, accessible contact information
+- Professional form design
+- Matches site's minimalist aesthetic
+- Helpful context about response times and topics
+
+### Navigation Updates
+
+**Removed:**
+- "Home" link from top navigation (redundant with logo)
+
+**Current Top Navigation:**
+- Cosmic Atlas
+- Observatory
+- Cosmic Chronicles
+
+**Footer Navigation:**
+- Contact (links to `/contact/`)
+
+### Note for User
+
+**Logo File:** The implementation assumes `logo.png` exists at `/public/images/logo.png`. If the logo is in a different location or has a different filename, update the image source in `MainLayout.astro` line 32.
+
+**Contact Form:** The form currently has `action="/contact-submit"` which needs to be connected to a backend handler or email service to actually process submissions. Consider using a service like Formspree, Netlify Forms, or a custom API endpoint.

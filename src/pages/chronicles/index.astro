@@ -1,0 +1,287 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+---
+
+<MainLayout
+  title="Cosmic Chronicles - The Astronomy Space"
+  description="Articles, guides, and stories about astronomy, stargazing, and exploring the cosmos"
+>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-title">Cosmic Chronicles</h1>
+      <p class="hero-subtitle">
+        Stories, guides, and explorations from the world of astronomy.
+        From the best stargazing locations to deep dives into cosmic phenomena,
+        discover articles that bring the universe closer to home.
+      </p>
+      <p class="hero-description">
+        Select a category below to explore our latest articles and guides.
+      </p>
+    </div>
+  </section>
+
+  <!-- Categories Grid -->
+  <section class="categories">
+    <div class="container">
+      <div class="categories-grid">
+
+        <a href="/chronicles/stargazing" class="category-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+              <path d="M12 36 Q16 30 24 30 Q32 30 36 36" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+              <circle cx="18" cy="14" r="2" fill="currentColor"/>
+              <circle cx="30" cy="12" r="1.5" fill="currentColor" opacity="0.8"/>
+              <circle cx="34" cy="20" r="1.75" fill="currentColor"/>
+              <circle cx="14" cy="22" r="1.25" fill="currentColor" opacity="0.7"/>
+              <circle cx="24" cy="16" r="2.5" fill="currentColor"/>
+              <line x1="24" y1="8" x2="24" y2="13.5" stroke="currentColor" stroke-width="0.75" opacity="0.4"/>
+              <line x1="24" y1="18.5" x2="24" y2="22" stroke="currentColor" stroke-width="0.75" opacity="0.4"/>
+            </svg>
+          </div>
+          <h2>Stargazing Guides</h2>
+          <p>Best locations, timing, and tips for observing the night sky</p>
+        </a>
+
+        <a href="/chronicles/phenomena" class="category-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="8" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M16 24 A8 8 0 0 1 24 16" stroke="currentColor" stroke-width="2" opacity="0.7"/>
+              <circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="0.75" opacity="0.2"/>
+              <line x1="24" y1="6" x2="24" y2="10" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+              <line x1="24" y1="38" x2="24" y2="42" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+              <line x1="6" y1="24" x2="10" y2="24" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+              <line x1="38" y1="24" x2="42" y2="24" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+            </svg>
+          </div>
+          <h2>Celestial Events</h2>
+          <p>Eclipses, meteor showers, and other astronomical phenomena</p>
+        </a>
+
+        <a href="/chronicles/exploration" class="category-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 6 L28 18 L40 18 L30 26 L34 38 L24 30 L14 38 L18 26 L8 18 L20 18 Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+              <circle cx="24" cy="24" r="4" fill="currentColor" opacity="0.6"/>
+              <line x1="24" y1="6" x2="24" y2="20" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+            </svg>
+          </div>
+          <h2>Space Exploration</h2>
+          <p>Missions, discoveries, and the future of space travel</p>
+        </a>
+
+        <a href="/chronicles/astrophotography" class="category-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="16" width="32" height="22" rx="2" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="26" cy="27" r="5" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M18 12 L22 16 L8 16 Z" fill="currentColor" opacity="0.6"/>
+              <circle cx="15" cy="22" r="1.5" fill="currentColor"/>
+              <line x1="26" y1="10" x2="28" y2="8" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+              <line x1="32" y1="12" x2="34" y2="10" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+              <line x1="30" y1="8" x2="31" y2="6" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+            </svg>
+          </div>
+          <h2>Astrophotography</h2>
+          <p>Techniques, showcases, and tutorials for capturing the cosmos</p>
+        </a>
+
+        <a href="/chronicles/history" class="category-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M24 24 L24 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M24 24 L32 28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="24" cy="24" r="2" fill="currentColor"/>
+              <line x1="24" y1="6" x2="24" y2="8" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="24" y1="40" x2="24" y2="42" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="6" y1="24" x2="8" y2="24" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="40" y1="24" x2="42" y2="24" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h2>Astronomy History</h2>
+          <p>Historical discoveries and the pioneers of astronomy</p>
+        </a>
+
+        <a href="/chronicles/science" class="category-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="3" fill="currentColor"/>
+              <circle cx="24" cy="24" r="8" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="0.75" opacity="0.4"/>
+              <ellipse cx="24" cy="24" rx="16" ry="6" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+              <ellipse cx="24" cy="24" rx="6" ry="16" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+              <path d="M34 14 L38 10" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+              <path d="M14 34 L10 38" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+            </svg>
+          </div>
+          <h2>Cosmic Science</h2>
+          <p>Deep dives into astronomical concepts and theories</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
+    <div class="container">
+      <h2 class="about-title">Your Window to the Cosmos</h2>
+      <p class="about-text">
+        Cosmic Chronicles brings together articles, guides, and stories that explore the
+        wonders of the universe. Whether you're planning your next stargazing adventure,
+        learning about upcoming celestial events, or diving deep into astronomical science,
+        our articles are written to inform, inspire, and ignite your passion for the cosmos.
+      </p>
+      <p class="about-text">
+        From practical observing guides to the latest space exploration news, we cover
+        the full spectrum of astronomy topics. Join us on a journey through space and time
+        as we explore everything from local dark sky sites to the most distant galaxies
+        visible through our telescopes.
+      </p>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    padding: 6rem 0 4rem 0;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 400;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: 0.02em;
+    color: white;
+    line-height: 1.1;
+  }
+
+  .hero-subtitle {
+    font-size: 1.0625rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 40rem;
+    margin: 0 auto 1.5rem auto;
+    line-height: 1.8;
+  }
+
+  .hero-description {
+    font-size: 0.9375rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0;
+  }
+
+  /* Categories Grid */
+  .categories {
+    padding: 2rem 0 4rem 0;
+  }
+
+  .categories-grid {
+    display: grid;
+    gap: 1px;
+    grid-template-columns: 1fr;
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .category-card {
+    display: block;
+    padding: 2.5rem 2rem;
+    background: #000;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  .category-card:hover {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .card-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 0 1.25rem 0;
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.3s ease;
+  }
+
+  .card-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .category-card:hover .card-icon {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .category-card h2 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin: 0 0 0.5rem 0;
+    color: white;
+    letter-spacing: 0.01em;
+  }
+
+  .category-card p {
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0;
+    line-height: 1.6;
+    font-size: 0.875rem;
+    font-weight: 300;
+  }
+
+  /* About Section */
+  .about {
+    padding: 4rem 0 6rem 0;
+    max-width: 900px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .about .container {
+    text-align: center;
+  }
+
+  .about-title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: white;
+    margin: 0 0 2rem 0;
+    letter-spacing: 0.01em;
+  }
+
+  .about-text {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9375rem;
+    font-weight: 300;
+    line-height: 1.8;
+    margin: 0 0 1.5rem 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-text:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Tablet: 2-column */
+  @media (min-width: 640px) {
+    .categories-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Desktop: 3-column */
+  @media (min-width: 900px) {
+    .categories-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

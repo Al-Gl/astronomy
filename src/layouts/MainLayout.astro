@@ -30,17 +30,13 @@ const {
     <nav class="top-nav">
       <div class="nav-container">
         <a href="/" class="nav-brand">
-          <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="12" cy="12" r="4"/>
-            <path d="M12 2v4m0 12v4M2 12h4m12 0h4"/>
-            <circle cx="12" cy="12" r="10"/>
-          </svg>
+          <img src="/images/logo.png" alt="The Astronomy Space" class="logo-icon" />
           <span class="brand-name">The Astronomy Space</span>
         </a>
         <div class="nav-links">
-          <a href="/" class="nav-link">Home</a>
           <a href="/atlas/" class="nav-link">Cosmic Atlas</a>
-          <a href="/atlas/solar-system/" class="nav-link">Solar System</a>
+          <a href="/observatory/" class="nav-link">Observatory</a>
+          <a href="/chronicles/" class="nav-link">Cosmic Chronicles</a>
         </div>
       </div>
     </nav>
@@ -101,8 +97,15 @@ const {
         <slot />
       </main>
 
-      <footer>
-        <slot name="footer" />
+      <footer class="site-footer">
+        <div class="footer-container">
+          <div class="footer-content">
+            <p class="footer-copyright">© 2026 The Astronomy Space. All rights reserved.</p>
+            <nav class="footer-links">
+              <a href="/contact/" class="footer-link">Contact</a>
+            </nav>
+          </div>
+        </div>
       </footer>
     </div>
   </body>
@@ -184,8 +187,8 @@ const {
   .logo-icon {
     width: 28px;
     height: 28px;
-    color: var(--color-accent-cyan);
     flex-shrink: 0;
+    object-fit: contain;
   }
 
   .brand-name {
@@ -293,6 +296,59 @@ const {
     .nav-link {
       padding: 0.4rem 0.5rem;
       font-size: 0.8rem;
+    }
+  }
+
+  /* Footer */
+  .site-footer {
+    background: rgba(0, 0, 0, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 2rem 0;
+    margin-top: 4rem;
+  }
+
+  .footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .footer-copyright {
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-link {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-link:hover {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  @media (max-width: 640px) {
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
     }
   }
 </style>

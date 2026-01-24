@@ -1,0 +1,824 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import Schema from '../../../components/Schema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cosmic Atlas', url: '/atlas/' },
+  { name: 'Solar System', url: '/atlas/solar-system/' },
+  { name: 'Mercury', url: '/atlas/solar-system/mercury/' }
+];
+
+const articleData = {
+  headline: 'Mercury: The Smallest Planet - Complete Guide',
+  description: 'Comprehensive guide to Mercury covering its extreme temperatures, cratered surface, lack of atmosphere, exploration history, and unique features. Discover the closest planet to our Sun.',
+  datePublished: '2025-01-23',
+  dateModified: '2025-01-23',
+  author: 'The Astronomy Space',
+  image: '/images/Hero_mercury.jpg',
+  keywords: ['Mercury', 'innermost planet', 'Caloris Basin', 'MESSENGER', 'BepiColombo', 'Mariner 10', 'terrestrial planet', 'solar system', 'NASA', 'temperature extremes']
+};
+
+const faqData = [
+  {
+    question: 'Why does Mercury have such extreme temperatures?',
+    answer: 'Mercury experiences the most extreme temperature range of any planet in our solar system, from 430°C (800°F) during the day to -180°C (-290°F) at night. This dramatic swing occurs because Mercury has virtually no atmosphere to trap and redistribute heat. During the day, the side facing the Sun becomes scorching hot, while at night the heat rapidly escapes into space, causing temperatures to plummet.'
+  },
+  {
+    question: 'How long is a day on Mercury?',
+    answer: 'A single day on Mercury (from sunrise to sunrise) lasts 176 Earth days, which is actually longer than Mercury\'s year of 88 Earth days. This unusual situation occurs because Mercury rotates very slowly—only three times for every two orbits around the Sun. This 3:2 spin-orbit resonance is unique among planets and creates a complex relationship between Mercury\'s day and year.'
+  },
+  {
+    question: 'Can you see Mercury from Earth?',
+    answer: 'Yes, Mercury is visible to the naked eye, but it\'s challenging to observe because it never strays far from the Sun in our sky. The best times to view Mercury are during its greatest eastern elongation (visible after sunset) or greatest western elongation (visible before sunrise), occurring several times per year. During these periods, Mercury appears as a bright star-like object low on the horizon for about an hour.'
+  },
+  {
+    question: 'Does Mercury have any moons?',
+    answer: 'No, Mercury has no moons. This is likely because Mercury is so close to the Sun that the Sun\'s powerful gravitational field would disrupt the orbit of any potential moon. Additionally, Mercury\'s relatively weak gravity (only 38% of Earth\'s) makes it difficult to capture and retain natural satellites. Venus is the only other planet in our solar system without any moons.'
+  },
+  {
+    question: 'Is there water on Mercury?',
+    answer: 'Surprisingly, yes! Despite Mercury\'s proximity to the Sun, NASA\'s MESSENGER spacecraft discovered water ice in permanently shadowed craters near Mercury\'s poles. These polar regions never receive sunlight and remain cold enough to preserve ice, with temperatures reaching -170°C (-280°F). Some craters may contain up to 1 trillion tons of water ice, comparable to the volume of Lake Erie.'
+  },
+  {
+    question: 'Why is it so difficult to send missions to Mercury?',
+    answer: 'Reaching Mercury is extremely challenging because spacecraft must shed enormous amounts of orbital energy to slow down enough to enter Mercury\'s orbit. The Sun\'s intense gravity constantly accelerates spacecraft traveling inward, requiring complex gravitational assists from Venus and Earth to brake sufficiently. Additionally, spacecraft must be designed to withstand extreme solar radiation and temperatures. This is why only two missions have visited Mercury so far.'
+  }
+];
+---
+
+<MainLayout
+  title="Mercury: The Smallest Planet - Complete Guide | The Astronomy Space"
+  description="Comprehensive guide to Mercury covering its extreme temperatures, cratered surface, lack of atmosphere, exploration history, and unique features. Discover the closest planet to our Sun."
+>
+  <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
+  <Schema type="TechArticle" article={articleData} />
+  <Schema type="FAQPage" faq={faqData} />
+
+  <!-- Reading Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-image">
+      <img src="/images/Hero_mercury.jpg" alt="Mercury - The smallest planet showing its heavily cratered surface" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/atlas/">Cosmic Atlas</a></li>
+          <li><a href="/atlas/solar-system/">Solar System</a></li>
+          <li aria-current="page">Mercury</li>
+        </ol>
+      </nav>
+      <h1>Mercury</h1>
+      <p class="hero-subtitle">The Smallest Planet</p>
+    </div>
+  </section>
+
+  <!-- Main Article Content -->
+  <article class="content-wrapper">
+    <div class="article-layout">
+
+      <!-- Sticky Table of Contents (Left Sidebar) -->
+      <aside class="toc-sidebar">
+        <nav class="toc" aria-label="Table of Contents">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#physical-characteristics">Physical Characteristics</a></li>
+            <li><a href="#surface-features">Surface Features</a></li>
+            <li><a href="#exosphere">Exosphere</a></li>
+            <li><a href="#temperature">Temperature Extremes</a></li>
+            <li><a href="#orbit-rotation">Orbit & Rotation</a></li>
+            <li><a href="#water-ice">Water Ice Discovery</a></li>
+            <li><a href="#exploration">Exploration History</a></li>
+            <li><a href="#future">Future Missions</a></li>
+            <li><a href="#fun-facts">Interesting Facts</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-content">
+
+        <!-- Answer Capsule -->
+        <aside class="answer-capsule">
+          <div class="capsule-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <p>Mercury is the smallest planet in our solar system and the closest to the Sun. Despite its proximity to our star, Mercury harbors water ice in permanently shadowed polar craters. With a heavily cratered surface resembling Earth's Moon, extreme temperature swings, and a peculiar 3:2 spin-orbit resonance, Mercury stands as one of the solar system's most fascinating and challenging worlds to explore.</p>
+        </aside>
+
+        <!-- Introduction -->
+        <section id="introduction" class="content-section">
+          <h2>Introduction to Mercury</h2>
+          <p>Mercury, the innermost planet of our solar system, is a world of extremes. Named after the swift-footed Roman messenger god, Mercury races around the Sun faster than any other planet, completing an orbit in just 88 Earth days. This small, rocky world has captivated astronomers for millennia, visible to the naked eye as a bright "star" that appears briefly near the horizon at dawn or dusk.</p>
+
+          <p>As the smallest planet since Pluto's reclassification in 2006, Mercury is only slightly larger than Earth's Moon. Its proximity to the Sun—an average of just 58 million kilometers (36 million miles)—subjects it to the most intense solar radiation of any planet. Yet despite this hellish environment, Mercury has proven to be a world of surprises, from its unexpectedly large iron core to deposits of water ice hidden in polar craters.</p>
+
+          <p>Mercury occupies a unique position in our understanding of planetary formation and evolution. As a terrestrial planet with Earth-like composition but vastly different conditions, it provides crucial insights into how rocky planets form and change over billions of years. The planet's heavily cratered surface serves as a record of the solar system's violent early history, largely unchanged for the past 3-4 billion years.</p>
+        </section>
+
+        <!-- Physical Characteristics -->
+        <section id="physical-characteristics" class="content-section">
+          <h2>Physical Characteristics</h2>
+          <p>Mercury is a dense, rocky world whose physical properties reflect both its small size and its massive iron core. Understanding Mercury's structure and composition reveals important clues about terrestrial planet formation and the early history of our solar system.</p>
+
+          <div class="info-box glass">
+            <h3>Mercury Quick Facts</h3>
+            <ul>
+              <li><strong>Diameter:</strong> 4,879 km (3,032 miles) - smallest planet</li>
+              <li><strong>Mass:</strong> 3.30 × 10²³ kg (5.5% of Earth's mass)</li>
+              <li><strong>Surface Gravity:</strong> 3.7 m/s² (38% of Earth's)</li>
+              <li><strong>Average Temperature:</strong> 167°C (333°F)</li>
+              <li><strong>Day Length:</strong> 176 Earth days</li>
+              <li><strong>Year Length:</strong> 88 Earth days</li>
+              <li><strong>Moons:</strong> 0</li>
+              <li><strong>Distance from Sun:</strong> 58 million km (0.39 AU)</li>
+            </ul>
+          </div>
+
+          <h3>An Oversized Iron Core</h3>
+          <p>Mercury's most distinctive feature is its disproportionately large iron core, which accounts for approximately 75% of the planet's diameter and 61% of its volume. This makes Mercury the densest planet in the solar system after Earth when adjusted for gravitational compression. The core is thought to be partially molten, generating a weak magnetic field about 1% the strength of Earth's.</p>
+
+          <p>Scientists believe Mercury's enormous core formed through one of several possible mechanisms: intense solar winds may have stripped away much of its silicate mantle early in the planet's history, a giant impact could have blasted away the outer layers, or Mercury may have formed from materials naturally rich in metallic elements. Each theory offers different insights into the chaotic conditions of the early solar system.</p>
+
+          <h3>A Heavily Cratered Surface</h3>
+          <p>Mercury's surface bears the scars of billions of years of meteorite impacts. Unlike Earth, which has erosion, plate tectonics, and volcanic activity constantly reshaping its surface, Mercury has remained geologically inactive for billions of years. This preservation of ancient terrain makes Mercury's surface one of the oldest records of solar system history available for study.</p>
+        </section>
+
+        <!-- Surface Features -->
+        <section id="surface-features" class="content-section">
+          <h2>Surface Features</h2>
+          <p>Mercury's landscape reveals a complex geological history written in craters, cliffs, and ancient lava plains. The planet's surface features tell the story of its formation, its early period of intense bombardment, and subsequent cooling and contraction.</p>
+
+          <h3>Caloris Basin</h3>
+          <p>The Caloris Basin is one of the largest impact craters in the solar system, measuring approximately 1,550 kilometers (960 miles) in diameter—about the size of Texas. Created by a massive asteroid impact about 3.9 billion years ago, the collision was so violent that it created hills and fractures on the opposite side of the planet through seismic shock waves. The basin's name means "heat" in Latin, as it faces the Sun when Mercury is at perihelion, making it one of the hottest places on the planet.</p>
+
+          <p>Inside the Caloris Basin, scientists have discovered unusual terrain called "hollows"—bright, irregular depressions that may be caused by the sublimation of volatile materials. These features suggest that Mercury's surface contains volatile compounds despite the intense solar heating, challenging previous assumptions about the planet's composition.</p>
+
+          <h3>Lobate Scarps</h3>
+          <p>One of Mercury's most distinctive features are lobate scarps—massive cliffs that can stretch for hundreds of kilometers and rise up to 3 kilometers high. These scarps formed as Mercury's interior cooled and contracted, causing the planet's surface to wrinkle like a dried fruit. NASA's MESSENGER mission revealed that Mercury has shrunk by about 14 kilometers in radius over its lifetime, more than previously thought.</p>
+
+          <p>These scarps cut across craters, indicating they formed relatively late in Mercury's history. Some scarps are so large they would dwarf Earth's Grand Canyon. The Great Valley, discovered by MESSENGER, is a trough about 1,000 kilometers long, 400 kilometers wide, and over 3 kilometers deep, making it comparable in size to the Marianas Trench on Earth.</p>
+
+          <h3>Smooth Plains</h3>
+          <p>Between the heavily cratered regions lie smooth plains that cover about 40% of Mercury's surface. These plains likely formed from ancient volcanic eruptions that flooded low-lying areas, similar to the lunar maria on Earth's Moon. However, Mercury's volcanic plains are older and have fewer impact craters than lunar maria, suggesting they formed during the early solar system when volcanic activity was more prevalent.</p>
+        </section>
+
+        <!-- Exosphere -->
+        <section id="exosphere" class="content-section">
+          <h2>Mercury's Exosphere</h2>
+          <p>Unlike Earth, Mercury doesn't have a substantial atmosphere—instead, it possesses an extremely tenuous exosphere so thin that its atoms rarely collide with each other. This wispy envelope contains atoms blasted off the surface by solar wind, micrometeorite impacts, and evaporation from solar heating.</p>
+
+          <h3>Composition and Origin</h3>
+          <p>Mercury's exosphere contains oxygen, sodium, hydrogen, helium, potassium, calcium, and magnesium. These elements aren't bound to the planet by gravity—they're constantly being lost to space and replenished from the surface. Sodium and potassium create a glowing tail visible from Earth when Mercury is well-positioned, extending millions of kilometers from the planet like a comet's tail.</p>
+
+          <p>The exospheric pressure is just one trillionth of Earth's atmospheric pressure at sea level. An astronaut on Mercury's surface would need a full spacesuit, not just because of the lack of breathable air, but also to protect against the extreme temperature variations and intense solar radiation that reaches the surface unimpeded.</p>
+
+          <h3>No Protection from the Sun</h3>
+          <p>The lack of a substantial atmosphere means Mercury has no protection from solar radiation or micrometeorite impacts. Every rock and crater on the surface is directly exposed to the Sun's full radiation and the solar wind—a stream of charged particles constantly flowing from the Sun. This exposure has darkened Mercury's surface over billions of years through a process called space weathering.</p>
+        </section>
+
+        <!-- Temperature Extremes -->
+        <section id="temperature" class="content-section">
+          <h2>Extreme Temperature Variations</h2>
+          <p>Mercury holds the record for the most extreme temperature range in our solar system. During the day, surface temperatures at the equator can reach a scorching 430°C (800°F)—hot enough to melt lead. At night, with no atmosphere to trap heat, temperatures plummet to a frigid -180°C (-290°F). This represents a temperature swing of over 600°C (1,100°F), far greater than any other planet.</p>
+
+          <h3>Why Such Extremes?</h3>
+          <p>Three factors contribute to Mercury's temperature extremes. First, its proximity to the Sun means it receives more than six times the solar radiation Earth does. Second, its virtually non-existent atmosphere cannot redistribute heat from day to night or from equator to poles. Third, Mercury's slow rotation means each side faces the Sun for 88 Earth days, allowing temperatures to build to extreme levels before the long night begins.</p>
+
+          <p>Interestingly, despite being closest to the Sun, Mercury is not the hottest planet in our solar system—that title belongs to Venus, whose thick carbon dioxide atmosphere creates a runaway greenhouse effect. Mercury's lack of atmosphere prevents it from retaining the heat it receives.</p>
+
+          <h3>Perpetually Shadowed Craters</h3>
+          <p>In stark contrast to the baking equatorial regions, Mercury's polar areas contain deep craters that never see sunlight. These permanently shadowed regions act as cold traps, maintaining temperatures around -170°C (-280°F)—cold enough to preserve water ice for billions of years despite the planet's overall proximity to the Sun. This remarkable dichotomy makes Mercury a world of both fire and ice.</p>
+        </section>
+
+        <!-- Orbit and Rotation -->
+        <section id="orbit-rotation" class="content-section">
+          <h2>Orbital Mechanics and Rotation</h2>
+          <p>Mercury's motion through space is as peculiar as the planet itself. Its orbit and rotation exhibit unusual characteristics that make it one of the solar system's most dynamically interesting bodies.</p>
+
+          <h3>A Swift Orbit</h3>
+          <p>Mercury orbits the Sun faster than any other planet, traveling at an average speed of 47 kilometers per second (29 miles per second). Its elliptical orbit ranges from 46 million kilometers at perihelion (closest approach) to 70 million kilometers at aphelion (farthest distance). This eccentric orbit means Mercury's orbital speed varies significantly—it moves fastest when closest to the Sun and slowest when farthest away.</p>
+
+          <h3>The 3:2 Spin-Orbit Resonance</h3>
+          <p>Mercury exhibits a unique 3:2 spin-orbit resonance, meaning it rotates exactly three times for every two orbits around the Sun. This creates a bizarre relationship between Mercury's day and year: one solar day (sunrise to sunrise) takes 176 Earth days, while one year takes only 88 Earth days. This means a day on Mercury is exactly twice as long as its year!</p>
+
+          <p>For centuries, astronomers believed Mercury was tidally locked to the Sun, always showing the same face like the Moon does to Earth. This misconception persisted until 1965, when radar observations revealed the planet's true rotation period of 59 Earth days—exactly two-thirds of its orbital period. This resonance likely resulted from tidal interactions between Mercury's elongated shape and the Sun's gravity over billions of years.</p>
+
+          <h3>Precession and Einstein's Relativity</h3>
+          <p>Mercury's orbit has played a crucial role in physics history. In the 19th century, astronomers noticed that Mercury's perihelion (closest point to the Sun) shifts slightly more than Newtonian physics predicted. This tiny discrepancy—only 43 arcseconds per century—couldn't be explained until Albert Einstein developed his theory of general relativity in 1915. Mercury's orbit provided one of the first confirmations that Einstein's revolutionary theory correctly described gravity not as a force, but as a curvature of spacetime.</p>
+        </section>
+
+        <!-- Water Ice -->
+        <section id="water-ice" class="content-section">
+          <h2>The Surprising Discovery of Water Ice</h2>
+          <p>One of the most unexpected discoveries about Mercury came in the 1990s when Earth-based radar observations detected bright patches near the planet's poles. These patches had the characteristics of water ice, a startling finding for a planet so close to the Sun. NASA's MESSENGER mission later confirmed this discovery, revolutionizing our understanding of Mercury.</p>
+
+          <h3>How Water Survives</h3>
+          <p>Deep craters near Mercury's poles have floors that never receive sunlight due to the planet's minimal axial tilt of just 0.034 degrees (Earth's tilt is 23.5 degrees). These permanently shadowed regions act as cold traps where temperatures remain around -170°C (-280°F) year-round. In these frozen vaults, water ice can persist for billions of years despite the scorching temperatures just kilometers away in sunlit areas.</p>
+
+          <p>MESSENGER's neutron spectrometer detected hydrogen concentrations consistent with water ice, while thermal measurements confirmed the cold temperatures necessary to preserve it. Some estimates suggest these polar deposits contain between 100 billion and 1 trillion metric tons of water ice—roughly equivalent to the volume of Lake Erie.</p>
+
+          <h3>Organic Compounds</h3>
+          <p>Even more surprisingly, MESSENGER discovered that some of Mercury's ice deposits are covered by a dark material that may contain organic compounds—the carbon-based molecules that are the building blocks of life. These volatiles were likely delivered by comets and asteroids impacting Mercury over billions of years. The presence of both water and organic materials on the solar system's innermost planet demonstrates that the ingredients necessary for life can survive even in the most extreme environments.</p>
+        </section>
+
+        <!-- Exploration History -->
+        <section id="exploration" class="content-section">
+          <h2>Exploration History</h2>
+          <p>Despite being Earth's relatively close neighbor (at least when the planets align), Mercury has proven extraordinarily difficult to visit. Only two spacecraft have reached Mercury so far, separated by more than three decades.</p>
+
+          <h3>Mariner 10: First Glimpses</h3>
+          <p>NASA's Mariner 10 was the first spacecraft to visit Mercury, conducting three flybys in 1974 and 1975. Using Venus for a gravitational assist, Mariner 10 became the first spacecraft to use gravity assist for an interplanetary mission—a technique now standard for deep space exploration. During its encounters, Mariner 10 mapped about 45% of Mercury's surface, revealing a Moon-like world heavily cratered by ancient impacts.</p>
+
+          <p>Mariner 10 also made the surprising discovery that Mercury possesses a magnetic field, unexpected for such a small planet. This finding suggested Mercury has a partially molten iron core, challenging theories about planetary magnetic fields. The mission also detected Mercury's thin exosphere containing sodium and helium.</p>
+
+          <h3>MESSENGER: A Decade of Discovery</h3>
+          <p>After a 30-year gap, NASA's MESSENGER (MErcury Surface, Space ENvironment, GEochemistry, and Ranging) mission arrived at Mercury in 2011, becoming the first spacecraft to orbit the planet. Over four years, MESSENGER revolutionized our understanding of Mercury with discoveries that redefined the planet.</p>
+
+          <p>Key MESSENGER achievements include:</p>
+          <ul>
+            <li>Mapped 100% of Mercury's surface in unprecedented detail</li>
+            <li>Confirmed water ice and organic compounds in polar craters</li>
+            <li>Discovered Mercury has shrunk by 14 km in radius due to cooling</li>
+            <li>Revealed unexpected volcanic activity in Mercury's past</li>
+            <li>Detected unusual "hollows" on the surface suggesting active sublimation</li>
+            <li>Mapped the composition of the surface using X-ray spectrometry</li>
+            <li>Detected a magnetic "tornado" in Mercury's magnetosphere</li>
+          </ul>
+
+          <p>MESSENGER's mission ended in April 2015 when it deliberately crashed into Mercury's surface, creating a new 16-meter crater. The spacecraft had far exceeded its planned one-year mission, operating for over four years in Mercury's harsh environment while completing more than 4,000 orbits.</p>
+        </section>
+
+        <!-- Future Missions -->
+        <section id="future" class="content-section">
+          <h2>Future Missions</h2>
+          <p>The success of MESSENGER paved the way for even more ambitious missions to Mercury. The next generation of Mercury explorers promises to build on MESSENGER's discoveries and answer lingering questions about the solar system's smallest planet.</p>
+
+          <h3>BepiColombo</h3>
+          <p>BepiColombo, a joint mission between the European Space Agency (ESA) and the Japan Aerospace Exploration Agency (JAXA), launched in October 2018 and is currently making its way to Mercury. The mission consists of two orbiters: ESA's Mercury Planetary Orbiter (MPO) and JAXA's Mercury Magnetospheric Orbiter (MMO, also called Mio).</p>
+
+          <p>After a complex seven-year journey involving nine planetary flybys (one of Earth, two of Venus, and six of Mercury itself), BepiColombo will arrive in orbit around Mercury in 2025. The two spacecraft will then separate and enter different orbits to study Mercury from complementary perspectives.</p>
+
+          <h3>Science Goals</h3>
+          <p>BepiColombo aims to answer fundamental questions about Mercury:</p>
+          <ul>
+            <li>Why is Mercury so dense with such a large iron core?</li>
+            <li>How do Mercury's exosphere and magnetosphere interact with the solar wind?</li>
+            <li>What volatiles are present in the polar cold traps?</li>
+            <li>Is Mercury's core liquid or solid?</li>
+            <li>What is the nature of the mysterious "hollows" on the surface?</li>
+            <li>How does Mercury's magnetic field work with such a small planet?</li>
+          </ul>
+
+          <p>The mission carries 16 scientific instruments designed to study Mercury's interior, surface, exosphere, and magnetosphere with unprecedented precision. BepiColombo will measure Mercury's magnetic field in 3D, map surface composition, study the polar ice deposits, and monitor how the planet interacts with the Sun's radiation.</p>
+        </section>
+
+        <!-- Interesting Facts -->
+        <section id="fun-facts" class="content-section">
+          <h2>Interesting Facts About Mercury</h2>
+          <p>Mercury's extreme nature and unique characteristics make it one of the most fascinating bodies in our solar system.</p>
+
+          <ul class="facts-list">
+            <li><strong>A Planet of Extremes:</strong> Mercury simultaneously harbors some of the hottest and coldest places in the solar system, with sunlit equatorial regions reaching 430°C while permanently shadowed polar craters remain at -180°C.</li>
+
+            <li><strong>Shrinking Planet:</strong> Mercury is slowly shrinking! As its interior cools, the planet has contracted by about 14 kilometers in radius, causing the surface to wrinkle and crack into massive cliff-like scarps.</li>
+
+            <li><strong>Ancient Cultures:</strong> Ancient civilizations recognized Mercury as two different objects—a morning "star" and an evening "star"—before realizing they were the same planet. The ancient Greeks called it Apollo in the morning and Hermes in the evening.</li>
+
+            <li><strong>Einstein's Proof:</strong> Mercury provided crucial evidence for Einstein's theory of general relativity. The slight wobble in Mercury's orbit couldn't be explained by Newton's laws but matched Einstein's predictions perfectly.</li>
+
+            <li><strong>Fastest Planet:</strong> Averaging 47 km/s, Mercury orbits so fast that ancient observers named it after the swift messenger of the gods. It completes an orbit in just 88 days, experiencing four seasons per Earth year.</li>
+
+            <li><strong>Double Sunrise:</strong> Due to Mercury's elliptical orbit and slow rotation, an observer at certain locations would see the Sun rise, stop, reverse direction, stop again, and then continue rising. This bizarre phenomenon occurs because Mercury speeds up and slows down significantly during its orbit.</li>
+
+            <li><strong>Weak but Present:</strong> Despite being so small, Mercury has a magnetic field—something Mars and Venus lack despite being larger. This indicates Mercury has a partially molten iron core, surprising for such a tiny planet.</li>
+
+            <li><strong>Space Weather:</strong> Mercury has been seen to have a "tail" like a comet, made of sodium atoms blasted off its surface by the solar wind. This tail can extend for millions of kilometers into space.</li>
+          </ul>
+        </section>
+
+        <!-- External Resources -->
+        <section id="resources" class="content-section">
+          <h2>External Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://solarsystem.nasa.gov/planets/mercury/" target="_blank" rel="noopener">NASA Mercury Overview</a> - Official NASA page with latest Mercury discoveries</li>
+            <li><a href="https://en.wikipedia.org/wiki/Mercury_(planet)" target="_blank" rel="noopener">Mercury on Wikipedia</a> - Comprehensive encyclopedia article</li>
+            <li><a href="https://www.esa.int/Science_Exploration/Space_Science/BepiColombo" target="_blank" rel="noopener">ESA BepiColombo Mission</a> - Current mission to Mercury</li>
+            <li><a href="https://www.nasa.gov/mission_pages/messenger/main/index.html" target="_blank" rel="noopener">NASA MESSENGER Mission</a> - Archive of the groundbreaking Mercury orbiter</li>
+          </ul>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="content-section faq-section">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-list">
+            {faqData.map((item) => (
+              <details class="faq-item">
+                <summary class="faq-question">{item.question}</summary>
+                <div class="faq-answer">
+                  <p>{item.answer}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </article>
+</MainLayout>
+
+<script>
+  // Reading Progress Bar
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    const progressBar = document.getElementById('progressBar');
+    if (progressBar) {
+      progressBar.style.width = scrollPercent + '%';
+    }
+  });
+
+  // Active TOC highlighting
+  const sections = document.querySelectorAll('.content-section');
+  const tocLinks = document.querySelectorAll('.toc a');
+
+  const observerOptions = {
+    rootMargin: '-20% 0% -70% 0%'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(section => observer.observe(section));
+</script>
+
+<style>
+  /* Progress Bar */
+  .progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+  }
+
+  .progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-blue));
+    transition: width 0.1s ease-out;
+  }
+
+  /* Hero Section */
+  .hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: var(--space-xl);
+  }
+
+  .hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    color: var(--color-accent-cyan);
+    font-weight: 500;
+  }
+
+  /* Breadcrumbs */
+  .breadcrumbs {
+    margin-bottom: var(--space-lg);
+  }
+
+  .breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumbs li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .breadcrumbs li:not(:last-child)::after {
+    content: '›';
+    color: var(--color-text-secondary);
+  }
+
+  .breadcrumbs a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumbs a:hover {
+    color: var(--color-accent-cyan);
+  }
+
+  .breadcrumbs li[aria-current="page"] {
+    color: var(--color-text-primary);
+  }
+
+  /* Article Layout with Sidebar */
+  .content-wrapper {
+    padding: var(--space-2xl) 0;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+    gap: var(--space-xl);
+  }
+
+  @media (min-width: 1024px) {
+    .article-layout {
+      grid-template-columns: 220px 1fr;
+      gap: var(--space-2xl);
+    }
+  }
+
+  /* Sticky TOC Sidebar */
+  .toc-sidebar {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .toc-sidebar {
+      display: block;
+    }
+
+    .toc {
+      position: sticky;
+      top: calc(var(--space-xl) + 3px);
+      max-height: calc(100vh - var(--space-2xl));
+      overflow-y: auto;
+    }
+  }
+
+  .toc h2 {
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-md);
+    color: var(--color-text-secondary);
+  }
+
+  .toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .toc li {
+    margin-bottom: 0.25rem;
+  }
+
+  .toc a {
+    display: block;
+    padding: 0.5rem 0;
+    padding-left: var(--space-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    transition: all 0.2s ease;
+  }
+
+  .toc a:hover {
+    color: var(--color-text-primary);
+    border-left-color: rgba(6, 182, 212, 0.5);
+  }
+
+  .toc a.active {
+    color: var(--color-accent-cyan);
+    border-left-color: var(--color-accent-cyan);
+  }
+
+  /* Main Content */
+  .main-content {
+    max-width: 800px;
+  }
+
+  /* Answer Capsule */
+  .answer-capsule {
+    display: flex;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .answer-capsule::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(6, 182, 212, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .capsule-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    color: var(--color-accent-cyan);
+    opacity: 0.8;
+  }
+
+  .capsule-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .answer-capsule p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-primary);
+    position: relative;
+  }
+
+  /* Content Sections */
+  .content-section {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .content-section h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+    color: var(--color-text-primary);
+  }
+
+  .content-section h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+    color: var(--color-accent-cyan);
+  }
+
+  .content-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+  }
+
+  .content-section ul,
+  .content-section ol {
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-lg);
+  }
+
+  .content-section li {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  /* Info Box */
+  .info-box {
+    padding: var(--space-lg);
+    margin: var(--space-lg) 0;
+  }
+
+  .info-box h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: var(--color-accent-blue);
+  }
+
+  .info-box ul {
+    margin: 0;
+    padding-left: var(--space-md);
+  }
+
+  .info-box li {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  /* Facts List */
+  .facts-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .facts-list li {
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .facts-list li:last-child {
+    border-bottom: none;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .faq-item {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item[open] {
+    background: rgba(6, 182, 212, 0.05);
+    border-color: rgba(6, 182, 212, 0.2);
+  }
+
+  .faq-question {
+    padding: var(--space-md) var(--space-lg);
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.2s ease;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-accent-cyan);
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[open] .faq-question::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-question:hover {
+    color: var(--color-accent-cyan);
+  }
+
+  .faq-answer {
+    padding: 0 var(--space-lg) var(--space-lg);
+  }
+
+  .faq-answer p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+  }
+
+  /* Resource List */
+  .resource-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .resource-list li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .resource-list li:last-child {
+    border-bottom: none;
+  }
+
+  .resource-list a {
+    color: var(--color-accent-cyan);
+    font-weight: 500;
+  }
+
+  /* Glassmorphism */
+  .glass {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 50vh;
+    }
+
+    .hero-content {
+      padding: var(--space-lg);
+    }
+
+    .article-layout {
+      padding: 0 var(--space-sm);
+    }
+
+    .answer-capsule {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .capsule-icon {
+      width: 32px;
+      height: 32px;
+    }
+  }
+</style>
