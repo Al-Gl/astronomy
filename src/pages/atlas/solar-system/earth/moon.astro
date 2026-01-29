@@ -214,6 +214,82 @@ const faqData = [
           <h2>Phases and Eclipses</h2>
           <p>The Moon's changing appearance throughout the month has been used for calendars and rituals since the beginning of human civilization. Understanding why these changes occur requires understanding the geometry of the Sun-Earth-Moon system.</p>
 
+          <!-- Interactive Moon Phases -->
+          <figure class="moon-phases-interactive glass" aria-label="Interactive lunar phase explorer">
+            <div class="moon-display">
+              <svg class="moon-svg" viewBox="0 0 200 200" aria-hidden="true">
+                <defs>
+                  <!-- Clip to moon circle -->
+                  <clipPath id="moonClip">
+                    <circle cx="100" cy="100" r="90"/>
+                  </clipPath>
+                  <!-- Shadow gradient for realistic terminator -->
+                  <linearGradient id="shadowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="rgba(0,0,0,0.95)"/>
+                    <stop offset="85%" stop-color="rgba(0,0,0,0.98)"/>
+                    <stop offset="100%" stop-color="rgba(0,0,0,0.7)"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- Outer glow -->
+                <circle cx="100" cy="100" r="96" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="8"/>
+                <circle cx="100" cy="100" r="93" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="4"/>
+
+                <!-- Real moon image -->
+                <image
+                  href="/images/moon_trans.png"
+                  x="10" y="10"
+                  width="180" height="180"
+                  clip-path="url(#moonClip)"
+                  preserveAspectRatio="xMidYMid slice"
+                />
+
+                <!-- Shadow overlay for phases - dynamically updated -->
+                <path id="shadowOverlay" clip-path="url(#moonClip)" fill="rgba(0,0,0,0.97)"/>
+              </svg>
+              <div class="moon-glow"></div>
+            </div>
+
+            <div class="phase-info" aria-live="polite">
+              <h4 class="phase-name">Full Moon</h4>
+              <p class="phase-details"><span class="illumination">100%</span> illuminated • Day <span class="day-count">15</span></p>
+              <p class="phase-description">The Moon's entire visible disk is illuminated by the Sun.</p>
+            </div>
+
+            <div class="phase-controls">
+              <div class="phase-dots" role="group" aria-label="Quick phase selection">
+                <button class="phase-dot" data-day="0" title="New Moon" aria-label="New Moon"></button>
+                <button class="phase-dot" data-day="3.7" title="Waxing Crescent" aria-label="Waxing Crescent"></button>
+                <button class="phase-dot" data-day="7.4" title="First Quarter" aria-label="First Quarter"></button>
+                <button class="phase-dot" data-day="11.1" title="Waxing Gibbous" aria-label="Waxing Gibbous"></button>
+                <button class="phase-dot active" data-day="14.8" title="Full Moon" aria-label="Full Moon"></button>
+                <button class="phase-dot" data-day="18.5" title="Waning Gibbous" aria-label="Waning Gibbous"></button>
+                <button class="phase-dot" data-day="22.2" title="Third Quarter" aria-label="Third Quarter"></button>
+                <button class="phase-dot" data-day="25.9" title="Waning Crescent" aria-label="Waning Crescent"></button>
+              </div>
+              <div class="slider-row">
+                <input
+                  type="range"
+                  class="phase-slider"
+                  min="0"
+                  max="29.5"
+                  step="0.1"
+                  value="14.8"
+                  aria-label="Lunar cycle day selector"
+                />
+                <button class="play-pause-btn" aria-label="Play lunar cycle animation" title="Auto-play cycle">
+                  <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                  <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                    <path d="M6 4h4v16H6zM14 4h4v16h-4z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <figcaption>Drag the slider or click a phase dot to explore the lunar cycle</figcaption>
+          </figure>
+
           <h3>Lunar Phases</h3>
           <p>The Moon doesn't produce its own light—it shines by reflecting sunlight. As the Moon orbits Earth, we see different portions of its sunlit half, creating the phases:</p>
           <ul>
@@ -411,6 +487,193 @@ const faqData = [
   }, observerOptions);
 
   sections.forEach(section => observer.observe(section));
+
+  // Interactive Moon Phases
+  const moonPhases = [
+    { name: 'New Moon', day: 0, illumination: 0, description: 'The Moon is between Earth and Sun; we see only the dark side.' },
+    { name: 'Waxing Crescent', day: 3.7, illumination: 25, description: 'A sliver of light appears on the right side, growing each night.' },
+    { name: 'First Quarter', day: 7.4, illumination: 50, description: 'Half the Moon is illuminated—the right half as seen from Earth.' },
+    { name: 'Waxing Gibbous', day: 11.1, illumination: 75, description: 'More than half illuminated and still growing toward full.' },
+    { name: 'Full Moon', day: 14.8, illumination: 100, description: 'The entire visible disk is illuminated by the Sun.' },
+    { name: 'Waning Gibbous', day: 18.5, illumination: 75, description: 'Past full, the illumination shrinks from the right side.' },
+    { name: 'Third Quarter', day: 22.2, illumination: 50, description: 'Half illuminated again—now the left half as seen from Earth.' },
+    { name: 'Waning Crescent', day: 25.9, illumination: 25, description: 'A thin sliver on the left, fading toward the next new moon.' }
+  ];
+
+  const slider = document.querySelector('.phase-slider');
+  const phaseDots = document.querySelectorAll('.phase-dot');
+  const phaseName = document.querySelector('.phase-name');
+  const illumination = document.querySelector('.illumination');
+  const dayCount = document.querySelector('.day-count');
+  const phaseDescription = document.querySelector('.phase-description');
+  const shadowOverlay = document.getElementById('shadowOverlay');
+  const playPauseBtn = document.querySelector('.play-pause-btn');
+  const playIcon = document.querySelector('.play-icon');
+  const pauseIcon = document.querySelector('.pause-icon');
+
+  let isPlaying = false;
+  let animationInterval = null;
+
+  const cx = 100, cy = 100, r = 90;
+
+  // Generate SVG path for the SHADOW portion of the moon
+  // phase: 0 = new moon (full shadow), 0.5 = full moon (no shadow), 1 = new moon again
+  function generateShadowPath(phase) {
+    // Normalize phase to 0-1 range
+    phase = phase % 1;
+    if (phase < 0) phase += 1;
+
+    // Full moon - no shadow (return empty)
+    if (Math.abs(phase - 0.5) < 0.01) {
+      return '';
+    }
+
+    // New moon - entire moon is shadow
+    if (phase < 0.01 || phase > 0.99) {
+      return `M ${cx - r} ${cy} A ${r} ${r} 0 1 1 ${cx + r} ${cy} A ${r} ${r} 0 1 1 ${cx - r} ${cy}`;
+    }
+
+    // Calculate terminator curve
+    const phaseAngle = phase * 2 * Math.PI;
+    const terminatorRatio = Math.cos(phaseAngle);
+
+    // Waxing (0 to 0.5): shadow is on LEFT side
+    // Waning (0.5 to 1): shadow is on RIGHT side
+    const waxing = phase < 0.5;
+
+    // The terminator X radius (how "wide" the ellipse is)
+    const tx = Math.abs(terminatorRatio) * r;
+
+    let path;
+
+    if (waxing) {
+      // Shadow on LEFT side
+      if (terminatorRatio > 0) {
+        // Waxing crescent: large shadow, terminator curves right (into lit area)
+        path = `M ${cx} ${cy - r} ` +
+               `A ${r} ${r} 0 0 0 ${cx} ${cy + r} ` +
+               `A ${tx} ${r} 0 0 0 ${cx} ${cy - r}`;
+      } else {
+        // Waxing gibbous: small shadow, terminator curves left (away from lit)
+        path = `M ${cx} ${cy - r} ` +
+               `A ${r} ${r} 0 0 0 ${cx} ${cy + r} ` +
+               `A ${tx} ${r} 0 0 1 ${cx} ${cy - r}`;
+      }
+    } else {
+      // Shadow on RIGHT side (waning)
+      if (terminatorRatio > 0) {
+        // Waning crescent: large shadow, terminator curves left (into lit area)
+        path = `M ${cx} ${cy - r} ` +
+               `A ${r} ${r} 0 0 1 ${cx} ${cy + r} ` +
+               `A ${tx} ${r} 0 0 1 ${cx} ${cy - r}`;
+      } else {
+        // Waning gibbous: small shadow, terminator curves right (away from lit)
+        path = `M ${cx} ${cy - r} ` +
+               `A ${r} ${r} 0 0 1 ${cx} ${cy + r} ` +
+               `A ${tx} ${r} 0 0 0 ${cx} ${cy - r}`;
+      }
+    }
+
+    return path;
+  }
+
+  function updateMoonPhase(day) {
+    const cycleLength = 29.5;
+    const normalizedDay = day % cycleLength;
+
+    // Calculate phase (0 = new, 0.5 = full, 1 = new again)
+    const phase = normalizedDay / cycleLength;
+
+    // Calculate illumination percentage
+    let illum;
+    if (normalizedDay <= 14.75) {
+      illum = (normalizedDay / 14.75) * 100;
+    } else {
+      illum = ((cycleLength - normalizedDay) / 14.75) * 100;
+    }
+
+    // Update the moon visualization - draw shadow overlay
+    if (shadowOverlay) shadowOverlay.setAttribute('d', generateShadowPath(phase));
+
+    // Find the closest named phase
+    let closestPhase = moonPhases[0];
+    let minDiff = Math.abs(normalizedDay - moonPhases[0].day);
+
+    for (const phase of moonPhases) {
+      const diff = Math.min(
+        Math.abs(normalizedDay - phase.day),
+        Math.abs(normalizedDay - phase.day - cycleLength),
+        Math.abs(normalizedDay - phase.day + cycleLength)
+      );
+      if (diff < minDiff) {
+        minDiff = diff;
+        closestPhase = phase;
+      }
+    }
+
+    // Update display
+    phaseName.textContent = closestPhase.name;
+    illumination.textContent = Math.round(illum) + '%';
+    dayCount.textContent = normalizedDay.toFixed(1);
+    phaseDescription.textContent = closestPhase.description;
+
+    // Update active dot
+    phaseDots.forEach(dot => {
+      dot.classList.remove('active');
+      if (parseFloat(dot.dataset.day) === closestPhase.day) {
+        dot.classList.add('active');
+      }
+    });
+  }
+
+  // Slider input handler
+  slider.addEventListener('input', (e) => {
+    updateMoonPhase(parseFloat(e.target.value));
+  });
+
+  // Phase dot click handlers
+  phaseDots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const day = parseFloat(dot.dataset.day);
+      slider.value = day;
+      updateMoonPhase(day);
+    });
+  });
+
+  // Play/pause functionality
+  function togglePlay() {
+    isPlaying = !isPlaying;
+
+    if (isPlaying) {
+      playIcon.style.display = 'none';
+      pauseIcon.style.display = 'block';
+      playPauseBtn.classList.add('playing');
+      playPauseBtn.setAttribute('aria-label', 'Pause lunar cycle animation');
+
+      animationInterval = setInterval(() => {
+        let currentDay = parseFloat(slider.value);
+        currentDay += 0.15;
+        if (currentDay > 29.5) currentDay = 0;
+        slider.value = currentDay;
+        updateMoonPhase(currentDay);
+      }, 50);
+    } else {
+      playIcon.style.display = 'block';
+      pauseIcon.style.display = 'none';
+      playPauseBtn.classList.remove('playing');
+      playPauseBtn.setAttribute('aria-label', 'Play lunar cycle animation');
+
+      if (animationInterval) {
+        clearInterval(animationInterval);
+        animationInterval = null;
+      }
+    }
+  }
+
+  playPauseBtn.addEventListener('click', togglePlay);
+
+  // Initialize with full moon
+  updateMoonPhase(14.8);
 </script>
 
 <style>
@@ -872,6 +1135,223 @@ const faqData = [
     .capsule-icon {
       width: 32px;
       height: 32px;
+    }
+  }
+
+  /* Interactive Moon Phases */
+  .moon-phases-interactive {
+    margin: var(--space-2xl) 0;
+    padding: var(--space-xl);
+    text-align: center;
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+  }
+
+  .moon-display {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto var(--space-lg);
+  }
+
+  .moon-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.2));
+    transition: filter 0.3s ease;
+  }
+
+  .moon-phases-interactive:hover .moon-svg {
+    filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.3));
+  }
+
+  .moon-glow {
+    position: absolute;
+    inset: -20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .moon-shadow {
+    transition: all 0.15s ease-out;
+  }
+
+  .phase-info {
+    margin-bottom: var(--space-lg);
+  }
+
+  .phase-name {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-text-primary);
+    margin: 0 0 var(--space-xs);
+  }
+
+  .phase-details {
+    font-size: 1rem;
+    color: var(--color-accent-cyan);
+    margin: 0 0 var(--space-xs);
+  }
+
+  .phase-description {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .phase-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .phase-dots {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 320px;
+    padding: 0 var(--space-sm);
+  }
+
+  .phase-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+  }
+
+  .phase-dot:hover {
+    border-color: var(--color-accent-cyan);
+    transform: scale(1.2);
+    box-shadow: 0 0 12px rgba(6, 182, 212, 0.5);
+  }
+
+  .phase-dot.active {
+    background: var(--color-accent-cyan);
+    border-color: var(--color-accent-cyan);
+    transform: scale(1.3);
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.6);
+  }
+
+  .slider-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .phase-slider {
+    flex: 1;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+  }
+
+  .phase-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-accent-cyan);
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .phase-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.7);
+  }
+
+  .phase-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-accent-cyan);
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+  }
+
+  .play-pause-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    padding: 0;
+  }
+
+  .play-pause-btn:hover {
+    border-color: var(--color-accent-cyan);
+    color: var(--color-accent-cyan);
+    box-shadow: 0 0 12px rgba(6, 182, 212, 0.4);
+  }
+
+  .play-pause-btn.playing {
+    background: var(--color-accent-cyan);
+    border-color: var(--color-accent-cyan);
+    color: #000;
+  }
+
+  .play-pause-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .moon-phases-interactive figcaption {
+    margin-top: var(--space-md);
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    opacity: 0.7;
+  }
+
+  @media (max-width: 768px) {
+    .moon-display {
+      width: 150px;
+      height: 150px;
+    }
+
+    .phase-name {
+      font-size: 1.25rem;
+    }
+
+    .phase-dots {
+      max-width: 280px;
+    }
+
+    .slider-row {
+      max-width: 280px;
+    }
+
+    .phase-dot {
+      width: 12px;
+      height: 12px;
     }
   }
 </style>

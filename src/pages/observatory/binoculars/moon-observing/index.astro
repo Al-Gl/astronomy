@@ -1,0 +1,939 @@
+---
+import MainLayout from '../../../../layouts/MainLayout.astro';
+import Schema from '../../../../components/Schema.astro';
+
+// Breadcrumb navigation
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Observatory', url: '/observatory/' },
+  { name: 'Binoculars', url: '/observatory/binoculars/' },
+  { name: 'Observing the Moon with Binoculars', url: '/observatory/binoculars/moon-observing/' }
+];
+
+// Article metadata for schema
+const articleData = {
+  headline: 'Observing the Moon with Binoculars',
+  description: 'Complete guide to lunar observation through binoculars. Explore craters, maria, mountains, and rilles across all lunar phases. Learn terminator viewing techniques, feature identification, and month-by-month observing strategies.',
+  datePublished: '2026-01-28',
+  dateModified: '2026-01-28',
+  author: 'The Astronomy Space',
+  image: '/images/Hero_moon_observing.jpg',
+  keywords: [
+    'moon observation',
+    'lunar features',
+    'moon craters',
+    'binocular astronomy',
+    'terminator viewing',
+    'lunar maria',
+    'moon phases',
+    'observing the moon',
+    'lunar mountains',
+    'crater identification',
+    'Tycho crater',
+    'Mare Tranquillitatis'
+  ]
+};
+
+// FAQ data for schema
+const faqData = [
+  {
+    question: 'What is the best time to observe the Moon through binoculars?',
+    answer: 'The best lunar observing occurs along the terminator—the line dividing day and night on the lunar surface—visible during crescent, quarter, and gibbous phases. Avoid full moon, when flat lighting washes out details and brightness causes eye discomfort. First quarter (7-8 days after new moon) and last quarter (21-22 days) offer optimal terminator positions bisecting the visible face. Early evening for waxing phases and early morning for waning phases provide comfortable observing times. The 3-day period around quarters shows the most dramatic shadows emphasizing craters and mountains.'
+  },
+  {
+    question: 'Why does the Moon look better at quarter phase than full moon?',
+    answer: 'Quarter phases provide low-angle sunlight along the terminator, casting long shadows that emphasize relief, craters, and mountains dramatically. Full moon receives perpendicular sunlight eliminating shadows, flattening the view into a bright, featureless disk that strains eyes and hides three-dimensional topography. Additionally, full moon\'s excessive brightness (magnitude -12.7) forces your pupils to constrict, limiting light-gathering and making the view less comfortable. Quarter moon (magnitude -10.0) offers 7 times less brightness—still plenty bright for detailed views while maintaining comfortable viewing and maximum surface detail through shadow emphasis.'
+  },
+  {
+    question: 'Can I see the Apollo landing sites with binoculars?',
+    answer: 'No—the Apollo landing sites remain far too small for any Earth-based optical instrument including binoculars or amateur telescopes. The lunar modules measure roughly 9 meters across, subtending only 0.005 arc-seconds from Earth. Binoculars resolve down to perhaps 20-30 arc-seconds at best, roughly 4000-6000 times too coarse. Even the Hubble Space Telescope cannot resolve Apollo artifacts. You can observe the landing regions (Mare Tranquillitatis for Apollo 11, Oceanus Procellarum for Apollo 12, etc.) as recognizable maria and nearby craters, but the actual hardware remains invisible. Only lunar-orbiting spacecraft photograph landing sites directly.'
+  },
+  {
+    question: 'What magnification do I need to see lunar craters?',
+    answer: 'Major craters like Tycho, Copernicus, and Clavius appear obvious through any binoculars including modest 7x35 or 8x42 models. These craters span 85-225km and show clearly as distinct circular features. Medium craters (20-40km) become visible with 10x50 binoculars as small distinct features. Fine detail—small craters under 10-15km, crater central peaks, terraced walls—benefits from 15x70 or larger binoculars, though 10x power suffices for hundreds of features. Magnification matters less than steady viewing; tripod-mounted 10x binoculars reveal more detail than shakily-held 20x binoculars. Prioritize stability over maximum power.'
+  },
+  {
+    question: 'How do I identify specific lunar features?',
+    answer: 'Start with the most obvious maria (dark plains)—Mare Tranquillitatis, Mare Serenitatis, Oceanus Procellarum—using a labeled lunar map oriented to match your view. Learn these landmarks first, then navigate to nearby craters. Use terminator position as reference; features crossing the terminator show maximum contrast and easiest identification. Smartphone apps like Moon Globe or SkySafari overlay feature names on live lunar views helping identification. Printed lunar maps from astronomy sources provide detailed nomenclature. Build knowledge progressively—learn 3-5 features per session rather than attempting hundreds immediately. After a few months, major features become familiar friends recognized instantly.'
+  },
+  {
+    question: 'Should I use filters when observing the Moon?',
+    answer: 'Filters aren\'t essential but can improve comfort and contrast during bright phases. Neutral density (moon) filters reduce brightness without altering color, particularly helpful near full moon or for sensitive eyes. They cost $15-40 and screw into threaded binocular eyepieces (check your model). Variable polarizing filters allow brightness adjustment by rotation. Green filters slightly enhance contrast for some observers by matching peak eye sensitivity. Most observers view the Moon filter-free without problems, using the Moon\'s natural brightness advantage. Try unfiltered first; add filters only if brightness causes genuine discomfort or if you observe exclusively at brighter phases.'
+  }
+];
+---
+
+<MainLayout
+  title="Observing the Moon with Binoculars | The Astronomy Space"
+  description="Complete guide to lunar observation through binoculars. Explore craters, maria, mountains, and rilles across all lunar phases. Learn terminator viewing techniques, feature identification, and month-by-month observing strategies."
+>
+  <!-- Schema Markup -->
+  <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
+  <Schema type="TechArticle" article={articleData} />
+  <Schema type="FAQPage" faq={faqData} />
+
+  <!-- Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-image-wrapper">
+      <img
+        src="/images/Hero_moon_observing.jpg"
+        alt="Moon viewed through binoculars showing craters and maria"
+        class="hero-image"
+        loading="eager"
+      />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="container hero-content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        {breadcrumbs.map((crumb, index) => (
+          <span>
+            {index > 0 && <span class="breadcrumb-separator">/</span>}
+            {index === breadcrumbs.length - 1 ? (
+              <span class="breadcrumb-current">{crumb.name}</span>
+            ) : (
+              <a href={crumb.url} class="breadcrumb-link">{crumb.name}</a>
+            )}
+          </span>
+        ))}
+      </nav>
+      <h1 class="hero-title">Observing the Moon with Binoculars</h1>
+      <p class="hero-subtitle">
+        Explore our celestial companion in stunning detail. Discover hundreds of craters, ancient lava plains, towering mountains, and mysterious rilles through the perfect beginner's astronomical target.
+      </p>
+    </div>
+  </section>
+
+  <!-- Answer Capsule -->
+  <section class="answer-capsule">
+    <div class="container">
+      <div class="capsule-content">
+        <div class="capsule-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="capsule-text">
+          <h2 class="capsule-title">Quick Answer</h2>
+          <p>Observe the Moon during crescent, quarter, and gibbous phases when the terminator (day/night line) creates dramatic shadows revealing craters, mountains, and surface relief. Avoid full moon's flat, shadowless lighting. Use any binoculars—even modest 7x50 or 10x50 models reveal hundreds of features including major craters (Tycho, Copernicus, Clavius), dark maria (ancient lava plains), and bright ray systems. Scan along the terminator where low-angle sunlight emphasizes three-dimensional structure. The Moon's brightness allows observation from light-polluted cities and requires no dark adaptation, making it the most accessible astronomy target. Spend several sessions exploring different phases to build feature recognition.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content with Sidebar -->
+  <div class="content-wrapper">
+    <div class="container">
+      <div class="content-layout">
+
+        <!-- Table of Contents Sidebar -->
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h2 class="toc-title">Contents</h2>
+            <nav class="toc-nav">
+              <a href="#introduction" class="toc-link">Why the Moon?</a>
+              <a href="#phases" class="toc-link">Understanding Phases</a>
+              <a href="#terminator" class="toc-link">The Terminator</a>
+              <a href="#major-features" class="toc-link">Major Features</a>
+              <a href="#by-phase" class="toc-link">Observing by Phase</a>
+              <a href="#northern-hemisphere" class="toc-link">Northern Features</a>
+              <a href="#southern-hemisphere" class="toc-link">Southern Features</a>
+              <a href="#equipment" class="toc-link">Equipment & Techniques</a>
+              <a href="#sketching" class="toc-link">Sketching & Recording</a>
+              <a href="#photography" class="toc-link">Photography Basics</a>
+              <a href="#observing-program" class="toc-link">Systematic Programs</a>
+              <a href="#month-by-month" class="toc-link">Month-by-Month Guide</a>
+            </nav>
+          </div>
+        </aside>
+
+        <!-- Article Content -->
+        <article class="article-content">
+
+          <!-- Introduction -->
+          <section id="introduction" class="content-section">
+            <h2>Why the Moon is Perfect for Binoculars</h2>
+
+            <p>The Moon stands alone as astronomy's most rewarding binocular target, offering more observable detail per viewing session than perhaps all other celestial objects combined. Its proximity—a mere 384,400 kilometers compared to millions or billions for other targets—means angular size dwarfs everything else visible from Earth. The full Moon spans 31 arcminutes, roughly 1,800 times larger than Jupiter's disk, revealing surface features measured in single kilometers rather than requiring specialized optics to glimpse planetary-scale structures hundreds of thousands of kilometers across.</p>
+
+            <p>Unlike faint deep-sky objects demanding dark skies, dark adaptation, and averted vision techniques, the Moon blazes with reflected sunlight bright enough to read by, making observation possible from the most light-polluted cities, parking lots, and backyard. No special preparation needed—simply raise binoculars and explore. This accessibility transforms the Moon into the perfect training target for beginners building observing skills, learning equipment, and developing astronomical knowledge without the frustrations inherent in hunting faint nebulae or galaxies through urban skyglow.</p>
+
+            <p>Binoculars particularly excel at lunar observation because the Moon's large angular size fits beautifully within typical binocular fields of view. Where telescopes at high magnification show tiny isolated patches requiring mental stitching to comprehend full features, binoculars display entire craters, maria, and mountain ranges in single views preserving context and spatial relationships. The two-eye view provides comfortable, relaxed observation sustainable for extended sessions without the eye fatigue single-eye telescope viewing sometimes causes. And moderate magnifications (7x-15x) perfectly balance detail with field width for the Moon's half-degree disk.</p>
+
+            <p>The lunar surface never repeats exactly the same view twice. Earth's 23.5° axial tilt combined with the Moon's 5.1° orbital inclination creates libration—apparent rocking motion revealing slightly different limb areas over time. Monthly phase progression moves the terminator across the surface, illuminating different features with optimal lighting while plunging previously visible areas into shadow or flat full illumination. Seasonal variations alter the Moon's path across the sky, changing observing comfort and timing. This constant variation ensures unlimited observing opportunities; even familiar features appear transformed under different lighting angles and libration states.</p>
+
+            <p>Hundreds of named features cover the lunar near side—craters ranging from 225km giants (Clavius) down to tiny pits testing your optics' resolution limits, vast dark maria filling ancient impact basins, brilliant ray systems radiating from young craters, isolated mountain peaks jutting from plains, sinuous rilles (collapsed lava tubes), fault scarps, and subtle color variations hinting at composition differences. Experienced observers spend decades systematically surveying the Moon, discovering new subtle features, tracking changing illumination patterns, and never exhausting observable details. For beginners, the Moon offers immediate spectacular gratification; for veterans, inexhaustible long-term engagement.</p>
+          </section>
+
+          <!-- Phases -->
+          <section id="phases" class="content-section">
+            <h2>Understanding Lunar Phases</h2>
+
+            <p>Lunar phases result from the Moon's orbital position relative to the Sun and Earth, determining which portion of the sunlit lunar hemisphere faces Earth. New moon occurs when the Moon lies between Earth and Sun—the sunlit side faces away from us, rendering the Moon essentially invisible (except during the rare solar eclipse when it passes directly in front of the Sun). As the Moon orbits eastward, a growing sliver of sunlit surface becomes visible from Earth, progressing through waxing crescent, first quarter (half illuminated), waxing gibbous, and finally full moon when Earth lies between the Moon and Sun, showing the entire sunlit hemisphere.</p>
+
+            <p>After full moon, the illuminated portion shrinks through waning gibbous, last quarter (again half illuminated but opposite side from first quarter), waning crescent, and back to new moon completing the 29.5-day synodic month. Crucially for observers, the terminator—the boundary between lunar day and night—progresses across the surface during this cycle, illuminating features sequentially from west to east limb during waxing phases, then crossing back east to west during waning phases. This progression means every lunar feature experiences optimal low-angle illumination twice monthly, once during waxing (evening observation) and once during waning (morning observation).</p>
+
+            <div class="info-box glass">
+              <h3>Lunar Phases for Observing</h3>
+              <div style="margin-top: 1rem;">
+                <p><strong>New Moon (Age 0 days):</strong> Invisible. Moon between Earth and Sun. <em>Observing: None possible (except during solar eclipse).</em></p>
+
+                <p><strong>Waxing Crescent (Age 1-6 days):</strong> Thin crescent in evening western sky. Terminator near western limb. <em>Best features: Mare Crisium, Langrenus, Petavius, Vendelinus visible. Earthshine illuminates dark portion faintly.</em></p>
+
+                <p><strong>First Quarter (Age 7-8 days):</strong> Half Moon, eastern side illuminated. Terminator bisects disk. <em>Best features: Maximum detail. Mare Serenitatis, Tranquillitatis, Tycho, Copernicus, Alpine Valley, Apennine Mountains. Prime viewing phase.</em></p>
+
+                <p><strong>Waxing Gibbous (Age 9-13 days):</strong> More than half illuminated. Terminator approaches eastern limb. <em>Best features: Mare Humorum, Grimaldi, Oceanus Procellarum, Aristarchus, Kepler. Bright rays from Tycho extending across maria.</em></p>
+
+                <p><strong>Full Moon (Age 14-15 days):</strong> Entirely illuminated. Opposite Sun from Earth. <em>Observing: Worst phase. Shadowless, flat lighting. Too bright. Ray systems visible. Avoid for detailed viewing.</em></p>
+
+                <p><strong>Waning Gibbous (Age 16-21 days):</strong> Shrinking illumination. Terminator crosses western limb regions. <em>Best features: Morning visibility. Western limb features re-illuminated from opposite angle versus waxing phase.</em></p>
+
+                <p><strong>Last Quarter (Age 21-22 days):</strong> Half Moon, western side illuminated. Pre-dawn observing. <em>Best features: Second chance at central features (Tycho, Copernicus) from opposite lighting. Early morning viewing.</em></p>
+
+                <p><strong>Waning Crescent (Age 23-28 days):</strong> Thin crescent in morning eastern sky. <em>Best features: Mare Crisium, eastern limb again illuminated. Earthshine visible. Pre-dawn timing challenging.</em></p>
+              </div>
+            </div>
+
+            <p>Phase timing determines observing convenience significantly. Waxing phases (crescent through full) appear in evening skies setting progressively later each night—comfortable for most observers allowing dinner-time or early evening sessions. First quarter Moon (week after new) transits (reaches highest point) around sunset, providing all-evening visibility at comfortable altitudes. Full moon rises at sunset and sets at sunrise, offering all-night visibility but worst observing conditions due to shadowless lighting. Waning phases (full through crescent) require progressively earlier morning observations—last quarter rises around midnight, waning crescent near dawn. Most casual observers focus on waxing phases for convenience; dedicated lunar enthusiasts observe both waxing and waning to study features under varying illumination angles.</p>
+
+            <p>The lunar day lasts 29.5 Earth days—14.75 days of continuous sunlight followed by 14.75 days of darkness. From any spot on the lunar surface, sunrise brings two weeks of steadily climbing sun, shadows shortening until local noon, then lengthening again through afternoon until sunset initiates two-week night. For Earth-based observers, this means the terminator advances roughly 12 degrees per day across the lunar surface (360° divided by 29.5 days). Features near the terminator enjoy optimal viewing for 2-3 days as low-angle sunlight emphasizes relief before the advancing sun climbs too high, flattening shadows and reducing three-dimensional appearance.</p>
+
+            <p>Experienced lunar observers often prefer quarter phases over all others because the terminator bisects the disk, placing maximum interesting terrain at the optimal lighting zone. First quarter particularly excels because convenient evening visibility combines with the terminator positioned to showcase the Moon's most interesting central regions—the border between ancient heavily cratered highlands and younger smoother maria. This region contains the highest concentration of spectacular craters, mountain ranges, and varied terrain. Many beginners mistakenly await full moon thinking "more illumination equals better viewing," only to discover the shadowless flood ruins detail. Trust experienced observers: quarters beat full moon overwhelmingly.</p>
+
+            <p>Earthshine—the faint glow illuminating the Moon's unlit portion during thin crescent phases—occurs when sunlight reflects off Earth onto the lunar surface, then back to our eyes. It's bright enough to reveal major maria even on the "dark" side, particularly 2-4 days after new moon or before new moon during waning crescent. Binoculars show earthshine beautifully, displaying the dark maria contrasting against brighter highlands in ghostly bluish-gray light. This offers a special observing opportunity unique to thin crescent phases—you can observe both the brightly sunlit crescent showing crisp terminator details and the faintly earthlit remaining disk showing major albedo features simultaneously.</p>
+          </section>
+
+          <!-- Terminator -->
+          <section id="terminator" class="content-section">
+            <h2>The Terminator: Lunar Observing's Prime Real Estate</h2>
+
+            <p>The terminator—the boundary between lunar day and night—represents the single most important concept in lunar observation. Here, the Sun grazes the surface at near-horizontal angles, casting shadows hundreds of times longer than the features producing them. A 10-kilometer tall mountain casts a 100+ kilometer shadow at sunrise or sunset on the Moon, just as terrestrial mountains cast dramatic long shadows at sunrise and sunset on Earth. These exaggerated shadows transform the Moon from a flat disk into a three-dimensional landscape, emphasizing craters, mountains, valleys, and subtle surface irregularities invisible under higher sun angles.</p>
+
+            <p>Compare viewing the same crater at the terminator versus under full illumination. At the terminator, low-angle light reveals terraced inner walls descending to shadowed floors, central peaks jutting from darkness, and the raised rim casting shadows outward. The crater appears deep, complex, and obviously three-dimensional. Under full illumination (near full moon), the same crater appears as a vague circular outline, perhaps slightly brighter or darker than surroundings, with interior detail washed out by vertical sunlight eliminating shadows. The difference is so extreme that beginners often believe they're viewing different features entirely—such is shadow's importance for revealing three-dimensional topography through two-dimensional optical systems.</p>
+
+            <div class="info-box glass">
+              <h3>Terminator Observing Techniques</h3>
+              <div style="margin-top: 1rem;">
+                <p><strong>Follow the Terminator:</strong> Don't just scan randomly. Systematically sweep along the terminator from north to south (or vice versa), where virtually every feature shows maximum detail. Spend 75% of observing time within two crater-widths of the terminator line.</p>
+
+                <p><strong>Return to Favorite Features:</strong> Observe the same crater at the terminator during waxing phase (evening), full illumination (full moon), and waning phase terminator (morning). Notice how dramatically lighting changes appearance, sometimes making features barely recognizable. This teaches lighting effects powerfully.</p>
+
+                <p><strong>Watch Time-Lapse:</strong> The terminator visibly moves over 2-3 hours during a single session. Return to a specific crater every 30 minutes and note how shadows shrink and details change as "sunrise" progresses. This dynamic demonstration helps understand three-dimensional topography.</p>
+
+                <p><strong>Golden Hours:</strong> The 24-hour period immediately before and after first/last quarter provides the absolute best viewing—the terminator crosses the Moon's most interesting central terrain containing the highest density of spectacular features. Plan dedicated sessions around quarters.</p>
+
+                <p><strong>Challenge Tiny Features:</strong> Look for the smallest craters you can detect right at the terminator. These tiny pits (perhaps 2-5km) mark your optical resolution limit. As the sun climbs and shadows shrink, these tiny craters vanish completely, reappearing only when the terminator returns two weeks later from the opposite direction.</p>
+              </div>
+            </div>
+
+            <p>The terminator isn't a sharp line but rather a gradient zone spanning perhaps 20-40 kilometers where illumination transitions from full darkness through twilight into full daylight. This gradient means different features along the same terminator radius experience slightly different lighting angles, with some just emerging from night showing the longest shadows while others further into daylight show progressively shorter shadows and higher sun angles. Experienced observers exploit this gradient by scanning slightly ahead of and behind the sharpest terminator position to compare how the same feature types appear under subtly different lighting.</p>
+
+            <p>Features oriented perpendicular to sunlight direction show maximum contrast and visibility. A crater with north-south oriented rim appears most dramatic when the terminator runs east-west across it (quarter moons), casting shadows across the crater's full diameter. The same crater appears less impressive when the terminator runs north-south beside it, illuminating it more evenly. This orientation effect means certain features show better at first quarter, others at last quarter, and some show well at both—encouraging you to observe the complete monthly cycle rather than focusing only on waxing phases.</p>
+
+            <p>The terminator's daily motion rate—roughly 12 degrees per day or 0.5 degrees per hour—is fast enough to notice change during a 2-3 hour observing session but slow enough to study specific features at the terminator over multiple consecutive nights. A major crater complex might take 2-3 nights to fully cross the terminator zone, allowing you to observe sunset, dusk, sunrise, and morning illumination on the same features by returning each night. This multi-night study reveals details invisible during single sessions because different lighting angles emphasize different topographic elements.</p>
+
+            <p>Occasionally, the advancing terminator reveals features that appear only briefly under specific lighting then vanish. Some low ridges, subtle rilles, and ancient crater remnants show clearly only when sunlight grazes at exactly the right angle for a few hours before disappearing back into indistinct terrain. These "sunrise/sunset specials" challenge observers to catch them during their narrow visibility windows. Lunar observing guides list particularly ephemeral features worth hunting at specific lunar day ages when lighting geometry favors their detection.</p>
+
+            <p>Don't completely ignore areas far from the terminator. While they lack the dramatic shadows that make terminator regions so obviously detailed, areas under moderate sun angles (20-50 degrees above horizon from lunar surface) still show considerable detail through albedo variations—subtle brightness differences revealing composition changes, ray systems from young craters, and major topographic features through their own inherent brightness rather than shadow. The Moon never presents a "wrong" time for observation, just optimal versus suboptimal depending on what features you're targeting and what aspects you want to emphasize.</p>
+          </section>
+
+          <!-- Major Features -->
+          <section id="major-features" class="content-section">
+            <h2>Major Lunar Feature Types</h2>
+
+            <p>The lunar surface divides into several distinct feature categories, each with characteristic appearance, formation history, and observing attributes. Understanding these categories helps you know what you're viewing, why features look the way they do, and what details to look for during observation. The Moon's 4.5-billion-year history wrote itself into surface features—young craters overlay ancient maria, which themselves fill older impact basins, all scarring primordial highlands formed during the Moon's violent birth.</p>
+
+            <h3>Maria (Singular: Mare)</h3>
+
+            <p>Maria—Latin for "seas," named by early astronomers who mistook them for bodies of water—are vast dark plains of solidified basaltic lava filling ancient impact basins. They appear dark because basalt rock reflects only 7-10% of sunlight compared to 15-18% for the brighter highland anorthosite. Fourteen major maria cover roughly 31% of the lunar near side, concentrated on the Earth-facing hemisphere (the far side contains only a few small maria). Maria formed 3.0-3.8 billion years ago when massive impacts fractured the crust, allowing molten basalt from the mantle to flood the resulting basins over millions of years.</p>
+
+            <p>The largest and most obvious maria include Mare Imbrium (Sea of Rains, 1,100km diameter), Oceanus Procellarum (Ocean of Storms, 2,500km across), Mare Serenitatis (Sea of Serenity, 700km), Mare Tranquillitatis (Sea of Tranquility, 873km—Apollo 11's landing site), Mare Crisium (Sea of Crises, 555km), and Mare Nectaris (Sea of Nectar, 339km). Through binoculars, these appear as large dark patches obvious even to the naked eye. Within the maria, look for subtle color variations (some maria appear slightly browner or bluer than others), ghost craters (ancient craters almost completely buried by later lava flows leaving only faint circular outlines), and wrinkle ridges (low ridges formed when cooling lava contracted).</p>
+
+            <h3>Craters</h3>
+
+            <p>Impact craters range from tiny pits near binocular resolution limits up to massive structures 200+ kilometers across. Young craters show sharp raised rims, deep bowl-shaped interiors, terraced inner walls (in larger examples), and often central peaks formed by rebound of crust after impact. Older craters have degraded rims worn by subsequent impacts, filled floors, and less distinct features. The largest craters are technically called basins when exceeding roughly 200km and often show multiple concentric rings from the catastrophic impact that formed them.</p>
+
+            <p>Notable craters easily visible in binoculars include Tycho (85km diameter, brilliant ray system visible near full moon), Copernicus (93km, prominent at first quarter), Clavius (225km, near south pole, one of the largest), Plato (101km, dark flat floor contrasting with surrounding highlands), Kepler (32km, bright rays), Aristarchus (40km, brightest major feature on the Moon), and Langrenus (132km, magnificent terraced walls visible during waxing crescent). Each crater has unique character—some with massive central peaks, others with dark lava-filled floors, some bright and pristine, others ancient and degraded. Learning individual crater personalities provides endless fascination.</p>
+
+            <h3>Mountains and Mountain Ranges</h3>
+
+            <p>Lunar mountains formed primarily as raised rims of giant impact basins, with some representing chunks of crust tossed by impacts. Unlike Earth's mountains built by plate tectonics, lunar peaks formed through violent impact processes. Major ranges include the Montes Apenninus (Apennine Mountains, 600km long, peaks to 5km height) bordering Mare Imbrium, Montes Caucasus (Caucasus Mountains), Montes Alpes (Alps), and others ringing the major maria. Isolated peaks like Mons Piton (2.25km tall) and Mons Pico (2.4km) jut dramatically from mare plains.</p>
+
+            <p>Mountains show most dramatically at the terminator when casting long shadows across surrounding plains. Calculate mountain height by measuring shadow length and using sun angle geometry—a technique lunar observers practiced for centuries before spacecraft laser altimetry provided precise measurements. The Moon's lack of atmosphere means no foothills, gentle slopes, or erosional valleys—instead, peaks rise abruptly from plains in stark relief emphasizing their height.</p>
+
+            <h3>Rilles</h3>
+
+            <p>Rilles (also called rills) are long channels etched into the lunar surface, formed by various processes including collapsed lava tubes, tectonic faulting, and volcanic erosion. Sinuous rilles meander like terrestrial rivers (but carved by flowing lava, not water), while linear rilles follow straight fault lines. Famous examples include Hadley Rille (Apollo 15 landing site, visible in large binoculars under perfect conditions), Rima Hyginus (intersecting Hyginus crater), and Alpine Valley (Vallis Alpes, cutting through the Alps). Rilles challenge binocular observers because narrow widths push resolution limits, but the most prominent appear as thin dark lines under optimal terminator lighting.</p>
+          </section>
+
+          <!-- Observing by Phase -->
+          <section id="by-phase" class="content-section">
+            <h2>Observing Strategy by Lunar Phase</h2>
+
+            <p>Each phase offers unique observing opportunities and challenges. Rather than randomly pointing binoculars at whatever phase happens to be visible, strategic observers plan sessions around specific phases optimal for particular features or observing goals. This systematic approach maximizes discovery while building comprehensive knowledge of the entire lunar surface through varied illumination.</p>
+
+            <h3>Waxing Crescent (Day 1-6): Eastern Limb Features</h3>
+
+            <p>The thin waxing crescent appears low in the western evening sky, setting soon after sunset. The terminator sits near the eastern limb (right side, northern hemisphere view), illuminating features often foreshortened and difficult under other phases. Mare Crisium becomes beautifully isolated against darker surrounding highlands, its oval shape obvious (actually nearly circular, but foreshortening makes it appear elongated). The magnificent craters Langrenus, Petavius, and Vendelinus line up spectacularly along the terminator with Langrenus showing particularly impressive terraced walls.</p>
+
+            <p>Earthshine illuminates the remaining disk faintly, revealing the major maria as darker patches against brighter highlands even on the "unlit" portion. This dual viewing—studying crisp terminator details on the crescent while simultaneously noting major albedo features across the full disk—provides unique perspective on lunar geography. Day 3-4 crescent offers the best balance between crescent width (enough features illuminated to explore) and earthshine brightness (still pronounced before waxing illumination becomes too dominant).</p>
+
+            <h3>First Quarter (Day 7-8): Prime Time</h3>
+
+            <p>First quarter represents the single best lunar observing phase. The Moon transits (reaches highest altitude) around sunset, providing convenient evening visibility at comfortable altitudes. The terminator bisects the disk precisely, placing maximum interesting terrain at optimal low-angle lighting. This central region contains the highest concentration of spectacular features: the magnificent crater Copernicus with its massive central peaks and rays; Tycho beginning to emerge in the southern highlands; the Apennine Mountains bordering Mare Imbrium; Mare Serenitatis and Mare Tranquillitatis showing their full extent; and countless smaller craters, peaks, and rilles.</p>
+
+            <p>Plan dedicated observing sessions around first quarter—the 24 hours before and after provide the absolute best viewing conditions for maximum detail and feature variety. Experienced observers often spend entire evenings during first quarter systematically surveying the terminator region, returning to favorite features multiple times as advancing shadows change their appearance throughout the session.</p>
+
+            <h3>Waxing Gibbous (Day 9-13): Western Regions Emerge</h3>
+
+            <p>As the Moon waxes toward full, the terminator approaches the western limb (left side), illuminating the vast Oceanus Procellarum and Mare Humorum. The brilliant crater Aristarchus—the Moon's brightest major feature—becomes spectacularly prominent, along with Kepler and its ray system. The dark floor of Grimaldi near the limb contrasts dramatically with surrounding brighter terrain. Tycho's magnificent ray system begins to emerge, though still incompletely visible until closer to full.</p>
+
+            <p>Gibbous phases receive less attention from casual observers than crescents or quarters, often dismissed as "on the way to full moon." This represents missed opportunities—the western regions illuminated during waxing gibbous contain spectacular features often foreshortened or poorly positioned during other phases. Dedicated observers return throughout the gibbous period to study western limb features under varying terminator positions.</p>
+
+            <h3>Full Moon (Day 14-15): Bright and Shadowless</h3>
+
+            <p>Full moon offers the worst detailed observing due to shadowless vertical illumination flattening the view and excessive brightness (magnitude -12.7, about 7 times brighter than quarter) causing pupil constriction and eye discomfort. However, full moon reveals features invisible under other lighting: ray systems from young craters like Tycho, Copernicus, and Kepler stretch hundreds of kilometers across maria, best visible against dark mare backgrounds under high illumination. The Moon's subtle color variations—some maria appearing slightly bluer or browner than others, rays appearing bright white against darker backgrounds—show most clearly near full.</p>
+
+            <p>If you observe during full moon, use shorter sessions (15-20 minutes) to avoid eye fatigue, consider neutral density filters to reduce brightness, and focus on ray systems and albedo features rather than three-dimensional topography. Many experienced observers skip full moon entirely or use the phase for photography rather than visual observation.</p>
+
+            <h3>Waning Gibbous/Last Quarter/Waning Crescent: Second Chances</h3>
+
+            <p>Waning phases provide second opportunities to observe features already seen during waxing phases, but now illuminated from the opposite direction. The terminator crosses from east to west (opposite the waxing direction), creating entirely different shadow patterns. Craters appear dramatically different—features appearing shadowed in waxing phases now receive full illumination, while previously lit areas fall into shadow. This reversal teaches three-dimensional topography powerfully by showing the same features from effectively opposite sun angles.</p>
+
+            <p>The main drawback: waning phases require progressively earlier morning viewing. Last quarter rises around midnight, waning crescents near dawn. Most casual observers skip waning phases due to inconvenient timing, but dedicated lunar enthusiasts make the effort to complete the monthly cycle, understanding that true comprehensive lunar knowledge requires observing features under both waxing and waning illumination.</p>
+          </section>
+
+          <!-- Northern Features -->
+          <section id="northern-hemisphere" class="content-section">
+            <h2>Northern Lunar Hemisphere Highlights</h2>
+
+            <p>The Moon's northern half (above the equator, which runs roughly through the center of the visible disk) contains a diverse mix of ancient highlands, several major maria, impressive mountain ranges, and numerous spectacular craters. Northern features generally appear better positioned for northern hemisphere terrestrial observers, sitting higher in the field when the Moon transits, reducing atmospheric distortion compared to southern features viewed through thicker atmospheric layers.</p>
+
+            <div class="info-box glass">
+              <h3>Top 10 Northern Hemisphere Features</h3>
+              <div style="margin-top: 1rem;">
+                <p><strong>1. Mare Imbrium (Sea of Rains):</strong> Largest dark mare on the near side, 1,100km diameter. Formed by massive impact 3.85 billion years ago. Best at first quarter when terminator crosses its eastern border. <em>Look for: Numerous craters dotting the mare floor, wrinkle ridges, isolated mountain peaks</em></p>
+
+                <p><strong>2. Copernicus Crater:</strong> 93km diameter, magnificent central peaks visible in larger binoculars, bright rays extending hundreds of km. Formed 800 million years ago, relatively young. Best 1-2 days after first quarter at terminator. <em>Look for: Terraced walls, multiple central peaks, radial rays</em></p>
+
+                <p><strong>3. Plato Crater:</strong> 101km diameter, dark lava-filled floor contrasting with bright rim and surrounding highlands. Best at first quarter. <em>Look for: Three or more small craters on dark floor (challenging in binoculars)</em></p>
+
+                <p><strong>4. Mare Serenitatis (Sea of Serenity):</strong> 700km diameter circular mare east of Mare Imbrium. Apollo 17 landed in adjacent Taurus-Littrow valley. Best at first quarter. <em>Look for: Smooth dark floor, few large craters, subtle wrinkle ridges</em></p>
+
+                <p><strong>5. Montes Apenninus (Apennine Mountains):</strong> 600km range bordering Mare Imbrium's southeast rim, peaks to 5km height. Best at first quarter terminator casting shadows. <em>Look for: Dramatic shadows, isolated peaks, sinuous valleys</em></p>
+
+                <p><strong>6. Vallis Alpes (Alpine Valley):</strong> 166km long valley cutting through Montes Alpes (Alps). Formed by faulting or graben formation. Best at first quarter. <em>Look for: Narrow straight cut through mountains, visible in steady 10x50 binoculars</em></p>
+
+                <p><strong>7. Aristillus & Autolycus Craters:</strong> Twin craters in Mare Imbrium, 55km and 39km. Aristillus shows bright rays, terraced walls, central peak. Best shortly after first quarter. <em>Look for: The pair together, contrasting with dark mare floor</em></p>
+
+                <p><strong>8. Sinus Iridum (Bay of Rainbows):</strong> 236km bay on Mare Imbrium's northwestern edge, formed by partial crater wall. Best at first quarter +1 day when terminator creates "Golden Handle" effect. <em>Look for: Isolated bright arc of mountains catching sunlight while surrounding mare remains in shadow</em></p>
+
+                <p><strong>9. Eratosthenes Crater:</strong> 58km crater at southern end of Montes Apenninus. Deep (3.6km), terraced walls, central peaks. Best at first quarter. <em>Look for: Position between Copernicus (west) and Apennines (east)</em></p>
+
+                <p><strong>10. Cassini Crater:</strong> 57km crater in northern Mare Imbrium, contains smaller crater Cassini A on its floor. Best first quarter +1 day. <em>Look for: Crater-within-crater arrangement</em></p>
+              </div>
+            </div>
+
+            <p>The Golden Handle effect at Sinus Iridum represents one of lunar observing's most photogenic phenomena. During waxing phases approximately 10-11 days after new moon, the terminator positions so sunrise illuminates the Jura Mountains ringing Sinus Iridum's eastern rim while the bay itself remains in shadow. The mountains appear as a brilliant curved arc seemingly detached from the rest of the Moon, resembling a handle—hence the name. This effect lasts only 12-24 hours before advancing sunlight floods the bay, making it a prized target requiring specific timing.</p>
+
+            <p>Mare Frigoris (Sea of Cold) stretches 1,500km across the far northern regions, appearing heavily foreshortened from Earth but still prominent as a dark band near the north pole. Its irregular shape and crater-pocked floor contrast with the smoother southern maria. The northern regions generally show less mare coverage and more ancient cratered highlands than the south, reflecting the Moon's asymmetric impact history.</p>
+          </section>
+
+          <!-- Southern Features -->
+          <section id="southern-hemisphere" class="content-section">
+            <h2>Southern Lunar Hemisphere Highlights</h2>
+
+            <p>The southern half contains some of the Moon's most impressive craters, including several giants near the south pole, extensive ancient highlands heavily pocked with overlapping impacts, and fewer but still prominent maria. Southern features appear lower in the sky for northern hemisphere observers, sometimes suffering from atmospheric distortion when the Moon rides low, but the spectacular crater density rewards careful observation.</p>
+
+            <div class="info-box glass">
+              <h3>Top Southern Hemisphere Features</h3>
+              <div style="margin-top: 1rem;">
+                <p><strong>Tycho Crater:</strong> 85km diameter, brilliant ray system visible near full moon extending 1,500km. Formed 108 million years ago, youngest major crater. Central peak rises 2.4km. Best at first/last quarter at terminator. <em>The most prominent crater on the Moon.</em></p>
+
+                <p><strong>Clavius Crater:</strong> 225km diameter, one of the largest visible craters. Ancient, degraded walls contain numerous smaller craters including a conspicuous chain. Best 8-9 days after new moon. <em>Look for: Arc of craters on its floor (Rutherfurd, Porter, Clavius D)</em></p>
+
+                <p><strong>Theophilus Crater:</strong> 100km diameter, magnificent terraced walls, massive central peaks visible in binoculars, partially overlapping Cyrillus. Best at waxing crescent (day 5-6). <em>Part of spectacular crater chain: Theophilus-Cyrillus-Catharina</em></p>
+
+                <p><strong>Ptolemaeus Crater:</strong> 153km diameter, flat floor containing numerous tiny craters. Best at first quarter. <em>Look for: Adjacent Alphonsus (119km) with distinctive central crater chain, and Arzachel (97km) to the south</em></p>
+
+                <p><strong>Maurolycus Crater:</strong> 114km diameter in heavily cratered southern highlands. Borders Gemma Frisius showing impact overlapping. Best waxing crescent day 6-7. <em>Example of ancient, heavily impacted terrain</em></p>
+
+                <p><strong>Schickard Crater:</strong> 227km diameter near southwestern limb, dark floor contrasts with bright surrounding highlands. Best waxing gibbous day 10-11. <em>One of the Moon's largest dark-floored craters</em></p>
+
+                <p><strong>Mare Nectaris (Sea of Nectar):</strong> 339km circular mare in the southeast. Apollo 16 landed in nearby Descartes highlands. Best waxing crescent day 5-6. <em>Look for: Nearly circular outline, smooth dark floor</em></p>
+              </div>
+            </div>
+
+            <p>The Theophilus-Cyrillus-Catharina chain provides a spectacular study in crater ages and impact overlap. Theophilus (youngest) clearly overlaps Cyrillus (older), which in turn overlaps Catharina (oldest). This sequence demonstrates the Moon's impact chronology—newer craters show sharp features and overlay older degraded structures. At the terminator (waxing crescent day 5-6), all three display together magnificently with varying shadow patterns revealing their depth differences.</p>
+
+            <p>The south polar region contains some of the Moon's oldest, most degraded terrain—massive ancient craters piled upon each other in chaotic overlapping patterns. Clavius represents this region's most accessible member, visible near the south pole (actually about 58°S, but appearing polar due to perspective). The pole itself remains in permanent shadow in deep craters, containing water ice deposits confirmed by spacecraft but invisible to Earth-based telescopes.</p>
+          </section>
+
+          <!-- Equipment -->
+          <section id="equipment" class="content-section">
+            <h2>Equipment and Viewing Techniques</h2>
+
+            <p>Unlike faint deep-sky objects demanding specific equipment characteristics, the Moon's brilliance means essentially any binocular works adequately. However, certain specifications and techniques enhance lunar observation substantially, revealing details invisible through casual viewing.</p>
+
+            <h3>Optimal Binocular Specifications</h3>
+
+            <p>Magnification between 7x and 15x suits lunar work excellently. Lower powers (7x-8x) show the entire disk in single views preserving context and spatial relationships, ideal for overview observations and learning major maria and crater locations. Moderate powers (10x-12x) reveal substantial crater detail while maintaining manageable fields, representing the sweet spot for extended observing sessions. Higher powers (15x+) show more detail but narrow the field considerably and often benefit from tripod mounting due to magnified hand shake.</p>
+
+            <p>For dedicated lunar observing, consider 10x50 or 12x60 binoculars as ideal compromises—enough magnification to resolve major crater details, central peaks, and mountain ranges, while maintaining steady handheld viewing with proper bracing. If you already own 7x50 binoculars, they work beautifully for lunar work despite lower power; if you own 15x70, expect spectacular detail but plan on tripod mounting for best results.</p>
+
+            <h3>Stability Techniques</h3>
+
+            <p>The Moon's brightness doesn't eliminate hand shake's impact—shaky images still reduce detail visibility and cause eye strain. Use the same stability techniques recommended for deep-sky work: brace elbows against solid surfaces, sit in reclining chairs with armrest support, or employ tripod mounting for extended study sessions. The Moon's brightness advantage means you can observe comfortably while experimenting with different positions to find optimal stability for your equipment and body type.</p>
+
+            <h3>Filters for Lunar Observing</h3>
+
+            <p>Neutral density (moon) filters reduce brightness during gibbous and full phases, improving comfort and potentially enhancing contrast. They typically reduce light by 25-50%, bringing the Moon's brightness from eye-watering to comfortable without altering colors or introducing aberrations. Filters screw into threaded eyepieces (check your binoculars for thread compatibility—not all models accept filters). Variable polarizing filters allow adjustment by rotation, adapting to different phases. Budget $15-40 for quality filters.</p>
+
+            <p>Most observers find filters unnecessary, simply observing during favorable crescent and quarter phases when brightness remains manageable. Try unfiltered viewing first; purchase filters only if brightness genuinely causes discomfort or if you observe primarily during brighter phases. Some observers report slight contrast enhancement with filters even beyond brightness reduction, but this varies by individual physiology.</p>
+          </section>
+
+          <!-- Sketching -->
+          <section id="sketching" class="content-section">
+            <h2>Sketching and Recording Observations</h2>
+
+            <p>Lunar sketching develops observational skills dramatically by forcing you to look carefully, notice details, and understand three-dimensional topography from two-dimensional views. You need zero artistic talent—crude circles and shadow marks suffice. The process matters more than the product. Observers who sketch routinely report seeing more detail and remembering features better than those who merely look.</p>
+
+            <h3>Basic Sketching Technique</h3>
+
+            <p>Start with a prepared circle (4-6 inches diameter) representing the lunar disk. Use a white or light gray paper—the Moon appears bright, so white backgrounds feel more natural than black. Pencil works best (HB or 2B) allowing varying darkness through pressure. First, mark major maria positions as rough dark patches establishing geography. Next, add prominent craters as circles, positioning them relative to maria. Then add details: shadows within craters, central peaks, mountain ranges, terminator position and shadow patterns.</p>
+
+            <p>Work systematically—don't jump around randomly. Choose a specific region (perhaps 10° of lunar latitude/longitude) and sketch everything visible there before moving to adjacent terrain. Return to the eyepiece frequently (every 1-2 minutes) for fresh looks; your eyes and memory distort details surprisingly quickly. Compare your sketch to labeled lunar maps afterward, identifying features and learning names. Date every sketch, note the lunar age (days after new moon), and record observing conditions.</p>
+
+            <h3>Observing Logs</h3>
+
+            <p>Maintain a simple log recording each session: date, time, lunar age, phase, binocular specifications, location, sky conditions (transparency, seeing, clouds), and features observed. Note particularly interesting sights, personal observations, questions for research, and areas to revisit. These logs become valuable references months or years later when returning to features—you can compare current appearance to previous observations under different phases or libration states.</p>
+
+            <p>Digital alternatives include smartphone apps designed for astronomical logging, though many observers prefer physical notebooks avoiding screen brightness during sessions. Take photos of sketches for digital archives while maintaining physical originals—there's something satisfying about flipping through filled observing notebooks, tangible records of your astronomical journey.</p>
+          </section>
+
+          <!-- Photography -->
+          <section id="photography" class="content-section">
+            <h2>Smartphone Photography Through Binoculars</h2>
+
+            <p>Modern smartphones capture surprisingly good lunar images through binoculars using simple handheld or adapter-based techniques. These snapshots don't rival dedicated astrophotography, but they document observations, share views with friends, and provide satisfying records of particularly good seeing conditions or interesting phase appearances.</p>
+
+            <h3>Handheld Smartphone Method</h3>
+
+            <p>The simplest approach: focus binoculars on the Moon with proper eye relief, then carefully position your smartphone camera lens directly behind one eyepiece (right eyepiece for right-handed photographers feels more natural). Start about 1-2 inches away and slowly move closer until the Moon appears centered on screen. Steady both binoculars and phone using both hands, elbows braced. Take multiple shots using volume buttons (reduces phone motion versus tapping screen). Expect many failed attempts before capturing sharp images—this technique demands patience and steady hands.</p>
+
+            <h3>Smartphone Adapters</h3>
+
+            <p>Dedicated smartphone-to-binocular adapters ($20-60) clamp phones securely to eyepieces, providing stable alignment and freeing your hands for focus and pointing adjustments. Quality adapters accommodate various phone sizes, align cameras precisely with eyepiece optical axes, and secure firmly without slipping. This investment makes sense if you photograph regularly; casual shooters may prefer experimenting handheld before committing.</p>
+
+            <h3>Photography Settings</h3>
+
+            <p>Use your phone's native camera app or astronomy apps offering manual controls. Disable flash (obviously). Set focus to manual or infinity if possible—autofocus often hunts uselessly or focuses on wrong elements. Reduce exposure compensation (-0.5 to -2 EV) to prevent the Moon from appearing as a blown-out white blob. Shoot in burst mode capturing multiple images, selecting the sharpest later. High-end smartphones with telephoto lenses sometimes produce better results than wide-angle lenses—experiment with both.</p>
+          </section>
+
+          <!-- Observing Program -->
+          <section id="observing-program" class="content-section">
+            <h2>Systematic Observing Programs</h2>
+
+            <p>Random lunar viewing provides enjoyment, but systematic programs structure observations, ensure comprehensive surface coverage, build feature knowledge methodically, and provide goal-oriented motivation. Several established programs suit binocular observers from beginners through advanced.</p>
+
+            <h3>Astronomical League Lunar Club</h3>
+
+            <p>The Astronomical League offers a Binocular Lunar Observing Program requiring observation of 100+ features using binoculars only (no telescopes). The program includes naked-eye observations of lunar eclipses and specific libration features, comprehensive maria coverage, representative craters across size ranges, mountain ranges, and special features. Completing the program earns an official pin and certificate while ensuring systematic exploration of the entire near side. The program guide provides finding charts, feature descriptions, and observing tips specifically for binocular users.</p>
+
+            <h3>Lunar 100 List</h3>
+
+            <p>Compiled by Charles Wood, the Lunar 100 represents the most interesting features observable through backyard telescopes and binoculars, ranked roughly by observing difficulty from obvious (Mare Crisium) to challenging (difficult rilles and subtle features). While designed for telescopes, perhaps 60-70 Lunar 100 features appear clearly in quality 10x50 or 15x70 binoculars under good conditions. Systematic work through the accessible entries provides years of rewarding observations.</p>
+
+            <h3>Personal Systematic Survey</h3>
+
+            <p>Design your own program: observe each lunar quadrant (NW, NE, SW, SE) systematically during at least three different phases noting features, comparing appearances, and building comprehensive knowledge. Create personal feature lists: "10 favorite craters," "All visible maria," "Mountain ranges I can identify," "Rilles I've detected." Revisit specific features monthly for a year noting how libration and varying lighting reveal different aspects. These self-directed programs personalize lunar study to your interests and equipment capabilities.</p>
+          </section>
+
+          <!-- Month by Month -->
+          <section id="month-by-month" class="content-section">
+            <h2>Month-by-Month Observing Guide</h2>
+
+            <p>The Moon's visibility and position vary monthly due to its orbit and seasonal changes in the Sun's path. This guide highlights optimal viewing opportunities throughout the year for northern hemisphere observers, though lunar observing succeeds year-round regardless of season.</p>
+
+            <div class="info-box glass">
+              <h3>Seasonal Lunar Observing Conditions</h3>
+              <div style="margin-top: 1rem;">
+                <p><strong>Winter (Dec-Feb):</strong> Full moon rides highest, approaching zenith in mid-northern latitudes, minimizing atmospheric distortion. Waxing phases also track high, favoring detailed study. Cold weather demands warm clothing but often brings exceptionally steady seeing. <em>Best season for high-altitude lunar observing.</em></p>
+
+                <p><strong>Spring (Mar-May):</strong> Moderate lunar altitudes. Increasing evening daylight duration conflicts with early waxing phases visible only briefly after sunset. Waning phases become more accessible as mornings lengthen. Atmospheric stability variable. <em>Balanced season for morning and evening observers.</em></p>
+
+                <p><strong>Summer (Jun-Aug):</strong> Full moon rides lowest, sometimes barely clearing trees/buildings near summer solstice in northern latitudes. Waxing phases also track low, suffering atmospheric distortion. Waning phases ride higher, favoring morning observers. Warm weather comfortable but sometimes brings thermal turbulence degrading seeing. <em>Challenging season; focus on waning phases.</em></p>
+
+                <p><strong>Autumn (Sep-Nov):</strong> Lunar altitudes increasing again. Harvest Moon (full moon near autumnal equinox) rises near sunset for several consecutive nights, offering extended viewing. Atmospheric stability often excellent after summer turbulence dissipates. <em>Excellent all-around season.</em></p>
+              </div>
+            </div>
+
+            <p>Beyond seasonal patterns, specific months offer special phenomena. The Harvest Moon (full moon nearest September equinox) and Hunter's Moon (following month) rise nearly simultaneously with sunset for several nights due to shallow angle of Moon's path to horizon, providing extended evening visibility. These cultural names date to pre-electric-lighting agriculture when extra moonlight aided harvest work and hunting.</p>
+
+            <p>Lunar eclipses occur 0-3 times yearly when Earth's shadow crosses the Moon during full phase. Binoculars excel at eclipse viewing—the dimmed, reddened Moon during totality shows beautifully in low-power wide fields capturing the entire disk. Note the red coloration (from sunlight refracted through Earth's atmosphere), the umbra's curved shadow during partial phases, and the brightness variations across the eclipsed disk. Eclipses require no special equipment or filters; observe them as you would any full moon, just noting the unique phenomenon.</p>
+
+            <p>Plan observing sessions around first quarter and last quarter moons for maximum detail visibility. Check lunar calendars or astronomy apps for exact quarter dates each month. The few days around quarters provide consistently spectacular viewing regardless of season, libration state, or the Moon's altitude. When quarters unfortunately coincide with cloudy periods or unavailable observing nights, shift to waxing/waning crescent or gibbous phases as acceptable alternatives—just avoid full moon if detail matters more than brightness-dependent features like ray systems.</p>
+
+            <p>Libration—the apparent rocking of the Moon due to orbital and rotational complexities—brings normally-hidden limb regions into view over time. Favorable librations reveal features typically foreshortened or invisible, occasionally allowing glimpses of far side features near the limb. Astronomy magazines, apps, and websites publish monthly libration predictions noting particularly favorable views of specific limb regions. Advanced observers plan sessions around maximum libration to hunt challenging limb features normally inaccessible.</p>
+          </section>
+
+          <!-- FAQ Section -->
+          <section id="faq" class="content-section faq-section">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-list">
+              {faqData.map((faq, index) => (
+                <details class="faq-item" key={index}>
+                  <summary class="faq-question">
+                    {faq.question}
+                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M19 9L12 16L5 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </summary>
+                  <div class="faq-answer">
+                    <p>{faq.answer}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </section>
+
+        </article>
+      </div>
+    </div>
+  </div>
+
+</MainLayout>
+
+<style>
+  /* Progress Bar */
+  .progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.05);
+    z-index: 100;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-accent-cyan, #00f0ff), var(--color-accent-blue, #0080ff));
+    width: 0%;
+    transition: width 0.1s ease;
+  }
+
+  /* Hero Section */
+  .hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-image-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 2rem 0;
+  }
+
+  .breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .breadcrumb-separator {
+    margin: 0 0.5rem;
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .breadcrumb-link {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumb-link:hover {
+    color: var(--color-accent-cyan, #00f0ff);
+  }
+
+  .breadcrumb-current {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 400;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: 0.02em;
+    color: white;
+    line-height: 1.1;
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 50rem;
+    line-height: 1.7;
+  }
+
+  /* Answer Capsule */
+  .answer-capsule {
+    padding: 3rem 0;
+    background: rgba(0, 240, 255, 0.02);
+  }
+
+  .capsule-content {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .capsule-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    color: var(--color-accent-cyan, #00f0ff);
+  }
+
+  .capsule-text {
+    flex: 1;
+  }
+
+  .capsule-title {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--color-accent-cyan, #00f0ff);
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .capsule-text p {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+  }
+
+  /* Content Layout */
+  .content-wrapper {
+    padding: 4rem 0;
+  }
+
+  .content-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 1024px) {
+    .content-layout {
+      grid-template-columns: 250px 1fr;
+    }
+  }
+
+  /* Table of Contents Sidebar */
+  .toc-sidebar {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .toc-sidebar {
+      display: block;
+    }
+
+    .toc-sticky {
+      position: sticky;
+      top: 2rem;
+    }
+  }
+
+  .toc-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .toc-link {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    padding-left: 1rem;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .toc-link:hover {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .toc-link.active {
+    color: var(--color-accent-cyan, #00f0ff);
+    border-left-color: var(--color-accent-cyan, #00f0ff);
+  }
+
+  /* Article Content */
+  .article-content {
+    max-width: 900px;
+  }
+
+  .content-section {
+    margin-bottom: 4rem;
+  }
+
+  .content-section h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    color: white;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: 0.01em;
+  }
+
+  .content-section h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 2rem 0 1rem 0;
+  }
+
+  .content-section p {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 1.5rem 0;
+  }
+
+  .content-section ul,
+  .content-section ol {
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .content-section li {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.75rem;
+  }
+
+  /* Info Boxes */
+  .info-box {
+    margin: 2rem 0;
+    padding: 2rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .info-box.glass {
+    background: rgba(0, 240, 255, 0.03);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    backdrop-filter: blur(10px);
+  }
+
+  .info-box h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-accent-cyan, #00f0ff);
+    margin: 0 0 1.5rem 0;
+  }
+
+  .info-box p {
+    margin-bottom: 1rem;
+  }
+
+  .info-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .info-box ul {
+    margin: 1rem 0 0 0;
+  }
+
+  .info-box li {
+    margin-bottom: 0.75rem;
+  }
+
+  .info-box strong {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    margin-top: 4rem;
+    padding-top: 4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .faq-item {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+  }
+
+  .faq-item[open] {
+    border-color: rgba(0, 240, 255, 0.3);
+  }
+
+  .faq-question {
+    padding: 1.5rem;
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: white;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    transition: background 0.2s ease;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question:hover {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .faq-icon {
+    flex-shrink: 0;
+    color: var(--color-accent-cyan, #00f0ff);
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+  }
+
+  .faq-answer p {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .capsule-content {
+      flex-direction: column;
+    }
+
+    .capsule-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<script>
+  // Progress Bar
+  function updateProgressBar() {
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight - windowHeight;
+    const scrolled = window.scrollY;
+    const progress = (scrolled / documentHeight) * 100;
+
+    const progressBar = document.getElementById('progressBar');
+    if (progressBar) {
+      progressBar.style.width = `${Math.min(progress, 100)}%`;
+    }
+  }
+
+  window.addEventListener('scroll', updateProgressBar);
+  window.addEventListener('load', updateProgressBar);
+
+  // Table of Contents Active Section
+  const observerOptions = {
+    root: null,
+    rootMargin: '-100px 0px -66%',
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        const tocLinks = document.querySelectorAll('.toc-link');
+
+        tocLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, observerOptions);
+
+  // Observe all content sections
+  document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('.content-section[id]');
+    sections.forEach(section => observer.observe(section));
+  });
+</script>
