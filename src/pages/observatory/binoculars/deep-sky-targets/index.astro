@@ -112,22 +112,15 @@ const faqData = [
   </section>
 
   <!-- Answer Capsule -->
-  <section class="answer-capsule">
-    <div class="container">
-      <div class="capsule-content">
-        <div class="capsule-icon">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-            <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="capsule-text">
-          <h2 class="capsule-title">Quick Answer</h2>
-          <p>Binoculars reveal 60-70 deep sky objects from Charles Messier's famous catalog plus hundreds more accessible targets. Open clusters like the Pleiades (M45) and Beehive (M44) appear as stunning star fields fully resolved into individual points. The Orion Nebula (M42) shows obvious greenish-gray structure in stellar birth clouds. Globular clusters appear as fuzzy round patches with bright centers. The Andromeda Galaxy (M31) spans three Moon-widths as an elongated glow. Expect gray appearances, not colorful photos—human night vision lacks color sensitivity. Dark skies are essential for faint objects; open clusters survive light pollution better than galaxies. 10x50 binoculars offer optimal balance of aperture, magnification, and field width. Organize observing by season: winter features Orion and Taurus clusters, spring showcases galaxy fields, summer offers Milky Way riches from Sagittarius through Cygnus, autumn presents Andromeda and the Double Cluster. Manage expectations realistically, and binocular deep sky observing provides endless rewards under starry skies.</p>
-        </div>
-      </div>
+  <aside class="answer-capsule">
+    <div class="capsule-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 6v6l4 2" stroke-linecap="round"/>
+      </svg>
     </div>
-  </section>
+    <p>Binoculars reveal 60-70 deep sky objects from Charles Messier's famous catalog plus hundreds more accessible targets. Open clusters like the Pleiades (M45) and Beehive (M44) appear as stunning star fields fully resolved into individual points. The Orion Nebula (M42) shows obvious greenish-gray structure in stellar birth clouds. Globular clusters appear as fuzzy round patches with bright centers. The Andromeda Galaxy (M31) spans three Moon-widths as an elongated glow. Expect gray appearances, not colorful photos—human night vision lacks color sensitivity. Dark skies are essential for faint objects; open clusters survive light pollution better than galaxies. 10x50 binoculars offer optimal balance of aperture, magnification, and field width. Organize observing by season: winter features Orion and Taurus clusters, spring showcases galaxy fields, summer offers Milky Way riches from Sagittarius through Cygnus, autumn presents Andromeda and the Double Cluster. Manage expectations realistically, and binocular deep sky observing provides endless rewards under starry skies.</p>
+  </aside>
 
   <!-- Main Content with Sidebar -->
   <div class="content-wrapper">
@@ -136,25 +129,25 @@ const faqData = [
 
         <!-- Table of Contents Sidebar -->
         <aside class="toc-sidebar">
-          <div class="toc-sticky">
-            <h2 class="toc-title">Contents</h2>
-            <nav class="toc-nav">
-              <a href="#introduction" class="toc-link">Introduction</a>
-              <a href="#object-categories" class="toc-link">Object Categories</a>
-              <a href="#equipment" class="toc-link">Equipment Optimization</a>
-              <a href="#finding-techniques" class="toc-link">Finding Techniques</a>
-              <a href="#winter-sky" class="toc-link">Winter Sky Tour</a>
-              <a href="#spring-sky" class="toc-link">Spring Sky Tour</a>
-              <a href="#summer-sky" class="toc-link">Summer Sky Tour</a>
-              <a href="#autumn-sky" class="toc-link">Autumn Sky Tour</a>
-              <a href="#top-30" class="toc-link">Top 30 Objects</a>
-              <a href="#messier-marathon" class="toc-link">Messier Marathon</a>
-              <a href="#milky-way" class="toc-link">Milky Way Scanning</a>
-              <a href="#light-pollution" class="toc-link">Light Pollution</a>
-              <a href="#recording" class="toc-link">Recording Observations</a>
-              <a href="#planning" class="toc-link">Year-Round Planning</a>
-            </nav>
-          </div>
+          <nav class="toc" aria-label="Table of Contents">
+            <h2>Contents</h2>
+            <ol>
+              <li><a href="#introduction">Introduction</a></li>
+              <li><a href="#object-categories">Object Categories</a></li>
+              <li><a href="#equipment">Equipment Optimization</a></li>
+              <li><a href="#finding-techniques">Finding Techniques</a></li>
+              <li><a href="#winter-sky">Winter Sky Tour</a></li>
+              <li><a href="#spring-sky">Spring Sky Tour</a></li>
+              <li><a href="#summer-sky">Summer Sky Tour</a></li>
+              <li><a href="#autumn-sky">Autumn Sky Tour</a></li>
+              <li><a href="#top-30">Top 30 Objects</a></li>
+              <li><a href="#messier-marathon">Messier Marathon</a></li>
+              <li><a href="#milky-way">Milky Way Scanning</a></li>
+              <li><a href="#light-pollution">Light Pollution</a></li>
+              <li><a href="#recording">Recording Observations</a></li>
+              <li><a href="#planning">Year-Round Planning</a></li>
+            </ol>
+          </nav>
         </aside>
 
         <!-- Article Content -->
@@ -1552,29 +1545,26 @@ const faqData = [
 
   /* Answer Capsule */
   .answer-capsule {
-    padding: 3rem 0;
-    background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(0, 128, 255, 0.1));
-    border-top: 1px solid rgba(0, 240, 255, 0.2);
-    border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+    display: flex;
+    gap: var(--space-md, 1rem);
+    padding: var(--space-lg, 1.5rem);
+    margin-bottom: var(--space-2xl, 3rem);
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: var(--radius-lg, 12px);
     position: relative;
+    overflow: hidden;
   }
 
   .answer-capsule::before {
     content: '';
     position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 30% 50%, rgba(0, 240, 255, 0.15), transparent 50%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(6, 182, 212, 0.15) 0%, transparent 50%);
     pointer-events: none;
-  }
-
-  .capsule-content {
-    display: flex;
-    gap: 2rem;
-    align-items: flex-start;
-    max-width: 900px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
   }
 
   .capsule-icon {
@@ -1582,26 +1572,20 @@ const faqData = [
     width: 40px;
     height: 40px;
     color: var(--color-accent-cyan, #00f0ff);
+    opacity: 0.8;
   }
 
-  .capsule-text {
-    flex: 1;
+  .capsule-icon svg {
+    width: 100%;
+    height: 100%;
   }
 
-  .capsule-title {
-    font-size: 1.125rem;
-    font-weight: 500;
-    color: var(--color-accent-cyan, #00f0ff);
-    margin: 0 0 1rem 0;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  .capsule-text p {
-    font-size: 1.0625rem;
-    line-height: 1.8;
-    color: rgba(255, 255, 255, 0.7);
+  .answer-capsule p {
     margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-primary, rgba(255, 255, 255, 0.9));
+    position: relative;
   }
 
   /* Content Layout */
@@ -1623,7 +1607,7 @@ const faqData = [
     }
   }
 
-  /* Table of Contents Sidebar */
+  /* Sticky TOC Sidebar */
   .toc-sidebar {
     display: none;
   }
@@ -1633,41 +1617,51 @@ const faqData = [
       display: block;
     }
 
-    .toc-sticky {
+    .toc {
       position: sticky;
-      top: 2rem;
+      top: calc(var(--space-xl, 2rem) + 3px);
+      max-height: calc(100vh - var(--space-2xl, 3rem));
+      overflow-y: auto;
     }
   }
 
-  .toc-title {
+  .toc h2 {
+    font-family: var(--font-heading, inherit);
     font-size: 0.875rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.5);
-    margin: 0 0 1rem 0;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    margin-bottom: var(--space-md, 1rem);
+    color: var(--color-text-secondary, rgba(255, 255, 255, 0.5));
   }
 
-  .toc-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+  .toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
-  .toc-link {
-    font-size: 0.9375rem;
-    color: rgba(255, 255, 255, 0.5);
+  .toc li {
+    margin-bottom: 0.25rem;
+  }
+
+  .toc a {
+    display: block;
+    padding: 0.5rem 0;
+    padding-left: var(--space-sm, 0.75rem);
+    color: var(--color-text-secondary, rgba(255, 255, 255, 0.5));
     text-decoration: none;
-    transition: color 0.2s ease;
-    padding-left: 1rem;
-    border-left: 2px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    transition: all 0.2s ease;
   }
 
-  .toc-link:hover {
-    color: rgba(255, 255, 255, 0.8);
+  .toc a:hover {
+    color: var(--color-text-primary, rgba(255, 255, 255, 0.9));
+    border-left-color: rgba(6, 182, 212, 0.5);
   }
 
-  .toc-link.active {
+  .toc a.active {
     color: var(--color-accent-cyan, #00f0ff);
     border-left-color: var(--color-accent-cyan, #00f0ff);
   }
@@ -1880,7 +1874,7 @@ const faqData = [
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const id = entry.target.getAttribute('id');
-        const tocLinks = document.querySelectorAll('.toc-link');
+        const tocLinks = document.querySelectorAll('.toc a');
 
         tocLinks.forEach(link => {
           link.classList.remove('active');

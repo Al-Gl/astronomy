@@ -1,0 +1,1183 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Schema from '../../components/Schema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cosmic Atlas', url: '/atlas/' },
+  { name: 'Nebulae', url: '/atlas/nebulae/' }
+];
+
+const articleData = {
+  headline: 'Nebulae: A Complete Guide to Cosmic Clouds',
+  description: 'Explore the diverse world of nebulae - from emission and reflection nebulae to planetary nebulae and supernova remnants. Learn about these stellar nurseries, cosmic graveyards, and the most beautiful structures in the universe.',
+  datePublished: '2026-01-31',
+  dateModified: '2026-01-31',
+  author: 'The Astronomy Space',
+  image: '/images/Hero_nebulae.jpg',
+  keywords: ['nebulae', 'emission nebulae', 'reflection nebulae', 'planetary nebulae', 'dark nebulae', 'supernova remnants', 'star formation', 'Orion Nebula', 'HII regions', 'molecular clouds', 'astronomy', 'deep sky objects']
+};
+
+const faqData = [
+  {
+    question: 'What is a nebula?',
+    answer: 'A nebula is a cloud of gas and dust in space. The word comes from the Latin word for "cloud" or "mist." Nebulae can be regions where new stars are forming (emission and reflection nebulae), the remnants of dying stars (planetary nebulae), or the aftermath of stellar explosions (supernova remnants). They range in size from a few light-years to hundreds of light-years across and are among the most visually spectacular objects in the universe.'
+  },
+  {
+    question: 'What causes the colors in nebulae?',
+    answer: 'Nebula colors are caused by different elements emitting light at specific wavelengths. Hydrogen emits red light (H-alpha at 656.3 nm), oxygen emits blue-green light, sulfur produces red hues, and nitrogen creates red emission. The stunning color images from telescopes often use filters to capture specific wavelengths and are sometimes processed with false-color techniques to highlight different elements. To the naked eye or in small telescopes, most nebulae appear gray or greenish due to the eye\'s limited color sensitivity in low light.'
+  },
+  {
+    question: 'What is the most famous nebula?',
+    answer: 'The Orion Nebula (M42) is arguably the most famous nebula, located about 1,350 light-years away in the constellation Orion. It\'s visible to the naked eye as the middle "star" in Orion\'s sword and is one of the brightest nebulae in the night sky. This stellar nursery contains hundreds of very young stars and is one of the most photographed and studied objects in astronomy. Other famous nebulae include the Eagle Nebula (with its "Pillars of Creation"), the Crab Nebula (supernova remnant), and the Helix Nebula (planetary nebula).'
+  },
+  {
+    question: 'How are stars formed in nebulae?',
+    answer: 'Stars form when regions within molecular clouds (giant nebulae) become dense enough to collapse under their own gravity. The process begins when a trigger—such as a nearby supernova shock wave, collision with another cloud, or gravitational instability—causes a region to start contracting. As the cloud collapses, it fragments into smaller clumps that continue to contract, heating up through gravitational compression. When the core temperature reaches about 10 million Kelvin, hydrogen fusion ignites and a star is born. The stellar winds and radiation from newly formed stars can trigger further star formation in surrounding regions while also dispersing the natal cloud.'
+  },
+  {
+    question: 'What is the difference between emission and reflection nebulae?',
+    answer: 'Emission nebulae glow because their gas is ionized by nearby hot, young stars. The ultraviolet radiation from these stars strips electrons from hydrogen atoms, and when the electrons recombine, they emit light at specific wavelengths—primarily the red H-alpha line. These nebulae typically appear red or pink in photographs. Reflection nebulae, by contrast, don\'t emit their own light but instead reflect and scatter light from nearby stars. They appear blue because blue light scatters more efficiently than red light (the same reason Earth\'s sky is blue). Some nebulae, like the Orion Nebula, contain both emission and reflection components.'
+  },
+  {
+    question: 'Can nebulae be seen with the naked eye?',
+    answer: 'Yes, several bright nebulae are visible to the naked eye from dark locations. The Orion Nebula (M42) is the most prominent, appearing as a fuzzy "star" in Orion\'s sword. The Lagoon Nebula (M8) and the Omega Nebula (M17) can be glimpsed in Sagittarius under excellent conditions. However, they appear as faint, grayish patches rather than the colorful structures seen in photographs—the human eye isn\'t sensitive enough to detect color in such dim light. Binoculars or telescopes reveal much more detail and dozens more nebulae become visible, though colors remain subtle except in very bright regions.'
+  }
+];
+---
+
+<MainLayout
+  title="Nebulae: Types, Formation, and Classification - The Astronomy Space"
+  description="Explore the diverse world of nebulae - from emission and reflection nebulae to planetary nebulae and supernova remnants. Discover cosmic clouds where stars are born and die."
+>
+  <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
+  <Schema type="TechArticle" article={articleData} />
+  <Schema type="FAQPage" faq={faqData} />
+
+  <!-- Reading Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-image">
+      <img src="/images/Hero_nebulae.jpg" alt="Stunning colorful nebulae showing star-forming regions" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/atlas/">Cosmic Atlas</a></li>
+          <li aria-current="page">Nebulae</li>
+        </ol>
+      </nav>
+      <h1>Nebulae</h1>
+      <p class="hero-subtitle">Cosmic Clouds of Creation and Destruction</p>
+    </div>
+  </section>
+
+  <!-- Main Article Content -->
+  <article class="content-wrapper">
+    <div class="article-layout">
+
+      <!-- Sticky Table of Contents (Left Sidebar) -->
+      <aside class="toc-sidebar">
+        <nav class="toc" aria-label="Table of Contents">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#classification">Classification</a></li>
+            <li><a href="#emission-nebulae">Emission Nebulae</a></li>
+            <li><a href="#reflection-nebulae">Reflection Nebulae</a></li>
+            <li><a href="#dark-nebulae">Dark Nebulae</a></li>
+            <li><a href="#planetary-nebulae">Planetary Nebulae</a></li>
+            <li><a href="#supernova-remnants">Supernova Remnants</a></li>
+            <li><a href="#famous-nebulae">Famous Nebulae</a></li>
+            <li><a href="#observation">Observing Nebulae</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-content">
+
+        <!-- Answer Capsule -->
+        <aside class="answer-capsule">
+          <div class="capsule-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z" opacity="0.3"/>
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 2v4m0 12v4M2 12h4m12 0h4"/>
+            </svg>
+          </div>
+          <p>Nebulae are vast clouds of gas and dust in space, serving as both stellar nurseries where new stars are born and cosmic graveyards marking the death of old stars. These magnificent structures, ranging from a few light-years to hundreds of light-years across, create some of the most visually stunning objects in the universe.</p>
+        </aside>
+
+        <!-- Nebula Type Navigation Cards -->
+        <section class="planet-nav-section">
+          <h2 class="planet-nav-heading">Explore Nebula Types</h2>
+          <p class="planet-nav-subtitle">Discover the incredible variety of cosmic clouds across the universe</p>
+
+          <div class="planet-cards-grid">
+            <!-- Emission Nebulae Card -->
+            <a href="/atlas/nebulae/emission/" class="planet-card" data-planet="emission">
+              <div class="planet-card-visual">
+                <img src="/images/card_emission_nebula.jpg" alt="Emission Nebulae" class="planet-image" loading="lazy" />
+              </div>
+              <div class="planet-card-content">
+                <h3 class="planet-name">Emission Nebulae</h3>
+                <p class="planet-tagline">Glowing Star Nurseries</p>
+              </div>
+              <div class="card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Reflection Nebulae Card -->
+            <a href="/atlas/nebulae/reflection/" class="planet-card" data-planet="reflection">
+              <div class="planet-card-visual">
+                <img src="/images/card_reflection_nebula.jpg" alt="Reflection Nebulae" class="planet-image" loading="lazy" />
+              </div>
+              <div class="planet-card-content">
+                <h3 class="planet-name">Reflection Nebulae</h3>
+                <p class="planet-tagline">Blue Scattered Light</p>
+              </div>
+              <div class="card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Dark Nebulae Card -->
+            <a href="/atlas/nebulae/dark/" class="planet-card" data-planet="dark">
+              <div class="planet-card-visual">
+                <img src="/images/card_dark_nebula.jpg" alt="Dark Nebulae" class="planet-image" loading="lazy" />
+              </div>
+              <div class="planet-card-content">
+                <h3 class="planet-name">Dark Nebulae</h3>
+                <p class="planet-tagline">Cosmic Silhouettes</p>
+              </div>
+              <div class="card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Planetary Nebulae Card -->
+            <a href="/atlas/nebulae/planetary/" class="planet-card" data-planet="planetary">
+              <div class="planet-card-visual">
+                <img src="/images/card_planetary_nebula.jpg" alt="Planetary Nebulae" class="planet-image" loading="lazy" />
+              </div>
+              <div class="planet-card-content">
+                <h3 class="planet-name">Planetary Nebulae</h3>
+                <p class="planet-tagline">Stellar Death Shrouds</p>
+              </div>
+              <div class="card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Supernova Remnants Card -->
+            <a href="/atlas/nebulae/supernova-remnants/" class="planet-card" data-planet="supernova">
+              <div class="planet-card-visual">
+                <img src="/images/card_supernova_remnant.jpg" alt="Supernova Remnants" class="planet-image" loading="lazy" />
+              </div>
+              <div class="planet-card-content">
+                <h3 class="planet-name">Supernova Remnants</h3>
+                <p class="planet-tagline">Explosive Aftermaths</p>
+              </div>
+              <div class="card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- HII Regions Card -->
+            <a href="/atlas/nebulae/hii-regions/" class="planet-card" data-planet="hii">
+              <div class="planet-card-visual">
+                <img src="/images/card_hii_region.jpg" alt="HII Regions" class="planet-image" loading="lazy" />
+              </div>
+              <div class="planet-card-content">
+                <h3 class="planet-name">HII Regions</h3>
+                <p class="planet-tagline">Ionized Hydrogen Clouds</p>
+              </div>
+              <div class="card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Molecular Clouds Card -->
+            <a href="/atlas/nebulae/molecular-clouds/" class="planet-card" data-planet="molecular">
+              <div class="planet-card-visual">
+                <img src="/images/card_molecular_cloud.jpg" alt="Molecular Clouds" class="planet-image" loading="lazy" />
+              </div>
+              <div class="planet-card-content">
+                <h3 class="planet-name">Molecular Clouds</h3>
+                <p class="planet-tagline">Dense Star Factories</p>
+              </div>
+              <div class="card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Protoplanetary Nebulae Card -->
+            <a href="/atlas/nebulae/protoplanetary/" class="planet-card" data-planet="protoplanetary">
+              <div class="planet-card-visual">
+                <img src="/images/card_protoplanetary_nebula.jpg" alt="Protoplanetary Nebulae" class="planet-image" loading="lazy" />
+              </div>
+              <div class="planet-card-content">
+                <h3 class="planet-name">Protoplanetary Nebulae</h3>
+                <p class="planet-tagline">Transition Phases</p>
+              </div>
+              <div class="card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- Introduction -->
+        <section id="introduction" class="content-section">
+          <h2>What are Nebulae?</h2>
+          <p>Nebulae (singular: nebula, from the Latin word for "cloud" or "mist") are vast clouds of gas and dust scattered throughout galaxies. These cosmic clouds are fundamental to the stellar life cycle, serving as the birthplaces of new stars and the final resting places of dying ones. Nebulae span an enormous range in size, from compact planetary nebulae a few light-years across to giant molecular clouds extending hundreds of light-years.</p>
+
+          <p>Before the advent of powerful telescopes, the term "nebula" was applied to any fuzzy celestial object that wasn't a star or planet. This included what we now know as galaxies, star clusters, and true nebulae. Charles Messier's famous catalog, created in the 1770s, included all these types of objects. It wasn't until the early 20th century that Edwin Hubble definitively distinguished between galaxies and true nebulae within our own Milky Way.</p>
+
+          <p>Modern astronomy recognizes several distinct types of nebulae based on their physical properties and formation mechanisms. Some nebulae glow with their own light (emission nebulae), others shine by reflecting starlight (reflection nebulae), while dark nebulae appear as silhouettes blocking light from more distant stars. Each type reveals different aspects of stellar evolution and the interstellar medium.</p>
+        </section>
+
+        <!-- Classification -->
+        <section id="classification" class="content-section">
+          <h2>Nebula Classification</h2>
+          <p>Nebulae are classified based on how they interact with light and their physical origin. This classification system reflects both the observational appearance and the underlying physics of these cosmic clouds.</p>
+
+          <div class="info-box glass">
+            <h3>Main Nebula Types</h3>
+            <ul>
+              <li><strong>Emission Nebulae:</strong> Clouds of ionized gas that emit light at specific wavelengths, powered by nearby hot stars</li>
+              <li><strong>Reflection Nebulae:</strong> Clouds that reflect and scatter light from nearby stars, typically appearing blue</li>
+              <li><strong>Dark Nebulae:</strong> Dense clouds of dust and gas that block background starlight, appearing as dark patches</li>
+              <li><strong>Planetary Nebulae:</strong> Shells of gas ejected by dying Sun-like stars (unrelated to planets despite the name)</li>
+              <li><strong>Supernova Remnants:</strong> Expanding shells of gas from stellar explosions, often showing complex filamentary structures</li>
+              <li><strong>HII Regions:</strong> Large emission nebulae where ionized hydrogen dominates (H II = ionized hydrogen)</li>
+            </ul>
+          </div>
+
+          <p>Many nebulae exhibit characteristics of multiple types. The Orion Nebula, for instance, is primarily an emission nebula but also contains reflection nebula components where dust scatters blue light from young stars. Complex star-forming regions often show emission nebulae surrounding young stars, reflection nebulae in dusty areas, and dark nebulae where dense clouds block background light.</p>
+        </section>
+
+        <!-- Emission Nebulae -->
+        <section id="emission-nebulae" class="content-section">
+          <h2>Emission Nebulae</h2>
+          <p>Emission nebulae are clouds of ionized gas that glow with their own light. These spectacular objects are powered by nearby hot, young stars whose intense ultraviolet radiation ionizes the surrounding hydrogen gas. When electrons recombine with hydrogen ions, they emit light at specific wavelengths—predominantly the red H-alpha line at 656.3 nanometers, giving these nebulae their characteristic pink or red appearance.</p>
+
+          <h3>Formation and Physics</h3>
+          <p>Emission nebulae form in regions of active star formation. When massive O and B-type stars ignite within molecular clouds, their powerful ultraviolet radiation creates ionization fronts that propagate outward through the surrounding gas. The ionized region, bounded by the edge where ionization and recombination rates balance, can extend dozens of light-years from the central stars.</p>
+
+          <p>The physical conditions in emission nebulae are extreme by terrestrial standards but relatively benign by cosmic measures. Typical temperatures range from 8,000-10,000 Kelvin, while densities vary from 100 to 10,000 particles per cubic centimeter—still an excellent vacuum by Earth standards. Despite these low densities, the sheer volume of gas means these nebulae contain hundreds to thousands of solar masses of material.</p>
+
+          <h3>Notable Examples</h3>
+          <ul>
+            <li><strong>Orion Nebula (M42):</strong> The nearest major star-forming region at 1,350 light-years, visible to the naked eye</li>
+            <li><strong>Lagoon Nebula (M8):</strong> Large emission nebula in Sagittarius containing numerous dark globules</li>
+            <li><strong>Eagle Nebula (M16):</strong> Home to the famous "Pillars of Creation" photographed by Hubble</li>
+            <li><strong>Tarantula Nebula:</strong> Giant HII region in the Large Magellanic Cloud, the most active star-forming region in the Local Group</li>
+          </ul>
+        </section>
+
+        <!-- Reflection Nebulae -->
+        <section id="reflection-nebulae" class="content-section">
+          <h2>Reflection Nebulae</h2>
+          <p>Reflection nebulae don't emit their own light but instead shine by reflecting and scattering light from nearby stars. These nebulae appear blue because blue light scatters more efficiently than red light—the same Rayleigh scattering process that makes Earth's sky blue. The illuminating stars are typically cooler than those that power emission nebulae, lacking sufficient ultraviolet radiation to ionize the surrounding gas.</p>
+
+          <h3>Composition and Properties</h3>
+          <p>Reflection nebulae contain significant amounts of dust—tiny solid particles of carbon, silicates, and ices. These dust grains, typically about 0.1 micrometers in size, efficiently scatter blue light from nearby stars. The gas-to-dust ratio in reflection nebulae is similar to the general interstellar medium, roughly 100:1 by mass.</p>
+
+          <p>The Pleiades star cluster provides one of the most famous examples of reflection nebulae. The blue wisps of nebulosity surrounding the cluster's bright stars were once thought to be leftover material from the cluster's formation. We now know the Pleiades is passing through an unrelated molecular cloud, with the encounter creating the reflection nebulae we observe.</p>
+
+          <h3>Notable Examples</h3>
+          <ul>
+            <li><strong>Witch Head Nebula (IC 2118):</strong> Blue reflection nebula illuminated by the star Rigel</li>
+            <li><strong>Iris Nebula (NGC 7023):</strong> Beautiful blue nebula in Cepheus</li>
+            <li><strong>Merope Nebula:</strong> Reflection nebula in the Pleiades cluster</li>
+          </ul>
+        </section>
+
+        <!-- Dark Nebulae -->
+        <section id="dark-nebulae" class="content-section">
+          <h2>Dark Nebulae</h2>
+          <p>Dark nebulae are dense clouds of gas and dust that block the light from background stars, appearing as dark patches against the brighter star fields or glowing nebulae behind them. These objects are among the coldest and densest regions in interstellar space, with temperatures dropping to just 10-20 Kelvin and densities reaching thousands to millions of particles per cubic centimeter.</p>
+
+          <h3>Role in Star Formation</h3>
+          <p>Dark nebulae represent the earliest stage of star formation. Their high densities and low temperatures make them gravitationally unstable—small perturbations can trigger collapse, fragmenting the cloud into smaller clumps that eventually form protostars. The Bok globules—small, dark, dense clouds first catalogued by astronomer Bart Bok—are thought to be individual star-forming regions within larger dark nebulae.</p>
+
+          <div class="info-box glass">
+            <h3>Famous Dark Nebulae</h3>
+            <ul>
+              <li><strong>Horsehead Nebula (Barnard 33):</strong> Iconic dark nebula silhouetted against the bright emission nebula IC 434 in Orion</li>
+              <li><strong>Coalsack Nebula:</strong> Prominent dark nebula in the Southern Cross, visible to the naked eye as a dark patch in the Milky Way</li>
+              <li><strong>Barnard 68:</strong> Small, isolated dark globule that appears completely opaque, blocking all background starlight</li>
+              <li><strong>Great Rift:</strong> Series of overlapping dark nebulae creating a dark lane through the summer Milky Way</li>
+            </ul>
+          </div>
+
+          <p>Dark nebulae are crucial laboratories for studying the chemistry of star-forming regions. The dense, cold conditions allow complex organic molecules to form on dust grain surfaces—over 200 different molecules have been detected in dark nebulae, including organic compounds like formaldehyde, methanol, and even amino acid precursors.</p>
+        </section>
+
+        <!-- Planetary Nebulae -->
+        <section id="planetary-nebulae" class="content-section">
+          <h2>Planetary Nebulae</h2>
+          <p>Planetary nebulae mark the final evolutionary stage of Sun-like stars. Despite their misleading name (coined by William Herschel because their round appearance resembled planets in small telescopes), these objects have nothing to do with planet formation. Instead, they represent the beautiful but brief phase when a dying star sheds its outer layers, revealing the hot stellar core beneath.</p>
+
+          <h3>Formation Process</h3>
+          <p>When stars like the Sun exhaust their hydrogen fuel, they evolve into red giants, expanding enormously and developing unstable outer envelopes. Eventually, these stars eject their outer layers through powerful stellar winds, creating expanding shells of gas traveling at 20-30 kilometers per second. The exposed stellar core—now a white dwarf with surface temperatures exceeding 100,000 Kelvin—bathes the expelled gas in ultraviolet radiation, causing it to fluoresce in the characteristic colors of planetary nebulae.</p>
+
+          <p>Planetary nebulae display an astonishing variety of shapes: spherical shells, bipolar structures with opposing lobes, spiral patterns, and complex multi-shell systems. These morphologies reflect the star's rotation, magnetic fields, binary companion interactions, and the asymmetries in the mass-loss process. The Ring Nebula (M57) shows a classic ring structure, while the Butterfly Nebula (NGC 6302) exhibits dramatic bipolar jets extending several light-years.</p>
+
+          <h3>Chemical Enrichment</h3>
+          <p>Planetary nebulae play a crucial role in galactic chemical evolution. The dying stars that create them have synthesized carbon, nitrogen, and other elements through nuclear fusion, and these enriched materials are returned to the interstellar medium. Future generations of stars forming from this enriched gas will have higher metallicities, affecting their evolution and the types of planets they can form.</p>
+
+          <h3>Notable Examples</h3>
+          <ul>
+            <li><strong>Ring Nebula (M57):</strong> Classic ring-shaped planetary nebula in Lyra</li>
+            <li><strong>Dumbbell Nebula (M27):</strong> Bright bilobal planetary nebula in Vulpecula</li>
+            <li><strong>Helix Nebula (NGC 7293):</strong> Nearest planetary nebula at 650 light-years, appearing larger than the full Moon</li>
+            <li><strong>Cat's Eye Nebula (NGC 6543):</strong> Complex multi-shell structure revealing episodic mass ejection</li>
+          </ul>
+        </section>
+
+        <!-- Supernova Remnants -->
+        <section id="supernova-remnants" class="content-section">
+          <h2>Supernova Remnants</h2>
+          <p>Supernova remnants (SNRs) are the expanding shells of gas and debris from stellar explosions, representing the most violent events in stellar evolution. When massive stars explode as supernovae, they blast their outer layers into space at speeds of 10,000-30,000 kilometers per second, creating shock waves that sweep up interstellar material and generate complex, filamentary structures visible across the electromagnetic spectrum.</p>
+
+          <h3>Evolution and Structure</h3>
+          <p>Supernova remnants evolve through several distinct phases. Initially, the ejecta expands freely at constant velocity, dominated by the kinetic energy of the explosion. After several hundred years, the remnant enters the adiabatic or Sedov-Taylor phase, where the swept-up interstellar material exceeds the ejected mass and the expansion decelerates. Finally, after tens of thousands of years, radiative losses become important and the remnant fades into the general interstellar medium.</p>
+
+          <p>The shock fronts in SNRs accelerate particles to enormous energies, creating cosmic rays—high-energy particles that permeate the galaxy. The magnetic fields tangled in the shock amplify these particle energies through a process called diffusive shock acceleration, producing particles with energies millions of times higher than the most powerful particle accelerators on Earth.</p>
+
+          <h3>Famous Supernova Remnants</h3>
+          <ul class="mission-list">
+            <li><strong>Crab Nebula (M1):</strong> Remnant of the supernova observed in 1054 AD, powered by a central pulsar spinning 30 times per second</li>
+            <li><strong>Cassiopeia A:</strong> Youngest known supernova remnant in the Milky Way (340 years old), showing detailed ejecta structure</li>
+            <li><strong>Veil Nebula:</strong> Beautiful filamentary remnant from a supernova 10,000-20,000 years ago</li>
+            <li><strong>Tycho's Supernova Remnant:</strong> Shell from the supernova of 1572, studied by Tycho Brahe</li>
+          </ul>
+        </section>
+
+        <!-- Famous Nebulae -->
+        <section id="famous-nebulae" class="content-section">
+          <h2>Famous Nebulae</h2>
+          <p>Certain nebulae have captured public imagination through iconic imagery and their accessibility to amateur astronomers. These objects represent the diversity of nebula types and showcase the most spectacular examples of cosmic clouds.</p>
+
+          <h3>The Pillars of Creation (Eagle Nebula)</h3>
+          <p>Perhaps the most famous astronomical image ever taken, the Hubble Space Telescope's view of the Pillars of Creation shows towering columns of gas and dust in the Eagle Nebula (M16). These pillars, each several light-years long, are star-forming regions where dense gas is sculpted by intense radiation from nearby hot stars. The pillars' tips contain evaporating gaseous globules (EGGs)—compact regions where new stars are forming, shielded from the destructive ultraviolet radiation by the surrounding dense gas.</p>
+
+          <h3>The Horsehead Nebula</h3>
+          <p>The Horsehead Nebula stands as one of the most recognizable dark nebulae, silhouetted against the bright emission nebula IC 434 in Orion. This striking shape—resembling a horse's head and neck—is a cold, dense cloud of gas and dust approximately 1,500 light-years away. The nebula's distinctive outline will gradually change over tens of thousands of years as stellar winds and radiation erode the cloud.</p>
+        </section>
+
+        <!-- Observation -->
+        <section id="observation" class="content-section">
+          <h2>Observing Nebulae</h2>
+          <p>Nebulae offer rewarding targets for amateur astronomers across all skill levels and equipment types. While the brightest nebulae can be glimpsed with the naked eye, binoculars and telescopes reveal progressively more detail and allow observation of fainter objects.</p>
+
+          <h3>Visual Observation Tips</h3>
+          <ul>
+            <li><strong>Dark Sky Matters:</strong> Nebulae are extended objects with low surface brightness, making them highly susceptible to light pollution. Darker skies reveal dramatically more detail.</li>
+            <li><strong>Averted Vision:</strong> Looking slightly away from the target engages the eye's more sensitive rod cells, revealing faint nebulosity invisible when looking directly.</li>
+            <li><strong>OIII and UHC Filters:</strong> Narrowband filters block light pollution while passing specific emission lines from nebulae, dramatically improving contrast for emission nebulae.</li>
+            <li><strong>Expect Gray, Not Color:</strong> Most nebulae appear gray or greenish to the eye—human color vision is too insensitive in low light to detect the reds and blues prominent in photographs.</li>
+          </ul>
+
+          <h3>Best Nebulae for Beginners</h3>
+          <ul>
+            <li><strong>Orion Nebula (M42):</strong> Bright enough for binoculars, spectacular in any telescope, visible fall through spring</li>
+            <li><strong>Lagoon Nebula (M8):</strong> Large summer nebula visible in binoculars from dark sites</li>
+            <li><strong>Ring Nebula (M57):</strong> Small but bright planetary nebula, appears as a smoke ring in small telescopes</li>
+            <li><strong>Dumbbell Nebula (M27):</strong> Large, bright planetary nebula ideal for low-power viewing</li>
+          </ul>
+        </section>
+
+        <!-- External Resources -->
+        <section id="resources" class="content-section">
+          <h2>External Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://hubblesite.org/contents/media/images/gallery/topics/nebulas" target="_blank" rel="noopener">Hubble Nebula Gallery</a> - Spectacular images from the Hubble Space Telescope</li>
+            <li><a href="https://en.wikipedia.org/wiki/Nebula" target="_blank" rel="noopener">Nebulae on Wikipedia</a> - Comprehensive encyclopedia article</li>
+            <li><a href="https://www.nasa.gov/subject/3864/nebulae/" target="_blank" rel="noopener">NASA Nebulae</a> - NASA's nebula image collection and information</li>
+            <li><a href="https://www.messier.seds.org/" target="_blank" rel="noopener">Messier Catalog</a> - SEDS Messier catalog including many famous nebulae</li>
+          </ul>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="content-section faq-section">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-list">
+            {faqData.map((item) => (
+              <details class="faq-item">
+                <summary class="faq-question">{item.question}</summary>
+                <div class="faq-answer">
+                  <p>{item.answer}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </article>
+</MainLayout>
+
+<script>
+  // Reading Progress Bar
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    const progressBar = document.getElementById('progressBar');
+    if (progressBar) {
+      progressBar.style.width = scrollPercent + '%';
+    }
+  });
+
+  // Active TOC highlighting
+  const sections = document.querySelectorAll('.content-section');
+  const tocLinks = document.querySelectorAll('.toc a');
+
+  const observerOptions = {
+    rootMargin: '-20% 0% -70% 0%'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(section => observer.observe(section));
+</script>
+
+<style>
+  /* Progress Bar */
+  .progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+  }
+
+  .progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-blue));
+    transition: width 0.1s ease-out;
+  }
+
+  /* Hero Section */
+  .hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: var(--space-xl);
+  }
+
+  .hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    color: var(--color-accent-cyan);
+    font-weight: 500;
+  }
+
+  /* Breadcrumbs */
+  .breadcrumbs {
+    margin-bottom: var(--space-lg);
+  }
+
+  .breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumbs li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .breadcrumbs li:not(:last-child)::after {
+    content: '›';
+    color: var(--color-text-secondary);
+  }
+
+  .breadcrumbs a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumbs a:hover {
+    color: var(--color-accent-cyan);
+  }
+
+  .breadcrumbs li[aria-current="page"] {
+    color: var(--color-text-primary);
+  }
+
+  /* Article Layout with Sidebar */
+  .content-wrapper {
+    padding: var(--space-2xl) 0;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+    gap: var(--space-xl);
+  }
+
+  @media (min-width: 1024px) {
+    .article-layout {
+      grid-template-columns: 220px 1fr;
+      gap: var(--space-2xl);
+    }
+  }
+
+  /* Sticky TOC Sidebar */
+  .toc-sidebar {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .toc-sidebar {
+      display: block;
+    }
+
+    .toc {
+      position: sticky;
+      top: calc(var(--space-xl) + 3px);
+      max-height: calc(100vh - var(--space-2xl));
+      overflow-y: auto;
+    }
+  }
+
+  .toc h2 {
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-md);
+    color: var(--color-text-secondary);
+  }
+
+  .toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .toc li {
+    margin-bottom: 0.25rem;
+  }
+
+  .toc a {
+    display: block;
+    padding: 0.5rem 0;
+    padding-left: var(--space-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    transition: all 0.2s ease;
+  }
+
+  .toc a:hover {
+    color: var(--color-text-primary);
+    border-left-color: rgba(6, 182, 212, 0.5);
+  }
+
+  .toc a.active {
+    color: var(--color-accent-cyan);
+    border-left-color: var(--color-accent-cyan);
+  }
+
+  /* Main Content */
+  .main-content {
+    max-width: 800px;
+  }
+
+  /* Answer Capsule */
+  .answer-capsule {
+    display: flex;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .answer-capsule::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(6, 182, 212, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .capsule-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    color: var(--color-accent-cyan);
+    opacity: 0.8;
+  }
+
+  .capsule-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .answer-capsule p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-primary);
+    position: relative;
+  }
+
+  /* Content Sections */
+  .content-section {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .content-section h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+    color: var(--color-text-primary);
+  }
+
+  .content-section h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+    color: var(--color-accent-cyan);
+  }
+
+  .content-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+  }
+
+  .content-section ul,
+  .content-section ol {
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-lg);
+  }
+
+  .content-section li {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  /* Info Box */
+  .info-box {
+    padding: var(--space-lg);
+    margin: var(--space-lg) 0;
+  }
+
+  .info-box h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: var(--color-accent-blue);
+  }
+
+  .info-box ul {
+    margin: 0;
+    padding-left: var(--space-md);
+  }
+
+  .info-box li {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  /* Mission List */
+  .mission-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .mission-list li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .mission-list li:last-child {
+    border-bottom: none;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .faq-item {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item[open] {
+    background: rgba(6, 182, 212, 0.05);
+    border-color: rgba(6, 182, 212, 0.2);
+  }
+
+  .faq-question {
+    padding: var(--space-md) var(--space-lg);
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.2s ease;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-accent-cyan);
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[open] .faq-question::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-question:hover {
+    color: var(--color-accent-cyan);
+  }
+
+  .faq-answer {
+    padding: 0 var(--space-lg) var(--space-lg);
+  }
+
+  .faq-answer p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+  }
+
+  /* Resource List */
+  .resource-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .resource-list li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .resource-list li:last-child {
+    border-bottom: none;
+  }
+
+  .resource-list a {
+    color: var(--color-accent-cyan);
+    font-weight: 500;
+  }
+
+  /* Glassmorphism */
+  .glass {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 50vh;
+    }
+
+    .hero-content {
+      padding: var(--space-lg);
+    }
+
+    .article-layout {
+      padding: 0 var(--space-sm);
+    }
+
+    .answer-capsule {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .capsule-icon {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  /* ==================== NEBULA TYPE NAVIGATION CARDS ==================== */
+
+  .planet-nav-section {
+    margin: var(--space-2xl) 0;
+    padding-top: var(--space-xl);
+  }
+
+  .planet-nav-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: var(--space-sm);
+    text-align: center;
+    color: var(--color-text-primary);
+    background: linear-gradient(135deg, #ffffff 0%, var(--color-accent-cyan) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .planet-nav-subtitle {
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: 1.05rem;
+    margin-bottom: var(--space-2xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Responsive Grid Layout */
+  .planet-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+  }
+
+  @media (min-width: 640px) {
+    .planet-cards-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .planet-cards-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* Individual Planet Card */
+  .planet-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-lg);
+    background: #010101;
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .planet-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  /* Hover Effects */
+  .planet-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(6, 182, 212, 0.3);
+    box-shadow:
+      0 8px 32px rgba(6, 182, 212, 0.15),
+      0 0 0 1px rgba(6, 182, 212, 0.1);
+  }
+
+  .planet-card:hover::before {
+    opacity: 1;
+  }
+
+  .planet-card:active {
+    transform: translateY(-6px) scale(1.01);
+  }
+
+  /* Focus state for accessibility */
+  .planet-card:focus-visible {
+    outline: 2px solid var(--color-accent-cyan);
+    outline-offset: 4px;
+    border-color: rgba(6, 182, 212, 0.4);
+  }
+
+  /* Planet Visual Icon */
+  .planet-card-visual {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--space-md);
+    min-height: 120px;
+    position: relative;
+  }
+
+  .planet-image {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .planet-card:hover .planet-image {
+    transform: scale(1.15) rotate(5deg);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Planet Card Content */
+  .planet-card-content {
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .planet-name {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 0.25rem;
+    transition: color 0.3s ease;
+  }
+
+  .planet-card:hover .planet-name {
+    color: var(--color-accent-cyan);
+  }
+
+  .planet-tagline {
+    font-size: 0.85rem;
+    color: var(--color-text-tertiary);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    transition: color 0.3s ease;
+  }
+
+  .planet-card:hover .planet-tagline {
+    color: var(--color-text-secondary);
+  }
+
+  /* Card Arrow Indicator */
+  .card-arrow {
+    position: absolute;
+    bottom: var(--space-sm);
+    right: var(--space-sm);
+    width: 24px;
+    height: 24px;
+    color: var(--color-accent-cyan);
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-arrow svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .planet-card:hover .card-arrow {
+    opacity: 0.7;
+    transform: translateX(0);
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 639px) {
+    .planet-card {
+      padding: var(--space-md);
+    }
+
+    .planet-image {
+      width: 90px;
+      height: 90px;
+    }
+
+    .planet-card-visual {
+      min-height: 100px;
+    }
+
+    .planet-name {
+      font-size: 1.1rem;
+    }
+
+    .planet-tagline {
+      font-size: 0.8rem;
+    }
+
+    .planet-nav-subtitle {
+      font-size: 0.95rem;
+      padding: 0 var(--space-sm);
+    }
+  }
+
+  /* Page Load Animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .planet-card {
+    animation: fadeInUp 0.6s ease backwards;
+  }
+
+  /* Stagger animation for each card */
+  .planet-card:nth-child(1) { animation-delay: 0.1s; }
+  .planet-card:nth-child(2) { animation-delay: 0.15s; }
+  .planet-card:nth-child(3) { animation-delay: 0.2s; }
+  .planet-card:nth-child(4) { animation-delay: 0.25s; }
+  .planet-card:nth-child(5) { animation-delay: 0.3s; }
+  .planet-card:nth-child(6) { animation-delay: 0.35s; }
+  .planet-card:nth-child(7) { animation-delay: 0.4s; }
+  .planet-card:nth-child(8) { animation-delay: 0.45s; }
+
+  /* Reduce Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    .planet-card {
+      animation: none;
+    }
+
+    .planet-card,
+    .planet-image,
+    .card-arrow {
+      transition-duration: 0.1s;
+    }
+  }
+</style>

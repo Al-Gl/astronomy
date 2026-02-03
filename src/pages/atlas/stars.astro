@@ -1,0 +1,1185 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Schema from '../../components/Schema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cosmic Atlas', url: '/atlas/' },
+  { name: 'Stars', url: '/atlas/stars/' }
+];
+
+const articleData = {
+  headline: 'Stars: A Complete Guide to Stellar Objects',
+  description: 'Explore the fascinating world of stars - from main sequence stars to supergiants, neutron stars, and black holes. Learn about stellar evolution, classification, and the incredible diversity of these cosmic powerhouses.',
+  datePublished: '2026-01-31',
+  dateModified: '2026-01-31',
+  author: 'The Astronomy Space',
+  image: '/images/Hero_stars.jpg',
+  keywords: ['stars', 'stellar evolution', 'main sequence', 'red giants', 'white dwarfs', 'neutron stars', 'black holes', 'supergiants', 'binary stars', 'variable stars', 'astronomy', 'astrophysics']
+};
+
+const faqData = [
+  {
+    question: 'How many stars are in the universe?',
+    answer: 'The observable universe contains an estimated 200 billion trillion stars (2 × 10²³). Our own Milky Way galaxy alone harbors between 100-400 billion stars, and there are roughly 2 trillion galaxies in the observable universe, each containing millions to trillions of stars.'
+  },
+  {
+    question: 'What is the closest star to Earth?',
+    answer: 'The Sun is the closest star to Earth at 93 million miles (150 million kilometers). The next closest star system is Alpha Centauri, located 4.37 light-years away. It\'s actually a triple star system consisting of Alpha Centauri A, Alpha Centauri B, and Proxima Centauri, with Proxima being the closest of the three at 4.24 light-years.'
+  },
+  {
+    question: 'How long do stars live?',
+    answer: 'A star\'s lifetime depends primarily on its mass. Massive stars (over 10 solar masses) live only 10-100 million years, burning through their fuel quickly. Sun-like stars live about 10 billion years. Small red dwarf stars can live trillions of years—longer than the current age of the universe. Our Sun is currently about 4.6 billion years old, roughly halfway through its 10-billion-year main sequence lifetime.'
+  },
+  {
+    question: 'What is the largest known star?',
+    answer: 'Stephenson 2-18 is currently considered the largest known star by radius, with a radius approximately 2,150 times that of the Sun. If placed at the center of our Solar System, its surface would extend beyond the orbit of Saturn. Other extremely large stars include UY Scuti, VY Canis Majoris, and Betelgeuse. These red supergiants are so large they could contain billions of Earth-sized planets.'
+  },
+  {
+    question: 'How are stars classified?',
+    answer: 'Stars are classified using the Morgan-Keenan (MK) system based on temperature and spectral characteristics. The main spectral types are O, B, A, F, G, K, M (from hottest to coolest), remembered by the mnemonic "Oh Be A Fine Girl/Guy, Kiss Me." Each type is subdivided (0-9) and assigned a luminosity class (I-V) indicating size: I for supergiants, III for giants, and V for main sequence stars. Our Sun is a G2V star—a yellow main sequence dwarf.'
+  },
+  {
+    question: 'What happens when a star dies?',
+    answer: 'A star\'s death depends on its mass. Low to medium mass stars (up to 8 solar masses) expand into red giants, shed their outer layers as planetary nebulae, and leave behind white dwarf cores that gradually cool over billions of years. Massive stars (over 8 solar masses) explode as supernovae, either leaving behind a neutron star (if 8-20 solar masses) or collapsing into a black hole (if over 20 solar masses). These explosions seed space with heavy elements necessary for planets and life.'
+  }
+];
+---
+
+<MainLayout
+  title="Stars: Types, Evolution, and Classification - The Astronomy Space"
+  description="Explore the fascinating world of stars - from main sequence stars to supergiants, neutron stars, and black holes. A comprehensive guide to stellar objects and evolution."
+>
+  <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
+  <Schema type="TechArticle" article={articleData} />
+  <Schema type="FAQPage" faq={faqData} />
+
+  <!-- Reading Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-image">
+      <img src="/images/Hero_stars.jpg" alt="Stunning view of various types of stars in space" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/atlas/">Cosmic Atlas</a></li>
+          <li aria-current="page">Stars</li>
+        </ol>
+      </nav>
+      <h1>Stars</h1>
+      <p class="hero-subtitle">The Universe's Cosmic Powerhouses</p>
+    </div>
+  </section>
+
+  <!-- Main Article Content -->
+  <article class="content-wrapper">
+    <div class="article-layout">
+
+      <!-- Sticky Table of Contents (Left Sidebar) -->
+      <aside class="toc-sidebar">
+        <nav class="toc" aria-label="Table of Contents">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#formation">Star Formation</a></li>
+            <li><a href="#classification">Classification</a></li>
+            <li><a href="#main-sequence">Main Sequence Stars</a></li>
+            <li><a href="#evolution">Stellar Evolution</a></li>
+            <li><a href="#stellar-types">Stellar Types</a></li>
+            <li><a href="#exotic-objects">Exotic Objects</a></li>
+            <li><a href="#observation">Observing Stars</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-content">
+
+        <!-- Answer Capsule -->
+        <aside class="answer-capsule">
+          <div class="capsule-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 1v6m0 6v6M23 12h-6m-6 0H1"/>
+              <path d="M4.22 4.22l4.24 4.24m7.08 7.08l4.24 4.24M19.78 4.22l-4.24 4.24M9.46 14.54l-4.24 4.24"/>
+            </svg>
+          </div>
+          <p>Stars are massive, luminous spheres of plasma held together by gravity, generating energy through nuclear fusion. From tiny red dwarfs lasting trillions of years to massive blue supergiants burning brilliantly for mere millions, stars represent the fundamental building blocks of galaxies and the forges where all heavy elements are created.</p>
+        </aside>
+
+        <!-- Star Type Navigation Cards -->
+        <section class="planet-nav-section">
+          <h2 class="planet-nav-heading">Explore Stellar Types</h2>
+          <p class="planet-nav-subtitle">Discover the incredible diversity of stars, from common main sequence stars to exotic stellar remnants</p>
+
+          <div class="planet-cards-grid">
+            <!-- Main Sequence Stars Card -->
+            <a href="/atlas/stars/main-sequence/" class="planet-card" data-planet="main-sequence">
+              <div class="planet-card-visual">
+                <img src="/images/card_main_sequence.jpg" alt="Main Sequence Stars" class="planet-image" loading="lazy" />
+              </div>
+              <div class="planet-card-content">
+                <h3 class="planet-name">Main Sequence</h3>
+                <p class="planet-tagline">The Stellar Majority</p>
+              </div>
+              <div class="card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Red Giants Card -->
+            <a href="/atlas/stars/red-giants/" class="planet-card" data-planet="red-giants">
+              <div class="planet-card-visual">
+                <img src="/images/card_red_giant.jpg" alt="Red Giants" class="planet-image" loading="lazy" />
+              </div>
+              <div class="planet-card-content">
+                <h3 class="planet-name">Red Giants</h3>
+                <p class="planet-tagline">Evolved & Enormous</p>
+              </div>
+              <div class="card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- White Dwarfs Card -->
+            <a href="/atlas/stars/white-dwarfs/" class="planet-card" data-planet="white-dwarfs">
+              <div class="planet-card-visual">
+                <img src="/images/card_white_dwarf.jpg" alt="White Dwarfs" class="planet-image" loading="lazy" />
+              </div>
+              <div class="planet-card-content">
+                <h3 class="planet-name">White Dwarfs</h3>
+                <p class="planet-tagline">Dense Stellar Cores</p>
+              </div>
+              <div class="card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Neutron Stars Card -->
+            <a href="/atlas/stars/neutron-stars/" class="planet-card" data-planet="neutron-stars">
+              <div class="planet-card-visual">
+                <img src="/images/card_neutron_star.jpg" alt="Neutron Stars" class="planet-image" loading="lazy" />
+              </div>
+              <div class="planet-card-content">
+                <h3 class="planet-name">Neutron Stars</h3>
+                <p class="planet-tagline">Extreme Density</p>
+              </div>
+              <div class="card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Black Holes Card -->
+            <a href="/atlas/stars/black-holes/" class="planet-card" data-planet="black-holes">
+              <div class="planet-card-visual">
+                <img src="/images/card_black_hole.jpg" alt="Black Holes" class="planet-image" loading="lazy" />
+              </div>
+              <div class="planet-card-content">
+                <h3 class="planet-name">Black Holes</h3>
+                <p class="planet-tagline">Gravity's Ultimate Victory</p>
+              </div>
+              <div class="card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Supergiants Card -->
+            <a href="/atlas/stars/supergiants/" class="planet-card" data-planet="supergiants">
+              <div class="planet-card-visual">
+                <img src="/images/card_supergiant.jpg" alt="Supergiants" class="planet-image" loading="lazy" />
+              </div>
+              <div class="planet-card-content">
+                <h3 class="planet-name">Supergiants</h3>
+                <p class="planet-tagline">Stellar Behemoths</p>
+              </div>
+              <div class="card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Binary Systems Card -->
+            <a href="/atlas/stars/binary-systems/" class="planet-card" data-planet="binary-systems">
+              <div class="planet-card-visual">
+                <img src="/images/card_binary.jpg" alt="Binary Star Systems" class="planet-image" loading="lazy" />
+              </div>
+              <div class="planet-card-content">
+                <h3 class="planet-name">Binary Systems</h3>
+                <p class="planet-tagline">Stellar Companions</p>
+              </div>
+              <div class="card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Variable Stars Card -->
+            <a href="/atlas/stars/variable-stars/" class="planet-card" data-planet="variable-stars">
+              <div class="planet-card-visual">
+                <img src="/images/card_variable.jpg" alt="Variable Stars" class="planet-image" loading="lazy" />
+              </div>
+              <div class="planet-card-content">
+                <h3 class="planet-name">Variable Stars</h3>
+                <p class="planet-tagline">Pulsating Beacons</p>
+              </div>
+              <div class="card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- Introduction -->
+        <section id="introduction" class="content-section">
+          <h2>What are Stars?</h2>
+          <p>Stars are massive, self-luminous spheres of plasma bound by their own gravity, powered by nuclear fusion reactions in their cores. These cosmic powerhouses are the fundamental building blocks of galaxies and the source of nearly all elements heavier than hydrogen and helium in the universe.</p>
+
+          <p>At its core, a star is a delicate balance between two opposing forces: gravity trying to crush the star inward, and pressure from nuclear fusion pushing outward. This equilibrium, called hydrostatic equilibrium, allows stars to maintain stable sizes and temperatures for millions to trillions of years, depending on their mass.</p>
+
+          <p>Stars come in an astonishing variety of sizes, colors, temperatures, and lifespans. The smallest red dwarfs are barely larger than Jupiter but will shine for trillions of years. The largest supergiants can be over 2,000 times the Sun's diameter but live only a few million years before exploding as supernovae. Between these extremes lies the remarkable diversity of stellar objects that populate our universe.</p>
+        </section>
+
+        <!-- Star Formation -->
+        <section id="formation" class="content-section">
+          <h2>Star Formation</h2>
+          <p>Stars are born in vast clouds of gas and dust called molecular clouds or stellar nurseries. These clouds, primarily composed of hydrogen with traces of helium and heavier elements, can span hundreds of light-years and contain enough material to form thousands or even millions of stars.</p>
+
+          <div class="info-box glass">
+            <h3>The Star Formation Process</h3>
+            <ul>
+              <li><strong>Trigger:</strong> A disturbance (nearby supernova, collision with another cloud, or galactic density wave) initiates cloud collapse</li>
+              <li><strong>Fragmentation:</strong> The cloud breaks into smaller clumps as denser regions attract more material through gravity</li>
+              <li><strong>Protostar Formation:</strong> A dense core forms, heating up as gravitational energy converts to thermal energy</li>
+              <li><strong>Accretion Disk:</strong> Surrounding material forms a spinning disk, feeding material onto the protostar</li>
+              <li><strong>Ignition:</strong> When core temperature reaches 10 million K, hydrogen fusion begins—a star is born</li>
+              <li><strong>T Tauri Phase:</strong> Young stars undergo violent activity, strong stellar winds, and may form planetary systems</li>
+            </ul>
+          </div>
+
+          <p>The process from initial collapse to main sequence star takes about 10-50 million years for Sun-like stars, but can take as little as 100,000 years for massive stars. Once hydrogen fusion begins, the star enters the main sequence phase, where it will spend the majority of its lifetime in stable equilibrium.</p>
+
+          <p>Star formation isn't a perfectly efficient process. Only about 1-10% of a molecular cloud's mass actually ends up in stars. The rest is dispersed by stellar winds, radiation pressure, and supernova explosions from the most massive stars, which can actually trigger new star formation in nearby regions of the cloud.</p>
+        </section>
+
+        <!-- Classification -->
+        <section id="classification" class="content-section">
+          <h2>Stellar Classification</h2>
+          <p>Astronomers classify stars using the Morgan-Keenan (MK) system, which categorizes stars by their surface temperature and spectral characteristics. This classification reveals fundamental properties about a star's physics, evolution, and ultimate fate.</p>
+
+          <h3>Spectral Types (Temperature Classification)</h3>
+          <p>Stars are divided into seven main spectral classes based on temperature, from hottest to coolest: O, B, A, F, G, K, M. Each class is further subdivided into 10 subclasses (0-9). The mnemonic "Oh Be A Fine Girl/Guy, Kiss Me" helps remember the sequence.</p>
+
+          <div class="info-box glass">
+            <h3>Spectral Type Details</h3>
+            <ul>
+              <li><strong>O-Type (30,000-50,000 K):</strong> Blue stars, very hot and luminous. Strong ionized helium lines. Examples: Naos, Zeta Puppis</li>
+              <li><strong>B-Type (10,000-30,000 K):</strong> Blue-white stars, helium and hydrogen lines. Examples: Rigel, Spica, Regulus</li>
+              <li><strong>A-Type (7,500-10,000 K):</strong> White stars, strong hydrogen lines. Examples: Sirius, Vega, Altair</li>
+              <li><strong>F-Type (6,000-7,500 K):</strong> Yellow-white stars, hydrogen and ionized calcium. Examples: Procyon, Canopus</li>
+              <li><strong>G-Type (5,200-6,000 K):</strong> Yellow stars like our Sun, strong calcium lines. Examples: Sun, Alpha Centauri A, Capella</li>
+              <li><strong>K-Type (3,700-5,200 K):</strong> Orange stars, strong metal lines. Examples: Arcturus, Aldebaran, Epsilon Eridani</li>
+              <li><strong>M-Type (2,400-3,700 K):</strong> Red stars, molecular bands, most common. Examples: Betelgeuse, Proxima Centauri, Barnard's Star</li>
+            </ul>
+          </div>
+
+          <h3>Luminosity Classes (Size Classification)</h3>
+          <p>Stars are also classified by luminosity, which correlates with size and evolutionary stage:</p>
+          <ul>
+            <li><strong>Class I:</strong> Supergiants (Ia = luminous supergiants, Ib = less luminous supergiants)</li>
+            <li><strong>Class II:</strong> Bright giants</li>
+            <li><strong>Class III:</strong> Normal giants</li>
+            <li><strong>Class IV:</strong> Subgiants</li>
+            <li><strong>Class V:</strong> Main sequence stars (dwarfs)</li>
+          </ul>
+          <p>Our Sun is classified as a G2V star—a G-type main sequence dwarf with a temperature around 5,800 K.</p>
+        </section>
+
+        <!-- Main Sequence -->
+        <section id="main-sequence" class="content-section">
+          <h2>Main Sequence Stars</h2>
+          <p>Main sequence stars represent the longest and most stable phase of stellar evolution, where stars spend about 90% of their lifetimes. These stars are fusing hydrogen into helium in their cores, maintaining hydrostatic equilibrium between gravitational collapse and radiation pressure.</p>
+
+          <p>The main sequence isn't a single type of star but a continuous spectrum ranging from small, cool red dwarfs to massive, hot blue stars. A star's position on the main sequence is determined almost entirely by its initial mass, which dictates its temperature, luminosity, size, and lifespan.</p>
+
+          <h3>Mass-Luminosity Relationship</h3>
+          <p>The relationship between mass and luminosity follows a power law: L ∝ M³·⁵ (approximately). This means that massive stars are disproportionately more luminous than their mass suggests. A star 10 times more massive than the Sun is roughly 3,000 times more luminous, but will only live about 1/30th as long because it burns through its fuel so rapidly.</p>
+
+          <div class="info-box glass">
+            <h3>Main Sequence Lifespans</h3>
+            <ul>
+              <li><strong>O and B-type (> 10 solar masses):</strong> 10-100 million years</li>
+              <li><strong>A-type (2-3 solar masses):</strong> 1-2 billion years</li>
+              <li><strong>F-type (1.5-2 solar masses):</strong> 2-5 billion years</li>
+              <li><strong>G-type (0.9-1.1 solar masses):</strong> 8-12 billion years</li>
+              <li><strong>K-type (0.6-0.9 solar masses):</strong> 15-30 billion years</li>
+              <li><strong>M-type (< 0.6 solar masses):</strong> 100 billion to several trillion years</li>
+            </ul>
+          </div>
+
+          <p>Red dwarfs (M-type stars) are by far the most common stars in the universe, making up about 75% of all stars. Due to their incredibly long lifespans and the relative youth of the universe (13.8 billion years), no red dwarf has ever reached the end of its main sequence lifetime—they will all continue burning for hundreds of billions to trillions of years.</p>
+        </section>
+
+        <!-- Stellar Evolution -->
+        <section id="evolution" class="content-section">
+          <h2>Stellar Evolution</h2>
+          <p>A star's evolution is primarily determined by its initial mass. This single property dictates not only how long it will live but also what it will become when its fuel is exhausted.</p>
+
+          <h3>Low to Medium Mass Stars (< 8 Solar Masses)</h3>
+          <p>Stars like our Sun follow a relatively peaceful evolutionary path:</p>
+          <ul>
+            <li><strong>Main Sequence (10 billion years for Sun):</strong> Stable hydrogen fusion in the core</li>
+            <li><strong>Subgiant Phase (1 billion years):</strong> Hydrogen shell burning as core contracts and heats</li>
+            <li><strong>Red Giant Phase (1 billion years):</strong> Helium fusion begins in the core; outer layers expand enormously</li>
+            <li><strong>Planetary Nebula (10,000-20,000 years):</strong> Outer layers expelled in beautiful, glowing shells</li>
+            <li><strong>White Dwarf (billions of years):</strong> Exposed core gradually cools, supported by electron degeneracy pressure</li>
+          </ul>
+
+          <h3>Massive Stars (> 8 Solar Masses)</h3>
+          <p>Massive stars live fast and die young in spectacular fashion:</p>
+          <ul>
+            <li><strong>Main Sequence (10-100 million years):</strong> Rapid hydrogen fusion</li>
+            <li><strong>Supergiant Phase:</strong> Multiple fusion stages create onion-like layers (helium, carbon, oxygen, silicon)</li>
+            <li><strong>Iron Core Formation:</strong> Silicon fuses into iron, which cannot release energy through fusion</li>
+            <li><strong>Core Collapse (< 1 second):</strong> Iron core collapses catastrophically when it exceeds 1.4 solar masses</li>
+            <li><strong>Supernova (weeks to months):</strong> Rebound creates shock wave and explosion visible across galaxies</li>
+            <li><strong>Remnant:</strong> Leaves either a neutron star (8-20 solar masses) or black hole (> 20 solar masses)</li>
+          </ul>
+
+          <p>The boundary at 8 solar masses is crucial—it divides stars that die peacefully from those that explode violently. This explosion is responsible for creating and dispersing most elements heavier than iron, seeding the universe with the raw materials for planets and life.</p>
+        </section>
+
+        <!-- Stellar Types -->
+        <section id="stellar-types" class="content-section">
+          <h2>Stellar Types and Examples</h2>
+
+          <h3>Notable Stars by Type</h3>
+          <ul class="mission-list">
+            <li><strong>Sirius (A1V):</strong> The brightest star in Earth's night sky, actually a binary system with a white dwarf companion</li>
+            <li><strong>Betelgeuse (M1-M2 Ia-Iab):</strong> A red supergiant that will explode as a supernova in the next 100,000 years</li>
+            <li><strong>Rigel (B8 Ia):</strong> A blue supergiant, intrinsically one of the most luminous stars visible to the naked eye</li>
+            <li><strong>Proxima Centauri (M5.5 V):</strong> The closest star to our Solar System at 4.24 light-years, a small red dwarf</li>
+            <li><strong>Vega (A0 V):</strong> A bright main sequence star, part of the Summer Triangle asterism</li>
+            <li><strong>Antares (M1.5 Iab-Ib):</strong> A red supergiant, if placed at the Sun's position would extend past Mars' orbit</li>
+            <li><strong>Polaris (F7 Ib):</strong> The North Star, a yellow-white supergiant and our current pole star</li>
+          </ul>
+        </section>
+
+        <!-- Exotic Objects -->
+        <section id="exotic-objects" class="content-section">
+          <h2>Exotic Stellar Objects</h2>
+
+          <h3>Neutron Stars and Pulsars</h3>
+          <p>Neutron stars are the collapsed cores of massive stars, incredibly dense objects where a teaspoon of matter would weigh a billion tons on Earth. These objects are so extreme that their surfaces are crystalline neutron matter, and their interiors may contain exotic quark matter or superfluid neutrons.</p>
+          <p>Pulsars are rapidly rotating neutron stars that emit beams of electromagnetic radiation from their magnetic poles. As the star rotates, these beams sweep across space like a cosmic lighthouse. The fastest known pulsar rotates 716 times per second—a 20-kilometer-diameter object spinning so fast that its surface is moving at a significant fraction of the speed of light.</p>
+
+          <h3>Black Holes</h3>
+          <p>Black holes form when the most massive stars (over 20 solar masses) collapse, creating regions of spacetime where gravity is so strong that nothing, not even light, can escape beyond the event horizon. Despite their fearsome reputation, black holes are governed by precise physics and play crucial roles in galaxy formation and evolution.</p>
+          <p>Stellar-mass black holes typically range from 3 to 100 solar masses, but supermassive black holes at galaxy centers can contain millions to billions of solar masses. The boundary of a black hole—the event horizon—is not a physical surface but rather the point of no return from which escape is impossible.</p>
+        </section>
+
+        <!-- Observation -->
+        <section id="observation" class="content-section">
+          <h2>Observing Stars</h2>
+          <p>Stars are the most accessible astronomical objects for amateur observers. Unlike planets and deep-sky objects, stars can be observed from anywhere, even light-polluted cities, though dark skies reveal vastly more stars.</p>
+
+          <h3>Naked-Eye Observation</h3>
+          <p>The human eye can see roughly 5,000-9,000 stars from a dark location, though light pollution reduces this dramatically. Learning constellation patterns helps navigate the night sky. Notable features visible to the naked eye include:</p>
+          <ul>
+            <li>Star colors: Betelgeuse (red), Rigel (blue-white), Arcturus (orange)</li>
+            <li>Double stars: Mizar and Alcor in the Big Dipper</li>
+            <li>Variable stars: Algol's brightness changes noticeably over hours</li>
+            <li>Star clusters: The Pleiades, Hyades</li>
+          </ul>
+
+          <h3>Binocular and Telescope Viewing</h3>
+          <p>Binoculars and telescopes reveal thousands more stars, resolve double stars invisible to the naked eye, and show star colors more vividly. Even small telescopes can split close binary systems and reveal the distinctive colors of carbon stars and other exotic stellar types.</p>
+        </section>
+
+        <!-- External Resources -->
+        <section id="resources" class="content-section">
+          <h2>External Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://www.nasa.gov/mission_pages/chandra/main/index.html" target="_blank" rel="noopener">NASA Chandra X-ray Observatory</a> - Imaging of extreme stellar objects</li>
+            <li><a href="https://en.wikipedia.org/wiki/Star" target="_blank" rel="noopener">Stars on Wikipedia</a> - Comprehensive encyclopedia article</li>
+            <li><a href="https://imagine.gsfc.nasa.gov/science/objects/stars1.html" target="_blank" rel="noopener">NASA GSFC: Stars</a> - Educational resource on stellar astronomy</li>
+            <li><a href="https://www.aavso.org/" target="_blank" rel="noopener">American Association of Variable Star Observers</a> - Contribute to variable star research</li>
+          </ul>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="content-section faq-section">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-list">
+            {faqData.map((item) => (
+              <details class="faq-item">
+                <summary class="faq-question">{item.question}</summary>
+                <div class="faq-answer">
+                  <p>{item.answer}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </article>
+</MainLayout>
+
+<script>
+  // Reading Progress Bar
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    const progressBar = document.getElementById('progressBar');
+    if (progressBar) {
+      progressBar.style.width = scrollPercent + '%';
+    }
+  });
+
+  // Active TOC highlighting
+  const sections = document.querySelectorAll('.content-section');
+  const tocLinks = document.querySelectorAll('.toc a');
+
+  const observerOptions = {
+    rootMargin: '-20% 0% -70% 0%'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(section => observer.observe(section));
+</script>
+
+<style>
+  /* Progress Bar */
+  .progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+  }
+
+  .progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-blue));
+    transition: width 0.1s ease-out;
+  }
+
+  /* Hero Section */
+  .hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: var(--space-xl);
+  }
+
+  .hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    color: var(--color-accent-cyan);
+    font-weight: 500;
+  }
+
+  /* Breadcrumbs */
+  .breadcrumbs {
+    margin-bottom: var(--space-lg);
+  }
+
+  .breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumbs li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .breadcrumbs li:not(:last-child)::after {
+    content: '›';
+    color: var(--color-text-secondary);
+  }
+
+  .breadcrumbs a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumbs a:hover {
+    color: var(--color-accent-cyan);
+  }
+
+  .breadcrumbs li[aria-current="page"] {
+    color: var(--color-text-primary);
+  }
+
+  /* Article Layout with Sidebar */
+  .content-wrapper {
+    padding: var(--space-2xl) 0;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+    gap: var(--space-xl);
+  }
+
+  @media (min-width: 1024px) {
+    .article-layout {
+      grid-template-columns: 220px 1fr;
+      gap: var(--space-2xl);
+    }
+  }
+
+  /* Sticky TOC Sidebar */
+  .toc-sidebar {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .toc-sidebar {
+      display: block;
+    }
+
+    .toc {
+      position: sticky;
+      top: calc(var(--space-xl) + 3px);
+      max-height: calc(100vh - var(--space-2xl));
+      overflow-y: auto;
+    }
+  }
+
+  .toc h2 {
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-md);
+    color: var(--color-text-secondary);
+  }
+
+  .toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .toc li {
+    margin-bottom: 0.25rem;
+  }
+
+  .toc a {
+    display: block;
+    padding: 0.5rem 0;
+    padding-left: var(--space-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    transition: all 0.2s ease;
+  }
+
+  .toc a:hover {
+    color: var(--color-text-primary);
+    border-left-color: rgba(6, 182, 212, 0.5);
+  }
+
+  .toc a.active {
+    color: var(--color-accent-cyan);
+    border-left-color: var(--color-accent-cyan);
+  }
+
+  /* Main Content */
+  .main-content {
+    max-width: 800px;
+  }
+
+  /* Answer Capsule */
+  .answer-capsule {
+    display: flex;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .answer-capsule::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(6, 182, 212, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .capsule-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    color: var(--color-accent-cyan);
+    opacity: 0.8;
+  }
+
+  .capsule-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .answer-capsule p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-primary);
+    position: relative;
+  }
+
+  /* Content Sections */
+  .content-section {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .content-section h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+    color: var(--color-text-primary);
+  }
+
+  .content-section h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+    color: var(--color-accent-cyan);
+  }
+
+  .content-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+  }
+
+  .content-section ul,
+  .content-section ol {
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-lg);
+  }
+
+  .content-section li {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  /* Info Box */
+  .info-box {
+    padding: var(--space-lg);
+    margin: var(--space-lg) 0;
+  }
+
+  .info-box h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: var(--color-accent-blue);
+  }
+
+  .info-box ul {
+    margin: 0;
+    padding-left: var(--space-md);
+  }
+
+  .info-box li {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  /* Mission List */
+  .mission-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .mission-list li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .mission-list li:last-child {
+    border-bottom: none;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .faq-item {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item[open] {
+    background: rgba(6, 182, 212, 0.05);
+    border-color: rgba(6, 182, 212, 0.2);
+  }
+
+  .faq-question {
+    padding: var(--space-md) var(--space-lg);
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.2s ease;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-accent-cyan);
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[open] .faq-question::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-question:hover {
+    color: var(--color-accent-cyan);
+  }
+
+  .faq-answer {
+    padding: 0 var(--space-lg) var(--space-lg);
+  }
+
+  .faq-answer p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+  }
+
+  /* Resource List */
+  .resource-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .resource-list li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .resource-list li:last-child {
+    border-bottom: none;
+  }
+
+  .resource-list a {
+    color: var(--color-accent-cyan);
+    font-weight: 500;
+  }
+
+  /* Glassmorphism */
+  .glass {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 50vh;
+    }
+
+    .hero-content {
+      padding: var(--space-lg);
+    }
+
+    .article-layout {
+      padding: 0 var(--space-sm);
+    }
+
+    .answer-capsule {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .capsule-icon {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  /* ==================== STAR TYPE NAVIGATION CARDS ==================== */
+
+  .planet-nav-section {
+    margin: var(--space-2xl) 0;
+    padding-top: var(--space-xl);
+  }
+
+  .planet-nav-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: var(--space-sm);
+    text-align: center;
+    color: var(--color-text-primary);
+    background: linear-gradient(135deg, #ffffff 0%, var(--color-accent-cyan) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .planet-nav-subtitle {
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: 1.05rem;
+    margin-bottom: var(--space-2xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Responsive Grid Layout */
+  .planet-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+  }
+
+  @media (min-width: 640px) {
+    .planet-cards-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .planet-cards-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* Individual Planet Card */
+  .planet-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-lg);
+    background: #010101;
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .planet-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  /* Hover Effects */
+  .planet-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(6, 182, 212, 0.3);
+    box-shadow:
+      0 8px 32px rgba(6, 182, 212, 0.15),
+      0 0 0 1px rgba(6, 182, 212, 0.1);
+  }
+
+  .planet-card:hover::before {
+    opacity: 1;
+  }
+
+  .planet-card:active {
+    transform: translateY(-6px) scale(1.01);
+  }
+
+  /* Focus state for accessibility */
+  .planet-card:focus-visible {
+    outline: 2px solid var(--color-accent-cyan);
+    outline-offset: 4px;
+    border-color: rgba(6, 182, 212, 0.4);
+  }
+
+  /* Planet Visual Icon */
+  .planet-card-visual {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--space-md);
+    min-height: 120px;
+    position: relative;
+  }
+
+  .planet-image {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .planet-card:hover .planet-image {
+    transform: scale(1.15) rotate(5deg);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Planet Card Content */
+  .planet-card-content {
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .planet-name {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 0.25rem;
+    transition: color 0.3s ease;
+  }
+
+  .planet-card:hover .planet-name {
+    color: var(--color-accent-cyan);
+  }
+
+  .planet-tagline {
+    font-size: 0.85rem;
+    color: var(--color-text-tertiary);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    transition: color 0.3s ease;
+  }
+
+  .planet-card:hover .planet-tagline {
+    color: var(--color-text-secondary);
+  }
+
+  /* Card Arrow Indicator */
+  .card-arrow {
+    position: absolute;
+    bottom: var(--space-sm);
+    right: var(--space-sm);
+    width: 24px;
+    height: 24px;
+    color: var(--color-accent-cyan);
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-arrow svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .planet-card:hover .card-arrow {
+    opacity: 0.7;
+    transform: translateX(0);
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 639px) {
+    .planet-card {
+      padding: var(--space-md);
+    }
+
+    .planet-image {
+      width: 90px;
+      height: 90px;
+    }
+
+    .planet-card-visual {
+      min-height: 100px;
+    }
+
+    .planet-name {
+      font-size: 1.1rem;
+    }
+
+    .planet-tagline {
+      font-size: 0.8rem;
+    }
+
+    .planet-nav-subtitle {
+      font-size: 0.95rem;
+      padding: 0 var(--space-sm);
+    }
+  }
+
+  /* Page Load Animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .planet-card {
+    animation: fadeInUp 0.6s ease backwards;
+  }
+
+  /* Stagger animation for each card */
+  .planet-card:nth-child(1) { animation-delay: 0.1s; }
+  .planet-card:nth-child(2) { animation-delay: 0.15s; }
+  .planet-card:nth-child(3) { animation-delay: 0.2s; }
+  .planet-card:nth-child(4) { animation-delay: 0.25s; }
+  .planet-card:nth-child(5) { animation-delay: 0.3s; }
+  .planet-card:nth-child(6) { animation-delay: 0.35s; }
+  .planet-card:nth-child(7) { animation-delay: 0.4s; }
+  .planet-card:nth-child(8) { animation-delay: 0.45s; }
+
+  /* Reduce Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    .planet-card {
+      animation: none;
+    }
+
+    .planet-card,
+    .planet-image,
+    .card-arrow {
+      transition-duration: 0.1s;
+    }
+  }
+</style>

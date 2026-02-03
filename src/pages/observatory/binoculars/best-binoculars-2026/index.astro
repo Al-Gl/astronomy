@@ -90,23 +90,25 @@ const faqData = [
     </div>
   </section>
 
+  <!-- Featured Product Sticker (Fixed Right Side) -->
+  <a href="#top-pick" class="product-sticker" aria-label="Jump to our top pick for beginners">
+    <span class="sticker-label">Top Pick</span>
+    <span class="sticker-product">Celestron G2 10x50</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="sticker-arrow">
+      <path d="M9 5l7 7-7 7"/>
+    </svg>
+  </a>
+
   <!-- Answer Capsule -->
-  <section class="answer-capsule">
-    <div class="container">
-      <div class="capsule-content">
-        <div class="capsule-icon">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-            <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="capsule-text">
-          <h2 class="capsule-title">Quick Answer</h2>
-          <p>This comprehensive guide reviews the best astronomy binoculars for 2026 across all price ranges. For most observers, the <strong>Nikon Aculon A211 10x50</strong> ($130-$160) offers exceptional optical quality and build for the price. Budget-conscious beginners should consider the <strong>Celestron SkyMaster 10x50</strong> ($50-$70), while serious observers will appreciate the <strong>Celestron SkyMaster Pro 15x70</strong> ($180-$220) for deep sky work. All recommendations based on extensive real-world testing under dark skies.</p>
-        </div>
-      </div>
+  <aside class="answer-capsule">
+    <div class="capsule-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 6v6l4 2"/>
+      </svg>
     </div>
-  </section>
+    <p>This comprehensive guide reviews the best astronomy binoculars for 2026 across all price ranges. For most observers, the <strong>Nikon Aculon A211 10x50</strong> ($130-$160) offers exceptional optical quality and build for the price. Budget-conscious beginners should consider the <strong>Celestron SkyMaster 10x50</strong> ($50-$70), while serious observers will appreciate the <strong>Celestron SkyMaster Pro 15x70</strong> ($180-$220) for deep sky work. All recommendations based on extensive real-world testing under dark skies.</p>
+  </aside>
 
   <!-- Main Content with Sidebar -->
   <div class="content-wrapper">
@@ -115,22 +117,22 @@ const faqData = [
 
         <!-- Table of Contents Sidebar -->
         <aside class="toc-sidebar">
-          <div class="toc-sticky">
-            <h2 class="toc-title">Contents</h2>
-            <nav class="toc-nav">
-              <a href="#introduction" class="toc-link">Introduction</a>
-              <a href="#how-we-test" class="toc-link">How We Test</a>
-              <a href="#budget-picks" class="toc-link">Budget Picks ($50-$150)</a>
-              <a href="#mid-range" class="toc-link">Mid-Range ($150-$400)</a>
-              <a href="#premium" class="toc-link">Premium ($400-$1,000)</a>
-              <a href="#image-stabilized" class="toc-link">Image Stabilized</a>
-              <a href="#large-aperture" class="toc-link">Large Aperture (70mm+)</a>
-              <a href="#buying-guide" class="toc-link">Buying Guide</a>
-              <a href="#specifications" class="toc-link">Understanding Specs</a>
-              <a href="#accessories" class="toc-link">Essential Accessories</a>
-              <a href="#faq" class="toc-link">FAQ</a>
-            </nav>
-          </div>
+          <nav class="toc" aria-label="Table of Contents">
+            <h2>Contents</h2>
+            <ol>
+              <li><a href="#introduction">Introduction</a></li>
+              <li><a href="#how-we-test">How We Test</a></li>
+              <li><a href="#budget-picks">Budget Picks ($50-$150)</a></li>
+              <li><a href="#mid-range">Mid-Range ($150-$400)</a></li>
+              <li><a href="#premium">Premium ($400-$1,000)</a></li>
+              <li><a href="#image-stabilized">Image Stabilized</a></li>
+              <li><a href="#large-aperture">Large Aperture (70mm+)</a></li>
+              <li><a href="#buying-guide">Buying Guide</a></li>
+              <li><a href="#specifications">Understanding Specs</a></li>
+              <li><a href="#accessories">Essential Accessories</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ol>
+          </nav>
         </aside>
 
         <!-- Article Content -->
@@ -191,6 +193,38 @@ const faqData = [
           <p><strong>Price:</strong> $45-$65 | <strong>Aperture:</strong> 50mm | <strong>Magnification:</strong> 7x | <strong>Field of View:</strong> 7.1° | <strong>Weight:</strong> 730g</p>
 
           <p>For observers prioritizing wide fields for Milky Way scanning and large deep sky objects, the 7x50 SkyMaster delivers exceptional value. The wider 7.1° field frames the entire Pleiades cluster, North America Nebula, and Andromeda Galaxy in single views. Lower magnification reduces hand shake for easier handheld viewing and provides brighter images (7.1mm exit pupil). Trade-off: less magnification shows less detail on Moon, planets, and smaller deep sky objects. Optical quality matches the 10x50 version with similar chromatic aberration and edge softness.</p>
+
+          <!-- Affiliate Product Card -->
+          <aside class="affiliate-card" id="top-pick">
+            <span class="affiliate-badge">Editor's Pick</span>
+            <div class="affiliate-content">
+              <a href="https://www.astroshop.eu/instruments/celestron-binoculars-upclose-g2-10x50-porro/p,44882?affiliate_id=TheAstronomySpace"
+                 target="_blank" rel="noopener sponsored" class="affiliate-image-link">
+                <img src="https://www.astroshop.eu/Produktbilder/small/44882_1.jpg"
+                     alt="Celestron UpClose G2 10x50 Porro Binoculars"
+                     class="affiliate-image"
+                     width="150" height="150"
+                     loading="lazy" />
+              </a>
+              <div class="affiliate-details">
+                <h4 class="affiliate-title">Celestron UpClose G2 10x50 Porro</h4>
+                <div class="affiliate-specs">
+                  <span>10x Magnification</span>
+                  <span>50mm Aperture</span>
+                  <span>Wide Field of View</span>
+                </div>
+                <p class="affiliate-description">Perfect entry-level binoculars for astronomy beginners. Lightweight, easy to use, and delivers crisp views of the Moon, star clusters, and bright deep-sky objects. An excellent first step into stargazing.</p>
+                <a href="https://www.astroshop.eu/instruments/celestron-binoculars-upclose-g2-10x50-porro/p,44882?affiliate_id=TheAstronomySpace"
+                   target="_blank" rel="noopener sponsored" class="affiliate-cta">
+                  <span>View on Astroshop.eu</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <p class="affiliate-disclosure">As an affiliate, we may earn a commission from qualifying purchases at no extra cost to you.</p>
+          </aside>
         </section>
 
         <!-- Mid-Range -->
@@ -493,7 +527,7 @@ const faqData = [
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const id = entry.target.getAttribute('id');
-        const tocLinks = document.querySelectorAll('.toc-link');
+        const tocLinks = document.querySelectorAll('.toc a');
 
         tocLinks.forEach(link => {
           link.classList.remove('active');
@@ -716,7 +750,8 @@ const faqData = [
     display: flex;
     gap: var(--space-md);
     padding: var(--space-lg);
-    margin-bottom: var(--space-2xl);
+    max-width: 900px;
+    margin: 0 auto var(--space-xl);
     background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
     border: 1px solid rgba(6, 182, 212, 0.2);
     border-radius: var(--radius-lg);
@@ -919,6 +954,250 @@ const faqData = [
     .capsule-icon {
       width: 32px;
       height: 32px;
+    }
+  }
+
+  /* Product Sticker (Fixed Right Side) */
+  .product-sticker {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    border-right: none;
+    border-radius: 0.5rem 0 0 0.5rem;
+    text-decoration: none;
+    color: white;
+    font-size: 0.8rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.2s ease;
+    writing-mode: horizontal-tb;
+  }
+
+  .product-sticker:hover {
+    background: rgba(6, 182, 212, 0.15);
+    border-color: rgba(6, 182, 212, 0.5);
+    padding-right: 1.25rem;
+  }
+
+  .sticker-label {
+    padding: 0.2rem 0.4rem;
+    background: rgba(6, 182, 212, 0.3);
+    border-radius: 0.25rem;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #06b6d4;
+  }
+
+  .sticker-product {
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .sticker-arrow {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    opacity: 0.5;
+    transition: all 0.2s ease;
+  }
+
+  .product-sticker:hover .sticker-arrow {
+    opacity: 1;
+    transform: translateX(2px);
+  }
+
+  @media (max-width: 1024px) {
+    .product-sticker {
+      top: auto;
+      bottom: 1rem;
+      right: 1rem;
+      transform: none;
+      border-radius: 0.5rem;
+      border-right: 1px solid rgba(6, 182, 212, 0.3);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .product-sticker:hover {
+      padding-right: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .sticker-product {
+      display: none;
+    }
+
+    .product-sticker {
+      padding: 0.6rem 0.8rem;
+    }
+  }
+
+  /* Affiliate Product Card */
+  .affiliate-card {
+    position: relative;
+    margin: var(--space-xl) 0;
+    padding: var(--space-lg);
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    overflow: hidden;
+  }
+
+  .affiliate-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #06b6d4, #3b82f6);
+  }
+
+  .affiliate-badge {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    padding: 0.35rem 0.75rem;
+    background: linear-gradient(135deg, #06b6d4, #3b82f6);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 2rem;
+  }
+
+  .affiliate-content {
+    display: flex;
+    gap: var(--space-lg);
+    align-items: center;
+  }
+
+  .affiliate-image-link {
+    flex-shrink: 0;
+    display: block;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    padding: var(--space-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .affiliate-image-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(6, 182, 212, 0.3);
+  }
+
+  .affiliate-image {
+    display: block;
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+  }
+
+  .affiliate-details {
+    flex: 1;
+  }
+
+  .affiliate-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: white;
+    margin: 0 0 var(--space-sm);
+  }
+
+  .affiliate-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .affiliate-specs span {
+    padding: 0.25rem 0.6rem;
+    background: rgba(6, 182, 212, 0.15);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    color: #06b6d4;
+  }
+
+  .affiliate-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 var(--space-md);
+  }
+
+  .affiliate-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #06b6d4, #0891b2);
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+  }
+
+  .affiliate-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(6, 182, 212, 0.5);
+  }
+
+  .affiliate-cta svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+  }
+
+  .affiliate-cta:hover svg {
+    transform: translateX(4px);
+  }
+
+  .affiliate-disclosure {
+    margin: var(--space-md) 0 0;
+    padding-top: var(--space-sm);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+  }
+
+  @media (max-width: 640px) {
+    .affiliate-content {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .affiliate-specs {
+      justify-content: center;
+    }
+
+    .affiliate-badge {
+      position: static;
+      display: inline-block;
+      margin-bottom: var(--space-sm);
+    }
+
+    .affiliate-card {
+      padding-top: var(--space-xl);
     }
   }
 </style>

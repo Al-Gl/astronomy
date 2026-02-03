@@ -155,6 +155,25 @@ const faqData = [
           <p>The Moon's gravity is only about 1/6th of Earth's. An astronaut who weighs 180 pounds on Earth weighs only 30 pounds on the Moon. This weak gravity means the Moon couldn't hold onto an atmosphere—any gases escape into space. It also means you could jump six times higher than on Earth, which is why Apollo astronauts adopted that distinctive bouncing gait.</p>
 
           <p>The Moon is tidally locked to Earth, meaning the same side always faces us. It takes the Moon about 27.3 days to complete one orbit around Earth, and exactly the same amount of time to rotate once on its axis. This synchronization happened over hundreds of millions of years as Earth's gravity tugged on slight bulges in the Moon's shape, gradually slowing its rotation until one side permanently faces Earth.</p>
+
+          <!-- Moon Infographic -->
+          <figure class="infographic-container">
+            <button class="infographic-trigger" aria-label="Click to view full-size Moon infographic" id="infographicTrigger">
+              <img
+                src="/images/moon_info_basic_blue.png"
+                alt="Moon infographic showing key facts and statistics about Earth's Moon"
+                class="infographic-image"
+                loading="lazy"
+              />
+              <div class="infographic-overlay">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="expand-icon">
+                  <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                </svg>
+                <span>Click to expand</span>
+              </div>
+            </button>
+            <figcaption>Moon infographic — click to view full size</figcaption>
+          </figure>
         </section>
 
         <!-- Formation -->
@@ -454,6 +473,22 @@ const faqData = [
       </div>
     </div>
   </article>
+
+  <!-- Lightbox Modal for Infographic -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Moon infographic full view">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close full-size view">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+    <div class="lightbox-content">
+      <img
+        src="/images/moon_info_basic_blue.png"
+        alt="Moon infographic showing key facts and statistics about Earth's Moon - full size"
+        class="lightbox-image"
+      />
+    </div>
+  </div>
 </MainLayout>
 
 <script>
@@ -674,6 +709,40 @@ const faqData = [
 
   // Initialize with full moon
   updateMoonPhase(14.8);
+
+  // Lightbox Modal functionality
+  const lightboxModal = document.getElementById('lightboxModal');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const infographicTrigger = document.getElementById('infographicTrigger');
+
+  function openLightbox() {
+    lightboxModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    lightboxClose.focus();
+  }
+
+  function closeLightbox() {
+    lightboxModal.classList.remove('active');
+    document.body.style.overflow = '';
+    infographicTrigger.focus();
+  }
+
+  infographicTrigger?.addEventListener('click', openLightbox);
+  lightboxClose?.addEventListener('click', closeLightbox);
+
+  // Close on backdrop click
+  lightboxModal?.addEventListener('click', (e) => {
+    if (e.target === lightboxModal) {
+      closeLightbox();
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightboxModal?.classList.contains('active')) {
+      closeLightbox();
+    }
+  });
 </script>
 
 <style>
@@ -1352,6 +1421,161 @@ const faqData = [
     .phase-dot {
       width: 12px;
       height: 12px;
+    }
+  }
+
+  /* Infographic Styles */
+  .infographic-container {
+    margin: var(--space-xl) 0;
+    text-align: center;
+  }
+
+  .infographic-trigger {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .infographic-trigger:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 40px rgba(6, 182, 212, 0.3);
+  }
+
+  .infographic-trigger:focus {
+    outline: 2px solid var(--color-accent-cyan);
+    outline-offset: 4px;
+  }
+
+  .infographic-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .infographic-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: white;
+    font-size: 0.9rem;
+  }
+
+  .infographic-trigger:hover .infographic-overlay,
+  .infographic-trigger:focus .infographic-overlay {
+    opacity: 1;
+  }
+
+  .expand-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .infographic-container figcaption {
+    margin-top: var(--space-sm);
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    opacity: 0.7;
+  }
+
+  /* Lightbox Modal Styles */
+  .lightbox-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.95);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .lightbox-modal.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: var(--space-lg);
+    right: var(--space-lg);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 10;
+  }
+
+  .lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+  }
+
+  .lightbox-close:focus {
+    outline: 2px solid var(--color-accent-cyan);
+    outline-offset: 2px;
+  }
+
+  .lightbox-close svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .lightbox-content {
+    max-width: 95vw;
+    max-height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-md);
+  }
+
+  .lightbox-image {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  }
+
+  @media (max-width: 768px) {
+    .lightbox-close {
+      top: var(--space-md);
+      right: var(--space-md);
+      width: 40px;
+      height: 40px;
+    }
+
+    .lightbox-close svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .lightbox-content {
+      padding: var(--space-sm);
     }
   }
 </style>

@@ -1,0 +1,1007 @@
+---
+import MainLayout from '../../../../layouts/MainLayout.astro';
+import Schema from '../../../../components/Schema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Observatory', url: '/observatory/' },
+  { name: 'Telescopes', url: '/observatory/telescopes/' },
+  { name: 'Collimation and Maintenance', url: '/observatory/telescopes/collimation-maintenance/' }
+];
+
+const articleData = {
+  headline: 'Telescope Collimation and Maintenance Guide',
+  description: 'Essential care for optimal performance: collimation procedures for Newtonians and SCTs, mirror cleaning, dew prevention, storage tips, and troubleshooting common optical and mechanical issues.',
+  datePublished: '2026-02-03',
+  dateModified: '2026-02-03',
+  author: 'The Astronomy Space',
+  image: '/images/Hero_collimation.jpg',
+  keywords: [
+    'telescope collimation',
+    'Newtonian collimation',
+    'SCT collimation',
+    'laser collimator',
+    'Cheshire eyepiece',
+    'mirror cleaning',
+    'telescope maintenance',
+    'star test',
+    'dew prevention',
+    'telescope storage',
+    'optical alignment'
+  ]
+};
+
+const faqData = [
+  {
+    question: 'How often should I collimate my Newtonian telescope?',
+    answer: 'Newtonian reflectors require collimation checks before every observing session, with full collimation adjustment needed whenever image quality degrades. Unlike refractors with permanently aligned optics, Newtonians use mirrors mounted in adjustable cells that shift slightly from transport vibration, temperature changes, and normal handling. Check collimation by performing a quick star test (defocus a bright star—concentric rings indicate good collimation; elongated or offset rings signal misalignment). If the star test shows poor collimation, perform full adjustment using laser collimator or Cheshire eyepiece. Collimation typically requires 3-5 minutes once you master the procedure. Fast focal ratio Newtonians (f/4-f/5) are more sensitive to collimation errors than slow systems (f/6-f/8), requiring more frequent adjustment. Dobsonians transported frequently need pre-session checks; permanently mounted observatory telescopes may hold collimation for weeks. Budget 5 minutes at the start of each session for collimation verification—this small investment dramatically improves image quality, sharpness, and contrast.'
+  },
+  {
+    question: 'Can I collimate a telescope without a laser collimator?',
+    answer: 'Yes, you can accurately collimate Newtonian telescopes using traditional tools: sight tube (collimation cap), Cheshire eyepiece, or even just a centered crosshair in the focuser. Laser collimators ($30-$80) offer convenience and speed but aren\'t essential. The Cheshire eyepiece ($20-$40) combines a peep sight with internal crosshairs and 45-degree illumination window, allowing precise primary mirror alignment while viewing reflected patterns. Many experienced observers prefer Cheshires for final precision. Sight tubes (simple tubes with centered crosshairs, often included free with telescopes or DIY from film canisters) work well for initial rough alignment. The star test—defocusing on a bright star—provides final verification regardless of which tool you used. Procedure without laser: (1) Use sight tube to center secondary mirror in focuser draw tube. (2) Adjust secondary to center primary mirror\'s reflection. (3) Use Cheshire to align primary mirror so its center reflection appears concentric with crosshairs. (4) Verify with star test. While laser collimators speed the process, traditional methods work equally well and teach you to understand collimation principles rather than blindly trusting laser dots. Some observers find lasers less accurate than Cheshire eyepieces for final precision.'
+  },
+  {
+    question: 'How do I clean telescope mirrors safely?',
+    answer: 'Clean mirrors only when absolutely necessary (annually or less)—dust particles cause minimal optical degradation compared to scratches from improper cleaning. When cleaning becomes essential: (1) Remove mirror from telescope cell (mark orientation for reassembly). (2) Rinse under room-temperature distilled water to float off loose dust—never wipe dry dust which scratches coatings. (3) Prepare cleaning solution: 2-3 drops Dawn dish soap (original formula) per liter of distilled water, or use commercial mirror cleaning solution. (4) Flow solution gently over mirror surface, allowing it to sheet across without touching. (5) For stubborn residue, use ultra-soft cotton balls soaked in solution, dragging straight across mirror in one direction (never circular motions), using fresh cotton for each pass. (6) Rinse thoroughly with distilled water, ensuring all soap residue removed. (7) Stand mirror on edge on soft towel and allow air drying (never wipe—this causes scratches). (8) Reinstall mirror and recollimate telescope. NEVER use: paper towels (scratches), tap water (mineral deposits), glass cleaner (damages coatings), compressed air (propellant residue), or rubbing/circular motions. Most telescope manufacturers offer professional cleaning services ($50-$100) if you\'re uncomfortable DIY—this is worthwhile for expensive optics. A dusty mirror performs far better than a scratched mirror, so err on the side of cleaning too infrequently rather than too often.'
+  },
+  {
+    question: 'What is star testing and how does it verify collimation?',
+    answer: 'Star testing evaluates optical quality and collimation by examining a defocused star image—properly collimated optics produce symmetric, concentric diffraction rings; misaligned optics create asymmetric patterns revealing the specific error. Procedure: Point telescope at bright star (magnitude 1-3) at high altitude (minimal atmospheric turbulence). Use high magnification (200x-300x) and carefully defocus until you see expanding rings around the star\'s central disk. With good collimation, defocused star appears as series of concentric circles—bright Airy disk surrounded by alternating dark and bright rings, symmetrical both inside and outside focus. Collimation errors reveal themselves as: asymmetric rings (elliptical rather than circular), brighter rings on one side than opposite, offset center point, or clipped appearance on one edge. Different patterns diagnose specific issues: if rings stretch in one direction, secondary mirror needs adjustment; if rings appear offset but circular, primary mirror needs adjustment; if outer rings show sharp cut-off on one edge, focuser drawtube misaligned. Star test also reveals optical quality issues beyond collimation: turned-edge mirrors show bright outer ring, pinched optics create six-pointed patterns, poor figuring shows irregular zones. Perform star testing after collimating to verify success, and periodically to catch degrading collimation before it severely impacts observing. Experienced observers can diagnose and correct collimation errors entirely through iterative star testing, making adjustments until perfect symmetry achieved. Atmospheric turbulence interferes with star testing—perform on stable nights when stars appear steady rather than twinkling severely.'
+  },
+  {
+    question: 'Do refractors and SCTs need collimation like Newtonians?',
+    answer: 'Refractors rarely require collimation—they typically maintain factory alignment permanently unless subjected to severe mechanical shock (being dropped or struck). Refractor objectives are sealed units with lenses precision-mounted in fixed cells; no user-adjustable components exist in most designs. If a refractor shows collimation problems (double stars appear as triples, star test shows asymmetric patterns), professional service required—attempting DIY adjustment risks permanent damage. Some premium refractors include objective cell adjustment screws for expert users, but most owners never touch these. SCTs (Schmidt-Cassegrain Telescopes) require occasional collimation but less frequently than Newtonians—typically every few months to yearly depending on use and transport. SCT collimation adjusts only the secondary mirror using three screws on the corrector plate (primary mirror fixed). Procedure: Star test to identify asymmetry direction. Use 2mm or 3/32" Allen key to adjust secondary screws—turn one screw clockwise while turning opposite screw counterclockwise to shift secondary position without tilting. Small adjustments (1/8 turn) followed by re-testing work best. Many SCT users never collimate after factory setup if telescope remains permanently mounted. Maksutov-Cassegrains (MAK) rarely need collimation—sealed optical design maintains alignment like refractors. In summary: Newtonians require frequent collimation (every session), SCTs occasional adjustment (monthly to yearly), refractors and MAKs almost never (except after trauma or factory defects). Each telescope type\'s mechanical design determines collimation stability—open-tube Newtonians with adjustable mirrors drift easily; sealed refractors with fixed elements stay aligned indefinitely.'
+  },
+  {
+    question: 'What maintenance schedule should I follow for my telescope?',
+    answer: 'Follow this comprehensive maintenance schedule for optimal telescope performance and longevity: **Every Session:** Check collimation (Newtonians); inspect optics for dew or frost, dry if needed; check focuser smooth operation; ensure finder alignment; verify all mounting screws tight; clean eyepiece lenses if smudged. **Monthly (for frequently used telescopes):** Deep inspect optics for dust accumulation using flashlight at angle; clean eyepieces using lens cleaning solution and microfiber cloth; check dew heater operation; lubricate focuser if dragging (light instrument oil on focuser rack gears); verify tripod leg locks functional; inspect mount for loose bolts or screws. **Annually:** Consider professional mirror cleaning if dust accumulation severe (or DIY using distilled water method); inspect spider vanes for looseness (Newtonians)—tighten if needed; check primary mirror clips aren\'t over-tightened (should allow thermal expansion); lubricate mount axes with appropriate grease; verify electronics connections clean and corrosion-free (GoTo systems); replace desiccant in storage case; deep clean tube interior if dust accumulated. **As Needed:** Recollimate when star test shows degradation; replace finder batteries; repair torn dew shield; address any specific mechanical issues promptly. **Storage Between Sessions:** Install dust caps on both ends; store in climate-controlled dry environment; include desiccant packets in case; position optics horizontal or angled downward (not facing up collecting dust). What NOT to do: Don\'t over-clean optics (major cause of coating damage); don\'t over-tighten mirror clips (causes pinched optics); don\'t store in extreme temperatures (attics, garages); don\'t leave outside or in car (dew, theft); don\'t use WD-40 or inappropriate lubricants on focuser. Well-maintained telescopes last decades providing excellent performance; neglected telescopes deteriorate rapidly from dust, moisture, and mechanical wear.'
+  }
+];
+---
+
+<MainLayout
+  title="Telescope Collimation and Maintenance Guide 2026 | The Astronomy Space"
+  description="Essential care for optimal performance: collimation procedures for Newtonians and SCTs, mirror cleaning, dew prevention, storage tips, and troubleshooting common optical and mechanical issues."
+>
+  <!-- Schema Markup -->
+  <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
+  <Schema type="TechArticle" article={articleData} />
+  <Schema type="FAQPage" faq={faqData} />
+
+  <!-- Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-image-wrapper">
+      <img
+        src="/images/Hero_collimation.jpg"
+        alt="Telescope collimation procedure showing laser collimator and mirror adjustment"
+        class="hero-image"
+        loading="eager"
+      />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="container hero-content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        {breadcrumbs.map((crumb, index) => (
+          <span>
+            {index > 0 && <span class="breadcrumb-separator">›</span>}
+            {index === breadcrumbs.length - 1 ? (
+              <span class="breadcrumb-current">{crumb.name}</span>
+            ) : (
+              <a href={crumb.url} class="breadcrumb-link">{crumb.name}</a>
+            )}
+          </span>
+        ))}
+      </nav>
+      <h1 class="hero-title">Telescope Collimation & Maintenance</h1>
+      <p class="hero-subtitle">Essential Care for Peak Optical Performance</p>
+    </div>
+  </section>
+
+  <!-- Answer Capsule -->
+  <aside class="answer-capsule">
+    <div class="capsule-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 6v6l4 2"/>
+      </svg>
+    </div>
+    <p>Newtonian reflectors require collimation before every observing session using laser collimator ($30-$80) or Cheshire eyepiece ($20-$40). SCTs need occasional adjustment every few months. Refractors rarely need collimation. Check alignment via star test (defocused star should show concentric rings). Clean mirrors only when absolutely necessary (annually or less) using distilled water—dust is better than scratches. Store telescopes in climate-controlled dry locations with desiccant packets and dust caps installed.</p>
+  </aside>
+
+  <!-- Main Content with Sidebar -->
+  <div class="content-wrapper">
+    <div class="container">
+      <div class="content-layout">
+
+        <!-- Table of Contents Sidebar -->
+        <aside class="toc-sidebar">
+          <nav class="toc" aria-label="Table of Contents">
+            <h2>Contents</h2>
+            <ol>
+              <li><a href="#introduction">Introduction</a></li>
+              <li><a href="#collimation-theory">Collimation Theory</a></li>
+              <li><a href="#newtonian-collimation">Newtonian Collimation</a></li>
+              <li><a href="#sct-collimation">SCT Collimation</a></li>
+              <li><a href="#star-testing">Star Testing</a></li>
+              <li><a href="#mirror-cleaning">Mirror Cleaning</a></li>
+              <li><a href="#dew-prevention">Dew Prevention</a></li>
+              <li><a href="#storage">Storage Best Practices</a></li>
+              <li><a href="#maintenance-schedule">Maintenance Schedule</a></li>
+              <li><a href="#troubleshooting">Troubleshooting</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ol>
+          </nav>
+        </aside>
+
+        <!-- Article Content -->
+        <article class="article-content">
+
+        <!-- Introduction -->
+        <section id="introduction" class="content-section">
+          <h2>Introduction: Why Maintenance and Collimation Matter</h2>
+          <p>Telescope performance depends critically on two factors: optical quality (determined at manufacture) and optical alignment (your responsibility as owner). Even the finest telescope optics—hand-figured mirrors costing thousands of dollars—deliver poor performance when misaligned or poorly maintained. Conversely, budget optics properly collimated and cared for can outperform expensive equipment neglected by owners who assume "set and forget" applies to telescopes.</p>
+
+          <p>Collimation—the precise alignment of optical elements along a common axis—determines whether your telescope achieves its theoretical performance limits. Misaligned optics scatter light, reduce contrast, soften fine detail, and create asymmetric star images. A 6-inch Newtonian with perfect collimation will show crisper planetary detail and sharper star images than an 8-inch Newtonian with poor collimation, despite the latter's larger aperture. Collimation affects all telescope types but most critically impacts Newtonians which use mirrors mounted in adjustable cells that shift from vibration, temperature changes, and transport.</p>
+
+          <p>Beyond collimation, routine maintenance preserves your telescope's optical and mechanical quality for decades. Proper cleaning techniques prevent coating damage that degrades light transmission and contrast. Dew prevention stops moisture from spotting optics and corroding metal components. Correct storage prevents fungus growth on optics, dust accumulation, and mechanical wear. Simple maintenance practices—occupying perhaps 30 minutes monthly—protect equipment investments ranging from hundreds to tens of thousands of dollars while ensuring peak performance every observing session.</p>
+
+          <p>This comprehensive guide covers everything needed to maintain any telescope type: detailed collimation procedures for Newtonians and SCTs, safe cleaning techniques protecting delicate coatings, storage practices preventing long-term degradation, troubleshooting common optical and mechanical problems, and maintenance schedules ensuring nothing gets overlooked. Whether you own a $300 beginner Dobsonian or a $10,000 premium APO refractor, these practices will maximize performance and longevity.</p>
+        </section>
+
+        <!-- Collimation Theory -->
+        <section id="collimation-theory" class="content-section">
+          <h2>Collimation Theory: Understanding Optical Alignment</h2>
+          <p>Collimation aligns all optical elements (lenses, mirrors, eyepiece focuser) so light travels along the telescope's optical axis without deviation. When perfectly collimated, light from a star enters the tube, reflects from mirrors or refracts through lenses along precisely calculated paths, and converges at the focal plane creating a diffraction-limited point image. Misalignment causes light to converge at wrong angles, creating aberrated images with reduced sharpness and contrast.</p>
+
+          <h3>The Diffraction-Limited Image</h3>
+          <p>Perfect optics with perfect collimation produce diffraction-limited images determined solely by aperture and physics—these show point sources (stars) as tiny disks (Airy disks) surrounded by concentric diffraction rings. A 6-inch telescope at 150x displays stars as 0.76 arcsecond disks surrounded by progressively dimmer rings containing 16%, 7%, and 3% of the star's light. Atmospheric turbulence typically prevents achieving this theoretical performance, but good collimation gets you close. Poor collimation scatters light from the Airy disk into surrounding rings and space, dimming the star, reducing contrast, and softening planetary detail.</p>
+
+          <h3>Why Newtonians Require Frequent Collimation</h3>
+          <p>Newtonian reflectors use two mirrors mounted in adjustable cells: the parabolic primary mirror at the tube's base and the flat secondary mirror suspended near the top by spider vanes. Both require precise alignment. The secondary reflects incoming light 90 degrees toward the focuser; the primary focuses this light to a point at the eyepiece. These mirrors must align perfectly along the optical axis—any tilt or offset degrades performance.</p>
+
+          <p>Unfortunately, Newtonian mechanics work against collimation stability. Primary mirrors sit in cells adjusted by three or six screws (collimation bolts) that owners can turn, but these screws can also drift from vibration during transport. Secondary mirrors mount on tiltable platforms secured by three adjustment screws—these too can shift. Temperature changes cause metal components to expand and contract at different rates, altering alignment. Simply moving a Dobsonian from storage to observing site can disturb collimation enough to degrade performance noticeably.</p>
+
+          <p>Fast focal ratio Newtonians (f/4-f/5) are even more collimation-sensitive than slow systems (f/6-f/8). An f/4 Newtonian showing misalignment of 1mm at the secondary produces dramatically worse optical effects than the same 1mm offset in an f/8 system. This explains why fast Dobsonians popular for deep sky observing require frequent collimation checks while slow astrophotography Newtonians may hold collimation for weeks.</p>
+
+          <h3>Refractor and SCT Collimation Stability</h3>
+          <p>Refractors use lenses mounted in sealed cells with no user-adjustable components (generally). Lens elements are permanently aligned at factory and remain stable for the telescope's lifetime unless subjected to severe mechanical shock. This explains refractors' reputation for being "set and forget"—they simply don't lose collimation through normal use. Premium refractors may include objective cell adjustment screws for expert users, but most manufacturers advise against touching these without professional training.</p>
+
+          <p>SCTs (Schmidt-Cassegrain Telescopes) fall between Newtonians and refractors for collimation stability. The primary mirror is fixed at the rear of the tube and rarely requires adjustment. Only the secondary mirror (mounted on the corrector plate's interior) needs periodic collimation using three adjustment screws accessible from the front. SCT collimation typically remains stable for weeks to months, degrading only gradually from thermal expansion, vibration, and transport. Many SCT users never collimate after initial factory setup if the telescope remains permanently mounted on an observatory pier.</p>
+        </section>
+
+        <!-- Newtonian Collimation -->
+        <section id="newtonian-collimation" class="content-section">
+          <h2>Newtonian Collimation: Step-by-Step Procedure</h2>
+          <p>Collimating a Newtonian reflector involves aligning both the secondary and primary mirrors sequentially. The process requires 3-5 minutes once mastered and should become routine before every observing session. You'll need either a laser collimator ($30-$80) or Cheshire eyepiece ($20-$40), plus a sight tube for secondary adjustment.</p>
+
+          <h3>Tools Required</h3>
+          <p><strong>Laser Collimator:</strong> Projects laser beam down optical axis. When properly collimated, laser reflects from primary mirror back to illuminate the collimator's entrance aperture. Provides fast, convenient alignment but requires the laser itself be precisely manufactured (cheap lasers may have off-axis beams). Popular models: Celestron laser collimator ($35), Astro Baby laser ($45), Howie Glatter ($80-$120 with graduated circles for precision).</p>
+
+          <p><strong>Cheshire Eyepiece:</strong> Tube with crosshairs and 45-degree viewing window that illuminates the optical path. Allows direct viewing of mirror reflections for precise alignment. Many experts prefer Cheshires for final precision work. Popular models: Celestron Cheshire ($25), Astro-Tech Cheshire ($30), William Optics Cheshire ($40).</p>
+
+          <p><strong>Sight Tube (Collimation Cap):</strong> Simple tube with centered hole for viewing down optical axis. Often included free with telescopes. DIY versions made from film canisters with centered pins work well. Used primarily for rough secondary alignment.</p>
+
+          <h3>Step 1: Secondary Mirror Alignment</h3>
+          <p>The secondary mirror must center in the focuser draw tube and angle correctly to reflect the entire primary mirror to the eyepiece. Start in daylight or with room lighting—secondary alignment doesn't require darkness.</p>
+
+          <p><strong>Center the Secondary in the Focuser:</strong> Remove eyepiece and insert sight tube into focuser. Look through sight tube—you should see the secondary mirror centered in the draw tube opening. If it appears off-center, loosen the secondary mirror holder's center bolt (this allows rotation) and gently slide the secondary until it appears centered. Tighten center bolt to lock position. The secondary should appear as a circle (or ellipse in fast systems) precisely centered in the round focuser opening.</p>
+
+          <p><strong>Angle the Secondary Correctly:</strong> Still looking through sight tube, you should now see the primary mirror's reflection centered in the secondary mirror. If the primary appears offset (more secondary edge visible on one side), adjust the secondary's tilt using the three adjustment screws on the secondary holder. Turning a screw clockwise pulls the secondary toward that screw; counterclockwise pushes away. Make small adjustments (1/4 turn), checking after each change. Goal: primary mirror's reflection centered in secondary, with small donut hole (focuser draw tube reflection) centered in primary's reflection.</p>
+
+          <p>Note: In fast focal ratio systems (f/4-f/5), the secondary may appear elliptical rather than circular when viewed down the focuser—this is normal and correct. The secondary must be tilted to catch the fast cone of light from the primary.</p>
+
+          <h3>Step 2: Primary Mirror Alignment (Laser Method)</h3>
+          <p>With secondary aligned, now align the primary mirror so it focuses light precisely at the optical axis. This requires the laser collimator.</p>
+
+          <p><strong>Insert Laser Collimator:</strong> Remove sight tube and insert laser collimator into focuser. Turn it on—you'll see red laser dot somewhere on the primary mirror face. The laser beam represents the optical axis; your goal is to adjust the primary so this beam reflects back to illuminate the collimator's entrance target (usually marked with rings or crosshairs).</p>
+
+          <p><strong>Adjust Primary Mirror:</strong> At the rear of the telescope tube, locate three to six collimation bolts (usually Phillips head or hex bolts) arranged in a circle around the primary mirror cell. These bolts push/pull the mirror, changing its tilt. The laser dot on the primary shows current alignment; you need to move this dot until the return beam hits the collimator's target. Strategy: identify which direction the dot needs to move. Tighten the bolt(s) closest to where you want the dot to move; loosen the bolt opposite. Make small adjustments (1/4 turn), checking the laser return after each change. The return beam becomes visible as a red dot on the collimator once you're close—then make fine adjustments until this return dot centers on the collimator's target.</p>
+
+          <p><strong>Final Precision:</strong> When the laser return dot centers on the collimator target, your telescope is collimated. Check by gently rotating the focuser—the laser pattern should remain centered throughout rotation. If it wobbles or shifts, the focuser draw tube may be slightly misaligned (uncommon but possible). Verify collimation with star test (described in star testing section).</p>
+
+          <h3>Step 3: Primary Mirror Alignment (Cheshire Method)</h3>
+          <p>The Cheshire eyepiece provides an alternative to laser collimators and is preferred by many experienced observers for final precision.</p>
+
+          <p><strong>Insert Cheshire:</strong> Remove laser and insert Cheshire eyepiece into focuser. Look through the Cheshire's peep sight—you'll see the illuminated optical path with crosshairs marking the optical axis. The 45-degree window illuminates the tube interior, making reflections visible.</p>
+
+          <p><strong>Check Alignment Visually:</strong> Through the Cheshire, you should see concentric circles: the focuser draw tube, the secondary mirror, the primary mirror's reflection in the secondary, and the donut hole (draw tube reflection in primary). If the primary's center mark (usually a small spot or ring at the mirror's center) appears offset from the Cheshire crosshairs, the primary needs adjustment.</p>
+
+          <p><strong>Adjust Primary:</strong> Turn the primary mirror collimation bolts (same as laser method) while viewing through Cheshire. Your goal: center the primary mirror's center mark on the Cheshire crosshairs. Make small adjustments, checking after each change. When the primary center mark appears precisely on the crosshairs, and all reflections appear concentric, collimation is complete.</p>
+
+          <div class="info-box glass">
+            <h3>Quick Newtonian Collimation Summary</h3>
+            <ol>
+              <li><strong>Secondary centering:</strong> Use sight tube—center secondary in focuser draw tube</li>
+              <li><strong>Secondary tilt:</strong> Adjust so primary reflection centers in secondary</li>
+              <li><strong>Primary alignment:</strong> Use laser or Cheshire—adjust primary bolts until optical axis centered</li>
+              <li><strong>Verification:</strong> Perform star test to confirm good collimation</li>
+            </ol>
+            <p><strong>Time required:</strong> 3-5 minutes with practice. <strong>Frequency:</strong> Check before every session; adjust whenever star test shows degradation.</p>
+          </div>
+        </section>
+
+        <!-- SCT Collimation -->
+        <section id="sct-collimation" class="content-section">
+          <h2>SCT Collimation: Schmidt-Cassegrain Procedure</h2>
+          <p>Schmidt-Cassegrain Telescopes (SCTs) require simpler collimation than Newtonians because only the secondary mirror needs adjustment—the primary remains fixed. SCT collimation involves tilting the secondary mirror (mounted on the corrector plate's interior) using three adjustment screws accessible from the front of the telescope.</p>
+
+          <h3>When to Collimate SCTs</h3>
+          <p>Check SCT collimation whenever image quality degrades, after transport or shipping, every few months with regular use, or if star test reveals asymmetric diffraction patterns. Well-mounted SCTs can hold collimation for extended periods—some users collimate only once yearly if the telescope remains permanently on a pier. Frequent transport or temperature extremes increase collimation drift.</p>
+
+          <h3>SCT Collimation Procedure</h3>
+          <p><strong>Star Test Setup:</strong> Unlike Newtonians which can be roughly collimated with tools, SCTs require star testing for collimation. Point telescope at bright star (magnitude 1-3) at high altitude (to minimize atmospheric turbulence). Use high magnification (200x-300x). Center star precisely in eyepiece field.</p>
+
+          <p><strong>Defocus and Observe Pattern:</strong> Carefully rack focus out until the star expands into a disk with concentric rings (diffraction pattern). Observe both inside and outside focus (the patterns should mirror each other if collimated). Properly collimated SCTs show perfectly concentric rings centered in the field. Collimation errors appear as: asymmetric rings (elliptical rather than circular), brighter on one side, or with offset center point.</p>
+
+          <p><strong>Identify Adjustment Direction:</strong> Note which direction the pattern appears asymmetric or offset. The secondary mirror needs to tilt toward the dimmer or smaller side of the pattern. For example, if rings appear compressed on the left and expanded on the right, the secondary needs to tilt left.</p>
+
+          <p><strong>Adjust Secondary Screws:</strong> At the front of the telescope, locate three small Phillips head or hex screws arranged in a triangle around the corrector plate (secondary mirror attaches to the corrector's rear surface). Use appropriate screwdriver or 2mm Allen key. To tilt the secondary in a specific direction: turn one screw clockwise (tightening) while turning the opposite screw counterclockwise (loosening). This shifts secondary position without changing the spacing dramatically. Make VERY small adjustments—1/8 to 1/4 turn maximum.</p>
+
+          <p><strong>Re-test and Iterate:</strong> Return to star test after each adjustment. The diffraction pattern should move toward symmetry. Continue making small adjustments and testing until patterns appear perfectly concentric both inside and outside focus. Patience required—SCT collimation often demands 3-4 iterations of adjustment and testing.</p>
+
+          <h3>SCT Collimation Tips</h3>
+          <p>Work on nights with steady seeing (stars not twinkling severely)—atmospheric turbulence obscures diffraction patterns making collimation assessment difficult. Use bright stars but not too bright—magnitude 1-2 ideal; magnitude 0 or planets often too bright causing glare. Make very small adjustments—SCTs are sensitive and 1/4 turn can dramatically change collimation. Some SCT models (particularly Celestron) have spring-loaded secondary screws—maintain spring tension by never loosening all three screws simultaneously. If collimation gets severely off, consult manufacturer's reset procedure before attempting adjustment. Consider marking screw positions with paint pen before starting so you can return to original positions if needed.</p>
+
+          <div class="info-box glass">
+            <h3>SCT vs Newtonian Collimation Comparison</h3>
+            <p><strong>SCT Collimation:</strong> Adjusts only secondary mirror using three front screws. Requires star test (no tool-based shortcuts). Holds collimation for months. Adjustment very sensitive (small turns). Takes 10-15 minutes.</p>
+            <p><strong>Newtonian Collimation:</strong> Adjusts both secondary and primary mirrors. Can use tools (laser, Cheshire) for daytime collimation. Requires frequent checks (every session). Adjustment less sensitive. Takes 3-5 minutes with practice.</p>
+          </div>
+        </section>
+
+        <!-- Star Testing -->
+        <section id="star-testing" class="content-section">
+          <h2>Star Testing: Verifying Optical Quality and Collimation</h2>
+          <p>Star testing evaluates both collimation accuracy and overall optical quality by examining the diffraction pattern of a defocused star. This elegant diagnostic technique reveals problems invisible in normal in-focus observations, providing immediate feedback on collimation success and optical issues ranging from mirror figuring errors to pinched optics.</p>
+
+          <h3>How to Perform a Star Test</h3>
+          <p><strong>Star Selection:</strong> Choose bright star (magnitude 1-3) at high altitude (60+ degrees above horizon) to minimize atmospheric turbulence. Moderately bright stars work best—very bright stars (magnitude 0) can create glare; faint stars lack sufficient light for clear diffraction patterns. Popular test stars: Sirius (winter), Vega (summer), Capella (winter), Arcturus (spring/summer). Avoid binary stars or stars in crowded fields.</p>
+
+          <p><strong>Magnification:</strong> Use high magnification—200x to 300x ideal. Higher magnification expands diffraction rings making patterns easier to evaluate. Calculate magnification by dividing telescope focal length by eyepiece focal length (e.g., 1200mm telescope with 4mm eyepiece = 300x).</p>
+
+          <p><strong>Atmospheric Conditions:</strong> Star testing requires steady atmosphere (good seeing). On nights when stars twinkle severely, atmospheric turbulence obscures diffraction patterns making assessment impossible. Best conditions: stars appear steady, minimal twinkling, often occurs on humid nights or after cold fronts pass. Terrible conditions: stars scintillate (rapid twinkling), dance around in eyepiece, show boiling motion—postpone star testing.</p>
+
+          <p><strong>Defocus Procedure:</strong> Center star precisely in eyepiece field using telescope's slow-motion controls. Rack focuser slowly outward (away from telescope) until star expands into disk surrounded by concentric rings. Observe this out-of-focus pattern. Then rack focuser inward past best focus—observe inside-focus pattern. Both patterns should appear identical (mirrored) if optics are properly collimated and figured. The rings you see are diffraction patterns created by wave interference—physics visualized.</p>
+
+          <h3>Interpreting Star Test Patterns</h3>
+          <p><strong>Perfect Collimation and Optics:</strong> Defocused star appears as bright central disk (Airy disk) surrounded by concentric dark and bright rings. Rings perfectly circular and evenly spaced. Pattern centered in eyepiece field. Inside and outside focus patterns mirror each other exactly. Central obstruction (secondary mirror shadow) appears as dark circle in center, surrounded by bright ring, then dark ring, then progressively dimmer bright rings. This pattern indicates diffraction-limited optics with excellent collimation.</p>
+
+          <p><strong>Collimation Errors:</strong> Misaligned optics create asymmetric patterns. Rings appear elliptical (stretched in one direction) rather than circular. One side of pattern brighter than opposite side. Center point offset from eyepiece center. Inside and outside focus patterns look different rather than mirrored. These signatures indicate collimation adjustment needed—return to collimation procedure and re-test.</p>
+
+          <p><strong>Pinched Optics:</strong> Over-tightened mirror clips create stress in the mirror glass, causing distinctive six-pointed or triangular diffraction patterns. Rings appear with angular corners rather than smooth circles. If you see this pattern, loosen primary mirror clips slightly (Newtonians) or secondary mounting screws (SCTs). The mirror should rest in its cell with minimal tension—just enough to prevent rattling during transport.</p>
+
+          <p><strong>Turned-Edge Mirror:</strong> Manufacturing defect where mirror edge curves away from ideal parabolic shape. Creates diffraction pattern with abnormally bright outer ring—the outer ring should be progressively dimmer than inner rings, but turned-edge mirrors show outer ring nearly as bright as the first ring. Turned edge is a manufacturing defect you cannot fix—it indicates lower-quality optics. Not common in premium mirrors but sometimes seen in budget equipment.</p>
+
+          <p><strong>Spherical Aberration:</strong> Incorrectly figured mirror (spherical instead of parabolic) shows different patterns inside and outside focus—inside focus may show bright ring outside the Airy disk; outside focus shows bright ring inside the disk. Most modern mirrors are well-figured; spherical aberration mainly affects old mirrors or extreme budget optics.</p>
+
+          <p><strong>Astigmatism:</strong> Pattern appears elliptical and the elongation axis rotates 90 degrees between inside and outside focus. If the defocused star stretches horizontally outside focus, it stretches vertically inside focus. This indicates either severe collimation error or optical misalignment. Can also result from eyepiece problems—test with different eyepiece to isolate issue.</p>
+
+          <h3>Using Star Test Results</h3>
+          <p>After collimating, always verify success with star test. If patterns show perfect symmetry and concentricity, collimation succeeded—return to observing with confidence your optics perform optimally. If patterns remain asymmetric, repeat collimation procedure making smaller adjustments. Sometimes multiple iteration cycles needed, especially when learning. Experienced observers can diagnose specific collimation errors from star test patterns and make targeted adjustments without tools—tighten specific bolts, verify with star test, repeat until perfect.</p>
+
+          <p>Star testing also provides baseline assessment of optical quality. After achieving best possible collimation, any remaining pattern irregularities indicate optical issues: pinched optics (fixable), turned edge (not fixable but minor performance impact), or poor figuring (not fixable). Understanding your telescope's optical limitations helps set realistic expectations for performance.</p>
+        </section>
+
+        <!-- Mirror Cleaning -->
+        <section id="mirror-cleaning" class="content-section">
+          <h2>Mirror Cleaning: Safe Techniques for Delicate Coatings</h2>
+          <p>Telescope mirrors sport delicate aluminum or silver coatings just nanometers thick—improper cleaning easily scratches these coatings, causing permanent light scatter and contrast reduction far worse than the dust you're trying to remove. The cardinal rule: clean mirrors only when absolutely necessary, and when you do clean, use ultra-gentle techniques prioritizing coating protection over removing every dust speck.</p>
+
+          <h3>When to Clean (and When to Leave Alone)</h3>
+          <p><strong>DON'T Clean:</strong> A few dozen dust specks or particles scattered across the mirror surface cause negligible performance degradation—these tiny particles occupy perhaps 0.001% of the mirror's collecting area and remain completely invisible in observed images. Even a moderately dusty mirror (hundreds of particles) performs nearly identically to pristine optics. Resist the urge to clean for dust alone.</p>
+
+          <p><strong>DO Clean:</strong> Heavy dust accumulation covering >5% of mirror surface. Fingerprints or skin oils on mirror face (these can etch coatings if left long-term). Water spots or dried dew residue creating visible marks. Atmospheric pollutants or automotive residue forming films. Fungus growth appearing as white threads or spots (requires immediate cleaning). Generally: if mirror looks dirty to naked eye in bright light, cleaning warranted; if it looks clean except under close inspection with flashlight, leave it alone.</p>
+
+          <p>Many experienced observers clean primary mirrors only every 2-5 years despite regular use. Secondary mirrors typically need even less frequent cleaning due to smaller surface area. Every cleaning risks coating damage, so the less frequently you clean, the longer your coatings last (typical aluminum coating lasts 10-20 years with gentle care; aggressive cleaning can reduce this to 5-10 years).</p>
+
+          <h3>Gentle Cleaning Method: Rinse and Soak</h3>
+          <p>This safest technique removes most contamination without touching the coating. Suitable for routine cleaning of moderately dirty mirrors.</p>
+
+          <p><strong>Step 1 - Remove Mirror:</strong> Disassemble telescope carefully, removing primary mirror from cell. Note mirror orientation (mark with tape if no existing marker) so you can reinstall in same position, preserving collimation. Handle mirror by edges only, never touching the coated face. Work on soft towels to prevent drops from damaging mirror. Secondary mirrors often don't need removal for cleaning—clean in place if possible.</p>
+
+          <p><strong>Step 2 - Initial Rinse:</strong> Hold mirror at 30-degree angle under gentle stream of room-temperature distilled water (NOT tap water—minerals leave deposits). Let water flow across surface for 30-60 seconds, floating away loose dust particles. Never wipe at this stage—dry dust particles scratch coatings. Goal: remove 80-90% of loose contamination through gentle water flow alone.</p>
+
+          <p><strong>Step 3 - Prepare Cleaning Solution:</strong> Fill clean container (larger than mirror) with room-temperature distilled water. Add 2-3 drops of Dawn dish soap (original blue formula—no lotions, moisturizers, or antibacterial agents). Mix gently without creating suds. This mild solution breaks down oils and films without harming aluminum coatings. Commercial mirror cleaning solutions also work well ($15-$20).</p>
+
+          <p><strong>Step 4 - Soak:</strong> Submerge mirror face-up in cleaning solution. Let soak 2-5 minutes allowing solution to dissolve oils and loosen particles. For heavily soiled mirrors, gently agitate water to increase cleaning action. No scrubbing or wiping—let chemistry do the work.</p>
+
+          <p><strong>Step 5 - Rinse Thoroughly:</strong> Remove mirror and rinse under distilled water for 60 seconds, ensuring all soap residue washes away. Soap residue dries to visible film, so thorough rinsing critical. Tilt mirror to encourage water drainage. Final rinse with deionized water if available (even purer than distilled).</p>
+
+          <p><strong>Step 6 - Dry:</strong> Stand mirror on edge on soft towel in dust-free area (bathroom after hot shower creates humid, dust-settled air). Let air dry completely—this takes 30-60 minutes. NEVER wipe with cloth, paper, or compressed air. If water spots form despite distilled water rinse, gently dab (don't wipe) with lint-free optical tissue, or accept the spots (they're harmless).</p>
+
+          <h3>Deep Cleaning Method: Cotton Ball Technique</h3>
+          <p>For stubborn residue (sticky sap, bug debris, dried water spots) that won't rinse away, ultra-gentle contact cleaning becomes necessary. Use extreme caution.</p>
+
+          <p><strong>Supplies:</strong> Large bag of 100% cotton balls (cosmetic puffs, not cotton-tipped swabs), Dawn dish soap or commercial mirror cleaner, distilled water, very soft towel. Never use: paper products (tissues, paper towels), cloth (microfiber or otherwise), compressed air, or solvents (alcohol, acetone, glass cleaner).</p>
+
+          <p><strong>Technique:</strong> After initial rinse (removing all dry dust), soak cotton ball in cleaning solution until saturated. Hold cotton ball between thumb and forefinger with minimum pressure. Drag cotton ball straight across mirror in single direction (NOT circular motions). Lift cotton ball off mirror at end of stroke—never drag back across previously cleaned area. Discard used cotton ball; get fresh cotton ball for next stroke. Continue with fresh cotton balls and single-direction strokes until entire mirror cleaned. Each cotton ball gets ONE stroke maximum—this prevents scratching from particles picked up during the stroke.</p>
+
+          <p><strong>Rinse and Dry:</strong> After cotton ball cleaning, rinse thoroughly with distilled water (60+ seconds) to remove all soap. Air dry completely standing on edge.</p>
+
+          <div class="info-box glass">
+            <h3>Mirror Cleaning Golden Rules</h3>
+            <ol>
+              <li><strong>Clean infrequently:</strong> Once every 2-5 years for most users. Dust is better than scratches.</li>
+              <li><strong>Never wipe dry dust:</strong> Always rinse away dust particles with distilled water first.</li>
+              <li><strong>Use distilled water only:</strong> Tap water minerals leave deposits.</li>
+              <li><strong>Single-direction strokes:</strong> Never circular motions or back-and-forth wiping.</li>
+              <li><strong>Fresh cotton ball per stroke:</strong> Prevents scratching from picked-up particles.</li>
+              <li><strong>Air dry completely:</strong> Never wipe dry—causes scratches.</li>
+              <li><strong>When in doubt, send out:</strong> Professional cleaning ($50-$100) safer for expensive optics.</li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- Dew Prevention -->
+        <section id="dew-prevention" class="content-section">
+          <h2>Dew Prevention: Keeping Optics Clear</h2>
+          <p>Dew formation on telescope optics ruins observing sessions by coating objective lenses, corrector plates, eyepieces, and finder scopes with moisture that scatters light and prevents imaging. Understanding dew formation mechanisms and prevention techniques keeps optics clear during humid nights that defeat unprepared observers.</p>
+
+          <h3>Why Dew Forms on Telescope Optics</h3>
+          <p>Dew forms when surface temperature drops below the dew point—the temperature at which air becomes saturated and water vapor condenses into liquid droplets. Telescope optics radiate heat to the night sky, cooling below ambient air temperature. On humid nights (relative humidity >70%), this radiative cooling quickly drops optics below dew point, triggering condensation. Objective lenses and corrector plates, exposed directly to cold sky, cool fastest and dew first. Eyepieces and finder scopes follow. Open-tube Dobsonians suffer less dewing than sealed-tube refractors and SCTs because primary mirrors sit deep in tubes with less sky exposure.</p>
+
+          <p>Dew risk increases with: high humidity (>70% RH), clear skies (clouds block radiative cooling), calm winds (prevents air mixing), and cold nights (lower dew point). Coastal locations, nights after rain, and fall/spring seasons create prime dewing conditions. Desert and winter observations typically stay dew-free due to low humidity.</p>
+
+          <h3>Passive Dew Prevention</h3>
+          <p><strong>Dew Shields:</strong> Extended tubes or baffles projecting forward from the objective block radiant cooling while allowing light to enter. A dew shield 1.5x to 2x the objective diameter and extending beyond the optics by at least the diameter helps significantly. Most refractors and SCTs benefit from aftermarket dew shields ($30-$80). DIY dew shields from craft foam, poster board, or flexible plastics work well—line interior with black felt to reduce stray light. Dew shields also improve contrast by blocking stray light from entering the optical path.</p>
+
+          <p><strong>Lens Caps Until Ready:</strong> Keep objective covers on until you begin observing. This prevents optics from cooling unnecessarily before use. During breaks (waiting for clouds to pass, chatting with fellow observers), replace covers to maintain temperature. This simple technique prevents dew formation during idle periods.</p>
+
+          <p><strong>Strategic Tube Positioning:</strong> Point telescope away from cool portions of sky when not actively observing. Horizontal positioning exposes optics to warmer ground-level air rather than cold sky, reducing radiative cooling. Some observers park scopes pointing downward or horizontally between observations.</p>
+
+          <h3>Active Dew Prevention: Dew Heaters</h3>
+          <p>Dew heaters wrap around objectives, corrector plates, eyepieces, and finder scopes, maintaining temperatures above dew point through gentle electrical heating. These represent the most reliable dew prevention for challenging conditions.</p>
+
+          <p><strong>Dew Heater Strips:</strong> Flexible resistance heaters with velcro or elastic straps secure around telescope tube near optics. Typical power: 5-15 watts depending on aperture size. Larger apertures require more wattage (8" SCT needs ~12W; 4" refractor needs ~6W). Quality strips cost $30-$60; complete systems with controller $100-$150. Popular brands: Kendrick, Dew-Not, Thousand Oaks.</p>
+
+          <p><strong>Power Systems:</strong> Dew heaters require 12V DC power. Options include portable 12V batteries ($30-$60), power banks with 12V output ($40-$80), or AC-to-12V power supplies if observing near outlets. Battery capacity needed depends on session length and heater wattage—typical 7Ah battery runs 12W heater for 6-7 hours. Calculate runtime: battery amp-hours / heater amps (watts/12V).</p>
+
+          <p><strong>Dew Heater Controllers:</strong> Adjustable controllers ($40-$80) let you dial in minimum heating needed, extending battery life and preventing excessive heat that can create air currents degrading image quality. Start with low power; increase only if dew forms. Use just enough heat to prevent dew—not maximum heat.</p>
+
+          <p><strong>Eyepiece and Finder Heaters:</strong> Smaller dew heater strips ($15-$25 each) wrap around eyepieces and finder scopes. These low-wattage heaters (2-4W) operate from same 12V system as objective heaters. Eyepiece dewing often occurs later in sessions than objective dewing, so you can add eyepiece heaters mid-session if needed.</p>
+
+          <h3>Dealing with Dew Formation</h3>
+          <p>If dew forms despite precautions: Never wipe optics while dewed—this smears moisture and may scratch coatings. Instead, apply gentle heat using hair dryer on low setting held 30cm from optics, or temporarily increase dew heater power to evaporate moisture. Once optics dry, maintain higher heater power to prevent recurrence. For eyepieces, body heat from hands often suffices—cup eyepiece in palms for 30 seconds. Severely dewed optics may require 5-10 minutes with heat to fully dry.</p>
+
+          <p>After dewing episodes, check optics after session ends. Most dew evaporates cleanly leaving no residue. If water spots remain, gently rinse with distilled water and air dry—don't let minerals from dew (which often contains atmospheric pollutants) etch into coatings.</p>
+        </section>
+
+        <!-- Storage -->
+        <section id="storage" class="content-section">
+          <h2>Storage Best Practices: Protecting Your Investment</h2>
+          <p>Proper storage preserves telescope optical and mechanical quality for decades while preventing damage from moisture, dust, temperature extremes, and fungus. Where and how you store equipment between observing sessions dramatically impacts long-term condition and performance.</p>
+
+          <h3>Ideal Storage Environment</h3>
+          <p><strong>Temperature and Humidity:</strong> Store in climate-controlled indoor spaces maintaining 15-25°C (60-75°F) with 30-50% relative humidity. Avoid locations with extreme temperature swings (attics, garages, sheds) which cause thermal stress, expand/contract optical cements, and promote condensation. Avoid very humid environments (>70% RH) promoting fungus growth, or very dry conditions (<20% RH) potentially drying optical cements.</p>
+
+          <p><strong>Clean, Dust-Free Space:</strong> Indoor closets, spare bedrooms, or dedicated observatory storage beats garages or basements (often dusty, humid). Dust accumulation on optics necessitates cleaning, which risks coating damage. Well-sealed storage cases mitigate dusty environments, but starting with clean air ideal.</p>
+
+          <p><strong>Dark Storage:</strong> Avoid prolonged direct sunlight exposure—UV radiation degrades rubber armoring, plastic components, and optical cements over years. Dark closets or covered storage prevents UV damage.</p>
+
+          <h3>Storage Cases and Covers</h3>
+          <p><strong>Hard Cases:</strong> Protect telescopes during storage and transport. Options include original manufacturer cases (often included with premium equipment), Pelican cases ($100-$400 depending on size, excellent protection), aluminum camera cases ($60-$150), or padded rolling cases ($80-$200). Cases should include foam padding preventing movement during transport, weather-resistant seals, and room for accessories.</p>
+
+          <p><strong>Soft Cases:</strong> Padded nylon or canvas bags ($40-$120) protect from dust and minor bumps but offer minimal impact protection. Suitable for storage and gentle transport (car trunk to observing site) but not airline travel or rough handling. Many include straps for accessories like eyepieces, finder scopes, and power supplies.</p>
+
+          <p><strong>Dust Covers:</strong> For telescopes stored in open positions (Dobsonians on platforms, permanent observatory mounts), dust covers prevent particle accumulation. Commercial shrouds ($30-$80) or DIY solutions (bed sheets, painter's drop cloths) work equally well. Ensure covers breathe (don't seal telescopes in plastic bags or vapor barriers promoting condensation).</p>
+
+          <h3>Humidity Control: Desiccants</h3>
+          <p>Controlling humidity in storage cases prevents fungus growth on optics and corrosion on metal components. Include desiccant packets in closed storage cases.</p>
+
+          <p><strong>Silica Gel Packets:</strong> Reusable desiccant beads absorbing moisture from air. Include 50-100g silica gel per medium case (telescopes up to 8"). Color-indicating silica gel changes from blue/orange to pink/green when saturated with moisture, signaling regeneration needed. Regenerate by heating in 120°C (250°F) oven for 2-3 hours, returning beads to dry state. Available at camera stores or online ($10-$15 per pound).</p>
+
+          <p><strong>Alternative Desiccants:</strong> Dry rice works as cheap desiccant for short-term storage (place 1 cup rice in breathable cloth bag in case). Rechargeable desiccant canisters ($15-$25) include built-in indicators and plug into wall outlet for regeneration.</p>
+
+          <p><strong>Monitoring Humidity:</strong> Small hygrometers ($10-$15) placed in storage cases let you verify desiccant effectiveness. Target 30-50% RH for optics storage. Replace or regenerate desiccant every 3-6 months depending on ambient humidity.</p>
+
+          <h3>Storage Positioning and Accessories</h3>
+          <p><strong>Optical Positioning:</strong> Store telescopes with optics horizontal or angled downward, never pointing upward. Upward-facing optics collect falling dust. Dobsonians store well in normal altitude-azimuth position. Refractors and SCTs can lie horizontally or angle downward at 45 degrees.</p>
+
+          <p><strong>Caps and Covers:</strong> Always install objective caps and eyepiece caps before storage. This basic practice prevents 90% of dust accumulation on optical surfaces. Ensure caps fit securely—loose caps fall off during storage.</p>
+
+          <p><strong>Eyepiece Storage:</strong> Store eyepieces in dedicated cases with individual compartments preventing lens-to-lens contact. Plastic compartment boxes ($15-$30) or padded cases ($30-$80) work well. Include desiccant in eyepiece cases. Install caps on both ends of each eyepiece.</p>
+
+          <p><strong>Battery Removal:</strong> Remove batteries from GoTo hand controllers, red dot finders, and dew heater controllers before storage. Batteries leak over time, corroding electronics. Store batteries separately in battery cases or original packaging.</p>
+
+          <h3>Long-Term Storage (Months to Years)</h3>
+          <p>For telescopes stored long-term without use: Perform thorough cleaning and inspection before storage to address any developing issues. Apply light oil to mechanical components (focuser gears, mount axes) preventing corrosion. Double-wrap in dust covers or store in sealed containers with ample desiccant. Check every 3-6 months for fungus development, desiccant saturation, and mechanical condition. Inspect for pest intrusion (mice, insects) which can damage cases and optics. Before returning to service after long storage, recollimate, inspect optics for fungus, and verify mechanical components operate smoothly.</p>
+        </section>
+
+        <!-- Maintenance Schedule -->
+        <section id="maintenance-schedule" class="content-section">
+          <h2>Comprehensive Maintenance Schedule</h2>
+          <p>Following systematic maintenance schedules ensures nothing gets overlooked while preventing over-maintenance (excessive cleaning damages coatings faster than dust). Adjust frequency based on usage intensity, storage conditions, and local environment.</p>
+
+          <h3>Before Every Observing Session (Pre-Flight Check)</h3>
+          <ul>
+            <li><strong>Newtonian Collimation Check:</strong> Perform quick star test or laser check; adjust if needed (3-5 minutes)</li>
+            <li><strong>Optical Inspection:</strong> Visually examine objective, eyepieces, finder for dew, frost, or major dust; wipe eyepieces if smudged</li>
+            <li><strong>Finder Alignment:</strong> Verify finder aligned with main scope; adjust if misaligned from transport</li>
+            <li><strong>Mechanical Check:</strong> Test focuser smooth operation; ensure mount axes move freely; verify tripod legs lock securely</li>
+            <li><strong>Power Check:</strong> If using GoTo system or dew heaters, verify batteries charged or power supply functional</li>
+          </ul>
+
+          <h3>After Every Observing Session (Post-Session Care)</h3>
+          <ul>
+            <li><strong>Dew Check:</strong> Inspect optics for dew or frost; if present, allow air drying before capping or use gentle heat source</li>
+            <li><strong>Cap Installation:</strong> Install objective caps and eyepiece caps before packing equipment</li>
+            <li><strong>Condensation Prevention:</strong> If telescope warm from indoor storage used in cold outdoor air, allow temperature equalization in unheated space (garage) before returning to warm indoor storage; this prevents condensation</li>
+            <li><strong>Brief Inspection:</strong> Check for any damage, loose components, or issues developed during session</li>
+          </ul>
+
+          <h3>Monthly Maintenance (Frequent Users)</h3>
+          <ul>
+            <li><strong>Deep Optical Inspection:</strong> Use flashlight at angle to inspect primary and secondary mirrors for dust accumulation; assess if cleaning becoming necessary</li>
+            <li><strong>Eyepiece Cleaning:</strong> Clean eyepiece lenses using lens cleaning solution and microfiber cloth if visibly smudged or dusty</li>
+            <li><strong>Focuser Lubrication:</strong> If focuser feels tight or gritty, apply light machine oil to rack gears; wipe excess; test smooth operation</li>
+            <li><strong>Mount Inspection:</strong> Verify all mount bolts tight; check for any looseness in altitude or azimuth axes; tighten as needed</li>
+            <li><strong>Finder Maintenance:</strong> Clean finder objective and eyepiece; verify finder bracket secure; replace batteries if using illuminated reticle</li>
+            <li><strong>SCT Collimation Check:</strong> Perform star test; adjust if pattern shows asymmetry (every 1-3 months depending on use)</li>
+          </ul>
+
+          <h3>Annual Maintenance (All Telescopes)</h3>
+          <ul>
+            <li><strong>Mirror Cleaning Assessment:</strong> Inspect primary and secondary mirrors in bright light; clean if dust coverage >5% of surface or if fingerprints, water spots, or films present (most telescopes don't need annual cleaning—every 2-5 years more typical)</li>
+            <li><strong>Spider Vane Inspection (Newtonians):</strong> Check spider vanes for looseness; tighten screws if vanes shift under light finger pressure</li>
+            <li><strong>Primary Mirror Clips:</strong> Verify clips not over-tightened (should allow slight mirror movement); loosen 1/4 turn if clips very tight</li>
+            <li><strong>Mount Lubrication:</strong> Clean and re-grease mount axes using telescope-appropriate lubricant (lithium grease for manual mounts, specified lubricant for GoTo systems)</li>
+            <li><strong>Electronics Check:</strong> Inspect all electronic components for corrosion; clean contacts with electronics contact cleaner; verify hand controllers and motors functional</li>
+            <li><strong>Structural Inspection:</strong> Check tube assembly for cracks, loose screws, damaged components; verify mirror cells secure; inspect focuser assembly</li>
+            <li><strong>Desiccant Replacement:</strong> Replace or regenerate all desiccant packets in storage cases</li>
+            <li><strong>Accessory Maintenance:</strong> Clean all eyepieces; inspect cases for damage; organize and inventory accessories; replace worn straps or damaged components</li>
+          </ul>
+
+          <h3>As-Needed Maintenance</h3>
+          <ul>
+            <li><strong>Collimation:</strong> Whenever star test shows degradation or after transport (Newtonians); every few months to yearly (SCTs)</li>
+            <li><strong>Mirror Cleaning:</strong> Only when dust severe (>5% coverage), fingerprints present, or water spots visible</li>
+            <li><strong>Finder Alignment:</strong> After any transport or if finder shows misalignment during use</li>
+            <li><strong>Battery Replacement:</strong> When GoTo controllers show low battery warnings or finders dim</li>
+            <li><strong>Dew Shield Repair:</strong> If torn or damaged; DIY replacement easy and inexpensive</li>
+            <li><strong>Cable Replacement:</strong> If power cables show damage, fraying, or unreliable connections</li>
+          </ul>
+
+          <div class="info-box glass">
+            <h3>Maintenance Time Investment</h3>
+            <p><strong>Pre-session:</strong> 5-10 minutes (mostly collimation check for Newtonians)</p>
+            <p><strong>Post-session:</strong> 5 minutes (capping, dew check)</p>
+            <p><strong>Monthly:</strong> 30-45 minutes (deep inspection, focuser lube, cleaning)</p>
+            <p><strong>Annual:</strong> 2-3 hours (deep cleaning, lubrication, full inspection)</p>
+            <p><strong>Total yearly:</strong> ~10 hours for frequently-used equipment—minimal investment protecting hundreds to thousands of dollars of equipment</p>
+          </div>
+        </section>
+
+        <!-- Troubleshooting -->
+        <section id="troubleshooting" class="content-section">
+          <h2>Troubleshooting Common Problems</h2>
+          <p>Telescope problems generally fall into optical issues (image quality), mechanical issues (movement and focus), or collimation problems. Systematic diagnosis identifies causes and solutions.</p>
+
+          <h3>Optical Quality Problems</h3>
+          <p><strong>Soft, Mushy Images:</strong> <em>Possible causes:</em> Poor collimation (Newtonians/SCTs), atmospheric turbulence, poor seeing conditions, mirror not temperature-stabilized, pinched optics, dew on optics. <em>Solutions:</em> Check collimation via star test—adjust if needed. Verify telescope reached ambient temperature (cool-down time: 30-60 minutes for medium scopes, 60-90 minutes for large scopes). Check for dew on objective or corrector plate—dry if present. Test on different nights to rule out atmospheric conditions. Inspect for pinched optics via star test; loosen mirror clips if six-pointed pattern visible.</p>
+
+          <p><strong>Asymmetric Star Images:</strong> <em>Possible causes:</em> Collimation error, astigmatism in optics or eyepiece, focuser drawtube misalignment. <em>Solutions:</em> Perform star test—asymmetric diffraction rings indicate collimation problem; adjust per collimation procedures. Test with different eyepieces—if problem persists across all eyepieces, likely mirror collimation; if only one eyepiece, eyepiece defect. Check focuser alignment by rotating focuser while viewing star—if star image orbits or wobbles, focuser misaligned (uncommon but requires professional service).</p>
+
+          <p><strong>Reduced Contrast:</strong> <em>Possible causes:</em> Dust on optics, dirty eyepieces, degraded optical coatings, dew film, stray light entering optical path. <em>Solutions:</em> Clean eyepieces (easier than mirrors). Inspect mirror coatings for deterioration—old coatings (15+ years) may show patches or discoloration; recoating required ($150-$300 professional service). Check for dew film—even invisible moisture films scatter light. Use dew shield to block stray light from streetlights, Moon, or other sources.</p>
+
+          <p><strong>Double or Triple Star Images:</strong> <em>Possible causes:</em> Severe collimation error, damaged optical components, internal reflections from dust on eyepiece or diagonal. <em>Solutions:</em> Check collimation—severe misalignment can create ghost images. Clean eyepiece and diagonal surfaces. Inspect for cracks or damage to optical elements. If problem persists after collimation and cleaning, optical damage likely requires professional assessment.</p>
+
+          <h3>Mechanical Problems</h3>
+          <p><strong>Stiff or Binding Focuser:</strong> <em>Causes:</em> Dried lubricant, debris in rack-and-pinion mechanism, over-tightened focuser lock. <em>Solutions:</em> Ensure focuser lock (tension adjustment) not over-tightened. Clean focuser mechanism: remove eyepiece, inspect for debris or old grease. Apply light machine oil to rack gears. Work focuser through full range of travel to distribute lubricant. Wipe excess oil. If still stiff, partial disassembly and cleaning may be needed (consult manufacturer instructions).</p>
+
+          <p><strong>Wobbly or Loose Focuser:</strong> <em>Causes:</em> Worn focuser bearings, loose mounting screws, insufficient focuser tension. <em>Solutions:</em> Tighten focuser mounting screws (typically 4-6 screws securing focuser to tube). Increase focuser tension using tension adjustment knob if available. For worn focusers with excessive play, replacement may be needed ($80-$200 for aftermarket focusers depending on size and quality).</p>
+
+          <p><strong>Mount Slipping or Drifting:</strong> <em>Causes:</em> Loose mounting bolts, worn friction pads, insufficient counterbalance weight. <em>Solutions:</em> Tighten all mount bolts and screws. Adjust altitude and azimuth friction to appropriate levels—should move smoothly with moderate force but not drift under telescope weight. Add counterweights if telescope tube-heavy. For Dobsonians, replace worn Teflon pads ($15-$30) or add altitude brakes.</p>
+
+          <p><strong>GoTo Not Tracking Accurately:</strong> <em>Causes:</em> Poor alignment (star alignment), polar alignment error (EQ mounts), mechanical backlash, low battery power, firmware issues. <em>Solutions:</em> Perform careful 2-star or 3-star alignment following manufacturer procedure precisely. Verify bubble level on mount base showing level surface. Check battery voltage—low batteries cause erratic tracking. Calibrate backlash compensation per mount manual. Update firmware if manufacturer released new version addressing tracking issues.</p>
+
+          <h3>Collimation-Specific Problems</h3>
+          <p><strong>Can't Achieve Collimation Despite Adjustments:</strong> <em>Possible causes:</em> Focuser drawtube misalignment, laser collimator itself miscollimated, secondary holder bent or damaged, primary mirror cell warped. <em>Solutions:</em> Verify laser collimator accuracy by rotating it in focuser—laser dot should stay stationary; if dot orbits, laser itself miscollimated (return for replacement or recalibration). Switch to Cheshire eyepiece method eliminating laser variability. Inspect secondary holder for visible damage or asymmetry. Check primary mirror cell for warping or cracks. Severe mechanical damage may require replacement parts.</p>
+
+          <p><strong>Collimation Doesn't Hold:</strong> <em>Causes:</em> Loose collimation screws, worn spring tension, flexure in tube or mirror cell, vibration during transport. <em>Solutions:</em> After achieving good collimation, verify all collimation screws snug (not over-tight, just firm). Check spring tension on collimation bolts—weak springs can't hold adjustment. Ensure mirror cell mounted firmly to tube (no flexure or play). Transport telescope carefully avoiding vibration and impacts. Consider locking collimation with blue (removable) thread-locker on screws after achieving perfect collimation (allows future adjustment but resists vibration).</p>
+
+          <p><strong>Star Test Shows Persistent Problems After Collimation:</strong> <em>Possible causes:</em> Optical quality issues (not collimation), pinched optics, turned-edge mirror, poor seeing. <em>Solutions:</em> Distinguish collimation from optical quality: Collimation errors show as asymmetry that you can fix with adjustments; optical defects show as persistent patterns regardless of adjustments. If star test pattern improves with adjustment but never becomes perfect, you may have reached optical limits. Six-pointed pattern indicates pinched optics—loosen mirror clips. Abnormally bright outer ring suggests turned-edge mirror (manufacturing defect, not fixable). Test on multiple nights—poor seeing can mimic optical problems.</p>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="content-section faq-section">
+          <h2>Frequently Asked Questions</h2>
+
+          {faqData.map((faq) => (
+            <div class="faq-item">
+              <h3>{faq.question}</h3>
+              <p>{faq.answer}</p>
+            </div>
+          ))}
+        </section>
+
+        </article>
+      </div>
+    </div>
+  </div>
+</MainLayout>
+
+<script>
+  // Progress bar
+  const progressBar = document.getElementById('progressBar');
+
+  function updateProgressBar() {
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight - windowHeight;
+    const scrolled = window.scrollY;
+    const progress = (scrolled / documentHeight) * 100;
+
+    if (progressBar) {
+      progressBar.style.width = `${progress}%`;
+    }
+  }
+
+  window.addEventListener('scroll', updateProgressBar);
+  window.addEventListener('resize', updateProgressBar);
+  updateProgressBar();
+
+  // TOC active section highlighting
+  const observerOptions = {
+    root: null,
+    rootMargin: '-20% 0px -80% 0px',
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        document.querySelectorAll('.toc a').forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.content-section').forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
+<style>
+  :root {
+    --primary-cyan: #06b6d4;
+    --text-primary: #f0f9ff;
+    --text-secondary: #cbd5e1;
+    --space-xs: 0.5rem;
+    --space-sm: 0.75rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* Progress Bar */
+  .progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(6, 182, 212, 0.1);
+    z-index: 100;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #06b6d4, #3b82f6);
+    width: 0%;
+    transition: width 0.2s ease;
+  }
+
+  /* Hero Section */
+  .hero {
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .hero-image-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(2, 6, 23, 0.3) 0%,
+      rgba(2, 6, 23, 0.7) 70%,
+      rgba(2, 6, 23, 0.95) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+  }
+
+  /* Breadcrumb */
+  .breadcrumb {
+    font-size: 0.875rem;
+    margin-bottom: var(--space-md);
+    color: var(--text-secondary);
+  }
+
+  .breadcrumb-separator {
+    margin: 0 0.5rem;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .breadcrumb-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumb-link:hover {
+    color: var(--primary-cyan);
+  }
+
+  .breadcrumb-current {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: white;
+    margin: 0 0 var(--space-sm);
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--text-secondary);
+    margin: 0;
+    font-weight: 300;
+  }
+
+  /* Answer Capsule */
+  .answer-capsule {
+    max-width: 900px;
+    margin: calc(var(--space-2xl) * -1) auto var(--space-2xl);
+    padding: var(--space-xl);
+    background: rgba(6, 182, 212, 0.05);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    gap: var(--space-lg);
+    align-items: flex-start;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .capsule-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    color: var(--primary-cyan);
+  }
+
+  .answer-capsule p {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+  }
+
+  /* Content Layout */
+  .content-wrapper {
+    margin: var(--space-2xl) 0;
+  }
+
+  .content-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  /* TOC Sidebar */
+  .toc-sidebar {
+    position: sticky;
+    top: calc(60px + var(--space-xl));
+  }
+
+  .toc {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: 0.75rem;
+    padding: var(--space-lg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .toc h2 {
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--primary-cyan);
+    margin: 0 0 var(--space-md);
+  }
+
+  .toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .toc li {
+    margin-bottom: var(--space-xs);
+  }
+
+  .toc a {
+    display: block;
+    padding: var(--space-xs) var(--space-sm);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+
+  .toc a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 0;
+    background: var(--primary-cyan);
+    border-radius: 0 2px 2px 0;
+    transition: height 0.2s ease;
+  }
+
+  .toc a:hover {
+    color: var(--text-primary);
+    background: rgba(6, 182, 212, 0.08);
+  }
+
+  .toc a.active {
+    color: var(--primary-cyan);
+    background: rgba(6, 182, 212, 0.15);
+    font-weight: 500;
+  }
+
+  .toc a.active::before {
+    height: 100%;
+    color: var(--primary-cyan);
+  }
+
+  /* Article Content */
+  .article-content {
+    max-width: 800px;
+    color: var(--text-primary);
+  }
+
+  .content-section {
+    margin-bottom: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .content-section:last-child {
+    border-bottom: none;
+  }
+
+  .content-section h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 var(--space-lg);
+    line-height: 1.3;
+  }
+
+  .content-section h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    margin: var(--space-xl) 0 var(--space-md);
+    line-height: 1.4;
+  }
+
+  .content-section p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin: 0 0 var(--space-lg);
+  }
+
+  .content-section strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .content-section em {
+    color: var(--primary-cyan);
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  .content-section ol,
+  .content-section ul {
+    margin: var(--space-lg) 0;
+    padding-left: var(--space-xl);
+    color: var(--text-secondary);
+  }
+
+  .content-section li {
+    margin-bottom: var(--space-sm);
+    line-height: 1.7;
+  }
+
+  /* Info Box */
+  .info-box {
+    margin: var(--space-xl) 0;
+    padding: var(--space-lg);
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    border-radius: 0.75rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .info-box.glass {
+    background: rgba(6, 182, 212, 0.05);
+    border-color: rgba(6, 182, 212, 0.25);
+  }
+
+  .info-box h3 {
+    font-size: 1.1rem;
+    margin: 0 0 var(--space-md);
+    color: var(--primary-cyan);
+  }
+
+  .info-box p {
+    margin-bottom: var(--space-md);
+    font-size: 1rem;
+  }
+
+  .info-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .info-box ol,
+  .info-box ul {
+    margin: 0;
+    padding-left: var(--space-lg);
+  }
+
+  .info-box li {
+    margin-bottom: var(--space-xs);
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    border-top: 2px solid rgba(6, 182, 212, 0.3);
+    padding-top: var(--space-2xl);
+  }
+
+  .faq-item {
+    margin-bottom: var(--space-xl);
+    padding: var(--space-lg);
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: 0.75rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .faq-item h3 {
+    font-size: 1.25rem;
+    margin: 0 0 var(--space-md);
+    color: var(--primary-cyan);
+  }
+
+  .faq-item p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .content-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .hero {
+      height: 50vh;
+      min-height: 300px;
+    }
+
+    .answer-capsule {
+      margin: calc(var(--space-xl) * -1) auto var(--space-xl);
+      padding: var(--space-lg);
+    }
+
+    .capsule-icon {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      height: 40vh;
+      min-height: 250px;
+    }
+
+    .hero-content {
+      padding: var(--space-lg);
+    }
+
+    .answer-capsule {
+      flex-direction: column;
+      padding: var(--space-md);
+      gap: var(--space-md);
+    }
+
+    .capsule-icon {
+      width: 36px;
+      height: 36px;
+    }
+
+    .answer-capsule p {
+      font-size: 0.95rem;
+    }
+
+    .content-section h2 {
+      font-size: 1.5rem;
+    }
+
+    .content-section h3 {
+      font-size: 1.25rem;
+    }
+
+    .content-section p,
+    .content-section li {
+      font-size: 1rem;
+    }
+  }
+</style>

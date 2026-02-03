@@ -1,0 +1,977 @@
+---
+import MainLayout from '../../../../layouts/MainLayout.astro';
+import Schema from '../../../../components/Schema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Observatory', url: '/observatory/' },
+  { name: 'Telescopes', url: '/observatory/telescopes/' },
+  { name: 'Planetary Observing with Telescopes', url: '/observatory/telescopes/planetary-observing/' }
+];
+
+const articleData = {
+  headline: 'Planetary Observing with Telescopes',
+  description: 'Capture fine details on Jupiter, Saturn, Mars, and Venus throughout opposition cycles. Optimal magnifications, atmospheric seeing conditions, planetary filters, and imaging techniques for each planet.',
+  datePublished: '2026-02-02',
+  dateModified: '2026-02-02',
+  author: 'The Astronomy Space',
+  image: '/images/Hero_planetary_observing.jpg',
+  keywords: [
+    'planetary observing',
+    'telescope planets',
+    'Jupiter observing',
+    'Saturn rings',
+    'Mars opposition',
+    'planetary filters',
+    'seeing conditions',
+    'planetary magnification',
+    'Great Red Spot',
+    'Cassini Division',
+    'Venus phases',
+    'planetary detail'
+  ]
+};
+
+const faqData = [
+  {
+    question: 'What aperture is best for planetary observing?',
+    answer: 'For planetary observing, aperture matters less than optical quality and atmospheric seeing conditions. A well-made 4-inch (100mm) refractor or 5-inch (127mm) Maksutov-Cassegrain often outperforms an 8-inch (200mm) Newtonian reflector for planets due to superior contrast, minimal optical aberrations, and lack of central obstruction. That said, larger apertures do reveal more detail when atmospheric conditions allow: 4-5 inch scopes show Jupiter\'s cloud bands, Saturn\'s Cassini Division, and Mars\' polar caps clearly; 6-8 inch instruments resolve finer Jupiter cloud details, subtle Saturn ring features, and Mars surface markings; 10+ inch telescopes reveal intricate Jupiter festoons, Saturn\'s ring subdivisions, and fine Mars albedo features—but only during excellent seeing. The limiting factor for planetary work is almost always atmospheric turbulence (seeing), not aperture. A 4-inch refractor under steady skies delivers superior planetary views compared to a 10-inch reflector under turbulent conditions. Prioritize optical quality (well-collimated, high-quality optics) and observing when planets are high in stable air, rather than chasing maximum aperture. For dedicated planetary observers, 5-6 inch apochromatic refractors or Maksutov-Cassegrains represent optimal balances of detail resolution and contrast.'
+  },
+  {
+    question: 'Why is atmospheric seeing more important than aperture for planets?',
+    answer: 'Atmospheric seeing—the steadiness of Earth\'s atmosphere—limits planetary detail visibility far more than telescope aperture because planets require high magnifications (100x-300x) where atmospheric turbulence becomes dramatically apparent. When high-magnification views pass through miles of turbulent air containing cells of varying temperature and density, the image shimmers, boils, and distorts—like looking at an object across hot pavement on a summer day. During poor seeing (Pickering scale 3-4), even a perfectly collimated 12-inch telescope shows a shimmering, fuzzy planetary disk with minimal detail. During excellent seeing (Pickering 8-9), a 4-inch telescope reveals crisp, steady images showing intricate cloud bands, subtle surface markings, and fine features. Aperture determines theoretical resolution, but seeing determines actual achievable resolution. A practical example: Jupiter\'s Great Red Spot measures approximately 1 arcsecond across—theoretically visible in a 4.5-inch telescope (Dawes limit 1.0 arcsecond). But atmospheric turbulence often limits resolution to 1.5-2 arcseconds or worse, making aperture beyond 4-6 inches largely wasted during average seeing. The best planetary viewing strategy: observe when planets are highest in the sky (shortest atmospheric path), wait for stable air masses (cold fronts often bring steady seeing), use moderate apertures (4-8 inches) that reach diffraction limit more frequently than larger instruments, and learn to recognize nights when the atmosphere cooperates. During those magical nights of exceptional seeing, planetary observing becomes transcendent—cloud details sharp and steady, colors vivid, fine features crisp. Those nights make planetary observing addictive.'
+  },
+  {
+    question: 'Do planetary filters really help?',
+    answer: 'Yes, color filters significantly enhance planetary observations by increasing contrast between atmospheric features and surface markings that naturally differ in color. Planetary filters work because planets reflect sunlight of varying wavelengths depending on atmospheric chemistry and surface composition—filters block competing wavelengths while passing the wavelengths that reveal target features. For Jupiter: light blue #80A enhances contrast of the darker cloud belts against lighter zones, making belt/zone structure more apparent. Orange #21 or light red #23A improve visibility of festoons (dark projections from belts into zones) and polar features. For Saturn: light yellow #8 enhances ring detail including subtle subdivisions. Light blue #80A shows atmospheric bands though Saturn\'s muted contrast makes filters less dramatic than on Jupiter. For Mars: red #23A or #25 dramatically enhances dark albedo features (ancient volcanic plains) against bright deserts, making surface markings pop. Blue #80A highlights dust storms, polar ice caps, and atmospheric haze. Yellow-green #11 shows both surface and atmospheric features moderately. For Venus: UV or violet filters reveal atmospheric cloud structure in the thick Venusian atmosphere—visible light shows featureless white disk, but UV reveals dark cloud markings. Do filters work? Absolutely, but effects range from subtle to dramatic depending on planet, atmospheric conditions, and target features. Most planetary observers consider a basic filter set ($20-40 per filter) essential equipment once they move beyond initial planet viewing. Start with #21 orange, #23A light red, and #80A light blue—these three cover most planetary observation needs.'
+  },
+  {
+    question: 'When is the best time to observe Saturn\'s rings?',
+    answer: 'Saturn\'s rings display varying appearance throughout Saturn\'s 29.5-year orbital period as our viewing angle changes due to Saturn\'s axial tilt relative to Earth. The rings appear most spectacular when maximally tilted toward Earth (maximum inclination), occurring approximately every 15 years—most recently in 2017 and next in 2032. At maximum tilt (about 27 degrees), the rings appear wide open, showing maximum area and dramatic three-dimensional structure. The Cassini Division (dark gap between A and B rings) becomes easily visible even in small telescopes (3-4 inches at 100x). Multiple ring subdivisions, subtle brightness variations, and the ring shadow on Saturn\'s globe create stunning views. Conversely, every 15 years the rings appear edge-on as Earth passes through Saturn\'s ring plane. During ring-plane crossing (most recently 2009, next 2025), the rings appear as a thin line or completely disappear when viewed edge-on—they\'re only about 10 meters thick despite spanning 280,000 km! This phase offers unique viewing: Saturn\'s moons line up like beads on a string, the planet\'s equatorial bulge becomes apparent, and the ring shadow disappears. For 2026 (current year), Saturn\'s rings display favorable tilt of approximately 21 degrees (recovering from the 2025 ring plane crossing), offering excellent views with clear Cassini Division visibility. The rings will continue opening wider toward maximum tilt in 2032. Any time the tilt exceeds 15-20 degrees provides excellent ring viewing; below 10 degrees, the rings appear compressed and Cassini Division becomes challenging. Beyond tilt angle, observe Saturn when at opposition (opposite the Sun from Earth) for maximum brightness, largest apparent size, and all-night visibility. Saturn oppositions occur annually about two weeks later each year.'
+  },
+  {
+    question: 'How do I find and observe Jupiter\'s Great Red Spot?',
+    answer: 'The Great Red Spot (GRS), Jupiter\'s massive storm system larger than Earth, requires planning to observe since Jupiter\'s rapid 10-hour rotation means the GRS faces Earth only about 50% of the time. To find it: first, check a GRS transit prediction chart or app (available from Sky & Telescope, Stellarium, or Jupiter GRS transit calculators) that shows when the GRS crosses Jupiter\'s central meridian (the imaginary line down Jupiter\'s center). The GRS remains visible for about 50 minutes before and after transit as it rotates into and out of view. Plan observations within this roughly 100-minute window. Second, identify the GRS location: it sits in the South Equatorial Belt (SEB), approximately 22 degrees south of Jupiter\'s equator. Look for a prominent oval feature in the southern hemisphere—currently it appears more orange-brown than "red" due to color variations over decades. Third, use adequate magnification: 150x-250x shows the GRS clearly as an elongated oval. At lower magnification it may appear as a slight brightening or subtle color variation. Fourth, use color filters: red #23A or #25 enhance the GRS contrast against surrounding regions; orange #21 also helps. Unfiltered views show the spot, but filters make it more obvious. What to look for: The GRS appears as an elongated oval spanning about one-third of Jupiter\'s diameter in length. Its current color is salmon-orange to tan (varies over years). Leading and trailing edges show "hooks" where the spot\'s circulation interacts with the South Equatorial Belt. Smaller white ovals sometimes appear nearby. The GRS size has shrunk over the past century—historically spanning 40,000+ km in length, it now measures approximately 16,000 km. During excellent seeing conditions, you can observe rotation within the spot and interaction with surrounding atmospheric currents. Keep an observing log noting GRS appearance, color, and structure—it changes over months and years, making long-term observations scientifically valuable.'
+  },
+  {
+    question: 'Why do oppositions matter for planetary observing?',
+    answer: 'Opposition occurs when a planet lies directly opposite the Sun from Earth\'s perspective—Earth passes between the Sun and the outer planet. This configuration provides optimal observing conditions: the planet reaches maximum brightness (closest approach to Earth, fully illuminated face toward us), largest apparent size (smallest Earth-planet distance reveals maximum detail), and all-night visibility (rises at sunset, crosses meridian at midnight, sets at sunrise). For Mars, opposition importance is extreme because Mars\' elliptical orbit causes dramatic distance variation. Favorable oppositions (Mars near perihelion) bring Mars to 56 million km from Earth with apparent diameter of 25 arcseconds—revealing substantial surface detail. Poor oppositions (Mars near aphelion) leave Mars 101 million km away at only 14 arcseconds diameter—detail barely visible. The difference between favorable and unfavorable Mars oppositions is dramatic—like comparing views through a 10-inch versus 5-inch telescope. Mars oppositions occur every 26 months; favorable oppositions (Mars >20 arcseconds) happen roughly every 15-17 years—most recently July 2018 (24.3 arcseconds), next September 2035 (24.8 arcseconds). For Jupiter and Saturn, opposition effects are less dramatic but still significant: Jupiter ranges from 44-50 arcseconds depending on Earth-Jupiter distance; Saturn ranges from 16-20 arcseconds plus rings. At opposition, these giants display maximum detail, brightest magnitude, and optimal viewing throughout the night. Opposition timing also affects observing convenience: planets at opposition appear highest in the sky near midnight, passing overhead (for observers at appropriate latitudes) where atmospheric turbulence minimizes. Planets far from opposition appear low in dawn or dusk sky where thick atmospheric path and proximity to horizon degrades seeing. Serious planetary observers plan observing campaigns around opposition dates, knowing those few months offer year\'s best views. Mark opposition dates on calendars, clear schedules for those periods, and observe frequently during opposition windows—you\'ll see details invisible at other times.'
+  }
+];
+---
+
+<MainLayout
+  title="Planetary Observing with Telescopes | Jupiter, Saturn, Mars Guide 2026 | The Astronomy Space"
+  description="Capture fine details on Jupiter, Saturn, Mars, and Venus throughout opposition cycles. Optimal magnifications, atmospheric seeing conditions, planetary filters, and imaging techniques for each planet."
+>
+  <!-- Schema Markup -->
+  <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
+  <Schema type="TechArticle" article={articleData} />
+  <Schema type="FAQPage" faq={faqData} />
+
+  <!-- Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-image-wrapper">
+      <img
+        src="/images/Hero_planetary_observing.jpg"
+        alt="Planetary observing showing Jupiter and Saturn through telescope"
+        class="hero-image"
+        loading="eager"
+      />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="container hero-content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        {breadcrumbs.map((crumb, index) => (
+          <span>
+            {index > 0 && <span class="breadcrumb-separator">›</span>}
+            {index === breadcrumbs.length - 1 ? (
+              <span class="breadcrumb-current">{crumb.name}</span>
+            ) : (
+              <a href={crumb.url} class="breadcrumb-link">{crumb.name}</a>
+            )}
+          </span>
+        ))}
+      </nav>
+      <h1 class="hero-title">Planetary Observing with Telescopes</h1>
+      <p class="hero-subtitle">Complete Guide to Observing the Planets</p>
+    </div>
+  </section>
+
+  <!-- Answer Capsule -->
+  <aside class="answer-capsule">
+    <div class="capsule-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 6v6l4 2"/>
+      </svg>
+    </div>
+    <p>Jupiter and Saturn reward observers with 100-200x magnification showing cloud bands, the Great Red Spot, and Saturn's ring system including the Cassini Division. Mars requires 150-300x during opposition to reveal polar ice caps and surface markings. <strong>Atmospheric seeing is more critical than aperture</strong>—observe when planets are high in stable air. Planetary color filters enhance contrast: orange #21 for Jupiter, red #23A for Mars, light blue #80A for Saturn.</p>
+  </aside>
+
+  <!-- Main Content with Sidebar -->
+  <div class="content-wrapper">
+    <div class="container">
+      <div class="content-layout">
+
+        <!-- Table of Contents Sidebar -->
+        <aside class="toc-sidebar">
+          <nav class="toc" aria-label="Table of Contents">
+            <h2>Contents</h2>
+            <ol>
+              <li><a href="#introduction">Introduction</a></li>
+              <li><a href="#seeing-conditions">Understanding Seeing</a></li>
+              <li><a href="#jupiter">Observing Jupiter</a></li>
+              <li><a href="#saturn">Observing Saturn</a></li>
+              <li><a href="#mars">Observing Mars</a></li>
+              <li><a href="#venus-mercury">Venus and Mercury</a></li>
+              <li><a href="#outer-planets">Outer Planets</a></li>
+              <li><a href="#filters">Planetary Filters</a></li>
+              <li><a href="#magnification">Magnification Guide</a></li>
+              <li><a href="#timing">Opposition Timing</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ol>
+          </nav>
+        </aside>
+
+        <!-- Article Content -->
+        <article class="article-content">
+
+        <!-- Introduction -->
+        <section id="introduction" class="content-section">
+          <h2>Introduction: The Art of Planetary Observing</h2>
+          <p>Planetary observing represents one of amateur astronomy's most rewarding pursuits, revealing dynamic atmospheric features, surface markings, and orbital mechanics invisible to naked eyes. Unlike distant galaxies appearing as static smudges, planets display constant change: Jupiter's cloud bands shift and swirl over hours, Saturn's rings cast moving shadows across the globe, Mars' polar caps grow and shrink seasonally, and Venus displays phases like a miniature Moon. These worlds become real through telescopes—not just points of light, but actual spheres with weather systems, geological features, and observable physics.</p>
+
+          <p>Successful planetary observing demands different skills than deep sky work. Where deep sky observing prioritizes dark skies and large aperture, planetary work emphasizes atmospheric stability, optical quality, and high magnifications. A 4-inch refractor under steady skies outperforms a 10-inch reflector under turbulent air for planets. Mastering planetary observation requires understanding seeing conditions, selecting optimal magnifications, timing observations for oppositions, and using filters effectively to enhance contrast.</p>
+
+          <p>This guide covers comprehensive planetary observing techniques for all major planets visible through backyard telescopes: Jupiter (the king with its Great Red Spot and four Galilean moons), Saturn (the jewel with its magnificent ring system), Mars (the red planet revealing polar caps and dark surface markings), Venus and Mercury (challenging inner planets showing phases), and even distant Uranus and Neptune (faint disks requiring careful technique). We'll explore when to observe each planet, what magnifications to use, which filters enhance features, and how to recognize atmospheric conditions that make or break planetary sessions.</p>
+        </section>
+
+        <!-- Seeing Conditions -->
+        <section id="seeing-conditions" class="content-section">
+          <h2>Understanding Seeing Conditions</h2>
+          <p>Atmospheric seeing—the steadiness and stability of Earth's atmosphere—determines planetary observing success more than any equipment factor. Seeing describes how turbulent air cells of varying temperature and density distort light passing through the atmosphere, causing planetary images to shimmer, boil, and blur at the high magnifications planetary work requires.</p>
+
+          <h3>What Causes Poor Seeing</h3>
+          <p>Atmospheric turbulence originates from multiple sources. <strong>Thermal currents</strong> from sun-heated ground create rising columns of warm air that roil and mix with cooler upper layers—this explains why seeing typically worsens during afternoons and evenings when heat absorbed during the day continues radiating upward. <strong>Jet streams</strong> at high altitudes (20,000-40,000 feet) create large-scale turbulence affecting observations even when surface winds seem calm. <strong>Weather fronts</strong> bring chaotic atmospheric mixing as air masses of different temperatures collide. <strong>Local heat sources</strong> including buildings, pavement, chimneys, and even your body heat rising up the telescope tube contribute turbulence.</p>
+
+          <p>The atmosphere acts like looking through rippling water or across a hot road—the planetary image shimmers and distorts. During poor seeing (Pickering scale 3-4), Jupiter appears as a boiling blob where cloud bands merge into fuzzy smears. During excellent seeing (Pickering 8-9), the same planet snaps into crisp focus showing intricate detail in sharp relief. The difference is dramatic—like switching from a blurry photograph to high-definition video.</p>
+
+          <h3>The Pickering Seeing Scale</h3>
+          <p>The Pickering scale quantifies seeing from 1 (worst) to 10 (perfect), providing standardized descriptions of atmospheric conditions. <strong>Pickering 1-2 (Terrible):</strong> Planetary disks completely unrecognizable, image doubles and triples at moments, impossible to focus. Abort planetary observing. <strong>Pickering 3-4 (Poor):</strong> Planetary disk recognizable but continuously shimmering, major features (Jupiter belts, Saturn rings) barely distinguishable, impossible to see fine detail. Use low magnification if observing. <strong>Pickering 5-6 (Fair-Average):</strong> Most common conditions. Planets show distinct features but with constant motion, moments of sharpness separated by blurring, medium magnification (100-150x) usable but higher powers show excessive shimmer. <strong>Pickering 7-8 (Good-Excellent):</strong> Steady images with occasional shimmers, fine details visible during steady moments, high magnifications (200x+) usable, patient observers catch split-second moments of perfect clarity. <strong>Pickering 9-10 (Exceptional-Perfect):</strong> Rare conditions where planets appear perfectly still for extended periods, finest details visible continuously, images look like textbook photographs. These nights are magical—mark calendars when they occur.</p>
+
+          <p>Learn to assess seeing before committing to planetary sessions. Check the Pickering scale by observing a moderately bright star at high magnification (200x+): if the star appears as a steady point with minimal twinkle, seeing is excellent; if it boils and dances, seeing is poor. Experienced planetary observers quickly judge seeing within seconds of star checks.</p>
+
+          <h3>Optimizing Seeing</h3>
+          <p>While you can't control atmospheric physics, strategic choices maximize planetary success. <strong>Observe when planets are highest:</strong> altitude matters tremendously. Planets near the horizon suffer maximum atmospheric distortion as light passes through thick atmospheric layers at grazing angles. Planets 45+ degrees altitude (preferably 60+ degrees) traverse shorter atmospheric paths. Always observe planets near meridian crossing (highest point in sky) when possible. <strong>Choose nights carefully:</strong> cold fronts often bring excellent seeing as stable, uniform air masses settle. Humid, warm nights typically yield poor seeing due to thermal turbulence. Nights following rain sometimes deliver exceptional seeing as the atmosphere stabilizes. <strong>Wait for thermal equilibrium:</strong> telescope optics need 30-60 minutes to match ambient temperature—observing before equilibrium creates internal tube currents that ruin images. Set up telescopes outside well before observing. <strong>Avoid local heat sources:</strong> observe away from buildings, pavement, chimneys, and outdoor heating. Even small heat sources near the optical path degrade images.</p>
+
+          <p>Patience rewards planetary observers. Seeing often improves as night progresses and thermal currents cease. Wait through periods of shimmer for those moments when the atmosphere steadies—during Pickering 7-8 conditions, sharp views emerge every 5-10 seconds. Skilled observers wait for these moments, quickly examining details before turbulence returns. This "patient vigilance" separates casual planet viewing from serious planetary observation.</p>
+
+          <div class="info-box glass">
+            <h3>Seeing Optimization Checklist</h3>
+            <p><strong>Best Conditions:</strong> Planets 45+ degrees altitude, cold front aftermath, stable air mass, post-midnight observing (ground heat dissipated), telescope at thermal equilibrium (30-60 min wait), no local heat sources.</p>
+            <p><strong>Avoid:</strong> Planets near horizon (below 30 degrees), warm humid evenings, afternoons (ground still heating), telescope just brought outside (thermal gradients), observing over buildings or pavement, windy conditions disturbing telescope.</p>
+            <p><strong>Seeing Indicators:</strong> Star twinkle at low magnification (less twinkle = better seeing), star appearance at 200x (steady point vs dancing blob), planet edge sharpness (crisp limb = good seeing, fuzzy edge = poor seeing).</p>
+          </div>
+        </section>
+
+        <!-- Jupiter -->
+        <section id="jupiter" class="content-section">
+          <h2>Observing Jupiter: The Gas Giant King</h2>
+          <p>Jupiter dominates planetary observing with its large apparent size (40-50 arcseconds diameter), bright magnitude (-2.5 at opposition), and dynamic atmospheric features visible even in small telescopes. Jupiter's rapid 10-hour rotation means cloud features cross the visible disk within hours, creating constantly changing views that reward extended observation sessions.</p>
+
+          <h3>What to Look For</h3>
+          <p><strong>Cloud Bands and Zones:</strong> Jupiter's atmosphere organizes into alternating dark belts and bright zones parallel to the equator. Even small telescopes (3-4 inches at 80x) show the two prominent equatorial belts (North and South Equatorial Belts) flanking the bright Equatorial Zone. Larger apertures (6+ inches at 150x+) resolve multiple additional belts in northern and southern hemispheres: North and South Temperate Belts, North and South Tropical Zones, and subtle high-latitude bands. The belts represent descending air and lower-altitude clouds, while zones are rising air and high-altitude clouds—creating counter-rotating wind systems with speeds reaching 640 km/h.</p>
+
+          <p><strong>The Great Red Spot (GRS):</strong> Jupiter's iconic storm, a high-pressure anticyclone larger than Earth, appears as an elongated oval in the South Equatorial Belt region. Currently spanning approximately 16,000 km (down from 40,000+ km in the 1800s), the GRS displays salmon-orange to tan coloration depending on year and atmospheric chemistry. Visible in 4-inch telescopes at 120x+ as a subtle oval brightening, 6+ inch telescopes at 150x+ show it clearly with distinct color and structure. The GRS rotates into view approximately every 10 hours—consult GRS transit predictions to time observations. Look for dark "hooks" at leading and trailing edges where the spot's circulation interacts with surrounding jet streams.</p>
+
+          <p><strong>Festoons and Projections:</strong> Dark festoons—thread-like projections from belts into zones—become visible in 6+ inch telescopes during good seeing at 180x+. These features represent vortices and atmospheric disturbances. The Equatorial Zone sometimes displays dark festoons extending from the South Equatorial Belt northward. Northern belts occasionally show similar features. Festoons change within hours, making them fascinating targets for systematic observation.</p>
+
+          <p><strong>White Ovals:</strong> Small white storms appear occasionally as bright ovals in various belts and zones. These anticyclonic storms rival small terrestrial hurricanes in size. Several prominent white ovals orbit at similar latitudes to the GRS, sometimes interacting with it. They're visible in 6+ inch telescopes at 150x+ during good seeing.</p>
+
+          <p><strong>Galilean Moons:</strong> Jupiter's four largest moons (Io, Europa, Ganymede, Callisto) appear as bright points flanking the planet, visible in any telescope and even binoculars. Their configurations change nightly as they orbit Jupiter. At high magnifications, you can observe moon transits (moons crossing Jupiter's disk) appearing as small dark dots, moon shadows cast on Jupiter's cloud tops, and moon eclipses (moons disappearing into Jupiter's shadow). Moon transit events add drama to Jupiter observing sessions.</p>
+
+          <h3>Optimal Jupiter Observing</h3>
+          <p><strong>Magnification:</strong> Use 100x-150x for general viewing showing full disk with major belts, zones, and GRS. Push to 180x-250x during excellent seeing to resolve festoons, white ovals, and fine cloud structure. Maximum useful magnification on stable nights can reach 300x+ in 8+ inch telescopes, revealing incredible atmospheric detail.</p>
+
+          <p><strong>Filters:</strong> Light blue (#80A or #82A) enhances belt contrast, making dark belts appear darker and bright zones brighter. Orange (#21) or light red (#23A or #25) improves GRS contrast and visibility of festoons. Yellow-green (#11) provides balanced enhancement of multiple features. Many observers keep several filters accessible, comparing views to determine which shows target features best on a given night.</p>
+
+          <p><strong>Timing:</strong> Observe Jupiter at opposition for maximum size and brightness. Jupiter oppositions occur annually, advancing by about one month each year (due to Earth's faster orbit). In 2026, Jupiter reaches opposition in late October. The planet remains well-placed for several months surrounding opposition. Check GRS transit predictions if specifically targeting the spot—it's visible for about 50 minutes before and after central meridian crossing.</p>
+
+          <p><strong>Technique:</strong> Start at low magnification (80x) to center Jupiter and check seeing quality. Increase to 120-150x for general observation. During moments of good seeing, push to 200x+ to capture fine details. Sketch what you see, noting time, magnification, filters, and seeing quality. Observe for extended sessions (60+ minutes) to watch features rotate across the disk—Jupiter's 10-hour rotation means visible motion occurs within an hour.</p>
+        </section>
+
+        <!-- Saturn -->
+        <section id="saturn" class="content-section">
+          <h2>Observing Saturn: The Ringed Jewel</h2>
+          <p>Saturn stands as the solar system's most visually stunning planet, its magnificent ring system creating an unmistakable appearance even in small telescopes. The sight of Saturn through a telescope for the first time leaves lasting impressions—the rings' three-dimensional appearance and perfect geometry seem almost artificial, as if viewing a carefully crafted model rather than a natural object.</p>
+
+          <h3>The Ring System</h3>
+          <p><strong>Major Rings:</strong> Saturn's rings span 280,000 km but are only about 10 meters thick—if scaled to paper thickness, they'd stretch several kilometers wide. Telescopes resolve multiple ring sections: The A Ring (outermost bright ring), Cassini Division (dark gap separating A and B rings, 4,800 km wide, visible in 3-inch telescopes at 100x), B Ring (brightest ring section), C Ring (inner crepe ring, fainter and harder to see, requiring 6+ inches and good seeing), and Encke Division (faint gap in A Ring, requiring 10+ inches, exceptional seeing, and high magnification).</p>
+
+          <p>The Cassini Division represents the most striking ring feature accessible to amateur telescopes. At favorable ring tilt (15+ degrees), even 3-inch telescopes at 100x clearly show the dark gap encircling the planet. The division appears as a sharp black line separating bright ring sections—actually not empty space but containing sparse ring material that appears dark by contrast. Under excellent seeing at 200x+ in 8+ inch telescopes, the Cassini Division shows structure including subtle brightness variations and occasional "knots."</p>
+
+          <p><strong>Ring Tilt Variation:</strong> Saturn's 27-degree axial tilt means our viewing angle changes throughout Saturn's 29.5-year orbit. Maximum tilt (rings wide open) last occurred in 2017, next in 2032—the Cassini Division appears prominent, multiple ring subdivisions become visible, and the ring shadow on Saturn's globe creates dramatic three-dimensional appearance. Edge-on ring plane crossing (rings appearing as thin line or disappearing) last occurred in 2009, next in 2025. In 2026, rings display approximately 21-degree tilt (favorable for observing), recovering from the 2025 edge-on configuration toward maximum tilt in 2032.</p>
+
+          <h3>Saturn's Globe</h3>
+          <p><strong>Atmospheric Bands:</strong> Saturn displays cloud bands similar to Jupiter but far more subtle. The planet's lower contrast and smaller apparent size (16-20 arcseconds globe diameter, excluding rings) makes atmospheric features challenging. Careful observation in 6+ inch telescopes at 150x+ reveals faint Equatorial Belt, North and South Equatorial Zones, and occasional brighter or darker atmospheric features. Saturn's muted appearance stems from high-altitude haze obscuring lower cloud layers.</p>
+
+          <p><strong>Ring Shadow:</strong> Saturn's rings cast a shadow on the globe's surface, visible as a dark band across the planet parallel to the rings. The shadow's position varies with ring tilt and season. When Saturn's north pole tilts toward Earth, the ring shadow appears south of the equator; when south pole tilts toward us, shadow appears north. This shadow adds wonderful depth to Saturn's appearance, emphasizing the system's three-dimensionality.</p>
+
+          <p><strong>Saturn's Moons:</strong> Titan, Saturn's largest moon, appears as a bright 8th magnitude star near Saturn, visible in any telescope. It's the only moon with substantial atmosphere (denser than Earth's) and shows an orange disk in very large amateur telescopes (16+ inches) with excellent seeing. Multiple fainter moons (Rhea, Dione, Tethys, Enceladus, Mimas) orbit closer to Saturn, appearing as faint points requiring 6+ inches and dark skies. During ring-plane crossings, moons line up like beads on a string—offering unique viewing opportunities.</p>
+
+          <h3>Optimal Saturn Observing</h3>
+          <p><strong>Magnification:</strong> Use 100x-150x for beautiful full-system views showing rings, globe, and Cassini Division clearly. Push to 180x-250x during excellent seeing to resolve ring subdivisions, subtle atmospheric bands, and fine details. Saturn benefits from high magnification less than Jupiter due to lower contrast features—often 150x provides the most aesthetically pleasing and detailed view.</p>
+
+          <p><strong>Filters:</strong> Light yellow (#8) enhances ring details and subtle atmospheric features. Light blue (#80A) increases atmospheric belt contrast though Saturn's low contrast limits filter effectiveness compared to Jupiter. Many observers prefer unfiltered views for Saturn, finding filters' brightness reduction doesn't sufficiently compensate with contrast gain.</p>
+
+          <p><strong>Timing:</strong> Observe at opposition for maximum ring visibility and brightness. Saturn oppositions occur annually, advancing approximately two weeks each year. In 2026, Saturn reaches opposition in late September. The planet remains observable for months surrounding opposition. While ring tilt varies throughout Saturn's orbit (independent of opposition), opposition provides closest approach and highest altitude for minimum atmospheric distortion.</p>
+
+          <p><strong>Technique:</strong> Begin at 100x to appreciate the complete ring system—Saturn's beauty often appears best at moderate rather than highest magnifications. Steadily increase power to 150x-180x, monitoring image quality. Use averted vision to detect the faint C Ring (crepe ring). Study the ring shadow on Saturn's globe. Note Titan's position and any visible fainter moons. During excellent seeing, push magnification to resolve ring structure and subtle globe features.</p>
+        </section>
+
+        <!-- Mars -->
+        <section id="mars" class="content-section">
+          <h2>Observing Mars: The Red Planet</h2>
+          <p>Mars presents unique observing challenges due to its small size and dramatic opposition-to-opposition variation. During favorable oppositions, Mars reveals stunning polar ice caps, dark volcanic plains, bright deserts, and occasionally atmospheric phenomena including dust storms and ice clouds. During poor oppositions or between oppositions, Mars shrinks to a tiny, nearly featureless orange disk frustrating observers.</p>
+
+          <h3>Opposition Cycles and Timing</h3>
+          <p>Mars oppositions occur every 26 months as Earth's faster orbit laps Mars. However, Mars' elliptical orbit creates dramatic favorability variations. <strong>Favorable oppositions</strong> occur when Mars is near perihelion (closest to Sun), bringing it within 56-60 million km of Earth with apparent diameter of 20-25 arcseconds—revealing substantial surface detail even in moderate telescopes. <strong>Unfavorable oppositions</strong> occur when Mars is near aphelion (farthest from Sun), leaving Mars 90-100 million km away with apparent diameter of just 14-16 arcseconds—detail becomes challenging even in large instruments.</p>
+
+          <p>The difference is dramatic: favorable opposition Mars (24 arcseconds) shows roughly double the apparent diameter of unfavorable opposition Mars (14 arcseconds), meaning quadruple the surface area visible. The last highly favorable opposition occurred July 2018 (24.3 arcseconds). The next highly favorable opposition arrives September 2035 (24.8 arcseconds). Intervening oppositions show moderate favorability: December 2022 (17.2"), January 2025 (14.6"), February 2027 (13.8"), March 2029 (14.5"). Serious Mars observers prioritize favorable oppositions for detailed study, tolerating years of mediocre apparitions between spectacular showings.</p>
+
+          <h3>Martian Features</h3>
+          <p><strong>Polar Ice Caps:</strong> Mars' most obvious features, the polar ice caps appear as brilliant white patches at Martian poles. They consist of frozen water ice and seasonal carbon dioxide frost. The caps grow and shrink with Martian seasons (Mars' year equals 687 Earth days, so seasons span months). During Martian winter, the cap extends significantly; during summer, it shrinks to permanent water-ice cap surrounded by seasonal frost. During favorable oppositions in 4+ inch telescopes at 150x+, the caps appear prominently—watching them change over weeks of observations reveals Martian climatology.</p>
+
+          <p><strong>Albedo Features:</strong> Dark markings on Mars represent ancient volcanic plains (basaltic rock) contrasting with bright surrounding deserts (oxidized iron dust). Major albedo features include: Syrtis Major (prominent dark triangular feature in Martian eastern hemisphere, visible in 4-inch scopes during favorable oppositions), Solis Lacus (dark elongated feature, once called "Eye of Mars"), Meridiani Sinus and Mare Erythraeum (dark markings in opposite hemispheres), and Hellas Basin (massive impact crater appearing as very bright oval when filled with morning frost or atmospheric ice clouds).</p>
+
+          <p>These features don't represent vegetation or water (as early astronomers speculated) but surface compositional differences. Over weeks, they may appear to change as planet-wide dust storms obscure or reveal regions. Mars' 24.6-hour rotation (similar to Earth's) means features rotate across the visible disk like Jupiter's—observing on consecutive nights reveals the same features shifted ~13 degrees later.</p>
+
+          <p><strong>Atmospheric Phenomena:</strong> Mars' thin atmosphere (1% of Earth's pressure) occasionally produces visible weather. White clouds form over volcanoes and along the limb (edge of disk). Yellow-brown dust storms range from local disturbances to planet-wide events obscuring all surface detail for weeks or months. The 2018 global dust storm famously obscured Mars during the favorable opposition—unfortunate timing demonstrating Martian weather's unpredictability.</p>
+
+          <h3>Optimal Mars Observing</h3>
+          <p><strong>Magnification:</strong> Mars requires high magnification due to small size. Use 150x minimum for even basic detail; 200x-300x during excellent seeing reveals finest features. Calculate magnification to yield Mars at comfortable apparent size: during favorable opposition (20-25 arcseconds true size), 200x-250x makes Mars appear roughly the Moon's apparent size to naked eyes. During unfavorable oppositions (14-16 arcseconds), even 300x yields disappointing small images.</p>
+
+          <p><strong>Filters:</strong> Color filters dramatically enhance Mars observations. Red (#23A or #25) increases contrast of dark albedo features against bright deserts—Syrtis Major and other dark regions pop dramatically. Blue (#38A or #80A) highlights polar caps, atmospheric ice clouds, and dust storms by suppressing surface features and emphasizing atmospheric phenomena. Yellow-green (#11) provides balanced view showing both surface and atmospheric features moderately. Orange (#21) enhances dust storm visibility and limb haze. For first Mars observations, start with red filter to maximize surface feature contrast.</p>
+
+          <p><strong>Timing:</strong> Plan Mars observing campaigns around favorable oppositions, accepting that intervening oppositions provide limited views. During opposition windows (±2 months around opposition date), observe frequently as Mars' rotation reveals different hemispheres nightly. Check Martian weather forecasts (published by Mars observers' organizations) for dust storm activity—global storms kill observing for months. Observe when Mars reaches 40+ degree altitude for minimum atmospheric interference.</p>
+
+          <p><strong>Technique:</strong> Allow Mars' small size to dominate strategy. Use high-quality optics precisely collimated—optical defects ruin small planetary images more than large targets. Wait for moments of excellent seeing (Pickering 7-8+) when Mars snaps into crisp focus revealing detail. Keep multiple filters accessible, comparing views to determine which shows features best. Sketch observations noting which hemisphere is visible (check Mars rotation calculators online). Be patient—Mars rewards persistent observers with occasional nights of stunning clarity revealing geological wonders across 200+ million km of space.</p>
+
+          <div class="info-box glass">
+            <h3>Mars Opposition Favorability Guide</h3>
+            <p><strong>Highly Favorable (20-25"):</strong> Reveals extensive detail, polar caps prominent, major albedo features clear, surface topography hints visible in large scopes. Worth dedicated observing campaigns. Examples: July 2018 (24.3"), September 2035 (24.8").</p>
+            <p><strong>Moderately Favorable (16-19"):</strong> Shows good detail in 6+ inch scopes, polar caps visible, major dark markings discernible, worthwhile observing. Examples: October 2020 (22.6"), December 2022 (17.2").</p>
+            <p><strong>Unfavorable (13-15"):</strong> Limited detail even in large scopes, challenging observations requiring excellent seeing, polar caps visible but small, major dark markings faint. Examples: January 2025 (14.6"), February 2027 (13.8").</p>
+          </div>
+        </section>
+
+        <!-- Venus and Mercury -->
+        <section id="venus-mercury" class="content-section">
+          <h2>Venus and Mercury: The Inner Planets</h2>
+          <p>The inner planets present unique observing challenges due to their positions inside Earth's orbit. Both display phases like the Moon, but their proximity to the Sun limits visibility windows and creates observing difficulties. Despite challenges, Venus and Mercury reward patient observers with fascinating phase changes and occasional atmospheric features.</p>
+
+          <h3>Venus: Earth's Twin</h3>
+          <p>Venus shines as the brightest planet (magnitude -4.5 at maximum), easily visible in daylight with proper technique. Its dense atmosphere creates a featureless white disk in visible light—no surface features are visible from Earth due to perpetual cloud cover. However, Venus' phases provide continually changing appearance as it orbits the Sun inside Earth's orbit.</p>
+
+          <p><strong>Phase Changes:</strong> Venus displays complete phase cycle from thin crescent through half-phase to nearly full (gibbous) and back. When Venus is on the far side of the Sun from Earth (superior conjunction), it appears as small gibbous or nearly full disk roughly 10 arcseconds diameter—small and unspectacular. As Venus approaches Earth, moving toward inferior conjunction (passing between Earth and Sun), it grows dramatically in apparent size while transitioning through phases: half-phase (dichotomy) occurs at approximately 25 arcsecond diameter, crescent phases reach 50-60 arcseconds before inferior conjunction. The crescent Venus rivals the Moon in beauty—a brilliant, slender arc visible even in small binoculars.</p>
+
+          <p><strong>The Schröter Effect:</strong> Dichotomy (half-phase) theoretically occurs when Venus is 90 degrees from the Sun as seen from Earth. However, observers consistently report dichotomy occurring several days early—this timing discrepancy (the Schröter Effect) likely results from atmospheric scattering on Venus' day-night terminator. Timing dichotomy by observation provides interesting observing challenge.</p>
+
+          <p><strong>Atmospheric Features:</strong> Venus' thick sulfuric acid cloud deck appears featureless in visible light. However, UV and violet filters (#47 violet) occasionally reveal faint dark markings representing cloud patterns in Venus' upper atmosphere. These features require excellent optics, good seeing, and substantial aperture (6+ inches minimum) to detect—they appear as very subtle darker patches in the bright disk. Most observers focus on Venus' elegant phase changes rather than frustrating attempts at atmospheric detail.</p>
+
+          <p><strong>Observing Venus:</strong> Use moderate magnification (80x-150x) to appreciate phase shape. Higher magnifications dim the brilliant disk without revealing additional detail. Observe Venus in daylight or twilight to reduce painful glare—full darkness makes Venus too bright for comfortable viewing. Filters help: neutral density reduces glare, #47 violet may reveal atmospheric markings, and #80A blue provides comfortable viewing. Venus' rapid orbital motion produces noticeable phase changes over days—observe weekly to watch the crescent grow or shrink.</p>
+
+          <h3>Mercury: The Elusive Messenger</h3>
+          <p>Mercury challenges observers due to its proximity to the Sun and small size (maximum 13 arcseconds diameter at closest approach). The planet never strays more than 28 degrees from the Sun, making it visible only during brief windows at dawn or dusk when low on the horizon. Atmospheric turbulence near the horizon further degrades views.</p>
+
+          <p><strong>When to Observe:</strong> Target Mercury during greatest elongations (maximum angular distance from Sun) occurring roughly every 3-4 months. Eastern elongations place Mercury in the western evening sky after sunset; western elongations place it in the eastern morning sky before sunrise. The planet's orbital inclination means some elongations are more favorable than others—spring evening elongations and fall morning elongations provide best viewing for northern hemisphere observers.</p>
+
+          <p><strong>What to See:</strong> Mercury displays phases like Venus and the Moon, ranging from crescent to gibbous. At greatest elongation, Mercury appears roughly half-phase. Its small size and low altitude limit detail—even in excellent conditions with 8+ inch telescopes, Mercury appears as a tiny phase with no surface detail visible. The observation's value lies in simply seeing the elusive planet and noting its phase, rather than studying surface features (which requires spacecraft). Occasional advanced observers claim to detect subtle albedo markings on Mercury's disk, though these observations remain controversial.</p>
+
+          <p><strong>Observing Technique:</strong> Locate Mercury using planetarium software showing precisely where to look—it's easy to lose in twilight glow. Use binoculars for initial acquisition, then switch to telescope. Observe as early in twilight as possible when sky is still somewhat bright—this reduces Mercury's glare while it's still comfortably above horizon. Use moderate magnification (100x-150x) to see phase clearly. Don't expect detailed views—successfully observing Mercury's phase represents an accomplishment.</p>
+        </section>
+
+        <!-- Outer Planets -->
+        <section id="outer-planets" class="content-section">
+          <h2>The Outer Planets: Uranus and Neptune</h2>
+          <p>Uranus and Neptune challenge observers with their extreme distance, small apparent size, and faint magnitudes. While both are technically visible to naked eyes under perfect conditions (Uranus at magnitude 5.7, Neptune at 7.8), seeing them as actual disks rather than star-like points requires telescopes and technique.</p>
+
+          <h3>Uranus</h3>
+          <p>Uranus orbits at 19 AU (astronomical units) from the Sun, requiring 84 years to complete one orbit. It appears as a tiny 3.7 arcsecond greenish-blue disk at opposition. The planet's peculiar characteristic—an axial tilt of 98 degrees meaning it rotates on its side—creates unusual seasonal patterns.</p>
+
+          <p><strong>Observing Uranus:</strong> Locate Uranus using planetarium software—it appears star-like to naked eyes. Through telescopes at 100x-150x, Uranus reveals its disk as a small, fuzzy greenish dot distinctly non-stellar. The color (from methane absorption) is apparent even in small telescopes. At 200x+ in 8+ inch telescopes under excellent seeing, Uranus grows to a small but definite disk. Seeing atmospheric bands or surface detail requires professional-class equipment and ideal conditions—amateur observations focus on simply resolving the disk and detecting color.</p>
+
+          <p>Uranus' five major moons (Miranda, Ariel, Umbriel, Titania, Oberon) orbit in the planet's equatorial plane. The moons appear as faint points (magnitude 13-14) requiring 8+ inch telescopes and dark skies to detect. Planetary photography reveals them more easily than visual observation. Charting moon positions over nights demonstrates orbital motion—a satisfying exercise showing these worlds' reality despite tiny appearance.</p>
+
+          <h3>Neptune</h3>
+          <p>Neptune orbits at 30 AU, requiring 165 years per orbit—it completed its first full orbit since discovery in 2011. At magnitude 7.8 and just 2.3 arcseconds diameter, Neptune pushes visual telescope limits.</p>
+
+          <p><strong>Observing Neptune:</strong> Finding Neptune requires accurate charts—at 8th magnitude, it's invisible to naked eyes and blends with background stars. Once located, Neptune appears at 100x as a tiny blue-gray dot barely distinguishable from a star. At 200x+ in 8+ inch telescopes, it resolves as a small but definite disk with rich blue color (again from methane). No amateur telescope shows surface detail—Neptune's remote location and small size defeat backyard optics. The observation's satisfaction comes from the contemplation: you're seeing reflected sunlight from a world 4.5 billion kilometers away, requiring 4 hours for light to travel from Neptune to your eye.</p>
+
+          <p>Neptune's largest moon, Triton (magnitude 13.5), orbits in a retrograde direction suggesting capture origin. Triton is detectable in 8+ inch telescopes as a faint point near Neptune—challenging but achievable from dark sites. Distinguishing Triton from background stars requires multiple night observations to confirm orbital motion.</p>
+
+          <div class="info-box glass">
+            <h3>Outer Planet Summary</h3>
+            <p><strong>Uranus:</strong> 3.7 arcsecond greenish disk, visible at 100x+, moderate challenge. Moons require 8+ inches and dark skies. Oppositions annually in October-November timeframe (varies by year).</p>
+            <p><strong>Neptune:</strong> 2.3 arcsecond blue disk, requires 150x+ to resolve confidently, greater challenge. Triton visible in 8+ inches. Oppositions annually in August-September timeframe.</p>
+            <p><strong>Value:</strong> These observations provide perspective on solar system scale and remind observers of worlds that only spacecraft have visited closely. The challenge itself holds satisfaction.</p>
+          </div>
+        </section>
+
+        <!-- Filters -->
+        <section id="filters" class="content-section">
+          <h2>Planetary Filters Guide</h2>
+          <p>Color filters enhance planetary observations by selectively blocking certain wavelengths while transmitting others, increasing contrast between features that naturally differ in color. Planetary atmospheric components and surface materials reflect and absorb different wavelengths—filters exploit these differences to make features more apparent.</p>
+
+          <h3>How Planetary Filters Work</h3>
+          <p>Planets shine by reflected sunlight containing all visible wavelengths. Different atmospheric chemicals and surface materials reflect specific wavelengths more strongly: Jupiter's reddish-brown belts reflect longer wavelengths (red, orange), while bright zones reflect all wavelengths more uniformly. Using an orange or red filter blocks blue and green wavelengths (which both belts and zones reflect) while passing red-orange wavelengths (which belts reflect strongly, zones reflect weakly)—creating enhanced contrast that makes belts appear darker and zones brighter.</p>
+
+          <p>This principle extends across planets: Mars' ferric oxide deserts reflect red strongly (hence Mars' red appearance), while basaltic plains reflect red weakly—red filters increase this contrast. Venus' UV-absorbing atmospheric components create patterns invisible in visible light but apparent through violet filters. Understanding what you're trying to see guides filter selection.</p>
+
+          <h3>Essential Planetary Filters</h3>
+          <p><strong>Light Red #23A or #25 (Red filters):</strong> The most versatile planetary filters, working well on Jupiter, Mars, and Saturn. On Jupiter, red filters enhance belt/zone contrast, improve Great Red Spot visibility, and make festoons more apparent. On Mars, they dramatically increase surface feature contrast, making dark albedo markings like Syrtis Major stand out prominently. On Saturn, they modestly enhance atmospheric belt visibility. Red filters pass roughly 25% of light (#23A is lighter than #25), meaning views darken somewhat but remain comfortable.</p>
+
+          <p><strong>Orange #21 (Orange filter):</strong> Similar benefits to red filters but lighter (passes more light, approximately 44%). Good starting filter for Jupiter showing enhanced belt contrast and improved GRS visibility. Works well on Mars for surface features. Many observers prefer #21 over #23A/#25 for its brighter image while still providing good contrast enhancement.</p>
+
+          <p><strong>Light Blue #80A or #82A (Blue filters):</strong> Enhance high-altitude atmospheric features while suppressing lower-altitude detail. On Jupiter, blue filters increase contrast of bright zones and high-altitude features. On Mars, they highlight polar caps, ice clouds, dust storms, and atmospheric haze while suppressing surface albedo features—useful for studying Martian weather. On Saturn, they modestly enhance atmospheric bands. Blue filters pass roughly 70-80% of light, providing bright images.</p>
+
+          <p><strong>Green #58 or Yellow-Green #11 (Green filters):</strong> Provide balanced enhancement showing multiple feature types moderately. #11 yellow-green works well for Mars, showing both surface markings and atmospheric phenomena. On Jupiter, green filters offer compromise between red and blue filter effects.</p>
+
+          <p><strong>Violet #47 (UV filter):</strong> Specialized filter for Venus' atmospheric clouds, which absorb UV and violet wavelengths creating faint dark patterns in upper atmosphere. These patterns are invisible unfiltered but occasionally appear as subtle markings through #47 filters. Requires excellent optics, good seeing, and substantial aperture (8+ inches) to detect. Not useful for other planets.</p>
+
+          <h3>Filter Selection Strategy</h3>
+          <p>For beginners starting planetary observing, purchase a basic three-filter set: <strong>#21 Orange</strong> (Jupiter, Mars), <strong>#80A Light Blue</strong> (atmospheric features all planets), and <strong>#23A Light Red</strong> (Mars, Jupiter). These three filters costing $20-30 each cover 90% of planetary observing needs. As experience grows, add <strong>#11 Yellow-Green</strong> for Mars, <strong>#58 Green</strong> for additional contrast options, and <strong>#47 Violet</strong> if attempting Venus atmospheric observations.</p>
+
+          <p>During observing sessions, keep multiple filters accessible and compare views. The "best" filter varies by planet, atmospheric conditions, feature type, and telescope optics. Many nights, one filter clearly shows features better; other nights, differences appear subtle. Experienced observers switch filters frequently, using the one revealing target features most clearly. Don't rely on filter recommendations exclusively—experiment and use your eyes to judge effectiveness.</p>
+
+          <div class="info-box glass">
+            <h3>Planetary Filter Quick Reference</h3>
+            <p><strong>Jupiter:</strong> #21 Orange (general use), #23A Red (GRS, festoons), #80A Blue (zones, polar regions)</p>
+            <p><strong>Saturn:</strong> #21 Orange or #11 Yellow-Green (atmospheric bands), #80A Blue (rings)</p>
+            <p><strong>Mars:</strong> #23A or #25 Red (surface features), #80A Blue (polar caps, dust storms), #11 Yellow-Green (balanced view)</p>
+            <p><strong>Venus:</strong> #47 Violet (atmospheric clouds), Neutral Density (glare reduction)</p>
+            <p><strong>Note:</strong> Filters reduce light transmission by blocking wavelengths. Expect dimmer views—this is normal and acceptable for contrast gain.</p>
+          </div>
+        </section>
+
+        <!-- Magnification -->
+        <section id="magnification" class="content-section">
+          <h2>Magnification Requirements by Planet</h2>
+          <p>Planetary observing demands higher magnifications than most deep sky work to resolve small planetary disks and show fine details. However, more magnification isn't always better—atmospheric seeing and optical quality limit practical maximum magnification.</p>
+
+          <h3>General Principles</h3>
+          <p>Useful magnification ranges depend on planetary apparent size and desired detail level. <strong>Minimum magnification</strong> to resolve a planet as a disk (not a point) equals approximately 25x per arcsecond of planetary diameter. For Jupiter (45 arcseconds at opposition): 25×45≈110x minimum to show disk and basic features. For Mars (20 arcseconds during favorable opposition): 25×20≈50x minimum to show disk (but needs more for details). <strong>Optimal magnification</strong> balances detail visibility with image brightness and seeing limitations—typically 1.5-3× the minimum magnification. <strong>Maximum practical magnification</strong> is limited by atmospheric seeing (rarely exceeds 250-300x even under excellent conditions) and telescope diffraction limit (typically 50x per inch aperture).</p>
+
+          <h3>Planet-Specific Recommendations</h3>
+          <p><strong>Jupiter:</strong> 100x-150x shows full disk with major belts and zones clearly visible—excellent "showcase" view for visitors. 150x-200x reveals GRS, belt structure, zone details, and festoons. 200x-300x during excellent seeing resolves finest atmospheric details, small white ovals, and complex festoon patterns. Most Jupiter observing occurs at 120-180x where detail and seeing stability optimize.</p>
+
+          <p><strong>Saturn:</strong> 100x-150x provides beautiful full-system view with rings, Cassini Division, and globe all visible comfortably. 150x-200x shows ring subdivisions, subtle atmospheric bands, and ring shadow details. 200x-250x during excellent seeing resolves finest ring structure though Saturn benefits less from extreme magnification than Jupiter due to lower atmospheric contrast. Many observers find 120-150x produces the most aesthetically pleasing Saturn views balancing detail with system completeness.</p>
+
+          <p><strong>Mars:</strong> Due to Mars' small size, it requires higher magnifications than the larger gas giants. 150x minimum to see basic polar caps and major albedo features. 200x-250x reveals good detail during favorable oppositions showing ice caps clearly, major dark markings like Syrtis Major, and bright desert regions. 250x-350x during excellent seeing and favorable opposition resolves finest surface details, subtle atmospheric phenomena, and hints of major geological features. During unfavorable oppositions when Mars appears 14-16 arcseconds, even 300x provides disappointing views—Earth-Mars distance overwhelms optical capability.</p>
+
+          <p><strong>Venus:</strong> 80x-120x shows phase shape clearly—higher magnification dims the brilliant disk without revealing additional detail (no surface features visible through atmosphere). Occasionally push to 150x-180x when attempting UV atmospheric observation with #47 filter.</p>
+
+          <p><strong>Mercury:</strong> 100x-150x shows phase adequately given small size (maximum 13 arcseconds). Higher magnification (180x-200x) may show phase more clearly but risks excessive image dimming and atmospheric turbulence effects near horizon.</p>
+
+          <p><strong>Uranus and Neptune:</strong> 150x minimum to confidently resolve disk (versus star-like point). 200x-250x shows disk more clearly and reveals color. Higher magnifications provide marginal benefit given tiny sizes (Uranus 3.7", Neptune 2.3")—primarily they confirm non-stellar nature.</p>
+
+          <h3>Calculating Required Eyepieces</h3>
+          <p>Calculate eyepiece focal length by dividing telescope focal length by desired magnification: Focal Length ÷ Magnification = Eyepiece Focal Length. Example: 1000mm focal length telescope, target magnification 150x: 1000÷150≈6.7mm eyepiece. Round to available eyepiece sizes (6mm or 7mm).</p>
+
+          <p>Recommended planetary eyepiece set: <strong>15mm eyepiece</strong> (low power for finding/overview), <strong>10mm eyepiece</strong> (medium power for general planetary), <strong>6-7mm eyepiece</strong> (medium-high power for details), <strong>4-5mm eyepiece</strong> (high power for excellent seeing nights). Alternatively, use a 2x or 3x Barlow lens with medium-focal-length eyepieces to reach higher magnifications economically—a 10mm eyepiece with 2x Barlow yields 2000mm telescope focal length: 2000÷10=200x.</p>
+        </section>
+
+        <!-- Timing -->
+        <section id="timing" class="content-section">
+          <h2>Opposition Timing and Viewing Windows</h2>
+          <p>Understanding when planets are optimally placed for observation maximizes success and satisfaction. Opposition timing, seasonal altitude variations, and rotation synchronization all affect planetary observing quality.</p>
+
+          <h3>Opposition Benefits</h3>
+          <p>Opposition (outer planet directly opposite the Sun from Earth) provides multiple advantages: <strong>Closest approach</strong> means minimum Earth-planet distance revealing maximum detail, <strong>largest apparent size</strong> makes features easier to resolve, <strong>maximum brightness</strong> improves contrast and visibility, <strong>all-night visibility</strong> allows extended observing sessions, and <strong>highest altitude at midnight</strong> minimizes atmospheric distortion. The months surrounding opposition (±2 months) provide excellent viewing even if not precisely at opposition date—these extended windows give flexibility for weather and seeing conditions.</p>
+
+          <h3>2026 Opposition Dates</h3>
+          <p><strong>Mars:</strong> No opposition in 2026. Previous opposition January 2025 (unfavorable, 14.6 arcseconds). Next opposition February 2027 (unfavorable, 13.8 arcseconds). Mars' 26-month opposition cycle means some years lack Mars oppositions.</p>
+
+          <p><strong>Jupiter:</strong> Opposition late October 2026. Jupiter remains well-placed from August 2026 through January 2027. Apparent diameter approximately 48-50 arcseconds at opposition.</p>
+
+          <p><strong>Saturn:</strong> Opposition late September 2026. Well-placed from July 2026 through November 2026. Ring tilt approximately 21 degrees (favorable for observing). Apparent diameter approximately 18-19 arcseconds plus rings.</p>
+
+          <p><strong>Uranus:</strong> Opposition mid-November 2026. Visible throughout autumn and winter 2026-2027.</p>
+
+          <p><strong>Neptune:</strong> Opposition mid-September 2026. Visible throughout autumn 2026.</p>
+
+          <h3>Altitude and Seasonal Considerations</h3>
+          <p>Planetary altitude above the horizon profoundly affects visibility. Planets 45+ degrees altitude traverse relatively short atmospheric paths with minimal distortion. Planets below 30 degrees suffer thick atmospheric layers causing severe turbulence and light absorption. Plan observations when planets reach maximum altitude—use planetarium software to determine meridian crossing times (highest point). For northern hemisphere observers, planets in southern zodiac constellations (Sagittarius, Capricornus, Aquarius) never reach high altitudes—accept this limitation and observe as best conditions allow.</p>
+
+          <p>Seasonal patterns affect which planets are well-placed: <strong>Winter</strong> favors Jupiter and Mars when they oppose in winter constellations (Taurus, Gemini, Orion), reaching high altitudes for northern observers. <strong>Summer</strong> favors Saturn opposing in summer constellations (Sagittarius, Capricornus) though southern declinations limit altitude. <strong>Spring/Fall</strong> provide moderate conditions for various planets. Check ephemerides and planetarium software to determine each planet's current constellation and altitude expectations.</p>
+
+          <h3>Rotation Synchronization</h3>
+          <p>Jupiter and Mars rotate rapidly enough that features visibly shift during observing sessions. <strong>Jupiter's 10-hour rotation</strong> means visible motion within 30-60 minutes—the Great Red Spot traverses the disk, cloud bands rotate, moon shadows move. Plan extended Jupiter sessions (90+ minutes) to watch rotation. Consult GRS transit predictions to time observation when the spot appears. <strong>Mars' 24.6-hour rotation</strong> (similar to Earth) means different hemispheres face Earth at different times—observe over weeks to see all visible faces. Check Mars rotation calculators showing which hemisphere is currently visible. <strong>Saturn rotates in 10.7 hours</strong> but minimal visible features make rotation less relevant. <strong>Venus and Mercury</strong> rotate so slowly that visible rotation requires weeks or months.</p>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="content-section faq-section">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-item">
+            <h3>What aperture is best for planetary observing?</h3>
+            <p>For planetary observing, aperture matters less than optical quality and atmospheric seeing conditions. A well-made 4-inch (100mm) refractor or 5-inch (127mm) Maksutov-Cassegrain often outperforms an 8-inch (200mm) Newtonian reflector for planets due to superior contrast, minimal optical aberrations, and lack of central obstruction. That said, larger apertures do reveal more detail when atmospheric conditions allow: 4-5 inch scopes show Jupiter's cloud bands, Saturn's Cassini Division, and Mars' polar caps clearly; 6-8 inch instruments resolve finer Jupiter cloud details, subtle Saturn ring features, and Mars surface markings; 10+ inch telescopes reveal intricate Jupiter festoons, Saturn's ring subdivisions, and fine Mars albedo features—but only during excellent seeing. The limiting factor for planetary work is almost always atmospheric turbulence (seeing), not aperture. A 4-inch refractor under steady skies delivers superior planetary views compared to a 10-inch reflector under turbulent conditions. Prioritize optical quality (well-collimated, high-quality optics) and observing when planets are high in stable air, rather than chasing maximum aperture. For dedicated planetary observers, 5-6 inch apochromatic refractors or Maksutov-Cassegrains represent optimal balances of detail resolution and contrast.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Why is atmospheric seeing more important than aperture for planets?</h3>
+            <p>Atmospheric seeing—the steadiness of Earth's atmosphere—limits planetary detail visibility far more than telescope aperture because planets require high magnifications (100x-300x) where atmospheric turbulence becomes dramatically apparent. When high-magnification views pass through miles of turbulent air containing cells of varying temperature and density, the image shimmers, boils, and distorts—like looking at an object across hot pavement on a summer day. During poor seeing (Pickering scale 3-4), even a perfectly collimated 12-inch telescope shows a shimmering, fuzzy planetary disk with minimal detail. During excellent seeing (Pickering 8-9), a 4-inch telescope reveals crisp, steady images showing intricate cloud bands, subtle surface markings, and fine features. Aperture determines theoretical resolution, but seeing determines actual achievable resolution. A practical example: Jupiter's Great Red Spot measures approximately 1 arcsecond across—theoretically visible in a 4.5-inch telescope (Dawes limit 1.0 arcsecond). But atmospheric turbulence often limits resolution to 1.5-2 arcseconds or worse, making aperture beyond 4-6 inches largely wasted during average seeing. The best planetary viewing strategy: observe when planets are highest in the sky (shortest atmospheric path), wait for stable air masses (cold fronts often bring steady seeing), use moderate apertures (4-8 inches) that reach diffraction limit more frequently than larger instruments, and learn to recognize nights when the atmosphere cooperates. During those magical nights of exceptional seeing, planetary observing becomes transcendent—cloud details sharp and steady, colors vivid, fine features crisp. Those nights make planetary observing addictive.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Do planetary filters really help?</h3>
+            <p>Yes, color filters significantly enhance planetary observations by increasing contrast between atmospheric features and surface markings that naturally differ in color. Planetary filters work because planets reflect sunlight of varying wavelengths depending on atmospheric chemistry and surface composition—filters block competing wavelengths while passing the wavelengths that reveal target features. For Jupiter: light blue #80A enhances contrast of the darker cloud belts against lighter zones, making belt/zone structure more apparent. Orange #21 or light red #23A improve visibility of festoons (dark projections from belts into zones) and polar features. For Saturn: light yellow #8 enhances ring detail including subtle subdivisions. Light blue #80A shows atmospheric bands though Saturn's muted contrast makes filters less dramatic than on Jupiter. For Mars: red #23A or #25 dramatically enhances dark albedo features (ancient volcanic plains) against bright deserts, making surface markings pop. Blue #80A highlights dust storms, polar ice caps, and atmospheric haze. Yellow-green #11 shows both surface and atmospheric features moderately. For Venus: UV or violet filters reveal atmospheric cloud structure in the thick Venusian atmosphere—visible light shows featureless white disk, but UV reveals dark cloud markings. Do filters work? Absolutely, but effects range from subtle to dramatic depending on planet, atmospheric conditions, and target features. Most planetary observers consider a basic filter set ($20-40 per filter) essential equipment once they move beyond initial planet viewing. Start with #21 orange, #23A light red, and #80A light blue—these three cover most planetary observation needs.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>When is the best time to observe Saturn's rings?</h3>
+            <p>Saturn's rings display varying appearance throughout Saturn's 29.5-year orbital period as our viewing angle changes due to Saturn's axial tilt relative to Earth. The rings appear most spectacular when maximally tilted toward Earth (maximum inclination), occurring approximately every 15 years—most recently in 2017 and next in 2032. At maximum tilt (about 27 degrees), the rings appear wide open, showing maximum area and dramatic three-dimensional structure. The Cassini Division (dark gap between A and B rings) becomes easily visible even in small telescopes (3-4 inches at 100x). Multiple ring subdivisions, subtle brightness variations, and the ring shadow on Saturn's globe create stunning views. Conversely, every 15 years the rings appear edge-on as Earth passes through Saturn's ring plane. During ring-plane crossing (most recently 2009, next 2025), the rings appear as a thin line or completely disappear when viewed edge-on—they're only about 10 meters thick despite spanning 280,000 km! This phase offers unique viewing: Saturn's moons line up like beads on a string, the planet's equatorial bulge becomes apparent, and the ring shadow disappears. For 2026 (current year), Saturn's rings display favorable tilt of approximately 21 degrees (recovering from the 2025 ring plane crossing), offering excellent views with clear Cassini Division visibility. The rings will continue opening wider toward maximum tilt in 2032. Any time the tilt exceeds 15-20 degrees provides excellent ring viewing; below 10 degrees, the rings appear compressed and Cassini Division becomes challenging. Beyond tilt angle, observe Saturn when at opposition (opposite the Sun from Earth) for maximum brightness, largest apparent size, and all-night visibility. Saturn oppositions occur annually about two weeks later each year.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>How do I find and observe Jupiter's Great Red Spot?</h3>
+            <p>The Great Red Spot (GRS), Jupiter's massive storm system larger than Earth, requires planning to observe since Jupiter's rapid 10-hour rotation means the GRS faces Earth only about 50% of the time. To find it: first, check a GRS transit prediction chart or app (available from Sky & Telescope, Stellarium, or Jupiter GRS transit calculators) that shows when the GRS crosses Jupiter's central meridian (the imaginary line down Jupiter's center). The GRS remains visible for about 50 minutes before and after transit as it rotates into and out of view. Plan observations within this roughly 100-minute window. Second, identify the GRS location: it sits in the South Equatorial Belt (SEB), approximately 22 degrees south of Jupiter's equator. Look for a prominent oval feature in the southern hemisphere—currently it appears more orange-brown than "red" due to color variations over decades. Third, use adequate magnification: 150x-250x shows the GRS clearly as an elongated oval. At lower magnification it may appear as a slight brightening or subtle color variation. Fourth, use color filters: red #23A or #25 enhance the GRS contrast against surrounding regions; orange #21 also helps. Unfiltered views show the spot, but filters make it more obvious. What to look for: The GRS appears as an elongated oval spanning about one-third of Jupiter's diameter in length. Its current color is salmon-orange to tan (varies over years). Leading and trailing edges show "hooks" where the spot's circulation interacts with the South Equatorial Belt. Smaller white ovals sometimes appear nearby. The GRS size has shrunk over the past century—historically spanning 40,000+ km in length, it now measures approximately 16,000 km. During excellent seeing conditions, you can observe rotation within the spot and interaction with surrounding atmospheric currents. Keep an observing log noting GRS appearance, color, and structure—it changes over months and years, making long-term observations scientifically valuable.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Why do oppositions matter for planetary observing?</h3>
+            <p>Opposition occurs when a planet lies directly opposite the Sun from Earth's perspective—Earth passes between the Sun and the outer planet. This configuration provides optimal observing conditions: the planet reaches maximum brightness (closest approach to Earth, fully illuminated face toward us), largest apparent size (smallest Earth-planet distance reveals maximum detail), and all-night visibility (rises at sunset, crosses meridian at midnight, sets at sunrise). For Mars, opposition importance is extreme because Mars' elliptical orbit causes dramatic distance variation. Favorable oppositions (Mars near perihelion) bring Mars to 56 million km from Earth with apparent diameter of 25 arcseconds—revealing substantial surface detail. Poor oppositions (Mars near aphelion) leave Mars 101 million km away at only 14 arcseconds diameter—detail barely visible. The difference between favorable and unfavorable Mars oppositions is dramatic—like comparing views through a 10-inch versus 5-inch telescope. Mars oppositions occur every 26 months; favorable oppositions (Mars >20 arcseconds) happen roughly every 15-17 years—most recently July 2018 (24.3 arcseconds), next September 2035 (24.8 arcseconds). For Jupiter and Saturn, opposition effects are less dramatic but still significant: Jupiter ranges from 44-50 arcseconds depending on Earth-Jupiter distance; Saturn ranges from 16-20 arcseconds plus rings. At opposition, these giants display maximum detail, brightest magnitude, and optimal viewing throughout the night. Opposition timing also affects observing convenience: planets at opposition appear highest in the sky near midnight, passing overhead (for observers at appropriate latitudes) where atmospheric turbulence minimizes. Planets far from opposition appear low in dawn or dusk sky where thick atmospheric path and proximity to horizon degrades seeing. Serious planetary observers plan observing campaigns around opposition dates, knowing those few months offer year's best views. Mark opposition dates on calendars, clear schedules for those periods, and observe frequently during opposition windows—you'll see details invisible at other times.</p>
+          </div>
+
+        </section>
+
+        </article>
+      </div>
+    </div>
+  </div>
+
+</MainLayout>
+
+<script>
+  // Progress Bar
+  const progressBar = document.getElementById('progressBar');
+
+  const updateProgressBar = () => {
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight - windowHeight;
+    const scrolled = window.scrollY;
+    const progress = (scrolled / documentHeight) * 100;
+
+    if (progressBar) {
+      progressBar.style.width = `${progress}%`;
+    }
+  };
+
+  window.addEventListener('scroll', updateProgressBar);
+  window.addEventListener('resize', updateProgressBar);
+  updateProgressBar();
+
+  // Table of Contents - Active Section Highlighting
+  const observerOptions = {
+    root: null,
+    rootMargin: '-20% 0px -35% 0px',
+    threshold: 0
+  };
+
+  const observerCallback = (entries) => {
+    entries.forEach(entry => {
+      const id = entry.target.getAttribute('id');
+      const tocLink = document.querySelector(`.toc a[href="#${id}"]`);
+
+      if (entry.isIntersecting && tocLink) {
+        document.querySelectorAll('.toc a').forEach(link => {
+          link.classList.remove('active');
+        });
+        tocLink.classList.add('active');
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+  document.querySelectorAll('.content-section').forEach(section => {
+    observer.observe(section);
+  });
+
+  // Smooth scroll for TOC links
+  document.querySelectorAll('.toc a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href');
+      const targetSection = document.querySelector(targetId);
+
+      if (targetSection) {
+        const yOffset = -80;
+        const y = targetSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+<style>
+  :root {
+    --primary-cyan: #06b6d4;
+    --primary-blue: #3b82f6;
+    --dark-bg: #0f172a;
+    --darker-bg: #020617;
+    --text-primary: #f1f5f9;
+    --text-secondary: rgba(241, 245, 249, 0.7);
+    --space-xs: 0.5rem;
+    --space-sm: 0.75rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  .progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(15, 23, 42, 0.5);
+    z-index: 9999;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-cyan), var(--primary-blue));
+    width: 0%;
+    transition: width 0.1s ease-out;
+  }
+
+  .hero {
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    max-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .hero-image-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(2, 6, 23, 0.3) 0%,
+      rgba(2, 6, 23, 0.7) 50%,
+      rgba(2, 6, 23, 0.95) 100%
+    );
+    z-index: 2;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: var(--space-xl);
+  }
+
+  .breadcrumb {
+    font-size: 0.9rem;
+    margin-bottom: var(--space-lg);
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .breadcrumb-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumb-link:hover {
+    color: var(--primary-cyan);
+  }
+
+  .breadcrumb-separator {
+    margin: 0 0.5rem;
+    opacity: 0.5;
+  }
+
+  .breadcrumb-current {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: white;
+    margin: 0 0 var(--space-md);
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .answer-capsule {
+    max-width: 900px;
+    margin: calc(var(--space-2xl) * -1) auto var(--space-2xl);
+    padding: var(--space-xl);
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    border-radius: 1rem;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    position: relative;
+    z-index: 10;
+    display: flex;
+    gap: var(--space-lg);
+    align-items: flex-start;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .capsule-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  .capsule-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .answer-capsule p {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+  }
+
+  .answer-capsule strong {
+    color: var(--primary-cyan);
+    font-weight: 600;
+  }
+
+  .content-wrapper {
+    padding: var(--space-2xl) 0;
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+  }
+
+  .content-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  .toc-sidebar {
+    position: sticky;
+    top: 100px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(6, 182, 212, 0.3) transparent;
+  }
+
+  .toc-sidebar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .toc-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .toc-sidebar::-webkit-scrollbar-thumb {
+    background: rgba(6, 182, 212, 0.3);
+    border-radius: 3px;
+  }
+
+  .toc {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: 0.75rem;
+    padding: var(--space-lg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .toc h2 {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--primary-cyan);
+    margin: 0 0 var(--space-md);
+  }
+
+  .toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: toc-counter;
+  }
+
+  .toc li {
+    counter-increment: toc-counter;
+    margin-bottom: var(--space-sm);
+  }
+
+  .toc a {
+    display: block;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    padding: var(--space-xs);
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
+    position: relative;
+    padding-left: 1.75rem;
+  }
+
+  .toc a::before {
+    content: counter(toc-counter);
+    position: absolute;
+    left: var(--space-xs);
+    color: rgba(6, 182, 212, 0.4);
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .toc a:hover {
+    color: var(--text-primary);
+    background: rgba(6, 182, 212, 0.1);
+    transform: translateX(2px);
+  }
+
+  .toc a.active {
+    color: var(--primary-cyan);
+    background: rgba(6, 182, 212, 0.15);
+    font-weight: 500;
+  }
+
+  .toc a.active::before {
+    color: var(--primary-cyan);
+  }
+
+  .article-content {
+    max-width: 800px;
+    color: var(--text-primary);
+  }
+
+  .content-section {
+    margin-bottom: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .content-section:last-child {
+    border-bottom: none;
+  }
+
+  .content-section h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 var(--space-lg);
+    line-height: 1.3;
+  }
+
+  .content-section h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    margin: var(--space-xl) 0 var(--space-md);
+    line-height: 1.4;
+  }
+
+  .content-section p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin: 0 0 var(--space-lg);
+  }
+
+  .content-section strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .content-section ol,
+  .content-section ul {
+    margin: var(--space-lg) 0;
+    padding-left: var(--space-xl);
+    color: var(--text-secondary);
+  }
+
+  .content-section li {
+    margin-bottom: var(--space-sm);
+    line-height: 1.7;
+  }
+
+  .info-box {
+    margin: var(--space-xl) 0;
+    padding: var(--space-lg);
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    border-radius: 0.75rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .info-box.glass {
+    background: rgba(6, 182, 212, 0.05);
+    border-color: rgba(6, 182, 212, 0.25);
+  }
+
+  .info-box h3 {
+    font-size: 1.1rem;
+    margin: 0 0 var(--space-md);
+    color: var(--primary-cyan);
+  }
+
+  .info-box p {
+    margin-bottom: var(--space-md);
+    font-size: 1rem;
+  }
+
+  .info-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .faq-section {
+    border-top: 2px solid rgba(6, 182, 212, 0.3);
+    padding-top: var(--space-2xl);
+  }
+
+  .faq-item {
+    margin-bottom: var(--space-xl);
+    padding: var(--space-lg);
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: 0.75rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .faq-item h3 {
+    font-size: 1.25rem;
+    margin: 0 0 var(--space-md);
+    color: var(--primary-cyan);
+  }
+
+  .faq-item p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 1024px) {
+    .content-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .hero {
+      height: 50vh;
+      min-height: 300px;
+    }
+
+    .answer-capsule {
+      margin: calc(var(--space-xl) * -1) auto var(--space-xl);
+      padding: var(--space-lg);
+    }
+
+    .capsule-icon {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      height: 40vh;
+      min-height: 250px;
+    }
+
+    .hero-content {
+      padding: var(--space-lg);
+    }
+
+    .answer-capsule {
+      flex-direction: column;
+      padding: var(--space-md);
+      gap: var(--space-md);
+    }
+
+    .capsule-icon {
+      width: 36px;
+      height: 36px;
+    }
+
+    .answer-capsule p {
+      font-size: 0.95rem;
+    }
+
+    .content-section h2 {
+      font-size: 1.5rem;
+    }
+
+    .content-section h3 {
+      font-size: 1.25rem;
+    }
+
+    .content-section p,
+    .content-section li {
+      font-size: 1rem;
+    }
+  }
+</style>

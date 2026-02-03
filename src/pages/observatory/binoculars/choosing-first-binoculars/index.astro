@@ -109,23 +109,16 @@ const faqData = [
   </section>
 
   <!-- Answer Capsule -->
-  <section class="answer-capsule">
-    <div class="container">
-      <div class="capsule-content">
-        <div class="capsule-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="capsule-text">
-          <h2 class="capsule-title">Quick Answer</h2>
-          <p>For most beginners, 10x50 Porro prism binoculars from reputable manufacturers ($100-200) provide the best introduction to astronomy. The 10x magnification balances detail and stability, 50mm aperture gathers sufficient light for hundreds of deep-sky objects, and this size remains comfortable for handheld observing with proper bracing. Prioritize fully multi-coated optics, quality construction, and proper collimation over maximum specifications or marketing claims. Test before buying when possible, and invest in a tripod adapter ($20-40) to unlock the full potential of your binoculars.</p>
-        </div>
-      </div>
+  <aside class="answer-capsule">
+    <div class="capsule-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M2 17L12 22L22 17" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M2 12L12 17L22 12" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </div>
-  </section>
+    <p>For most beginners, 10x50 Porro prism binoculars from reputable manufacturers ($100-200) provide the best introduction to astronomy. The 10x magnification balances detail and stability, 50mm aperture gathers sufficient light for hundreds of deep-sky objects, and this size remains comfortable for handheld observing with proper bracing. Prioritize fully multi-coated optics, quality construction, and proper collimation over maximum specifications or marketing claims. Test before buying when possible, and invest in a tripod adapter ($20-40) to unlock the full potential of your binoculars.</p>
+  </aside>
 
   <!-- Main Content with Sidebar -->
   <div class="content-wrapper">
@@ -134,23 +127,23 @@ const faqData = [
 
         <!-- Table of Contents Sidebar -->
         <aside class="toc-sidebar">
-          <div class="toc-sticky">
-            <h2 class="toc-title">Contents</h2>
-            <nav class="toc-nav">
-              <a href="#introduction" class="toc-link">Understanding Binoculars</a>
-              <a href="#magnification" class="toc-link">Magnification Explained</a>
-              <a href="#aperture" class="toc-link">Aperture and Light</a>
-              <a href="#exit-pupil" class="toc-link">Exit Pupil</a>
-              <a href="#field-of-view" class="toc-link">Field of View</a>
-              <a href="#prism-types" class="toc-link">Prism Types</a>
-              <a href="#optical-coatings" class="toc-link">Optical Coatings</a>
-              <a href="#build-quality" class="toc-link">Build Quality</a>
-              <a href="#recommended-specs" class="toc-link">Recommended Specs</a>
-              <a href="#budget-guide" class="toc-link">Budget Guide</a>
-              <a href="#testing" class="toc-link">Testing Before Buying</a>
-              <a href="#accessories" class="toc-link">Essential Accessories</a>
-            </nav>
-          </div>
+          <nav class="toc" aria-label="Table of Contents">
+            <h2>Contents</h2>
+            <ol>
+              <li><a href="#introduction">Understanding Binoculars</a></li>
+              <li><a href="#magnification">Magnification Explained</a></li>
+              <li><a href="#aperture">Aperture and Light</a></li>
+              <li><a href="#exit-pupil">Exit Pupil</a></li>
+              <li><a href="#field-of-view">Field of View</a></li>
+              <li><a href="#prism-types">Prism Types</a></li>
+              <li><a href="#optical-coatings">Optical Coatings</a></li>
+              <li><a href="#build-quality">Build Quality</a></li>
+              <li><a href="#recommended-specs">Recommended Specs</a></li>
+              <li><a href="#budget-guide">Budget Guide</a></li>
+              <li><a href="#testing">Testing Before Buying</a></li>
+              <li><a href="#accessories">Essential Accessories</a></li>
+            </ol>
+          </nav>
         </aside>
 
         <!-- Article Content -->
@@ -749,43 +742,47 @@ const faqData = [
 
   /* Answer Capsule */
   .answer-capsule {
-    padding: 3rem 0;
-    background: rgba(0, 240, 255, 0.02);
+    display: flex;
+    gap: var(--space-md, 1rem);
+    padding: var(--space-lg, 1.5rem);
+    margin-bottom: var(--space-2xl, 3rem);
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: var(--radius-lg, 12px);
+    position: relative;
+    overflow: hidden;
   }
 
-  .capsule-content {
-    display: flex;
-    gap: 2rem;
-    align-items: flex-start;
-    max-width: 900px;
-    margin: 0 auto;
+  .answer-capsule::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(6, 182, 212, 0.15) 0%, transparent 50%);
+    pointer-events: none;
   }
 
   .capsule-icon {
     flex-shrink: 0;
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
     color: var(--color-accent-cyan, #00f0ff);
+    opacity: 0.8;
   }
 
-  .capsule-text {
-    flex: 1;
+  .capsule-icon svg {
+    width: 100%;
+    height: 100%;
   }
 
-  .capsule-title {
-    font-size: 1.125rem;
-    font-weight: 500;
-    color: var(--color-accent-cyan, #00f0ff);
-    margin: 0 0 1rem 0;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  .capsule-text p {
-    font-size: 1.0625rem;
-    line-height: 1.8;
-    color: rgba(255, 255, 255, 0.7);
+  .answer-capsule p {
     margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-primary, rgba(255, 255, 255, 0.9));
+    position: relative;
   }
 
   /* Content Layout */
@@ -807,7 +804,7 @@ const faqData = [
     }
   }
 
-  /* Table of Contents Sidebar */
+  /* Sticky TOC Sidebar */
   .toc-sidebar {
     display: none;
   }
@@ -817,41 +814,51 @@ const faqData = [
       display: block;
     }
 
-    .toc-sticky {
+    .toc {
       position: sticky;
-      top: 2rem;
+      top: calc(var(--space-xl, 2rem) + 3px);
+      max-height: calc(100vh - var(--space-2xl, 3rem));
+      overflow-y: auto;
     }
   }
 
-  .toc-title {
+  .toc h2 {
+    font-family: var(--font-heading, inherit);
     font-size: 0.875rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.5);
-    margin: 0 0 1rem 0;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    margin-bottom: var(--space-md, 1rem);
+    color: var(--color-text-secondary, rgba(255, 255, 255, 0.5));
   }
 
-  .toc-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+  .toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
-  .toc-link {
-    font-size: 0.9375rem;
-    color: rgba(255, 255, 255, 0.5);
+  .toc li {
+    margin-bottom: 0.25rem;
+  }
+
+  .toc a {
+    display: block;
+    padding: 0.5rem 0;
+    padding-left: var(--space-sm, 0.75rem);
+    color: var(--color-text-secondary, rgba(255, 255, 255, 0.5));
     text-decoration: none;
-    transition: color 0.2s ease;
-    padding-left: 1rem;
-    border-left: 2px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    transition: all 0.2s ease;
   }
 
-  .toc-link:hover {
-    color: rgba(255, 255, 255, 0.8);
+  .toc a:hover {
+    color: var(--color-text-primary, rgba(255, 255, 255, 0.9));
+    border-left-color: rgba(6, 182, 212, 0.5);
   }
 
-  .toc-link.active {
+  .toc a.active {
     color: var(--color-accent-cyan, #00f0ff);
     border-left-color: var(--color-accent-cyan, #00f0ff);
   }
@@ -1058,7 +1065,7 @@ const faqData = [
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const id = entry.target.getAttribute('id');
-        const tocLinks = document.querySelectorAll('.toc-link');
+        const tocLinks = document.querySelectorAll('.toc a');
 
         tocLinks.forEach(link => {
           link.classList.remove('active');

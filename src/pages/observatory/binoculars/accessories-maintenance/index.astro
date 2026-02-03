@@ -91,22 +91,15 @@ const faqData = [
   </section>
 
   <!-- Answer Capsule -->
-  <section class="answer-capsule">
-    <div class="container">
-      <div class="capsule-content">
-        <div class="capsule-icon">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-            <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="capsule-text">
-          <h2 class="capsule-title">Quick Answer</h2>
-          <p>Essential astronomy binocular accessories include tripod adapters ($15-$120) for steady high-magnification viewing, dew shields ($20-$60) preventing lens condensation, and proper storage cases with desiccant. Maintenance requires gentle lens cleaning using microfiber cloths and lens solution, collimation checks ensuring optical alignment, and dry storage preventing fungus. Quality accessories protect your investment and dramatically improve observing comfort and optical performance.</p>
-        </div>
-      </div>
+  <aside class="answer-capsule">
+    <div class="capsule-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 6v6l4 2" stroke-linecap="round"/>
+      </svg>
     </div>
-  </section>
+    <p>Essential astronomy binocular accessories include tripod adapters ($15-$120) for steady high-magnification viewing, dew shields ($20-$60) preventing lens condensation, and proper storage cases with desiccant. Maintenance requires gentle lens cleaning using microfiber cloths and lens solution, collimation checks ensuring optical alignment, and dry storage preventing fungus. Quality accessories protect your investment and dramatically improve observing comfort and optical performance.</p>
+  </aside>
 
   <!-- Main Content with Sidebar -->
   <div class="content-wrapper">
@@ -115,22 +108,22 @@ const faqData = [
 
         <!-- Table of Contents Sidebar -->
         <aside class="toc-sidebar">
-          <div class="toc-sticky">
-            <h2 class="toc-title">Contents</h2>
-            <nav class="toc-nav">
-              <a href="#introduction" class="toc-link">Introduction</a>
-              <a href="#tripod-mounts" class="toc-link">Tripod Mounts</a>
-              <a href="#tripods" class="toc-link">Tripods</a>
-              <a href="#dew-prevention" class="toc-link">Dew Prevention</a>
-              <a href="#filters" class="toc-link">Optical Filters</a>
-              <a href="#cases-storage" class="toc-link">Cases & Storage</a>
-              <a href="#cleaning" class="toc-link">Cleaning Techniques</a>
-              <a href="#collimation" class="toc-link">Collimation</a>
-              <a href="#maintenance" class="toc-link">Preventive Maintenance</a>
-              <a href="#troubleshooting" class="toc-link">Troubleshooting</a>
-              <a href="#faq" class="toc-link">FAQ</a>
-            </nav>
-          </div>
+          <nav class="toc" aria-label="Table of Contents">
+            <h2>Contents</h2>
+            <ol>
+              <li><a href="#introduction">Introduction</a></li>
+              <li><a href="#tripod-mounts">Tripod Mounts</a></li>
+              <li><a href="#tripods">Tripods</a></li>
+              <li><a href="#dew-prevention">Dew Prevention</a></li>
+              <li><a href="#filters">Optical Filters</a></li>
+              <li><a href="#cases-storage">Cases & Storage</a></li>
+              <li><a href="#cleaning">Cleaning Techniques</a></li>
+              <li><a href="#collimation">Collimation</a></li>
+              <li><a href="#maintenance">Preventive Maintenance</a></li>
+              <li><a href="#troubleshooting">Troubleshooting</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ol>
+          </nav>
         </aside>
 
         <!-- Article Content -->
@@ -511,7 +504,7 @@ const faqData = [
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const id = entry.target.getAttribute('id');
-        const tocLinks = document.querySelectorAll('.toc-link');
+        const tocLinks = document.querySelectorAll('.toc a');
 
         tocLinks.forEach(link => {
           link.classList.remove('active');

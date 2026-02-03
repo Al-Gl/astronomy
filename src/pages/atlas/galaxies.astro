@@ -1,0 +1,1177 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Schema from '../../components/Schema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cosmic Atlas', url: '/atlas/' },
+  { name: 'Galaxies', url: '/atlas/galaxies/' }
+];
+
+const articleData = {
+  headline: 'Galaxies: A Complete Guide to the Universe\'s Building Blocks',
+  description: 'Explore galaxies from spiral to elliptical, irregular to dwarf. Learn about galaxy formation, evolution, classification, and the fascinating structures that make up the cosmos, including our own Milky Way.',
+  datePublished: '2026-01-31',
+  dateModified: '2026-01-31',
+  author: 'The Astronomy Space',
+  image: '/images/Hero_galaxies.jpg',
+  keywords: ['galaxies', 'spiral galaxies', 'elliptical galaxies', 'irregular galaxies', 'Milky Way', 'galaxy clusters', 'active galaxies', 'galaxy evolution', 'cosmology', 'astronomy', 'Hubble classification', 'dwarf galaxies']
+};
+
+const faqData = [
+  {
+    question: 'How many galaxies are in the universe?',
+    answer: 'The observable universe contains an estimated 2 trillion galaxies. This number comes from deep-field observations by the Hubble Space Telescope and subsequent analysis. However, this only accounts for galaxies we can detect with current technology—the true number in the entire universe (beyond what we can observe) may be vastly larger or even infinite.'
+  },
+  {
+    question: 'What type of galaxy is the Milky Way?',
+    answer: 'The Milky Way is a barred spiral galaxy, classified as type SBbc in the Hubble sequence. It features a central bar-shaped structure made of stars, with spiral arms extending outward. The Milky Way is approximately 100,000 light-years in diameter, contains 200-400 billion stars, and our Solar System is located about 26,000 light-years from the galactic center in the Orion Arm.'
+  },
+  {
+    question: 'How do galaxies form?',
+    answer: 'Galaxies form through the gravitational collapse of massive clouds of gas and dark matter in the early universe. Small density fluctuations in the primordial universe grew over time, attracting more matter and eventually forming the first protogalaxies about 13 billion years ago. Galaxies continue to evolve through star formation, gas accretion, and mergers with other galaxies. The exact formation process is still an active area of research, with simulations and observations gradually revealing the complex physics involved.'
+  },
+  {
+    question: 'What is the largest known galaxy?',
+    answer: 'IC 1101 is one of the largest known galaxies, with a diameter of approximately 4 million light-years—about 40 times larger than the Milky Way. This supergiant elliptical galaxy is located about 1 billion light-years away in the Abell 2029 galaxy cluster and contains an estimated 100 trillion stars. Other candidates for the largest galaxy include Alcyoneus, a radio galaxy with lobes extending 16.3 million light-years, though its stellar component is much smaller.'
+  },
+  {
+    question: 'Will the Milky Way collide with another galaxy?',
+    answer: 'Yes! The Milky Way is on a collision course with the Andromeda Galaxy (M31), our nearest large galactic neighbor located 2.5 million light-years away. The two galaxies are approaching each other at about 110 kilometers per second and will begin merging in approximately 4.5 billion years. Despite the dramatic nature of this event, individual stars are so far apart that stellar collisions will be extremely rare. The merger will create a new elliptical galaxy sometimes nicknamed "Milkomeda."'
+  },
+  {
+    question: 'What is a galaxy cluster?',
+    answer: 'Galaxy clusters are the largest gravitationally bound structures in the universe, containing hundreds to thousands of galaxies bound together by gravity. These massive structures can span 10 million light-years and have total masses of 10¹⁴ to 10¹⁵ solar masses, mostly in the form of dark matter. The Virgo Cluster, containing over 1,500 galaxies, is the nearest large galaxy cluster to us at about 54 million light-years away. Galaxy clusters are connected by filaments forming the cosmic web, the large-scale structure of the universe.'
+  }
+];
+---
+
+<MainLayout
+  title="Galaxies: Types, Formation, and Classification - The Astronomy Space"
+  description="Explore galaxies from spiral to elliptical, irregular to dwarf. Learn about galaxy formation, evolution, classification, and our own Milky Way galaxy."
+>
+  <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
+  <Schema type="TechArticle" article={articleData} />
+  <Schema type="FAQPage" faq={faqData} />
+
+  <!-- Reading Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-image">
+      <img src="/images/Hero_galaxies.jpg" alt="Stunning view of various galaxies in deep space" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/atlas/">Cosmic Atlas</a></li>
+          <li aria-current="page">Galaxies</li>
+        </ol>
+      </nav>
+      <h1>Galaxies</h1>
+      <p class="hero-subtitle">Islands of Stars in the Cosmic Ocean</p>
+    </div>
+  </section>
+
+  <!-- Main Article Content -->
+  <article class="content-wrapper">
+    <div class="article-layout">
+
+      <!-- Sticky Table of Contents (Left Sidebar) -->
+      <aside class="toc-sidebar">
+        <nav class="toc" aria-label="Table of Contents">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#classification">Classification</a></li>
+            <li><a href="#types">Galaxy Types</a></li>
+            <li><a href="#formation">Formation & Evolution</a></li>
+            <li><a href="#milky-way">Our Milky Way</a></li>
+            <li><a href="#local-group">The Local Group</a></li>
+            <li><a href="#active-galaxies">Active Galaxies</a></li>
+            <li><a href="#observation">Observing Galaxies</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-content">
+
+        <!-- Answer Capsule -->
+        <aside class="answer-capsule">
+          <div class="capsule-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M2 12h20"/>
+              <ellipse cx="12" cy="12" rx="5" ry="10"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <p>Galaxies are massive gravitationally bound systems containing billions to trillions of stars, gas, dust, and dark matter. These cosmic islands represent the fundamental organizational units of the universe, ranging from dwarf galaxies with a few billion stars to giant ellipticals containing over 100 trillion stars.</p>
+        </aside>
+
+        <!-- Galaxy Type Navigation Cards -->
+        <section class="planet-nav-section">
+          <h2 class="planet-nav-heading">Explore Galaxy Types</h2>
+          <p class="planet-nav-subtitle">Discover the incredible diversity of galactic structures across the cosmos</p>
+
+          <div class="planet-cards-grid">
+            <!-- Spiral Galaxies Card -->
+            <a href="/atlas/galaxies/spiral/" class="planet-card" data-planet="spiral">
+              <div class="planet-card-visual">
+                <img src="/images/card_spiral_galaxy.jpg" alt="Spiral Galaxies" class="planet-image" loading="lazy" />
+              </div>
+              <div class="planet-card-content">
+                <h3 class="planet-name">Spiral Galaxies</h3>
+                <p class="planet-tagline">Majestic Cosmic Pinwheels</p>
+              </div>
+              <div class="card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Elliptical Galaxies Card -->
+            <a href="/atlas/galaxies/elliptical/" class="planet-card" data-planet="elliptical">
+              <div class="planet-card-visual">
+                <img src="/images/card_elliptical_galaxy.jpg" alt="Elliptical Galaxies" class="planet-image" loading="lazy" />
+              </div>
+              <div class="planet-card-content">
+                <h3 class="planet-name">Elliptical Galaxies</h3>
+                <p class="planet-tagline">Smooth Stellar Spheroids</p>
+              </div>
+              <div class="card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Irregular Galaxies Card -->
+            <a href="/atlas/galaxies/irregular/" class="planet-card" data-planet="irregular">
+              <div class="planet-card-visual">
+                <img src="/images/card_irregular_galaxy.jpg" alt="Irregular Galaxies" class="planet-image" loading="lazy" />
+              </div>
+              <div class="planet-card-content">
+                <h3 class="planet-name">Irregular Galaxies</h3>
+                <p class="planet-tagline">Chaotic Star Systems</p>
+              </div>
+              <div class="card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Lenticular Galaxies Card -->
+            <a href="/atlas/galaxies/lenticular/" class="planet-card" data-planet="lenticular">
+              <div class="planet-card-visual">
+                <img src="/images/card_lenticular_galaxy.jpg" alt="Lenticular Galaxies" class="planet-image" loading="lazy" />
+              </div>
+              <div class="planet-card-content">
+                <h3 class="planet-name">Lenticular Galaxies</h3>
+                <p class="planet-tagline">Transitional Forms</p>
+              </div>
+              <div class="card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Dwarf Galaxies Card -->
+            <a href="/atlas/galaxies/dwarf/" class="planet-card" data-planet="dwarf">
+              <div class="planet-card-visual">
+                <img src="/images/card_dwarf_galaxy.jpg" alt="Dwarf Galaxies" class="planet-image" loading="lazy" />
+              </div>
+              <div class="planet-card-content">
+                <h3 class="planet-name">Dwarf Galaxies</h3>
+                <p class="planet-tagline">Galactic Miniatures</p>
+              </div>
+              <div class="card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- The Milky Way Card -->
+            <a href="/atlas/galaxies/milky-way/" class="planet-card" data-planet="milky-way">
+              <div class="planet-card-visual">
+                <img src="/images/card_milky_way.jpg" alt="The Milky Way" class="planet-image" loading="lazy" />
+              </div>
+              <div class="planet-card-content">
+                <h3 class="planet-name">The Milky Way</h3>
+                <p class="planet-tagline">Our Home Galaxy</p>
+              </div>
+              <div class="card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Active Galaxies Card -->
+            <a href="/atlas/galaxies/active/" class="planet-card" data-planet="active">
+              <div class="planet-card-visual">
+                <img src="/images/card_active_galaxy.jpg" alt="Active Galaxies" class="planet-image" loading="lazy" />
+              </div>
+              <div class="planet-card-content">
+                <h3 class="planet-name">Active Galaxies</h3>
+                <p class="planet-tagline">Energetic Powerhouses</p>
+              </div>
+              <div class="card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Galaxy Clusters Card -->
+            <a href="/atlas/galaxies/clusters/" class="planet-card" data-planet="clusters">
+              <div class="planet-card-visual">
+                <img src="/images/card_galaxy_cluster.jpg" alt="Galaxy Clusters" class="planet-image" loading="lazy" />
+              </div>
+              <div class="planet-card-content">
+                <h3 class="planet-name">Galaxy Clusters</h3>
+                <p class="planet-tagline">Cosmic Megastructures</p>
+              </div>
+              <div class="card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- Introduction -->
+        <section id="introduction" class="content-section">
+          <h2>What are Galaxies?</h2>
+          <p>Galaxies are vast gravitationally bound systems containing stars, stellar remnants, interstellar gas and dust, and dark matter. They represent the fundamental building blocks of the universe's large-scale structure, organizing hundreds of billions to trillions of stars into coherent systems ranging from a few thousand to millions of light-years in diameter.</p>
+
+          <p>The term "galaxy" derives from the Greek word "galaxias" meaning "milky," a reference to the Milky Way, which appears as a milky band of light across Earth's night sky. Until the 1920s, many astronomers believed these "spiral nebulae" were merely clouds within our own galaxy. Edwin Hubble's groundbreaking observations of Cepheid variable stars in Andromeda definitively proved these objects were "island universes"—separate galaxies far beyond the Milky Way.</p>
+
+          <p>Modern estimates suggest the observable universe contains approximately 2 trillion galaxies, though this number continues to be refined as observational technology improves. These galaxies span an enormous range in size, mass, and appearance, from tiny dwarf galaxies containing just a few billion stars to giant ellipticals with over 100 trillion stars—more than 500 times the stellar population of the Milky Way.</p>
+        </section>
+
+        <!-- Classification -->
+        <section id="classification" class="content-section">
+          <h2>Galaxy Classification</h2>
+          <p>Galaxies are classified by their visual morphology using the Hubble sequence, also known as the "tuning fork diagram," developed by Edwin Hubble in 1926. This elegant classification system organizes galaxies based on their shape and structure, though modern astronomy has revealed that galaxy classification involves much more complexity than visual appearance alone.</p>
+
+          <div class="info-box glass">
+            <h3>The Hubble Sequence</h3>
+            <ul>
+              <li><strong>Elliptical Galaxies (E0-E7):</strong> Smooth, featureless distributions of stars with little gas or dust. Numbered by apparent elongation (E0 = circular, E7 = highly elongated)</li>
+              <li><strong>Lenticular Galaxies (S0):</strong> Disk-shaped with a central bulge but no spiral arms. Transitional between ellipticals and spirals</li>
+              <li><strong>Spiral Galaxies (Sa, Sb, Sc):</strong> Flat rotating disks with spiral arm structures. Subdivided by tightness of spiral arms and size of central bulge</li>
+              <li><strong>Barred Spirals (SBa, SBb, SBc):</strong> Spiral galaxies with a central bar-shaped structure from which spiral arms emerge</li>
+              <li><strong>Irregular Galaxies (Irr):</strong> Galaxies lacking regular structure, often due to gravitational interactions or active star formation</li>
+            </ul>
+          </div>
+
+          <p>The Hubble sequence was originally thought to represent an evolutionary sequence, with ellipticals evolving into spirals or vice versa. We now know this is incorrect—galaxy morphology is determined primarily by formation history, environment, and merger events rather than simple evolutionary progression.</p>
+
+          <p>Modern classification schemes have expanded beyond the original Hubble system to include additional morphological features, star formation rates, gas content, and spectroscopic properties. The de Vaucouleurs system extends Hubble's classification with additional subcategories, while numerical approaches like Galaxy Zoo use citizen science and machine learning to classify millions of galaxies from survey data.</p>
+        </section>
+
+        <!-- Galaxy Types -->
+        <section id="types" class="content-section">
+          <h2>Galaxy Types in Detail</h2>
+
+          <h3>Spiral Galaxies</h3>
+          <p>Spiral galaxies are characterized by flat rotating disks containing stars, gas, and dust, with characteristic spiral arm patterns. These arms aren't rigid structures but rather density waves—regions where material temporarily bunches up as it orbits the galactic center. Star formation occurs predominantly in spiral arms where gas is compressed, creating the bright blue appearance from hot, young stars.</p>
+          <p>The Milky Way, Andromeda (M31), and the Whirlpool Galaxy (M51) are all spiral galaxies. These systems typically contain significant amounts of gas and dust, supporting ongoing star formation. Spiral galaxies make up about 60% of galaxies in the nearby universe, though they're less common in dense galaxy clusters where collisions and tidal interactions disrupt their delicate structures.</p>
+
+          <h3>Elliptical Galaxies</h3>
+          <p>Elliptical galaxies range from nearly spherical (E0) to highly elongated (E7) forms, containing primarily old, red stars with very little gas or dust. They show no spiral structure or disk component, with stars orbiting in random directions rather than organized rotation. These galaxies have typically exhausted their gas supply and exhibit little to no ongoing star formation, earning them the designation "red and dead."</p>
+          <p>Giant ellipticals, found at the centers of galaxy clusters, can contain over 100 trillion stars and form through multiple major galaxy mergers. M87 in the Virgo Cluster exemplifies this class, hosting the first black hole ever directly imaged. Despite their "dead" reputation, some ellipticals show signs of recent star formation, often from cannibalized smaller galaxies.</p>
+
+          <h3>Irregular Galaxies</h3>
+          <p>Irregular galaxies lack the symmetric structure of spirals and ellipticals, appearing chaotic and asymmetric. This irregular morphology often results from gravitational interactions with nearby galaxies, violent internal processes like starburst activity, or simply insufficient mass to organize into regular structures. The Large and Small Magellanic Clouds, satellite galaxies of the Milky Way, are classic examples.</p>
+
+          <h3>Lenticular Galaxies</h3>
+          <p>Lenticular galaxies (S0) occupy an intermediate position between ellipticals and spirals, featuring disk structures and central bulges like spirals but lacking prominent spiral arms. They contain less gas and dust than spirals, with correspondingly lower star formation rates. Lenticulars may represent spirals that have exhausted their gas or been stripped of gas through interactions, or they may form through different evolutionary paths entirely.</p>
+
+          <h3>Dwarf Galaxies</h3>
+          <p>Dwarf galaxies are the most common type in the universe, containing as few as several billion stars (compared to hundreds of billions in large galaxies). They come in multiple varieties: dwarf ellipticals, dwarf spheroidals (extremely low luminosity with little gas), dwarf irregulars (often gas-rich with ongoing star formation), and ultra-faint dwarfs barely distinguishable from globular clusters.</p>
+          <p>These small galaxies play crucial roles in galaxy evolution. They merge with larger galaxies, delivering gas for star formation and contributing to the growth of their hosts. The Milky Way has dozens of confirmed dwarf satellite galaxies, with more being discovered regularly.</p>
+        </section>
+
+        <!-- Formation & Evolution -->
+        <section id="formation" class="content-section">
+          <h2>Galaxy Formation and Evolution</h2>
+          <p>Galaxy formation begins with tiny density fluctuations in the early universe, imprinted during the first fraction of a second after the Big Bang. These overdense regions attracted more matter through gravity, growing over millions of years into the first protogalaxies.</p>
+
+          <h3>The First Galaxies</h3>
+          <p>The first galaxies formed roughly 13 billion years ago, just 500-800 million years after the Big Bang. These early galaxies were smaller and more irregular than today's massive spirals and ellipticals, containing primarily metal-poor stars (composed almost entirely of hydrogen and helium). The James Webb Space Telescope is currently revolutionizing our understanding of these ancient systems, revealing galaxies that formed earlier and evolved faster than theoretical models predicted.</p>
+
+          <h3>Hierarchical Assembly</h3>
+          <p>Galaxies grow through hierarchical assembly: smaller structures merge to form progressively larger ones. Dark matter halos provide the gravitational scaffolding, attracting ordinary matter that eventually forms stars. This "bottom-up" formation scenario is supported by observations showing more small galaxies in the early universe and evidence of ongoing mergers throughout cosmic history.</p>
+
+          <h3>Galaxy Mergers</h3>
+          <p>When galaxies collide, their stars rarely impact each other due to the vast distances between them, but gravitational tidal forces dramatically reshape both galaxies. Major mergers between similar-sized galaxies can transform spirals into ellipticals, trigger intense starbursts, and fuel central supermassive black holes. Minor mergers involve a large galaxy absorbing a smaller companion, often creating stellar streams and shells visible in deep images.</p>
+
+          <div class="info-box glass">
+            <h3>Galaxy Evolution Factors</h3>
+            <ul>
+              <li><strong>Gas Accretion:</strong> Galaxies grow by attracting gas from the intergalactic medium, fueling star formation</li>
+              <li><strong>Mergers:</strong> Collisions reshape galaxy morphology and can trigger starbursts or quench star formation</li>
+              <li><strong>AGN Feedback:</strong> Active galactic nuclei can heat or expel gas, halting star formation</li>
+              <li><strong>Environmental Effects:</strong> Galaxy clusters strip gas from members, transforming spirals into lenticulars</li>
+              <li><strong>Internal Processes:</strong> Bars, spiral density waves, and stellar feedback regulate star formation</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Milky Way -->
+        <section id="milky-way" class="content-section">
+          <h2>Our Milky Way Galaxy</h2>
+          <p>The Milky Way is a barred spiral galaxy containing 200-400 billion stars, along with vast quantities of gas, dust, and dark matter. From our position within the galactic disk, the Milky Way appears as a luminous band stretching across the night sky—the combined light of billions of stars too distant to resolve individually.</p>
+
+          <div class="info-box glass">
+            <h3>Milky Way Structure</h3>
+            <ul>
+              <li><strong>Diameter:</strong> ~100,000 light-years (disk), ~200,000 light-years including halo</li>
+              <li><strong>Thickness:</strong> ~1,000 light-years (thin disk), ~12,000 light-years (thick disk)</li>
+              <li><strong>Stellar Mass:</strong> Approximately 60 billion solar masses</li>
+              <li><strong>Total Mass:</strong> ~1 trillion solar masses (mostly dark matter)</li>
+              <li><strong>Central Black Hole:</strong> Sagittarius A*, 4 million solar masses</li>
+              <li><strong>Sun's Position:</strong> ~26,000 light-years from center, in the Orion Arm</li>
+              <li><strong>Rotation Speed:</strong> ~220 km/s at the Sun's location</li>
+              <li><strong>Orbital Period:</strong> ~225 million years (one "galactic year")</li>
+            </ul>
+          </div>
+
+          <p>The Milky Way's structure includes a thin disk where most star formation occurs, a thick disk containing older stars, a central bar-shaped structure about 27,000 light-years long, and a spherical halo of ancient stars and globular clusters. The entire system is embedded in a much larger dark matter halo extending hundreds of thousands of light-years.</p>
+
+          <p>Our galaxy is not isolated—it's the dominant member of the Local Group, a collection of about 80 galaxies. The Milky Way is gravitationally bound to the Andromeda Galaxy, and the two are approaching each other at 110 kilometers per second, destined to merge in approximately 4.5 billion years.</p>
+        </section>
+
+        <!-- Local Group -->
+        <section id="local-group" class="content-section">
+          <h2>The Local Group</h2>
+          <p>The Local Group is the small galaxy group containing the Milky Way, spanning about 10 million light-years. This cosmic neighborhood includes three large spiral galaxies (Milky Way, Andromeda, and Triangulum), several smaller irregular galaxies, and dozens of dwarf galaxies.</p>
+
+          <h3>Major Members</h3>
+          <ul class="mission-list">
+            <li><strong>Andromeda (M31):</strong> The largest Local Group galaxy, approximately 2.5 million light-years away, containing ~1 trillion stars</li>
+            <li><strong>Milky Way:</strong> Our home galaxy, the second-largest Local Group member</li>
+            <li><strong>Triangulum (M33):</strong> The third-largest spiral, about 2.7 million light-years away</li>
+            <li><strong>Large Magellanic Cloud:</strong> Irregular satellite galaxy of the Milky Way, 163,000 light-years away</li>
+            <li><strong>Small Magellanic Cloud:</strong> Another Milky Way satellite, 200,000 light-years distant</li>
+            <li><strong>M32 and M110:</strong> Dwarf elliptical companions of Andromeda</li>
+          </ul>
+
+          <p>The Local Group itself is part of the Virgo Supercluster, and more recently recognized as residing in the Laniakea Supercluster—a massive structure containing 100,000 galaxies and spanning 520 million light-years.</p>
+        </section>
+
+        <!-- Active Galaxies -->
+        <section id="active-galaxies" class="content-section">
+          <h2>Active Galaxies and Quasars</h2>
+          <p>Active galaxies are powered by accretion onto supermassive black holes at their centers, producing enormous luminosities that can outshine the entire stellar population of the host galaxy. These Active Galactic Nuclei (AGN) represent some of the most energetic phenomena in the universe.</p>
+
+          <h3>Types of Active Galaxies</h3>
+          <ul>
+            <li><strong>Seyfert Galaxies:</strong> Spiral galaxies with extremely bright cores, classified by spectroscopic properties</li>
+            <li><strong>Radio Galaxies:</strong> Elliptical galaxies with massive radio-emitting jets extending millions of light-years</li>
+            <li><strong>Quasars:</strong> The most luminous AGN, visible across billions of light-years, powered by rapidly accreting black holes</li>
+            <li><strong>Blazars:</strong> AGN with jets pointed directly at Earth, showing extreme variability and high-energy emission</li>
+          </ul>
+
+          <p>Quasars dominated the early universe when supermassive black holes grew rapidly through gas accretion and mergers. The most distant quasars, visible when the universe was less than a billion years old, pose questions about how such massive black holes (billions of solar masses) formed so quickly.</p>
+        </section>
+
+        <!-- Observation -->
+        <section id="observation" class="content-section">
+          <h2>Observing Galaxies</h2>
+          <p>Galaxies represent some of the most rewarding targets for amateur astronomers, ranging from easy binocular objects to challenging deep-sky targets requiring large telescopes and dark skies.</p>
+
+          <h3>Bright Galaxies for Amateurs</h3>
+          <ul>
+            <li><strong>Andromeda Galaxy (M31):</strong> Visible to the naked eye from dark sites; spectacular in binoculars showing the bright core and hints of spiral structure</li>
+            <li><strong>Triangulum Galaxy (M33):</strong> Face-on spiral requiring dark skies; reveals spiral arms in telescopes</li>
+            <li><strong>Large/Small Magellanic Clouds:</strong> Visible to Southern Hemisphere observers; irregular satellites of the Milky Way</li>
+            <li><strong>Whirlpool Galaxy (M51):</strong> Beautiful face-on spiral showing connection to companion NGC 5195</li>
+            <li><strong>Sombrero Galaxy (M104):</strong> Edge-on spiral with prominent dust lane</li>
+            <li><strong>M81 and M82:</strong> Galaxy pair showing spiral and starburst morphologies</li>
+          </ul>
+
+          <h3>Observing Tips</h3>
+          <p>Galaxies require dark skies away from light pollution. Most appear as faint, fuzzy patches rather than the colorful images from long-exposure photography. Using averted vision (looking slightly away from the target) helps detect faint galaxies by engaging the eye's more sensitive peripheral vision. Larger aperture telescopes gather more light, revealing more galactic detail and extending the observable distance into deep space.</p>
+        </section>
+
+        <!-- External Resources -->
+        <section id="resources" class="content-section">
+          <h2>External Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://hubblesite.org/contents/media/images/gallery/topics/galaxies" target="_blank" rel="noopener">Hubble Galaxy Gallery</a> - Stunning images from the Hubble Space Telescope</li>
+            <li><a href="https://en.wikipedia.org/wiki/Galaxy" target="_blank" rel="noopener">Galaxies on Wikipedia</a> - Comprehensive encyclopedia article</li>
+            <li><a href="https://www.galaxyzoo.org/" target="_blank" rel="noopener">Galaxy Zoo</a> - Citizen science project for galaxy classification</li>
+            <li><a href="https://www.jwst.nasa.gov/content/science/galaxies.html" target="_blank" rel="noopener">JWST Galaxy Science</a> - James Webb Space Telescope galaxy observations</li>
+          </ul>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="content-section faq-section">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-list">
+            {faqData.map((item) => (
+              <details class="faq-item">
+                <summary class="faq-question">{item.question}</summary>
+                <div class="faq-answer">
+                  <p>{item.answer}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </article>
+</MainLayout>
+
+<script>
+  // Reading Progress Bar
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    const progressBar = document.getElementById('progressBar');
+    if (progressBar) {
+      progressBar.style.width = scrollPercent + '%';
+    }
+  });
+
+  // Active TOC highlighting
+  const sections = document.querySelectorAll('.content-section');
+  const tocLinks = document.querySelectorAll('.toc a');
+
+  const observerOptions = {
+    rootMargin: '-20% 0% -70% 0%'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(section => observer.observe(section));
+</script>
+
+<style>
+  /* Progress Bar */
+  .progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+  }
+
+  .progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-blue));
+    transition: width 0.1s ease-out;
+  }
+
+  /* Hero Section */
+  .hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: var(--space-xl);
+  }
+
+  .hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    color: var(--color-accent-cyan);
+    font-weight: 500;
+  }
+
+  /* Breadcrumbs */
+  .breadcrumbs {
+    margin-bottom: var(--space-lg);
+  }
+
+  .breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumbs li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .breadcrumbs li:not(:last-child)::after {
+    content: '›';
+    color: var(--color-text-secondary);
+  }
+
+  .breadcrumbs a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumbs a:hover {
+    color: var(--color-accent-cyan);
+  }
+
+  .breadcrumbs li[aria-current="page"] {
+    color: var(--color-text-primary);
+  }
+
+  /* Article Layout with Sidebar */
+  .content-wrapper {
+    padding: var(--space-2xl) 0;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+    gap: var(--space-xl);
+  }
+
+  @media (min-width: 1024px) {
+    .article-layout {
+      grid-template-columns: 220px 1fr;
+      gap: var(--space-2xl);
+    }
+  }
+
+  /* Sticky TOC Sidebar */
+  .toc-sidebar {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .toc-sidebar {
+      display: block;
+    }
+
+    .toc {
+      position: sticky;
+      top: calc(var(--space-xl) + 3px);
+      max-height: calc(100vh - var(--space-2xl));
+      overflow-y: auto;
+    }
+  }
+
+  .toc h2 {
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-md);
+    color: var(--color-text-secondary);
+  }
+
+  .toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .toc li {
+    margin-bottom: 0.25rem;
+  }
+
+  .toc a {
+    display: block;
+    padding: 0.5rem 0;
+    padding-left: var(--space-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    transition: all 0.2s ease;
+  }
+
+  .toc a:hover {
+    color: var(--color-text-primary);
+    border-left-color: rgba(6, 182, 212, 0.5);
+  }
+
+  .toc a.active {
+    color: var(--color-accent-cyan);
+    border-left-color: var(--color-accent-cyan);
+  }
+
+  /* Main Content */
+  .main-content {
+    max-width: 800px;
+  }
+
+  /* Answer Capsule */
+  .answer-capsule {
+    display: flex;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .answer-capsule::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(6, 182, 212, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .capsule-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    color: var(--color-accent-cyan);
+    opacity: 0.8;
+  }
+
+  .capsule-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .answer-capsule p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-primary);
+    position: relative;
+  }
+
+  /* Content Sections */
+  .content-section {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .content-section h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+    color: var(--color-text-primary);
+  }
+
+  .content-section h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+    color: var(--color-accent-cyan);
+  }
+
+  .content-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+  }
+
+  .content-section ul,
+  .content-section ol {
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-lg);
+  }
+
+  .content-section li {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  /* Info Box */
+  .info-box {
+    padding: var(--space-lg);
+    margin: var(--space-lg) 0;
+  }
+
+  .info-box h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: var(--color-accent-blue);
+  }
+
+  .info-box ul {
+    margin: 0;
+    padding-left: var(--space-md);
+  }
+
+  .info-box li {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  /* Mission List */
+  .mission-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .mission-list li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .mission-list li:last-child {
+    border-bottom: none;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .faq-item {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item[open] {
+    background: rgba(6, 182, 212, 0.05);
+    border-color: rgba(6, 182, 212, 0.2);
+  }
+
+  .faq-question {
+    padding: var(--space-md) var(--space-lg);
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.2s ease;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-accent-cyan);
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[open] .faq-question::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-question:hover {
+    color: var(--color-accent-cyan);
+  }
+
+  .faq-answer {
+    padding: 0 var(--space-lg) var(--space-lg);
+  }
+
+  .faq-answer p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+  }
+
+  /* Resource List */
+  .resource-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .resource-list li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .resource-list li:last-child {
+    border-bottom: none;
+  }
+
+  .resource-list a {
+    color: var(--color-accent-cyan);
+    font-weight: 500;
+  }
+
+  /* Glassmorphism */
+  .glass {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 50vh;
+    }
+
+    .hero-content {
+      padding: var(--space-lg);
+    }
+
+    .article-layout {
+      padding: 0 var(--space-sm);
+    }
+
+    .answer-capsule {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .capsule-icon {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  /* ==================== GALAXY TYPE NAVIGATION CARDS ==================== */
+
+  .planet-nav-section {
+    margin: var(--space-2xl) 0;
+    padding-top: var(--space-xl);
+  }
+
+  .planet-nav-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: var(--space-sm);
+    text-align: center;
+    color: var(--color-text-primary);
+    background: linear-gradient(135deg, #ffffff 0%, var(--color-accent-cyan) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .planet-nav-subtitle {
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: 1.05rem;
+    margin-bottom: var(--space-2xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Responsive Grid Layout */
+  .planet-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+  }
+
+  @media (min-width: 640px) {
+    .planet-cards-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .planet-cards-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* Individual Planet Card */
+  .planet-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-lg);
+    background: #010101;
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .planet-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  /* Hover Effects */
+  .planet-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(6, 182, 212, 0.3);
+    box-shadow:
+      0 8px 32px rgba(6, 182, 212, 0.15),
+      0 0 0 1px rgba(6, 182, 212, 0.1);
+  }
+
+  .planet-card:hover::before {
+    opacity: 1;
+  }
+
+  .planet-card:active {
+    transform: translateY(-6px) scale(1.01);
+  }
+
+  /* Focus state for accessibility */
+  .planet-card:focus-visible {
+    outline: 2px solid var(--color-accent-cyan);
+    outline-offset: 4px;
+    border-color: rgba(6, 182, 212, 0.4);
+  }
+
+  /* Planet Visual Icon */
+  .planet-card-visual {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--space-md);
+    min-height: 120px;
+    position: relative;
+  }
+
+  .planet-image {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .planet-card:hover .planet-image {
+    transform: scale(1.15) rotate(5deg);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Planet Card Content */
+  .planet-card-content {
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .planet-name {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 0.25rem;
+    transition: color 0.3s ease;
+  }
+
+  .planet-card:hover .planet-name {
+    color: var(--color-accent-cyan);
+  }
+
+  .planet-tagline {
+    font-size: 0.85rem;
+    color: var(--color-text-tertiary);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    transition: color 0.3s ease;
+  }
+
+  .planet-card:hover .planet-tagline {
+    color: var(--color-text-secondary);
+  }
+
+  /* Card Arrow Indicator */
+  .card-arrow {
+    position: absolute;
+    bottom: var(--space-sm);
+    right: var(--space-sm);
+    width: 24px;
+    height: 24px;
+    color: var(--color-accent-cyan);
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-arrow svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .planet-card:hover .card-arrow {
+    opacity: 0.7;
+    transform: translateX(0);
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 639px) {
+    .planet-card {
+      padding: var(--space-md);
+    }
+
+    .planet-image {
+      width: 90px;
+      height: 90px;
+    }
+
+    .planet-card-visual {
+      min-height: 100px;
+    }
+
+    .planet-name {
+      font-size: 1.1rem;
+    }
+
+    .planet-tagline {
+      font-size: 0.8rem;
+    }
+
+    .planet-nav-subtitle {
+      font-size: 0.95rem;
+      padding: 0 var(--space-sm);
+    }
+  }
+
+  /* Page Load Animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .planet-card {
+    animation: fadeInUp 0.6s ease backwards;
+  }
+
+  /* Stagger animation for each card */
+  .planet-card:nth-child(1) { animation-delay: 0.1s; }
+  .planet-card:nth-child(2) { animation-delay: 0.15s; }
+  .planet-card:nth-child(3) { animation-delay: 0.2s; }
+  .planet-card:nth-child(4) { animation-delay: 0.25s; }
+  .planet-card:nth-child(5) { animation-delay: 0.3s; }
+  .planet-card:nth-child(6) { animation-delay: 0.35s; }
+  .planet-card:nth-child(7) { animation-delay: 0.4s; }
+  .planet-card:nth-child(8) { animation-delay: 0.45s; }
+
+  /* Reduce Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    .planet-card {
+      animation: none;
+    }
+
+    .planet-card,
+    .planet-image,
+    .card-arrow {
+      transition-duration: 0.1s;
+    }
+  }
+</style>
