@@ -108,18 +108,6 @@ const faqData = [
     </div>
   </section>
 
-  <!-- Answer Capsule -->
-  <aside class="answer-capsule">
-    <div class="capsule-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M2 17L12 22L22 17" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M2 12L12 17L22 12" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-    <p>For most beginners, 10x50 Porro prism binoculars from reputable manufacturers ($100-200) provide the best introduction to astronomy. The 10x magnification balances detail and stability, 50mm aperture gathers sufficient light for hundreds of deep-sky objects, and this size remains comfortable for handheld observing with proper bracing. Prioritize fully multi-coated optics, quality construction, and proper collimation over maximum specifications or marketing claims. Test before buying when possible, and invest in a tripod adapter ($20-40) to unlock the full potential of your binoculars.</p>
-  </aside>
-
   <!-- Main Content with Sidebar -->
   <div class="content-wrapper">
     <div class="container">
@@ -148,6 +136,18 @@ const faqData = [
 
         <!-- Article Content -->
         <article class="article-content">
+
+          <!-- Answer Capsule -->
+          <aside class="answer-capsule">
+            <div class="capsule-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 17L12 22L22 17" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 12L12 17L22 12" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <p>For most beginners, 10x50 Porro prism binoculars from reputable manufacturers ($100-200) provide the best introduction to astronomy. The 10x magnification balances detail and stability, 50mm aperture gathers sufficient light for hundreds of deep-sky objects, and this size remains comfortable for handheld observing with proper bracing. Prioritize fully multi-coated optics, quality construction, and proper collimation over maximum specifications or marketing claims. Test before buying when possible, and invest in a tripod adapter ($20-40) to unlock the full potential of your binoculars.</p>
+          </aside>
 
           <!-- Introduction -->
           <section id="introduction" class="content-section">
@@ -621,7 +621,7 @@ const faqData = [
 
             <div class="faq-list">
               {faqData.map((faq, index) => (
-                <details class="faq-item" key={index}>
+                <details class="faq-item">
                   <summary class="faq-question">
                     {faq.question}
                     <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
