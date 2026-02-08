@@ -34,7 +34,7 @@ const faqData = [
   },
   {
     question: 'Why is Saturn the least dense planet?',
-    answer: 'Saturn is the least dense planet in the solar system—so light that it would float if you could find a bathtub large enough! Its average density is only 0.687 grams per cubic centimeter, less than water (1.0 g/cm³). This low density results from Saturn\'s composition: it\'s made primarily of hydrogen and helium gases with only a small rocky core. The planet\'s rapid rotation (a day on Saturn lasts just 10.7 hours) causes it to bulge significantly at the equator, further reducing its average density.'
+    answer: 'Saturn is the least dense planet in the solar system—so light that it would float if you could find a bathtub large enough! Its average density is only 0.687 grams per cubic centimeter, less than water (1.0 g/cm³). This low density results from Saturn\'s composition: it\'s made primarily of hydrogen and helium gases with only a small rocky core. The planet\'s rapid rotation (a day on Saturn lasts just 10 hours and 33 minutes) causes it to bulge significantly at the equator, further reducing its average density.'
   },
   {
     question: 'How long would it take to travel to Saturn?',
@@ -147,6 +147,7 @@ const faqData = [
               <li><strong>Distance from Sun:</strong> 1.4 billion km (9.5 AU)</li>
             </ul>
           </div>
+          <p class="data-source">Data: <a href="https://science.nasa.gov/saturn/saturn-facts/" target="_blank" rel="noopener noreferrer">NASA Planetary Science</a></p>
 
           <h3>A Light Planet</h3>
           <p>Saturn's most remarkable physical characteristic is its extremely low density—only 0.687 grams per cubic centimeter, less dense than water (1.0 g/cm³). This has led to the often-repeated factoid that Saturn would float if you could find an ocean large enough. This low density results from Saturn's composition: the planet is made almost entirely of the lightest elements—hydrogen (96%) and helium (3%)—with only trace amounts of heavier elements.</p>
@@ -732,6 +733,18 @@ const faqData = [
   .info-box li {
     font-size: 1rem;
     margin-bottom: 0.4rem;
+  }
+
+  .data-source {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    opacity: 0.7;
+    margin-top: -0.5rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .data-source a {
+    color: var(--color-accent-cyan);
   }
 
   /* Facts List */

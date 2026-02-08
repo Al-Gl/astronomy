@@ -6,360 +6,416 @@ import MainLayout from '../../../layouts/MainLayout.astro';
   title="Stargazing with Binoculars - Observatory | The Astronomy Space"
   description="Complete guide to astronomy binoculars. Reviews, buying guides, observing techniques, and what you can see through binoculars from the Moon to deep sky objects."
 >
+
   <!-- Hero Section -->
   <section class="hero">
-    <div class="container">
-      <h1 class="hero-title">Stargazing with Binoculars</h1>
-      <p class="hero-subtitle">
-        Discover the power of wide-field astronomy. From breathtaking star fields to detailed lunar observations, binoculars offer an accessible and rewarding path to exploring the night sky.
-      </p>
+    <div class="hero-image">
+      <img src="/images/Hero_choosing_binoculars.jpg" alt="Astronomy binoculars for stargazing" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/observatory/">Observatory</a></li>
+          <li aria-current="page">Binoculars</li>
+        </ol>
+      </nav>
+      <h1>Stargazing with Binoculars</h1>
+      <p class="hero-subtitle">Wide-field views of star clusters, nebulae, and the Milky Way — no setup required.</p>
     </div>
   </section>
 
-  <!-- Introductory Content -->
+  <!-- Intro -->
   <section class="intro">
     <div class="container">
       <p class="intro-text">
-        Binoculars offer a unique advantage for astronomical observation with their wide field of view, revealing breathtaking panoramic vistas of the Milky Way, sprawling star clusters, and vast nebulae that telescopes simply can't capture in a single view. The two-eye viewing experience provides natural, comfortable observing that reduces eye strain during extended sessions, while the portability means you can be under the stars in minutes—no setup, no cooling time, just immediate connection with the cosmos. With bright, sharp optics ideal for deep sky objects, binoculars transform casual stargazing into immersive celestial exploration.
-      </p>
-      <p class="intro-text">
-        For newcomers to astronomy, binoculars represent the ideal entry point, offering quality optics at a fraction of telescope costs—typically $50-200 compared to $200-1000+ for comparable telescopes. There's virtually no learning curve; the intuitive design means anyone can start observing immediately without frustration. The wider field of view makes finding celestial targets effortless, eliminating the common beginner challenge of locating objects through a telescope's narrow aperture. Beyond astronomy, binoculars serve dual purposes for nature watching, sporting events, and travel, making them a practical investment that extends far beyond starry nights.
-      </p>
-      <p class="intro-text">
-        Through quality astronomy binoculars, the Moon reveals intricate craters, dark maria, and mountain ranges in stunning detail. Jupiter's four Galilean moons become visible, and with steady hands or a tripod, even Saturn's rings come into view. The deep sky opens up with the Andromeda Galaxy, the glowing Orion Nebula, the jewel-like Pleiades cluster, and countless other treasures scattered across the Milky Way's shimmering band. Seasonal constellations, colorful double stars, and the complex structure of our galaxy's star clouds all become accessible, offering endless nights of discovery and wonder.
+        Binoculars are the most accessible way into astronomy. Grab them, step outside, and within seconds you're exploring the cosmos with both eyes — from sweeping Milky Way star fields to the moons of Jupiter. Our guides cover everything from choosing your first pair to mastering deep sky targets.
       </p>
     </div>
   </section>
 
-  <!-- Articles List -->
+  <!-- Articles Grid -->
   <section class="articles">
     <div class="container">
-      <div class="articles-list">
+      <div class="articles-grid">
 
-        <article class="article-item">
-          <a href="/observatory/binoculars/choosing-first-binoculars/" class="article-link">
-            <div class="article-content">
-              <h2 class="article-title">Choosing Your First Astronomy Binoculars</h2>
-              <p class="article-description">
-                Complete guide to specifications, magnifications, and features. Learn what 7x50, 10x50, and 15x70 mean, why aperture matters, and how to select binoculars that match your stargazing goals and budget.
-              </p>
-              <span class="article-meta">Guide · 12 min read</span>
-            </div>
-            <div class="article-arrow">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-          </a>
-        </article>
+        <a href="/observatory/binoculars/choosing-first-binoculars/" class="article-card">
+          <div class="card-meta">
+            <span class="card-tag tag-guide">Guide</span>
+            <span class="card-time">12 min</span>
+          </div>
+          <h2 class="card-title">Choosing Your First Astronomy Binoculars</h2>
+          <p class="card-desc">Complete guide to specifications, magnifications, and features. Learn what 7x50, 10x50, and 15x70 mean and how to choose the right pair for your goals.</p>
+          <span class="card-arrow">
+            <svg viewBox="0 0 20 20" fill="none">
+              <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
 
-        <article class="article-item">
-          <a href="/observatory/binoculars/best-binoculars-2026/" class="article-link">
-            <div class="article-content">
-              <h2 class="article-title">Best Binoculars for Astronomy in 2026</h2>
-              <p class="article-description">
-                Expert reviews and recommendations across all budgets. From affordable starter binoculars under $100 to premium astronomical models. Tested picks for beginners, enthusiasts, and serious observers with detailed comparisons.
-              </p>
-              <span class="article-meta">Review · 18 min read</span>
-            </div>
-            <div class="article-arrow">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-          </a>
-        </article>
+        <a href="/observatory/binoculars/best-binoculars-2026/" class="article-card">
+          <div class="card-meta">
+            <span class="card-tag tag-review">Review</span>
+            <span class="card-time">18 min</span>
+          </div>
+          <h2 class="card-title">Best Binoculars for Astronomy in 2026</h2>
+          <p class="card-desc">Expert reviews and recommendations across all budgets. From affordable starter models under $100 to premium astronomical optics, with detailed comparisons.</p>
+          <span class="card-arrow">
+            <svg viewBox="0 0 20 20" fill="none">
+              <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
 
-        <article class="article-item">
-          <a href="/observatory/binoculars/beginners-guide/" class="article-link">
-            <div class="article-content">
-              <h2 class="article-title">Beginner's Guide to Binocular Stargazing</h2>
-              <p class="article-description">
-                Start observing tonight with this practical introduction. Essential techniques for holding binoculars steady, finding objects, using star charts, and making the most of your first nights under the stars.
-              </p>
-              <span class="article-meta">Tutorial · 10 min read</span>
-            </div>
-            <div class="article-arrow">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-          </a>
-        </article>
+        <a href="/observatory/binoculars/beginners-guide/" class="article-card">
+          <div class="card-meta">
+            <span class="card-tag tag-tutorial">Tutorial</span>
+            <span class="card-time">10 min</span>
+          </div>
+          <h2 class="card-title">Beginner's Guide to Binocular Stargazing</h2>
+          <p class="card-desc">Start observing tonight. Essential techniques for holding binoculars steady, finding objects, and making the most of your first nights under the stars.</p>
+          <span class="card-arrow">
+            <svg viewBox="0 0 20 20" fill="none">
+              <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
 
-        <article class="article-item">
-          <a href="/observatory/binoculars/moon-observing/" class="article-link">
-            <div class="article-content">
-              <h2 class="article-title">Observing the Moon with Binoculars</h2>
-              <p class="article-description">
-                Explore lunar craters, maria, and mountains in stunning detail. Month-by-month guide to lunar features, best viewing times, and what to observe during each phase from new moon to full.
-              </p>
-              <span class="article-meta">Guide · 15 min read</span>
-            </div>
-            <div class="article-arrow">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-          </a>
-        </article>
+        <a href="/observatory/binoculars/moon-observing/" class="article-card">
+          <div class="card-meta">
+            <span class="card-tag tag-guide">Guide</span>
+            <span class="card-time">15 min</span>
+          </div>
+          <h2 class="card-title">Observing the Moon with Binoculars</h2>
+          <p class="card-desc">Explore lunar craters, maria, and mountains in stunning detail. Month-by-month guide to lunar features and the best viewing times for each phase.</p>
+          <span class="card-arrow">
+            <svg viewBox="0 0 20 20" fill="none">
+              <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
 
-        <article class="article-item">
-          <a href="/observatory/binoculars/deep-sky-targets/" class="article-link">
-            <div class="article-content">
-              <h2 class="article-title">Deep Sky Targets for Binoculars</h2>
-              <p class="article-description">
-                Your essential list of nebulae, galaxies, and star clusters visible through binoculars. Seasonal sky tours with finding charts, observation tips, and what to expect when viewing each target.
-              </p>
-              <span class="article-meta">Guide · 20 min read</span>
-            </div>
-            <div class="article-arrow">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-          </a>
-        </article>
+        <a href="/observatory/binoculars/deep-sky-targets/" class="article-card">
+          <div class="card-meta">
+            <span class="card-tag tag-guide">Guide</span>
+            <span class="card-time">20 min</span>
+          </div>
+          <h2 class="card-title">Deep Sky Targets for Binoculars</h2>
+          <p class="card-desc">Essential nebulae, galaxies, and star clusters visible through binoculars. Seasonal sky tours with finding tips and what to expect for each target.</p>
+          <span class="card-arrow">
+            <svg viewBox="0 0 20 20" fill="none">
+              <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
 
-        <article class="article-item">
-          <a href="/observatory/binoculars/planetary-observing/" class="article-link">
-            <div class="article-content">
-              <h2 class="article-title">Planetary Observing with Binoculars</h2>
-              <p class="article-description">
-                Track Venus, Mars, Jupiter, and Saturn throughout the year. Learn when and where to find planets, what details you can see, and how to distinguish planets from stars in the night sky.
-              </p>
-              <span class="article-meta">Guide · 14 min read</span>
-            </div>
-            <div class="article-arrow">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-          </a>
-        </article>
+        <a href="/observatory/binoculars/planetary-observing/" class="article-card">
+          <div class="card-meta">
+            <span class="card-tag tag-guide">Guide</span>
+            <span class="card-time">14 min</span>
+          </div>
+          <h2 class="card-title">Planetary Observing with Binoculars</h2>
+          <p class="card-desc">Track Venus, Mars, Jupiter, and Saturn throughout the year. Learn when to find planets, what details you can see, and how to distinguish them from stars.</p>
+          <span class="card-arrow">
+            <svg viewBox="0 0 20 20" fill="none">
+              <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
 
-        <article class="article-item">
-          <a href="/observatory/binoculars/accessories-maintenance/" class="article-link">
-            <div class="article-content">
-              <h2 class="article-title">Binocular Accessories and Maintenance</h2>
-              <p class="article-description">
-                Essential accessories to enhance your observing: tripod adapters, harnesses, red flashlights, and star charts. Plus care tips for cleaning, storage, and maintaining your binoculars for years of use.
-              </p>
-              <span class="article-meta">Guide · 8 min read</span>
-            </div>
-            <div class="article-arrow">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-          </a>
-        </article>
+        <a href="/observatory/binoculars/accessories-maintenance/" class="article-card">
+          <div class="card-meta">
+            <span class="card-tag tag-guide">Guide</span>
+            <span class="card-time">8 min</span>
+          </div>
+          <h2 class="card-title">Binocular Accessories and Maintenance</h2>
+          <p class="card-desc">Essential accessories: tripod adapters, harnesses, red flashlights, and star charts. Plus care tips for cleaning, storage, and longevity.</p>
+          <span class="card-arrow">
+            <svg viewBox="0 0 20 20" fill="none">
+              <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
 
-        <article class="article-item">
-          <a href="/observatory/binoculars/image-stabilized/" class="article-link">
-            <div class="article-content">
-              <h2 class="article-title">Image-Stabilized Binoculars for Astronomy</h2>
-              <p class="article-description">
-                Revolutionary technology for hand-held observing. How image stabilization works, top models compared, and whether these premium binoculars are worth the investment for astronomical use.
-              </p>
-              <span class="article-meta">Review · 12 min read</span>
-            </div>
-            <div class="article-arrow">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-          </a>
-        </article>
+        <a href="/observatory/binoculars/image-stabilized/" class="article-card">
+          <div class="card-meta">
+            <span class="card-tag tag-review">Review</span>
+            <span class="card-time">12 min</span>
+          </div>
+          <h2 class="card-title">Image-Stabilized Binoculars for Astronomy</h2>
+          <p class="card-desc">How image stabilization works, top models compared, and whether these premium binoculars are worth the investment for hand-held astronomical observing.</p>
+          <span class="card-arrow">
+            <svg viewBox="0 0 20 20" fill="none">
+              <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
 
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section class="about">
-    <div class="container">
-      <h2 class="about-title">Wide-Field Wonders</h2>
-      <p class="about-text">
-        Whether you're taking your first steps into astronomy or looking to complement your telescope with grab-and-go convenience, our binoculars guides provide comprehensive advice on equipment selection, observing techniques, and celestial targets perfectly suited for wide-field viewing. From understanding specifications and optical quality to mastering sky navigation and target acquisition, we cover everything you need to maximize your binocular stargazing experience.
-      </p>
-      <p class="about-text">
-        The beauty of binocular astronomy lies in its accessibility and immediacy—no complex setup, no frustrating alignments, just you and the cosmos in natural, comfortable viewing. Our detailed reviews, practical tutorials, and seasonal observing guides help you discover the full potential of binoculars for exploring star clusters, nebulae, galaxies, and the intricate beauty of our Moon, making every clear night an opportunity for celestial discovery.
-      </p>
-    </div>
-  </section>
 </MainLayout>
 
 <style>
-  /* Hero Section */
+  /* Hero */
   .hero {
-    padding: 6rem 0 4rem 0;
-    text-align: center;
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
   }
 
-  .hero-title {
-    font-size: clamp(2.5rem, 8vw, 4rem);
-    font-weight: 400;
-    margin: 0 0 1.5rem 0;
-    letter-spacing: 0.02em;
-    color: white;
-    line-height: 1.1;
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.35) 0%,
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(0, 0, 0, 0.92) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: var(--space-xl);
+  }
+
+  .hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    margin: 0 0 var(--space-sm);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   }
 
   .hero-subtitle {
-    font-size: 1.0625rem;
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.6);
-    max-width: 40rem;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--color-text-secondary);
+    max-width: 36rem;
     margin: 0 auto;
-    line-height: 1.8;
+    line-height: 1.7;
   }
 
-  /* Introductory Content */
-  .intro {
-    padding: 2rem 0 4rem 0;
-    max-width: 900px;
-    margin: 0 auto;
+  /* Breadcrumbs */
+  .breadcrumbs {
+    margin-bottom: var(--space-lg);
   }
 
-  .intro-text {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.9375rem;
-    font-weight: 300;
-    line-height: 1.8;
-    margin: 0 0 1.5rem 0;
-    text-align: center;
+  .breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.875rem;
   }
 
-  .intro-text:last-child {
-    margin-bottom: 0;
-  }
-
-  /* Articles List */
-  .articles {
-    padding: 3rem 0 4rem 0;
-  }
-
-  .articles-list {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .article-item {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  }
-
-  .article-item:first-child {
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-  }
-
-  .article-link {
+  .breadcrumbs li {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    padding: 2rem 1.5rem;
+    gap: 0.5rem;
+  }
+
+  .breadcrumbs li:not(:last-child)::after {
+    content: '›';
+    color: var(--color-text-secondary);
+  }
+
+  .breadcrumbs a {
+    color: var(--color-text-secondary);
     text-decoration: none;
-    transition: background 0.2s ease;
-  }
-
-  .article-link:hover {
-    background: rgba(255, 255, 255, 0.02);
-  }
-
-  .article-content {
-    flex: 1;
-  }
-
-  .article-title {
-    font-size: 1.375rem;
-    font-weight: 400;
-    margin: 0 0 0.75rem 0;
-    color: white;
-    letter-spacing: 0.01em;
     transition: color 0.2s ease;
   }
 
-  .article-link:hover .article-title {
-    color: rgba(255, 255, 255, 0.85);
+  .breadcrumbs a:hover {
+    color: var(--color-accent-cyan);
   }
 
-  .article-description {
-    font-size: 0.9375rem;
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.5);
-    line-height: 1.7;
-    margin: 0 0 0.875rem 0;
+  .breadcrumbs li[aria-current="page"] {
+    color: var(--color-text-primary);
   }
 
-  .article-meta {
-    font-size: 0.8125rem;
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.35);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+  /* Intro */
+  .intro {
+    padding: var(--space-2xl) 0 var(--space-lg);
   }
 
-  .article-arrow {
-    flex-shrink: 0;
-    width: 20px;
-    height: 20px;
-    color: rgba(255, 255, 255, 0.3);
-    transition: all 0.2s ease;
-  }
-
-  .article-link:hover .article-arrow {
-    color: rgba(255, 255, 255, 0.6);
-    transform: translateX(4px);
-  }
-
-  /* About Section */
-  .about {
-    padding: 4rem 0 6rem 0;
-    max-width: 900px;
+  .intro-text {
+    max-width: 760px;
     margin: 0 auto;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-  }
-
-  .about .container {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
     text-align: center;
   }
 
-  .about-title {
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: white;
-    margin: 0 0 2rem 0;
-    letter-spacing: 0.01em;
+  /* Articles Grid */
+  .articles {
+    padding: var(--space-xl) 0 var(--space-2xl);
   }
 
-  .about-text {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.9375rem;
-    font-weight: 300;
-    line-height: 1.8;
-    margin: 0 0 1.5rem 0;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+  .articles-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    max-width: 1100px;
+    margin: 0 auto;
   }
 
-  .about-text:last-child {
-    margin-bottom: 0;
-  }
-
-  /* Responsive adjustments */
   @media (min-width: 768px) {
-    .article-link {
-      padding: 2.5rem 2rem;
+    .articles-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
+  }
 
-    .article-title {
-      font-size: 1.5rem;
-    }
+  /* Article Card */
+  .article-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    text-decoration: none;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
 
-    .article-description {
-      font-size: 1rem;
-    }
+  .article-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.04) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .article-card:hover {
+    border-color: rgba(6, 182, 212, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .article-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Card Meta Row */
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .card-tag {
+    display: inline-block;
+    padding: 0.2rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .tag-guide {
+    background: rgba(6, 182, 212, 0.15);
+    color: var(--color-accent-cyan);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+  }
+
+  .tag-review {
+    background: rgba(59, 130, 246, 0.15);
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+  }
+
+  .tag-tutorial {
+    background: rgba(139, 92, 246, 0.15);
+    color: #a78bfa;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+  }
+
+  .card-time {
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+    opacity: 0.7;
+  }
+
+  /* Card Content */
+  .card-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0;
+    line-height: 1.35;
+    transition: color 0.2s ease;
+  }
+
+  .article-card:hover .card-title {
+    color: var(--color-accent-cyan);
+  }
+
+  .card-desc {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin: 0;
+    flex: 1;
+  }
+
+  /* Arrow */
+  .card-arrow {
+    display: flex;
+    align-items: center;
+    margin-top: var(--space-sm);
+    color: var(--color-text-secondary);
+    opacity: 0.4;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    width: 20px;
+    height: 20px;
+  }
+
+  .card-arrow svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .article-card:hover .card-arrow {
+    opacity: 1;
+    transform: translateX(4px);
+    color: var(--color-accent-cyan);
+  }
+
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
   }
 </style>

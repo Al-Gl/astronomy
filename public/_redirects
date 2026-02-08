@@ -1,0 +1,25 @@
+# =============================================================================
+# Cloudflare Pages / Workers Redirect Rules
+# =============================================================================
+# Format: /source  /destination  STATUS_CODE
+# Status codes: 301 (permanent), 302 (temporary)
+# Splat (*) matches any path segment; :splat inserts the matched value
+# =============================================================================
+
+# --- URL CLEANUP ---
+# Redirect www to non-www (Cloudflare usually handles this in dashboard too)
+# https://www.theastronomy.space/*  https://theastronomy.space/:splat  301
+
+# --- PAGE REDIRECTS ---
+# Add redirects here whenever you rename or move pages
+# Example: /old-page  /new-page  301
+# Example: /observatory/telescopes/old-name/  /observatory/telescopes/new-name/  301
+
+# --- LEGACY URL REDIRECTS ---
+# Uncomment and edit these if you previously had different URL structures
+# /telescopes/*  /observatory/telescopes/:splat  301
+# /binoculars/*  /observatory/binoculars/:splat  301
+
+# --- GONE PAGES (410) ---
+# Use 410 for pages that no longer exist and won't be replaced
+# /old-removed-page  /  410

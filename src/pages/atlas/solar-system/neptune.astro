@@ -156,7 +156,7 @@ const faqData = [
           <div class="info-box glass">
             <h3>Neptune Quick Facts</h3>
             <ul>
-              <li><strong>Diameter:</strong> 49,244 km (3.9 Earths wide)</li>
+              <li><strong>Diameter:</strong> 49,528 km (3.9 Earths wide)</li>
               <li><strong>Mass:</strong> 1.02 × 10²⁶ kg (17 Earth masses)</li>
               <li><strong>Density:</strong> 1.64 g/cm³</li>
               <li><strong>Surface Gravity:</strong> 11.15 m/s² (1.14× Earth's)</li>
@@ -166,6 +166,7 @@ const faqData = [
               <li><strong>Distance from Sun:</strong> 4.5 billion km (30 AU)</li>
             </ul>
           </div>
+          <p class="data-source">Data: <a href="https://science.nasa.gov/neptune/neptune-facts/" target="_blank" rel="noopener noreferrer">NASA Planetary Science</a></p>
 
           <h3>The Most Vivid Blue</h3>
           <p>Neptune displays the most striking blue color of any planet in the solar system—a deep, rich azure that appears almost artificial in photographs. This vivid color comes from methane in the atmosphere, which absorbs red wavelengths while reflecting blue light. However, Neptune appears much bluer than <a href="/atlas/solar-system/uranus/">Uranus</a> despite having similar amounts of methane, suggesting additional factors contribute to its color.</p>
@@ -173,7 +174,7 @@ const faqData = [
           <p>Recent research indicates Neptune may have less atmospheric haze than Uranus, allowing deeper, more intensely colored layers to show through. There may also be an unknown chromophore—a light-absorbing molecule—that enhances Neptune's blue color. Whatever the exact mechanism, the result is unmistakable: Neptune is the bluest world in our solar system.</p>
 
           <h3>Size and Mass</h3>
-          <p>Neptune is slightly smaller than <a href="/atlas/solar-system/uranus/">Uranus</a> in diameter (49,244 km vs 50,724 km) but more massive (17 Earth masses vs 14.5 Earth masses), making Neptune denser than Uranus. About 57 Earths could fit inside Neptune's volume. Despite being massive by terrestrial standards, Neptune is dwarfed by <a href="/atlas/solar-system/jupiter/">Jupiter</a> (318 Earth masses) and <a href="/atlas/solar-system/saturn/">Saturn</a> (95 Earth masses).</p>
+          <p>Neptune is slightly smaller than <a href="/atlas/solar-system/uranus/">Uranus</a> in diameter (49,528 km vs 51,118 km) but more massive (17 Earth masses vs 14.5 Earth masses), making Neptune denser than Uranus. About 57 Earths could fit inside Neptune's volume. Despite being massive by terrestrial standards, Neptune is dwarfed by <a href="/atlas/solar-system/jupiter/">Jupiter</a> (318 Earth masses) and <a href="/atlas/solar-system/saturn/">Saturn</a> (95 Earth masses).</p>
         </section>
 
         <!-- Atmosphere -->
@@ -725,6 +726,18 @@ const faqData = [
   .info-box li {
     font-size: 1rem;
     margin-bottom: 0.4rem;
+  }
+
+  .data-source {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    opacity: 0.7;
+    margin-top: -0.5rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .data-source a {
+    color: var(--color-accent-cyan);
   }
 
   /* Facts List */

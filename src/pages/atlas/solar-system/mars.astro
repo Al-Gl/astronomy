@@ -38,7 +38,7 @@ const faqData = [
   },
   {
     question: 'How big is Mars compared to Earth?',
-    answer: 'Mars is significantly smaller than Earth. Its diameter is about 6,779 km (4,212 miles), roughly half of Earth\'s 12,742 km. Mars has only about 15% of Earth\'s volume and 11% of its mass. However, because Mars has no oceans, its land surface area is actually similar to Earth\'s total land area. Gravity on Mars is about 38% of Earth\'s, so a 100-pound person would weigh only 38 pounds on Mars.'
+    answer: 'Mars is significantly smaller than Earth. Its diameter is about 6,792 km (4,221 miles), roughly half of Earth\'s 12,742 km. Mars has only about 15% of Earth\'s volume and 11% of its mass. However, because Mars has no oceans, its land surface area is actually similar to Earth\'s total land area. Gravity on Mars is about 38% of Earth\'s, so a 100-pound person would weigh only 38 pounds on Mars.'
   },
   {
     question: 'When is the best time to see Mars from Earth?',
@@ -136,7 +136,7 @@ const faqData = [
           <div class="info-box glass">
             <h3>Mars Quick Facts</h3>
             <ul>
-              <li><strong>Diameter:</strong> 6,779 km (4,212 miles) - about half of Earth</li>
+              <li><strong>Diameter:</strong> 6,792 km (4,221 miles) - about half of Earth</li>
               <li><strong>Mass:</strong> 6.39 × 10²³ kg (11% of Earth's mass)</li>
               <li><strong>Surface Gravity:</strong> 3.71 m/s² (38% of Earth's)</li>
               <li><strong>Average Temperature:</strong> -60°C (-80°F)</li>
@@ -146,6 +146,7 @@ const faqData = [
               <li><strong>Distance from Sun:</strong> 228 million km (1.52 AU)</li>
             </ul>
           </div>
+          <p class="data-source">Data: <a href="https://science.nasa.gov/mars/facts/" target="_blank" rel="noopener noreferrer">NASA Planetary Science</a></p>
 
           <p>The planet's lower gravity (38% of Earth's) means that a person weighing 100 pounds on Earth would weigh only 38 pounds on Mars. This reduced gravity has significant implications for human colonization, as prolonged exposure could lead to muscle atrophy and bone loss similar to what astronauts experience on the International Space Station.</p>
 
@@ -659,6 +660,18 @@ const faqData = [
   .info-box li {
     font-size: 1rem;
     margin-bottom: 0.4rem;
+  }
+
+  .data-source {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    opacity: 0.7;
+    margin-top: -0.5rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .data-source a {
+    color: var(--color-accent-cyan);
   }
 
   /* Mission List */

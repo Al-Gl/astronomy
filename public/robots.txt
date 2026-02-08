@@ -1,0 +1,13 @@
+# =============================================================================
+# robots.txt for theastronomy.space
+# =============================================================================
+
+User-agent: *
+Allow: /
+
+# Block access to any private/admin paths if added in future
+# Disallow: /admin/
+# Disallow: /private/
+
+# Point crawlers to the sitemap
+Sitemap: https://theastronomy.space/sitemap.xml

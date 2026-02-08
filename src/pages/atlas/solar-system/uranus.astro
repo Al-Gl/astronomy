@@ -137,7 +137,7 @@ const faqData = [
           <div class="info-box glass">
             <h3>Uranus Quick Facts</h3>
             <ul>
-              <li><strong>Diameter:</strong> 50,724 km (4 Earths wide)</li>
+              <li><strong>Diameter:</strong> 51,118 km (4 Earths wide)</li>
               <li><strong>Mass:</strong> 8.68 × 10²⁵ kg (14.5 Earth masses)</li>
               <li><strong>Density:</strong> 1.27 g/cm³</li>
               <li><strong>Surface Gravity:</strong> 8.87 m/s² (0.9× Earth's)</li>
@@ -147,9 +147,10 @@ const faqData = [
               <li><strong>Distance from Sun:</strong> 2.9 billion km (19.2 AU)</li>
             </ul>
           </div>
+          <p class="data-source">Data: <a href="https://science.nasa.gov/uranus/uranus-facts/" target="_blank" rel="noopener noreferrer">NASA Planetary Science</a></p>
 
           <h3>Size and Mass</h3>
-          <p>With a diameter of 50,724 kilometers, Uranus is large enough to fit 63 Earths inside its volume. However, due to its lower density compared to the rocky planets, Uranus has a mass only 14.5 times that of Earth. This makes Uranus less massive than <a href="/atlas/solar-system/jupiter/">Jupiter</a> (318 Earth masses), <a href="/atlas/solar-system/saturn/">Saturn</a> (95 Earth masses), and <a href="/atlas/solar-system/neptune/">Neptune</a> (17 Earth masses), despite being larger than Neptune in diameter.</p>
+          <p>With a diameter of 51,118 kilometers, Uranus is large enough to fit 63 Earths inside its volume. However, due to its lower density compared to the rocky planets, Uranus has a mass only 14.5 times that of Earth. This makes Uranus less massive than <a href="/atlas/solar-system/jupiter/">Jupiter</a> (318 Earth masses), <a href="/atlas/solar-system/saturn/">Saturn</a> (95 Earth masses), and <a href="/atlas/solar-system/neptune/">Neptune</a> (17 Earth masses), despite being larger than Neptune in diameter.</p>
 
           <h3>Featureless Appearance</h3>
           <p>Uranus appears as a nearly featureless blue-green sphere, lacking the dramatic cloud bands and storms visible on <a href="/atlas/solar-system/jupiter/">Jupiter</a> and <a href="/atlas/solar-system/saturn/">Saturn</a>. When Voyager 2 visited Uranus in 1986, it found a remarkably bland world with only a few faint clouds visible. This calm appearance results from an overlying haze layer that obscures deeper atmospheric features. However, modern observations with advanced telescopes have revealed more activity than Voyager observed, including clouds, storms, and even lightning.</p>
@@ -717,6 +718,18 @@ const faqData = [
   .info-box li {
     font-size: 1rem;
     margin-bottom: 0.4rem;
+  }
+
+  .data-source {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    opacity: 0.7;
+    margin-top: -0.5rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .data-source a {
+    color: var(--color-accent-cyan);
   }
 
   /* Facts List */

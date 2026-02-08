@@ -147,6 +147,7 @@ const faqData = [
               <li><strong>Distance from Earth:</strong> 150 million km (1 AU)</li>
             </ul>
           </div>
+          <p class="data-source">Data: <a href="https://science.nasa.gov/sun/facts/" target="_blank" rel="noopener noreferrer">NASA Planetary Science</a></p>
 
           <p>The Sun's mass is truly staggering—it contains 99.86% of all the mass in the Solar System. All eight planets, their moons, asteroids, comets, and everything else combined make up just 0.14% of the Solar System's total mass. This tremendous mass creates a gravitational field strong enough to hold all the planets in orbit, including Neptune at a distance of 4.5 billion kilometers.</p>
 
@@ -663,6 +664,18 @@ const faqData = [
   .info-box li {
     font-size: 1rem;
     margin-bottom: 0.4rem;
+  }
+
+  .data-source {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    opacity: 0.7;
+    margin-top: -0.5rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .data-source a {
+    color: var(--color-accent-cyan);
   }
 
   /* Facts List */

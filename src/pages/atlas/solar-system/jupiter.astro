@@ -22,7 +22,7 @@ const articleData = {
 const faqData = [
   {
     question: 'How big is Jupiter compared to Earth?',
-    answer: 'Jupiter is enormous—over 1,300 Earths could fit inside it. Jupiter\'s diameter is about 139,820 kilometers (86,881 miles), roughly 11 times that of Earth. Despite its massive size, Jupiter rotates faster than any other planet, completing a day in just under 10 hours. Its mass is 318 times that of Earth and more than twice the mass of all other planets combined.'
+    answer: 'Jupiter is enormous—over 1,300 Earths could fit inside it. Jupiter\'s diameter is about 142,984 kilometers (88,846 miles), roughly 11 times that of Earth. Despite its massive size, Jupiter rotates faster than any other planet, completing a day in just under 10 hours. Its mass is 318 times that of Earth and more than twice the mass of all other planets combined.'
   },
   {
     question: 'What is the Great Red Spot?',
@@ -137,7 +137,7 @@ const faqData = [
           <div class="info-box glass">
             <h3>Jupiter Quick Facts</h3>
             <ul>
-              <li><strong>Diameter:</strong> 139,820 km (86,881 miles) - 11 times Earth</li>
+              <li><strong>Diameter:</strong> 142,984 km (88,846 miles) - 11 times Earth</li>
               <li><strong>Mass:</strong> 1.898 × 10²⁷ kg (318 Earths)</li>
               <li><strong>Volume:</strong> 1,321 Earths could fit inside</li>
               <li><strong>Surface Gravity:</strong> 24.79 m/s² (2.5 times Earth's)</li>
@@ -147,6 +147,7 @@ const faqData = [
               <li><strong>Distance from Sun:</strong> 778 million km (5.2 AU)</li>
             </ul>
           </div>
+          <p class="data-source">Data: <a href="https://science.nasa.gov/jupiter/jupiter-facts/" target="_blank" rel="noopener noreferrer">NASA Planetary Science</a></p>
 
           <p>Jupiter's rapid rotation—the fastest of any planet—causes the planet to bulge noticeably at its equator. The equatorial diameter is about 9,275 kilometers larger than the polar diameter. This oblate shape is visible even through small telescopes.</p>
 
@@ -685,6 +686,18 @@ const faqData = [
   .info-box li {
     font-size: 1rem;
     margin-bottom: 0.4rem;
+  }
+
+  .data-source {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    opacity: 0.7;
+    margin-top: -0.5rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .data-source a {
+    color: var(--color-accent-cyan);
   }
 
   /* Mission List */
