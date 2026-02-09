@@ -56,7 +56,8 @@ import MainLayout from '../../layouts/MainLayout.astro';
           <form class="contact-form" method="POST" action="https://formsubmit.co/theastronomyspace@gmail.com">
             <!-- FormSubmit Configuration -->
             <input type="hidden" name="_subject" value="New contact form submission from The Astronomy Space">
-            <input type="hidden" name="_next" value="https://theastronomyspace.com/contact/thank-you">
+            <!-- Redirect disabled until domain is live - FormSubmit will show default success page -->
+            <!-- <input type="hidden" name="_next" value="https://yourdomain.com/contact/thank-you"> -->
             <input type="hidden" name="_template" value="table">
 
             <!-- Honeypot antibot field (hidden from humans, visible to bots) -->
