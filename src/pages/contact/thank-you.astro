@@ -4,44 +4,89 @@ import MainLayout from '../../layouts/MainLayout.astro';
 
 <MainLayout
   title="Thank You - The Astronomy Space"
-  description="Thank you for contacting The Astronomy Space"
+  description="Thank you for contacting The Astronomy Space. We'll respond to your message within 24-48 hours."
 >
-  <!-- Hero Section -->
-  <section class="hero">
+  <!-- Success Section -->
+  <section class="success-section">
     <div class="container">
-      <div class="success-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-          <polyline points="22 4 12 14.01 9 11.01"></polyline>
-        </svg>
-      </div>
-      <h1 class="hero-title">Message Sent!</h1>
-      <p class="hero-subtitle">
-        Thank you for reaching out. We've received your message and will get back to you within 24-48 hours.
-      </p>
-      <div class="actions">
-        <a href="/" class="btn-primary">Return to Home</a>
-        <a href="/atlas/" class="btn-secondary">Explore the Cosmos</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Additional Info -->
-  <section class="info-section">
-    <div class="container">
-      <div class="info-grid">
-        <div class="info-card">
-          <h2>What's Next?</h2>
-          <p>We'll review your message and respond via email as soon as possible. Make sure to check your spam folder if you don't see our reply.</p>
+      <div class="success-content">
+        <!-- Animated Success Icon -->
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
         </div>
 
-        <div class="info-card">
-          <h2>While You Wait</h2>
-          <ul>
-            <li><a href="/atlas/">Explore our Cosmic Atlas</a></li>
-            <li><a href="/chronicles/">Read the latest Chronicles</a></li>
-            <li><a href="/observatory/">Check out astronomy equipment</a></li>
-          </ul>
+        <!-- Success Message -->
+        <h1 class="success-title">Thank You!</h1>
+        <p class="success-message">
+          Your message has been successfully sent. We appreciate you reaching out to The Astronomy Space and will respond to your inquiry within 24-48 hours.
+        </p>
+
+        <!-- Call to Action -->
+        <div class="cta-section">
+          <a href="/" class="btn-home">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Return to Home
+          </a>
+        </div>
+
+        <!-- What to Expect -->
+        <div class="info-box">
+          <h2>What Happens Next?</h2>
+          <div class="info-content">
+            <div class="info-item">
+              <div class="info-number">1</div>
+              <div class="info-text">
+                <h3>We Review Your Message</h3>
+                <p>Our team will carefully read your message and gather any information needed to provide a helpful response.</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-number">2</div>
+              <div class="info-text">
+                <h3>You'll Hear From Us Soon</h3>
+                <p>We typically respond within 24-48 hours via the email address you provided. Please check your spam folder if you don't see our reply.</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-number">3</div>
+              <div class="info-text">
+                <h3>Continue the Conversation</h3>
+                <p>Feel free to reply to our email with any follow-up questions. We're here to help with all your astronomy inquiries!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Explore Content -->
+        <div class="explore-section">
+          <h2>While You Wait, Explore the Cosmos</h2>
+          <div class="explore-grid">
+            <a href="/atlas/" class="explore-card">
+              <div class="explore-icon">🌌</div>
+              <h3>Cosmic Atlas</h3>
+              <p>Discover planets, stars, and celestial objects in our comprehensive astronomy guide.</p>
+            </a>
+
+            <a href="/chronicles/" class="explore-card">
+              <div class="explore-icon">📖</div>
+              <h3>Chronicles</h3>
+              <p>Read inspiring stories and practical guides for stargazing and astronomical observation.</p>
+            </a>
+
+            <a href="/observatory/" class="explore-card">
+              <div class="explore-icon">🔭</div>
+              <h3>Observatory</h3>
+              <p>Find reviews and recommendations for telescopes, binoculars, and astronomy equipment.</p>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -49,31 +94,38 @@ import MainLayout from '../../layouts/MainLayout.astro';
 </MainLayout>
 
 <style>
-  /* Hero Section */
-  .hero {
-    padding: 6rem 0 4rem 0;
-    text-align: center;
-    min-height: 70vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  /* Success Section */
+  .success-section {
+    padding: 4rem 0;
+    min-height: 100vh;
   }
 
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .success-content {
+    text-align: center;
+  }
+
+  /* Success Icon */
   .success-icon {
     width: 80px;
     height: 80px;
     margin: 0 auto 2rem auto;
     color: rgba(6, 182, 212, 0.9);
-    animation: checkmark 0.5s ease-in-out;
+    animation: checkmarkAppear 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
-  @keyframes checkmark {
+  @keyframes checkmarkAppear {
     0% {
       transform: scale(0) rotate(-45deg);
       opacity: 0;
     }
     50% {
-      transform: scale(1.1) rotate(5deg);
+      transform: scale(1.15) rotate(5deg);
     }
     100% {
       transform: scale(1) rotate(0deg);
@@ -86,103 +138,113 @@ import MainLayout from '../../layouts/MainLayout.astro';
     height: 100%;
   }
 
-  .hero-title {
-    font-size: clamp(2.5rem, 8vw, 4rem);
+  /* Success Title & Message */
+  .success-title {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
     font-weight: 400;
-    margin: 0 0 1.5rem 0;
+    margin: 0 0 1rem 0;
     letter-spacing: 0.02em;
     color: white;
     line-height: 1.1;
   }
 
-  .hero-subtitle {
-    font-size: 1.125rem;
+  .success-message {
+    font-size: clamp(1rem, 2vw, 1.125rem);
     font-weight: 300;
-    color: rgba(255, 255, 255, 0.6);
-    max-width: 40rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
     margin: 0 auto 3rem auto;
-    line-height: 1.8;
+    line-height: 1.7;
   }
 
-  /* Action Buttons */
-  .actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
+  /* Home Button */
+  .cta-section {
+    margin-bottom: 4rem;
   }
 
-  .btn-primary,
-  .btn-secondary {
-    display: inline-block;
-    padding: 0.875rem 2rem;
-    border-radius: 4px;
-    font-size: 0.9375rem;
+  .btn-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 1rem 2.5rem;
+    background: rgba(6, 182, 212, 0.15);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    border-radius: 6px;
+    color: rgba(6, 182, 212, 0.95);
+    font-size: 1rem;
     font-weight: 500;
     letter-spacing: 0.02em;
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
   }
 
-  .btn-primary {
-    background: rgba(6, 182, 212, 0.15);
-    border: 1px solid rgba(6, 182, 212, 0.3);
-    color: rgba(6, 182, 212, 0.9);
-  }
-
-  .btn-primary:hover {
+  .btn-home:hover {
     background: rgba(6, 182, 212, 0.25);
     border-color: rgba(6, 182, 212, 0.5);
     transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(6, 182, 212, 0.2);
   }
 
-  .btn-secondary {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: rgba(255, 255, 255, 0.8);
+  .btn-icon {
+    width: 20px;
+    height: 20px;
   }
 
-  .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.25);
-    transform: translateY(-2px);
-  }
-
-  /* Info Section */
-  .info-section {
-    padding: 2rem 0 6rem 0;
-  }
-
-  .info-grid {
-    display: grid;
-    gap: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-    grid-template-columns: 1fr;
-  }
-
-  @media (min-width: 768px) {
-    .info-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  .info-card {
+  /* Info Box */
+  .info-box {
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 8px;
-    padding: 2rem;
+    padding: 2.5rem 2rem;
+    margin-bottom: 4rem;
+    text-align: left;
   }
 
-  .info-card h2 {
-    font-size: 1.25rem;
-    font-weight: 500;
+  .info-box h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
     color: white;
-    margin: 0 0 1rem 0;
+    margin: 0 0 2rem 0;
+    text-align: center;
     letter-spacing: 0.01em;
   }
 
-  .info-card p {
+  .info-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .info-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .info-number {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(6, 182, 212, 0.15);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    border-radius: 50%;
+    color: rgba(6, 182, 212, 0.9);
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+
+  .info-text h3 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: white;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: 0.01em;
+  }
+
+  .info-text p {
     font-size: 0.9375rem;
     font-weight: 300;
     color: rgba(255, 255, 255, 0.6);
@@ -190,36 +252,88 @@ import MainLayout from '../../layouts/MainLayout.astro';
     margin: 0;
   }
 
-  .info-card ul {
-    list-style: none;
-    padding: 0;
+  /* Explore Section */
+  .explore-section {
+    margin-top: 4rem;
+  }
+
+  .explore-section h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: white;
+    margin: 0 0 2rem 0;
+    letter-spacing: 0.01em;
+  }
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .explore-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .explore-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    padding: 1.75rem 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .explore-card:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(6, 182, 212, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(6, 182, 212, 0.15);
+  }
+
+  .explore-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .explore-card h3 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: white;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: 0.01em;
+  }
+
+  .explore-card p {
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
     margin: 0;
   }
 
-  .info-card li {
-    margin-bottom: 0.75rem;
-  }
+  /* Responsive */
+  @media (max-width: 639px) {
+    .success-section {
+      padding: 3rem 0;
+    }
 
-  .info-card li:last-child {
-    margin-bottom: 0;
-  }
+    .info-box {
+      padding: 2rem 1.5rem;
+    }
 
-  .info-card a {
-    color: rgba(6, 182, 212, 0.9);
-    text-decoration: none;
-    font-size: 0.9375rem;
-    font-weight: 300;
-    transition: color 0.2s ease;
-  }
+    .info-item {
+      gap: 1rem;
+    }
 
-  .info-card a:hover {
-    color: rgba(6, 182, 212, 1);
-  }
-
-  /* Container */
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
+    .info-number {
+      width: 36px;
+      height: 36px;
+      font-size: 1rem;
+    }
   }
 </style>
