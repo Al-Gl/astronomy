@@ -6,50 +6,50 @@ const breadcrumbs = [
   { name: 'Home', url: '/' },
   { name: 'Cosmic Atlas', url: '/atlas/' },
   { name: 'Stars', url: '/atlas/stars/' },
-  { name: 'Main Sequence', url: '/atlas/stars/main-sequence/' }
+  { name: 'Main Sequence Stars', url: '/atlas/stars/main-sequence/' }
 ];
 
 const articleData = {
-  headline: 'Main Sequence Stars - The Most Common Stars in the Universe',
-  description: 'Comprehensive guide to main sequence stars covering hydrogen fusion, stellar classification, the H-R diagram, and the Sun as our closest example. Learn why 90% of all stars are main sequence stars.',
+  headline: 'Main Sequence Stars: The Backbone of the Universe',
+  description: 'Complete guide to main sequence stars - the most common type of star. Learn about hydrogen fusion, the Hertzsprung-Russell diagram, stellar classification, and famous examples like our Sun.',
   datePublished: '2025-01-22',
   dateModified: '2025-01-22',
   author: 'The Astronomy Space',
   image: '/images/Hero_main-sequence.jpg',
-  keywords: ['main sequence', 'hydrogen fusion', 'stellar classification', 'dwarf stars', 'luminosity class V', 'H-R diagram', 'Hertzsprung-Russell', 'stellar evolution', 'Sun', 'Sirius']
+  keywords: ['main sequence stars', 'hydrogen fusion', 'Hertzsprung-Russell diagram', 'stellar classification', 'red dwarf', 'blue giant', 'OBAFGKM', 'Sun', 'spectral class']
 };
 
 const faqData = [
   {
-    question: 'What defines a main sequence star?',
-    answer: 'A main sequence star is a star that is fusing hydrogen into helium in its core through nuclear fusion. This is the longest and most stable phase of a star\'s life, lasting billions of years. Main sequence stars range from small red dwarfs to massive blue-white stars, all maintaining equilibrium between gravitational collapse and outward radiation pressure from fusion.'
+    question: 'What is a main sequence star?',
+    answer: "A main sequence star is any star that is actively fusing hydrogen into helium in its core through nuclear fusion. This hydrogen-burning phase represents the longest and most stable period in a star's life. Main sequence stars follow a relationship between luminosity and temperature called the main sequence on the Hertzsprung-Russell diagram. About 90% of all stars in the universe, including our Sun, are currently main sequence stars."
   },
   {
-    question: 'How long do stars stay on the main sequence?',
-    answer: 'The time a star spends on the main sequence depends on its mass. Paradoxically, massive stars burn through their hydrogen faster and only spend 10-100 million years on the main sequence. Our Sun, a medium-sized star, will spend about 10 billion years on the main sequence (it\'s currently about halfway through). Small red dwarfs can remain on the main sequence for trillions of years—longer than the current age of the universe.'
+    question: 'How long do main sequence stars live?',
+    answer: "The lifespan of a main sequence star depends heavily on its mass. Massive blue stars (10+ times the Sun's mass) burn through their fuel in just a few million years. Our Sun will spend about 10 billion years on the main sequence total, with about 5 billion years remaining. Low-mass red dwarf stars are incredibly frugal with their fuel and can shine for trillions of years—far longer than the current age of the universe."
   },
   {
-    question: 'Why are they called "main sequence" stars?',
-    answer: 'The term comes from the Hertzsprung-Russell (H-R) diagram, which plots star luminosity against temperature. When astronomers plot stars on this diagram, they found that about 90% of all stars fall along a diagonal band from upper-left (hot and bright) to lower-right (cool and dim). This prominent band was called the "main sequence," and stars on it are all fusing hydrogen in their cores.'
+    question: 'What are the spectral classes of main sequence stars?',
+    answer: "Main sequence stars are classified by their surface temperature into spectral classes: O (blue, >30,000 K), B (blue-white, 10,000-30,000 K), A (white, 7,500-10,000 K), F (yellow-white, 6,000-7,500 K), G (yellow, 5,200-6,000 K), K (orange, 3,700-5,200 K), and M (red, <3,700 K). The mnemonic 'Oh Be A Fine Girl/Guy, Kiss Me' helps remember this sequence. Our Sun is a G-type star."
   },
   {
-    question: 'What happens when a star leaves the main sequence?',
-    answer: 'When a star exhausts the hydrogen in its core, it leaves the main sequence and begins the next phase of stellar evolution. For Sun-like stars, this means expanding into a <a href="/atlas/stars/red-giants/">red giant</a>. Massive stars become <a href="/atlas/stars/supergiants/">supergiants</a>. The star\'s fate after the main sequence depends entirely on its mass—low-mass stars eventually become <a href="/atlas/stars/white-dwarfs/">white dwarfs</a>, while massive stars may explode as supernovae.'
+    question: 'Is the Sun a main sequence star?',
+    answer: "Yes, the Sun is a main sequence star classified as a G2V yellow dwarf. It has been fusing hydrogen in its core for about 4.6 billion years and has roughly another 5 billion years of main sequence life remaining. When the Sun exhausts its hydrogen fuel, it will expand into a red giant and eventually shed its outer layers, leaving behind a white dwarf. The 'V' in its classification indicates it is a main sequence (dwarf) star."
   },
   {
-    question: 'Is our Sun a main sequence star?',
-    answer: 'Yes! Our Sun is a G2V main sequence star, classified as a yellow dwarf. It\'s been on the main sequence for about 4.6 billion years and will remain there for another 5 billion years. The Sun is fairly average—about half of all main sequence stars are smaller and cooler, while the other half are larger and hotter. This middle-of-the-road position makes the Sun an excellent reference point for studying stellar properties.'
+    question: 'What are the most common main sequence stars?',
+    answer: 'Red dwarf stars (spectral class M) are by far the most common type of star in the universe, making up about 70-75% of all stars. They are small, cool, and extremely long-lived. Despite their abundance, they are too faint to see with the naked eye from Earth. The nearest star to our solar system, Proxima Centauri, is a red dwarf main sequence star just 4.24 light-years away.'
   },
   {
-    question: 'What is the mass-luminosity relationship?',
-    answer: 'The mass-luminosity relationship is a fundamental property of main sequence stars: more massive stars are dramatically more luminous. Specifically, luminosity is proportional to mass raised to approximately the 3.5 power. This means a star twice as massive as the Sun is about 11 times more luminous, while a star ten times the Sun\'s mass is over 3,000 times more luminous. This relationship explains why massive stars burn out so quickly despite having more fuel.'
+    question: 'What happens when a main sequence star runs out of hydrogen?',
+    answer: 'When a main sequence star exhausts the hydrogen in its core, it can no longer maintain the pressure to balance gravity. The core contracts and heats up, which causes the outer layers to expand dramatically, transforming the star into a red giant or supergiant depending on its mass. Low and medium-mass stars (like the Sun) become red giants, then planetary nebulae with white dwarf cores. Massive stars become red supergiants and end their lives in spectacular supernova explosions.'
   }
 ];
 ---
 
 <MainLayout
-  title="Main Sequence Stars - The Most Common Stars in the Universe | The Astronomy Space"
-  description="Comprehensive guide to main sequence stars covering hydrogen fusion, stellar classification, the H-R diagram, and the Sun as our closest example. Learn why 90% of all stars are main sequence stars."
+  title='Main Sequence Stars: The Backbone of the Universe | The Astronomy Space'
+  description='Complete guide to main sequence stars - the most common type of star. Learn about hydrogen fusion, the Hertzsprung-Russell diagram, stellar classification, and famous examples like our Sun.'
 >
   <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
   <Schema type="TechArticle" article={articleData} />
@@ -63,7 +63,7 @@ const faqData = [
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-image">
-      <img src="/images/Hero_main-sequence.jpg" alt="Main Sequence Stars - The backbone of the universe showing diverse stellar types" loading="eager" />
+      <img src="/images/Hero_main-sequence.jpg" alt="Main Sequence Stars hero image" loading="eager" />
       <div class="hero-overlay"></div>
     </div>
     <div class="hero-content">
@@ -72,7 +72,7 @@ const faqData = [
           <li><a href="/">Home</a></li>
           <li><a href="/atlas/">Cosmic Atlas</a></li>
           <li><a href="/atlas/stars/">Stars</a></li>
-          <li aria-current="page">Main Sequence</li>
+          <li aria-current="page">Main Sequence Stars</li>
         </ol>
       </nav>
       <h1>Main Sequence Stars</h1>
@@ -90,12 +90,11 @@ const faqData = [
           <h2>Contents</h2>
           <ol>
             <li><a href="#introduction">Introduction</a></li>
-            <li><a href="#characteristics">Physical Characteristics</a></li>
-            <li><a href="#formation">Formation</a></li>
-            <li><a href="#lifecycle">Lifecycle Stage</a></li>
-            <li><a href="#composition">Composition</a></li>
-            <li><a href="#hr-diagram">H-R Diagram</a></li>
+            <li><a href="#physical-characteristics">Physical Characteristics</a></li>
+            <li><a href="#hr-diagram">The HR Diagram</a></li>
             <li><a href="#classification">Stellar Classification</a></li>
+            <li><a href="#fusion">Nuclear Fusion</a></li>
+            <li><a href="#lifetimes">Stellar Lifetimes</a></li>
             <li><a href="#examples">Notable Examples</a></li>
             <li><a href="#observation">Observation</a></li>
             <li><a href="#fun-facts">Interesting Facts</a></li>
@@ -116,183 +115,135 @@ const faqData = [
               <path d="M12 6v6l4 2"/>
             </svg>
           </div>
-          <p>Main sequence stars are stars actively fusing hydrogen into helium in their cores, representing about 90% of all stars in the universe. This stable phase lasts billions of years and includes stars ranging from tiny red dwarfs to massive blue giants. Our Sun is a typical main sequence star halfway through its 10-billion-year journey.</p>
+          <p>Main sequence stars are stars actively fusing hydrogen into helium in their cores, representing about 90% of all stars in the universe. They range from tiny red dwarfs to massive blue giants, spanning a huge range of temperatures, luminosities, and lifetimes. Our Sun is a typical middle-aged main sequence star classified as a G2V yellow dwarf.</p>
         </aside>
 
         <!-- Introduction -->
         <section id="introduction" class="content-section">
           <h2>Introduction to Main Sequence Stars</h2>
-          <p>Main sequence stars form the backbone of the universe. They are the "normal" stars—the vast majority of stars you see in the night sky are main sequence stars steadily converting hydrogen to helium through nuclear fusion. This phase represents the longest period in a star's life, a time of stability and equilibrium that can last from millions to trillions of years depending on the star's mass.</p>
-
-          <p>The term "main sequence" comes from early 20th-century astronomers Ejnar Hertzsprung and Henry Norris Russell, who independently discovered that when you plot stars by their luminosity and temperature, most fall along a diagonal band. This "main sequence" wasn't just a statistical curiosity—it revealed fundamental physics about how stars work and evolve.</p>
-
-          <p>What unites all main sequence stars is that they're all doing the same thing: fusing hydrogen into helium in their cores. This nuclear fusion releases tremendous energy that counteracts gravity, preventing the star from collapsing. The balance between gravitational pressure inward and radiation pressure outward creates a stable star that can shine steadily for billions of years.</p>
+          <p>When astronomers talk about the "typical" star, they are almost certainly describing a main sequence star. These are the workhorses of the universe—stars in the prime of their lives, steadily converting hydrogen into helium through nuclear fusion in their cores. Roughly 90% of all stars in existence belong to this category, making them by far the most common stellar type.</p>
+          <p>The term "main sequence" comes from the Hertzsprung-Russell diagram, a fundamental tool in stellar astronomy that plots stars by their temperature and luminosity. When you plot thousands of stars on this diagram, the vast majority fall along a diagonal band called the main sequence, stretching from hot, bright blue stars at the top left to cool, dim red stars at the bottom right.</p>
+          <p>Main sequence stars come in an astonishing variety. At one extreme are the massive O-type blue giants, dozens of times more massive than the Sun and shining with the power of hundreds of thousands of Suns. At the other extreme are the tiny M-type red dwarfs, barely large enough to sustain hydrogen fusion, glowing so faintly they are invisible to the naked eye even when only a few light-years away. Our Sun sits comfortably in the middle of this range as a perfectly ordinary G-type yellow dwarf.</p>
+          <p>Understanding main sequence stars means understanding stellar life itself. Their properties—mass, temperature, luminosity, and lifespan—are all governed by a single fundamental parameter: how much mass they contain. This mass-luminosity relationship makes main sequence stars among the best understood objects in the universe.</p>
         </section>
 
         <!-- Physical Characteristics -->
-        <section id="characteristics" class="content-section">
+        <section id="physical-characteristics" class="content-section">
           <h2>Physical Characteristics</h2>
-          <p>Main sequence stars exhibit an enormous range of physical properties. At one extreme are red dwarfs—cool, dim stars with only 8% of the Sun's mass. At the other extreme are massive O-type stars with 100+ times the Sun's mass, blazing hot and incredibly luminous.</p>
-
+          <p>The physical properties of main sequence stars span an enormous range, all determined primarily by their initial mass. From the minimum mass needed to sustain hydrogen fusion to the maximum mass before a star becomes unstable, the main sequence encompasses objects wildly different in size, temperature, and power output.</p>
           <div class="info-box glass">
-            <h3>Main Sequence Range</h3>
+            <h3>Main Sequence Quick Facts</h3>
             <ul>
-              <li><strong>Mass:</strong> 0.08 to ~100 solar masses</li>
-              <li><strong>Temperature:</strong> 2,500 K (M-type) to 50,000 K (O-type)</li>
-              <li><strong>Luminosity:</strong> 0.0001 to 1,000,000 times the Sun</li>
-              <li><strong>Radius:</strong> 0.1 to 25 solar radii</li>
-              <li><strong>Lifetime:</strong> 10 million to 10 trillion years</li>
-              <li><strong>Color:</strong> Red → Orange → Yellow → White → Blue</li>
-              <li><strong>Main Sequence Duration:</strong> Mass-dependent (lower mass = longer life)</li>
+              <li><strong>Mass Range:</strong> 0.08 to 150 solar masses</li>
+              <li><strong>Temperature Range:</strong> ~2,400 K to ~50,000 K</li>
+              <li><strong>Luminosity Range:</strong> 0.0001 to 1,000,000 solar luminosities</li>
+              <li><strong>Lifetime Range:</strong> Millions to trillions of years</li>
+              <li><strong>Percentage of Stars:</strong> ~90% of all stars</li>
+              <li><strong>Nearest Example:</strong> Proxima Centauri (4.24 ly)</li>
             </ul>
           </div>
-
-          <h3>The Mass-Luminosity Relationship</h3>
-          <p>One of the most important relationships in stellar physics is that luminosity increases dramatically with mass. A star twice as massive as the Sun isn't just twice as bright—it's about 11 times brighter. A star ten times more massive is over 3,000 times more luminous. This relationship follows approximately L ∝ M³·⁵, where L is luminosity and M is mass.</p>
-
-          <p>This mass-luminosity relationship has profound consequences. More massive stars burn through their hydrogen fuel much faster despite having more fuel to begin with. A star with 20 times the Sun's mass has 20 times more hydrogen, but it burns that fuel at a rate 20,000 times faster, exhausting it in just 10 million years compared to the Sun's 10 billion year lifespan.</p>
+          <p class="data-source">Data: <a href="https://science.nasa.gov/universe/stars/" target="_blank" rel="noopener noreferrer">NASA Stars &amp; Stellar Evolution</a></p>
+          <p>The mass-luminosity relationship is one of the most powerful laws in stellar physics. More massive stars have stronger gravity, which compresses their cores more, raises the temperature and pressure, and accelerates the rate of nuclear fusion. This is why a star ten times more massive than the Sun can be thousands of times more luminous.</p>
+          <p>Surface temperature determines a star's color. The hottest main sequence stars appear blue-white, while cooler ones appear yellow, orange, or red. This color reflects the peak wavelength of the star's radiation, following Wien's displacement law: the cooler the surface, the redder the light.</p>
         </section>
 
-        <!-- Formation -->
-        <section id="formation" class="content-section">
-          <h2>Formation of Main Sequence Stars</h2>
-          <p>Main sequence stars form from the collapse of giant molecular clouds—vast regions of cold gas and dust in space. When a region of the cloud becomes dense enough, gravity causes it to collapse further, creating a protostar. As the protostar continues to collapse, its core temperature and pressure increase.</p>
-
-          <h3>From Protostar to Main Sequence</h3>
-          <p>The journey from cloud collapse to main sequence star typically takes 10-50 million years for Sun-like stars. During this time, the protostar goes through several phases: it contracts and heats up, begins to glow from the heat of gravitational compression, and eventually reaches the critical temperature of about 10 million Kelvin in its core.</p>
-
-          <p>At this temperature, hydrogen nuclei move fast enough to overcome their mutual electrostatic repulsion and fuse together, forming helium and releasing enormous amounts of energy. This marks the star's arrival on the main sequence—it has "turned on" and will remain stable for the rest of its hydrogen-burning lifetime.</p>
-
-          <h3>The Mass Threshold</h3>
-          <p>Not all collapsing clouds become main sequence stars. Objects below about 0.08 solar masses (roughly 80 Jupiter masses) never get hot enough in their cores to sustain hydrogen fusion. These are brown dwarfs—"failed stars" that glow dimly from leftover heat but never achieve true stellar status. The 0.08 solar mass threshold represents the minimum mass for a main sequence star.</p>
-        </section>
-
-        <!-- Lifecycle Stage -->
-        <section id="lifecycle" class="content-section">
-          <h2>Main Sequence as a Lifecycle Stage</h2>
-          <p>The main sequence is not a type of star but rather a stage in stellar evolution—specifically, the hydrogen-burning phase. Stars spend more time on the main sequence than in any other phase of their lives, which is why most stars we observe are main sequence stars.</p>
-
-          <h3>Stellar Lifetimes</h3>
-          <p>A star's mass determines how long it remains on the main sequence:</p>
-          <ul>
-            <li><strong>Massive Stars (10+ solar masses):</strong> 10-100 million years on the main sequence. These stars burn hot and bright, exhausting their hydrogen quickly.</li>
-            <li><strong>Sun-like Stars (0.8-1.2 solar masses):</strong> 8-15 billion years on the main sequence. The Sun will spend about 10 billion years total in this phase.</li>
-            <li><strong>Red Dwarfs (0.08-0.5 solar masses):</strong> 1-10 trillion years on the main sequence. The smallest red dwarfs will outlive the current universe many times over.</li>
-          </ul>
-
-          <h3>What Comes After</h3>
-          <p>When a star exhausts the hydrogen in its core, it leaves the main sequence. For Sun-like stars, this means expanding into a <a href="/atlas/stars/red-giants/">red giant</a>, eventually shedding outer layers to form a planetary nebula and leaving behind a <a href="/atlas/stars/white-dwarfs/">white dwarf</a>. Massive stars become <a href="/atlas/stars/supergiants/">supergiants</a> and may explode as supernovae, leaving behind <a href="/atlas/stars/neutron-stars/">neutron stars</a> or <a href="/atlas/stars/black-holes/">black holes</a>.</p>
-        </section>
-
-        <!-- Composition -->
-        <section id="composition" class="content-section">
-          <h2>Composition and Nuclear Processes</h2>
-          <p>Main sequence stars are primarily composed of hydrogen and helium, the two lightest and most abundant elements in the universe. A typical composition is about 73% hydrogen, 25% helium, and 2% heavier elements (collectively called "metals" in astronomy, even though they include non-metallic elements like oxygen and carbon).</p>
-
-          <h3>The Proton-Proton Chain</h3>
-          <p>In stars like the Sun and smaller, hydrogen fusion occurs via the proton-proton chain reaction. This process takes four hydrogen nuclei (protons) and combines them into one helium nucleus, releasing energy in the form of gamma rays and neutrinos. The process occurs in several steps and requires temperatures of at least 10 million Kelvin.</p>
-
-          <p>Every second, the Sun converts about 600 million tons of hydrogen into helium. About 4 million tons of matter are converted directly into energy via Einstein's famous E=mc² equation. This tiny loss of mass releases enough energy to power the Sun's tremendous luminosity.</p>
-
-          <h3>The CNO Cycle</h3>
-          <p>In more massive and hotter stars (above about 1.3 solar masses), hydrogen fusion predominantly occurs through the CNO (Carbon-Nitrogen-Oxygen) cycle. This process uses carbon, nitrogen, and oxygen as catalysts to convert hydrogen to helium. The CNO cycle is far more temperature-sensitive than the proton-proton chain, which is why it dominates in hotter, more massive stars.</p>
-        </section>
-
-        <!-- H-R Diagram -->
+        <!-- The HR Diagram -->
         <section id="hr-diagram" class="content-section">
           <h2>The Hertzsprung-Russell Diagram</h2>
-          <p>The Hertzsprung-Russell (H-R) diagram is one of the most important tools in astronomy. It's a scatter plot that charts stars according to their luminosity (or absolute magnitude) on the vertical axis and their temperature (or spectral type/color) on the horizontal axis.</p>
-
+          <p>The Hertzsprung-Russell (HR) diagram is one of the most important tools in stellar astronomy. Independently developed by Ejnar Hertzsprung and Henry Norris Russell in the early 20th century, it plots a star's luminosity against its surface temperature. When you plot a large sample of stars, a striking pattern emerges: most stars cluster along a diagonal band—the main sequence.</p>
           <h3>The Main Sequence Band</h3>
-          <p>When thousands of stars are plotted on the H-R diagram, they don't scatter randomly. Instead, about 90% fall along a diagonal band running from the upper left (hot, luminous blue stars) to the lower right (cool, dim red stars). This band is the main sequence, and its existence was a major breakthrough in understanding stellar physics.</p>
-
-          <p>The main sequence isn't arbitrary—it represents the relationship between a star's mass, temperature, and luminosity during the hydrogen-burning phase. More massive stars are both hotter and more luminous, which is why they appear in the upper left. Less massive stars are cooler and dimmer, appearing in the lower right.</p>
-
-          <h3>Other Regions of the H-R Diagram</h3>
-          <p>Stars not on the main sequence occupy other regions: <a href="/atlas/stars/red-giants/">red giants</a> and <a href="/atlas/stars/supergiants/">supergiants</a> in the upper right (cool but luminous), and <a href="/atlas/stars/white-dwarfs/">white dwarfs</a> in the lower left (hot but dim). The H-R diagram thus provides a snapshot of stellar evolution—we can see stars at different stages of their lives.</p>
+          <p>The main sequence runs diagonally across the HR diagram from the upper left (hot, luminous blue stars) to the lower right (cool, dim red stars). Stars spend the majority of their lives on this band because hydrogen fusion in the core is the most stable and long-lasting energy source available. A star's position on the main sequence is determined almost entirely by its mass.</p>
+          <h3>Mass-Luminosity Relationship</h3>
+          <p>Along the main sequence, luminosity scales roughly as the fourth power of mass: L ∝ M^4. This means doubling a star's mass makes it about 16 times more luminous. This steep relationship explains why massive stars are so spectacularly bright and why they exhaust their fuel so quickly.</p>
+          <h3>Luminosity Classes</h3>
+          <p>The HR diagram also shows that stars of the same temperature can have very different luminosities—indicating different sizes. This led to the luminosity classification system: Class I (supergiants), Class II (bright giants), Class III (giants), Class IV (subgiants), and Class V (main sequence dwarfs). The Sun's full classification, G2V, tells us it is a main sequence star.</p>
         </section>
 
         <!-- Stellar Classification -->
         <section id="classification" class="content-section">
           <h2>Stellar Classification</h2>
-          <p>Astronomers classify main sequence stars using the Morgan-Keenan (MK) system, which categorizes stars by their spectral type (temperature) and luminosity class. Main sequence stars are luminosity class V (Roman numeral five), also called "dwarf" stars.</p>
-
-          <h3>Spectral Types</h3>
-          <p>Spectral types range from hottest to coolest: O, B, A, F, G, K, M. Each type is further divided into subtypes 0-9. The Sun, for example, is a G2V star—a main sequence star (V) of spectral type G, subtype 2.</p>
-
+          <p>The modern system for classifying stars was developed at Harvard Observatory in the late 19th and early 20th century, largely through the work of Annie Jump Cannon. Stars are classified by their spectral type, which reflects their surface temperature, followed by a luminosity class.</p>
+          <h3>The OBAFGKM Sequence</h3>
+          <p>The spectral sequence for main sequence stars, from hottest to coolest, is O, B, A, F, G, K, M. Each letter corresponds to a temperature range and characteristic absorption lines:</p>
           <ul>
-            <li><strong>O-type (30,000-50,000 K):</strong> Extremely hot, blue stars. Rare and short-lived, they represent less than 0.001% of main sequence stars.</li>
-            <li><strong>B-type (10,000-30,000 K):</strong> Hot, blue-white stars like Rigel and Spica. Still rare, comprising about 0.1% of stars.</li>
-            <li><strong>A-type (7,500-10,000 K):</strong> White stars like Sirius A and Vega. About 0.6% of all stars.</li>
-            <li><strong>F-type (6,000-7,500 K):</strong> Yellow-white stars like Procyon A. About 3% of stars.</li>
-            <li><strong>G-type (5,200-6,000 K):</strong> Yellow stars like the Sun and Alpha Centauri A. About 7.6% of stars.</li>
-            <li><strong>K-type (3,700-5,200 K):</strong> Orange stars like Epsilon Eridani. About 12% of stars.</li>
-            <li><strong>M-type (2,400-3,700 K):</strong> Red dwarfs like Proxima Centauri. These are by far the most common, representing about 76% of all main sequence stars.</li>
+            <li><strong>O-type (blue):</strong> Surface temperature above 30,000 K. Ionized helium lines visible. Extremely rare and luminous.</li>
+            <li><strong>B-type (blue-white):</strong> 10,000–30,000 K. Neutral helium lines. Examples: Spica, Achernar.</li>
+            <li><strong>A-type (white):</strong> 7,500–10,000 K. Strong hydrogen lines. Examples: Sirius A, Vega.</li>
+            <li><strong>F-type (yellow-white):</strong> 6,000–7,500 K. Ionized calcium lines. Examples: Procyon A.</li>
+            <li><strong>G-type (yellow):</strong> 5,200–6,000 K. Many metal lines. Examples: Sun, Alpha Centauri A.</li>
+            <li><strong>K-type (orange):</strong> 3,700–5,200 K. Molecular bands begin. Examples: Epsilon Eridani, 61 Cygni.</li>
+            <li><strong>M-type (red):</strong> Below 3,700 K. Strong molecular bands (TiO). Examples: Proxima Centauri, Barnard's Star.</li>
           </ul>
+          <h3>Subclasses and Luminosity Classes</h3>
+          <p>Each spectral class is further divided into subclasses 0 through 9 (0 being hottest). Combined with luminosity class V for main sequence stars, we get full designations like G2V (the Sun) or M5.5Ve (Proxima Centauri, where 'e' denotes emission lines).</p>
+        </section>
 
-          <p>The fact that cool red dwarfs vastly outnumber all other types is remarkable. Despite being the most common stars in the universe, red dwarfs are so dim that not a single one is visible to the naked eye from Earth—all the stars you can see unaided are either more massive main sequence stars or evolved giants.</p>
+        <!-- Nuclear Fusion -->
+        <section id="fusion" class="content-section">
+          <h2>Nuclear Fusion</h2>
+          <p>The energy that powers main sequence stars comes from nuclear fusion—the process of combining lighter atomic nuclei into heavier ones, releasing energy in the process. For main sequence stars, the fuel is hydrogen and the product is helium.</p>
+          <h3>The Proton-Proton Chain</h3>
+          <p>In lower-mass stars like the Sun (and all stars cooler than about 1.5 solar masses), the dominant fusion process is the proton-proton (PP) chain. Four hydrogen nuclei (protons) are gradually combined to form one helium-4 nucleus, releasing energy in the form of gamma rays. The Sun converts about 600 million tons of hydrogen into helium every second.</p>
+          <h3>The CNO Cycle</h3>
+          <p>In more massive stars with core temperatures above about 17 million K, the carbon-nitrogen-oxygen (CNO) cycle becomes the dominant fusion pathway. Carbon acts as a catalyst, facilitating the fusion of four hydrogen nuclei into helium. The CNO cycle is extremely temperature-sensitive—a small increase in temperature dramatically increases energy production.</p>
+          <h3>Hydrostatic Equilibrium</h3>
+          <p>Main sequence stability arises from hydrostatic equilibrium: the outward pressure from nuclear fusion exactly counteracts the inward pull of gravity. This self-regulating mechanism makes main sequence stars remarkably stable over billions of years.</p>
+        </section>
+
+        <!-- Stellar Lifetimes -->
+        <section id="lifetimes" class="content-section">
+          <h2>Stellar Lifetimes</h2>
+          <p>One of the most counterintuitive facts about stars is that the most massive ones die youngest. Because massive stars burn their fuel at such a prodigious rate, they exhaust it far faster than their smaller cousins.</p>
+          <h3>The Mass-Lifetime Relationship</h3>
+          <p>A star's main sequence lifetime scales roughly as 1/mass^3. A star ten times the Sun's mass has only about 1/1000th the Sun's lifetime. Our Sun will live about 10 billion years total on the main sequence; a 10-solar-mass star would live only about 10 million years.</p>
+          <h3>The Extremes</h3>
+          <p>At the massive end, the most luminous O-type stars may live only 1-3 million years. At the low-mass end, red dwarf stars could potentially shine for 10 trillion years or more. No red dwarf has ever died of old age because the universe is not yet old enough.</p>
+          <h3>The Sun's Timeline</h3>
+          <p>Our Sun formed about 4.6 billion years ago and has roughly 5 billion years remaining on the main sequence. In about 5 billion years, the Sun will exhaust its core hydrogen and begin the transition to a red giant.</p>
         </section>
 
         <!-- Notable Examples -->
         <section id="examples" class="content-section">
           <h2>Notable Main Sequence Stars</h2>
-          <p>Many of the most familiar stars in the night sky are main sequence stars. Here are some notable examples across the spectral range:</p>
-
+          <p>The night sky is populated almost entirely by main sequence stars. Here are some of the most notable examples spanning the full range of stellar types.</p>
           <h3>The Sun (G2V)</h3>
-          <p>Our home star is a perfectly ordinary G-type main sequence star about 4.6 billion years old and halfway through its main sequence lifetime. With a surface temperature of 5,778 K, the Sun serves as the reference point for stellar measurements—other stars are often described in terms of solar masses, solar radii, and solar luminosities.</p>
-
+          <p>Our nearest stellar neighbor is the definitive example of a G-type main sequence star. With a surface temperature of 5,778 K and a luminosity that has powered life on Earth for billions of years, the Sun is the most studied star in the universe.</p>
           <h3>Sirius A (A1V)</h3>
-          <p>The brightest star in Earth's night sky, Sirius A is a white main sequence star about twice the Sun's mass and 25 times more luminous. At just 8.6 light-years away, its proximity combined with its high intrinsic brightness makes it the dominant star in our night sky. Sirius A has a white dwarf companion, Sirius B.</p>
-
-          <h3>Alpha Centauri A (G2V)</h3>
-          <p>Remarkably similar to the Sun, Alpha Centauri A is part of the closest star system to Earth at just 4.37 light-years away. It's slightly more massive and luminous than the Sun and is part of a triple system including Alpha Centauri B (K1V) and Proxima Centauri (M5.5V).</p>
-
-          <h3>Proxima Centauri (M5.5V)</h3>
-          <p>The closest star to Earth after the Sun, Proxima Centauri is a red dwarf just 4.24 light-years away. Despite its proximity, it's too dim to see with the naked eye. With only 12% of the Sun's mass and 0.17% of its luminosity, Proxima represents the most common type of star in the galaxy. It will remain on the main sequence for trillions of years.</p>
-
+          <p>The brightest star in the night sky, Sirius A is a white A-type main sequence star about 25 times more luminous than the Sun, located just 8.6 light-years away. Sirius has a white dwarf companion, Sirius B.</p>
           <h3>Vega (A0V)</h3>
-          <p>A brilliant white star in the constellation Lyra, Vega is about 2.1 times the Sun's mass and 40 times more luminous. It's relatively young—about 450 million years old—and will only spend about 1 billion years total on the main sequence. Vega was the north star about 14,000 years ago and will be again in about 12,000 years.</p>
-
-          <h3>Tau Ceti (G8V)</h3>
-          <p>Located just 11.9 light-years away, Tau Ceti is a G-type star similar to but slightly smaller and cooler than the Sun. It's notable for having at least four confirmed planets in its habitable zone, making it a target of interest in the search for potentially habitable worlds.</p>
+          <p>One of the brightest stars in the northern hemisphere, Vega is an A-type main sequence star about 40 light-years away. It will become a future "pole star" in about 12,000 years due to precession.</p>
+          <h3>Proxima Centauri (M5.5Ve)</h3>
+          <p>The closest star to the Sun at just 4.24 light-years, Proxima Centauri is a red dwarf main sequence star so faint that it requires a telescope to see. It hosts at least one planet, Proxima Centauri b, in or near the habitable zone.</p>
+          <h3>Alpha Centauri A (G2V)</h3>
+          <p>Part of the closest stellar system to the Sun, Alpha Centauri A is remarkably similar to our Sun—slightly larger, brighter, and older. It forms a binary pair with Alpha Centauri B (a K-type star).</p>
+          <h3>Epsilon Eridani (K2V)</h3>
+          <p>One of the nearest solar-type stars at 10.5 light-years, Epsilon Eridani is a young K-type orange dwarf with a debris disk and a confirmed planet, making it a popular SETI target.</p>
         </section>
 
         <!-- Observation -->
         <section id="observation" class="content-section">
           <h2>Observing Main Sequence Stars</h2>
-          <p>Main sequence stars are the easiest stars to observe because they're by far the most numerous. Every star visible to the naked eye (except a few giants and supergiants) is either a main sequence star or has recently evolved off the main sequence.</p>
-
-          <h3>What Telescopes Reveal</h3>
-          <p>Through telescopes, astronomers can measure key properties of main sequence stars: their spectra (revealing temperature and composition), luminosity, and in some cases their radii. For nearby stars, parallax measurements give precise distances, allowing calculation of absolute luminosity. Binary systems are particularly valuable because they allow direct mass measurements.</p>
-
-          <h3>Professional Observations</h3>
-          <p>Modern professional telescopes and space observatories study main sequence stars to understand stellar physics, stellar evolution, and planet formation. The Gaia space telescope has measured precise distances and properties for over a billion stars, most of them main sequence. NASA's TESS mission searches main sequence stars for transiting exoplanets.</p>
-
-          <h3>Amateur Observations</h3>
-          <p>Amateur astronomers can observe thousands of main sequence stars and easily distinguish their colors. Binoculars or small telescopes reveal color contrasts in <a href="/atlas/stars/binary-systems/">binary systems</a> like Albireo (gold and blue stars). Spectroscopy, accessible to advanced amateurs, can reveal a star's spectral type and physical properties.</p>
+          <p>Because virtually every star you can see is a main sequence star, observing them is as simple as looking up on a clear night. Understanding what you are seeing adds a new dimension to stargazing.</p>
+          <h3>Color Recognition</h3>
+          <p>With the naked eye, you can distinguish stellar colors. Blue-white stars like Sirius contrast with yellow stars like Alpha Centauri, and orange stars like Epsilon Eridani. The color directly tells you about temperature—blue means hot (20,000+ K), white means warm (8,000-10,000 K), yellow means moderate (5,000-6,000 K), and orange-red means cool (3,000-4,500 K).</p>
+          <h3>Binoculars and Telescopes</h3>
+          <p>With binoculars, you can see many more stars. Star clusters like the Pleiades (mostly hot B-type stars) and the Hyades (mostly K-type orange dwarfs) showcase different parts of the main sequence.</p>
+          <h3>Spectroscopy</h3>
+          <p>Amateur spectroscopy with inexpensive diffraction grating eyepieces allows you to classify stars by their absorption lines—the key diagnostic tool that enables OBAFGKM classification.</p>
         </section>
 
         <!-- Interesting Facts -->
         <section id="fun-facts" class="content-section">
           <h2>Interesting Facts About Main Sequence Stars</h2>
-          <p>Main sequence stars reveal fascinating physics and surprising statistics about the universe.</p>
-
           <ul class="facts-list">
-            <li><strong>Red Dwarfs Everywhere:</strong> About 76% of all main sequence stars are red dwarfs (M-type), yet not a single one is visible to the naked eye from Earth. All the stars you can see unaided are more massive, less common types.</li>
-
-            <li><strong>Never-Dying Stars:</strong> The smallest red dwarfs will remain on the main sequence for 1-10 trillion years—far longer than the universe's current age of 13.8 billion years. No red dwarf has ever evolved off the main sequence since the universe began.</li>
-
-            <li><strong>The Massive Burn Fast:</strong> A star 20 times the Sun's mass has 20 times more fuel but burns it 20,000 times faster, exhausting its hydrogen in just 10 million years compared to the Sun's 10-billion-year lifetime.</li>
-
-            <li><strong>Stellar Alchemy:</strong> Every second, the Sun converts 600 million tons of hydrogen into helium, with 4 million tons converted directly into energy. In its 10-billion-year main sequence lifetime, it will convert only 0.7% of its mass into energy.</li>
-
-            <li><strong>The 90% Rule:</strong> About 90% of all stars are currently on the main sequence. This isn't because it's the most common stellar stage—it's because stars spend most of their lives there.</li>
-
-            <li><strong>Perfect Balance:</strong> Main sequence stars exist in perfect hydrostatic equilibrium—gravity pulling inward exactly balanced by radiation pressure pushing outward. Any slight imbalance triggers changes that restore equilibrium, making main sequence stars remarkably stable.</li>
-
-            <li><strong>Color Indicates Age and Mass:</strong> Blue main sequence stars are both the most massive and the youngest—they burn out quickly. Red main sequence stars are both the least massive and potentially the oldest stars in existence.</li>
-
-            <li><strong>The Sun is Middle-Aged:</strong> At 4.6 billion years old, the Sun is about halfway through its 10-billion-year main sequence lifetime. In another 5 billion years, it will exhaust its core hydrogen and begin evolving into a red giant.</li>
+            <li><strong>Red Dwarf Dominance:</strong> 70-75% of all stars in the Milky Way are M-type red dwarfs, yet none are visible to the naked eye from Earth. Their faintness means they contribute very little to the galaxy's total light despite being the most numerous type.</li>
+            <li><strong>Mass-Luminosity:</strong> A star twice as massive as the Sun burns about 16 times brighter, following the roughly L ∝ M^4 relationship. This steep power law is why stellar lifetimes vary so dramatically across the main sequence.</li>
+            <li><strong>Cosmic Middle Age:</strong> Our Sun is currently about halfway through its main sequence life at 4.6 billion years old. In another 5 billion years it will exhaust its core hydrogen.</li>
+            <li><strong>Smallest Stars:</strong> The minimum mass to sustain hydrogen fusion is about 0.08 solar masses (80 Jupiter masses). Below this threshold, objects are brown dwarfs—failed stars that glow only from gravitational contraction.</li>
+            <li><strong>Longest Lived:</strong> Red dwarf stars could potentially live for 10 trillion years or more. No red dwarf has ever reached the end of its life since the universe is only 13.8 billion years old.</li>
+            <li><strong>Blue Giant Brevity:</strong> The most massive O-type stars live only 1-3 million years before dying in supernova explosions. For comparison, the dinosaurs lived for over 100 million years.</li>
+            <li><strong>Temperature Colors:</strong> A star's color directly reflects its surface temperature per blackbody radiation physics. Red is cooler, blue is hotter—astronomers can estimate temperature just by looking at color.</li>
+            <li><strong>Spectroscopy Power:</strong> Everything we know about stellar compositions comes from analyzing the light that reaches us—no star has ever been physically sampled. By splitting starlight into its spectrum, astronomers determine temperature, composition, and velocity.</li>
           </ul>
         </section>
 
@@ -300,10 +251,10 @@ const faqData = [
         <section id="resources" class="content-section">
           <h2>External Resources</h2>
           <ul class="resource-list">
-            <li><a href="https://science.nasa.gov/universe/stars/" target="_blank" rel="noopener">NASA Stars Overview</a> - Official NASA page about stars and stellar evolution</li>
-            <li><a href="https://en.wikipedia.org/wiki/Main_sequence" target="_blank" rel="noopener">Main Sequence on Wikipedia</a> - Comprehensive encyclopedia article</li>
-            <li><a href="https://en.wikipedia.org/wiki/Hertzsprung%E2%80%93Russell_diagram" target="_blank" rel="noopener">H-R Diagram on Wikipedia</a> - Detailed explanation of the Hertzsprung-Russell diagram</li>
-            <li><a href="https://www.eso.org/public/astronomy-basics/stellar-basics/" target="_blank" rel="noopener">ESO Stellar Basics</a> - European Southern Observatory educational resource</li>
+            <li><a href="https://science.nasa.gov/universe/stars/" target="_blank" rel="noopener">NASA Stars Overview</a> - NASA's guide to stellar types, life cycles, and current research</li>
+            <li><a href="https://en.wikipedia.org/wiki/Main_sequence" target="_blank" rel="noopener">Main Sequence on Wikipedia</a> - Comprehensive encyclopedia article on main sequence stars</li>
+            <li><a href="https://www.esa.int/Science_Exploration/Space_Science/Stars" target="_blank" rel="noopener">ESA Stars</a> - European Space Agency's stellar science pages</li>
+            <li><a href="https://en.wikipedia.org/wiki/Hertzsprung%E2%80%93Russell_diagram" target="_blank" rel="noopener">Hertzsprung-Russell Diagram</a> - Detailed explanation of the fundamental stellar classification diagram</li>
           </ul>
         </section>
 
@@ -457,7 +408,7 @@ const faqData = [
   }
 
   .breadcrumbs li:not(:last-child)::after {
-    content: '›';
+    content: '\u203a';
     color: var(--color-text-secondary);
   }
 
@@ -675,6 +626,18 @@ const faqData = [
   .info-box li {
     font-size: 1rem;
     margin-bottom: 0.4rem;
+  }
+
+  .data-source {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    opacity: 0.7;
+    margin-top: -0.5rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .data-source a {
+    color: var(--color-accent-cyan);
   }
 
   /* Mission List */

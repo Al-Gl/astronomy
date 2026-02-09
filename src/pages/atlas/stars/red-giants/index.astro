@@ -10,46 +10,46 @@ const breadcrumbs = [
 ];
 
 const articleData = {
-  headline: 'Red Giant Stars - Aging Stars in Their Expansion Phase',
-  description: 'Comprehensive guide to red giant stars covering post-main-sequence evolution, helium fusion, the red giant branch, and eventual transformation into planetary nebulae. Learn about Arcturus, Aldebaran, and stellar old age.',
+  headline: 'Red Giants: Aging Stars in Their Final Act',
+  description: 'Complete guide to red giant stars - the evolved phase of Sun-like stars. Learn about stellar evolution, helium fusion, the RGB phase, and how our Sun will become a red giant in 5 billion years.',
   datePublished: '2025-01-22',
   dateModified: '2025-01-22',
   author: 'The Astronomy Space',
   image: '/images/Hero_red-giants.jpg',
-  keywords: ['red giant', 'stellar evolution', 'RGB phase', 'helium flash', 'planetary nebula progenitor', 'Arcturus', 'Aldebaran', 'asymptotic giant branch', 'AGB star', 'shell burning']
+  keywords: ['red giant stars', 'stellar evolution', 'helium flash', 'RGB phase', 'Arcturus', 'Aldebaran', 'Mira', 'planetary nebula', 'hydrogen shell burning']
 };
 
 const faqData = [
   {
-    question: 'What causes a star to become a red giant?',
-    answer: 'A star becomes a red giant when it exhausts the hydrogen in its core. Without fusion to counteract gravity, the core contracts and heats up. This causes the outer layers to expand dramatically—sometimes to hundreds of times the star\'s original size—while also cooling, giving the star its red color. Meanwhile, hydrogen fusion continues in a shell around the inert helium core.'
+    question: 'What is a red giant star?',
+    answer: 'A red giant is an evolved star that has exhausted the hydrogen in its core and entered a new phase of stellar evolution. When core hydrogen runs out, the core contracts and heats up while the outer layers expand dramatically, cooling as they spread out. This cooling makes the star glow red-orange rather than yellow-white. Red giants are 10 to 100 times larger than they were on the main sequence, yet they have cooler surface temperatures (below 5,000 K).'
   },
   {
-    question: 'How big do red giants get?',
-    answer: 'Red giants can become enormous. A typical red giant might expand to 10-100 times the Sun\'s radius. When the Sun becomes a red giant in about 5 billion years, it will likely expand beyond Earth\'s orbit, engulfing Mercury, Venus, and possibly Earth itself. Some red giants, particularly those on the asymptotic giant branch, can reach 100-200 solar radii.'
+    question: 'Will our Sun become a red giant?',
+    answer: 'Yes, in about 5 billion years, the Sun will exhaust the hydrogen in its core and begin expanding into a red giant. During this process, it will grow large enough to engulf Mercury and Venus, and possibly Earth as well. The Sun will eventually shed its outer layers as a planetary nebula, leaving behind a dense white dwarf about the size of Earth. This is the eventual fate of all stars with masses between about 0.6 and 8 solar masses.'
   },
   {
-    question: 'How long does the red giant phase last?',
-    answer: 'The red giant phase is relatively brief compared to the main sequence. A Sun-like star spends about 10 billion years on the <a href="/atlas/stars/main-sequence/">main sequence</a> but only 1-2 billion years as a red giant (including both the red giant branch and asymptotic giant branch phases). More massive stars have even shorter red giant phases, lasting just millions of years.'
+    question: 'How long do stars stay red giants?',
+    answer: 'The red giant phase is relatively short compared to the main sequence. A Sun-like star spends about 10 billion years on the main sequence but only around 1-2 billion years as a red giant. The most luminous part of the red giant branch (near the helium flash) lasts only about 100 million years. After the helium flash, the star settles into a more stable phase burning helium in its core.'
   },
   {
     question: 'What is the helium flash?',
-    answer: 'The helium flash is a brief, violent ignition of helium fusion in the core of a low-mass red giant. As the inert helium core contracts, it becomes degenerate (supported by electron degeneracy pressure). When the temperature finally reaches 100 million K, helium fusion begins explosively in this degenerate matter, briefly producing as much energy as an entire galaxy. However, the energy is absorbed by the star and doesn\'t blow it apart.'
+    answer: "The helium flash is a brief, explosive event that occurs in low-mass stars (less than about 2 solar masses) when helium ignition suddenly begins in the degenerate core. Because the degenerate core can't expand to cool itself, the temperature rise accelerates the fusion rate, causing a runaway reaction that releases enormous energy over just a few hours or days. Despite its intensity, the helium flash is invisible from outside the star—all the energy is absorbed by the star's thick outer layers."
   },
   {
-    question: 'Will the Sun become a red giant?',
-    answer: 'Yes. In about 5 billion years, the Sun will exhaust its core hydrogen and expand into a red giant. It will grow to perhaps 200 times its current diameter, becoming so large it will likely engulf Mercury and Venus. Earth may survive but will be scorched and lifeless. After about 1 billion years as a red giant, the Sun will shed its outer layers as a planetary nebula, leaving behind a <a href="/atlas/stars/white-dwarfs/">white dwarf</a>.'
+    question: 'What are the most famous red giant stars?',
+    answer: 'Some of the most visible red giants include Arcturus (the brightest star in the northern celestial hemisphere), Aldebaran (the red eye of Taurus the Bull), and Pollux in Gemini. Mira is a famous pulsating red giant variable star that changes dramatically in brightness over about 332 days. These stars are so luminous that despite being hundreds of light-years away, they are among the brightest stars in our night sky.'
   },
   {
-    question: 'Why are red giants so bright despite being cool?',
-    answer: 'Red giants are cool stars—surface temperatures of only 3,000-5,000 K compared to the Sun\'s 5,778 K. However, they\'re enormous, with surface areas hundreds or thousands of times larger than the Sun. This huge surface area more than compensates for their lower temperature, making them extremely luminous—often 100-1,000 times the Sun\'s luminosity despite being cooler.'
+    question: 'What comes after the red giant phase?',
+    answer: "After the red giant phase, a star's fate depends on its mass. Low and medium-mass stars (like the Sun) will lose their outer layers as a beautiful planetary nebula, leaving a hot white dwarf remnant. Higher-mass stars may go through additional evolutionary stages—becoming asymptotic giant branch (AGB) stars, then carbon stars—before finally losing their envelopes. The most massive stars become red supergiants and eventually explode as supernovae."
   }
 ];
 ---
 
 <MainLayout
-  title="Red Giant Stars - Aging Stars in Their Expansion Phase | The Astronomy Space"
-  description="Comprehensive guide to red giant stars covering post-main-sequence evolution, helium fusion, the red giant branch, and eventual transformation into planetary nebulae. Learn about Arcturus, Aldebaran, and stellar old age."
+  title='Red Giants: Aging Stars in Their Final Act | The Astronomy Space'
+  description='Complete guide to red giant stars - the evolved phase of Sun-like stars. Learn about stellar evolution, helium fusion, the RGB phase, and how our Sun will become a red giant in 5 billion years.'
 >
   <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
   <Schema type="TechArticle" article={articleData} />
@@ -63,7 +63,7 @@ const faqData = [
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-image">
-      <img src="/images/Hero_red-giants.jpg" alt="Red Giant Stars - Evolved stars with expanded atmospheres" loading="eager" />
+      <img src="/images/Hero_red-giants.jpg" alt="Red Giants hero image" loading="eager" />
       <div class="hero-overlay"></div>
     </div>
     <div class="hero-content">
@@ -75,8 +75,8 @@ const faqData = [
           <li aria-current="page">Red Giants</li>
         </ol>
       </nav>
-      <h1>Red Giant Stars</h1>
-      <p class="hero-subtitle">Aging Stars in Their Expansion Phase</p>
+      <h1>Red Giants</h1>
+      <p class="hero-subtitle">Stars in the Final Act of Their Lives</p>
     </div>
   </section>
 
@@ -90,14 +90,12 @@ const faqData = [
           <h2>Contents</h2>
           <ol>
             <li><a href="#introduction">Introduction</a></li>
-            <li><a href="#characteristics">Physical Characteristics</a></li>
-            <li><a href="#formation">How They Form</a></li>
-            <li><a href="#lifecycle">Lifecycle Stage</a></li>
-            <li><a href="#composition">Composition & Processes</a></li>
-            <li><a href="#rgb-agb">RGB and AGB Phases</a></li>
+            <li><a href="#physical-characteristics">Physical Characteristics</a></li>
+            <li><a href="#stellar-evolution">Stellar Evolution Path</a></li>
+            <li><a href="#helium-flash">The Helium Flash</a></li>
+            <li><a href="#composition">Composition & Layers</a></li>
             <li><a href="#examples">Notable Examples</a></li>
             <li><a href="#observation">Observation</a></li>
-            <li><a href="#future-sun">The Sun's Red Giant Future</a></li>
             <li><a href="#fun-facts">Interesting Facts</a></li>
             <li><a href="#resources">Resources</a></li>
             <li><a href="#faq">FAQ</a></li>
@@ -116,194 +114,116 @@ const faqData = [
               <path d="M12 6v6l4 2"/>
             </svg>
           </div>
-          <p>Red giants are evolved stars that have exhausted the hydrogen in their cores and dramatically expanded to tens or hundreds of times their original size. Despite having cooler surface temperatures (giving them their red color), they shine brightly due to their enormous size. These stars represent a late stage in stellar evolution for Sun-like stars before they shed their outer layers and become white dwarfs.</p>
+          <p>Red giants are evolved stars that have exhausted the hydrogen fuel in their cores and expanded dramatically, becoming 10 to 100 times larger than their original size. Their outer layers cool and glow with a characteristic red-orange hue. Our Sun will become a red giant in about 5 billion years, expanding to engulf the inner planets including possibly Earth.</p>
         </aside>
 
         <!-- Introduction -->
         <section id="introduction" class="content-section">
           <h2>Introduction to Red Giant Stars</h2>
-          <p>Red giant stars are among the most dramatic examples of stellar evolution. These bloated, luminous stars represent what happens when a <a href="/atlas/stars/main-sequence/">main sequence</a> star exhausts the hydrogen fuel in its core. Unable to sustain the fusion that kept it stable for billions of years, the star undergoes radical changes—its core contracts while its outer layers expand to enormous dimensions.</p>
-
-          <p>The name "red giant" is descriptive: these stars are both red (having cool surface temperatures of 3,000-5,000 K) and giant (having expanded to perhaps 10-100 times their main sequence radius). Despite their cool surfaces, red giants are highly luminous because their vast surface area more than compensates for their lower temperature per unit area.</p>
-
-          <p>Some of the most familiar stars in the night sky are red giants. Arcturus, the fourth brightest star visible from Earth, is a red giant about 25 times the Sun's radius. Aldebaran, the "eye" of Taurus the Bull, is another prominent red giant. These stars give us a preview of the Sun's own fate billions of years from now.</p>
+          <p>Red giants represent one of the most dramatic transformations in the universe—the death throes of Sun-like stars that have exhausted their hydrogen fuel. What was once a stable, middle-aged star suddenly blooms outward into a vast, cool, luminous giant, sometimes growing to hundreds of times its original diameter. This spectacular expansion is a fundamental stage of stellar evolution that virtually every low to medium-mass star undergoes.</p>
+          <p>For our own Sun, this fate awaits in roughly 5 billion years. When the Sun finally runs out of hydrogen to fuse in its core, it will begin swelling into a red giant—eventually growing large enough to engulf the inner planets. This prospect, though distant, gives red giants a particular personal relevance for humanity.</p>
+          <p>Despite their dramatic appearance, red giants are well understood by astronomers. They represent a predictable stage in the stellar life cycle, following naturally from the exhaustion of main sequence hydrogen burning. The physics governing their structure, composition, and eventual fate has been worked out in detail through decades of theoretical work and observational confirmation.</p>
+          <p>Red giants are also among the most visible stars in the night sky. Their high luminosity and characteristic red-orange color make them stand out prominently. Stars like Arcturus, Aldebaran, and Pollux are all red giants, and they have been familiar objects in the night sky since antiquity.</p>
         </section>
 
         <!-- Physical Characteristics -->
-        <section id="characteristics" class="content-section">
+        <section id="physical-characteristics" class="content-section">
           <h2>Physical Characteristics</h2>
-          <p>Red giants are defined by their enormous size, cool surfaces, and high luminosity—a combination that seems paradoxical until you understand their internal structure.</p>
-
+          <p>Red giants are physically much larger than main sequence stars, yet paradoxically cooler at their surfaces. This combination of large size and low temperature gives them their distinctive red-orange color and makes them highly luminous despite the cool surface.</p>
           <div class="info-box glass">
-            <h3>Red Giant Typical Properties</h3>
+            <h3>Red Giant Quick Facts</h3>
             <ul>
-              <li><strong>Radius:</strong> 10-100 solar radii (RGB phase)</li>
-              <li><strong>Surface Temperature:</strong> 3,000-5,000 K</li>
-              <li><strong>Luminosity:</strong> 100-1,000 times the Sun</li>
-              <li><strong>Color:</strong> Orange to deep red</li>
-              <li><strong>Core Temperature:</strong> 100+ million K during helium fusion</li>
-              <li><strong>Density:</strong> Core extremely dense; outer layers extremely diffuse</li>
-              <li><strong>Mass Loss:</strong> Up to 10⁻⁷ solar masses per year via stellar wind</li>
-              <li><strong>Lifetime:</strong> 1-2 billion years (Sun-like stars)</li>
+              <li><strong>Size Range:</strong> 10 to 100 solar radii</li>
+              <li><strong>Surface Temperature:</strong> 3,500 to 5,000 K</li>
+              <li><strong>Luminosity:</strong> 10 to 1,000 solar luminosities</li>
+              <li><strong>Mass Range:</strong> 0.6 to 8 solar masses (original)</li>
+              <li><strong>RGB Phase Lifespan:</strong> ~1-2 billion years</li>
+              <li><strong>Spectral Class:</strong> K or M</li>
             </ul>
           </div>
-
-          <h3>The Temperature-Size Paradox</h3>
-          <p>Red giants present an apparent paradox: they're cooler than the Sun but far more luminous. The resolution lies in their size. A star's luminosity depends on both its temperature and its surface area (L ∝ R²T⁴). While a red giant's surface might be only half as hot as the Sun, its radius might be 50 times larger, giving it 2,500 times the surface area. This enormous surface area dominates the calculation, making the star highly luminous despite its coolness.</p>
-
-          <h3>Extreme Density Contrast</h3>
-          <p>Red giants exhibit extreme density contrasts. The core, compressed to incredible densities (often degenerate matter), contains a significant fraction of the star's mass in a tiny volume. Meanwhile, the vastly expanded outer envelope is extraordinarily diffuse—in fact, the outer layers of a red giant are less dense than Earth's atmosphere at sea level, approaching the vacuum of space.</p>
+          <p class="data-source">Data: <a href="https://science.nasa.gov/universe/stars/" target="_blank" rel="noopener noreferrer">NASA Stellar Evolution</a></p>
+          <p>The enormous size of red giants is a direct consequence of the internal changes occurring as the star exhausts its fuel. When the hydrogen in the core is depleted, hydrogen fusion continues in a shell around the inert helium core. This shell burning provides more energy than before, inflating the outer layers dramatically. The star's radius can grow from 1 solar radius to 10-100 solar radii over millions of years.</p>
+          <p>Despite being vastly larger, red giants have lower surface gravity than main sequence stars because their mass is spread over a much larger volume. This low gravity means their outer layers are only loosely bound, and stellar winds can carry material away at significant rates.</p>
         </section>
 
-        <!-- Formation -->
-        <section id="formation" class="content-section">
-          <h2>How Red Giants Form</h2>
-          <p>The transformation from main sequence star to red giant is driven by the exhaustion of hydrogen in the stellar core, triggering a chain of events that radically restructures the star.</p>
-
-          <h3>The End of the Main Sequence</h3>
-          <p>After spending billions of years fusing hydrogen into helium in its core, a Sun-like star eventually exhausts this fuel. Without fusion to generate outward pressure, the core—now composed of inert helium—can no longer support itself against gravity. The core begins to contract.</p>
-
-          <h3>Shell Burning Begins</h3>
-          <p>As the core contracts, it heats up. This heating ignites hydrogen fusion in a shell surrounding the inert helium core. This "hydrogen shell burning" is actually more energetic than the core fusion that preceded it. The increased energy output causes the star's outer layers to expand dramatically—sometimes to hundreds of times the star's original radius.</p>
-
-          <h3>The Expansion</h3>
-          <p>As the outer layers expand, they cool (because the same energy is spread over a much larger surface area). The star's surface temperature drops from perhaps 5,800 K to 3,000-4,000 K. This cooling shifts the star's color from yellow to orange or red. The star has become a red giant, positioned on the "red giant branch" (RGB) of the Hertzsprung-Russell diagram.</p>
-
-          <h3>The Mirror Effect</h3>
-          <p>An interesting phenomenon occurs: as the helium core contracts and heats, the outer envelope expands and cools. These changes roughly mirror each other—as the core shrinks, the envelope grows. This is sometimes called the "mirror principle" and is a consequence of the star's attempt to maintain hydrostatic equilibrium under changing conditions.</p>
+        <!-- Stellar Evolution Path -->
+        <section id="stellar-evolution" class="content-section">
+          <h2>The Stellar Evolution Path to Red Giants</h2>
+          <p>The path from main sequence star to red giant is a gradual process that takes hundreds of millions to billions of years, depending on the star's original mass.</p>
+          <h3>Core Hydrogen Exhaustion</h3>
+          <p>On the main sequence, a star fuses hydrogen into helium in its core. Over billions of years, the hydrogen supply dwindles as helium accumulates. The core contracts under gravity, heating up. Meanwhile, hydrogen continues fusing in a shell around the increasingly inert helium core.</p>
+          <h3>The Subgiant Phase</h3>
+          <p>As the hydrogen-burning shell grows, the outer layers begin expanding and cooling. The star moves off the main sequence onto the subgiant branch. This phase may last several hundred million years for a Sun-like star.</p>
+          <h3>Red Giant Branch Ascent</h3>
+          <p>Eventually, the star's outer layers have expanded and cooled enough for the surface to become convective. The star climbs the red giant branch (RGB) on the HR diagram, growing ever larger and more luminous while the surface temperature remains roughly constant. The star can become several hundred times more luminous than the present-day Sun during this ascent.</p>
+          <h3>Tip of the Red Giant Branch</h3>
+          <p>The ascent of the red giant branch ends when the helium core reaches conditions hot enough for helium fusion—the helium flash in low-mass stars. The star then settles into a stable helium-burning phase.</p>
         </section>
 
-        <!-- Lifecycle Stage -->
-        <section id="lifecycle" class="content-section">
-          <h2>Red Giants in Stellar Evolution</h2>
-          <p>The red giant phase represents the beginning of the end for Sun-like stars. It's a transitional stage between the long-lived main sequence phase and the final stages of stellar evolution.</p>
-
-          <h3>Path to Red Giant Status</h3>
-          <p>Stars with masses between about 0.5 and 8 solar masses will become red giants. Very low-mass stars (red dwarfs below 0.5 solar masses) evolve too slowly and will never reach the red giant phase before the universe grows old. Very high-mass stars (above 8-10 solar masses) skip the red giant phase and instead become <a href="/atlas/stars/supergiants/">supergiants</a>.</p>
-
-          <h3>Duration of the Phase</h3>
-          <p>The red giant phase is brief compared to the main sequence. A Sun-like star spends about 10 billion years on the main sequence but only 1-2 billion years total in its red giant phases (RGB plus AGB). More massive stars have even shorter red giant phases—a 5 solar mass star might spend only 100 million years as a red giant.</p>
-
-          <h3>What Comes After</h3>
-          <p>The red giant phase isn't the final stage. After ascending the red giant branch and undergoing the helium flash, the star settles into a stable phase of helium fusion (the horizontal branch). Eventually, helium is exhausted, and the star ascends the asymptotic giant branch (AGB) for a second red giant phase. Finally, the star sheds its outer layers as a planetary nebula, leaving behind a <a href="/atlas/stars/white-dwarfs/">white dwarf</a>.</p>
+        <!-- The Helium Flash -->
+        <section id="helium-flash" class="content-section">
+          <h2>The Helium Flash</h2>
+          <p>The helium flash is one of the most dramatic events in the life of a low-mass star—a brief but enormously energetic ignition of helium fusion in the star's degenerate core. Despite its violence, this event is hidden from outside observers.</p>
+          <h3>Why It Happens</h3>
+          <p>As the helium core accumulates, it becomes so compressed that it enters a state called electron degeneracy. In degenerate matter, pressure no longer depends on temperature. When helium ignition begins, the resulting temperature increase doesn't relieve pressure through expansion, causing a runaway thermonuclear reaction.</p>
+          <h3>The Flash Itself</h3>
+          <p>Within minutes to hours, the helium flash releases an enormous amount of energy—temporarily matching the luminosity of an entire galaxy. However, all this energy is deposited in the star's thick outer envelope and never reaches the surface as visible light. The flash effectively converts the degenerate core into a normal, thermally-supported core.</p>
+          <h3>After the Flash</h3>
+          <p>Following the helium flash, the star settles into a new, stable phase burning helium in its core and hydrogen in a surrounding shell. It moves to the horizontal branch on the HR diagram—a phase that may last another 100 million years.</p>
         </section>
 
-        <!-- Composition -->
+        <!-- Composition and Layers -->
         <section id="composition" class="content-section">
-          <h2>Composition and Nuclear Processes</h2>
-          <p>Red giants are chemically stratified, with distinct layers undergoing different nuclear processes or containing different elements.</p>
-
-          <h3>Hydrogen Shell Burning</h3>
-          <p>In the red giant branch (RGB) phase, the star fuses hydrogen in a thin shell around the inert helium core. This shell burning is actually more luminous than the previous core fusion because the shell is at higher temperature and pressure. The helium "ash" from this fusion falls onto the core, slowly increasing the core's mass.</p>
-
-          <h3>The Growing Helium Core</h3>
-          <p>As hydrogen shell burning continues, the helium core grows more massive. For stars like the Sun, this core becomes electron-degenerate—a bizarre state of matter where electron degeneracy pressure (a quantum mechanical effect) provides the support, rather than thermal pressure. This degeneracy sets the stage for the dramatic helium flash.</p>
-
-          <h3>The Helium Flash</h3>
-          <p>When the contracting, degenerate helium core reaches about 100 million Kelvin, helium fusion suddenly ignites. In normal matter, this would self-regulate: the fusion would heat the gas, causing it to expand and cool, moderating the reaction. But in degenerate matter, temperature and pressure are decoupled. The fusion proceeds explosively in a "helium flash," briefly generating as much power as an entire galaxy—though this energy is contained within the star.</p>
-
-          <p>The helium flash lasts only a few seconds to minutes, after which the core returns to normal (non-degenerate) matter and settles into stable helium burning. The star becomes less luminous and hotter, moving to the horizontal branch of the H-R diagram.</p>
-
-          <h3>Triple-Alpha Process</h3>
-          <p>Helium fusion proceeds via the triple-alpha process: three helium-4 nuclei (alpha particles) fuse to form carbon-12. This process requires about 100 million Kelvin and is less efficient than hydrogen fusion. It also produces oxygen as a byproduct when carbon-12 captures another helium nucleus. The result is a carbon-oxygen core.</p>
-        </section>
-
-        <!-- RGB and AGB -->
-        <section id="rgb-agb" class="content-section">
-          <h2>Red Giant Branch and Asymptotic Giant Branch</h2>
-          <p>The red giant phase actually consists of two distinct stages, separated by a period of stable helium fusion.</p>
-
-          <h3>Red Giant Branch (RGB)</h3>
-          <p>The RGB is the first red giant phase. The star has an inert helium core and is fusing hydrogen in a shell. As the core contracts and the envelope expands, the star becomes more and more luminous, "climbing" the red giant branch on the H-R diagram. This phase ends with the helium flash (for low-mass stars) or the smooth ignition of helium (for more massive stars).</p>
-
-          <h3>Horizontal Branch</h3>
-          <p>After helium ignition, the star settles into a stable phase of helium core burning, with hydrogen shell burning continuing above it. The star becomes hotter and less luminous, moving to the horizontal branch of the H-R diagram. This phase is relatively stable and lasts 100-200 million years for a Sun-like star.</p>
-
-          <h3>Asymptotic Giant Branch (AGB)</h3>
-          <p>When core helium is exhausted, the star enters its second red giant phase: the asymptotic giant branch. Now the star has an inert carbon-oxygen core, a helium-burning shell, and above that a hydrogen-burning shell. This double shell burning makes AGB stars extremely luminous—often 1,000-10,000 times the Sun's luminosity.</p>
-
-          <h3>Thermal Pulses</h3>
-          <p>AGB stars experience thermal pulses—periodic instabilities where the helium shell briefly becomes much more active, causing the star to brighten and pulsate. These pulses occur every few thousand years and cause the star to dredge up material from deep within, bringing carbon and other heavy elements to the surface. This is why many AGB stars are carbon stars, with more carbon than oxygen in their atmospheres.</p>
-
-          <h3>Mass Loss and Planetary Nebulae</h3>
-          <p>AGB stars lose mass prodigiously via strong stellar winds, shedding up to 10⁻⁵ solar masses per year. Over time, the entire envelope is blown away, revealing the hot core as a <a href="/atlas/stars/white-dwarfs/">white dwarf</a>. The ejected material forms a planetary nebula—a glowing shell of gas ionized by the ultraviolet radiation from the exposed core.</p>
+          <h2>Composition and Layers</h2>
+          <p>Red giants have a complex internal structure, quite different from main sequence stars.</p>
+          <h3>The Helium Core</h3>
+          <p>At the center of a red giant on the RGB is an inert helium core, left behind from billions of years of hydrogen fusion. This core is incredibly dense—roughly the size of Earth but containing much of the star's original mass.</p>
+          <h3>Hydrogen-Burning Shell</h3>
+          <p>Surrounding the helium core is a thin shell where hydrogen fusion continues. This shell produces most of the star's energy during the red giant phase and gradually moves outward through the star as it processes more hydrogen.</p>
+          <h3>The Convective Envelope</h3>
+          <p>The vast, cool outer layers form a deep convective envelope where energy is transported upward by the mixing of hot and cool gas. This deep convection can dredge up material from deeper layers, enriching the surface with nuclear fusion products.</p>
+          <h3>Stellar Winds</h3>
+          <p>Red giants have powerful stellar winds that continuously shed mass into space. These winds play a crucial role in determining the star's eventual fate and enrich the interstellar medium with heavy elements.</p>
         </section>
 
         <!-- Notable Examples -->
         <section id="examples" class="content-section">
           <h2>Notable Red Giant Stars</h2>
-          <p>Many bright, familiar stars are red giants, visible to the naked eye and showcasing this evolutionary stage.</p>
-
-          <h3>Arcturus (Alpha Boötis)</h3>
-          <p>Arcturus is the brightest star in the northern celestial hemisphere and the fourth-brightest star overall. At a distance of 36.7 light-years, Arcturus is an orange giant with a radius about 25 times the Sun's and a luminosity of about 170 times the Sun. It's significantly more massive than the Sun and is likely in the final stages before becoming a white dwarf.</p>
-
+          <p>Many of the most recognizable stars in the night sky are red giants, their high luminosity making them visible despite being much farther away than most stars we see.</p>
+          <h3>Arcturus (Alpha Bootis)</h3>
+          <p>The brightest star in the northern celestial hemisphere and fourth brightest overall, Arcturus is an orange giant about 36 light-years away. It shines at magnitude -0.05, is about 25 times the radius of the Sun, 170 times more luminous, and has a surface temperature of 4,286 K.</p>
           <h3>Aldebaran (Alpha Tauri)</h3>
-          <p>The "eye" of Taurus the Bull, Aldebaran is an orange giant located 65 light-years away. It has expanded to about 44 times the Sun's radius and is about 150 times more luminous. Aldebaran has a small companion star, though it's invisible to the naked eye. The star is notable for its distinctive orange color, easily visible without optical aid.</p>
-
+          <p>The red "eye" of Taurus the Bull, Aldebaran is a prominent orange giant about 65 light-years away. With a radius about 44 times the Sun's and a surface temperature of 3,900 K, it is a classic example of a K-type giant.</p>
           <h3>Mira (Omicron Ceti)</h3>
-          <p>Mira is a famous <a href="/atlas/stars/variable-stars/">variable star</a> and an AGB star experiencing strong pulsations. It varies in brightness over an 11-month period, at maximum becoming visible to the naked eye but at minimum requiring a telescope. Mira is losing mass rapidly and will soon shed its envelope to form a planetary nebula. It also has a trailing "tail" of material 13 light-years long, created as it moves through the interstellar medium.</p>
-
-          <h3>Betelgeuse (Alpha Orionis)</h3>
-          <p>While technically a red <a href="/atlas/stars/supergiants/">supergiant</a> rather than a red giant (due to its high mass), Betelgeuse deserves mention as the most famous red-hued evolved star. Located about 550 light-years away in Orion, Betelgeuse is nearing the end of its life and will likely explode as a supernova within the next 100,000 years.</p>
-
-          <h3>Gamma Crucis</h3>
-          <p>The third-brightest star in the Southern Cross, Gamma Crucis is a red giant about 88 light-years away. It has expanded to about 84 times the Sun's radius and is about 1,500 times more luminous. Its distinctive red-orange color contrasts beautifully with the blue-white stars that make up the rest of the Southern Cross.</p>
+          <p>The prototype "long-period variable" red giant, Mira pulsates with a period of about 332 days, varying in brightness by a factor of 1,500. At maximum it can shine at magnitude 2 (easily visible), at minimum around magnitude 10. Mira is about 400 light-years away.</p>
+          <h3>Pollux (Beta Geminorum)</h3>
+          <p>The brightest star in Gemini, Pollux is an orange giant about 34 light-years away with a confirmed extrasolar planet orbiting it. It represents a relatively cool, luminous K-type giant that the Sun will eventually resemble.</p>
         </section>
 
         <!-- Observation -->
         <section id="observation" class="content-section">
           <h2>Observing Red Giants</h2>
-          <p>Red giants are among the easiest stars to observe due to their high luminosity and distinctive color. Many are visible to the naked eye.</p>
-
-          <h3>Visual Observations</h3>
-          <p>Red giants stand out in the night sky due to their color. Stars like Arcturus, Aldebaran, and Antares are noticeably orange or reddish even without optical aid. Binoculars or small telescopes enhance the color perception and reveal many fainter red giants. Color contrast is particularly striking in clusters where blue main sequence stars and red giants coexist.</p>
-
-          <h3>What Telescopes Reveal</h3>
-          <p>Professional observations of red giants focus on their variability, mass loss, and chemical composition. Interferometry can resolve the largest red giants, revealing their bloated photospheres and, in some cases, spots and asymmetries. Infrared observations reveal the dust shells surrounding AGB stars, created as material lost via stellar winds condenses and forms grains.</p>
-
-          <h3>Red Giants in Clusters</h3>
-          <p>Globular and open star clusters are excellent places to observe red giants. In a typical cluster, the brightest stars are red giants—former main sequence stars that have evolved as the cluster aged. The H-R diagram of a cluster clearly shows the red giant branch, and the properties of these giants tell us the cluster's age.</p>
-        </section>
-
-        <!-- Future Sun -->
-        <section id="future-sun" class="content-section">
-          <h2>The Sun's Red Giant Future</h2>
-          <p>In about 5 billion years, our Sun will exhaust its core hydrogen and become a red giant, with dramatic consequences for the inner solar system.</p>
-
-          <h3>Timeline of Solar Evolution</h3>
-          <p>The Sun is currently about 4.6 billion years old and halfway through its main sequence life. In roughly 5 billion years, it will begin to expand. The red giant phase will unfold over about 1-2 billion years, divided into the RGB phase, horizontal branch, and AGB phase.</p>
-
-          <h3>The Expansion</h3>
-          <p>As a red giant, the Sun will expand to perhaps 200-250 times its current radius—roughly the distance to Earth's orbit or beyond. Mercury and Venus will almost certainly be engulfed and destroyed. Earth's fate is less certain: tidal effects and mass loss from the Sun may push Earth's orbit outward, possibly allowing it to survive. However, even if Earth isn't swallowed, it will be rendered completely lifeless, its oceans and atmosphere long since boiled away.</p>
-
-          <h3>Planetary Nebula Formation</h3>
-          <p>After about 1 billion years as an AGB star, the Sun will have lost perhaps 40-50% of its mass via stellar winds. The remaining envelope will be ejected over a few thousand years, creating a planetary nebula—a beautiful shell of glowing gas expanding into space. At the center will be the Sun's exposed core: a <a href="/atlas/stars/white-dwarfs/">white dwarf</a> about the size of Earth but containing half the Sun's current mass.</p>
-
-          <h3>Outer Solar System Effects</h3>
-          <p>The outer planets—Jupiter, Saturn, Uranus, and Neptune—will survive the Sun's red giant phase, though their orbits will be pushed outward by the Sun's mass loss. Their temperatures will briefly rise as the Sun becomes more luminous, potentially creating temporary habitable conditions on some of their moons. However, these hospitable conditions will last only a few hundred million years before the Sun fades to a white dwarf.</p>
+          <p>Red giants are among the easiest types of stars to identify visually, thanks to their distinctive red-orange coloration and high brightness. Many of the brightest stars in the sky are red or orange giants.</p>
+          <h3>Identifying Red Giants by Color</h3>
+          <p>The reddish tint of stars like Arcturus (orange), Aldebaran (orange-red), and Antares (reddish) is immediately apparent to the naked eye under good conditions. Their color directly indicates cool surface temperatures (3,500-5,000 K).</p>
+          <h3>Seasonal Visibility</h3>
+          <p>Different red giants dominate different seasons. Arcturus is a spring and summer star in the northern hemisphere, while Aldebaran is prominent in winter skies. Antares (a red supergiant) marks the heart of Scorpius and is best seen in summer.</p>
+          <h3>Variable Red Giants</h3>
+          <p>Several red giants are variable stars worth monitoring. Mira (Omicron Ceti) varies dramatically between magnitudes 2 and 10 over 332 days and is tracked by amateur astronomers worldwide through the AAVSO.</p>
         </section>
 
         <!-- Interesting Facts -->
         <section id="fun-facts" class="content-section">
           <h2>Interesting Facts About Red Giants</h2>
-          <p>Red giants are fascinating objects full of extremes and surprises.</p>
-
           <ul class="facts-list">
-            <li><strong>Bigger Than Earth's Orbit:</strong> The largest red giants can exceed 200 solar radii—large enough that if placed at the Sun's location, they would extend beyond Earth's orbit. The Sun itself will likely expand to about 1 AU (the Earth-Sun distance) during its red giant phase.</li>
-
-            <li><strong>Incredibly Diffuse Outer Layers:</strong> The outer envelope of a red giant is astonishingly diffuse, with densities lower than Earth's atmosphere at sea level. In fact, the outermost layers approach the vacuum of space. If you could somehow stand on a solid surface within a red giant's envelope, the "sky" would be nearly as empty as interstellar space.</li>
-
-            <li><strong>The Helium Flash Galaxy:</strong> During the helium flash in a low-mass red giant's core, the energy released briefly equals that of an entire galaxy—about 10¹¹ solar luminosities. However, this enormous energy is absorbed by the surrounding stellar material and doesn't escape. The star doesn't visibly change during the helium flash.</li>
-
-            <li><strong>Carbon Stars:</strong> Some AGB stars become carbon stars after thermal pulses dredge up carbon from the interior. These stars have more carbon than oxygen in their atmospheres, a reversal of the usual cosmic abundance. Carbon stars appear distinctly reddish and are surrounded by carbon-rich dust that will eventually become material for new planetary systems.</li>
-
-            <li><strong>Life-Giving Deaths:</strong> Red giants and AGB stars are major sources of carbon, nitrogen, and oxygen in the universe. These elements, created via nuclear fusion and brought to the surface via convection and dredge-up, are ejected into space via stellar winds and planetary nebulae. This material enriches the interstellar medium and becomes part of future generations of stars and planets.</li>
-
-            <li><strong>Planetary Nebula Misnomer:</strong> Planetary nebulae have nothing to do with planets. The name was coined in the 1700s when these objects appeared round and planet-like in small telescopes. We now know they're the ejected envelopes of red giants, but the misleading name has stuck.</li>
-
-            <li><strong>Mass Loss Extremes:</strong> AGB stars can lose mass at rates up to 10⁻⁴ solar masses per year—the entire mass of Earth every 30,000 years. This stellar wind is driven by radiation pressure on dust grains that form in the cool, extended atmosphere.</li>
-
-            <li><strong>Technetium in Starlight:</strong> Astronomers have detected technetium—an element with no stable isotopes—in the spectra of some AGB stars. The longest-lived technetium isotope has a half-life of only 4 million years. Its presence proves that nuclear fusion is actively occurring and bringing freshly synthesized elements to the surface.</li>
+            <li><strong>Future Sun:</strong> Our own Sun will become a red giant in approximately 5 billion years, potentially engulfing Earth as it swells to over 100 times its current radius.</li>
+            <li><strong>Planetary Nebula Factories:</strong> When a red giant eventually sheds its outer layers, it creates a beautiful planetary nebula. The Ring Nebula (M57) is a classic example of such a remnant.</li>
+            <li><strong>Arcturus Navigation:</strong> Arcturus is easily found by following the arc of the Big Dipper's handle outward—"Arc to Arcturus." It has been used for navigation since ancient times.</li>
+            <li><strong>Ancient Bright Stars:</strong> Many of the 50 brightest stars in the night sky are red or orange giants. Their high luminosity makes them visible at much greater distances than typical main sequence stars.</li>
+            <li><strong>Planetary Survivors:</strong> Some planets orbiting red giants may survive the expansion phase if they orbit far enough out. Gas giant planets at several AU could persist as the star inflates.</li>
+            <li><strong>Element Factories:</strong> Red giants produce significant amounts of carbon, nitrogen, and other elements through nuclear burning. When mass is shed, these elements enrich the interstellar medium for future star and planet formation.</li>
+            <li><strong>Helium Flash Energy:</strong> The helium flash in a Sun-like star releases energy comparable to the Sun's entire main sequence output compressed into a few minutes—yet is completely invisible from outside.</li>
+            <li><strong>Pulsating Giants:</strong> Many red giants pulsate, slowly expanding and contracting over months to years. These pulsations cause predictable brightness changes and were among the first types of variable stars studied systematically.</li>
           </ul>
         </section>
 
@@ -311,10 +231,10 @@ const faqData = [
         <section id="resources" class="content-section">
           <h2>External Resources</h2>
           <ul class="resource-list">
-            <li><a href="https://science.nasa.gov/universe/stars/" target="_blank" rel="noopener">NASA Stars Overview</a> - Official NASA page about stars and stellar evolution</li>
-            <li><a href="https://en.wikipedia.org/wiki/Red_giant" target="_blank" rel="noopener">Red Giant on Wikipedia</a> - Comprehensive encyclopedia article</li>
-            <li><a href="https://en.wikipedia.org/wiki/Asymptotic_giant_branch" target="_blank" rel="noopener">Asymptotic Giant Branch on Wikipedia</a> - Detailed article on the AGB phase</li>
-            <li><a href="https://www.eso.org/public/astronomy-basics/stellar-basics/" target="_blank" rel="noopener">ESO Stellar Basics</a> - European Southern Observatory educational resource</li>
+            <li><a href="https://science.nasa.gov/universe/stars/" target="_blank" rel="noopener">NASA Stars &amp; Stellar Evolution</a> - NASA's overview of star types and life cycles</li>
+            <li><a href="https://en.wikipedia.org/wiki/Red_giant" target="_blank" rel="noopener">Red Giant on Wikipedia</a> - Comprehensive encyclopedia article on red giant stars</li>
+            <li><a href="https://www.esa.int/Science_Exploration/Space_Science/Stars" target="_blank" rel="noopener">ESA Stars</a> - European Space Agency stellar science resources</li>
+            <li><a href="https://en.wikipedia.org/wiki/Stellar_evolution" target="_blank" rel="noopener">Stellar Evolution on Wikipedia</a> - Full stellar evolution from birth to death</li>
           </ul>
         </section>
 
@@ -468,7 +388,7 @@ const faqData = [
   }
 
   .breadcrumbs li:not(:last-child)::after {
-    content: '›';
+    content: '\u203a';
     color: var(--color-text-secondary);
   }
 
@@ -686,6 +606,18 @@ const faqData = [
   .info-box li {
     font-size: 1rem;
     margin-bottom: 0.4rem;
+  }
+
+  .data-source {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    opacity: 0.7;
+    margin-top: -0.5rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .data-source a {
+    color: var(--color-accent-cyan);
   }
 
   /* Mission List */

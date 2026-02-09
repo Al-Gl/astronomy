@@ -138,6 +138,64 @@ try {
     </section>
   )}
 
+  <!-- Featured Articles Section -->
+  <section class="featured-articles">
+    <div class="container">
+      <h2 class="section-title">Featured Articles</h2>
+      <p class="section-subtitle">Explore our most popular cosmic content</p>
+
+      <div class="featured-grid">
+        <!-- Earth -->
+        <a href="/atlas/solar-system/earth/" class="featured-card glass-card">
+          <span class="category-badge atlas">Solar System</span>
+          <h3>Earth: Our Home Planet</h3>
+          <p>Complete guide to Earth covering its unique features, atmosphere, geology, the Moon, and why our planet is the only known world to harbor life.</p>
+          <span class="card-arrow">Read Article →</span>
+        </a>
+
+        <!-- Mars -->
+        <a href="/atlas/solar-system/mars/" class="featured-card glass-card">
+          <span class="category-badge atlas">Solar System</span>
+          <h3>Mars: The Red Planet</h3>
+          <p>Explore the geology, polar ice caps, ancient riverbeds, and the ongoing search for life on the rusty red neighbor to Earth.</p>
+          <span class="card-arrow">Read Article →</span>
+        </a>
+
+        <!-- Jupiter -->
+        <a href="/atlas/solar-system/jupiter/" class="featured-card glass-card">
+          <span class="category-badge atlas">Solar System</span>
+          <h3>Jupiter: King of Planets</h3>
+          <p>Discover the massive gas giant with its Great Red Spot, powerful magnetosphere, and 95 known moons orbiting the largest planet in our solar system.</p>
+          <span class="card-arrow">Read Article →</span>
+        </a>
+
+        <!-- Stargazing in Scandinavia -->
+        <a href="/chronicles/stargazing-scandinavia/" class="featured-card glass-card">
+          <span class="category-badge chronicles">Chronicles</span>
+          <h3>Stargazing in Scandinavia</h3>
+          <p>Complete guide to observing dark skies and Northern Lights across Norway, Sweden, Finland, and Iceland.</p>
+          <span class="card-arrow">Read Article →</span>
+        </a>
+
+        <!-- Black Holes -->
+        <a href="/atlas/stars/black-holes/" class="featured-card glass-card">
+          <span class="category-badge atlas">Stars</span>
+          <h3>Black Holes: Where Gravity Rules</h3>
+          <p>Understanding event horizons, singularities, Hawking radiation, and how gravitational waves revealed merging black holes.</p>
+          <span class="card-arrow">Read Article →</span>
+        </a>
+
+        <!-- Choosing First Binoculars -->
+        <a href="/observatory/binoculars/choosing-first-binoculars/" class="featured-card glass-card">
+          <span class="category-badge observatory">Observatory</span>
+          <h3>Choosing Your First Binoculars</h3>
+          <p>Expert guide to selecting astronomy binoculars covering magnification, aperture, field of view, and recommended models for stargazing.</p>
+          <span class="card-arrow">Read Article →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- About Section -->
   <section class="about">
     <div class="container">
@@ -281,6 +339,134 @@ try {
   /* Desktop: 3-column clean grid */
   @media (min-width: 768px) {
     .cards-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* Featured Articles Section */
+  .featured-articles {
+    padding: 4rem 0 6rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .featured-articles .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: 0.01em;
+    text-align: center;
+  }
+
+  .section-subtitle {
+    font-size: 0.9375rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    margin: 0 0 3rem 0;
+  }
+
+  .featured-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  .featured-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+  }
+
+  .featured-card:hover {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(6, 182, 212, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .category-badge {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    padding: 0.375rem 0.75rem;
+    border-radius: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    align-self: flex-start;
+  }
+
+  .category-badge.atlas {
+    background: rgba(6, 182, 212, 0.15);
+    color: rgba(6, 182, 212, 0.9);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+  }
+
+  .category-badge.observatory {
+    background: rgba(59, 130, 246, 0.15);
+    color: rgba(59, 130, 246, 0.9);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+  }
+
+  .category-badge.chronicles {
+    background: rgba(168, 85, 247, 0.15);
+    color: rgba(168, 85, 247, 0.9);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+  }
+
+  .featured-card h3 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin: 0 0 0.75rem 0;
+    color: #ffffff;
+    letter-spacing: 0.01em;
+    line-height: 1.3;
+  }
+
+  .featured-card p {
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 0 1rem 0;
+    line-height: 1.6;
+    font-size: 0.9375rem;
+    font-weight: 300;
+    flex: 1;
+  }
+
+  .featured-card .card-arrow {
+    display: inline-block;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.5);
+    transition: color 0.2s ease;
+    font-size: 0.8125rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .featured-card:hover .card-arrow {
+    color: rgba(6, 182, 212, 0.9);
+  }
+
+  /* Responsive Grid */
+  @media (min-width: 640px) {
+    .featured-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .featured-grid {
       grid-template-columns: repeat(3, 1fr);
     }
   }

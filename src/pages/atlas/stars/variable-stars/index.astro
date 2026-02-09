@@ -1,0 +1,739 @@
+---
+import MainLayout from '../../../../layouts/MainLayout.astro';
+import Schema from '../../../../components/Schema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cosmic Atlas', url: '/atlas/' },
+  { name: 'Stars', url: '/atlas/stars/' },
+  { name: 'Variable Stars', url: '/atlas/stars/variable-stars/' }
+];
+
+const articleData = {
+  headline: 'Variable Stars: Stars with Changing Brightness',
+  description: 'Complete guide to variable stars that change in brightness over time. Learn about Cepheids, RR Lyrae, and how they measure cosmic distances.',
+  datePublished: '2025-01-22',
+  dateModified: '2025-01-22',
+  author: 'The Astronomy Space',
+  image: '/images/Hero_variable-stars.jpg',
+  keywords: ['variable stars', 'Cepheid', 'RR Lyrae', 'Mira', 'Delta Cephei', 'period-luminosity']
+};
+
+const faqData = [
+  {
+    question: 'What is a variable star?',
+    answer: 'A variable star is any star that changes in brightness over time. The changes can be periodic (repeating at regular intervals), semi-regular, or completely irregular. Variable stars change brightness for different physical reasons: some pulsate in and out, changing their size and temperature; some are <a href="/atlas/stars/binary-systems/">binary systems</a> where eclipses dim the combined light; others have eruptions, starspots, or mass transfer events. There are hundreds of thousands of known variable stars, and they span virtually all stages of stellar evolution.'
+  },
+  {
+    question: 'What are Cepheid variables?',
+    answer: 'Cepheid variables are pulsating stars that expand and contract with very regular periods, typically between 1 and 100 days. They are named after Delta Cephei, the prototype of this class. What makes them invaluable to astronomy is the period-luminosity relationship discovered by Henrietta Swan Leavitt in 1908: brighter Cepheids pulsate more slowly. By measuring a Cepheid\'s pulsation period, astronomers can calculate its true luminosity, and by comparing that to its apparent brightness, determine its distance. This makes Cepheids crucial \'standard candles\' for measuring cosmic distances.'
+  },
+  {
+    question: 'What are RR Lyrae variables?',
+    answer: 'RR Lyrae variables are pulsating stars similar to Cepheids but older and less massive. They pulsate with periods of 0.2 to 1 day and have very consistent luminosities of about 40-50 times the Sun\'s brightness. This consistent luminosity makes them excellent distance indicators for globular clusters and the halo of the Milky Way. RR Lyrae stars are always found in old stellar populations—they never occur in young star clusters. Because their periods are short, they are easy to identify by monitoring fields of older stars.'
+  },
+  {
+    question: 'What are Mira variables?',
+    answer: 'Mira variables (also called long-period variables) are cool <a href="/atlas/stars/red-giants/">red giant</a> or asymptotic giant branch stars that pulsate with periods ranging from 100 to over 1,000 days. They can vary by 2.5 magnitudes or more (a factor of 10 or more in brightness). Mira itself—Omicron Ceti—gives the class its name and varies over about 332 days from magnitude 2 (easily visible) to 10 (binoculars needed). During maximum brightness, Mira is one of the brightest stars in the sky; at minimum it can barely be detected with the naked eye.'
+  },
+  {
+    question: 'How are variable stars observed and studied?',
+    answer: 'Variable stars are studied by monitoring their brightness over time to create light curves—graphs showing how brightness changes. Professional astronomers use robotic telescopes and photometry, while amateur astronomers contribute significantly through the AAVSO (American Association of Variable Star Observers). With a basic telescope or even binoculars, amateurs can observe hundreds of variable stars. You compare the variable star\'s brightness to nearby \'comparison stars\' of known brightness. Some variables, like Algol, change noticeably over just a few hours.'
+  },
+  {
+    question: 'Why are variable stars important to astronomy?',
+    answer: 'Variable stars are crucial to multiple areas of astronomy. Cepheids and RR Lyrae stars serve as distance indicators, helping us measure the scale of the Milky Way and nearby galaxies. Their study led to the discovery of the expansion of the universe. Pulsating variables probe stellar interiors—their oscillation modes reveal internal structure. Eruptive variables (novae, symbiotic stars) teach us about mass transfer in binary systems. Long-period variables help us understand evolved stellar envelopes and mass loss. Variable star observations also have a long tradition of productive collaboration between professional and amateur astronomers.'
+  }
+];
+---
+
+<MainLayout
+  title='Variable Stars: Stars with Changing Brightness | The Astronomy Space'
+  description='Complete guide to variable stars that change in brightness over time. Learn about Cepheids, RR Lyrae, and how they measure cosmic distances.'
+>
+  <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
+  <Schema type="TechArticle" article={articleData} />
+  <Schema type="FAQPage" faq={faqData} />
+
+  <!-- Reading Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-image">
+      <img src="/images/Hero_variable-stars.jpg" alt="Variable Stars hero image" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/atlas/">Cosmic Atlas</a></li>
+          <li><a href="/atlas/stars/">Stars</a></li>
+          <li aria-current="page">Variable Stars</li>
+        </ol>
+      </nav>
+      <h1>Variable Stars</h1>
+      <p class="hero-subtitle">Stars That Change Their Light</p>
+    </div>
+  </section>
+
+  <!-- Main Article Content -->
+  <article class="content-wrapper">
+    <div class="article-layout">
+
+      <!-- Sticky Table of Contents (Left Sidebar) -->
+      <aside class="toc-sidebar">
+        <nav class="toc" aria-label="Table of Contents">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#characteristics">Types & Characteristics</a></li>
+            <li><a href="#evolution">Period-Luminosity Relation</a></li>
+            <li><a href="#observation">Observing Variables</a></li>
+            <li><a href="#facts">Interesting Facts</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-content">
+
+        <!-- Answer Capsule -->
+        <aside class="answer-capsule">
+          <div class="capsule-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <p>Variable stars change in brightness over time—either periodically or irregularly. Cepheid variables are among the most important objects in astronomy because their pulsation periods relate to luminosity, making them valuable cosmic distance indicators.</p>
+        </aside>
+
+        <section id="intro" class="content-section">
+          <h2>Introduction to Variable Stars</h2>
+          <p>Not all stars shine with constant brightness. Variable stars change their luminosity over time—sometimes rhythmically, sometimes erratically, sometimes dramatically. These changes can result from physical processes within the star itself (intrinsic variability) or from geometric effects like eclipses in <a href="/atlas/stars/binary-systems/">binary systems</a> (extrinsic variability). Variable stars span virtually every stage of stellar evolution, from young protostars still coalescing to ancient stellar remnants approaching their final deaths.</p>
+          <p>The importance of variable stars to astronomy cannot be overstated. Cepheid variables, with their reliable period-luminosity relationship, serve as cosmic distance indicators that helped Edwin Hubble discover the expansion of the universe. RR Lyrae stars map the structure of globular clusters and the galactic halo. Eclipsing binaries allow precise determination of stellar masses and radii. Eruptive variables like novae and supernovae probe extreme physics and chemical evolution. Variable stars are not just curiosities—they are essential tools for understanding the cosmos.</p>
+          <p>The study of variable stars has a rich history of amateur-professional collaboration. Henrietta Swan Leavitt's groundbreaking discovery of the Cepheid period-luminosity relation in 1908, made while working as a "computer" at Harvard Observatory, revolutionized astronomy by providing a method to measure cosmic distances. Today, organizations like the American Association of Variable Star Observers (AAVSO) coordinate thousands of amateur astronomers worldwide, whose observations contribute to professional research and long-term monitoring campaigns impossible for professional observatories alone.</p>
+          <p>Variable stars reveal stellar interiors through asteroseismology—the study of stellar oscillations. Just as geologists use earthquakes to probe Earth's interior, astronomers use pulsations to study layers inside stars that direct observation cannot reach. The frequencies and modes of stellar oscillations depend on the star's internal structure, composition, and evolutionary state, making variable stars natural laboratories for testing stellar physics.</p>
+        </section>
+        <section id="characteristics" class="content-section">
+          <h2>Types and Characteristics</h2>
+          <p>Variable stars are classified into numerous categories based on their variability mechanisms, light curve shapes, periods, and amplitudes. The General Catalogue of Variable Stars (GCVS) lists over 50 types, ranging from massive eclipsing binaries to pulsating white dwarfs. Understanding these classifications reveals the rich diversity of stellar behavior.</p>
+          <div class="info-box glass">
+            <h3>Variable Star Quick Facts</h3>
+            <ul>
+              <li><strong>Main Types:</strong> Pulsating, eclipsing, eruptive, rotating, cataclysmic</li>
+              <li><strong>Period Range:</strong> Minutes (pulsars) to years (long-period variables)</li>
+              <li><strong>Amplitude Range:</strong> 0.001 mag (microvariables) to 20+ mag (supernovae)</li>
+              <li><strong>Key Examples:</strong> Delta Cephei, Mira, Algol, RR Lyrae</li>
+              <li><strong>Distance Indicators:</strong> Cepheids, RR Lyrae, Type Ia supernovae</li>
+              <li><strong>Known Variables:</strong> >500,000 cataloged, millions more exist</li>
+            </ul>
+          </div>
+          <p class="data-source">Data: <a href="https://science.nasa.gov/universe/stars/" target="_blank" rel="noopener noreferrer">NASA Stars & Variable Stars</a></p>
+          <p>Light curves—graphs of brightness versus time—are the fundamental tool for studying variable stars. The shape of a light curve reveals physical properties: sharp, symmetric variations suggest pulsations; asymmetric curves with steep rises and gradual declines indicate certain pulsation modes; periodic dips of specific shapes reveal eclipsing binaries. Modern photometric surveys generate light curves for millions of stars simultaneously, discovering new variables at an unprecedented rate.</p>
+          <h3>Pulsating Variables</h3>
+          <p>Pulsating variables physically expand and contract, changing their radius, temperature, and luminosity periodically. Pulsation occurs when the star's natural oscillation frequencies are excited—the entire star acts as a resonant cavity. The kappa mechanism drives most pulsations: partially ionized helium in the stellar envelope acts as a heat engine, absorbing radiation during compression and releasing it during expansion, sustaining the oscillation.</p>
+          <p>Pulsating variables occupy a region on the Hertzsprung-Russell diagram called the instability strip, stretching from hot, luminous supergiants down through Cepheids and RR Lyrae stars to hot white dwarfs. Stars crossing this strip during their evolution develop pulsations; stars outside it remain stable.</p>
+          <h3>Cepheid Variables</h3>
+          <p>Cepheid variables are yellow supergiants that pulsate with periods between 1 and 100 days, expanding and contracting by ~10% in radius. They are named after Delta Cephei, discovered to be variable in 1784. What makes Cepheids invaluable is the period-luminosity relation: more luminous Cepheids pulsate more slowly. By measuring a Cepheid's period (easy from a light curve), astronomers calculate its intrinsic luminosity, and by comparing this to its apparent brightness, determine its distance. This makes Cepheids "standard candles" for cosmic distance measurement.</p>
+          <p>Classical Cepheids are massive (5-20 M☉), young stars in the instability strip. Type II Cepheids (W Virginis stars) are older, less massive, metal-poor stars with similar periods but lower luminosities, requiring care in distance measurements.</p>
+          <h3>RR Lyrae Variables</h3>
+          <p>RR Lyrae stars are old, low-mass stars (0.6-0.8 M☉) in the instability strip, pulsating with periods between 0.2 and 1 day. Unlike Cepheids, they have relatively uniform luminosities (~40-50 L☉), making them standard candles for measuring distances to globular clusters and the galactic halo. Because they're older stars, RR Lyrae variables trace ancient stellar populations—they never appear in young star clusters.</p>
+          <h3>Mira Variables and Long-Period Variables</h3>
+          <p>Mira variables are cool <a href="/atlas/stars/red-giants/">red giants</a> or asymptotic giant branch stars that pulsate with periods from 100 to over 1,000 days and amplitudes exceeding 2.5 magnitudes (a factor of 10 in brightness). Mira itself (Omicron Ceti) varies from magnitude 2 (easily visible) to magnitude 10 (requires binoculars) over roughly 332 days. These stars are shedding their outer envelopes through pulsation-driven mass loss, on their way to becoming planetary nebulae with <a href="/atlas/stars/white-dwarfs/">white dwarf</a> cores.</p>
+        </section>
+        <section id="evolution" class="content-section">
+          <h2>Evolution and the Period-Luminosity Relation</h2>
+          <p>Variable stars appear at multiple stages of stellar evolution. Young stars show variability from spots, flares, and accretion. Evolved stars crossing the instability strip develop pulsations. Binary interactions produce eclipsing and eruptive variables. Understanding where variables fit in stellar evolution unlocks their power as astrophysical tools.</p>
+          <h3>The Cosmic Distance Ladder</h3>
+          <p>The period-luminosity relation for Cepheids revolutionized astronomy by providing a method to measure distances beyond the reach of parallax. Henrietta Leavitt discovered in 1908 that Cepheids in the Small Magellanic Cloud (all at essentially the same distance) showed a clear relationship: longer period meant higher luminosity. This allows "standard candle" distance measurements: measure the period, calculate intrinsic luminosity, compare to apparent brightness, and derive distance.</p>
+          <p>Edwin Hubble used this relation in the 1920s to measure distances to nearby galaxies, proving they lay far outside the Milky Way and establishing the expanding universe. Cepheids remain crucial rungs in the cosmic distance ladder, calibrated against closer distance indicators and extending measurements to tens of millions of light-years.</p>
+          <h3>Eclipsing Binaries as Precision Tools</h3>
+          <p>Eclipsing binaries, though caused by geometric effects rather than intrinsic stellar changes, provide unmatched precision for measuring stellar properties. The light curve shape reveals the stars' relative sizes and temperatures. Combined with spectroscopy (yielding orbital velocities), eclipsing binaries allow determination of stellar masses and radii to within 1-2%—far better than any other method. These measurements anchor stellar evolution models and test theoretical predictions.</p>
+          <h3>Eruptive Variables and Mass Loss</h3>
+          <p>Some variables experience sudden, dramatic brightening from eruptions. Novae occur in <a href="/atlas/stars/binary-systems/">binary systems</a> where a white dwarf accretes hydrogen from a companion; when enough material builds up, explosive thermonuclear fusion ignites, brightening the system by 10-15 magnitudes. The white dwarf survives and the process can repeat. Supernovae represent stellar death—either core collapse of massive stars or thermonuclear explosion of white dwarfs—and briefly outshine entire galaxies.</p>
+          <p>Young stellar objects show erratic variability from changing accretion rates, stellar spots, and disk instabilities. T Tauri stars can vary by several magnitudes over days to months, reflecting the chaotic dynamics of star formation. FU Orionis objects undergo dramatic outbursts lasting decades, possibly from disk material dumping onto the protostar.</p>
+          <h3>Rotating Variables and Starspots</h3>
+          <p>Some stars vary due to rotation bringing darker or brighter features into view. The Sun shows 0.1% brightness variations over its 11-year activity cycle from changing sunspot coverage. More active stars with larger spots show variations of several percent as rotation carries spots across the visible disk. BY Draconis variables, young K and M dwarfs with strong magnetic activity, can vary by 0.5 magnitudes from starspots. These variations reveal stellar rotation rates, activity cycles, and magnetic field strengths.</p>
+        </section>
+        <section id="observation" class="content-section">
+          <h2>Observing Variable Stars</h2>
+          <p>Variable star observation is one of the most accessible areas of astronomical research for amateur astronomers. Many variables are bright enough to observe with binoculars or the naked eye, making systematic monitoring possible for thousands of observers worldwide. This citizen science contributes genuine value to professional research.</p>
+          <h3>Visual Observation Methods</h3>
+          <p>The fundamental technique for observing variables is comparing the variable's brightness to nearby "comparison stars" of known, constant magnitude. By estimating where the variable falls between two comparison stars, observers can determine its magnitude to ~0.1-0.2 mag precision—sufficient for tracking most variables. Charts from organizations like AAVSO show the variable and labeled comparison stars, making observations straightforward.</p>
+          <p>Binoculars or small telescopes open up thousands of variables. Many eclipsing binaries, Mira variables, and Cepheids are accessible. Recording observations in standardized format and submitting to databases like the AAVSO builds valuable long-term light curves spanning decades or even centuries for some stars.</p>
+          <h3>Notable Variable Stars to Observe</h3>
+          <p><strong>Algol (Beta Persei):</strong> The most famous eclipsing binary, visible to the naked eye. Every 2.867 days, Algol dims from magnitude 2.1 to 3.4 over about 5 hours, remains faint for 20 minutes, then brightens over the next 5 hours. Watching Algol's eclipse unfold in a single night demonstrates celestial mechanics directly.</p>
+          <p><strong>Delta Cephei:</strong> The prototype Cepheid variable, pulsating between magnitudes 3.5 and 4.4 over 5.366 days. It's easily visible in binoculars and shows the characteristic asymmetric light curve of Cepheids—a rapid rise to maximum followed by slower decline to minimum.</p>
+          <p><strong>Mira (Omicron Ceti):</strong> The wonderful star ("Mira" means wonderful in Latin) varies from magnitude 2 (occasionally naked-eye visible) to magnitude 10 (requiring binoculars) over approximately 332 days. At maximum, Mira becomes one of the brightest stars in Cetus; at minimum, it's invisible without optical aid. Observing a complete Mira cycle gives insight into evolved star pulsations.</p>
+          <p><strong>Beta Lyrae:</strong> A close binary where both stars are distorted by mutual tidal forces into egg shapes, continuously exchanging mass. It varies between magnitudes 3.3 and 4.4 with a 12.9-day period, accessible to naked-eye observers. The light curve shows continuous variation (not discrete eclipses), revealing the complex geometry.</p>
+          <p><strong>R Scuti:</strong> An RV Tauri variable—a type of evolved star showing alternating deep and shallow minima. It varies between magnitudes 4.5 and 8.8 over roughly 140 days, easily followed with binoculars. Its complex light curve demonstrates mode interactions in pulsating stars.</p>
+          <h3>The AAVSO and Citizen Science</h3>
+          <p>The American Association of Variable Star Observers, founded in 1911, coordinates amateur variable star observations worldwide. The AAVSO database contains over 38 million observations spanning more than a century, providing invaluable long-term coverage impossible for professional observatories. Amateur observers have discovered novae, documented outbursts, monitored cataclysmic variables, and supported space missions. Variable star observation is one of the most impactful contributions amateurs can make to astronomical science.</p>
+        </section>
+        <section id="facts" class="content-section">
+          <h2>Interesting Facts About Variable Stars</h2>
+          <ul class="facts-list">
+            <li><strong>Henrietta Leavitt's Legacy:</strong> Henrietta Swan Leavitt discovered the Cepheid period-luminosity relation in 1908 while working as one of the "Harvard Computers"—women hired to analyze photographic plates for Edward Pickering. Her discovery provided the first method to measure cosmic distances beyond the Milky Way, fundamentally changing our understanding of the universe's scale. Despite its importance, Leavitt received little recognition during her lifetime and died of cancer in 1921 at age 53.</li>
+            <li><strong>AAVSO's Century of Data:</strong> The American Association of Variable Star Observers has coordinated amateur observations since 1911, accumulating over 38 million observations of more than 20,000 variable stars. This century-spanning database captures variations on timescales impossible for professional observatories, revealing long-term cycles, secular trends, and rare outbursts. Amateur contributions have been cited in thousands of professional papers.</li>
+            <li><strong>The Cosmic Distance Ladder:</strong> Measuring cosmic distances requires a "ladder" of methods, each calibrated against the previous rung. Variable stars form crucial rungs: parallax measurements calibrate RR Lyrae distances; RR Lyrae calibrate Cepheid distances; Cepheids calibrate Type Ia supernova distances; Type Ia supernovae reach billion-light-year distances where cosmic expansion becomes measurable. Errors at any rung propagate upward, making variable star calibration critical for cosmology.</li>
+            <li><strong>Instability Strip:</strong> On the Hertzsprung-Russell diagram, pulsating variables occupy a diagonal band called the instability strip, where the kappa mechanism—partial ionization of helium acting as a heat engine—drives pulsations. Stars evolve across the strip during their lifetimes, developing pulsations when they enter and becoming stable when they exit. The strip extends from hot, luminous supergiants (Cepheids) down to hot white dwarfs (ZZ Ceti stars), encompassing multiple pulsator types.</li>
+            <li><strong>Blazhko Effect:</strong> Some RR Lyrae stars show amplitude and phase modulation on timescales of weeks to months, superimposed on their primary pulsation. This "Blazhko effect," discovered in 1907, remained mysterious for a century. Recent research suggests it results from resonance between the primary pulsation mode and other oscillation modes, or from magnetic field effects, but full understanding remains elusive.</li>
+            <li><strong>Hubble's Key Project:</strong> A major Hubble Space Telescope program from 1992-1999 observed Cepheids in distant galaxies to calibrate the Hubble constant—the universe's expansion rate. By measuring Cepheid distances to galaxies hosting Type Ia supernovae, the project determined H₀ to 10% precision, settling decades of debate over whether the universe was 10 or 20 billion years old. This established the foundation for modern precision cosmology.</li>
+            <li><strong>Asteroseismology:</strong> Just as seismologists use earthquake waves to probe Earth's interior, asteroseismologists use stellar oscillations to study stellar interiors. Different oscillation modes penetrate to different depths, revealing composition gradients, rotation profiles, and core properties. Space missions like CoRoT and Kepler revolutionized asteroseismology by detecting oscillations in thousands of stars, including solar-like oscillations with periods of minutes and amplitudes of parts per million.</li>
+            <li><strong>Fastest and Slowest:</strong> Variable stars span incredible timescale ranges. At the fast extreme, pulsars are rotating neutron stars varying in milliseconds, while some accreting white dwarfs show oscillations of seconds. At the slow extreme, some semi-regular variables have periods exceeding 2,000 days (over 5 years), and symbiotic stars show eruptions separated by decades. This diversity reflects the vast range of stellar types, evolutionary stages, and physical mechanisms producing variability.</li>
+          </ul>
+        </section>
+        <section id="resources" class="content-section">
+          <h2>External Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://science.nasa.gov/universe/stars/" target="_blank" rel="noopener">NASA Stars & Variable Stars</a> - Comprehensive guide to stellar types including variables</li>
+            <li><a href="https://www.aavso.org/" target="_blank" rel="noopener">American Association of Variable Star Observers (AAVSO)</a> - Leading organization for variable star observation and data</li>
+            <li><a href="https://en.wikipedia.org/wiki/Variable_star" target="_blank" rel="noopener">Variable Stars on Wikipedia</a> - Detailed encyclopedia article on variable star classification</li>
+            <li><a href="https://en.wikipedia.org/wiki/Cepheid_variable" target="_blank" rel="noopener">Cepheid Variables</a> - In-depth article on Cepheids and the period-luminosity relation</li>
+            <li><a href="https://www.esa.int/Science_Exploration/Space_Science/Gaia" target="_blank" rel="noopener">ESA Gaia Mission</a> - Space mission discovering and characterizing thousands of variables</li>
+          </ul>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="content-section faq-section">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-list">
+            {faqData.map((item) => (
+              <details class="faq-item">
+                <summary class="faq-question">{item.question}</summary>
+                <div class="faq-answer">
+                  <p set:html={item.answer}></p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </article>
+</MainLayout>
+
+<script>
+  // Reading Progress Bar
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    const progressBar = document.getElementById('progressBar');
+    if (progressBar) {
+      progressBar.style.width = scrollPercent + '%';
+    }
+  });
+
+  // Active TOC highlighting
+  const sections = document.querySelectorAll('.content-section');
+  const tocLinks = document.querySelectorAll('.toc a');
+
+  const observerOptions = {
+    rootMargin: '-20% 0% -70% 0%'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(section => observer.observe(section));
+</script>
+
+<style>
+  /* Progress Bar */
+  .progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+  }
+
+  .progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-blue));
+    transition: width 0.1s ease-out;
+  }
+
+  /* Hero Section */
+  .hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: var(--space-xl);
+  }
+
+  .hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    color: var(--color-accent-cyan);
+    font-weight: 500;
+  }
+
+  /* Breadcrumbs */
+  .breadcrumbs {
+    margin-bottom: var(--space-lg);
+  }
+
+  .breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumbs li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .breadcrumbs li:not(:last-child)::after {
+    content: '\u203a';
+    color: var(--color-text-secondary);
+  }
+
+  .breadcrumbs a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumbs a:hover {
+    color: var(--color-accent-cyan);
+  }
+
+  .breadcrumbs li[aria-current="page"] {
+    color: var(--color-text-primary);
+  }
+
+  /* Article Layout with Sidebar */
+  .content-wrapper {
+    padding: var(--space-2xl) 0;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+    gap: var(--space-xl);
+  }
+
+  @media (min-width: 1024px) {
+    .article-layout {
+      grid-template-columns: 220px 1fr;
+      gap: var(--space-2xl);
+    }
+  }
+
+  /* Sticky TOC Sidebar */
+  .toc-sidebar {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .toc-sidebar {
+      display: block;
+    }
+
+    .toc {
+      position: sticky;
+      top: calc(var(--space-xl) + 3px);
+      max-height: calc(100vh - var(--space-2xl));
+      overflow-y: auto;
+    }
+  }
+
+  .toc h2 {
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-md);
+    color: var(--color-text-secondary);
+  }
+
+  .toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .toc li {
+    margin-bottom: 0.25rem;
+  }
+
+  .toc a {
+    display: block;
+    padding: 0.5rem 0;
+    padding-left: var(--space-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    transition: all 0.2s ease;
+  }
+
+  .toc a:hover {
+    color: var(--color-text-primary);
+    border-left-color: rgba(6, 182, 212, 0.5);
+  }
+
+  .toc a.active {
+    color: var(--color-accent-cyan);
+    border-left-color: var(--color-accent-cyan);
+  }
+
+  /* Main Content */
+  .main-content {
+    max-width: 800px;
+  }
+
+  /* Answer Capsule */
+  .answer-capsule {
+    display: flex;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .answer-capsule::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(6, 182, 212, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .capsule-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    color: var(--color-accent-cyan);
+    opacity: 0.8;
+  }
+
+  .capsule-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .answer-capsule p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-primary);
+    position: relative;
+  }
+
+  /* Content Sections */
+  .content-section {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .content-section h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+    color: var(--color-text-primary);
+  }
+
+  .content-section h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+    color: var(--color-accent-cyan);
+  }
+
+  .content-section h4 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-sm);
+    color: var(--color-accent-blue);
+  }
+
+  .content-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+  }
+
+  .content-section ul,
+  .content-section ol {
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-lg);
+  }
+
+  .content-section li {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  /* Info Box */
+  .info-box {
+    padding: var(--space-lg);
+    margin: var(--space-lg) 0;
+  }
+
+  .info-box h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: var(--color-accent-blue);
+  }
+
+  .info-box ul {
+    margin: 0;
+    padding-left: var(--space-md);
+  }
+
+  .info-box li {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .data-source {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    opacity: 0.7;
+    margin-top: -0.5rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .data-source a {
+    color: var(--color-accent-cyan);
+  }
+
+  /* Mission List */
+  .mission-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .mission-list li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .mission-list li:last-child {
+    border-bottom: none;
+  }
+
+  /* Facts List */
+  .facts-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .facts-list li {
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .facts-list li:last-child {
+    border-bottom: none;
+  }
+
+  /* Resource List */
+  .resource-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .resource-list li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .resource-list li:last-child {
+    border-bottom: none;
+  }
+
+  .resource-list a {
+    color: var(--color-accent-cyan);
+    font-weight: 500;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .faq-item {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item[open] {
+    background: rgba(6, 182, 212, 0.05);
+    border-color: rgba(6, 182, 212, 0.2);
+  }
+
+  .faq-question {
+    padding: var(--space-md) var(--space-lg);
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.2s ease;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-accent-cyan);
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[open] .faq-question::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-question:hover {
+    color: var(--color-accent-cyan);
+  }
+
+  .faq-answer {
+    padding: 0 var(--space-lg) var(--space-lg);
+  }
+
+  .faq-answer p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+  }
+
+  /* Glassmorphism */
+  .glass {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 50vh;
+    }
+
+    .hero-content {
+      padding: var(--space-lg);
+    }
+
+    .article-layout {
+      padding: 0 var(--space-sm);
+    }
+
+    .answer-capsule {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .capsule-icon {
+      width: 32px;
+      height: 32px;
+    }
+  }
+</style>

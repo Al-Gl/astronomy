@@ -1,0 +1,741 @@
+---
+import MainLayout from '../../../../layouts/MainLayout.astro';
+import Schema from '../../../../components/Schema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cosmic Atlas', url: '/atlas/' },
+  { name: 'Stars', url: '/atlas/stars/' },
+  { name: 'Binary Star Systems', url: '/atlas/stars/binary-systems/' }
+];
+
+const articleData = {
+  headline: 'Binary Star Systems: Stars in Gravitational Harmony',
+  description: 'Complete guide to binary star systems - pairs of stars orbiting each other. Learn about mass transfer, eclipsing binaries, and X-ray binaries.',
+  datePublished: '2025-01-22',
+  dateModified: '2025-01-22',
+  author: 'The Astronomy Space',
+  image: '/images/Hero_binary-systems.jpg',
+  keywords: ['binary stars', 'eclipsing binary', 'Algol', 'X-ray binary', 'mass transfer']
+};
+
+const faqData = [
+  {
+    question: 'What is a binary star system?',
+    answer: 'A binary star system consists of two stars that are gravitationally bound to each other and orbit their common center of mass. They are extremely common—estimates suggest that more than half of all Sun-like stars have at least one stellar companion. Binary systems form when two protostars condense from the same molecular cloud close enough to remain gravitationally bound. They range from widely separated pairs that take thousands of years to orbit each other, to contact binaries where the two stars are actually touching.'
+  },
+  {
+    question: 'How are binary stars discovered?',
+    answer: 'Binary stars are discovered through several methods. Visual binaries can be seen as two separate stars through a telescope. Spectroscopic binaries are detected by Doppler shifts in their spectra as the stars orbit—the light blueshifts when moving toward us and redshifts when moving away. Eclipsing binaries are identified by periodic dips in brightness as one star passes in front of the other. Astrometric binaries are found by the wobble they cause in the apparent position of one star. Modern surveys have discovered many through photometric measurements.'
+  },
+  {
+    question: 'What are eclipsing binaries?',
+    answer: 'Eclipsing binaries are binary star systems where the orbital plane is nearly edge-on to our line of sight, causing each star to periodically pass in front of the other. When the dimmer star passes in front of the brighter one, there\'s a primary eclipse with a significant brightness drop. When the brighter star passes in front of the dimmer one, there\'s a secondary eclipse with a smaller dip. Algol in Perseus is a famous eclipsing binary visible to the naked eye, earning it the name \'the Demon Star\' because of its strange pulsing brightness.'
+  },
+  {
+    question: 'What happens in close binary systems?',
+    answer: 'In close binary systems, the stars can exchange mass through a process called Roche lobe overflow. When one star expands (like becoming a <a href="/atlas/stars/red-giants/">red giant</a>), its outer layers can overflow onto the companion star. This mass transfer can dramatically alter both stars\' evolution. If the receiving star is a <a href="/atlas/stars/white-dwarfs/">white dwarf</a>, accreted material can build up and trigger nova explosions. If enough mass builds up, it can trigger a Type Ia supernova. <a href="/atlas/stars/neutron-stars/">Neutron star</a> and <a href="/atlas/stars/black-holes/">black hole</a> binaries that accrete mass become brilliant X-ray sources.'
+  },
+  {
+    question: 'Can binary stars have planets?',
+    answer: 'Yes, binary stars can have planets, and they come in two configurations. \'Circumstellar\' (or S-type) planets orbit just one star in the binary pair, like a planet in a normal single-star system. \'Circumbinary\' (or P-type) planets orbit both stars and have been dubbed \'Tatooine planets\' after the fictional Star Wars world. The Kepler space telescope discovered many circumbinary planets, including Kepler-16b—the first confirmed planet orbiting two stars. Some systems like Alpha Centauri are binary star systems close enough that we search their individual stars for planets.'
+  },
+  {
+    question: 'What are common envelope binaries?',
+    answer: 'Common envelope binaries occur when mass transfer becomes so rapid that the companion star gets engulfed within the expanding envelope of the donor star. Both stellar cores spiral inward through the shared envelope, losing energy and angular momentum. If the cores spiral close enough, they can merge into a single object. Otherwise, the envelope is ejected, leaving a very close binary—often consisting of a white dwarf with a <a href="/atlas/stars/main-sequence/">main sequence</a> companion. Common envelope evolution is thought to produce many exotic objects including close white dwarf pairs and cataclysmic variables.'
+  }
+];
+---
+
+<MainLayout
+  title='Binary Star Systems: Stars in Gravitational Harmony | The Astronomy Space'
+  description='Complete guide to binary star systems - pairs of stars orbiting each other. Learn about mass transfer, eclipsing binaries, and X-ray binaries.'
+>
+  <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
+  <Schema type="TechArticle" article={articleData} />
+  <Schema type="FAQPage" faq={faqData} />
+
+  <!-- Reading Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-image">
+      <img src="/images/Hero_binary-systems.jpg" alt="Binary Star Systems hero image" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/atlas/">Cosmic Atlas</a></li>
+          <li><a href="/atlas/stars/">Stars</a></li>
+          <li aria-current="page">Binary Star Systems</li>
+        </ol>
+      </nav>
+      <h1>Binary Star Systems</h1>
+      <p class="hero-subtitle">Most Stars Have a Companion</p>
+    </div>
+  </section>
+
+  <!-- Main Article Content -->
+  <article class="content-wrapper">
+    <div class="article-layout">
+
+      <!-- Sticky Table of Contents (Left Sidebar) -->
+      <aside class="toc-sidebar">
+        <nav class="toc" aria-label="Table of Contents">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#characteristics">Classification & Characteristics</a></li>
+            <li><a href="#evolution">Mass Transfer & Evolution</a></li>
+            <li><a href="#observation">Observing Binary Stars</a></li>
+            <li><a href="#facts">Interesting Facts</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-content">
+
+        <!-- Answer Capsule -->
+        <aside class="answer-capsule">
+          <div class="capsule-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <p>Binary star systems consist of two stars gravitationally bound and orbiting their common center of mass. More than half of all Sun-like stars have at least one stellar companion, making binary systems more common than solitary stars like our Sun.</p>
+        </aside>
+
+        <section id="intro" class="content-section">
+          <h2>Introduction to Binary Star Systems</h2>
+          <p>Far from being lone wanderers, most stars in the universe have companions. Binary star systems—pairs of stars gravitationally bound and orbiting their common center of mass—are the rule rather than the exception. Current estimates suggest that more than half of all Sun-like stars are members of binary or multiple star systems, making our solitary Sun something of an oddity in the cosmic census.</p>
+          <p>Binary systems form when a collapsing molecular cloud fragments into two or more condensations close enough to remain gravitationally bound. The separation between the stars can range from less than a stellar diameter (contact binaries where the stars actually touch) to thousands of astronomical units (wide binaries that take millennia to complete an orbit). This diversity makes binaries natural laboratories for testing stellar physics, providing opportunities to measure stellar masses, radii, and other properties with precision impossible for single stars.</p>
+          <p>The history of binary star astronomy dates to 1650 when Giovanni Riccioli observed that Mizar, the middle star in the Big Dipper's handle, appeared double through a telescope. William Herschel's systematic observations in the late 18th century revealed that many double stars were not merely line-of-sight alignments but true binary systems orbiting each other. This discovery provided the first direct proof that Newton's law of gravitation applied beyond the solar system.</p>
+          <p>Binary systems play crucial roles throughout astronomy. They are essential for determining stellar masses—the only reliable method requires observing binary orbits. Close binaries drive some of the universe's most energetic phenomena: novae, X-ray binaries, and Type Ia supernovae all involve mass transfer or mergers in binary systems. Binary evolution is complex and exotic, producing outcomes impossible in single stars, from millisecond pulsars to gravitational wave sources.</p>
+        </section>
+        <section id="characteristics" class="content-section">
+          <h2>Classification and Characteristics</h2>
+          <p>Binary star systems are classified by how they are detected and by their physical properties. The classification reveals both observational techniques and the underlying physics governing these paired stellar dancers.</p>
+          <div class="info-box glass">
+            <h3>Binary System Quick Facts</h3>
+            <ul>
+              <li><strong>Frequency:</strong> >50% of Sun-like stars in binaries</li>
+              <li><strong>Orbital Periods:</strong> Hours to millions of years</li>
+              <li><strong>Separation Range:</strong> Contact binaries to >10,000 AU</li>
+              <li><strong>Detection Methods:</strong> Visual, spectroscopic, eclipsing, astrometric</li>
+              <li><strong>Famous Examples:</strong> Sirius, Algol, Alpha Centauri, Mizar</li>
+              <li><strong>Mass Transfer:</strong> Common in close systems</li>
+            </ul>
+          </div>
+          <p class="data-source">Data: <a href="https://science.nasa.gov/universe/stars/" target="_blank" rel="noopener noreferrer">NASA Stars & Binary Systems</a></p>
+          <p>The orbital mechanics of binary systems follow Kepler's laws, with both stars orbiting their common center of mass (barycenter). The more massive star orbits closer to the barycenter, while the less massive star traces a larger orbit. By measuring the orbital period and separation, astronomers can calculate the system's total mass using Newton's version of Kepler's third law—the only direct method for determining stellar masses.</p>
+          <h3>Visual Binaries</h3>
+          <p>Visual binaries are systems where both stars can be resolved as separate points of light through a telescope. They tend to be relatively nearby systems with wide separations. Famous examples include Sirius (with its white dwarf companion Sirius B), and the beautiful double star Albireo in Cygnus, where contrasting colors—one golden, one blue—create one of the sky's most striking visual pairs.</p>
+          <p>For visual binaries with known distances, measuring the angular separation and orbital period directly yields the system's total mass. This makes visual binaries invaluable calibrators for stellar mass-luminosity relations and evolutionary models.</p>
+          <h3>Spectroscopic Binaries</h3>
+          <p>Spectroscopic binaries are too close together to be resolved visually but reveal themselves through periodic Doppler shifts in their spectral lines. As the stars orbit, they alternately approach and recede from Earth, blueshifting and redshifting their light. Measuring these velocity curves determines the orbital period, eccentricity, and—with some assumptions—the stellar masses.</p>
+          <p>Some spectroscopic binaries are "single-lined" (SB1), showing spectral lines from only the brighter star. Others are "double-lined" (SB2), showing both stars' spectra shifting in opposite directions. Double-lined systems provide more complete information about mass ratios and orbital geometries.</p>
+          <h3>Eclipsing Binaries</h3>
+          <p>Eclipsing binaries are systems oriented edge-on to our line of sight, causing periodic dips in brightness as one star passes in front of the other. The shape and depth of the light curve—brightness versus time—reveals the stars' relative sizes, temperatures, and orbital inclination. Combined with spectroscopic data, eclipsing binaries allow determination of stellar masses, radii, and effective temperatures to remarkable precision.</p>
+          <p>Algol, the "Demon Star" in Perseus, is the most famous eclipsing binary. Every 2.867 days, its brightness drops by 70% as the dimmer secondary star eclipses the bright primary. Ancient astronomers noticed Algol's variability, though its binary nature wasn't understood until the 19th century.</p>
+          <h3>X-ray Binaries and Compact Objects</h3>
+          <p>When one member of a binary is a compact object—a <a href="/atlas/stars/white-dwarfs/">white dwarf</a>, <a href="/atlas/stars/neutron-stars/">neutron star</a>, or <a href="/atlas/stars/black-holes/">black hole</a>—the system can become an X-ray binary. Gas pulled from the normal companion forms an accretion disk around the compact object, heating to millions of degrees and emitting intense X-rays. These systems include some of the brightest X-ray sources in the sky and were key to discovering stellar black holes like Cygnus X-1.</p>
+        </section>
+        <section id="evolution" class="content-section">
+          <h2>Mass Transfer and Binary Evolution</h2>
+          <p>Binary evolution is far more complex than single-star evolution because the stars can interact, exchanging mass and angular momentum. This interaction produces some of the most exotic and energetic phenomena in astronomy.</p>
+          <h3>Roche Lobe and Mass Transfer</h3>
+          <p>Each star in a binary system exists within a teardrop-shaped region called its Roche lobe—the volume within which material is gravitationally bound to that star. When a star expands beyond its Roche lobe (typically when becoming a <a href="/atlas/stars/red-giants/">red giant</a>), its outer layers overflow onto the companion star. This mass transfer dramatically alters both stars' evolution.</p>
+          <p>The rate and stability of mass transfer depends on how the donor star responds to mass loss. If the donor shrinks when losing mass, transfer can be stable, proceeding gradually over millions of years. If the donor expands when losing mass, a runaway instability develops, leading to rapid mass transfer or common envelope evolution.</p>
+          <h3>The Algol Paradox</h3>
+          <p>Algol presents an apparent paradox: the less massive star is a red giant while the more massive star remains on the <a href="/atlas/stars/main-sequence/">main sequence</a>. Since massive stars evolve faster, the more massive star should become a giant first. The resolution: the current giant was originally the more massive star. It evolved first, expanded, and transferred most of its mass to its companion, which is now the more massive star. This demonstrates that binary mass transfer can completely reverse the mass ratio.</p>
+          <h3>Cataclysmic Variables and Novae</h3>
+          <p>When a white dwarf accretes material from a companion star, hydrogen builds up on the white dwarf's surface. Eventually, this layer undergoes explosive thermonuclear fusion—a nova eruption that blasts material into space at thousands of kilometers per second. The white dwarf survives, and the process can repeat every few decades or centuries. Cataclysmic variables like U Geminorum show repeated dwarf nova outbursts when instabilities in the accretion disk cause sudden increases in mass transfer rate.</p>
+          <h3>Type Ia Supernovae</h3>
+          <p>If mass transfer onto a white dwarf pushes it over the Chandrasekhar limit (~1.4 solar masses), the white dwarf undergoes catastrophic thermonuclear explosion—a Type Ia supernova. These explosions are remarkably uniform in brightness, making them invaluable as "standard candles" for measuring cosmic distances. The discovery that distant Type Ia supernovae are dimmer than expected led to the Nobel Prize-winning discovery of cosmic acceleration.</p>
+          <h3>Common Envelope Evolution</h3>
+          <p>When mass transfer becomes unstable, the companion star can become engulfed within the expanding giant's envelope. Both stellar cores spiral inward through the common envelope, depositing orbital energy that heats and ejects the envelope. If the cores merge, they form a single star. If they survive as a close binary, the result is often a white dwarf paired with a main sequence star—a cataclysmic variable progenitor. Common envelope evolution is poorly understood but essential for explaining many observed binary types.</p>
+          <h3>Gravitational Wave Sources</h3>
+          <p>Close binaries containing compact objects—especially pairs of white dwarfs, neutron stars, or black holes—emit gravitational waves that carry away orbital energy. This causes the orbit to shrink over time. Eventually, the objects merge in a fraction of a second, releasing enormous energy as gravitational waves. The 2015 LIGO detection of merging black holes confirmed this predicted outcome of binary evolution and opened the era of gravitational wave astronomy.</p>
+        </section>
+        <section id="observation" class="content-section">
+          <h2>Observing Binary Stars</h2>
+          <p>Binary stars range from stunning visual pairs easily split in small telescopes to close systems requiring spectroscopy or photometry to detect. They offer some of the most rewarding targets for observers at all levels.</p>
+          <h3>Notable Binary Systems</h3>
+          <p><strong>Albireo (Beta Cygni):</strong> Perhaps the most beautiful double star in the night sky, this wide visual binary shows striking color contrast—a golden K-type giant paired with a blue-white B-type star. The pair is separated by 35 arcseconds, easily split in binoculars. The orbital period is so long (estimated >75,000 years) that no orbital motion has been detected.</p>
+          <p><strong>Algol (Beta Persei):</strong> The famous eclipsing binary drops from magnitude 2.1 to 3.4 every 2.867 days as the dimmer K-type subgiant eclipses the bright B-type primary. The eclipses last about 10 hours, making them easily observable in a single night. Ancient astronomers noticed its variations, calling it Ras al-Ghul ("the demon's head").</p>
+          <p><strong>Sirius A & B:</strong> The brightest star in the night sky, Sirius A, has a white dwarf companion, Sirius B, orbiting every 50 years. The pair is separated by 3-11 arcseconds depending on orbital position, but the 10,000:1 brightness ratio makes Sirius B difficult to observe—it's often lost in the glare of Sirius A. Observing Sirius B requires excellent seeing, a quality telescope, and knowing exactly where to look.</p>
+          <p><strong>Mizar and Alcor (Zeta and 80 Ursae Majoris):</strong> The famous "double star" in the Big Dipper's handle is actually a sextuple system. Mizar and Alcor are separated by 12 arcminutes (a naked-eye test of vision). Mizar itself is a visual binary, and each component of Mizar is itself a spectroscopic binary, making the system four stars total. Alcor is also a binary, bringing the total to six stars.</p>
+          <p><strong>Alpha Centauri AB:</strong> The nearest star system to the Sun contains a close binary—Alpha Centauri A (G2V, similar to the Sun) and B (K1V, cooler and dimmer). They orbit every 79.9 years with a separation ranging from 11 to 36 AU. Through a telescope, they appear as two yellowish stars separated by 2-22 arcseconds depending on orbital phase. Proxima Centauri, 15,000 AU away, may be weakly bound to the pair.</p>
+          <p><strong>Cygnus X-1:</strong> One of the brightest X-ray sources in the sky, Cygnus X-1 is a high-mass X-ray binary containing a 21-solar-mass black hole orbiting an O9.7Iab blue supergiant every 5.6 days. Gas pulled from the supergiant forms an accretion disk around the black hole, producing the intense X-rays. The optical counterpart, HDE 226868, is visible through a telescope as a 9th magnitude star.</p>
+          <h3>Amateur Observation</h3>
+          <p>Visual binaries make excellent targets for amateur astronomers. Wide pairs like Albireo showcase stellar colors beautifully. Closer pairs test telescope optics and observing conditions—splitting doubles near the resolution limit provides satisfying challenges. Eclipsing variables like Algol allow you to witness stellar geometry through simple brightness measurements, making binary science accessible to anyone with clear skies and patience.</p>
+        </section>
+        <section id="facts" class="content-section">
+          <h2>Interesting Facts About Binary Systems</h2>
+          <ul class="facts-list">
+            <li><strong>Mass Determination:</strong> Binary stars provide the only reliable method for directly measuring stellar masses. By observing the orbital period and separation, applying Kepler's third law yields the system's total mass. If we can determine the individual orbital sizes (from spectroscopy or visual observation), we can calculate each star's mass separately. Essentially all stellar mass measurements ultimately trace back to binary star observations.</li>
+            <li><strong>Tatooine Planets:</strong> Circumbinary planets orbit both stars in a binary system, experiencing double sunrises like the fictional Tatooine. NASA's Kepler mission discovered many such planets, including Kepler-16b, the first confirmed circumbinary planet. These planets must orbit outside both stars' Roche lobes in stable zones—too close and tidal forces from the two stars would destabilize the orbit.</li>
+            <li><strong>Blue Stragglers:</strong> Some star clusters contain anomalously blue, massive stars that should have evolved off the main sequence long ago. These "blue stragglers" are likely products of binary evolution—either stellar mergers or mass transfer that rejuvenated one star by adding fresh hydrogen fuel. They demonstrate that binary interactions can dramatically extend stellar lifetimes.</li>
+            <li><strong>Pulsar Binary Tests:</strong> The binary pulsar PSR B1913+16, discovered in 1974, provided the first indirect detection of gravitational waves. As the two neutron stars orbit, they lose energy to gravitational wave emission, causing the orbit to decay at precisely the rate predicted by general relativity. This discovery earned the 1993 Nobel Prize and confirmed Einstein's theory with extraordinary precision.</li>
+            <li><strong>Millisecond Pulsars:</strong> Millisecond pulsars—neutron stars spinning hundreds of times per second—are thought to be "recycled" pulsars spun up by mass transfer from binary companions. As the neutron star accretes material from its companion, conservation of angular momentum spins it up to extreme rotation rates. Many millisecond pulsars are found in binary systems, supporting this origin theory.</li>
+            <li><strong>Contact Binaries:</strong> In contact binary systems, both stars overflow their Roche lobes and share a common envelope. They appear as peanut-shaped objects with the stars touching or even merged at their surfaces. W Ursae Majoris stars are the most common contact binaries, with periods of 6-12 hours. The eventual fate is likely a complete merger into a single rapidly rotating star.</li>
+            <li><strong>Symbiotic Stars:</strong> Symbiotic stars are interacting binaries combining a cool red giant with a hot compact companion, often a white dwarf. The white dwarf ionizes gas flowing from the giant, creating an emission nebula. The combination produces a unique spectrum mixing absorption lines from the cool giant with emission lines from the ionized nebula—hence "symbiotic."</li>
+            <li><strong>Capture vs. Formation:</strong> While most binaries form together from fragmenting molecular clouds, some may form by capture—two stars that happen to pass close enough to become gravitationally bound. However, capture is extremely rare in the field; it requires a third body to carry away excess energy. Binary formation is most efficient in dense stellar environments like star clusters, where three-body interactions can facilitate captures.</li>
+          </ul>
+        </section>
+        <section id="resources" class="content-section">
+          <h2>External Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://science.nasa.gov/universe/stars/" target="_blank" rel="noopener">NASA Stars & Binary Systems</a> - Comprehensive guide to star types including binary systems</li>
+            <li><a href="https://en.wikipedia.org/wiki/Binary_star" target="_blank" rel="noopener">Binary Stars on Wikipedia</a> - Detailed encyclopedia article on binary classification and evolution</li>
+            <li><a href="https://en.wikipedia.org/wiki/Algol" target="_blank" rel="noopener">Algol on Wikipedia</a> - In-depth article on the famous eclipsing binary system</li>
+            <li><a href="https://en.wikipedia.org/wiki/Cygnus_X-1" target="_blank" rel="noopener">Cygnus X-1</a> - Article on the first confirmed stellar black hole in a binary system</li>
+            <li><a href="https://www.esa.int/Science_Exploration/Space_Science/Gaia" target="_blank" rel="noopener">ESA Gaia Mission</a> - Space mission discovering thousands of binary systems through astrometry</li>
+          </ul>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="content-section faq-section">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-list">
+            {faqData.map((item) => (
+              <details class="faq-item">
+                <summary class="faq-question">{item.question}</summary>
+                <div class="faq-answer">
+                  <p set:html={item.answer}></p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </article>
+</MainLayout>
+
+<script>
+  // Reading Progress Bar
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    const progressBar = document.getElementById('progressBar');
+    if (progressBar) {
+      progressBar.style.width = scrollPercent + '%';
+    }
+  });
+
+  // Active TOC highlighting
+  const sections = document.querySelectorAll('.content-section');
+  const tocLinks = document.querySelectorAll('.toc a');
+
+  const observerOptions = {
+    rootMargin: '-20% 0% -70% 0%'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(section => observer.observe(section));
+</script>
+
+<style>
+  /* Progress Bar */
+  .progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+  }
+
+  .progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-blue));
+    transition: width 0.1s ease-out;
+  }
+
+  /* Hero Section */
+  .hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: var(--space-xl);
+  }
+
+  .hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    color: var(--color-accent-cyan);
+    font-weight: 500;
+  }
+
+  /* Breadcrumbs */
+  .breadcrumbs {
+    margin-bottom: var(--space-lg);
+  }
+
+  .breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumbs li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .breadcrumbs li:not(:last-child)::after {
+    content: '\u203a';
+    color: var(--color-text-secondary);
+  }
+
+  .breadcrumbs a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumbs a:hover {
+    color: var(--color-accent-cyan);
+  }
+
+  .breadcrumbs li[aria-current="page"] {
+    color: var(--color-text-primary);
+  }
+
+  /* Article Layout with Sidebar */
+  .content-wrapper {
+    padding: var(--space-2xl) 0;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+    gap: var(--space-xl);
+  }
+
+  @media (min-width: 1024px) {
+    .article-layout {
+      grid-template-columns: 220px 1fr;
+      gap: var(--space-2xl);
+    }
+  }
+
+  /* Sticky TOC Sidebar */
+  .toc-sidebar {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .toc-sidebar {
+      display: block;
+    }
+
+    .toc {
+      position: sticky;
+      top: calc(var(--space-xl) + 3px);
+      max-height: calc(100vh - var(--space-2xl));
+      overflow-y: auto;
+    }
+  }
+
+  .toc h2 {
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-md);
+    color: var(--color-text-secondary);
+  }
+
+  .toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .toc li {
+    margin-bottom: 0.25rem;
+  }
+
+  .toc a {
+    display: block;
+    padding: 0.5rem 0;
+    padding-left: var(--space-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    transition: all 0.2s ease;
+  }
+
+  .toc a:hover {
+    color: var(--color-text-primary);
+    border-left-color: rgba(6, 182, 212, 0.5);
+  }
+
+  .toc a.active {
+    color: var(--color-accent-cyan);
+    border-left-color: var(--color-accent-cyan);
+  }
+
+  /* Main Content */
+  .main-content {
+    max-width: 800px;
+  }
+
+  /* Answer Capsule */
+  .answer-capsule {
+    display: flex;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .answer-capsule::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(6, 182, 212, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .capsule-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    color: var(--color-accent-cyan);
+    opacity: 0.8;
+  }
+
+  .capsule-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .answer-capsule p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-primary);
+    position: relative;
+  }
+
+  /* Content Sections */
+  .content-section {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .content-section h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+    color: var(--color-text-primary);
+  }
+
+  .content-section h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+    color: var(--color-accent-cyan);
+  }
+
+  .content-section h4 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-sm);
+    color: var(--color-accent-blue);
+  }
+
+  .content-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+  }
+
+  .content-section ul,
+  .content-section ol {
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-lg);
+  }
+
+  .content-section li {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  /* Info Box */
+  .info-box {
+    padding: var(--space-lg);
+    margin: var(--space-lg) 0;
+  }
+
+  .info-box h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: var(--color-accent-blue);
+  }
+
+  .info-box ul {
+    margin: 0;
+    padding-left: var(--space-md);
+  }
+
+  .info-box li {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .data-source {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    opacity: 0.7;
+    margin-top: -0.5rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .data-source a {
+    color: var(--color-accent-cyan);
+  }
+
+  /* Mission List */
+  .mission-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .mission-list li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .mission-list li:last-child {
+    border-bottom: none;
+  }
+
+  /* Facts List */
+  .facts-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .facts-list li {
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .facts-list li:last-child {
+    border-bottom: none;
+  }
+
+  /* Resource List */
+  .resource-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .resource-list li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .resource-list li:last-child {
+    border-bottom: none;
+  }
+
+  .resource-list a {
+    color: var(--color-accent-cyan);
+    font-weight: 500;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .faq-item {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item[open] {
+    background: rgba(6, 182, 212, 0.05);
+    border-color: rgba(6, 182, 212, 0.2);
+  }
+
+  .faq-question {
+    padding: var(--space-md) var(--space-lg);
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.2s ease;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-accent-cyan);
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[open] .faq-question::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-question:hover {
+    color: var(--color-accent-cyan);
+  }
+
+  .faq-answer {
+    padding: 0 var(--space-lg) var(--space-lg);
+  }
+
+  .faq-answer p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+  }
+
+  /* Glassmorphism */
+  .glass {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 50vh;
+    }
+
+    .hero-content {
+      padding: var(--space-lg);
+    }
+
+    .article-layout {
+      padding: 0 var(--space-sm);
+    }
+
+    .answer-capsule {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .capsule-icon {
+      width: 32px;
+      height: 32px;
+    }
+  }
+</style>

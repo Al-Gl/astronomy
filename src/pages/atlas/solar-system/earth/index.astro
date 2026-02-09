@@ -119,6 +119,29 @@ const faqData = [
           <p>Earth is the third planet from the Sun and the only known world to harbor life. Our "Pale Blue Dot" is unique in the Solar System with its liquid water oceans, oxygen-rich atmosphere, protective magnetic field, and the remarkable diversity of life that has evolved over 4 billion years. Earth is also the only planet not named after a mythological god.</p>
         </aside>
 
+        <!-- Moon Navigation Card -->
+        <section class="moon-nav-section">
+          <h2 class="moon-nav-heading">Explore Earth's Moon</h2>
+          <p class="moon-nav-subtitle">Discover our closest celestial neighbor and humanity's first extraterrestrial destination</p>
+
+          <div class="moon-card-container">
+            <a href="/atlas/solar-system/earth/moon/" class="planet-card" data-planet="moon">
+              <div class="planet-card-visual">
+                <img src="/images/card_moon.jpg" alt="The Moon" class="planet-image" loading="lazy" />
+              </div>
+              <div class="planet-card-content">
+                <h3 class="planet-name">The Moon</h3>
+                <p class="planet-tagline">Earth's Natural Satellite</p>
+              </div>
+              <div class="card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+          </div>
+        </section>
+
         <!-- Introduction -->
         <section id="introduction" class="content-section">
           <h2>Introduction to Earth</h2>
@@ -617,6 +640,119 @@ const faqData = [
     line-height: 1.7;
     color: var(--color-text-primary);
     position: relative;
+  }
+
+  /* Moon Navigation Section */
+  .moon-nav-section {
+    margin-bottom: var(--space-2xl);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .moon-nav-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3vw, 1.875rem);
+    margin-bottom: var(--space-sm);
+    background: linear-gradient(135deg, var(--color-accent-cyan) 0%, var(--color-accent-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .moon-nav-subtitle {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-lg);
+  }
+
+  .moon-card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+
+  @media (min-width: 640px) {
+    .moon-card-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .moon-card-container {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .moon-card-container .planet-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .moon-card-container .planet-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(6, 182, 212, 0.4);
+    box-shadow: 0 8px 30px rgba(6, 182, 212, 0.2);
+  }
+
+  .moon-card-container .planet-card-visual {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+  }
+
+  .moon-card-container .planet-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .moon-card-container .planet-card:hover .planet-image {
+    transform: scale(1.05);
+  }
+
+  .moon-card-container .planet-card-content {
+    padding: var(--space-md);
+    flex: 1;
+  }
+
+  .moon-card-container .planet-name {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem 0;
+    color: var(--color-text-primary);
+  }
+
+  .moon-card-container .planet-tagline {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .moon-card-container .card-arrow {
+    position: absolute;
+    bottom: var(--space-md);
+    right: var(--space-md);
+    width: 24px;
+    height: 24px;
+    color: var(--color-accent-cyan);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+  }
+
+  .moon-card-container .planet-card:hover .card-arrow {
+    opacity: 1;
+    transform: translateX(0);
   }
 
   /* Content Sections */

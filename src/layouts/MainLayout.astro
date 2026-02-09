@@ -280,6 +280,7 @@ const {
   @media (max-width: 768px) {
     .nav-container {
       padding: 0.5rem 1rem;
+      padding-right: 85px; /* Reserve space for Stars button */
     }
 
     .brand-name {
@@ -302,9 +303,43 @@ const {
   }
 
   @media (max-width: 480px) {
+    .nav-container {
+      padding-right: 80px; /* Adjust spacing for smaller screens */
+    }
+
     .nav-link {
       padding: 0.4rem 0.5rem;
       font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 375px) {
+    .nav-container {
+      padding-right: 75px;
+    }
+
+    .nav-link {
+      padding: 0.35rem 0.4rem;
+      font-size: 0.75rem;
+    }
+
+    .nav-links {
+      gap: 0.15rem;
+    }
+  }
+
+  @media (max-width: 350px) {
+    .toggle-label {
+      display: none; /* Hide "Stars" text on very small screens */
+    }
+
+    .stars-toggle {
+      padding: 0.5rem;
+      gap: 0;
+    }
+
+    .nav-container {
+      padding-right: 55px; /* Less space needed for icon-only button */
     }
   }
 
