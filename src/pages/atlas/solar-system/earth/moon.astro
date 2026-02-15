@@ -330,6 +330,108 @@ const faqData = [
           <h3>Lunar Eclipses</h3>
           <p>A lunar eclipse occurs when Earth passes between the Sun and Moon, casting Earth's shadow on the Moon. During a total lunar eclipse, the Moon turns a deep red color—sometimes called a "blood moon"—because Earth's atmosphere bends red sunlight into the shadow. Unlike solar eclipses, lunar eclipses can be seen from anywhere on Earth's night side and are completely safe to observe.</p>
 
+          <!-- Interactive Lunar Eclipse -->
+          <figure class="lunar-eclipse-interactive glass" aria-label="Interactive lunar eclipse explorer">
+            <div class="eclipse-scene">
+              <svg class="eclipse-svg" viewBox="0 0 680 280" aria-hidden="true">
+                <defs>
+                  <!-- Sun gradient -->
+                  <radialGradient id="sunGrad" cx="60%" cy="45%" r="60%">
+                    <stop offset="0%" stop-color="#fffde0"/>
+                    <stop offset="40%" stop-color="#ffd700"/>
+                    <stop offset="100%" stop-color="#ff8c00"/>
+                  </radialGradient>
+                  <!-- Clip paths for card images -->
+                  <clipPath id="earthClip">
+                    <circle cx="175" cy="140" r="32"/>
+                  </clipPath>
+                  <clipPath id="moonEclipseClip">
+                    <circle cx="0" cy="0" r="12"/>
+                  </clipPath>
+                  <!-- Filters -->
+                  <filter id="sunGlowFilter" x="-40%" y="-40%" width="180%" height="180%">
+                    <feGaussianBlur stdDeviation="10" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                  <filter id="earthAtmo" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur stdDeviation="5" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                  <filter id="moonGlowFilter" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="4" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                </defs>
+
+                <!-- Penumbra upper region -->
+                <polygon points="175,104 680,30 680,118 207,104" fill="rgba(40,40,100,0.32)"/>
+                <!-- Penumbra lower region -->
+                <polygon points="175,176 680,250 680,162 207,176" fill="rgba(40,40,100,0.32)"/>
+                <!-- Umbra (dark central cone) -->
+                <polygon id="umbraPoly" points="207,108 207,172 680,140" fill="rgba(0,0,18,0.88)"/>
+
+                <!-- Sun (left edge, partial) -->
+                <circle cx="8" cy="140" r="72" fill="url(#sunGrad)" filter="url(#sunGlowFilter)"/>
+                <!-- Sun label -->
+                <text x="88" y="28" fill="rgba(255,220,60,0.85)" font-size="12" font-family="inherit" text-anchor="middle">☀ Sun</text>
+
+                <!-- Earth atmosphere glow -->
+                <circle cx="175" cy="140" r="44" fill="rgba(80,140,255,0.14)" filter="url(#earthAtmo)"/>
+                <!-- Earth card image, clipped to circle -->
+                <image href="/images/card_earth.jpg" x="143" y="108" width="64" height="64" clip-path="url(#earthClip)" preserveAspectRatio="xMidYMid slice"/>
+                <!-- Earth label -->
+                <text x="175" y="186" fill="rgba(255,255,255,0.65)" font-size="11" font-family="inherit" text-anchor="middle">Earth</text>
+
+                <!-- Umbra label -->
+                <text x="430" y="147" fill="rgba(160,160,220,0.55)" font-size="10" font-family="inherit" text-anchor="middle">Umbra</text>
+                <!-- Penumbra label -->
+                <text x="560" y="55" fill="rgba(160,160,220,0.45)" font-size="10" font-family="inherit" text-anchor="middle">Penumbra</text>
+
+                <!-- Moon vertical track (dashed) -->
+                <line x1="460" y1="50" x2="460" y2="230" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="4,5"/>
+
+                <!-- Moon -->
+                <g id="eclipseMoonGroup" transform="translate(460, 60)" filter="url(#moonGlowFilter)">
+                  <!-- Moon card image, clipped to circle -->
+                  <image id="eclipseMoonImg" href="/images/card_moon.jpg" x="-12" y="-12" width="24" height="24" clip-path="url(#moonEclipseClip)" preserveAspectRatio="xMidYMid slice"/>
+                  <!-- Colour tint overlay — JS updates fill for eclipse stages -->
+                  <circle id="eclipseMoonTint" r="12" fill="rgba(0,0,0,0)" clip-path="url(#moonEclipseClip)"/>
+                </g>
+                <!-- Moon label (moves with moon) -->
+                <text id="eclipseMoonLabel" x="460" y="48" fill="rgba(255,255,255,0.65)" font-size="11" font-family="inherit" text-anchor="middle">Moon</text>
+              </svg>
+            </div>
+
+            <div class="eclipse-stage-info" aria-live="polite">
+              <h4 id="eclipseStageName" class="eclipse-stage-name">No Eclipse</h4>
+              <p id="eclipseStageDesc" class="eclipse-stage-desc">The Moon is outside Earth's shadow — a normal full moon night.</p>
+            </div>
+
+            <div class="eclipse-controls">
+              <div class="slider-row">
+                <input
+                  type="range"
+                  class="phase-slider"
+                  id="eclipseSlider"
+                  min="0"
+                  max="100"
+                  step="1"
+                  value="0"
+                  aria-label="Lunar eclipse progress"
+                />
+                <button class="play-pause-btn" id="eclipsePlayBtn" aria-label="Play lunar eclipse animation" title="Auto-play eclipse">
+                  <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                  <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                    <path d="M6 4h4v16H6zM14 4h4v16h-4z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <figcaption>Drag the slider or press play to watch the Moon pass through Earth's shadow</figcaption>
+          </figure>
+
           <h3>Why Not Every Month?</h3>
           <p>The Moon's orbit is tilted about 5 degrees relative to Earth's orbit around the Sun. This means most months, the Moon passes slightly above or below the Sun (no solar eclipse) and slightly above or below Earth's shadow (no lunar eclipse). Eclipses only occur when the Moon crosses Earth's orbital plane near new or full moon.</p>
         </section>
@@ -342,6 +444,91 @@ const faqData = [
           <h3>Ocean Tides</h3>
           <p>The Moon's gravity pulls on Earth, but it pulls more strongly on the side facing the Moon than on Earth's center, and more on the center than the far side. This difference in gravitational pull—called the tidal force—stretches Earth slightly along the Earth-Moon axis, creating two bulges of water: one facing the Moon, one facing away. As Earth rotates beneath these bulges, we experience two high tides and two low tides daily.</p>
           <p>The Sun also creates tides, about half as strong as the Moon's. When Sun and Moon align (new and full moons), their tidal effects add together, creating extra-high "spring tides." When they're at right angles (quarter moons), they partially cancel, creating weaker "neap tides."</p>
+
+          <!-- Tidal Forces Interactive -->
+          <div class="lunar-eclipse-interactive" id="tidal-interactive">
+            <div class="eclipse-scene">
+              <svg id="tidalSvg" class="eclipse-svg" viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" aria-label="Interactive tidal forces diagram">
+                <defs>
+                  <!-- Sun glow gradient -->
+                  <radialGradient id="sunGlowTidal" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%"  stop-color="rgba(255,200,50,0.55)"/>
+                    <stop offset="60%" stop-color="rgba(255,150,20,0.18)"/>
+                    <stop offset="100%" stop-color="rgba(255,100,0,0)"/>
+                  </radialGradient>
+                  <!-- Earth clip (Earth centred at 340,150) -->
+                  <clipPath id="tidalEarthClip">
+                    <circle cx="340" cy="150" r="50"/>
+                  </clipPath>
+                  <!-- Moon clip (local, centre at 0,0 — group is transformed) -->
+                  <clipPath id="tidalMoonClip">
+                    <circle cx="0" cy="0" r="17"/>
+                  </clipPath>
+                  <!-- Tidal bulge gradient -->
+                  <radialGradient id="bulgeGrad" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%"   stop-color="rgba(56,189,248,0.22)"/>
+                    <stop offset="100%" stop-color="rgba(56,189,248,0.04)"/>
+                  </radialGradient>
+                </defs>
+
+                <!-- Sun (partial circle, left edge) -->
+                <circle cx="22" cy="150" r="80" fill="url(#sunGlowTidal)"/>
+                <circle cx="22" cy="150" r="36" fill="rgba(255,200,60,0.82)"/>
+                <text x="70" y="155" font-size="11" fill="rgba(255,200,60,0.75)" font-family="inherit" dominant-baseline="middle">Sun</text>
+
+                <!-- Orbit ring (faint) — Earth at 340, orbit r=130 -->
+                <circle cx="340" cy="150" r="130" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="4 6"/>
+
+                <!-- Tidal bulge ellipse (rotated by JS to follow Moon) -->
+                <ellipse id="tidalBulge" cx="340" cy="150" rx="74" ry="36"
+                  fill="url(#bulgeGrad)"
+                  stroke="rgba(56,189,248,0.35)" stroke-width="1.2"
+                  transform="rotate(0, 340, 150)"/>
+
+                <!-- Earth photo -->
+                <image href="/images/card_earth.jpg"
+                  x="290" y="100" width="100" height="100"
+                  clip-path="url(#tidalEarthClip)"
+                  preserveAspectRatio="xMidYMid slice"/>
+                <text x="340" y="212" font-size="11" fill="rgba(255,255,255,0.55)" font-family="inherit" text-anchor="middle">Earth</text>
+
+                <!-- Moon group (JS moves via transform) — initial at angle 0° -->
+                <g id="tidalMoonGroup" transform="translate(470, 150)">
+                  <image href="/images/card_moon.jpg"
+                    x="-17" y="-17" width="34" height="34"
+                    clip-path="url(#tidalMoonClip)"
+                    preserveAspectRatio="xMidYMid slice"/>
+                  <text id="tidalMoonLabel" x="0" y="26" font-size="11" fill="rgba(255,255,255,0.55)" font-family="inherit" text-anchor="middle">Moon</text>
+                </g>
+
+                <!-- High / Low tide indicators (JS updates positions) -->
+                <text id="tidalHighLabel1" x="390" y="154" font-size="10" fill="rgba(56,189,248,0.8)" font-family="inherit" text-anchor="middle" opacity="0.9">High</text>
+                <text id="tidalHighLabel2" x="290" y="154" font-size="10" fill="rgba(56,189,248,0.8)" font-family="inherit" text-anchor="middle" opacity="0.9">High</text>
+                <text id="tidalLowLabel1"  x="340" y="104" font-size="10" fill="rgba(148,163,184,0.6)" font-family="inherit" text-anchor="middle" opacity="0.9">Low</text>
+                <text id="tidalLowLabel2"  x="340" y="200" font-size="10" fill="rgba(148,163,184,0.6)" font-family="inherit" text-anchor="middle" opacity="0.9">Low</text>
+              </svg>
+            </div>
+
+            <!-- Stage info -->
+            <div class="eclipse-stage-info">
+              <div class="stage-name" id="tidalStageName">Spring Tide</div>
+              <div class="stage-desc" id="tidalStageDesc">Moon and Sun pull together — maximum tidal range</div>
+            </div>
+
+            <!-- Controls -->
+            <div class="eclipse-controls">
+              <button class="play-pause-btn" id="tidalPlayBtn" aria-label="Play tidal animation">
+                <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5,3 19,12 5,21"/>
+                </svg>
+                <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display:none">
+                  <rect x="6" y="4" width="4" height="16"/>
+                  <rect x="14" y="4" width="4" height="16"/>
+                </svg>
+              </button>
+              <input type="range" class="phase-slider" id="tidalSlider" min="0" max="359" value="0" step="1" aria-label="Moon orbital position"/>
+            </div>
+          </div>
 
           <h3>Tidal Locking</h3>
           <p>The same tidal forces that create ocean tides also create slight bulges in Earth's solid rock. These bulges act as a brake on Earth's rotation, gradually slowing it down. Earth's day is getting longer by about 1.4 milliseconds per century. In exchange for this lost rotational energy, the Moon is spiraling slowly outward at about 3.8 cm per year.</p>
@@ -744,6 +931,255 @@ const faqData = [
       closeLightbox();
     }
   });
+
+  // ─── Lunar Eclipse Interactive ───────────────────────────────────────────
+
+  const eclipseSlider    = document.getElementById('eclipseSlider');
+  const eclipsePlayBtn   = document.getElementById('eclipsePlayBtn');
+  const eclipseMoonGroup = document.getElementById('eclipseMoonGroup');
+  const eclipseMoonTint  = document.getElementById('eclipseMoonTint');
+  const eclipseMoonLabel = document.getElementById('eclipseMoonLabel');
+  const eclipseStageName = document.getElementById('eclipseStageName');
+  const eclipseStageDesc = document.getElementById('eclipseStageDesc');
+  const eclipsePlayIcon  = eclipsePlayBtn?.querySelector('.play-icon');
+  const eclipsePauseIcon = eclipsePlayBtn?.querySelector('.pause-icon');
+
+  let eclipsePlaying = false;
+  let eclipseInterval = null;
+
+  // Moon Y range: slider 0 → y=50 (above), slider 100 → y=230 (below)
+  // Total eclipse at slider=50 → y=140 (SVG center)
+  function moonYFromSlider(val) {
+    return 50 + val * 1.8;
+  }
+
+  // Eclipse stage definitions based on Moon Y offset from center (y=140)
+  function getEclipseStage(moonY) {
+    const offset = Math.abs(moonY - 140);
+    if (offset <= 6)  return 'total';
+    if (offset <= 28) return 'partial';
+    if (offset <= 68) return 'penumbral';
+    return 'none';
+  }
+
+  const stageData = {
+    total: {
+      name: 'Total Lunar Eclipse',
+      desc: 'The Moon is fully inside Earth\'s umbra — it glows deep red as Earth\'s atmosphere scatters sunlight onto it.',
+      tint: 'rgba(160,30,0,0.72)',
+      nameClass: 'blood'
+    },
+    partial: {
+      name: 'Partial Lunar Eclipse',
+      desc: 'Part of the Moon is inside Earth\'s dark umbra, creating a visible dark shadow across the lunar surface.',
+      tint: 'rgba(100,20,0,0.45)',
+      nameClass: 'penumbral'
+    },
+    penumbral: {
+      name: 'Penumbral Eclipse',
+      desc: 'The Moon passes through Earth\'s outer penumbra shadow — the dimming is subtle and often hard to notice.',
+      tint: 'rgba(0,0,0,0.25)',
+      nameClass: 'penumbral'
+    },
+    none: {
+      name: 'No Eclipse',
+      desc: 'The Moon is outside Earth\'s shadow — a normal full moon night.',
+      tint: 'rgba(0,0,0,0)',
+      nameClass: 'none'
+    }
+  };
+
+  function updateEclipse(val) {
+    const moonY = moonYFromSlider(val);
+    const stage = getEclipseStage(moonY);
+    const data  = stageData[stage];
+
+    // Move moon group and label
+    if (eclipseMoonGroup) {
+      eclipseMoonGroup.setAttribute('transform', `translate(460, ${moonY})`);
+    }
+    if (eclipseMoonLabel) {
+      // Label sits above the moon
+      eclipseMoonLabel.setAttribute('y', moonY - 18);
+    }
+
+    // Update moon tint overlay
+    if (eclipseMoonTint) {
+      eclipseMoonTint.setAttribute('fill', data.tint);
+    }
+
+    // Update stage info
+    if (eclipseStageName) {
+      eclipseStageName.textContent = data.name;
+      eclipseStageName.className = `eclipse-stage-name ${data.nameClass}`;
+    }
+    if (eclipseStageDesc) {
+      eclipseStageDesc.textContent = data.desc;
+    }
+  }
+
+  // Slider handler
+  eclipseSlider?.addEventListener('input', () => {
+    updateEclipse(parseInt(eclipseSlider.value));
+  });
+
+  // Play / pause
+  function toggleEclipsePlay() {
+    eclipsePlaying = !eclipsePlaying;
+    if (eclipsePlaying) {
+      eclipsePlayIcon.style.display  = 'none';
+      eclipsePauseIcon.style.display = 'block';
+      eclipsePlayBtn.classList.add('playing');
+      eclipsePlayBtn.setAttribute('aria-label', 'Pause lunar eclipse animation');
+
+      function eclipseStep() {
+        if (!eclipsePlaying) return;
+        let val = parseInt(eclipseSlider.value) + 1;
+        if (val > 100) val = 0;
+        eclipseSlider.value = val;
+        updateEclipse(val);
+        const stage = getEclipseStage(moonYFromSlider(val));
+        const delay = (stage === 'none') ? 80 : 200;
+        eclipseInterval = setTimeout(eclipseStep, delay);
+      }
+      eclipseStep();
+    } else {
+      eclipsePlayIcon.style.display  = 'block';
+      eclipsePauseIcon.style.display = 'none';
+      eclipsePlayBtn.classList.remove('playing');
+      eclipsePlayBtn.setAttribute('aria-label', 'Play lunar eclipse animation');
+      clearTimeout(eclipseInterval);
+    }
+  }
+
+  eclipsePlayBtn?.addEventListener('click', toggleEclipsePlay);
+
+  // Initialise at start (Moon above, no eclipse)
+  updateEclipse(0);
+
+  // ─── Tidal Forces Interactive ────────────────────────────────────────────
+
+  const tidalSlider  = document.getElementById('tidalSlider') as HTMLInputElement | null;
+  const tidalPlayBtn = document.getElementById('tidalPlayBtn');
+  const tidalPlayIcon  = tidalPlayBtn?.querySelector('.play-icon') as HTMLElement | null;
+  const tidalPauseIcon = tidalPlayBtn?.querySelector('.pause-icon') as HTMLElement | null;
+  const tidalMoonGroup = document.getElementById('tidalMoonGroup');
+  const tidalMoonLabel = document.getElementById('tidalMoonLabel');
+  const tidalBulge     = document.getElementById('tidalBulge');
+  const tidalStageName = document.getElementById('tidalStageName');
+  const tidalStageDesc = document.getElementById('tidalStageDesc');
+  const tidalHigh1 = document.getElementById('tidalHighLabel1');
+  const tidalHigh2 = document.getElementById('tidalHighLabel2');
+  const tidalLow1  = document.getElementById('tidalLowLabel1');
+  const tidalLow2  = document.getElementById('tidalLowLabel2');
+
+  // Earth centre in SVG coords
+  const EARTH_CX = 340, EARTH_CY = 150;
+  const ORBIT_R  = 130; // Moon orbit radius
+
+  let tidalPlaying = false;
+  let tidalTimer: ReturnType<typeof setTimeout> | null = null;
+
+  // Return tidal stage based on Moon angle (0° = Moon to the right of Earth)
+  // Sun is on the LEFT side of the diagram (x < EARTH_CX)
+  // Spring tide when Moon is roughly aligned with Sun (angle ≈ 180° or 0°/360°)
+  // Neap tide when Moon is at right angles (angle ≈ 90° or 270°)
+  function getTidalStage(angleDeg: number) {
+    const a = ((angleDeg % 360) + 360) % 360;
+    // Normalise so 0° and 180° are spring, 90° and 270° are neap
+    const d = Math.min(a, 360 - a);           // distance from 0° (full moon axis)
+    const d180 = Math.abs(a - 180);           // distance from 180° (new moon axis)
+    const minDist = Math.min(d, d180);
+    if (minDist <= 30) return 'spring';
+    if (minDist >= 60) return 'neap';
+    return 'transitional';
+  }
+
+  const tidalStageData: Record<string, { name: string; desc: string; rx: number; ry: number }> = {
+    spring:       { name: 'Spring Tide',   desc: 'Moon and Sun pull together — maximum tidal range',      rx: 74, ry: 36 },
+    neap:         { name: 'Neap Tide',     desc: 'Moon and Sun at right angles — minimal tidal range',     rx: 56, ry: 48 },
+    transitional: { name: 'Transitional',  desc: 'Tidal forces shifting between spring and neap',          rx: 65, ry: 42 },
+  };
+
+  function updateTides(angleDeg: number) {
+    const rad = (angleDeg * Math.PI) / 180;
+    const mx = EARTH_CX + ORBIT_R * Math.cos(rad);
+    const my = EARTH_CY + ORBIT_R * Math.sin(rad);
+
+    // Move Moon group
+    if (tidalMoonGroup) {
+      tidalMoonGroup.setAttribute('transform', `translate(${mx.toFixed(1)}, ${my.toFixed(1)})`);
+    }
+
+    // Rotate tidal bulge to point toward Moon (bulge long axis = Earth-Moon axis)
+    if (tidalBulge) {
+      const stage = getTidalStage(angleDeg);
+      const data  = tidalStageData[stage];
+      tidalBulge.setAttribute('rx', String(data.rx));
+      tidalBulge.setAttribute('ry', String(data.ry));
+      tidalBulge.setAttribute('transform', `rotate(${angleDeg.toFixed(1)}, ${EARTH_CX}, ${EARTH_CY})`);
+    }
+
+    // Stage info
+    const stage = getTidalStage(angleDeg);
+    const data  = tidalStageData[stage];
+    if (tidalStageName) tidalStageName.textContent = data.name;
+    if (tidalStageDesc) tidalStageDesc.textContent = data.desc;
+
+    // High/Low tide labels — keep them on Earth-Moon axis
+    // High tide: toward Moon (at angleDeg) and away (angleDeg+180)
+    // Low: perpendicular (+90 and -90)
+    const hiR = 62, loR = 62;
+    const h1x = EARTH_CX + hiR * Math.cos(rad);
+    const h1y = EARTH_CY + hiR * Math.sin(rad);
+    const h2x = EARTH_CX - hiR * Math.cos(rad);
+    const h2y = EARTH_CY - hiR * Math.sin(rad);
+    const l1x = EARTH_CX + loR * Math.cos(rad + Math.PI / 2);
+    const l1y = EARTH_CY + loR * Math.sin(rad + Math.PI / 2);
+    const l2x = EARTH_CX + loR * Math.cos(rad - Math.PI / 2);
+    const l2y = EARTH_CY + loR * Math.sin(rad - Math.PI / 2);
+
+    if (tidalHigh1) { tidalHigh1.setAttribute('x', String(h1x.toFixed(1))); tidalHigh1.setAttribute('y', String(h1y.toFixed(1))); }
+    if (tidalHigh2) { tidalHigh2.setAttribute('x', String(h2x.toFixed(1))); tidalHigh2.setAttribute('y', String(h2y.toFixed(1))); }
+    if (tidalLow1)  { tidalLow1.setAttribute('x',  String(l1x.toFixed(1))); tidalLow1.setAttribute('y',  String(l1y.toFixed(1))); }
+    if (tidalLow2)  { tidalLow2.setAttribute('x',  String(l2x.toFixed(1))); tidalLow2.setAttribute('y',  String(l2y.toFixed(1))); }
+  }
+
+  // Slider handler
+  tidalSlider?.addEventListener('input', () => {
+    updateTides(parseInt(tidalSlider.value));
+  });
+
+  // Play / pause
+  function toggleTidalPlay() {
+    tidalPlaying = !tidalPlaying;
+    if (tidalPlaying) {
+      if (tidalPlayIcon)  tidalPlayIcon.style.display  = 'none';
+      if (tidalPauseIcon) tidalPauseIcon.style.display = 'block';
+      tidalPlayBtn?.classList.add('playing');
+      tidalPlayBtn?.setAttribute('aria-label', 'Pause tidal animation');
+
+      function tidalStep() {
+        if (!tidalPlaying) return;
+        const val = ((parseInt(tidalSlider!.value) + 1) % 360);
+        tidalSlider!.value = String(val);
+        updateTides(val);
+        tidalTimer = setTimeout(tidalStep, 60);
+      }
+      tidalStep();
+    } else {
+      if (tidalPlayIcon)  tidalPlayIcon.style.display  = 'block';
+      if (tidalPauseIcon) tidalPauseIcon.style.display = 'none';
+      tidalPlayBtn?.classList.remove('playing');
+      tidalPlayBtn?.setAttribute('aria-label', 'Play tidal animation');
+      if (tidalTimer) clearTimeout(tidalTimer);
+    }
+  }
+
+  tidalPlayBtn?.addEventListener('click', toggleTidalPlay);
+
+  // Initialise at 0° (Moon to the right — spring tide / full moon position)
+  updateTides(0);
 </script>
 
 <style>
@@ -1590,5 +2026,84 @@ const faqData = [
     .lightbox-content {
       padding: var(--space-sm);
     }
+  }
+
+  /* Interactive Lunar Eclipse */
+  .lunar-eclipse-interactive {
+    margin: var(--space-2xl) 0;
+    padding: var(--space-xl);
+    text-align: center;
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+  }
+
+  .eclipse-scene {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .eclipse-svg {
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    display: block;
+    margin: 0 auto var(--space-lg);
+  }
+
+  .eclipse-stage-info {
+    margin-bottom: var(--space-lg);
+    min-height: 56px;
+  }
+
+  .eclipse-stage-name {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-accent-cyan);
+    margin: 0 0 0.25rem 0;
+    transition: color 0.4s ease;
+  }
+
+  .eclipse-stage-name.blood {
+    color: #e05030;
+  }
+
+  .eclipse-stage-name.penumbral {
+    color: rgba(200, 200, 255, 0.8);
+  }
+
+  .eclipse-stage-name.none {
+    color: var(--color-text-secondary);
+  }
+
+  .eclipse-stage-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .eclipse-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  @media (max-width: 480px) {
+    .lunar-eclipse-interactive {
+      padding: var(--space-md);
+    }
+    .eclipse-svg {
+      min-width: 380px;
+    }
+  }
+
+  /* Tidal Forces Interactive — fill full container width for larger appearance */
+  #tidalSvg.eclipse-svg {
+    max-width: 100%;
   }
 </style>
