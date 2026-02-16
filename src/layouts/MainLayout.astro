@@ -25,14 +25,7 @@ const {
     <meta name="description" content={description} />
     <title>{title}</title>
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J952T9D3W5"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-J952T9D3W5');
-    </script>
+    <!-- Google Analytics loaded conditionally after cookie consent -->
   </head>
   <body>
     <!-- Top Navigation -->
@@ -112,10 +105,25 @@ const {
             <p class="footer-copyright">© 2026 The Astronomy Space. All rights reserved.</p>
             <nav class="footer-links">
               <a href="/contact/" class="footer-link">Contact</a>
+              <a href="#" id="cookieSettingsLink" class="footer-link">Cookie Settings</a>
             </nav>
           </div>
         </div>
       </footer>
+    </div>
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+      <div class="cookie-inner glass">
+        <p class="cookie-text">
+          We use Google Analytics to understand how visitors use this site.
+          No personal data is sold or shared with third parties.
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="cookie-policy-link">Google's privacy policy</a>
+        </p>
+        <div class="cookie-actions">
+          <button id="cookieDecline" class="cookie-btn cookie-decline">Decline</button>
+          <button id="cookieAccept"  class="cookie-btn cookie-accept">Accept Analytics</button>
+        </div>
+      </div>
     </div>
   </body>
 </html>
@@ -139,6 +147,55 @@ const {
     const isVisible = animatedStars?.classList.toggle('visible');
     starsToggle.classList.toggle('active', isVisible);
     localStorage.setItem('starsEnabled', isVisible ? 'true' : 'false');
+  });
+
+  // ── Cookie Consent ──────────────────────────────────────────────
+  const CONSENT_KEY = 'ta_cookie_consent';
+
+  function loadGA() {
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-J952T9D3W5';
+    document.head.appendChild(s);
+    const w = window as any;
+    w.dataLayer = w.dataLayer || [];
+    w.gtag = function(){ w.dataLayer.push(arguments); };
+    w.gtag('js', new Date());
+    w.gtag('config', 'G-J952T9D3W5');
+  }
+
+  function hideBanner() {
+    const b = document.getElementById('cookieBanner');
+    if (b) { b.classList.remove('cookie-visible'); b.classList.add('cookie-hidden'); }
+  }
+
+  function showBanner() {
+    const b = document.getElementById('cookieBanner');
+    if (b) { b.classList.remove('cookie-hidden'); b.classList.add('cookie-visible'); }
+  }
+
+  const stored = localStorage.getItem(CONSENT_KEY);
+  if (stored === 'accepted') {
+    loadGA();
+  } else if (!stored) {
+    setTimeout(showBanner, 800);
+  }
+
+  document.getElementById('cookieAccept')?.addEventListener('click', () => {
+    localStorage.setItem(CONSENT_KEY, 'accepted');
+    hideBanner();
+    loadGA();
+  });
+
+  document.getElementById('cookieDecline')?.addEventListener('click', () => {
+    localStorage.setItem(CONSENT_KEY, 'declined');
+    hideBanner();
+  });
+
+  document.getElementById('cookieSettingsLink')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    localStorage.removeItem(CONSENT_KEY);
+    showBanner();
   });
 </script>
 
@@ -393,6 +450,96 @@ const {
       flex-direction: column;
       text-align: center;
       gap: 1rem;
+    }
+  }
+
+  /* Cookie Consent Banner */
+  .cookie-banner {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(120%);
+    width: min(560px, calc(100vw - 2rem));
+    z-index: 200;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .cookie-banner.cookie-visible {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .cookie-banner.cookie-hidden {
+    transform: translateX(-50%) translateY(120%);
+  }
+
+  .cookie-inner {
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .cookie-text {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  .cookie-policy-link {
+    color: var(--color-accent-cyan);
+    text-decoration: none;
+  }
+
+  .cookie-policy-link:hover {
+    text-decoration: underline;
+  }
+
+  .cookie-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+  }
+
+  .cookie-btn {
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .cookie-decline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--color-text-secondary);
+  }
+
+  .cookie-decline:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: var(--color-text-primary);
+  }
+
+  .cookie-accept {
+    background: rgba(6, 182, 212, 0.15);
+    border: 1px solid rgba(6, 182, 212, 0.4);
+    color: rgba(6, 182, 212, 0.95);
+  }
+
+  .cookie-accept:hover {
+    background: rgba(6, 182, 212, 0.25);
+    border-color: rgba(6, 182, 212, 0.6);
+  }
+
+  @media (max-width: 480px) {
+    .cookie-actions {
+      flex-direction: column;
+    }
+    .cookie-btn {
+      width: 100%;
+      text-align: center;
     }
   }
 </style>

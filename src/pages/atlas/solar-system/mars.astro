@@ -151,6 +151,38 @@ const faqData = [
           <p>The planet's lower gravity (38% of Earth's) means that a person weighing 100 pounds on Earth would weigh only 38 pounds on Mars. This reduced gravity has significant implications for human colonization, as prolonged exposure could lead to muscle atrophy and bone loss similar to what astronauts experience on the International Space Station.</p>
 
           <p>Mars has a distinct reddish appearance caused by iron oxide (rust) prevalent in its soil and dust. This iron-rich dust covers most of the planet's surface and is regularly lifted into the atmosphere by winds, sometimes creating global dust storms that can obscure the entire planet for months. The presence of iron oxide suggests that Mars once had a more oxygen-rich atmosphere and liquid water on its surface.</p>
+
+          <!-- Mars Weight Calculator -->
+          <div class="weight-calc glass">
+            <h3 class="wc-title">Mars Weight Calculator</h3>
+            <p class="wc-subtitle">Mars has only 38% of Earth's surface gravity. Enter your weight to see how much you'd weigh on the Red Planet.</p>
+            <div class="wc-input-row">
+              <input type="number" id="wcEarthInput" class="wc-input" placeholder="Your weight" min="1" max="9999" />
+              <div class="wc-unit-toggle">
+                <button id="wcUnitKg" class="wc-unit-btn wc-active">kg</button>
+                <button id="wcUnitLbs" class="wc-unit-btn">lbs</button>
+              </div>
+            </div>
+            <div id="wcResult" class="wc-result" style="display:none">
+              <div class="wc-bars">
+                <div class="wc-bar-row">
+                  <span class="wc-bar-label">Earth</span>
+                  <div class="wc-bar-track">
+                    <div class="wc-bar wc-bar-earth"></div>
+                  </div>
+                  <span class="wc-bar-value" id="wcEarthVal"></span>
+                </div>
+                <div class="wc-bar-row">
+                  <span class="wc-bar-label">Mars</span>
+                  <div class="wc-bar-track">
+                    <div class="wc-bar wc-bar-mars"></div>
+                  </div>
+                  <span class="wc-bar-value" id="wcMarsVal"></span>
+                </div>
+              </div>
+              <p class="wc-comparison" id="wcComparison"></p>
+            </div>
+          </div>
         </section>
 
         <!-- Surface Features -->
@@ -201,6 +233,74 @@ const faqData = [
 
           <h3>Blue Sunsets</h3>
           <p>While Earth's sunsets are red and orange, Martian sunsets are blue. This reversal occurs because Mars's atmosphere contains fine dust particles that scatter shorter blue wavelengths of light toward the observer as the sun sets. The phenomenon creates an ethereal, otherworldly scene that has been captured by multiple Mars rovers.</p>
+
+          <!-- Martian Atmospheric Layers Interactive -->
+          <div class="atmo-interactive glass">
+            <div class="atmo-scene">
+              <svg id="matmoSvg" viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg"
+                aria-label="Interactive Martian atmospheric layers diagram" role="img">
+                <defs>
+                  <linearGradient id="matmoSpaceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#00001a"/>
+                    <stop offset="100%" stop-color="#001030"/>
+                  </linearGradient>
+                  <linearGradient id="matmoSurfaceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="rgba(140,70,20,0.9)"/>
+                    <stop offset="100%" stop-color="rgba(80,40,10,0.95)"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- Space background -->
+                <rect x="0" y="0" width="500" height="360" fill="url(#matmoSpaceGrad)"/>
+
+                <!-- Atmosphere bands (bottom = surface, top = space) -->
+                <rect id="matmo-band-exosphere"    class="matmo-band" data-layer="exosphere"    x="0" y="10"  width="430" height="55"  fill="rgba(40,30,80,0.14)"    stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+                <rect id="matmo-band-thermosphere" class="matmo-band" data-layer="thermosphere" x="0" y="65"  width="430" height="60"  fill="rgba(100,80,200,0.20)"   stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+                <rect id="matmo-band-middle"       class="matmo-band" data-layer="middle"       x="0" y="125" width="430" height="58"  fill="rgba(120,100,160,0.25)"  stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+                <rect id="matmo-band-lower"        class="matmo-band" data-layer="lower"        x="0" y="183" width="430" height="70"  fill="rgba(160,110,60,0.30)"   stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+                <rect id="matmo-band-boundary"     class="matmo-band" data-layer="boundary"     x="0" y="253" width="430" height="65"  fill="rgba(180,90,40,0.38)"    stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+
+                <!-- Martian surface strip -->
+                <rect x="0" y="318" width="500" height="42" fill="url(#matmoSurfaceGrad)"/>
+                <text x="215" y="337" fill="rgba(220,160,100,0.6)" font-size="11" font-family="system-ui">Martian Surface</text>
+
+                <!-- Altitude labels -->
+                <text x="436" y="22"  fill="rgba(255,255,255,0.35)" font-size="10" font-family="system-ui">225+ km</text>
+                <text x="436" y="77"  fill="rgba(255,255,255,0.35)" font-size="10" font-family="system-ui">100 km</text>
+                <text x="436" y="137" fill="rgba(255,255,255,0.35)" font-size="10" font-family="system-ui">60 km</text>
+                <text x="436" y="195" fill="rgba(255,255,255,0.35)" font-size="10" font-family="system-ui">10 km</text>
+                <text x="436" y="265" fill="rgba(255,255,255,0.35)" font-size="10" font-family="system-ui">0 km</text>
+
+                <!-- Layer name labels -->
+                <text x="12" y="44"  fill="rgba(255,255,255,0.45)" font-size="11.5" font-family="system-ui" pointer-events="none">Exosphere</text>
+                <text x="12" y="100" fill="rgba(255,255,255,0.45)" font-size="11.5" font-family="system-ui" pointer-events="none">Thermosphere</text>
+                <text x="12" y="160" fill="rgba(255,255,255,0.45)" font-size="11.5" font-family="system-ui" pointer-events="none">Middle Atmosphere</text>
+                <text x="12" y="223" fill="rgba(255,255,255,0.45)" font-size="11.5" font-family="system-ui" pointer-events="none">Lower Atmosphere</text>
+                <text x="12" y="288" fill="rgba(255,255,255,0.45)" font-size="11.5" font-family="system-ui" pointer-events="none">Boundary Layer</text>
+
+                <!-- Highlight overlay (moved by JS) -->
+                <rect id="matmoHighlight" x="0" y="253" width="430" height="65"
+                  fill="none" stroke="rgba(200,110,50,0.75)" stroke-width="2" opacity="1"/>
+
+                <!-- Direction labels -->
+                <text x="6"  y="8"   fill="rgba(255,255,255,0.18)" font-size="9" font-family="system-ui">↑ Space</text>
+                <text x="6"  y="314" fill="rgba(255,255,255,0.18)" font-size="9" font-family="system-ui">↓ Surface</text>
+              </svg>
+            </div>
+
+            <!-- Info panel -->
+            <div class="atmo-info glass">
+              <div class="atmo-info-header">
+                <span class="atmo-info-name" id="matmoInfoName">Boundary Layer</span>
+                <span class="atmo-info-alt"  id="matmoInfoAlt">0 – 10 km</span>
+              </div>
+              <p class="atmo-info-desc" id="matmoInfoDesc">The turbulent zone just above the Martian surface, where solar heating creates powerful convection. Dust devils spiral upward, sometimes reaching 8 km tall. Temperatures can swing more than 100°C between day and night. Every Mars lander and rover has operated inside this layer.</p>
+              <div class="atmo-info-fact" id="matmoInfoFact">✦ Dust devils on Mars can be 10× taller than any on Earth, reaching up to 8 km in height.</div>
+            </div>
+
+            <p class="atmo-hint">Click any layer to explore it</p>
+          </div>
+
         </section>
 
         <!-- Water on Mars -->
@@ -241,6 +341,32 @@ const faqData = [
 
           <h3>Opportunity's Final Message</h3>
           <p>One of the most poignant moments in Mars exploration came when the Opportunity rover sent its final transmission in June 2018 during a global dust storm. Mission controllers poetically interpreted the rover's last data transmission as "My battery is low and it's getting dark." After 15 years of exploration—far exceeding its planned 90-day mission—Opportunity had traveled over 45 kilometers (28 miles) and discovered compelling evidence of Mars's watery past.</p>
+
+          <!-- Message to Mars Simulator -->
+          <div class="msg-mars glass">
+            <h3 class="mm-title">Send a Message to Mars</h3>
+            <p class="mm-distance">
+              Today, Mars is approximately <strong id="mmDistVal">—</strong> million km away.
+              A radio signal travelling at the speed of light takes <strong id="mmTimeVal">—</strong> to arrive.
+            </p>
+            <textarea id="mmText" class="mm-textarea" placeholder="Type your message to the rover…" maxlength="280" rows="3"></textarea>
+            <div class="mm-send-row">
+              <button id="mmSendBtn" class="mm-send-btn">Send to Mars →</button>
+              <span class="mm-chars" id="mmChars">0 / 280</span>
+            </div>
+            <div id="mmResult" class="mm-result" style="display:none">
+              <div class="mm-visual">
+                <span class="mm-planet" title="Earth">🌍</span>
+                <div class="mm-track">
+                  <div class="mm-signal" id="mmSignal"></div>
+                </div>
+                <span class="mm-planet" title="Mars">🔴</span>
+              </div>
+              <p class="mm-status" id="mmStatus">Signal transmitting at 299,792 km/s…</p>
+              <p class="mm-countdown" id="mmCountdown"></p>
+              <button id="mmResetBtn" class="mm-reset-btn" style="display:none">↩ Send another message</button>
+            </div>
+          </div>
         </section>
 
         <!-- Future Missions -->
@@ -352,6 +478,234 @@ const faqData = [
   }, observerOptions);
 
   sections.forEach(section => observer.observe(section));
+
+  // ── Mars Weight Calculator ──
+  const wcObjects = [
+    { name: 'a large house cat',        emoji: '🐱',  kg: 5    },
+    { name: 'a bowling ball',           emoji: '🎳',  kg: 7    },
+    { name: 'a Corgi',                  emoji: '🐕',  kg: 13   },
+    { name: 'a child',                  emoji: '👦',  kg: 25   },
+    { name: 'a Golden Retriever',       emoji: '🦮',  kg: 32   },
+    { name: 'an adult human',           emoji: '🧑',  kg: 70   },
+    { name: 'a giant panda',            emoji: '🐼',  kg: 125  },
+    { name: 'a polar bear',             emoji: '🐻‍❄️', kg: 450  },
+    { name: 'a grand piano',            emoji: '🎹',  kg: 480  },
+    { name: 'the Curiosity Mars Rover', emoji: '🛸',  kg: 899  },
+    { name: 'a small car',              emoji: '🚗',  kg: 1200 },
+  ];
+
+  const wcInput    = document.getElementById('wcEarthInput') as HTMLInputElement | null;
+  const wcResult   = document.getElementById('wcResult') as HTMLElement | null;
+  const wcEarthVal = document.getElementById('wcEarthVal') as HTMLElement | null;
+  const wcMarsVal  = document.getElementById('wcMarsVal') as HTMLElement | null;
+  const wcComp     = document.getElementById('wcComparison') as HTMLElement | null;
+  const wcBtnKg    = document.getElementById('wcUnitKg') as HTMLButtonElement | null;
+  const wcBtnLbs   = document.getElementById('wcUnitLbs') as HTMLButtonElement | null;
+
+  let wcUnit = 'kg';
+
+  function wcUpdate() {
+    if (!wcInput || !wcResult || !wcEarthVal || !wcMarsVal || !wcComp) return;
+    const raw = parseFloat(wcInput.value);
+    if (!raw || raw <= 0) { wcResult.style.display = 'none'; return; }
+
+    const earthKg  = wcUnit === 'kg' ? raw : raw * 0.4536;
+    const marsKg   = earthKg * 0.38;
+
+    const displayEarth = wcUnit === 'kg' ? raw.toFixed(1) + ' kg' : raw.toFixed(1) + ' lbs';
+    const displayMars  = wcUnit === 'kg'
+      ? marsKg.toFixed(1) + ' kg'
+      : (marsKg / 0.4536).toFixed(1) + ' lbs';
+
+    wcEarthVal.textContent = displayEarth;
+    wcMarsVal.textContent  = displayMars;
+
+    const closest = wcObjects.reduce((prev, curr) =>
+      Math.abs(curr.kg - marsKg) < Math.abs(prev.kg - marsKg) ? curr : prev
+    );
+    wcComp.textContent = `On Mars, you'd feel as light as ${closest.emoji} ${closest.name} does on Earth!`;
+
+    wcResult.style.display = 'block';
+  }
+
+  wcInput?.addEventListener('input', wcUpdate);
+
+  wcBtnKg?.addEventListener('click', () => {
+    wcUnit = 'kg';
+    wcBtnKg.classList.add('wc-active');
+    wcBtnLbs?.classList.remove('wc-active');
+    wcUpdate();
+  });
+
+  wcBtnLbs?.addEventListener('click', () => {
+    wcUnit = 'lbs';
+    wcBtnLbs.classList.add('wc-active');
+    wcBtnKg?.classList.remove('wc-active');
+    wcUpdate();
+  });
+
+// --- Martian Atmospheric Layers ---
+interface MatmoLayer {
+  name: string; alt: string; desc: string; fact: string;
+  bandY: number; bandH: number; stroke: string;
+}
+
+const matmoLayers: Record<string, MatmoLayer> = {
+  boundary: {
+    name: 'Boundary Layer', alt: '0 – 10 km',
+    desc: "The turbulent zone just above the Martian surface, where solar heating creates powerful convection. Dust devils spiral upward, sometimes reaching 8 km tall. Temperatures can swing more than 100°C between day and night. Every Mars lander and rover has operated inside this layer.",
+    fact: '✦ Dust devils on Mars can be 10× taller than any on Earth, reaching up to 8 km in height.',
+    bandY: 253, bandH: 65, stroke: 'rgba(200,110,50,0.75)',
+  },
+  lower: {
+    name: 'Lower Atmosphere', alt: '10 – 60 km',
+    desc: "Contains the bulk of Mars's atmospheric mass — roughly 95% carbon dioxide with traces of nitrogen, argon, and water vapour. CO₂ ice clouds form between 15–25 km; water ice clouds appear at higher altitudes. Global dust storms originate here and can envelop the entire planet for months.",
+    fact: '✦ The 2018 global dust storm was so intense it blocked sunlight and ended the Opportunity rover mission after 15 years.',
+    bandY: 183, bandH: 70, stroke: 'rgba(170,120,70,0.75)',
+  },
+  middle: {
+    name: 'Middle Atmosphere', alt: '60 – 100 km',
+    desc: "Extremely thin and cold, reaching temperatures around −130°C. Chemical reactions involving CO₂, CO, and atomic oxygen occur here under ultraviolet irradiation. Meteors entering from space begin to ablate in this region. Occasionally, rare mesospheric clouds of CO₂ ice have been observed at around 100 km.",
+    fact: '✦ Mars has no ozone layer — UV radiation penetrates all the way to the surface, sterilising the topsoil.',
+    bandY: 125, bandH: 58, stroke: 'rgba(130,105,180,0.75)',
+  },
+  thermosphere: {
+    name: 'Thermosphere', alt: '100 – 225 km',
+    desc: "Solar extreme-ultraviolet radiation heats this region, dissociating CO₂ into CO and atomic oxygen. The ionosphere — a layer of electrically charged particles — lies within the thermosphere and reflects some radio waves. Despite high temperatures, density is so low that a spacecraft barely notices the heat.",
+    fact: "✦ NASA's MAVEN spacecraft orbits within this layer to study how Mars is losing its atmosphere to space.",
+    bandY: 65, bandH: 60, stroke: 'rgba(110,90,210,0.75)',
+  },
+  exosphere: {
+    name: 'Exosphere', alt: '225+ km',
+    desc: "The outermost shell, where individual molecules travel on ballistic trajectories and can escape Mars entirely. Because Mars lacks a strong global magnetic field, the solar wind continuously strips hydrogen and oxygen atoms — the very process that stripped Mars of most of its ancient atmosphere over billions of years.",
+    fact: '✦ Mars has lost the equivalent of a global ocean over 20 metres deep to space over 4 billion years.',
+    bandY: 10, bandH: 55, stroke: 'rgba(100,80,220,0.75)',
+  },
+};
+
+const matmoHighlight  = document.getElementById('matmoHighlight');
+const matmoInfoName   = document.getElementById('matmoInfoName');
+const matmoInfoAlt    = document.getElementById('matmoInfoAlt');
+const matmoInfoDesc   = document.getElementById('matmoInfoDesc');
+const matmoInfoFact   = document.getElementById('matmoInfoFact');
+
+function selectMatmoLayer(key: string) {
+  const layer = matmoLayers[key];
+  if (!layer) return;
+  if (matmoHighlight) {
+    matmoHighlight.setAttribute('y',      String(layer.bandY));
+    matmoHighlight.setAttribute('height', String(layer.bandH));
+    matmoHighlight.setAttribute('stroke', layer.stroke);
+  }
+  if (matmoInfoName) matmoInfoName.textContent = layer.name;
+  if (matmoInfoAlt)  matmoInfoAlt.textContent  = layer.alt;
+  if (matmoInfoDesc) matmoInfoDesc.textContent = layer.desc;
+  if (matmoInfoFact) matmoInfoFact.textContent = layer.fact;
+}
+
+document.querySelectorAll<SVGRectElement>('.matmo-band').forEach(band => {
+  band.addEventListener('click', () => {
+    const key = band.getAttribute('data-layer');
+    if (key) selectMatmoLayer(key);
+  });
+});
+
+selectMatmoLayer('boundary');
+
+// --- Message to Mars ---
+function getMarsLightSeconds(): number {
+  const J2000 = new Date('2000-01-01T12:00:00Z').getTime();
+  const days = (Date.now() - J2000) / 86_400_000;
+  const earthLon = ((100.4664 + 0.9856474 * days) % 360) * Math.PI / 180;
+  const marsLon  = ((355.4333 + 0.5240208 * days) % 360) * Math.PI / 180;
+  const dLon = earthLon - marsLon;
+  const distAU = Math.sqrt(1 + 1.524**2 - 2 * 1.524 * Math.cos(dLon));
+  const distKm = distAU * 149_597_870;
+  return Math.round(distKm / 299_792);
+}
+
+function formatMarsTime(seconds: number): string {
+  if (seconds >= 60) {
+    const m = Math.floor(seconds / 60);
+    const s = seconds % 60;
+    return s > 0 ? `${m}m ${s}s` : `${m}m`;
+  }
+  return `${seconds}s`;
+}
+
+(function initMsgMars() {
+  const lightSecs = getMarsLightSeconds();
+  const distMillion = ((lightSecs * 299_792) / 1_000_000).toFixed(1);
+
+  const mmDistVal = document.getElementById('mmDistVal');
+  const mmTimeVal = document.getElementById('mmTimeVal');
+  if (mmDistVal) mmDistVal.textContent = distMillion;
+  if (mmTimeVal) mmTimeVal.textContent = formatMarsTime(lightSecs);
+
+  const mmText    = document.getElementById('mmText')    as HTMLTextAreaElement | null;
+  const mmChars   = document.getElementById('mmChars');
+  const mmSendBtn = document.getElementById('mmSendBtn') as HTMLButtonElement | null;
+  const mmSendRow = document.querySelector('.mm-send-row') as HTMLElement | null;
+  const mmResult  = document.getElementById('mmResult');
+  const mmSignal  = document.getElementById('mmSignal');
+  const mmStatus  = document.getElementById('mmStatus');
+  const mmCountdown = document.getElementById('mmCountdown');
+  const mmResetBtn = document.getElementById('mmResetBtn') as HTMLButtonElement | null;
+  const mmTextarea = mmText;
+
+  if (!mmTextarea || !mmSendBtn) return;
+
+  mmTextarea.addEventListener('input', () => {
+    if (mmChars) mmChars.textContent = `${mmTextarea.value.length} / 280`;
+    mmSendBtn.disabled = mmTextarea.value.trim().length === 0;
+  });
+  mmSendBtn.disabled = true;
+
+  let mmInterval: ReturnType<typeof setInterval> | null = null;
+
+  mmSendBtn.addEventListener('click', () => {
+    if (mmTextarea.value.trim().length === 0) return;
+
+    mmTextarea.style.display = 'none';
+    if (mmSendRow) mmSendRow.style.display = 'none';
+    if (mmResult) mmResult.style.display = 'block';
+
+    if (mmSignal) {
+      mmSignal.style.animation = 'none';
+      void (mmSignal as HTMLElement).offsetWidth; // force reflow
+      mmSignal.style.animation = `mmTravel ${lightSecs}s linear forwards`;
+    }
+
+    let remaining = lightSecs;
+    if (mmCountdown) mmCountdown.textContent = `⏱ ${formatMarsTime(remaining)} remaining`;
+    if (mmStatus) mmStatus.textContent = 'Signal transmitting at 299,792 km/s…';
+
+    mmInterval = setInterval(() => {
+      remaining--;
+      if (remaining > 0) {
+        if (mmCountdown) mmCountdown.textContent = `⏱ ${formatMarsTime(remaining)} remaining`;
+      } else {
+        if (mmInterval) clearInterval(mmInterval);
+        if (mmCountdown) mmCountdown.textContent = `📡 Message received on Mars! (after ${formatMarsTime(lightSecs)})`;
+        if (mmStatus) mmStatus.textContent = 'Transmission complete.';
+        if (mmResetBtn) mmResetBtn.style.display = 'inline-block';
+      }
+    }, 1000);
+  });
+
+  mmResetBtn?.addEventListener('click', () => {
+    if (mmInterval) clearInterval(mmInterval);
+    mmTextarea.style.display = '';
+    if (mmSendRow) mmSendRow.style.display = '';
+    if (mmResult) mmResult.style.display = 'none';
+    if (mmSignal) mmSignal.style.animation = 'none';
+    if (mmResetBtn) mmResetBtn.style.display = 'none';
+    mmTextarea.value = '';
+    if (mmChars) mmChars.textContent = '0 / 280';
+    mmSendBtn.disabled = true;
+  });
+})();
+
 </script>
 
 <style>
@@ -827,4 +1181,357 @@ const faqData = [
       height: 32px;
     }
   }
+
+  /* ── Mars Weight Calculator ── */
+  .weight-calc {
+    margin-top: var(--space-xl);
+    padding: var(--space-lg);
+  }
+
+  .wc-title {
+    margin: 0 0 var(--space-xs) 0;
+    font-size: 1.1rem;
+    color: var(--color-accent-blue);
+  }
+
+  .wc-subtitle {
+    margin: 0 0 var(--space-md) 0;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+  }
+
+  .wc-input-row {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .wc-input {
+    width: 140px;
+    padding: 0.5rem 0.75rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-md);
+    color: var(--color-text-primary);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+    -moz-appearance: textfield;
+  }
+
+  .wc-input::-webkit-outer-spin-button,
+  .wc-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .wc-input:focus {
+    border-color: var(--color-accent-cyan);
+  }
+
+  .wc-unit-toggle {
+    display: flex;
+    gap: 2px;
+  }
+
+  .wc-unit-btn {
+    padding: 0.45rem 0.9rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-md);
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .wc-unit-btn.wc-active {
+    background: rgba(6, 182, 212, 0.15);
+    border-color: rgba(6, 182, 212, 0.5);
+    color: var(--color-accent-cyan);
+  }
+
+  .wc-result {
+    margin-top: var(--space-md);
+  }
+
+  .wc-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .wc-bar-row {
+    display: grid;
+    grid-template-columns: 46px 1fr 70px;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .wc-bar-label {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+  }
+
+  .wc-bar-track {
+    height: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .wc-bar {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+  }
+
+  .wc-bar-earth {
+    width: 100%;
+    background: var(--color-accent-blue);
+  }
+
+  .wc-bar-mars {
+    width: 38%;
+    background: var(--color-accent-cyan);
+  }
+
+  .wc-bar-value {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .wc-comparison {
+    margin: 0;
+    padding: var(--space-sm) var(--space-md);
+    background: rgba(6, 182, 212, 0.07);
+    border-left: 3px solid var(--color-accent-cyan);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  /* ── Message to Mars ── */
+  @keyframes mmTravel {
+    from { left: 0; }
+    to   { left: calc(100% - 10px); }
+  }
+
+  .msg-mars {
+    margin-top: var(--space-xl);
+    padding: var(--space-lg);
+  }
+
+  .mm-title {
+    margin: 0 0 var(--space-xs) 0;
+    font-size: 1.1rem;
+    color: var(--color-accent-cyan);
+  }
+
+  .mm-distance {
+    margin: 0 0 var(--space-md) 0;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .mm-textarea {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-md);
+    color: var(--color-text-primary);
+    font-size: 0.95rem;
+    font-family: inherit;
+    resize: vertical;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+  }
+
+  .mm-textarea:focus {
+    border-color: var(--color-accent-cyan);
+  }
+
+  .mm-send-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--space-sm);
+    gap: var(--space-sm);
+  }
+
+  .mm-send-btn {
+    padding: 0.45rem 1rem;
+    background: rgba(6, 182, 212, 0.15);
+    border: 1px solid rgba(6, 182, 212, 0.5);
+    border-radius: var(--radius-md);
+    color: var(--color-accent-cyan);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .mm-send-btn:hover {
+    background: rgba(6, 182, 212, 0.25);
+  }
+
+  .mm-send-btn:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+
+  .mm-chars {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+  }
+
+  .mm-result {
+    margin-top: var(--space-md);
+  }
+
+  .mm-visual {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+  }
+
+  .mm-planet {
+    font-size: 1.6rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .mm-track {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    position: relative;
+    overflow: visible;
+  }
+
+  .mm-signal {
+    position: absolute;
+    top: -3px;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background: var(--color-accent-cyan);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--color-accent-cyan);
+  }
+
+  .mm-status {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    margin: 0 0 var(--space-xs) 0;
+  }
+
+  .mm-countdown {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0 0 var(--space-sm) 0;
+  }
+
+  .mm-reset-btn {
+    padding: 0.4rem 0.8rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-md);
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .mm-reset-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-primary);
+  }
+
+  /* Martian Atmospheric Layers Interactive */
+  .matmo-band {
+    transition: filter 0.15s ease;
+  }
+
+  .matmo-band:hover {
+    filter: brightness(1.4);
+  }
+
+  .atmo-interactive {
+    margin: var(--space-xl) 0;
+    padding: var(--space-lg);
+  }
+
+  .atmo-scene {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .atmo-scene svg {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: block;
+    margin: 0 auto var(--space-md);
+  }
+
+  .atmo-info {
+    margin-top: var(--space-md);
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .atmo-info-header {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-md);
+    margin-bottom: var(--space-sm);
+    flex-wrap: wrap;
+  }
+
+  .atmo-info-name {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-accent-cyan);
+  }
+
+  .atmo-info-alt {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+  }
+
+  .atmo-info-desc {
+    font-size: 0.9375rem;
+    font-weight: 300;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin: 0 0 var(--space-sm) 0;
+  }
+
+  .atmo-info-fact {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: rgba(56,189,248,0.65);
+    font-style: italic;
+  }
+
+  .atmo-hint {
+    text-align: center;
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.22);
+    margin: var(--space-sm) 0 0 0;
+    letter-spacing: 0.03em;
+  }
+
 </style>

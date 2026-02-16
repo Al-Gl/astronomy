@@ -1,0 +1,55 @@
+# The Astronomy Space
+
+> An educational astronomy website covering the Solar System, stars, galaxies, nebulae, constellations, and stargazing guides. Features interactive components including atmospheric layer explorers, an axial tilt visualiser, lunar eclipse simulator, tidal forces diagram, Mars weight calculator, and a light-speed delay simulator. All articles are fact-checked and written for a general audience.
+
+## Solar System
+
+- [The Solar System Overview](https://theastronomy.space/atlas/solar-system/) : Hub page — planets, dwarf planets, the Sun, and our cosmic neighbourhood
+- [The Sun](https://theastronomy.space/atlas/solar-system/sun/) : Solar structure, nuclear fusion, sunspots, solar wind, and the heliosphere
+- [Mercury](https://theastronomy.space/atlas/solar-system/mercury/) : Smallest planet — extreme temperature swings, heavily cratered surface, no atmosphere
+- [Venus](https://theastronomy.space/atlas/solar-system/venus/) : Earth's twin — crushing CO₂ atmosphere, runaway greenhouse effect, retrograde rotation
+- [Earth](https://theastronomy.space/atlas/solar-system/earth/) : Complete guide — atmosphere (interactive layers), axial tilt, magnetic field, geology, and why Earth supports life
+- [The Moon](https://theastronomy.space/atlas/solar-system/earth/moon/) : Lunar phases (interactive), tidal forces, lunar eclipses, Apollo missions, tidal locking
+- [Mars](https://theastronomy.space/atlas/solar-system/mars/) : The Red Planet — geology, Olympus Mons, Valles Marineris, atmospheric layers (interactive), water history, rovers, weight calculator, light-speed delay simulator
+- [Jupiter](https://theastronomy.space/atlas/solar-system/jupiter/) : King of planets — Great Red Spot, magnetosphere, Galilean moons, Juno mission
+- [Saturn](https://theastronomy.space/atlas/solar-system/saturn/) : Ring system, Titan, Enceladus geysers, Cassini mission
+- [Uranus](https://theastronomy.space/atlas/solar-system/uranus/) : Ice giant with 98° axial tilt — ring system, Miranda, Voyager 2 flyby
+- [Neptune](https://theastronomy.space/atlas/solar-system/neptune/) : Outermost planet — supersonic winds, Great Dark Spot, Triton
+
+## Small Bodies
+
+- [Small Bodies Overview](https://theastronomy.space/atlas/small-bodies/) : Comets, asteroids, dwarf planets, and meteors
+- [Asteroids](https://theastronomy.space/atlas/small-bodies/asteroids/) : Rocky Solar System remnants — Asteroid Belt, C/S/M types, near-Earth objects, planetary defence, DART mission
+- [Comets](https://theastronomy.space/atlas/small-bodies/comets/) : Icy wanderers — nucleus, coma, tails; Halley's Comet, Rosetta mission, Kuiper Belt and Oort Cloud origin
+- [Dwarf Planets](https://theastronomy.space/atlas/small-bodies/dwarf-planets/) : IAU 2006 definition; Pluto, Eris, Ceres, Makemake, Haumea
+- [Meteors & Meteorites](https://theastronomy.space/atlas/small-bodies/meteors/) : Meteoroid/meteor/meteorite distinction, major showers, Chelyabinsk 2013, Chicxulub
+
+## Stars
+
+- [Stars Overview](https://theastronomy.space/atlas/stars/) : Stellar classification, HR diagram, and stellar evolution
+- [Main Sequence Stars](https://theastronomy.space/atlas/stars/main-sequence/) : Hydrogen-burning majority — spectral types O through M
+- [Red Giants](https://theastronomy.space/atlas/stars/red-giants/) : Post-main-sequence evolution — helium burning, planetary nebula precursors
+- [White Dwarfs](https://theastronomy.space/atlas/stars/white-dwarfs/) : Dense stellar remnants — Chandrasekhar limit, Type Ia supernovae
+- [Neutron Stars](https://theastronomy.space/atlas/stars/neutron-stars/) : Extreme-density remnants — pulsars, magnetars
+- [Black Holes](https://theastronomy.space/atlas/stars/black-holes/) : Event horizons, singularities, Hawking radiation, Sagittarius A*, gravitational waves
+- [Supergiants](https://theastronomy.space/atlas/stars/supergiants/) : Stellar behemoths — Betelgeuse, Rigel, supernova progenitors
+- [Binary Star Systems](https://theastronomy.space/atlas/stars/binary-systems/) : Stellar pairs — types, mass transfer, novae
+- [Variable Stars](https://theastronomy.space/atlas/stars/variable-stars/) : Cepheids, RR Lyrae, eclipsing binaries, distance ladder
+
+## Deep Sky Objects
+
+- [Galaxies](https://theastronomy.space/atlas/galaxies/) : Spiral, elliptical, and irregular galaxies — formation, classification, the Milky Way
+- [Nebulae](https://theastronomy.space/atlas/nebulae/) : Emission, reflection, dark, planetary nebulae, and supernova remnants
+- [Constellations](https://theastronomy.space/atlas/constellations/) : All 88 IAU constellations — mythology, star patterns, celestial navigation
+
+## Stargazing Guides
+
+- [Stargazing in Scandinavia](https://theastronomy.space/chronicles/stargazing/scandinavia/) : Dark sky sites, Northern Lights, Norway, Sweden, Finland, Iceland
+- [Stargazing in England](https://theastronomy.space/chronicles/stargazing/england/) : Dark sky reserves, light pollution, seasonal highlights across the UK
+
+## Optional
+
+- [Cosmic Chronicles](https://theastronomy.space/chronicles/) : Observing reports, discovery articles, and cosmic event coverage
+- [Stargazing Hub](https://theastronomy.space/chronicles/stargazing/) : Index of all location-based stargazing guides
+- [Observatory](https://theastronomy.space/observatory/) : Real-time astronomical observations and celestial tracking tools
+- [Contact](https://theastronomy.space/contact/) : Get in touch with The Astronomy Space team
