@@ -15,6 +15,7 @@ interface Props {
   sunColor?: string;
   containerSize?: number;
   showLabels?: boolean;
+  funFacts?: Record<string, string>;
 }
 
 // Orbital speeds use compressed logarithmic scaling based on real orbital periods
@@ -35,7 +36,8 @@ const {
   sunSize = 40,
   sunColor = '#ffd700',
   containerSize = 700,
-  showLabels = false
+  showLabels = false,
+  funFacts = {}
 } = Astro.props;
 ---
 
@@ -61,6 +63,8 @@ const {
         <div
           class={`planet planet-${body.name.toLowerCase()}`}
           style={`--planet-size: ${body.size}px; --planet-color: ${body.color}; --planet-glow: ${body.glowColor || 'transparent'};`}
+          data-name={body.name}
+          data-fact={funFacts[body.name] || ''}
         >
           {body.hasRing && <div class="saturn-ring"></div>}
         </div>
@@ -68,7 +72,42 @@ const {
       </div>
     ))}
   </div>
+
+  <!-- Fun-fact popup (only rendered when funFacts are provided) -->
+  {Object.keys(funFacts).length > 0 && (
+    <div class="orrery-popup" id="orreryPopup" aria-live="polite" hidden>
+      <strong class="orrery-popup-name" id="orreryPopupName"></strong>
+      <p class="orrery-popup-fact" id="orreryPopupFact"></p>
+      <button class="orrery-popup-close" id="orreryPopupClose" aria-label="Close">✕</button>
+    </div>
+  )}
 </div>
+
+<script>
+  // Scoped to each orrery instance on the page
+  document.querySelectorAll('.orrery-container').forEach((container) => {
+    const popup = container.querySelector('#orreryPopup') as HTMLElement | null;
+    if (!popup) return; // no funFacts on this instance
+
+    const popupName = container.querySelector('#orreryPopupName') as HTMLElement;
+    const popupFact = container.querySelector('#orreryPopupFact') as HTMLElement;
+    const closeBtn = container.querySelector('#orreryPopupClose') as HTMLElement;
+
+    container.querySelectorAll<HTMLElement>('.planet[data-fact]').forEach((planet) => {
+      if (!planet.dataset.fact) return;
+      planet.style.cursor = 'pointer';
+      planet.addEventListener('click', (e) => {
+        e.stopPropagation();
+        popupName.textContent = planet.dataset.name || '';
+        popupFact.textContent = planet.dataset.fact || '';
+        popup.hidden = false;
+      });
+    });
+
+    closeBtn?.addEventListener('click', () => { popup.hidden = true; });
+    container.addEventListener('click', () => { popup.hidden = true; });
+  });
+</script>
 
 <style>
   .orrery-container {
@@ -110,7 +149,7 @@ const {
     transform: translate(-50%, -50%);
     width: var(--sun-size, 40px);
     height: var(--sun-size, 40px);
-    background: radial-gradient(circle at 35% 35%, #fff8e0 0%, #ffd700 35%, #ffa500 70%, #ff6600 100%);
+    background: radial-gradient(circle at 35% 35%, color-mix(in srgb, var(--sun-color, #ffd700) 60%, white) 0%, var(--sun-color, #ffd700) 40%, color-mix(in srgb, var(--sun-color, #ffa500) 70%, black) 100%);
     border-radius: 50%;
     box-shadow:
       0 0 20px 5px rgba(255, 200, 50, 0.8),
@@ -280,5 +319,49 @@ const {
     .planet-label {
       display: none;
     }
+  }
+
+  /* Fun-fact popup */
+  .orrery-popup {
+    position: relative;
+    margin: var(--space-md) auto 0;
+    max-width: 420px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-md, 8px);
+    padding: var(--space-md, 1rem) var(--space-lg, 1.5rem);
+    text-align: center;
+  }
+
+  .orrery-popup-name {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-accent-cyan, #06b6d4);
+    margin-bottom: 0.4rem;
+  }
+
+  .orrery-popup-fact {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+  }
+
+  .orrery-popup-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+  }
+
+  .orrery-popup-close:hover {
+    color: rgba(255, 255, 255, 0.8);
   }
 </style>

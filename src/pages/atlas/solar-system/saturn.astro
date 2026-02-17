@@ -92,6 +92,8 @@ const faqData = [
             <li><a href="#introduction">Introduction</a></li>
             <li><a href="#physical-characteristics">Physical Characteristics</a></li>
             <li><a href="#ring-system">The Ring System</a></li>
+            <li><a href="#ring-zoom">Ring Material Zoom</a></li>
+            <li><a href="#ring-tilt">Ring Tilt Viewer</a></li>
             <li><a href="#atmosphere">Atmosphere & Weather</a></li>
             <li><a href="#interior">Interior Structure</a></li>
             <li><a href="#magnetosphere">Magnetosphere</a></li>
@@ -189,6 +191,59 @@ const faqData = [
 
           <h3>The Origin and Age of the Rings</h3>
           <p>The origin of Saturn's rings remains debated. They could have formed from the destruction of a moon that wandered too close to Saturn and was torn apart by tidal forces, from debris left over from Saturn's formation, or from a shattered comet. Recent analysis from the Cassini mission suggests the rings are surprisingly young—perhaps only 100-400 million years old, forming long after the dinosaurs roamed Earth. This is much younger than Saturn itself and suggests the rings we see today are a temporary feature in the planet's history.</p>
+        <!-- Ring Material Zoom -->
+        <section id="ring-zoom" class="content-section">
+          <h2>Ring Material Zoom</h2>
+          <p>To the naked eye the rings look like solid discs. Zoom in and discover what they're really made of.</p>
+          <div class="rmz-wrap glass">
+            <canvas id="rmzCanvas" width="560" height="300" aria-label="Ring material zoom view"></canvas>
+            <div class="rmz-controls">
+              <button class="rmz-btn rmz-active" data-level="0">1×</button>
+              <button class="rmz-btn" data-level="1">1,000×</button>
+              <button class="rmz-btn" data-level="2">1,000,000×</button>
+            </div>
+            <p class="rmz-desc" id="rmzDesc">Wide view — Saturn's rings appear as smooth, glowing discs of light.</p>
+          </div>
+        </section>
+
+        <!-- Ring Tilt Viewer -->
+        <section id="ring-tilt" class="content-section">
+          <h2>Ring Tilt Time-Slider</h2>
+          <p>Saturn takes 29.5 years to orbit the Sun. As it does, our view of the rings changes — they open, close, and every ~15 years appear perfectly edge-on and nearly vanish. Drag the slider to travel through Saturn's orbit.</p>
+          <div class="rts-wrap glass">
+
+            <div class="rts-scene" aria-hidden="true">
+              <!-- Back halves (behind planet) -->
+              <div class="rts-ring rts-ring-c rts-ring-back" id="rtsRingC"></div>
+              <div class="rts-ring rts-ring-b rts-ring-back" id="rtsRingB"></div>
+              <div class="rts-ring rts-ring-a rts-ring-back" id="rtsRingA"></div>
+              <div class="rts-planet"></div>
+              <!-- Front halves (in front of planet) -->
+              <div class="rts-ring rts-ring-c rts-ring-front" id="rtsRingCFront"></div>
+              <div class="rts-ring rts-ring-b rts-ring-front" id="rtsRingBFront"></div>
+              <div class="rts-ring rts-ring-a rts-ring-front" id="rtsRingAFront"></div>
+            </div>
+
+            <div class="rts-slider-wrap">
+              <div class="rts-markers" aria-hidden="true">
+                <span class="rts-edge-label" style="left:0%">Edge-on</span>
+                <span class="rts-edge-label" style="left:50%">Edge-on</span>
+              </div>
+              <input type="range" id="rtsSlider" class="rts-slider"
+                     min="0" max="295" value="74"
+                     aria-label="Saturn orbital position (0–29.5 years)">
+              <div class="rts-axis-labels">
+                <span>0 yr</span><span>7.4 yr</span><span>14.8 yr</span><span>22.1 yr</span><span>29.5 yr</span>
+              </div>
+            </div>
+
+            <div class="rts-info-row">
+              <span class="rts-stat">Year <strong id="rtsYear">7.4</strong> / 29.5</span>
+              <span class="rts-divider">·</span>
+              <span class="rts-stat">Ring tilt <strong id="rtsTilt">27°</strong></span>
+            </div>
+            <p class="rts-desc" id="rtsDesc">Rings are maximally open — easily visible even through small telescopes.</p>
+          </div>
         </section>
 
         <!-- Atmosphere -->
@@ -417,6 +472,301 @@ const faqData = [
   }, observerOptions);
 
   sections.forEach(section => observer.observe(section));
+
+  // ── Ring Material Zoom ──────────────────────────────────────────────────────
+  const rmzCanvas = document.getElementById('rmzCanvas') as HTMLCanvasElement | null;
+  const rmzDesc   = document.getElementById('rmzDesc') as HTMLElement | null;
+  if (rmzCanvas) {
+    const ctx = rmzCanvas.getContext('2d')!;
+    const W = rmzCanvas.width;
+    const H = rmzCanvas.height;
+
+    const RMZ_DESCS = [
+      'Wide view — Saturn\'s rings appear as smooth, glowing discs of light.',
+      '1,000× zoom — Individual bands of color emerge inside the B-Ring, separated by dark density waves.',
+      '1,000,000× zoom — The rings dissolve into billions of individual ice crystals and rock fragments drifting in orbit.',
+    ];
+
+    let rmzLevel = 0;
+    let rmzAnimId = 0;
+
+    // ── Particle data for level 2 ──────────────────────────────────────────
+    type Particle = { x: number; y: number; r: number; color: string; dx: number; dy: number; phase: number };
+    const RMZ_PARTICLES: Particle[] = [];
+    function rmzInitParticles() {
+      RMZ_PARTICLES.length = 0;
+      const iceColors  = ['rgba(220,235,255,', 'rgba(200,220,250,', 'rgba(235,245,255,', 'rgba(210,230,245,'];
+      const rockColors = ['rgba(110,100,90,',  'rgba(130,115,100,', 'rgba(95,88,80,'];
+      for (let i = 0; i < 60; i++) {
+        const isRock  = Math.random() < 0.2;
+        const palette = isRock ? rockColors : iceColors;
+        const alpha   = (0.5 + Math.random() * 0.5).toFixed(2);
+        RMZ_PARTICLES.push({
+          x:     Math.random() * W,
+          y:     Math.random() * H,
+          r:     isRock ? 2 + Math.random() * 5 : 1.5 + Math.random() * 10,
+          color: palette[Math.floor(Math.random() * palette.length)] + alpha + ')',
+          dx:    (Math.random() - 0.5) * 0.35,
+          dy:    (Math.random() - 0.5) * 0.18,
+          phase: Math.random() * Math.PI * 2,
+        });
+      }
+    }
+    rmzInitParticles();
+
+    // ── Draw helpers ───────────────────────────────────────────────────────
+    function rmzStars(n: number) {
+      ctx.fillStyle = 'rgba(255,255,255,0.7)';
+      for (let i = 0; i < n; i++) {
+        // Deterministic stars using index as seed
+        const sx = ((i * 137.508) % W);
+        const sy = ((i * 97.31)   % H);
+        ctx.beginPath();
+        ctx.arc(sx, sy, 0.6, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function rmzDrawWide() {
+      // Background
+      ctx.fillStyle = '#04040a';
+      ctx.fillRect(0, 0, W, H);
+      rmzStars(30);
+
+      const cx = W / 2, cy = H / 2;
+
+      // Ring glow (drawn before planet so it shows behind)
+      const ringGlow = ctx.createRadialGradient(cx, cy, 55, cx, cy, 145);
+      ringGlow.addColorStop(0,   'rgba(220,210,180,0.15)');
+      ringGlow.addColorStop(0.5, 'rgba(220,210,180,0.08)');
+      ringGlow.addColorStop(1,   'transparent');
+      ctx.save();
+      ctx.scale(1, 0.28);
+      ctx.fillStyle = ringGlow;
+      ctx.beginPath();
+      ctx.arc(cx, cy / 0.28, 145, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+
+      // Ring band definitions
+      const rings = [
+        { inner: 128, outer: 140, color: 'rgba(200,195,180,0.55)' }, // A ring
+        { inner: 118, outer: 128, color: 'rgba(6,6,10,0.95)'       }, // Cassini Division
+        { inner:  86, outer: 118, color: 'rgba(230,225,210,0.88)'   }, // B ring (brightest)
+        { inner:  70, outer:  86, color: 'rgba(150,145,130,0.55)'   }, // C ring
+        { inner:  62, outer:  70, color: 'rgba(80,78,72,0.4)'        }, // D ring
+      ];
+      // Helper: draw all ring ellipses, clipped to a screen-space rect
+      function drawRings(clipY: number, clipH: number) {
+        ctx.save();
+        ctx.beginPath();
+        ctx.rect(0, clipY, W, clipH);
+        ctx.clip();
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.scale(1, 0.25);
+        for (const ring of rings) {
+          ctx.beginPath();
+          ctx.arc(0, 0, ring.outer, 0, Math.PI * 2);
+          ctx.arc(0, 0, ring.inner, 0, Math.PI * 2, true);
+          ctx.fillStyle = ring.color;
+          ctx.fill('evenodd');
+        }
+        ctx.restore();
+        ctx.restore();
+      }
+
+      // 1. Back rings — top half of canvas (further from viewer)
+      drawRings(0, cy);
+
+      // 2. Saturn body
+      const bodyGrad = ctx.createRadialGradient(cx - 16, cy - 16, 4, cx, cy, 56);
+      bodyGrad.addColorStop(0,   '#f0e0c0');
+      bodyGrad.addColorStop(0.4, '#d4a76a');
+      bodyGrad.addColorStop(0.75,'#c09050');
+      bodyGrad.addColorStop(1,   '#a07030');
+      ctx.beginPath();
+      ctx.arc(cx, cy, 54, 0, Math.PI * 2);
+      ctx.fillStyle = bodyGrad;
+      ctx.fill();
+
+      // Subtle band stripes on planet
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(cx, cy, 54, 0, Math.PI * 2);
+      ctx.clip();
+      const bandColors = ['rgba(190,160,100,0.25)', 'rgba(240,220,170,0.2)', 'rgba(180,140,80,0.18)'];
+      for (let i = 0; i < 3; i++) {
+        const by = cy - 18 + i * 18;
+        ctx.fillStyle = bandColors[i];
+        ctx.fillRect(cx - 54, by, 108, 10);
+      }
+      ctx.restore();
+
+      // 3. Front rings — bottom half of canvas (closer to viewer)
+      drawRings(cy, H - cy);
+
+      // Label
+      ctx.fillStyle = 'rgba(255,255,255,0.35)';
+      ctx.font = '11px system-ui, sans-serif';
+      ctx.fillText('1×', 10, 18);
+    }
+
+    function rmzDrawBand() {
+      ctx.fillStyle = '#03030a';
+      ctx.fillRect(0, 0, W, H);
+
+      // B-Ring density bands — horizontal stripes of varying brightness
+      const bands = [
+        { y: 0,   h: 22, bright: 0.55 },
+        { y: 22,  h: 14, bright: 0.72 },
+        { y: 36,  h: 30, bright: 0.92 },
+        { y: 66,  h: 10, bright: 0.60 },
+        { y: 76,  h: 25, bright: 0.85 },
+        { y: 101, h: 8,  bright: 0.40 }, // density wave
+        { y: 109, h: 35, bright: 0.88 },
+        { y: 144, h: 20, bright: 0.78 },
+        { y: 164, h: 12, bright: 0.60 },
+        { y: 176, h: 28, bright: 0.90 },
+        { y: 204, h: 8,  bright: 0.35 }, // density wave
+        { y: 212, h: 30, bright: 0.82 },
+        { y: 242, h: 38, bright: 0.95 },
+        { y: 280, h: 20, bright: 0.65 },
+      ];
+
+      for (const b of bands) {
+        const v = Math.round(b.bright * 235);
+        ctx.fillStyle = `rgb(${v},${Math.round(v * 0.97)},${Math.round(v * 0.90)})`;
+        ctx.fillRect(0, b.y, W, b.h);
+      }
+
+      // Subtle horizontal texture noise
+      for (let i = 0; i < 300; i++) {
+        const tx = Math.random() * W;
+        const ty = Math.random() * H;
+        const alpha = 0.04 + Math.random() * 0.06;
+        ctx.fillStyle = `rgba(255,255,255,${alpha.toFixed(2)})`;
+        ctx.fillRect(tx, ty, 2 + Math.random() * 8, 1);
+      }
+
+      // Labels
+      ctx.fillStyle = 'rgba(255,255,255,0.4)';
+      ctx.font = '11px system-ui, sans-serif';
+      ctx.fillText('1,000×  —  B-Ring interior  (25,500 km wide)', 10, 18);
+      ctx.fillStyle = 'rgba(255,200,80,0.6)';
+      ctx.fillText('← density wave', W - 145, 105);
+      ctx.fillText('← density wave', W - 145, 208);
+    }
+
+    function rmzDrawParticle(t: number) {
+      ctx.fillStyle = '#02020a';
+      ctx.fillRect(0, 0, W, H);
+
+      // Very faint star field
+      rmzStars(10);
+
+      for (const p of RMZ_PARTICLES) {
+        // Shimmer for larger ice particles
+        let alpha = p.color.match(/[\d.]+\)$/)?.[0] || '0.8)';
+        let baseColor = p.color;
+        if (p.r > 6) {
+          const shimmer = 0.6 + 0.4 * Math.sin(t * 0.04 + p.phase);
+          baseColor = p.color.replace(/[\d.]+\)$/, (shimmer * 0.9).toFixed(2) + ')');
+        }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = baseColor;
+        ctx.fill();
+
+        // Subtle highlight on larger particles
+        if (p.r > 4) {
+          ctx.beginPath();
+          ctx.arc(p.x - p.r * 0.3, p.y - p.r * 0.3, p.r * 0.35, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(255,255,255,0.25)';
+          ctx.fill();
+        }
+
+        // Move & wrap
+        p.x = (p.x + p.dx + W) % W;
+        p.y = (p.y + p.dy + H) % H;
+      }
+
+      // Labels
+      ctx.fillStyle = 'rgba(255,255,255,0.4)';
+      ctx.font = '11px system-ui, sans-serif';
+      ctx.fillText('1,000,000×  —  particles range from sand grains to mountain-sized chunks', 10, 18);
+    }
+
+    // ── Animation loop ─────────────────────────────────────────────────────
+    let rmzTick = 0;
+    function rmzLoop() {
+      rmzTick++;
+      rmzDrawParticle(rmzTick);
+      rmzAnimId = requestAnimationFrame(rmzLoop);
+    }
+
+    function rmzSetLevel(n: number) {
+      rmzLevel = n;
+      cancelAnimationFrame(rmzAnimId);
+      rmzCanvas!.style.opacity = '0';
+      setTimeout(() => {
+        if (n === 0) rmzDrawWide();
+        else if (n === 1) rmzDrawBand();
+        else { rmzTick = 0; rmzLoop(); }
+        rmzCanvas!.style.opacity = '1';
+        if (rmzDesc) rmzDesc.textContent = RMZ_DESCS[n];
+      }, 200);
+    }
+
+    // Button clicks
+    document.querySelectorAll<HTMLButtonElement>('.rmz-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.rmz-btn').forEach(b => b.classList.remove('rmz-active'));
+        btn.classList.add('rmz-active');
+        rmzSetLevel(Number(btn.dataset.level));
+      });
+    });
+
+    // Initial draw
+    rmzDrawWide();
+  }
+
+  // ── Ring Tilt Viewer ────────────────────────────────────────────────────────
+  {
+    const rtsSlider = document.getElementById('rtsSlider') as HTMLInputElement | null;
+    const rtsYear   = document.getElementById('rtsYear') as HTMLElement | null;
+    const rtsTilt   = document.getElementById('rtsTilt') as HTMLElement | null;
+    const rtsDesc   = document.getElementById('rtsDesc') as HTMLElement | null;
+    const rtsRings  = Array.from(document.querySelectorAll<HTMLElement>('#ring-tilt .rts-ring'));
+
+    function rtsUpdate() {
+      if (!rtsSlider) return;
+      const year = Number(rtsSlider.value) / 10;
+      const viewAngle = 27 * Math.abs(Math.sin(2 * Math.PI * year / 29.5));
+      const cssAngle  = 90 - viewAngle;
+
+      rtsRings.forEach(r => {
+        if (r) r.style.transform = `rotateX(${cssAngle.toFixed(1)}deg)`;
+      });
+
+      if (rtsYear) rtsYear.textContent = year.toFixed(1);
+      if (rtsTilt) rtsTilt.textContent = viewAngle.toFixed(0) + '°';
+
+      if (rtsDesc) {
+        if (viewAngle < 4) {
+          rtsDesc.textContent = 'Galileo saw this in 1612 — the rings vanished! He thought Saturn had "swallowed" its companions.';
+        } else if (viewAngle > 22) {
+          rtsDesc.textContent = 'Rings are maximally open — easily visible even through small telescopes.';
+        } else {
+          rtsDesc.textContent = 'The rings are tilting as Saturn moves along its 29.5-year orbit.';
+        }
+      }
+    }
+
+    rtsSlider?.addEventListener('input', rtsUpdate);
+    rtsUpdate();
+  }
 </script>
 
 <style>
@@ -884,5 +1234,210 @@ const faqData = [
       width: 32px;
       height: 32px;
     }
+  }
+
+  /* ── Ring Material Zoom ──────────────────────────────────────────────── */
+  .rmz-wrap {
+    padding: var(--space-md, 1rem);
+    border-radius: var(--radius-md, 8px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm, 0.5rem);
+  }
+
+  #rmzCanvas {
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+    transition: opacity 0.2s ease;
+  }
+
+  .rmz-controls {
+    display: flex;
+    gap: var(--space-sm, 0.5rem);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .rmz-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-sm, 4px);
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.82rem;
+    font-family: inherit;
+    padding: 0.35rem 0.9rem;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+
+  .rmz-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .rmz-btn.rmz-active {
+    background: rgba(6, 182, 212, 0.18);
+    border-color: rgba(6, 182, 212, 0.55);
+    color: var(--color-accent-cyan, #06b6d4);
+  }
+
+  .rmz-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary, rgba(255,255,255,0.5));
+    text-align: center;
+    margin: 0;
+    line-height: 1.5;
+    max-width: 480px;
+  }
+
+  /* ── Ring Tilt Viewer ────────────────────────────────────────────────── */
+  .rts-wrap {
+    padding: var(--space-lg, 1.5rem) var(--space-md, 1rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md, 1rem);
+  }
+
+  /* 3D scene */
+  .rts-scene {
+    position: relative;
+    width: 260px;
+    height: 180px;
+    perspective: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .rts-planet {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #f0e0c0 0%, #d4a76a 45%, #a07030 100%);
+    box-shadow: inset -6px -6px 14px rgba(0,0,0,0.4), 0 0 18px rgba(212,167,106,0.3);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  /* Back half — visible only above the ring's horizontal midpoint (further from viewer) */
+  .rts-ring-back {
+    clip-path: inset(0 0 50% 0);
+    z-index: 0;
+  }
+
+  /* Front half — visible only below the ring's horizontal midpoint (closer to viewer) */
+  .rts-ring-front {
+    clip-path: inset(50% 0 0 0);
+    z-index: 3;
+  }
+
+  .rts-ring {
+    position: absolute;
+    border-radius: 50%;
+    transform-origin: center center;
+    transition: transform 0.06s linear;
+    pointer-events: none;
+  }
+
+  .rts-ring-c {
+    width: 112px;
+    height: 112px;
+    border: 7px solid rgba(160, 150, 130, 0.45);
+  }
+
+  .rts-ring-b {
+    width: 168px;
+    height: 168px;
+    border: 24px solid rgba(228, 222, 205, 0.85);
+    box-shadow: 0 0 8px rgba(228,222,205,0.2);
+  }
+
+  .rts-ring-a {
+    width: 204px;
+    height: 204px;
+    border: 11px solid rgba(195, 188, 170, 0.55);
+  }
+
+  /* Slider area */
+  .rts-slider-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    padding-top: 1.6rem; /* space for edge-on labels above */
+  }
+
+  .rts-markers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1.4rem;
+    pointer-events: none;
+  }
+
+  .rts-edge-label {
+    position: absolute;
+    transform: translateX(-50%);
+    font-size: 0.68rem;
+    color: var(--color-accent-cyan, #06b6d4);
+    white-space: nowrap;
+    line-height: 1;
+  }
+
+  .rts-edge-label::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 6px;
+    background: var(--color-accent-cyan, #06b6d4);
+    margin: 2px auto 0;
+    opacity: 0.6;
+  }
+
+  .rts-slider {
+    width: 100%;
+    accent-color: var(--color-accent-cyan, #06b6d4);
+    cursor: pointer;
+  }
+
+  .rts-axis-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.35);
+    margin-top: 0.25rem;
+  }
+
+  /* Info row */
+  .rts-info-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm, 0.5rem);
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.65);
+  }
+
+  .rts-divider {
+    opacity: 0.35;
+  }
+
+  .rts-stat strong {
+    color: rgba(255,255,255,0.9);
+  }
+
+  .rts-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary, rgba(255,255,255,0.5));
+    text-align: center;
+    margin: 0;
+    line-height: 1.5;
+    max-width: 480px;
+    min-height: 2.6em; /* prevents layout jump when text changes */
   }
 </style>

@@ -1,0 +1,197 @@
+---
+// StabilitySim — Handheld Stability Simulator, no props
+---
+
+<div class="ssim-wrap">
+  <!-- Circular eyepiece viewport -->
+  <div class="ssim-viewport">
+    <img class="ssim-img" src="/images/card_moon.jpg" alt="Moon as seen through binoculars" />
+    <div class="ssim-vignette"></div>
+  </div>
+
+  <!-- Magnification buttons -->
+  <div class="ssim-btns" role="group" aria-label="Magnification">
+    <button class="ssim-btn ssim-active"
+      data-scale="1.0" data-shake="0" data-speed="0"
+      data-advice="Perfect for handheld use. Steady and bright. Great for wide Milky Way sweeps.">7×</button>
+    <button class="ssim-btn"
+      data-scale="1.5" data-shake="1" data-speed="0.8"
+      data-advice="Manageable handheld with steady bracing. The most popular choice for beginners.">10×</button>
+    <button class="ssim-btn"
+      data-scale="2.2" data-shake="3" data-speed="0.4"
+      data-advice="Noticeably shaky without support. Best braced against a wall or fence post.">15×</button>
+    <button class="ssim-btn"
+      data-scale="3.5" data-shake="6" data-speed="0.2"
+      data-advice="WARNING: Impossible to hold steady without a tripod. Image blur renders details useless.">20×</button>
+  </div>
+
+  <!-- Advice box -->
+  <div class="ssim-advice" id="ssimAdvice">
+    <span class="ssim-advice-icon" id="ssimAdviceIcon">✓</span>
+    <p class="ssim-advice-text" id="ssimAdviceText">Perfect for handheld use. Steady and bright. Great for wide Milky Way sweeps.</p>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.ssim-wrap').forEach((wrap) => {
+    const img = wrap.querySelector<HTMLElement>('.ssim-img');
+    const adviceEl = wrap.querySelector<HTMLElement>('#ssimAdviceText');
+    const iconEl = wrap.querySelector<HTMLElement>('#ssimAdviceIcon');
+    const adviceBox = wrap.querySelector<HTMLElement>('#ssimAdvice');
+
+    function applyMag(btn: HTMLButtonElement) {
+      const scale = btn.dataset.scale ?? '1';
+      const shake = parseFloat(btn.dataset.shake ?? '0');
+      const speed = parseFloat(btn.dataset.speed ?? '0');
+      const advice = btn.dataset.advice ?? '';
+      const isWarning = advice.startsWith('WARNING');
+
+      if (img) {
+        img.style.setProperty('--scale', scale);
+        img.style.setProperty('--shake-px', shake + 'px');
+        if (shake === 0) {
+          img.style.animationDuration = '999s'; // imperceptibly slow — looks still
+        } else {
+          img.style.animationDuration = speed + 's';
+        }
+      }
+
+      if (adviceEl) adviceEl.textContent = advice;
+      if (iconEl) iconEl.textContent = isWarning ? '⚠' : '✓';
+      if (adviceBox) {
+        adviceBox.classList.toggle('ssim-advice--warn', isWarning);
+      }
+    }
+
+    wrap.querySelectorAll<HTMLButtonElement>('.ssim-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        wrap.querySelectorAll('.ssim-btn').forEach(b => b.classList.remove('ssim-active'));
+        btn.classList.add('ssim-active');
+        applyMag(btn);
+      });
+    });
+  });
+</script>
+
+<style>
+  .ssim-wrap {
+    max-width: 380px;
+    margin: var(--space-lg) auto 0;
+    text-align: center;
+  }
+
+  /* Circular viewport */
+  .ssim-viewport {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+      0 0 0 5px rgba(0, 0, 0, 0.5),
+      0 0 40px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Moon image — shake animation always running, controlled via CSS vars */
+  .ssim-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform-origin: center;
+    animation: ssimShake 999s linear infinite; /* starts still at 7× */
+    --scale: 1;
+    --shake-px: 0px;
+  }
+
+  @keyframes ssimShake {
+    0%   { transform: scale(var(--scale)) translate3d(0, 0, 0); }
+    13%  { transform: scale(var(--scale)) translate3d(calc(var(--shake-px) * -1),   calc(var(--shake-px) *  0.6), 0); }
+    26%  { transform: scale(var(--scale)) translate3d(calc(var(--shake-px) *  0.8), calc(var(--shake-px) * -0.9), 0); }
+    39%  { transform: scale(var(--scale)) translate3d(calc(var(--shake-px) * -0.5), calc(var(--shake-px) *  0.7), 0); }
+    52%  { transform: scale(var(--scale)) translate3d(calc(var(--shake-px) *  0.9), calc(var(--shake-px) * -0.4), 0); }
+    65%  { transform: scale(var(--scale)) translate3d(calc(var(--shake-px) * -0.6), calc(var(--shake-px) * -0.8), 0); }
+    78%  { transform: scale(var(--scale)) translate3d(calc(var(--shake-px) *  0.4), calc(var(--shake-px) *  0.5), 0); }
+    91%  { transform: scale(var(--scale)) translate3d(calc(var(--shake-px) * -0.8), calc(var(--shake-px) *  0.3), 0); }
+    100% { transform: scale(var(--scale)) translate3d(0, 0, 0); }
+  }
+
+  /* Dark vignette ring */
+  .ssim-vignette {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, transparent 50%, rgba(0, 0, 0, 0.9) 100%);
+    pointer-events: none;
+  }
+
+  /* Buttons */
+  .ssim-btns {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: var(--space-md);
+  }
+
+  .ssim-btn {
+    padding: 0.3rem 0.9rem;
+    font-size: 0.85rem;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.5);
+    border-radius: var(--radius-sm, 4px);
+    transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .ssim-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .ssim-btn.ssim-active {
+    background: rgba(6, 182, 212, 0.15);
+    border-color: rgba(6, 182, 212, 0.5);
+    color: rgba(6, 182, 212, 0.95);
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.2);
+  }
+
+  /* Advice box */
+  .ssim-advice {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-top: var(--space-md);
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-sm, 4px);
+    text-align: left;
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .ssim-advice--warn {
+    background: rgba(234, 88, 12, 0.08);
+    border-color: rgba(234, 88, 12, 0.35);
+  }
+
+  .ssim-advice-icon {
+    flex-shrink: 0;
+    font-size: 0.9rem;
+    margin-top: 1px;
+    color: rgba(6, 182, 212, 0.8);
+  }
+
+  .ssim-advice--warn .ssim-advice-icon {
+    color: rgba(251, 146, 60, 0.9);
+  }
+
+  .ssim-advice-text {
+    margin: 0;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.5;
+  }
+</style>

@@ -92,6 +92,7 @@ const faqData = [
             <li><a href="#the-sun">The Sun</a></li>
             <li><a href="#inner-planets">Inner Planets</a></li>
             <li><a href="#outer-planets">Outer Planets</a></li>
+            <li><a href="#distance-scale">Distance to Scale</a></li>
             <li><a href="#dwarf-planets">Dwarf Planets</a></li>
             <li><a href="#other-objects">Other Objects</a></li>
             <li><a href="#formation">Formation & History</a></li>
@@ -350,6 +351,85 @@ const faqData = [
           </div>
         </section>
 
+        <!-- Distance to Scale -->
+        <section id="distance-scale" class="content-section">
+          <h2>The Vast Scale of the Solar System</h2>
+          <p>If the Sun were the size of a basketball (25 cm), Earth would be a 2 mm pebble <strong>27 metres away</strong>. Scroll the track below to travel outward through the solar system — and feel the staggering emptiness between worlds.</p>
+
+          <div class="dts-outer glass">
+            <!-- Info card -->
+            <div class="dts-card" id="dtsCard">
+              <div class="dts-card-header">
+                <div class="dts-card-title">
+                  <span class="dts-card-emoji" id="dtsEmoji">☀️</span>
+                  <span class="dts-card-name" id="dtsName">The Sun</span>
+                  <span class="dts-card-counter" id="dtsCounter">1 / 9</span>
+                </div>
+                <div class="dts-card-stats">
+                  <span class="dts-stat"><span class="dts-stat-label">Distance</span><span class="dts-stat-val" id="dtsDistAU">—</span></span>
+                  <span class="dts-stat"><span class="dts-stat-label">Million km</span><span class="dts-stat-val" id="dtsDistKm">—</span></span>
+                  <span class="dts-stat"><span class="dts-stat-label">Light travel</span><span class="dts-stat-val" id="dtsLight">—</span></span>
+                </div>
+              </div>
+              <p class="dts-card-text" id="dtsText">You are at the Sun. Light begins its 299,792 km/s journey outward from here.</p>
+            </div>
+
+            <!-- Scrollable track -->
+            <div class="dts-viewport" id="dtsViewport">
+              <div class="dts-track">
+                <!-- Spacecraft (JS positions it via scrollLeft) -->
+                <div class="dts-craft" id="dtsCraft" aria-hidden="true">🚀</div>
+
+                <!-- Travel line -->
+                <div class="dts-line"></div>
+
+                <!-- Sun -->
+                <div class="dts-body dts-sun" style="--x:100px" title="Sun"></div>
+                <span class="dts-label dts-above" style="--x:100px">Sun</span>
+
+                <!-- Mercury -->
+                <div class="dts-body dts-mercury" style="--x:165px" title="Mercury"></div>
+                <span class="dts-label" style="--x:165px">Mercury</span>
+
+                <!-- Venus -->
+                <div class="dts-body dts-venus" style="--x:220px" title="Venus"></div>
+                <span class="dts-label dts-above" style="--x:220px">Venus</span>
+
+                <!-- Earth -->
+                <div class="dts-body dts-earth" style="--x:268px" title="Earth"></div>
+                <span class="dts-label" style="--x:268px">Earth</span>
+
+                <!-- Mars -->
+                <div class="dts-body dts-mars" style="--x:356px" title="Mars"></div>
+                <span class="dts-label dts-above" style="--x:356px">Mars</span>
+
+                <!-- Jupiter -->
+                <div class="dts-body dts-jupiter" style="--x:974px" title="Jupiter"></div>
+                <span class="dts-label" style="--x:974px">Jupiter</span>
+
+                <!-- Saturn -->
+                <div class="dts-body dts-saturn" style="--x:1710px" title="Saturn"></div>
+                <span class="dts-label dts-above" style="--x:1710px">Saturn</span>
+
+                <!-- Uranus -->
+                <div class="dts-body dts-uranus" style="--x:3326px" title="Uranus"></div>
+                <span class="dts-label" style="--x:3326px">Uranus</span>
+
+                <!-- Neptune -->
+                <div class="dts-body dts-neptune" style="--x:5157px" title="Neptune"></div>
+                <span class="dts-label dts-above" style="--x:5157px">Neptune</span>
+              </div>
+            </div>
+
+            <!-- Navigation buttons -->
+            <div class="dts-nav">
+              <button id="dtsPrev" class="dts-nav-btn" disabled aria-label="Previous planet">◀ Prev</button>
+              <span class="dts-nav-label" id="dtsNavLabel">☀️ The Sun</span>
+              <button id="dtsNext" class="dts-nav-btn" aria-label="Next planet">Next ▶</button>
+            </div>
+          </div>
+        </section>
+
         <!-- Dwarf Planets -->
         <section id="dwarf-planets" class="content-section">
           <h2>Dwarf Planets</h2>
@@ -480,6 +560,98 @@ const faqData = [
   }, observerOptions);
 
   sections.forEach(section => observer.observe(section));
+
+  // ── Distance to Scale ───────────────────────────────────────────────────────
+  {
+    const dtsViewport = document.getElementById('dtsViewport') as HTMLElement | null;
+    const dtsCraft    = document.getElementById('dtsCraft')    as HTMLElement | null;
+
+    if (dtsViewport && dtsCraft) {
+      const CRAFT_OFFSET = 60; // px from left edge of visible viewport
+
+      const DTS_PLANETS = [
+        { x: 100,  name: 'The Sun',  emoji: '☀️',  distAU: '—',       distKm: '—',        light: '—',           text: 'You are at the Sun — the source of all light and energy in the Solar System. Light begins its 299,792 km/s journey outward from here.' },
+        { x: 165,  name: 'Mercury',  emoji: '🪨',  distAU: '0.39 AU', distKm: '57.9',     light: '3 min 12 sec', text: 'Mercury is the closest planet to the Sun. Despite being closest, it is not the hottest — it has almost no atmosphere to trap heat, so temperatures swing from −180 °C at night to 430 °C in the day.' },
+        { x: 220,  name: 'Venus',    emoji: '🌕',  distAU: '0.72 AU', distKm: '108.2',    light: '6 min',        text: 'Venus is the hottest planet at 465 °C — hotter than Mercury — due to its thick CO₂ atmosphere causing a runaway greenhouse effect. It rotates backwards and extremely slowly.' },
+        { x: 268,  name: 'Earth',    emoji: '🌍',  distAU: '1.00 AU', distKm: '149.6',    light: '8 min 20 sec', text: 'The sunlight hitting your face right now left the Sun 8 minutes and 20 seconds ago. Earth is the only known world with liquid water oceans and complex life.' },
+        { x: 356,  name: 'Mars',     emoji: '🔴',  distAU: '1.52 AU', distKm: '227.9',    light: '12 min 42 sec', text: 'Mars is home to Olympus Mons — the tallest volcano in the Solar System at 21 km high. Over 50 spacecraft have been sent here. Current rovers communicate with a 12 min delay each way.' },
+        { x: 974,  name: 'Jupiter',  emoji: '🟠',  distAU: '5.20 AU', distKm: '778.5',    light: '43 min',       text: 'Notice the vast emptiness since Mars. That gap is wider than the entire inner Solar System. Jupiter is a giant — 1,300 Earths would fit inside it. Its Great Red Spot storm is older than 350 years.' },
+        { x: 1710, name: 'Saturn',   emoji: '🪐',  distAU: '9.58 AU', distKm: '1,433.5',  light: '1 hr 19 min',  text: 'Saturn\'s rings extend 282,000 km from the planet but are only about 10 metres thick. When Cassini sent data home from here, every signal took 83 minutes to travel back to Earth.' },
+        { x: 3326, name: 'Uranus',   emoji: '🔵',  distAU: '19.2 AU', distKm: '2,872.5',  light: '2 hr 40 min',  text: 'Uranus rolls on its side — its axial tilt is 98°. Voyager 2 is the only spacecraft to visit, flying by in 1986 after a 9-year journey from Earth. A radio signal takes 2 hours 40 minutes one way.' },
+        { x: 5157, name: 'Neptune',  emoji: '💙',  distAU: '30.1 AU', distKm: '4,495.1',  light: '4 hr 10 min',  text: 'Neptune is so far that Voyager 2 needed 12 years to reach it. Winds here gust at 2,100 km/h — the fastest in the Solar System. A two-way radio conversation would take over 8 hours.' },
+      ];
+
+      const dtsEmoji    = document.getElementById('dtsEmoji');
+      const dtsName     = document.getElementById('dtsName');
+      const dtsCounter  = document.getElementById('dtsCounter');
+      const dtsDistAU   = document.getElementById('dtsDistAU');
+      const dtsDistKm   = document.getElementById('dtsDistKm');
+      const dtsLight    = document.getElementById('dtsLight');
+      const dtsText     = document.getElementById('dtsText');
+      const dtsNavLabel = document.getElementById('dtsNavLabel');
+      const dtsCardEl   = document.getElementById('dtsCard');
+      const dtsPrev     = document.getElementById('dtsPrev') as HTMLButtonElement | null;
+      const dtsNext     = document.getElementById('dtsNext') as HTMLButtonElement | null;
+      const dtsBodies   = Array.from(document.querySelectorAll<HTMLElement>('.dts-body'));
+
+      let activePlanetIndex = -1;
+
+      function dtsRenderCard(i: number) {
+        const p = DTS_PLANETS[i];
+        if (dtsEmoji)    dtsEmoji.textContent    = p.emoji;
+        if (dtsName)     dtsName.textContent     = p.name;
+        if (dtsCounter)  dtsCounter.textContent  = `${i + 1} / ${DTS_PLANETS.length}`;
+        if (dtsDistAU)   dtsDistAU.textContent   = p.distAU;
+        if (dtsDistKm)   dtsDistKm.textContent   = p.distKm;
+        if (dtsLight)    dtsLight.textContent     = p.light;
+        if (dtsText)     dtsText.textContent      = p.text;
+        if (dtsNavLabel) dtsNavLabel.textContent  = `${p.emoji} ${p.name}`;
+        if (dtsPrev)     dtsPrev.disabled         = i === 0;
+        if (dtsNext)     dtsNext.disabled         = i === DTS_PLANETS.length - 1;
+
+        // Flash the card border
+        if (dtsCardEl) {
+          dtsCardEl.classList.remove('dts-card--flash');
+          void (dtsCardEl as HTMLElement).offsetWidth; // force reflow
+          dtsCardEl.classList.add('dts-card--flash');
+        }
+
+        // Highlight the active planet dot
+        dtsBodies.forEach((el, idx) => el.classList.toggle('dts-body--active', idx === i));
+      }
+
+      function dtsGoTo(i: number) {
+        const target = Math.max(0, DTS_PLANETS[i].x - CRAFT_OFFSET);
+        dtsViewport.scrollTo({ left: target, behavior: 'smooth' });
+      }
+
+      function dtsUpdate() {
+        const craftX = dtsViewport.scrollLeft + CRAFT_OFFSET;
+        dtsCraft.style.left = craftX + 'px';
+
+        // Trigger when craft reaches within 20px of a planet (tight precision)
+        let newIndex = 0;
+        for (let i = 0; i < DTS_PLANETS.length; i++) {
+          if (DTS_PLANETS[i].x <= craftX + 20) newIndex = i;
+        }
+
+        if (newIndex !== activePlanetIndex) {
+          activePlanetIndex = newIndex;
+          dtsRenderCard(newIndex);
+        }
+      }
+
+      dtsPrev?.addEventListener('click', () => {
+        if (activePlanetIndex > 0) dtsGoTo(activePlanetIndex - 1);
+      });
+      dtsNext?.addEventListener('click', () => {
+        if (activePlanetIndex < DTS_PLANETS.length - 1) dtsGoTo(activePlanetIndex + 1);
+      });
+
+      dtsViewport.addEventListener('scroll', dtsUpdate, { passive: true });
+      dtsUpdate(); // initial state
+    }
+  }
 </script>
 
 <style>
@@ -1240,4 +1412,261 @@ const faqData = [
       transition-duration: 0.1s;
     }
   }
+
+  /* ── Distance to Scale ───────────────────────────────────────────────── */
+  .dts-outer {
+    padding: var(--space-md, 1rem);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm, 0.5rem);
+  }
+
+  /* Info card */
+  .dts-card {
+    padding: 0.75rem var(--space-md, 1rem);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm, 4px);
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+
+  @keyframes dtsFlash {
+    0%   { border-color: rgba(6, 182, 212, 0.55); background: rgba(6, 182, 212, 0.08); }
+    100% { border-color: rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.04); }
+  }
+
+  .dts-card--flash {
+    animation: dtsFlash 0.65s ease-out forwards;
+  }
+
+  .dts-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .dts-card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+  .dts-card-emoji {
+    font-size: 1.3rem;
+    line-height: 1;
+  }
+
+  .dts-card-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .dts-card-counter {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 1rem;
+    padding: 0.15rem 0.55rem;
+    letter-spacing: 0.04em;
+  }
+
+  .dts-card-stats {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .dts-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .dts-stat-label {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .dts-stat-val {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(6, 182, 212, 0.9);
+  }
+
+  .dts-card-text {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* Navigation buttons */
+  .dts-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm, 0.5rem);
+  }
+
+  .dts-nav-btn {
+    padding: 0.35rem 0.85rem;
+    font-size: 0.78rem;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    background: rgba(6, 182, 212, 0.1);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    color: rgba(6, 182, 212, 0.9);
+    border-radius: var(--radius-sm, 4px);
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+
+  .dts-nav-btn:hover:not(:disabled) {
+    background: rgba(6, 182, 212, 0.2);
+    border-color: rgba(6, 182, 212, 0.5);
+  }
+
+  .dts-nav-btn:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+
+  .dts-nav-label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    flex: 1;
+  }
+
+  /* Scrollable track */
+  .dts-viewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 160px;
+    position: relative;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(6, 182, 212, 0.4) rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.35);
+  }
+
+  .dts-viewport::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  .dts-viewport::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .dts-viewport::-webkit-scrollbar-thumb {
+    background: rgba(6, 182, 212, 0.4);
+    border-radius: 3px;
+  }
+
+  .dts-track {
+    width: 5300px;
+    height: 100%;
+    position: relative;
+  }
+
+  /* Travel line */
+  .dts-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+      rgba(255, 200, 50, 0.9) 0%,
+      rgba(255, 200, 50, 0.4) 2%,
+      rgba(255, 255, 255, 0.12) 8%,
+      rgba(255, 255, 255, 0.06) 100%
+    );
+    pointer-events: none;
+  }
+
+  /* Spacecraft */
+  .dts-craft {
+    position: absolute;
+    top: 50%;
+    left: 60px;
+    transform: translateY(-55%);
+    font-size: 1.35rem;
+    z-index: 10;
+    filter: drop-shadow(0 0 6px rgba(6, 182, 212, 0.7));
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  /* Planet bodies */
+  .dts-body {
+    position: absolute;
+    top: 50%;
+    left: var(--x);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  .dts-sun     { width: 24px; height: 24px; background: radial-gradient(circle at 35% 35%, #fff8c0 0%, #ffd700 50%, #ff8800 100%); box-shadow: 0 0 12px 5px rgba(255,200,50,0.65); }
+  .dts-mercury { width: 7px;  height: 7px;  background: #a0a0a0; box-shadow: 0 0 4px 1px rgba(160,160,160,0.6); }
+  .dts-venus   { width: 9px;  height: 9px;  background: #e6c87a; box-shadow: 0 0 5px 1px rgba(230,200,122,0.6); }
+  .dts-earth   { width: 9px;  height: 9px;  background: #4a90d9; box-shadow: 0 0 6px 2px rgba(74,144,217,0.75); }
+  .dts-mars    { width: 8px;  height: 8px;  background: #cd5c5c; box-shadow: 0 0 5px 1px rgba(205,92,92,0.65); }
+  .dts-jupiter { width: 18px; height: 18px; background: radial-gradient(circle at 35% 35%, #e8d8b0 0%, #d4a76a 50%, #b07840 100%); box-shadow: 0 0 8px 2px rgba(212,167,106,0.5); }
+  .dts-saturn  { width: 15px; height: 15px; background: radial-gradient(circle at 35% 35%, #f0e8c0 0%, #e6d4a3 50%, #c8b070 100%); box-shadow: 0 0 7px 2px rgba(230,212,163,0.5); }
+  .dts-uranus  { width: 12px; height: 12px; background: #a5d6d6; box-shadow: 0 0 6px 2px rgba(165,214,214,0.55); }
+  .dts-neptune { width: 12px; height: 12px; background: #4169e1; box-shadow: 0 0 6px 2px rgba(65,105,225,0.65); }
+
+  /* Active planet dot highlight */
+  .dts-body--active {
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.7), 0 0 14px 4px rgba(6, 182, 212, 0.35) !important;
+    transition: box-shadow 0.25s ease;
+  }
+
+  /* Labels */
+  .dts-label {
+    position: absolute;
+    top: calc(50% + 16px);
+    left: var(--x);
+    transform: translateX(-50%);
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, 0.5);
+    white-space: nowrap;
+    pointer-events: none;
+    letter-spacing: 0.03em;
+  }
+
+  /* Tick lines connecting label to planet */
+  .dts-label::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.18);
+    bottom: 100%;
+    margin-bottom: 2px;
+  }
+
+  .dts-label.dts-above {
+    top: auto;
+    bottom: calc(50% + 16px);
+  }
+
+  .dts-label.dts-above::before {
+    bottom: auto;
+    top: 100%;
+    margin-bottom: 0;
+    margin-top: 2px;
+  }
+
 </style>

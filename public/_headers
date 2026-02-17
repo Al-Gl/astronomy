@@ -32,3 +32,7 @@
 # HTML pages: no long-term cache (so updates are picked up quickly)
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
+
+# Text files served as UTF-8 (prevents browser encoding em-dash as Latin-1)
+/*.txt
+  Content-Type: text/plain; charset=utf-8

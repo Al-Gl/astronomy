@@ -1,0 +1,168 @@
+---
+// BinocularSim — no props, self-contained
+---
+
+<div class="bsim-wrap">
+  <!-- Circular eyepiece viewport -->
+  <div class="bsim-viewport">
+    <img class="bsim-img" src="/images/Hero_galaxies.jpg" alt="Star field through binoculars" />
+    <div class="bsim-vignette"></div>
+    <span class="bsim-fov-badge" id="bsimFovBadge">7.1°</span>
+  </div>
+
+  <!-- Magnification buttons -->
+  <div class="bsim-btns" role="group" aria-label="Magnification">
+    <button class="bsim-btn bsim-active" data-scale="1.0" data-fov="7.1°" data-ux="Wide and stable. Ideal for scanning the Milky Way and large star clusters.">7×</button>
+    <button class="bsim-btn" data-scale="1.4" data-fov="5.0°" data-ux="Versatile sweet spot. Steady enough to hand-hold for most observers.">10×</button>
+    <button class="bsim-btn" data-scale="2.1" data-fov="3.5°" data-ux="Narrower view. Image shake becomes noticeable. Best used resting on a surface.">15×</button>
+    <button class="bsim-btn" data-scale="3.5" data-fov="2.0°" data-ux="Extremely narrow. Requires a tripod. Hard to locate objects.">25×</button>
+  </div>
+
+  <!-- Stats -->
+  <div class="bsim-stats">
+    <span class="bsim-stat">
+      <span class="bsim-stat-label">True FOV</span>
+      <span class="bsim-stat-val" id="bsimFov">7.1°</span>
+    </span>
+    <span class="bsim-stat">
+      <span class="bsim-stat-label">Magnification</span>
+      <span class="bsim-stat-val" id="bsimMag">7×</span>
+    </span>
+  </div>
+
+  <!-- UX description -->
+  <p class="bsim-ux" id="bsimUx">Wide and stable. Ideal for scanning the Milky Way and large star clusters.</p>
+</div>
+
+<script>
+  document.querySelectorAll('.bsim-wrap').forEach((wrap) => {
+    const img = wrap.querySelector<HTMLImageElement>('.bsim-img');
+    const fovEl = wrap.querySelector('#bsimFov');
+    const magEl = wrap.querySelector('#bsimMag');
+    const uxEl = wrap.querySelector('#bsimUx');
+    const badge = wrap.querySelector('#bsimFovBadge');
+
+    wrap.querySelectorAll<HTMLButtonElement>('.bsim-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        wrap.querySelectorAll('.bsim-btn').forEach(b => b.classList.remove('bsim-active'));
+        btn.classList.add('bsim-active');
+        if (img) img.style.transform = `scale(${btn.dataset.scale})`;
+        if (fovEl) fovEl.textContent = btn.dataset.fov ?? '';
+        if (magEl) magEl.textContent = btn.textContent?.trim() ?? '';
+        if (uxEl) uxEl.textContent = btn.dataset.ux ?? '';
+        if (badge) badge.textContent = btn.dataset.fov ?? '';
+      });
+    });
+  });
+</script>
+
+<style>
+  .bsim-wrap {
+    max-width: 420px;
+    margin: var(--space-lg) auto 0;
+    text-align: center;
+  }
+
+  .bsim-viewport {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.4), 0 0 30px rgba(139, 92, 246, 0.2);
+  }
+
+  .bsim-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform-origin: center;
+    transition: transform 0.6s ease-in-out;
+  }
+
+  .bsim-vignette {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, transparent 55%, rgba(0, 0, 0, 0.85) 100%);
+    pointer-events: none;
+  }
+
+  .bsim-fov-badge {
+    position: absolute;
+    bottom: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+    letter-spacing: 0.05em;
+  }
+
+  .bsim-btns {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: var(--space-md);
+  }
+
+  .bsim-btn {
+    padding: 0.3rem 0.9rem;
+    font-size: 0.85rem;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.5);
+    border-radius: var(--radius-sm, 4px);
+    transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .bsim-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .bsim-btn.bsim-active {
+    background: rgba(139, 92, 246, 0.2);
+    border-color: rgba(139, 92, 246, 0.6);
+    color: rgb(196, 167, 250);
+    box-shadow: 0 0 12px rgba(139, 92, 246, 0.3);
+  }
+
+  .bsim-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-lg);
+    margin-top: var(--space-md);
+  }
+
+  .bsim-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .bsim-stat-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .bsim-stat-val {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .bsim-ux {
+    margin: var(--space-sm) auto 0;
+    max-width: 340px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.5;
+  }
+</style>

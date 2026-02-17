@@ -1,6 +1,8 @@
 ---
 import MainLayout from '../../../../layouts/MainLayout.astro';
 import Schema from '../../../../components/Schema.astro';
+import BinocularSim from '../../../../components/BinocularSim.astro';
+import StabilitySim from '../../../../components/StabilitySim.astro';
 
 // Breadcrumb navigation
 const breadcrumbs = [
@@ -120,6 +122,7 @@ const faqData = [
             <ol>
               <li><a href="#introduction">Understanding Binoculars</a></li>
               <li><a href="#magnification">Magnification Explained</a></li>
+              <li><a href="#why-magnification">Why Magnification Isn't Everything</a></li>
               <li><a href="#aperture">Aperture and Light</a></li>
               <li><a href="#exit-pupil">Exit Pupil</a></li>
               <li><a href="#field-of-view">Field of View</a></li>
@@ -194,6 +197,14 @@ const faqData = [
             <p>Avoid binoculars advertising 25x, 30x, or higher magnifications at budget prices. These represent either cheap, unusable optics sold to naive buyers or specialized models designed exclusively for mounted astronomical use, never handheld. Reputable manufacturers rarely offer magnifications above 20x in binocular format because the design fundamentally favors lower powers. If you want 30x or 50x for astronomy, you've outgrown binoculars—buy a telescope instead, which handles high magnifications far better through superior mounting and optical design.</p>
 
             <p>Consider your physical capabilities honestly. Younger observers with steadier hands tolerate higher magnifications better than older users experiencing normal age-related tremor. Your fitness level matters too; holding 2-3 pounds of binoculars steady at eye level for extended periods requires more arm strength and endurance than casual users expect. Be realistic about whether you'll consistently use bracing techniques, carry a tripod, and invest time in stability methods, or whether you prefer grab-and-go convenience that favors lower magnifications.</p>
+            <StabilitySim />
+          </section>
+
+          <!-- Why Magnification Isn't Everything -->
+          <section id="why-magnification" class="content-section">
+            <h2>Why Magnification Isn't Everything</h2>
+            <p>Higher power shrinks your true field of view and amplifies every hand tremor. Use the simulator below to see how the sky narrows as magnification rises — and why 7× or 10× often shows you more than 25×.</p>
+            <BinocularSim />
           </section>
 
           <!-- Aperture -->

@@ -1,6 +1,7 @@
 ---
 import MainLayout from '../../../layouts/MainLayout.astro';
 import Schema from '../../../components/Schema.astro';
+import CelestialSystem from '../../../components/CelestialSystem.astro';
 
 const breadcrumbs = [
   { name: 'Home', url: '/' },
@@ -98,6 +99,7 @@ const faqData = [
             <li><a href="#rings">Ring System</a></li>
             <li><a href="#moons">Moons</a></li>
             <li><a href="#exploration">Exploration History</a></li>
+            <li><a href="#gravity-shield">Gravitational Shield</a></li>
             <li><a href="#fun-facts">Interesting Facts</a></li>
             <li><a href="#resources">Resources</a></li>
             <li><a href="#faq">FAQ</a></li>
@@ -167,6 +169,74 @@ const faqData = [
 
           <h3>Storms</h3>
           <p>Jupiter hosts thousands of storms at any given time. Unlike Earth's storms, which typically last days or weeks, Jovian storms can persist for decades or even centuries. White ovals, brown barges, and the famous Great Red Spot are all examples of Jupiter's long-lived storm systems. Lightning on Jupiter is hundreds of times more powerful than Earth's lightning, producing brief flashes that have been photographed by multiple spacecraft.</p>
+
+          <!-- Jupiter Atmospheric Layers Interactive -->
+          <div class="atmo-interactive glass">
+            <div class="atmo-scene">
+              <svg id="jatmoSvg" viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg"
+                aria-label="Interactive Jupiter atmospheric layers diagram" role="img">
+                <defs>
+                  <linearGradient id="jatmoSpaceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#00001a"/>
+                    <stop offset="100%" stop-color="#001030"/>
+                  </linearGradient>
+                  <linearGradient id="jatmoInteriorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="rgba(120,65,20,0.9)"/>
+                    <stop offset="100%" stop-color="rgba(80,40,10,0.95)"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- Space background -->
+                <rect x="0" y="0" width="500" height="360" fill="url(#jatmoSpaceGrad)"/>
+
+                <!-- Atmosphere bands (bottom = interior, top = space) -->
+                <rect id="jatmo-band-exosphere"    class="jatmo-band" data-layer="exosphere"    x="0" y="10"  width="430" height="50"  fill="rgba(20,15,50,0.12)"     stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+                <rect id="jatmo-band-thermosphere" class="jatmo-band" data-layer="thermosphere" x="0" y="60"  width="430" height="60"  fill="rgba(80,60,160,0.20)"    stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+                <rect id="jatmo-band-stratosphere" class="jatmo-band" data-layer="stratosphere" x="0" y="120" width="430" height="65"  fill="rgba(130,105,75,0.26)"   stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+                <rect id="jatmo-band-troposphere"  class="jatmo-band" data-layer="troposphere"  x="0" y="185" width="430" height="70"  fill="rgba(210,165,95,0.38)"   stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+                <rect id="jatmo-band-deep"         class="jatmo-band" data-layer="deep"         x="0" y="255" width="430" height="65"  fill="rgba(140,80,35,0.48)"    stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+
+                <!-- Interior strip (no solid surface on Jupiter) -->
+                <rect x="0" y="320" width="500" height="40" fill="url(#jatmoInteriorGrad)"/>
+                <text x="195" y="339" fill="rgba(220,160,100,0.6)" font-size="11" font-family="system-ui">Interior</text>
+
+                <!-- Altitude labels -->
+                <text x="436" y="22"  fill="rgba(255,255,255,0.35)" font-size="10" font-family="system-ui">1000+ km</text>
+                <text x="436" y="72"  fill="rgba(255,255,255,0.35)" font-size="10" font-family="system-ui">320 km</text>
+                <text x="436" y="132" fill="rgba(255,255,255,0.35)" font-size="10" font-family="system-ui">50 km</text>
+                <text x="436" y="197" fill="rgba(255,255,255,0.35)" font-size="10" font-family="system-ui">0 km</text>
+                <text x="436" y="267" fill="rgba(255,255,255,0.35)" font-size="10" font-family="system-ui">−50 km</text>
+
+                <!-- Layer name labels -->
+                <text x="12" y="42"  fill="rgba(255,255,255,0.45)" font-size="11.5" font-family="system-ui" pointer-events="none">Exosphere</text>
+                <text x="12" y="96"  fill="rgba(255,255,255,0.45)" font-size="11.5" font-family="system-ui" pointer-events="none">Thermosphere</text>
+                <text x="12" y="158" fill="rgba(255,255,255,0.45)" font-size="11.5" font-family="system-ui" pointer-events="none">Stratosphere</text>
+                <text x="12" y="225" fill="rgba(255,255,255,0.45)" font-size="11.5" font-family="system-ui" pointer-events="none">Troposphere</text>
+                <text x="12" y="290" fill="rgba(255,255,255,0.45)" font-size="11.5" font-family="system-ui" pointer-events="none">Deep Atmosphere</text>
+
+                <!-- Highlight overlay (moved by JS) -->
+                <rect id="jatmoHighlight" x="0" y="185" width="430" height="70"
+                  fill="none" stroke="rgba(210,160,80,0.75)" stroke-width="2" opacity="1"/>
+
+                <!-- Direction labels -->
+                <text x="6"  y="8"   fill="rgba(255,255,255,0.18)" font-size="9" font-family="system-ui">↑ Space</text>
+                <text x="6"  y="316" fill="rgba(255,255,255,0.18)" font-size="9" font-family="system-ui">↓ Interior</text>
+              </svg>
+            </div>
+
+            <!-- Info panel -->
+            <div class="atmo-info glass">
+              <div class="atmo-info-header">
+                <span class="atmo-info-name" id="jatmoInfoName">Troposphere</span>
+                <span class="atmo-info-alt"  id="jatmoInfoAlt">0 – 50 km</span>
+              </div>
+              <p class="atmo-info-desc" id="jatmoInfoDesc">The visible weather layer — home to Jupiter's iconic cloud bands, the Great Red Spot, and thousands of storms. Three cloud decks: ammonia ice at top (~0.5 bar, −130°C), ammonium hydrosulfide in the middle (~2 bar), water ice clouds below (~5 bar). Jet streams between zones and belts exceed 500 km/h. The Great Red Spot has been active for at least 350 years.</p>
+              <div class="atmo-info-fact" id="jatmoInfoFact">✦ The Great Red Spot is a storm larger than Earth that has raged for centuries — though it has been slowly shrinking since the 1800s.</div>
+            </div>
+
+            <p class="atmo-hint">Click any layer to explore it</p>
+          </div>
+
         </section>
 
         <!-- Great Red Spot -->
@@ -201,6 +271,57 @@ const faqData = [
 
           <h3>Heat Output</h3>
           <p>Jupiter radiates about 1.7 times more energy than it receives from the Sun. This excess heat is left over from the planet's formation and is slowly released as Jupiter continues to contract very gradually—shrinking by about 2 centimeters per year. This process, called Kelvin-Helmholtz contraction, converts gravitational energy into heat.</p>
+
+          <!-- Gas Giant Depth Explorer -->
+          <div class="depth-explorer glass de-layer-clouds" id="depthExplorer">
+            <div class="de-shaft-wrap">
+              <div class="de-shaft">
+                <div class="de-probe-marker" id="deProbeMarker">
+                  <svg viewBox="0 0 20 32" width="20" height="32" aria-hidden="true">
+                    <polygon points="10,2 18,22 10,28 2,22" fill="var(--color-accent-cyan)" opacity="0.95"/>
+                    <circle cx="10" cy="12" r="3.5" fill="rgba(255,255,255,0.9)"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="de-layer-marks" aria-hidden="true">
+                <span style="top:12%">Upper Atmo</span>
+                <span style="top:30%">Deep Atmo</span>
+                <span style="top:55%">Metallic H</span>
+                <span style="top:80%">Core</span>
+              </div>
+            </div>
+
+            <div class="de-info">
+              <div class="de-info-header">
+                <span class="de-layer-name" id="deLayerName">Cloud Tops</span>
+              </div>
+              <div class="de-metrics">
+                <div class="de-metric">
+                  <span class="de-metric-label">Depth</span>
+                  <span class="de-metric-value" id="deDepth">0 km</span>
+                </div>
+                <div class="de-metric">
+                  <span class="de-metric-label">Temperature</span>
+                  <span class="de-metric-value" id="deTemp">−145°C</span>
+                </div>
+                <div class="de-metric">
+                  <span class="de-metric-label">Pressure</span>
+                  <span class="de-metric-value" id="dePressure">0.5 bar</span>
+                </div>
+              </div>
+              <p class="de-desc" id="deDesc">Jupiter's visible face — swirling bands of ammonia ice clouds at the very top of the troposphere. This is all we see from Earth and from spacecraft cameras. Pale zones are rising gas; dark belts are sinking, creating jet streams that have persisted for centuries.</p>
+              <div class="de-fact" id="deFact">✦ Jupiter's cloud bands move at up to 640 km/h — faster than any wind on Earth.</div>
+            </div>
+
+            <div class="de-controls">
+              <label class="de-slider-label" for="deSlider">↓ Drag to descend into Jupiter</label>
+              <input type="range" id="deSlider" class="de-slider" min="0" max="100" value="0" aria-label="Depth slider">
+              <div class="de-slider-endpoints">
+                <span>Cloud Tops</span>
+                <span>Core</span>
+              </div>
+            </div>
+          </div>
         </section>
 
         <!-- Magnetic Field -->
@@ -254,6 +375,27 @@ const faqData = [
           <h4>Callisto</h4>
           <p>Callisto is the outermost Galilean moon and one of the most heavily cratered objects in the Solar System. Its ancient surface has remained largely unchanged for 4 billion years because Callisto experiences minimal tidal heating. Despite its dead appearance, Callisto may also harbor a subsurface ocean. Its distance from Jupiter places it outside the most intense radiation belts, making it a potential base for future human exploration of the Jupiter system.</p>
 
+          <h3>Galilean Moon Orrery</h3>
+          <p>Watch the four Galilean moons orbit Jupiter in real-time relative speeds. Click any moon to reveal what makes it extraordinary.</p>
+          <CelestialSystem
+            containerSize={440}
+            sunSize={42}
+            sunColor="#d4a76a"
+            showLabels={true}
+            bodies={[
+              { name: 'Io',       color: '#e8c840', size: 10, orbitRadius: 70,  orbitSpeed: 4,  glowColor: 'rgba(232,200,64,0.6)' },
+              { name: 'Europa',   color: '#c8d8e8', size: 9,  orbitRadius: 98,  orbitSpeed: 9,  glowColor: 'rgba(200,216,232,0.5)' },
+              { name: 'Ganymede', color: '#a89870', size: 13, orbitRadius: 132, orbitSpeed: 19, glowColor: 'rgba(168,152,112,0.5)' },
+              { name: 'Callisto', color: '#786858', size: 11, orbitRadius: 170, orbitSpeed: 44, glowColor: 'rgba(120,104,88,0.4)' },
+            ]}
+            funFacts={{
+              'Io':       'Most volcanically active body in the solar system — hundreds of erupting volcanoes powered by Jupiter\'s tidal forces.',
+              'Europa':   'Hidden Ocean — beneath its icy crust lies a liquid water ocean that may contain more water than all of Earth\'s oceans combined.',
+              'Ganymede': 'Largest moon in the solar system — bigger than the planet Mercury, and the only moon known to have its own magnetic field.',
+              'Callisto': 'Ancient Surface — one of the most heavily cratered bodies in the solar system, its surface largely unchanged for four billion years.',
+            }}
+          />
+
           <h3>Other Notable Moons</h3>
           <p>Beyond the Galilean moons, Jupiter has dozens of smaller satellites. Amalthea, the largest inner moon, orbits within Jupiter's ring system and contributes material to the rings. The remaining moons are mostly small, irregular objects—likely captured asteroids and comets. Many of these outer moons orbit in retrograde (opposite to Jupiter's rotation), suggesting they were captured rather than forming alongside Jupiter.</p>
         </section>
@@ -281,6 +423,27 @@ const faqData = [
 
           <h3>Juno's Ongoing Mission</h3>
           <p>NASA's Juno spacecraft has been orbiting Jupiter since 2016, providing unprecedented data about the planet's interior, atmosphere, and magnetic field. Juno's polar orbit allows it to pass just 4,000 km above Jupiter's cloud tops—closer than any previous spacecraft. Its findings have revealed that Jupiter's core may be "fuzzy" rather than solid, that the Great Red Spot extends deeper than expected, and that Jupiter's magnetic field is far more complex than previously thought.</p>
+        </section>
+
+        <!-- Gravitational Shield -->
+        <section id="gravity-shield" class="content-section">
+          <h2>Jupiter's Gravitational Shield</h2>
+          <p>Jupiter's immense mass — more than twice all other planets combined — gives it the Solar System's most powerful gravitational pull. This creates two remarkable effects: it deflects asteroids and comets away from Earth, and it enables the <strong>gravitational slingshot</strong> — a technique NASA uses to accelerate spacecraft without burning extra fuel.</p>
+          <p>Toggle Jupiter's gravity on and off below to see both effects in action.</p>
+
+          <div class="gs-interactive glass" id="gsInteractive">
+            <div class="gs-canvas-wrap">
+              <canvas id="gsCanvas" width="560" height="330" aria-label="Gravity slingshot simulation"></canvas>
+            </div>
+            <div class="gs-controls">
+              <button id="gsToggleBtn" class="gs-toggle-btn gs-on" aria-pressed="true">
+                Jupiter Gravity: <strong id="gsStateLabel">ON</strong>
+              </button>
+              <button id="gsPlayBtn" class="gs-play-btn">▶ Launch Asteroid</button>
+            </div>
+            <p class="gs-result" id="gsResult"></p>
+            <p class="gs-note">✦ Voyager 1 &amp; 2 used Jupiter's gravity in 1979 to reach the outer Solar System decades faster than rockets alone — the same physics shown here. This technique is called a <em>gravitational assist</em>.</p>
+          </div>
         </section>
 
         <!-- Interesting Facts -->
@@ -370,6 +533,433 @@ const faqData = [
   }, observerOptions);
 
   sections.forEach(section => observer.observe(section));
+
+  // --- Jupiter Atmospheric Layers ---
+  interface JatmoLayer {
+    name: string; alt: string; desc: string; fact: string;
+    bandY: number; bandH: number; stroke: string;
+  }
+
+  const jatmoLayers: Record<string, JatmoLayer> = {
+    exosphere: {
+      name: 'Exosphere', alt: '1,000+ km',
+      desc: "Jupiter's outermost layer, where hydrogen and helium atoms travel on nearly escape-velocity trajectories. Extremely tenuous — virtually indistinguishable from interplanetary space. Intense ultraviolet radiation and Jupiter's own auroral activity continuously strip particles from this region.",
+      fact: "✦ Jupiter's magnetic field creates the largest magnetosphere in the Solar System, extending up to 7 million km sunward.",
+      bandY: 10, bandH: 50, stroke: 'rgba(100,80,200,0.75)',
+    },
+    thermosphere: {
+      name: 'Thermosphere', alt: '320 – 1,000 km',
+      desc: "An unexpectedly hot layer — temperatures reach 700–1,000 K, far higher than solar heating alone can explain. Jupiter's powerful auroras deposit enormous energy here, driving heating across the entire globe. This 'energy crisis' of gas giant thermospheres is an active area of planetary science research.",
+      fact: "✦ Jupiter's aurora is hundreds of times more energetic than Earth's and permanently active at both poles.",
+      bandY: 60, bandH: 60, stroke: 'rgba(110,90,200,0.75)',
+    },
+    stratosphere: {
+      name: 'Stratosphere', alt: '50 – 320 km',
+      desc: "Solar UV converts methane and acetylene into complex hydrocarbon compounds, creating a photochemical haze. Temperatures increase with altitude here — a temperature inversion driven by hydrocarbon absorption. Cometary dust and particles from Io's volcanic eruptions also accumulate in this layer.",
+      fact: "✦ When Comet Shoemaker–Levy 9 impacted Jupiter in 1994, it deposited material visible in the stratosphere for months.",
+      bandY: 120, bandH: 65, stroke: 'rgba(160,130,90,0.75)',
+    },
+    troposphere: {
+      name: 'Troposphere', alt: '0 – 50 km',
+      desc: "The visible weather layer — home to Jupiter's iconic cloud bands, the Great Red Spot, and thousands of storms. Three cloud decks: ammonia ice at top (~0.5 bar, −130°C), ammonium hydrosulfide in the middle (~2 bar), water ice clouds below (~5 bar). Jet streams between zones and belts exceed 500 km/h. The Great Red Spot has been active for at least 350 years.",
+      fact: "✦ The Great Red Spot is a storm larger than Earth that has raged for centuries — though it has been slowly shrinking since the 1800s.",
+      bandY: 185, bandH: 70, stroke: 'rgba(210,160,80,0.75)',
+    },
+    deep: {
+      name: 'Deep Atmosphere', alt: 'Below 50 km',
+      desc: "Below the visible cloud layers, pressure and temperature rise dramatically with no solid surface. Hydrogen transitions from gas to liquid to a metallic state under extreme pressure. At roughly 20,000 km depth, electrically conductive metallic hydrogen generates Jupiter's immense magnetic field. The core may be a diffuse 'fuzzy' mix of rocks, ices, and fluid.",
+      fact: "✦ Jupiter generates more heat than it receives from the Sun — leftover energy from its formation still slowly radiating away.",
+      bandY: 255, bandH: 65, stroke: 'rgba(170,100,50,0.75)',
+    },
+  };
+
+  const jatmoHighlight  = document.getElementById('jatmoHighlight');
+  const jatmoInfoName   = document.getElementById('jatmoInfoName');
+  const jatmoInfoAlt    = document.getElementById('jatmoInfoAlt');
+  const jatmoInfoDesc   = document.getElementById('jatmoInfoDesc');
+  const jatmoInfoFact   = document.getElementById('jatmoInfoFact');
+
+  function selectJatmoLayer(key: string) {
+    const layer = jatmoLayers[key];
+    if (!layer) return;
+    if (jatmoHighlight) {
+      jatmoHighlight.setAttribute('y',      String(layer.bandY));
+      jatmoHighlight.setAttribute('height', String(layer.bandH));
+      jatmoHighlight.setAttribute('stroke', layer.stroke);
+    }
+    if (jatmoInfoName) jatmoInfoName.textContent = layer.name;
+    if (jatmoInfoAlt)  jatmoInfoAlt.textContent  = layer.alt;
+    if (jatmoInfoDesc) jatmoInfoDesc.textContent = layer.desc;
+    if (jatmoInfoFact) jatmoInfoFact.textContent = layer.fact;
+  }
+
+  document.querySelectorAll<SVGRectElement>('.jatmo-band').forEach(band => {
+    band.addEventListener('click', () => {
+      const key = band.getAttribute('data-layer');
+      if (key) selectJatmoLayer(key);
+    });
+  });
+
+  selectJatmoLayer('troposphere');
+
+  // ── Gas Giant Depth Explorer ────────────────────────────────────
+  interface DeLayer {
+    key: string; name: string; depth: string; temp: string; pressure: string;
+    desc: string; fact: string; pctMin: number; pctMax: number;
+  }
+  const deLayers: DeLayer[] = [
+    {
+      key: 'clouds', name: 'Cloud Tops', pctMin: 0, pctMax: 12,
+      depth: '0 – 50 km', temp: '−145°C', pressure: '0.5 bar',
+      desc: "Jupiter's visible face — swirling bands of ammonia ice clouds at the very top of the troposphere. This is all we see from Earth and from spacecraft cameras. Pale zones are rising gas; dark belts are sinking, creating jet streams that have persisted for centuries.",
+      fact: "✦ Jupiter's cloud bands move at up to 640 km/h — faster than any wind on Earth.",
+    },
+    {
+      key: 'upper', name: 'Upper Atmosphere', pctMin: 12, pctMax: 30,
+      depth: '50 – 1,000 km', temp: '−108°C – 100°C', pressure: '1 – 100 bar',
+      desc: "Beneath the clouds, pressure builds rapidly and the atmosphere becomes opaque. Ammonia, ammonium hydrosulfide, and water ice clouds form at different altitudes. The Great Red Spot churns through this layer — a storm wider than Earth extending ~300 km deep.",
+      fact: "✦ The Galileo probe survived only 57 minutes after entry in 1995, crushed at the 23-bar level.",
+    },
+    {
+      key: 'deep', name: 'Deep Atmosphere', pctMin: 30, pctMax: 55,
+      depth: '1,000 – 10,000 km', temp: '~3,000°C', pressure: '~100,000 bar',
+      desc: "Gas gradually transitions to liquid with no sharp boundary — hydrogen here is neither gas nor liquid in any conventional sense. Temperatures climb into the thousands of degrees as pressure exceeds tens of thousands of atmospheres. No spacecraft has ever reached this depth.",
+      fact: "✦ There is no surface to 'hit' as you descend — the gas simply becomes an increasingly dense hot fluid.",
+    },
+    {
+      key: 'metallic', name: 'Metallic Hydrogen', pctMin: 55, pctMax: 80,
+      depth: '10,000 – 55,000 km', temp: '10,000 – 25,000°C', pressure: '1 – 4 million bar',
+      desc: "At roughly 1 million atmospheres, electrons are squeezed free from hydrogen atoms and it becomes electrically conductive — behaving like a liquid metal. This vast churning ocean of metallic hydrogen, spinning with Jupiter's 10-hour rotation, acts as a dynamo generating the largest planetary magnetic field in the Solar System.",
+      fact: "✦ Jupiter's magnetic field is 14× stronger than Earth's and extends millions of kilometres into space.",
+    },
+    {
+      key: 'core', name: 'The Core', pctMin: 80, pctMax: 101,
+      depth: '55,000 – 70,000 km', temp: '~35,000°C', pressure: '~40 million bar',
+      desc: "Jupiter's core is not a sharp solid sphere. Juno spacecraft gravity data reveals a 'fuzzy' dilute core — a partially mixed region of rock, ice, metals, and fluid extending perhaps halfway to the surface. It may be the dissolved remnant of a planetary embryo swallowed during formation.",
+      fact: "✦ The core likely contains 3–15 Earth masses of heavy elements, yet may have no distinct solid boundary.",
+    },
+  ];
+
+  function deLerp(a: number, b: number, t: number): number {
+    return Math.round(a + (b - a) * t);
+  }
+  function deGetDepthKm(pct: number): number {
+    if (pct <= 12)  return deLerp(0, 50, pct / 12);
+    if (pct <= 30)  return deLerp(50, 1000, (pct - 12) / 18);
+    if (pct <= 55)  return deLerp(1000, 10000, (pct - 30) / 25);
+    if (pct <= 80)  return deLerp(10000, 55000, (pct - 55) / 25);
+    return deLerp(55000, 70000, (pct - 80) / 20);
+  }
+
+  function deUpdate(pct: number) {
+    const layer = deLayers.find(l => pct >= l.pctMin && pct < l.pctMax) ?? deLayers[deLayers.length - 1];
+    const km = deGetDepthKm(pct);
+
+    const marker = document.getElementById('deProbeMarker');
+    if (marker) marker.style.top = `calc(${pct}% - 16px)`;
+
+    const nameEl  = document.getElementById('deLayerName');
+    const depthEl = document.getElementById('deDepth');
+    const tempEl  = document.getElementById('deTemp');
+    const pressEl = document.getElementById('dePressure');
+    const descEl  = document.getElementById('deDesc');
+    const factEl  = document.getElementById('deFact');
+    if (nameEl)  nameEl.textContent  = layer.name;
+    if (depthEl) depthEl.textContent = `${km.toLocaleString()} km`;
+    if (tempEl)  tempEl.textContent  = layer.temp;
+    if (pressEl) pressEl.textContent = layer.pressure;
+    if (descEl)  descEl.textContent  = layer.desc;
+    if (factEl)  factEl.textContent  = layer.fact;
+
+    const explorer = document.getElementById('depthExplorer');
+    if (explorer) {
+      explorer.className = explorer.className.replace(/\bde-layer-\S+/g, '').trim();
+      explorer.classList.add(`de-layer-${layer.key}`);
+    }
+  }
+
+  const deSlider = document.getElementById('deSlider') as HTMLInputElement | null;
+  if (deSlider) {
+    deSlider.addEventListener('input', () => deUpdate(+deSlider.value));
+    deUpdate(0);
+  }
+
+  // ── Gravity Slingshot Simulator ─────────────────────────────────
+  const gsCanvas = document.getElementById('gsCanvas') as HTMLCanvasElement | null;
+  const gsToggleBtn = document.getElementById('gsToggleBtn') as HTMLButtonElement | null;
+  const gsPlayBtn = document.getElementById('gsPlayBtn') as HTMLButtonElement | null;
+  const gsResult = document.getElementById('gsResult');
+  const gsStateLabel = document.getElementById('gsStateLabel');
+
+  if (gsCanvas) {
+    // Planet positions
+    const GS_SUN: [number,number] = [65, 165];
+    const GS_EARTH: [number,number] = [142, 175];
+    const GS_JUPITER: [number,number] = [380, 118];
+
+    // Load card images
+    const gsImgSun = new Image();
+    const gsImgEarth = new Image();
+    const gsImgJupiter = new Image();
+    gsImgSun.src = '/images/card_sun.jpg';
+    gsImgEarth.src = '/images/card_earth.jpg';
+    gsImgJupiter.src = '/images/card_jupiter.jpg';
+
+    let gsJupiterOn = true;
+    let gsProgress = 0;
+    let gsPlaying = false;
+    let gsAnimId = 0;
+    let gsPathIndex = 0;
+    let gsHasLaunched = false;
+    const GS_SPEED = 0.005;
+
+    // 4 asteroid entry directions.
+    // Each has: noGrav (single quadratic bezier) and withGrav (two segments).
+    // noGrav end is near Earth; withGrav exits away from Earth.
+    type GsBez = [[number,number],[number,number],[number,number]];
+    interface GsPathDef { noGrav: GsBez; approach: GsBez; exit: GsBez; }
+    const gsPaths: GsPathDef[] = [
+      { // 1 – upper-right
+        noGrav:   [[570, 30],[400, 80],[GS_EARTH[0], GS_EARTH[1]]],
+        approach: [[570, 30],[490, 52],[GS_JUPITER[0]+25, GS_JUPITER[1]-20]],
+        exit:     [[GS_JUPITER[0]+25, GS_JUPITER[1]-20],[415,205],[420,340]],
+      },
+      { // 2 – right-middle
+        noGrav:   [[570,180],[380,178],[GS_EARTH[0], GS_EARTH[1]]],
+        approach: [[570,180],[490,155],[GS_JUPITER[0]+25, GS_JUPITER[1]+10]],
+        exit:     [[GS_JUPITER[0]+25, GS_JUPITER[1]+10],[355, 48],[290,-10]],
+      },
+      { // 3 – lower-right
+        noGrav:   [[555,315],[350,255],[GS_EARTH[0], GS_EARTH[1]]],
+        approach: [[555,315],[480,235],[GS_JUPITER[0]+28, GS_JUPITER[1]+25]],
+        exit:     [[GS_JUPITER[0]+28, GS_JUPITER[1]+25],[435, 72],[565, 38]],
+      },
+      { // 4 – top-center
+        noGrav:   [[320,-10],[248, 72],[GS_EARTH[0], GS_EARTH[1]]],
+        approach: [[320,-10],[332, 62],[GS_JUPITER[0]+2, GS_JUPITER[1]-20]],
+        exit:     [[GS_JUPITER[0]+2, GS_JUPITER[1]-20],[452,128],[570,162]],
+      },
+    ];
+
+    function gsBez2(p0: [number,number], p1: [number,number], p2: [number,number], t: number): [number,number] {
+      const u = 1 - t;
+      return [u*u*p0[0]+2*u*t*p1[0]+t*t*p2[0], u*u*p0[1]+2*u*t*p1[1]+t*t*p2[1]];
+    }
+
+    function gsGetPos(t: number): [number,number] {
+      const p = gsPaths[gsPathIndex];
+      if (!gsJupiterOn) return gsBez2(p.noGrav[0], p.noGrav[1], p.noGrav[2], t);
+      return t <= 0.5
+        ? gsBez2(p.approach[0], p.approach[1], p.approach[2], t * 2)
+        : gsBez2(p.exit[0], p.exit[1], p.exit[2], (t - 0.5) * 2);
+    }
+
+    // Draw a circle-clipped image using "cover" scaling to preserve aspect ratio
+    function gsDrawPlanetImg(ctx: CanvasRenderingContext2D, img: HTMLImageElement, cx: number, cy: number, r: number) {
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      ctx.clip();
+      if (img.complete && img.naturalWidth > 0) {
+        const iw = img.naturalWidth;
+        const ih = img.naturalHeight;
+        const scale = Math.max((r * 2) / iw, (r * 2) / ih);
+        const sw = iw * scale;
+        const sh = ih * scale;
+        ctx.drawImage(img, cx - sw / 2, cy - sh / 2, sw, sh);
+      } else {
+        ctx.fillStyle = '#888';
+        ctx.fill();
+      }
+      ctx.restore();
+    }
+
+    // Draw an irregular rocky asteroid polygon
+    function gsDrawAsteroid(ctx: CanvasRenderingContext2D, x: number, y: number, r: number) {
+      const offsets = [0.90, 1.15, 0.80, 1.05, 0.88, 1.12, 0.82, 1.00];
+      const n = offsets.length;
+      ctx.save();
+      ctx.fillStyle = '#c4bcb0';
+      ctx.strokeStyle = 'rgba(255,255,255,0.25)';
+      ctx.lineWidth = 0.8;
+      ctx.beginPath();
+      for (let i = 0; i < n; i++) {
+        const angle = (i / n) * Math.PI * 2 - Math.PI / 2;
+        const rad = r * offsets[i];
+        const px = x + Math.cos(angle) * rad;
+        const py = y + Math.sin(angle) * rad;
+        i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+      }
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+      // small highlight
+      ctx.fillStyle = 'rgba(255,255,255,0.22)';
+      ctx.beginPath();
+      ctx.ellipse(x - r*0.25, y - r*0.3, r*0.35, r*0.2, -0.5, 0, Math.PI*2);
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function gsDraw() {
+      const ctx = gsCanvas!.getContext('2d');
+      if (!ctx) return;
+      const W = 560, H = 330;
+
+      // Background
+      const bg = ctx.createRadialGradient(220,165,0, 220,165,310);
+      bg.addColorStop(0, 'rgba(16,8,36,1)');
+      bg.addColorStop(1, 'rgba(3,1,10,1)');
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, W, H);
+
+      // Stars
+      ctx.fillStyle = 'rgba(255,255,255,0.6)';
+      [[28,18],[118,38],[198,13],[308,52],[458,28],[528,88],[478,268],[78,288],[248,303],[398,293],[13,178],[165,50],[500,200],[340,290],[70,120]].forEach(([x,y]) => {
+        ctx.fillRect(x, y, 1, 1);
+      });
+      // Slightly brighter stars
+      ctx.fillStyle = 'rgba(255,255,255,0.9)';
+      [[45,80],[220,260],[490,145],[130,310],[380,18]].forEach(([x,y]) => {
+        ctx.fillRect(x, y, 1.5, 1.5);
+      });
+
+      // Earth orbit ring
+      ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+      ctx.setLineDash([4,9]);
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.arc(GS_SUN[0], GS_SUN[1], 90, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Jupiter gravity well glow (ON only)
+      if (gsJupiterOn) {
+        const jglow = ctx.createRadialGradient(GS_JUPITER[0],GS_JUPITER[1],0,GS_JUPITER[0],GS_JUPITER[1],95);
+        jglow.addColorStop(0,'rgba(220,145,50,0.14)');
+        jglow.addColorStop(1,'rgba(0,0,0,0)');
+        ctx.fillStyle = jglow;
+        ctx.fillRect(0,0,W,H);
+      }
+
+      // Sun glow
+      const sgGlow = ctx.createRadialGradient(GS_SUN[0],GS_SUN[1],0,GS_SUN[0],GS_SUN[1],55);
+      sgGlow.addColorStop(0,'rgba(255,210,60,0.22)');
+      sgGlow.addColorStop(1,'rgba(0,0,0,0)');
+      ctx.fillStyle = sgGlow;
+      ctx.beginPath(); ctx.arc(GS_SUN[0],GS_SUN[1],55,0,Math.PI*2); ctx.fill();
+
+      // Sun (card image)
+      gsDrawPlanetImg(ctx, gsImgSun, GS_SUN[0], GS_SUN[1], 22);
+
+      // Earth (card image)
+      gsDrawPlanetImg(ctx, gsImgEarth, GS_EARTH[0], GS_EARTH[1], 12);
+
+      // Jupiter: desaturate overlay when gravity is OFF
+      gsDrawPlanetImg(ctx, gsImgJupiter, GS_JUPITER[0], GS_JUPITER[1], 30);
+      if (!gsJupiterOn) {
+        ctx.save();
+        ctx.beginPath(); ctx.arc(GS_JUPITER[0],GS_JUPITER[1],30,0,Math.PI*2); ctx.clip();
+        ctx.fillStyle = 'rgba(30,20,10,0.62)';
+        ctx.fill();
+        ctx.restore();
+      }
+      // Jupiter border ring (subtle)
+      ctx.strokeStyle = gsJupiterOn ? 'rgba(230,170,80,0.35)' : 'rgba(120,100,90,0.2)';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.arc(GS_JUPITER[0],GS_JUPITER[1],30,0,Math.PI*2); ctx.stroke();
+
+      // Asteroid trail
+      const trailSteps = 22;
+      for (let i = trailSteps; i >= 1; i--) {
+        const tVal = Math.max(0, gsProgress - i * GS_SPEED * 1.8);
+        const [tx,ty] = gsGetPos(tVal);
+        const alpha = (trailSteps - i) / (trailSteps * 3.5);
+        ctx.fillStyle = `rgba(200,190,170,${alpha})`;
+        ctx.beginPath(); ctx.arc(tx, ty, 2.5, 0, Math.PI*2); ctx.fill();
+      }
+
+      // Asteroid
+      const [ax,ay] = gsGetPos(gsProgress);
+      gsDrawAsteroid(ctx, ax, ay, 7);
+
+      // Labels
+      ctx.textAlign = 'center';
+      ctx.font = '11px system-ui,sans-serif';
+      ctx.fillStyle = 'rgba(255,230,120,0.7)';
+      ctx.fillText('Sun', GS_SUN[0], GS_SUN[1] + 38);
+      ctx.fillStyle = 'rgba(120,190,255,0.75)';
+      ctx.fillText('Earth', GS_EARTH[0], GS_EARTH[1] + 22);
+      ctx.fillStyle = gsJupiterOn ? 'rgba(245,185,90,0.85)' : 'rgba(140,115,100,0.6)';
+      ctx.fillText('Jupiter', GS_JUPITER[0], GS_JUPITER[1] + 46);
+      if (!gsJupiterOn) {
+        ctx.fillStyle = 'rgba(220,85,65,0.8)';
+        ctx.font = 'bold 10px system-ui,sans-serif';
+        ctx.fillText('gravity off', GS_JUPITER[0], GS_JUPITER[1] + 60);
+      }
+
+      // Direction indicator (small arrow showing entry direction)
+      const dirLabels = ['↙','←','↖','↓'];
+      ctx.fillStyle = 'rgba(255,255,255,0.2)';
+      ctx.font = '10px system-ui,sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText(`Direction ${gsPathIndex+1}/4 ${dirLabels[gsPathIndex]}`, 8, 320);
+    }
+
+    function gsShowResult() {
+      if (!gsResult) return;
+      if (gsJupiterOn) {
+        gsResult.textContent = "✅ Deflected! Jupiter's gravity slung the asteroid safely out of the inner Solar System.";
+        gsResult.className = 'gs-result gs-safe';
+      } else {
+        gsResult.textContent = '☄️ Impact! Without Jupiter, the asteroid reached the inner Solar System.';
+        gsResult.className = 'gs-result gs-hit';
+      }
+      if (gsPlayBtn) gsPlayBtn.textContent = '↺ Next Direction';
+    }
+
+    function gsAnimate() {
+      if (!gsPlaying) return;
+      gsProgress = Math.min(1, gsProgress + GS_SPEED);
+      gsDraw();
+      if (gsProgress < 1) {
+        gsAnimId = requestAnimationFrame(gsAnimate);
+      } else {
+        gsPlaying = false;
+        gsShowResult();
+      }
+    }
+
+    function gsReset() {
+      cancelAnimationFrame(gsAnimId);
+      gsProgress = 0;
+      gsPlaying = false;
+      if (gsResult) { gsResult.textContent = ''; gsResult.className = 'gs-result'; }
+      if (gsPlayBtn) gsPlayBtn.textContent = '▶ Launch Asteroid';
+      gsDraw();
+    }
+
+    gsToggleBtn?.addEventListener('click', () => {
+      gsJupiterOn = !gsJupiterOn;
+      gsToggleBtn!.setAttribute('aria-pressed', String(gsJupiterOn));
+      gsToggleBtn!.className = `gs-toggle-btn ${gsJupiterOn ? 'gs-on' : 'gs-off'}`;
+      if (gsStateLabel) gsStateLabel.textContent = gsJupiterOn ? 'ON' : 'OFF';
+      gsReset();
+    });
+
+    gsPlayBtn?.addEventListener('click', () => {
+      // Advance direction on every launch after the first
+      if (gsHasLaunched) gsPathIndex = (gsPathIndex + 1) % gsPaths.length;
+      gsHasLaunched = true;
+      gsReset();
+      gsPlaying = true;
+      gsAnimId = requestAnimationFrame(gsAnimate);
+    });
+
+    // Re-draw when images finish loading
+    gsImgSun.onload = gsImgEarth.onload = gsImgJupiter.onload = () => gsDraw();
+    gsDraw();
+  }
 </script>
 
 <style>
@@ -852,5 +1442,345 @@ const faqData = [
       width: 32px;
       height: 32px;
     }
+  }
+
+  /* Atmospheric Layers Interactive */
+  .atmo-interactive {
+    margin: var(--space-xl) 0;
+    padding: var(--space-lg);
+  }
+
+  .atmo-scene {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .atmo-scene svg {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: block;
+    margin: 0 auto var(--space-md);
+  }
+
+  .atmo-info {
+    margin-top: var(--space-md);
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .atmo-info-header {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-md);
+    margin-bottom: var(--space-sm);
+    flex-wrap: wrap;
+  }
+
+  .atmo-info-name {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-accent-cyan);
+  }
+
+  .atmo-info-alt {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+  }
+
+  .atmo-info-desc {
+    font-size: 0.9375rem;
+    font-weight: 300;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin: 0 0 var(--space-sm) 0;
+  }
+
+  .atmo-info-fact {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: rgba(56,189,248,0.65);
+    font-style: italic;
+  }
+
+  .atmo-hint {
+    text-align: center;
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.22);
+    margin: var(--space-sm) 0 0 0;
+    letter-spacing: 0.03em;
+  }
+
+  .jatmo-band { transition: filter 0.15s ease; }
+  .jatmo-band:hover { filter: brightness(1.4); }
+
+  /* ── Gas Giant Depth Explorer ──────────────────────────────── */
+  .depth-explorer {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    grid-template-rows: 1fr auto;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    margin-top: var(--space-xl);
+    transition: background 0.6s ease;
+    min-height: 360px;
+    align-items: start;
+  }
+
+  .depth-explorer.de-layer-clouds   { background: rgba(245,200,80,0.12); }
+  .depth-explorer.de-layer-upper    { background: rgba(200,130,50,0.14); }
+  .depth-explorer.de-layer-deep     { background: rgba(120,50,20,0.18); }
+  .depth-explorer.de-layer-metallic { background: rgba(50,20,80,0.25); }
+  .depth-explorer.de-layer-core     { background: rgba(10,5,20,0.40); }
+
+  .de-shaft-wrap {
+    grid-row: 1 / 2;
+    position: relative;
+    height: 300px;
+    display: flex;
+    gap: 6px;
+  }
+
+  .de-shaft {
+    width: 32px;
+    height: 100%;
+    border-radius: var(--radius-md, 6px);
+    background: linear-gradient(
+      to bottom,
+      #fff8d8  0%,
+      #f5d050  12%,
+      #e08030  30%,
+      #7a2810  55%,
+      #2a0840  80%,
+      #050108  100%
+    );
+    position: relative;
+    flex-shrink: 0;
+    box-shadow: inset 0 0 12px rgba(0,0,0,0.5);
+  }
+
+  .de-probe-marker {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -16px;
+    transition: top 0.12s ease;
+    pointer-events: none;
+    filter: drop-shadow(0 0 6px var(--color-accent-cyan));
+  }
+
+  .de-layer-marks {
+    position: relative;
+    height: 100%;
+  }
+  .de-layer-marks span {
+    position: absolute;
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.35);
+    white-space: nowrap;
+    left: 0;
+    line-height: 1;
+    transform: translateY(-50%);
+  }
+
+  .de-info {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .de-layer-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-accent-cyan);
+    line-height: 1.1;
+    transition: color 0.4s ease;
+    display: block;
+    margin-bottom: var(--space-xs);
+  }
+
+  .de-metrics {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-xs);
+  }
+
+  .de-metric {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .de-metric-label {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-secondary);
+  }
+
+  .de-metric-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  .de-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+    flex: 1;
+  }
+
+  .de-fact {
+    font-size: 0.82rem;
+    color: var(--color-accent-cyan);
+    opacity: 0.85;
+    padding: var(--space-sm) var(--space-md);
+    border-left: 2px solid var(--color-accent-cyan);
+    background: rgba(6,182,212,0.07);
+    border-radius: 0 var(--radius-md, 6px) var(--radius-md, 6px) 0;
+  }
+
+  .de-controls {
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .de-slider-label {
+    font-size: 0.78rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+    letter-spacing: 0.04em;
+  }
+
+  .de-slider {
+    width: 100%;
+    accent-color: var(--color-accent-cyan);
+    cursor: pointer;
+  }
+
+  .de-slider-endpoints {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  @media (max-width: 500px) {
+    .depth-explorer {
+      grid-template-columns: 50px 1fr;
+      min-height: 280px;
+    }
+    .de-shaft-wrap { height: 220px; }
+    .de-metrics { gap: var(--space-sm); }
+  }
+
+  /* ── Gravity Slingshot Simulator ───────────────────────────── */
+  .gs-interactive {
+    padding: var(--space-lg);
+    margin-top: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .gs-canvas-wrap {
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--radius-md, 6px);
+  }
+
+  #gsCanvas {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius-md, 6px);
+  }
+
+  .gs-controls {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .gs-toggle-btn {
+    padding: 0.45rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: 1px solid;
+  }
+
+  .gs-toggle-btn.gs-on {
+    background: rgba(34,197,94,0.12);
+    border-color: rgba(34,197,94,0.4);
+    color: rgba(34,197,94,0.95);
+  }
+
+  .gs-toggle-btn.gs-off {
+    background: rgba(239,68,68,0.12);
+    border-color: rgba(239,68,68,0.4);
+    color: rgba(239,68,68,0.95);
+  }
+
+  .gs-play-btn {
+    padding: 0.45rem 1.25rem;
+    border-radius: var(--radius-md, 6px);
+    font-size: 0.875rem;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    background: rgba(6,182,212,0.12);
+    border: 1px solid rgba(6,182,212,0.35);
+    color: rgba(6,182,212,0.95);
+    transition: all 0.2s ease;
+  }
+
+  .gs-play-btn:hover {
+    background: rgba(6,182,212,0.22);
+    border-color: rgba(6,182,212,0.55);
+  }
+
+  .gs-result {
+    font-size: 0.9rem;
+    font-weight: 600;
+    min-height: 1.2em;
+    margin: 0;
+    transition: color 0.3s ease;
+  }
+
+  .gs-result.gs-safe { color: rgba(34,197,94,0.9); }
+  .gs-result.gs-hit  { color: rgba(239,68,68,0.9); }
+
+  .gs-note {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.55;
+    margin: 0;
+    padding: var(--space-sm) var(--space-md);
+    border-left: 2px solid rgba(6,182,212,0.25);
+  }
+
+  /* Galilean orrery hint */
+  #moons .orrery-container::after {
+    content: 'Click any moon for a fun fact';
+    display: block;
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--color-text-secondary, rgba(255,255,255,0.45));
+    margin-top: var(--space-sm, 0.5rem);
+    letter-spacing: 0.04em;
   }
 </style>
