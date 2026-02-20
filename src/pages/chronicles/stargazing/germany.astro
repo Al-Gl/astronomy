@@ -1,0 +1,738 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import Schema from '../../../components/Schema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cosmic Chronicles', url: '/chronicles/' },
+  { name: 'Stargazing Guides', url: '/chronicles/stargazing/' },
+  { name: 'Germany', url: '/chronicles/stargazing/germany/' }
+];
+
+const articleData = {
+  headline: 'Stargazing in Germany: Complete Guide to Dark Sky Parks, Eifel & Westhavelland',
+  description: 'Comprehensive guide to stargazing in Germany. Discover the Eifel Dark Sky Park, Westhavelland, Rhön Biosphere Reserve, Bavarian Forest, and practical tips for astronomy across Central Europe.',
+  datePublished: '2026-02-19',
+  dateModified: '2026-02-19',
+  author: 'The Astronomy Space',
+  image: '/images/Hero_germany.jpg',
+  keywords: [
+    'Stargazing Germany',
+    'Eifel Dark Sky Park',
+    'Westhavelland dark sky',
+    'Rhön Biosphere Reserve stargazing',
+    'dark sky Germany',
+    'Milky Way Germany',
+    'astronomy Germany',
+    'IDA dark sky park Europe',
+    'night sky Germany',
+    'night sky photography Germany'
+  ]
+};
+
+const faqData = [
+  {
+    question: 'When is the best time for stargazing in Germany?',
+    answer: 'The best months for stargazing in Germany are May through September, when nights are short but skies are most likely to be clear and the Milky Way core is well-positioned. Summer brings longer twilight but more stable atmospheric conditions. For aurora borealis viewing from northern Germany, October through March offers the longest dark windows and higher geomagnetic activity. The Perseid meteor shower in mid-August is the most popular annual event — Eifel, Rhön, and Westhavelland all host special viewing events around the peak. November and December can bring excellent transparency after cold high-pressure systems move in from the east, though cloud cover is more frequent than in summer.'
+  },
+  {
+    question: 'Which is Germany\'s best certified dark sky park?',
+    answer: 'Germany\'s best certified dark sky park depends on what you are looking for. The Eifel National Park Dark Sky Park (certified 2014) was Germany\'s first IDA certification and offers excellent facilities including guided events, the Dark Sky Ranger programme, and Maar crater lakes for reflection photography — making it ideal for visitors. Westhavelland, certified by IDA as one of Europe\'s largest dark sky parks (150,000 ha), offers superior flat horizons and the lowest measured light pollution, making it better for advanced astrophotography and aurora observation. For a more scenic mountain experience, the Rhön Biosphere Reserve\'s "Starland Rhön" programme provides a combination of rolling hills, high viewpoints, and a strong local astronomy community.'
+  },
+  {
+    question: 'How do I deal with Germany\'s frequently cloudy weather when planning a stargazing trip?',
+    answer: 'Germany\'s central European location makes it one of the cloudier Western European countries for stargazing — cloud cover averages 60–70% across much of the year in the west. The key strategy is flexibility: rather than booking a fixed date, use astronomy weather apps (Clear Outside, Kachelmannwetter, or Windy) to identify the narrowest weather windows 3–5 days out and then travel. Eastern Germany (Brandenburg, Mecklenburg) statistically has slightly clearer skies than the west. High-pressure systems tracking from the east in autumn and spring can deliver 3–7 consecutive clear nights — exceptional for long observing runs. Pack for a 3–5 night trip and be prepared to drive 200–300 km to chase clear skies between different dark-sky regions.'
+  },
+  {
+    question: 'Can I see the Milky Way from Germany?',
+    answer: 'Yes, the Milky Way is clearly visible from Germany\'s certified dark sky parks on moonless nights. From Eifel, Westhavelland, or Rhön, the galactic band and its dark dust lanes are visible to the naked eye, and the galactic core in Sagittarius rises above the southern horizon from May through September, though it reaches a lower maximum altitude than from southern European or tropical sites (peaking at only about 20–25° elevation from Germany\'s latitude of 50–54°N). Despite this lower elevation, astrophotographers regularly capture spectacular Milky Way images from all three parks. The best nights are around new moon in July–August when the sky is fully dark and the galactic centre is in the south after midnight.'
+  },
+  {
+    question: 'Can I see the Northern Lights from Germany?',
+    answer: 'Yes, the Northern Lights (aurora borealis) can be seen from Germany during geomagnetic storms. Germany is further south than prime aurora viewing territory, but during elevated Kp index events (Kp 4–5 or higher), the aurora becomes visible from northern Germany — particularly from the Mecklenburg Lake District, Rügen island, and the Westhavelland dark sky park, where flat open northern horizons are available. Strong Kp 6+ events make the aurora visible even from central Germany and Bavaria. The period October through March offers both longer nights and historically higher geomagnetic activity. Sign up for real-time aurora alerts via Spaceweather.com or the Aurora Service (auroraservice.eu) and be prepared to drive quickly to a dark, low northern horizon.'
+  },
+  {
+    question: 'How far from German cities do I need to travel for dark skies?',
+    answer: 'The distance needed varies considerably by city. From Cologne or Düsseldorf, the Eifel dark sky zone is 70–90 km away. From Berlin, the Westhavelland dark sky park begins at just 80 km to the west — one of the most accessible major dark-sky parks from a European capital. From Frankfurt, the Rhön highland reserve is 100–130 km. From Munich, the Bavarian Forest National Park is 120–160 km. As a general rule, you need to drive at least 60–80 km from any major German city to reach Bortle Class 4 conditions, and 80–120 km for certified Bortle Class 2–3 dark sky parks. The A-roads (Autobahn) make travel times reasonable — Westhavelland from central Berlin is under 90 minutes by car.'
+  }
+];
+---
+
+<MainLayout
+  title="Stargazing in Germany: Complete Guide to Dark Sky Parks, Eifel & Westhavelland | The Astronomy Space"
+  description="Comprehensive guide to stargazing in Germany. Discover the Eifel Dark Sky Park, Westhavelland, Rhön Biosphere Reserve, Bavarian Forest, and practical tips for astronomy across Central Europe."
+>
+  <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
+  <Schema type="TechArticle" article={articleData} />
+  <Schema type="FAQPage" faq={faqData} />
+
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-image">
+      <img src="/images/Hero_germany.jpg" alt="Milky Way arching over dark ancient German forest landscape with a medieval castle silhouette on a hilltop under a deep indigo starry sky" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/chronicles/">Cosmic Chronicles</a></li>
+          <li><a href="/chronicles/stargazing/">Stargazing Guides</a></li>
+          <li aria-current="page">Germany</li>
+        </ol>
+      </nav>
+      <h1>Stargazing in Germany</h1>
+      <p class="hero-subtitle">A Complete Guide to Dark Sky Parks, Eifel, Westhavelland & Rhön</p>
+    </div>
+  </section>
+
+  <div class="content-wrapper">
+    <div class="article-layout">
+      <aside class="toc-sidebar">
+        <nav class="toc" aria-label="Table of Contents">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#eifel">Eifel National Park</a></li>
+            <li><a href="#westhavelland">Westhavelland</a></li>
+            <li><a href="#rhoen">Rhön Biosphere Reserve</a></li>
+            <li><a href="#bavarian-forest">Bavarian Forest</a></li>
+            <li><a href="#other-locations">Other Locations</a></li>
+            <li><a href="#timing">Best Times & Seasons</a></li>
+            <li><a href="#equipment">Essential Equipment</a></li>
+            <li><a href="#planning">Planning Your Trip</a></li>
+            <li><a href="#tips">Practical Tips</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+
+        <aside class="answer-capsule">
+          <div class="capsule-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <p>Germany hosts several of Europe's finest certified dark sky parks. The Eifel National Park, Germany's first IDA-certified dark sky park, offers Maar volcanic crater lakes for stunning reflection photography just 70 km from Cologne. Westhavelland near Berlin is one of Europe's largest dark sky parks at 150,000 hectares, with flat Brandenburg horizons ideal for aurora observation. The Rhön Biosphere Reserve's "Starland Rhön" programme adds a high-plateau dimension, while the Bavarian Forest forms a cross-border dark sky zone with the Czech Republic's Šumava National Park.</p>
+        </aside>
+
+        <section id="introduction" class="content-section">
+          <h2>Introduction: Stargazing in the Heart of Europe</h2>
+          <p>Germany sits at the geographical heart of Central Europe — and despite being one of the continent's most densely populated countries, it has established an impressive network of certified dark sky parks protecting exceptional night-sky environments. The contrast between Germany's densely lit Rhine-Ruhr industrial corridor and the ancient volcanic Eifel plateau or the flat Brandenburg wetlands of the east is striking: within 90 minutes of any major German city, observers can reach skies where the Milky Way is unmistakably visible to the naked eye.</p>
+          <p>Germany's geography works both for and against stargazers. The country's relatively low latitude (47–55°N) means the Milky Way's galactic centre in Sagittarius never rises very high above the southern horizon, limiting dramatic wide-angle shots compared to Southern European or tropical destinations. However, the same latitude gives Germany excellent access to northern constellations, the Perseus Double Cluster, and — crucially — the northern horizon for aurora borealis observation when geomagnetic conditions allow. Eastern Germany, particularly Brandenburg and Mecklenburg-Vorpommern, sits in a geographic sweet spot: low population density, flat terrain with unobstructed 360-degree horizons, and relatively more clear nights than the cloud-prone western regions influenced by Atlantic weather systems.</p>
+          <p>Germany's main challenge for stargazers is light pollution and persistent cloud cover. The densely populated western and central regions suffer from significant skyglow, and annual cloud cover across much of Germany averages 60–70% of nights. The key is targeting the right parks at the right time — and Germany's certified dark sky reserves represent the best of what Central Europe has to offer.</p>
+
+          <div class="info-box glass">
+            <h3>Germany's Top Dark Sky Locations</h3>
+            <ul>
+              <li><strong>Eifel National Park, NW Germany (600 m | 50.4°N)</strong> — Germany's first IDA dark sky park (2014); Maar crater lakes; Bortle Class 3; 70 km from Cologne</li>
+              <li><strong>Westhavelland Nature Park, Brandenburg (50 m | 52.6°N)</strong> — One of Europe's largest IDA dark sky parks (150,000 ha); flat horizon; Bortle Class 2–3; 80 km from Berlin</li>
+              <li><strong>Rhön Biosphere Reserve, Central Germany (835 m | 50.5°N)</strong> — UNESCO biosphere; "Starland Rhön"; cross-border Bavaria/Hesse/Thuringia; Bortle Class 3</li>
+              <li><strong>Bavarian Forest National Park, Bavaria (1,000–1,453 m | 48.9°N)</strong> — Cross-border dark sky with Czech Šumava NP; altitude advantage; Bortle Class 3</li>
+              <li><strong>Mecklenburg Lake District, NE Germany (50–100 m | 53.5°N)</strong> — Numerous lake reflections; flat terrain; northern horizon for aurora; Bortle Class 3</li>
+              <li><strong>Rügen & Usedom, Baltic Coast (0–90 m | 54°N)</strong> — Seaward horizon; northernmost dark sites; aurora visible Kp 3+; Bortle Class 3–4</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="eifel" class="content-section">
+          <h2>Eifel National Park & Dark Sky Reserve</h2>
+          <p>The Eifel National Park in northwestern Germany holds the distinction of being Germany's first — and one of Europe's finest — IDA International Dark Sky Parks, certified in 2014. The park covers approximately 10,770 hectares of ancient volcanic plateau landscape in North Rhine-Westphalia, straddling the Belgian border. The surrounding Eifel region — a much larger area of about 63,000 square kilometres — has historically low population density and lacks heavy industry, giving it naturally darker skies than most of western Germany. The park's light pollution ordinances enforce strict limits on outdoor lighting within and around the certification zone.</p>
+
+          <div class="inline-image">
+            <img src="/images/germany_eifel.jpg" alt="Ancient volcanic Maar crater lake in the Eifel region of Germany reflecting the Milky Way under a brilliantly starry sky" loading="lazy" />
+            <p class="image-caption">A Maar crater lake in the Eifel reflects the night sky — these ancient volcanic features create one of Germany's most photogenic stargazing settings</p>
+          </div>
+
+          <h3>IDA Certification & Dark Sky Zone</h3>
+          <p>The IDA certification applies to a core area within Eifel National Park but radiates outward into the surrounding Eifel Dark Sky Destination — a broader region of collaborating municipalities that have committed to reducing light pollution. The park actively measures sky quality using Sky Quality Meter (SQM) readings; values typically reach 21.5–21.8 mag/arcsec² on the best nights, equivalent to a Bortle Class 2–3 sky. A Dark Sky Ranger programme trains local volunteer guides to lead public stargazing events and educate communities on responsible outdoor lighting. The park website lists upcoming dark sky events throughout the year, including the annual Dark Sky Week in October.</p>
+
+          <h3>Maar Lakes for Reflection Photography</h3>
+          <p>The Eifel's defining geological features are its Maare — ancient volcanic explosion craters now filled with still, dark water. The Gemündener Maar and Weinfelder Maar (also called Totenmaar) are the most photogenic for astrophotography. On still windless nights, these perfectly circular lakes — encircled by forested crater rims — mirror the sky with extraordinary fidelity. The Milky Way reflected in the dark water creates a vertical corridor of stars from the ground to the zenith. The Strohn Volcanic Maar and Pulvermaar are also accessible and similarly dark. Most Maar lakes have easy footpath access from small car parks; arrive before nautical twilight ends to set up without white light.</p>
+
+          <h3>Visitor Information & Guided Events</h3>
+          <p>The Eifel National Park visitor centre is in Monschau; a second information point is at Gemünd. The park's dark sky programme includes guided evening walks, telescope viewing nights at Bollendorf observation platforms, and school outreach. Several local astronomy clubs — including the Förderverein Nationalpark Eifel — organise regular public stargazing sessions from April to October. Accommodation ranges from youth hostels and guesthouses in Monschau, Schleiden, and Gemünd to holiday apartments in surrounding Eifel villages. The nearest major airports are Cologne/Bonn (60 km) and Düsseldorf (90 km). No permit is required to visit; all car parks are free overnight.</p>
+        </section>
+
+        <section id="westhavelland" class="content-section">
+          <h2>Westhavelland Nature Park</h2>
+          <p>Westhavelland is Germany's — and arguably Europe's — most strategically located dark sky park. Just 80 kilometres west of central Berlin, this 150,000-hectare flatland of wetlands, meadows, and agricultural fields in Brandenburg state holds IDA International Dark Sky Park status and delivers reliably dark skies within easy reach of one of Europe's largest capital cities. The flatness of the Brandenburg landscape is both its greatest asset and most distinctive feature: the Milky Way arches horizon-to-horizon with nothing to interrupt it, and the northern horizon drops so low that aurora displays become visible at geomagnetic activity levels (Kp 3+) that would require travelling to Scandinavia to observe from mountainous terrain.</p>
+
+          <div class="inline-image">
+            <img src="/images/germany_westhavelland.jpg" alt="Flat Brandenburg wetland in Westhavelland at night with the Milky Way arching overhead and reflected in still water" loading="lazy" />
+            <p class="image-caption">Westhavelland's flat Brandenburg landscape gives unobstructed 360-degree horizon access — rare in densely populated Central Europe</p>
+          </div>
+
+          <h3>Europe's Largest Dark Sky Park</h3>
+          <p>Westhavelland was certified by the International Dark-Sky Association before the Eifel park and remains among the largest IDA-certified areas in Europe by land area. The certification requires all municipalities within the park boundary to replace street lighting with downward-directed, amber-spectrum LEDs and to avoid unnecessary outdoor illumination. Sky quality readings across Westhavelland regularly reach SQM 21.6–22.0 — genuine Bortle Class 2 conditions in the best areas, comparable to some remote mountain sites. The nature park's wetlands, hay meadows, and the Havel river system provide excellent foreground elements for nightscape photography: still water reflections, reed silhouettes, and riverside willows.</p>
+
+          <h3>Brandenburg's Flat Horizons</h3>
+          <p>Brandenburg's topography — essentially a flat post-glacial plain — means that from Westhavelland, the observer's horizon is 0–2 degrees above true horizontal in almost every direction. This has practical consequences for aurora photography: when the auroral oval dips south during elevated Kp events, the entire green or red curtain is visible from ground to zenith without any terrain blocking the low northern horizon. The same flat terrain means winter fog can settle across the entire park simultaneously — check forecasts carefully, as foggy nights provide zero stargazing despite potentially cloud-free skies at 50 metres altitude. The park's best observing spots include the areas around Gülper See lake, the Havelland Luch wetland, and open agricultural fields near Nennhausen.</p>
+
+          <h3>Getting There from Berlin</h3>
+          <p>From central Berlin, Westhavelland is reachable in 75–90 minutes by car via the A10 ring road toward Magdeburg, exiting at Rathenow or Brandenburg an der Havel. The town of Rathenow (population 24,000) serves as the main gateway; its own light dome is modest and fades within 15 km of the city. Public transport access is possible — regional trains run from Berlin Hauptbahnhof to Rathenow (45 minutes), from where a car or bicycle is needed to reach the darkest zones. Cyclists can access the flat park entirely by road bike from Rathenow. Accommodation includes guesthouses in Rathenow and rural holiday lets in park villages. The park has no entry fee and overnight parking is generally permitted at designated nature park car parks.</p>
+        </section>
+
+        <section id="rhoen" class="content-section">
+          <h2>Rhön Biosphere Reserve</h2>
+          <p>The Rhön is a UNESCO Biosphere Reserve straddling the borders of three German federal states — Bavaria, Hesse, and Thuringia — in the geographic heart of Germany. Unlike the flat Brandenburg parks, the Rhön is a landscape of rounded volcanic hills rising to 835 metres at the Wasserkuppe — the highest peak in the Rhön range and in all of Hesse state. The combination of elevation and very low local population density (the Rhön was significantly depopulated during the East-West German division, when much of the eastern Rhön lay in the restricted border zone) means the skies here are among the darkest in central Germany.</p>
+
+          <div class="inline-image">
+            <img src="/images/germany_rhoen.jpg" alt="Rhön highland meadow at night in Germany under a brilliant Milky Way sky with a lone tree silhouette on the hilltop" loading="lazy" />
+            <p class="image-caption">The Rhön highlands provide wide-open plateau skies at 700–835 m altitude — Germany's stargazing heartland</p>
+          </div>
+
+          <h3>Starland Rhön & Dark Sky Certification</h3>
+          <p>The "Starland Rhön" (Sternland Rhön) branding was established in the 2000s when the biosphere reserve began systematically reducing light pollution across its core zones. The reserve has not pursued IDA certification in the same way as Eifel or Westhavelland, but its voluntary lighting guidelines for municipalities and farms have demonstrably improved sky quality over two decades. SQM measurements on the Hochrhön plateau regularly exceed 21.4 mag/arcsec² — Bortle Class 3–4, with the best elevated spots reaching Bortle 2–3. The Rhön Biosphere Reserve administration publishes a dark sky map identifying the lowest-light-pollution zones within the reserve and operates public star-party events through the local VdS (German astronomy society) chapter.</p>
+
+          <h3>Milseburg and Hochrhön</h3>
+          <p>The Milseburg hill (835 m), topped by the ruins of an ancient Celtic hillfort and a small pilgrimage chapel, is the Rhön's premier stargazing high point. Standing on the Milseburg's treeless summit — easily reached by a 20-minute walk from a car park near Hofbieber — gives a 360-degree elevated view across the Rhön plateau. To the south and west, the weak glow of Fulda and Hersfeld are the only visible light domes; to the north and east, the Rhön extends into near-total darkness. The Heidelstein hill (927 m) in the Bavarian Rhön houses a small meteorological station and a basic public observing platform used by the local astronomy club. The open grassland of the Hochrhön — the high plateau between Wasserkuppe and Kreuzberg — offers superb flat-horizon views ideal for wide-angle Milky Way photography.</p>
+
+          <h3>Star Parties and Events</h3>
+          <p>The Rhön hosts several annual astronomy events. The most prominent is the Sternpark Rhön star party, held annually in late summer (usually August–September), which attracts hundreds of amateur astronomers with telescopes ranging from small refractors to large truss Dobsonians. The event is held in an open field in the core Rhön zone and includes public telescope viewing, astrophotography workshops, and talks. Local guesthouses in villages like Fladungen, Bischofsheim, and Tann fill up during the star party — book well in advance. Year-round, the VdS section in Bad Kissingen runs monthly observing nights accessible to visitors.</p>
+        </section>
+
+        <section id="bavarian-forest" class="content-section">
+          <h2>Bavarian Forest National Park</h2>
+          <p>The Bavarian Forest National Park (Bayerischer Wald) in eastern Bavaria, on the border with the Czech Republic, offers a different stargazing experience from Germany's lowland parks. At altitudes ranging from around 600 metres in the valleys to 1,453 metres at the Großer Arber — the highest point in the Bohemian Massif on the German side — the Bavarian Forest provides a genuine mountain dark-sky environment. The national park covers 24,250 hectares and forms a contiguous wilderness with the Czech Republic's Šumava National Park, creating a combined cross-border dark sky zone of approximately 167,000 hectares — one of the largest protected natural areas in Central Europe.</p>
+
+          <h3>Cross-Border Dark Sky Zone</h3>
+          <p>The collaboration between Bavarian Forest NP and Šumava NP is one of Europe's most successful cross-border conservation partnerships. Both parks apply strict outdoor lighting standards in their core areas, and the combined wilderness — with almost no permanent human settlement in the interior — creates a large, coherent dark sky environment. Sky quality readings on the Großer Arber summit reach SQM 21.5–21.8 on clear winter nights when the valley inversions suppress any light from distant towns. The Czech side of the border, accessible through several cross-border hiking trails, often delivers even darker conditions as the Czech Šumava villages have fewer street lights than their German counterparts.</p>
+
+          <h3>Best Viewing Spots</h3>
+          <p>The Großer Arber summit (1,453 m) is the most elevated viewpoint in the entire region and is accessible year-round via a chairlift from Bayerisch Eisenstein. The summit area has a small weather station and telescope shelter used by local astronomy groups. At this altitude, the horizon in all directions is well below the observer, and on clear nights the zodiacal light is readily visible along the ecliptic. Lower down, the Rachelsee mountain lake (1,080 m) — accessible by a 45-minute walk from the Spiegelau visitor centre — offers lake reflections in a dark forest setting. The village of Neuschönau, near the Hans-Eisenmann-Haus visitor centre, serves as a practical base with several guesthouses.</p>
+
+          <h3>Season and Access</h3>
+          <p>The Bavarian Forest is accessible year-round, though winter brings heavy snowfall above 800 metres. The park's interior trails are well-maintained but require appropriate footwear and lighting for night walks. The main base towns are Grafenau, Zwiesel, and Regen, all with train connections from Munich (2–2.5 hours) or Regensburg (1.5 hours). The chairlift to Großer Arber operates in summer (May–October) and winter (December–March) but closes for maintenance in shoulder seasons; check timetables. The cross-border trails to Šumava are open to EU citizens without formality.</p>
+        </section>
+
+        <section id="other-locations" class="content-section">
+          <h2>Other Notable Stargazing Locations</h2>
+
+          <h3>Rügen & Usedom, Baltic Coast</h3>
+          <p>Germany's Baltic Sea islands of Rügen and Usedom sit at Germany's northernmost latitudes (54–54.6°N), giving them the best access to the northern horizon in the country. From the white chalk cliffs of Rügen or the sandy shores of Usedom's Heidesee nature reserve, the sea horizon extends unbroken to the north — ideal for aurora observation. During Kp 3+ geomagnetic events, green aurora arches above the Baltic are a realistic prospect, particularly from October to March. Sky quality on the seaward sides of both islands reaches Bortle Class 3–4. Rügen's national park core areas away from Binz and Sassnitz are the darkest zones; Usedom's least-lit areas are near Zinnowitz and the Usedom Bike Trail corridor.</p>
+
+          <h3>Harz Mountains</h3>
+          <p>The Harz is central Germany's highest mountain range, with the Brocken summit reaching 1,141 metres. The national park around the Brocken plateau experiences a disproportionately high number of cloudy days — it is Germany's foggiest summit — but on the rare clear nights, the high elevation and distance from major cities (it sits between Hannover, Magdeburg, and Kassel) delivers Bortle Class 3–4 skies. The open bogs and heath of the Hochharz plateau around Schierke and Torfhaus are particularly good for wide-field stargazing when fog stays in the valleys below. The Brocken is accessible by the Brockenbahn steam railway from Wernigerode.</p>
+
+          <h3>Mecklenburg Lake District</h3>
+          <p>The Mecklenburgische Seenplatte (Mecklenburg Lake District) in northeast Germany is a vast flat plateau of more than 1,000 lakes formed by glacial activity. The region is one of Germany's least densely populated — and consequently some of its darkest — areas. With lake reflections available everywhere and flat terrain giving 360-degree horizon access, the Mecklenburg lakes rival Westhavelland for astrophotography potential. The Müritz National Park, centred on the Müritz lake (Germany's largest lake), falls within a Bortle Class 3 zone. Accessible from Berlin (2.5 hours by car), Rostock, and Stralsund, the area has abundant rural accommodation and camping in summer.</p>
+
+          <h3>Saxon Switzerland, Saxony</h3>
+          <p>Saxon Switzerland (Sächsische Schweiz) along the Elbe River near Dresden is a landscape of dramatic sandstone pillars and deep gorges — geologically unlike anywhere else in Germany. The eastern Saxony location near the Polish and Czech borders places it away from major western German light domes, and the dramatic rock formations provide extraordinary photographic foregrounds for night-sky images. The most famous viewpoint, the Bastei bridge, is too heavily visited at night to be dark; however, the plateau areas above the Elbe valley — around Lichtenhain and Kohlmühle — are significantly darker and offer the sandstone formations against the Milky Way.</p>
+        </section>
+
+        <section id="timing" class="content-section">
+          <h2>Best Times and Seasons</h2>
+          <p>Germany's continental climate — with oceanic influence from the Atlantic in the west — creates significant seasonal variation in stargazing quality. Cloud cover is the dominant challenge: Germany averages 50–70% cloud cover depending on season and region, with the west being cloudier than the east. Eastern regions (Brandenburg, Mecklenburg, Saxony) have more high-pressure-dominated weather patterns with better clear-sky frequency than the western regions influenced by Atlantic frontal systems.</p>
+
+          <div class="info-box glass">
+            <h3>Month-by-Month Stargazing Guide — Germany</h3>
+            <ul>
+              <li><strong>January–February:</strong> Long nights (darkness 16:00–08:00) but frequent cloud cover. Eastern high-pressure systems bring Germany's best winter clarity. Orion, Taurus, Gemini, and Auriga overhead. Quadrantids peak early January — best from eastern Germany. Aurora possible from Kp 4+.</li>
+              <li><strong>March–April:</strong> Nights shorten but clarity improves as Atlantic lows become less frequent. Leo and Virgo in the south. Sporadic aurora still possible. Good for Eifel if a high-pressure window opens. Dew becomes a significant issue as temperatures warm.</li>
+              <li><strong>May–June:</strong> Short nights (astronomical darkness only 2–3 hours around summer solstice) but noctilucent clouds visible in June — bright blue-white electric structures at 80 km altitude, best from northern Germany and the Baltic coast. Milky Way begins to rise in the south.</li>
+              <li><strong>July–August:</strong> Best months for Milky Way. Galactic core in Sagittarius visible in the south after midnight. Perseid meteor shower peaks August 11–13 — all dark sky parks hold special events. Warm, stable nights with lower humidity than spring. Best for astrophotography.</li>
+              <li><strong>September–October:</strong> Nights lengthen rapidly. Autumn Milky Way still visible early in the month. Andromeda Galaxy (M31) well-placed overhead. Autumn high-pressure systems bring excellent transparency. October's Draconid and Orionid meteor showers. First aurora windows of the season.</li>
+              <li><strong>November–December:</strong> Long nights return but cloud cover increases. Cold continental high-pressure systems deliver the clearest nights of winter. Geminid meteor shower December 13–14 — excellent from any German dark sky site. Winter constellations return. Aurora frequency increases.</li>
+            </ul>
+          </div>
+
+          <h3>Noctilucent Clouds</h3>
+          <p>Noctilucent clouds (NLCs) are a unique summertime phenomenon visible from Germany's latitude. These ethereal electric-blue clouds form at 80 km altitude in the mesosphere, made of ice crystals aligned along narrow filaments. They are only visible in deep twilight, from about 1–2 hours after sunset or before sunrise, when the lower atmosphere is dark but the mesospheric layer is still illuminated by the sun below the horizon. NLC season runs approximately from late May through late July. The Baltic coast and northern Germany (Hamburg, Mecklenburg, Rügen) offer the best views due to their northern horizon — look NNW/NNE at 10–20° elevation in late twilight.</p>
+
+          <h3>Aurora Borealis from Germany</h3>
+          <p>Aurora borealis from Germany requires patience but is genuinely achievable. During solar maximum years, several strong aurora events per year reach Kp 4–5, making the lights visible as red and green arcs low on the northern horizon from Germany's latitude. The record-breaking geomagnetic storm of May 2024 (Kp 8–9) produced spectacular aurora visible throughout Germany, even from cities. For serious aurora chasing, target the Mecklenburg coast, Westhavelland, or Rügen — all with low northern horizons — and sign up for real-time alerts from Spaceweather.com, the Aurora Service (auroraservice.eu), or Norwegian forecast services that give advance warning of arriving coronal mass ejections.</p>
+        </section>
+
+        <section id="equipment" class="content-section">
+          <h2>Essential Equipment</h2>
+          <p>Germany's temperate maritime climate presents a specific set of equipment challenges — primarily dew and humidity management. Unlike high-altitude desert sites in India or Tibet where dew is rarely a problem, German nights regularly see relative humidity rise above 80–90%, causing rapid condensation on optical surfaces. This is the primary technical challenge for German stargazers and astrophotographers.</p>
+
+          <h3>Dew Management</h3>
+          <p>Dew heaters are essentially mandatory for any night observing in Germany beyond a short one-hour session. A dew controller and heater strips for telescope objective lens (or mirror), eyepieces, and finder scope should be considered standard equipment. Binoculars are prone to fogging both externally and at the eyepiece; keep them under a cover until observing and warm the eyepieces gently with your hands before use. Camera lenses dew up rapidly — a dew heater band around a camera lens or front element will prevent fogging during long tracked exposures. A 12V portable battery or car battery with a dew controller provides several hours of heating coverage.</p>
+
+          <h3>Layering for Central European Nights</h3>
+          <p>Summer nights in Germany's dark sky parks (June–August) can feel mild at dusk but drop to 8–12°C by 02:00. Autumn nights plunge faster: October nights regularly fall to 0–5°C in the Eifel and Rhön. In winter, temperatures of −5°C to −15°C are common in the Eifel, Bavarian Forest, and Harz. The layering system (thermal base, fleece mid-layer, windproof outer) appropriate for Himalayan observing is equally relevant here, though at more moderate temperature ranges. Waterproof boots are useful in wet grass; gaiters prevent wet feet when moving through dewy meadows to viewing spots.</p>
+
+          <div class="info-box glass">
+            <h3>Equipment Checklist for Germany</h3>
+            <h4>Essential (Required):</h4>
+            <ul>
+              <li><strong>Dew heaters + controller</strong> — Absolutely critical for optical surfaces in Germany's humid nights</li>
+              <li><strong>Red headlamp</strong> — Preserves dark adaptation during setup and navigation</li>
+              <li><strong>Layered clothing (thermal + fleece + outer)</strong> — Essential even in summer for late-night sessions</li>
+              <li><strong>Waterproof boots / gaiters</strong> — Wet meadow grass and dewy paths are routine</li>
+              <li><strong>Offline star maps</strong> — Stellarium or SkySafari with downloaded data; mobile signal unreliable in parks</li>
+              <li><strong>Power bank / 12V battery</strong> — For dew heaters, camera, and charged phone</li>
+            </ul>
+            <h4>Recommended (Enhances Experience):</h4>
+            <ul>
+              <li><strong>7×50 or 10×50 binoculars</strong> — Ideal for Milky Way sweeping, M31, and star clusters overhead</li>
+              <li><strong>DSLR/mirrorless + 14–24mm f/2.8 lens</strong> — For Milky Way panoramas and nightscapes</li>
+              <li><strong>Intervalometer / remote shutter release</strong> — For star trails and untracked long exposures</li>
+              <li><strong>Sky Quality Meter (SQM)</strong> — Useful for assessing site conditions and documenting dark sky parks</li>
+              <li><strong>Aurora alert app / notification</strong> — SpaceWeather.com, Aurora Service, or Spacewarn push notifications</li>
+            </ul>
+            <h4>Advanced (For Serious Observers):</h4>
+            <ul>
+              <li><strong>Sky-Watcher Star Adventurer / iOptron SkyGuider Pro</strong> — Compact tracking mount for long-exposure astrophotography</li>
+              <li><strong>Narrowband filters (H-alpha, OIII)</strong> — Helps cut through residual skyglow at parks near towns</li>
+              <li><strong>Portable Dobsonian (150–250 mm)</strong> — For planetary and deep-sky visual observing; no tracking needed</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="planning" class="content-section">
+          <h2>Planning Your Trip</h2>
+          <p>Stargazing in Germany requires no special permits, restricted zones, or specific travel logistics — a significant advantage over destinations like India or China. The primary planning effort is weather-based: identifying the best cloud-free windows and travelling flexibly to take advantage of them.</p>
+
+          <h3>Weather Forecasting Strategy</h3>
+          <p>Standard weather apps are insufficient for astronomy planning in Germany. Kachelmannwetter (kachelmannwetter.com) is the most respected German meteorological platform, used by professionals, and provides high-resolution forecasts including cloud cover, humidity, and dew point to 7 days. Clear Outside (clearoutside.com) integrates Kachelmann data and adds astronomy-specific overlays including seeing, transparency, and Bortle class estimates. Check forecasts at 72-hour and 24-hour intervals before travel; German weather can change rapidly as Atlantic systems move through. The golden rule: any forecast showing "anticyclone" (Hochdruckgebiet) over Germany for 3+ days is a near-guarantee of clear, dark, dry nights.</p>
+
+          <h3>No Permits Required</h3>
+          <p>Germany's dark sky parks are entirely permit-free. All German national parks and nature reserves allow overnight car parking at designated areas and pedestrian access to viewpoints and trails at all hours — there are no curfews. Fires and camping outside designated sites are prohibited in national parks; bring warm layers and a thermos rather than a campfire. Eifel National Park, Bavarian Forest NP, and the Harz NP have ranger services but no entry barriers or paid access. Westhavelland and Rhön are nature parks (a less restrictive category than national park) with similarly free access. Dogs on leads are generally permitted.</p>
+
+          <h3>Star Party Calendar</h3>
+          <p>Germany has an active amateur astronomy community. The VdS (Vereinigung der Sternfreunde — German Astronomy Society) organises events nationwide and publishes an online calendar of star parties, public telescope nights, and observing camps at vereinigung-der-sternfreunde.de. Major annual events include: the Eifel Dark Sky Week (October), the Sternpark Rhön star party (August–September), the ITV (Internationales Teleskoptreffen Vogelsberg) in the volcanic Vogelsberg region of Hesse (May), and the ATT (Astronomie Teleskop Tauschbörse) in Düsseldorf — Germany's largest astronomy trade event. Regional astronomy clubs in every major city organise monthly public observing nights; most welcome visiting tourists.</p>
+
+          <h3>Light Pollution Mapping</h3>
+          <p>Use Lichtverschmutzung.de (the German light pollution atlas, derived from satellite data) or lightpollutionmap.info to plan which specific areas within each dark sky park deliver the lowest light pollution. Within the Eifel, for example, the zone around Gemündener Maar consistently shows the darkest readings; within Westhavelland, the areas north of Gülper See deliver the best values. The interactive maps allow you to zoom to street level and identify optimal car park and observing locations before arrival.</p>
+        </section>
+
+        <section id="tips" class="content-section">
+          <h2>Practical Tips</h2>
+
+          <h3>Astronomy Apps for Germany</h3>
+          <p>Stellarium (stellarium.org) and SkySafari 6 Pro work perfectly in Germany and require no internet connection once constellation and catalogue data are downloaded. For aurora alerts, install the Spacewarn app or subscribe to SMS alerts from Spaceweather.com. The SkyAlert Aurora app gives real-time Kp index readings and push notifications when aurora is active. For finding the precise darkest spots within a park, use the Light Pollution Map app (available for iOS and Android) with offline cache downloaded before departure to the park.</p>
+
+          <h3>Driving to Dark Sites</h3>
+          <p>Germany's motorway network (Autobahn) makes reaching dark sky parks from major cities straightforward and fast. Drive with headlights on low beam on the approach to minimise disturbance to other observers already set up. Use a red-light mode on your phone for navigation once parked; switching from white screen to red preserves dark adaptation for you and fellow observers. Many dark sky park car parks have informal protocols: late arrivals park at the edge and walk to their site rather than driving headlights across the field.</p>
+
+          <h3>Weather-Chasing Strategy</h3>
+          <p>The most experienced German astronomers don't plan fixed observing nights — they plan flexible windows and move. A mid-week overnight trip (Tuesday/Wednesday) avoids weekend crowding at popular Eifel Maar locations. Keep a packed observation kit in the car (dew heater power bank charged, camera gear ready, warm clothes in a bag) so you can decide at 14:00 to drive to a clear-sky location by 22:00 when a forecast opens up. Eastern Germany (Westhavelland, Mecklenburg) tends to be clearer than western Germany when Atlantic fronts are active — a blocked eastern anticyclone can deliver clear nights in Berlin when Cologne is overcast.</p>
+
+          <h3>Safety and Etiquette</h3>
+          <p>German dark sky parks are generally very safe at night. Inform someone of your planned location and expected return. Wear high-visibility clothing or a reflective vest if you are near a road at night — drivers may not expect pedestrians on rural lanes. In the Bavarian Forest and Harz, wolves have returned to Germany; while no attacks on humans have been recorded and encounters are extremely rare, be aware of your surroundings and keep dogs on leads. Tick-borne encephalitis (TBE) risk exists in Bavaria, Baden-Württemberg, and parts of Hesse — check vaccination recommendations if observing in long grass from April through October.</p>
+        </section>
+
+        <section id="resources" class="content-section">
+          <h2>Resources</h2>
+
+          <h3>Astronomy Organisations</h3>
+          <ul class="resource-list">
+            <li><a href="https://www.vereinigung-der-sternfreunde.de" target="_blank" rel="noopener">VdS — Vereinigung der Sternfreunde</a> — Germany's main astronomy society; star party calendar, equipment advice, regional clubs</li>
+            <li><a href="https://www.idas-germany.de" target="_blank" rel="noopener">IDA Germany (Dark Sky Deutschland)</a> — German chapter of the International Dark-Sky Association; park certification news</li>
+          </ul>
+
+          <h3>Dark Sky Parks & Visitor Information</h3>
+          <ul class="resource-list">
+            <li><a href="https://www.nationalpark-eifel.de" target="_blank" rel="noopener">Eifel National Park</a> — Official site with dark sky events, ranger contacts, and visitor information</li>
+            <li><a href="https://www.westhavelland-naturpark.de" target="_blank" rel="noopener">Westhavelland Nature Park</a> — Dark sky park details, observing sites, and accommodation in the Brandenburg region</li>
+            <li><a href="https://www.biosphaerenreservat-rhoen.de" target="_blank" rel="noopener">Rhön Biosphere Reserve</a> — Starland Rhön programme, star party events, and high-plateau viewing information</li>
+          </ul>
+
+          <h3>Weather & Sky Forecasting</h3>
+          <ul class="resource-list">
+            <li><a href="https://www.kachelmannwetter.com" target="_blank" rel="noopener">Kachelmannwetter</a> — Germany's highest-accuracy weather platform; essential for astronomy night planning</li>
+            <li><a href="https://clearoutside.com" target="_blank" rel="noopener">Clear Outside</a> — Astronomy-specific cloud, seeing, and transparency forecasts with Bortle overlay</li>
+            <li><a href="https://www.lightpollutionmap.info" target="_blank" rel="noopener">Light Pollution Map</a> — Interactive Bortle class and SQM overlay for identifying darkest zones</li>
+            <li><a href="https://auroraservice.eu" target="_blank" rel="noopener">Aurora Service Europe</a> — Real-time geomagnetic index monitoring and aurora alerts for Germany and Central Europe</li>
+          </ul>
+        </section>
+
+        <section id="faq" class="content-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-section">
+            <div class="faq-list">
+              {faqData.map((item) => (
+                <details class="faq-item">
+                  <summary class="faq-question">{item.question}</summary>
+                  <div class="faq-answer">
+                    <p>{item.answer}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      const progressBar = document.getElementById('progressBar');
+      if (progressBar) {
+        progressBar.style.width = scrollPercent + '%';
+      }
+    });
+
+    const sections = document.querySelectorAll('.content-section');
+    const tocLinks = document.querySelectorAll('.toc a');
+
+    const observerOptions = {
+      rootMargin: '-20% 0% -70% 0%'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(link => link.classList.remove('active'));
+          const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+          if (activeLink) activeLink.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+
+  <style>
+    /* Progress Bar */
+    .progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      z-index: 1000;
+      background: transparent;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, rgb(6, 182, 212), rgb(59, 130, 246));
+      transition: width 0.1s ease;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-image {
+      position: absolute;
+      inset: 0;
+    }
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: var(--space-xl);
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-family: var(--font-heading);
+      color: #fff;
+      margin: var(--space-sm) 0;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      line-height: 1.1;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: rgb(6, 182, 212);
+      margin: 0;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumbs ol {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      gap: 0.25rem;
+    }
+    .breadcrumbs li {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.85rem;
+    }
+    .breadcrumbs li + li::before {
+      content: '›';
+      margin-right: 0.25rem;
+    }
+    .breadcrumbs a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .breadcrumbs a:hover {
+      color: rgb(6, 182, 212);
+    }
+    .breadcrumbs li[aria-current="page"] {
+      color: rgb(6, 182, 212);
+    }
+
+    /* Layout */
+    .content-wrapper {
+      padding: var(--space-xl) var(--space-xl);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+    @media (min-width: 1024px) {
+      .article-layout {
+        grid-template-columns: 220px 1fr;
+      }
+    }
+
+    /* TOC */
+    .toc-sidebar {
+      display: none;
+    }
+    @media (min-width: 1024px) {
+      .toc-sidebar {
+        display: block;
+      }
+    }
+    .toc {
+      position: sticky;
+      top: 2rem;
+    }
+    .toc h2 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-sm);
+    }
+    .toc ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+    .toc a {
+      display: block;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .toc a:hover {
+      color: var(--color-text-primary);
+    }
+    .toc a.active {
+      color: rgb(6, 182, 212);
+      border-left-color: rgb(6, 182, 212);
+    }
+
+    /* Main content */
+    .main-content {
+      max-width: 800px;
+    }
+
+    /* Answer Capsule */
+    .answer-capsule {
+      display: flex;
+      gap: var(--space-md);
+      align-items: flex-start;
+      background: linear-gradient(135deg, rgba(6,182,212,0.08), rgba(59,130,246,0.08));
+      border: 1px solid rgba(6,182,212,0.25);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-xl);
+    }
+    .capsule-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      color: rgb(6, 182, 212);
+    }
+    .capsule-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+    .answer-capsule p {
+      margin: 0;
+      color: var(--color-text-primary);
+      line-height: 1.7;
+    }
+
+    /* Content sections */
+    .content-section {
+      margin-bottom: var(--space-xl);
+    }
+    .content-section h2 {
+      font-size: 1.6rem;
+      font-family: var(--font-heading);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-md);
+      padding-bottom: var(--space-sm);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .content-section h3 {
+      font-size: 1.15rem;
+      color: rgb(6, 182, 212);
+      margin: var(--space-lg) 0 var(--space-sm);
+    }
+    .content-section p {
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+      margin-bottom: var(--space-md);
+    }
+    .content-section ul,
+    .content-section ol {
+      color: var(--color-text-secondary);
+      padding-left: 1.5rem;
+      line-height: 1.8;
+    }
+    .content-section li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Info box */
+    .info-box {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: var(--glass-blur);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      margin: var(--space-lg) 0;
+    }
+    .info-box h3 {
+      font-size: 1.1rem;
+      color: rgb(59, 130, 246);
+      margin-bottom: var(--space-sm);
+      margin-top: 0;
+    }
+    .info-box h4 {
+      font-size: 0.95rem;
+      color: var(--color-text-primary);
+      margin: var(--space-md) 0 var(--space-sm);
+    }
+    .info-box ul {
+      color: var(--color-text-secondary);
+      padding-left: 1.25rem;
+      line-height: 1.8;
+    }
+    .info-box li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Inline images */
+    .inline-image {
+      margin: var(--space-lg) 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .inline-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .image-caption {
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+      text-align: center;
+      padding: var(--space-sm) var(--space-md);
+      background: rgba(0,0,0,0.3);
+      margin: 0;
+      font-style: italic;
+    }
+
+    /* Resource list */
+    .resource-list {
+      list-style: none;
+      padding: 0;
+    }
+    .resource-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .resource-list a {
+      color: rgb(6, 182, 212);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .resource-list a:hover {
+      color: rgb(59, 130, 246);
+    }
+
+    /* FAQ */
+    .faq-section {
+      padding-top: var(--space-md);
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .faq-item {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .faq-item[open] {
+      background: rgba(6,182,212,0.05);
+    }
+    .faq-question {
+      padding: var(--space-md) var(--space-lg);
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+      user-select: none;
+    }
+    .faq-question::-webkit-details-marker {
+      display: none;
+    }
+    .faq-question::after {
+      content: '+';
+      font-size: 1.25rem;
+      color: rgb(6, 182, 212);
+      transition: transform 0.2s;
+    }
+    .faq-item[open] .faq-question::after {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      padding: 0 var(--space-lg) var(--space-md);
+    }
+    .faq-answer p {
+      margin: 0;
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+    }
+  </style>
+</MainLayout>

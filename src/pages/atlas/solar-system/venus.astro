@@ -175,6 +175,95 @@ const faqData = [
 
           <h3>Weather and Winds</h3>
           <p>Venus experiences dramatic atmospheric dynamics despite its slow rotation. Hurricane-force winds exceeding 360 km/h (224 mph) circle the planet in the upper atmosphere, though surface winds are surprisingly calm at only a few kilometers per hour. The dense atmosphere is so thick that even gentle breezes at the surface exert tremendous force—equivalent to walking through water on Earth.</p>
+
+          <!-- Atmospheric Layers Interactive -->
+          <div class="atmo-interactive glass">
+            <div class="atmo-scene">
+              <svg id="vatmoSvg" viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg"
+                aria-label="Interactive Venus atmospheric layers diagram" role="img">
+                <defs>
+                  <linearGradient id="vatmoSpaceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#0d0005"/>
+                    <stop offset="100%" stop-color="#1a0510"/>
+                  </linearGradient>
+                  <linearGradient id="vatmoSurfaceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="rgba(160,80,20,0.95)"/>
+                    <stop offset="100%" stop-color="rgba(120,50,10,0.98)"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- Background -->
+                <rect x="0" y="0" width="500" height="360" fill="url(#vatmoSpaceGrad)"/>
+
+                <!-- Stars -->
+                <circle cx="420" cy="20" r="1"   fill="rgba(255,255,255,0.8)"/>
+                <circle cx="460" cy="35" r="1.5" fill="rgba(255,255,255,0.6)"/>
+                <circle cx="480" cy="15" r="1"   fill="rgba(255,255,255,0.7)"/>
+                <circle cx="430" cy="50" r="1"   fill="rgba(255,255,255,0.5)"/>
+                <circle cx="445" cy="8"  r="1.2" fill="rgba(255,255,255,0.65)"/>
+
+                <!-- Layer bands (top→bottom) -->
+                <rect class="vatmo-band" data-layer="exosphere"    x="0" y="10"  width="430" height="60" fill="rgba(80,60,130,0.12)"  stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+                <rect class="vatmo-band" data-layer="thermosphere" x="0" y="70"  width="430" height="60" fill="rgba(120,80,160,0.20)" stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+                <rect class="vatmo-band" data-layer="mesosphere"   x="0" y="130" width="430" height="53" fill="rgba(150,120,80,0.26)" stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+                <rect class="vatmo-band" data-layer="clouds"       x="0" y="183" width="430" height="70" fill="rgba(190,160,50,0.35)" stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+                <rect class="vatmo-band" data-layer="troposphere"  x="0" y="253" width="430" height="65" fill="rgba(200,100,30,0.40)" stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+
+                <!-- Altitude boundary lines -->
+                <line x1="430" y1="70"  x2="500" y2="70"  stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <line x1="430" y1="130" x2="500" y2="130" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <line x1="430" y1="183" x2="500" y2="183" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <line x1="430" y1="253" x2="500" y2="253" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <line x1="430" y1="318" x2="500" y2="318" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+
+                <!-- Altitude labels -->
+                <text x="436" y="68"  font-size="11" fill="rgba(255,255,255,0.4)" font-family="inherit">230+ km</text>
+                <text x="436" y="128" font-size="11" fill="rgba(255,255,255,0.4)" font-family="inherit">120 km</text>
+                <text x="436" y="181" font-size="11" fill="rgba(255,255,255,0.4)" font-family="inherit">70 km</text>
+                <text x="436" y="251" font-size="11" fill="rgba(255,255,255,0.4)" font-family="inherit">45 km</text>
+                <text x="436" y="316" font-size="11" fill="rgba(255,255,255,0.4)" font-family="inherit">0 km</text>
+
+                <!-- Space label -->
+                <text x="8" y="22" font-size="10" fill="rgba(255,255,255,0.3)" font-family="inherit">↑ Space</text>
+
+                <!-- Layer name labels -->
+                <text x="215" y="36"  font-size="14" font-weight="600" fill="rgba(140,120,200,0.88)" font-family="inherit" text-anchor="middle" style="pointer-events:none">Exosphere</text>
+                <text x="215" y="52"  font-size="11" fill="rgba(255,255,255,0.38)" font-family="inherit" text-anchor="middle" style="pointer-events:none">230 km + · Fades to space</text>
+
+                <text x="215" y="96"  font-size="14" font-weight="600" fill="rgba(170,130,210,0.88)" font-family="inherit" text-anchor="middle" style="pointer-events:none">Thermosphere</text>
+                <text x="215" y="112" font-size="11" fill="rgba(255,255,255,0.38)" font-family="inherit" text-anchor="middle" style="pointer-events:none">120 – 230 km · UV photolysis</text>
+
+                <text x="215" y="152" font-size="14" font-weight="600" fill="rgba(190,165,120,0.88)" font-family="inherit" text-anchor="middle" style="pointer-events:none">Mesosphere</text>
+                <text x="215" y="168" font-size="11" fill="rgba(255,255,255,0.38)" font-family="inherit" text-anchor="middle" style="pointer-events:none">70 – 120 km · Above cloud deck</text>
+
+                <text x="215" y="214" font-size="14" font-weight="600" fill="rgba(230,200,80,0.92)" font-family="inherit" text-anchor="middle" style="pointer-events:none">Cloud Layer</text>
+                <text x="215" y="230" font-size="11" fill="rgba(255,255,255,0.38)" font-family="inherit" text-anchor="middle" style="pointer-events:none">45 – 70 km · Sulfuric acid clouds</text>
+
+                <text x="215" y="281" font-size="14" font-weight="600" fill="rgba(240,140,60,0.95)" font-family="inherit" text-anchor="middle" style="pointer-events:none">Lower Troposphere</text>
+                <text x="215" y="297" font-size="11" fill="rgba(255,255,255,0.38)" font-family="inherit" text-anchor="middle" style="pointer-events:none">0 – 45 km · 92 bar · 465 °C</text>
+
+                <!-- Venus surface -->
+                <rect x="0" y="318" width="500" height="42" fill="url(#vatmoSurfaceGrad)"/>
+                <text x="215" y="344" font-size="11" fill="rgba(255,255,255,0.35)" font-family="inherit" text-anchor="middle">Venus Surface (465 °C)</text>
+
+                <!-- Highlight overlay -->
+                <rect id="vatmoHighlight" x="0" y="253" width="430" height="65"
+                  fill="none" stroke="rgba(220,110,30,0.7)" stroke-width="2" opacity="1"/>
+              </svg>
+            </div>
+
+            <!-- Info panel -->
+            <div class="atmo-info glass">
+              <div class="atmo-info-header">
+                <span class="atmo-info-name" id="vatmoInfoName">Lower Troposphere</span>
+                <span class="atmo-info-alt"  id="vatmoInfoAlt">0 – 45 km</span>
+              </div>
+              <p class="atmo-info-desc" id="vatmoInfoDesc">The crushing lower atmosphere. Surface pressure reaches 92 bar — equivalent to 900 m underwater on Earth. Carbon dioxide dominates, temperatures exceed 465°C, and even slow winds exert tremendous force on any object.</p>
+              <div class="atmo-info-fact" id="vatmoInfoFact">✦ Soviet Venera landers survived only 23–127 minutes before being destroyed by heat and pressure.</div>
+            </div>
+
+            <p class="atmo-hint">Click any layer to explore it</p>
+          </div>
         </section>
 
         <!-- Surface & Geology -->
@@ -399,9 +488,88 @@ const faqData = [
   }, observerOptions);
 
   sections.forEach(section => observer.observe(section));
+
+  // ─── Venus Atmosphere Interactive ──────────────────────────────────────────
+  type VatmoLayer = { name:string; alt:string; desc:string; fact:string; bandY:number; bandH:number; stroke:string; };
+  const vatmoLayers: Record<string, VatmoLayer> = {
+    troposphere: {
+      name: 'Lower Troposphere', alt: '0 – 45 km',
+      desc: 'The crushing lower atmosphere. Surface pressure reaches 92 bar — equivalent to 900 m underwater on Earth. Carbon dioxide dominates, temperatures exceed 465°C, and even slow winds exert tremendous force on any object.',
+      fact: '✦ Soviet Venera landers survived only 23–127 minutes before being destroyed by heat and pressure.',
+      bandY: 253, bandH: 65, stroke: 'rgba(220,110,30,0.7)',
+    },
+    clouds: {
+      name: 'Cloud Layer', alt: '45 – 70 km',
+      desc: 'Dense sulfuric acid clouds that completely hide the surface from visible light. These clouds super-rotate around Venus every 4 Earth days — far faster than the planet itself spins.',
+      fact: '✦ At 50 km altitude the temperature is a mild ~25°C — sparking serious proposals for floating atmospheric research stations.',
+      bandY: 183, bandH: 70, stroke: 'rgba(210,180,60,0.65)',
+    },
+    mesosphere: {
+      name: 'Mesosphere', alt: '70 – 120 km',
+      desc: 'Above the cloud deck, temperatures drop to around −100°C. Sulphur dioxide and CO₂ dominate, with trace water vapour and carbon monoxide. Gentle acid rain forms here but evaporates before reaching the surface.',
+      fact: '✦ ESA\'s Venus Express detected lightning in the cloud/mesosphere boundary, similar in power to terrestrial lightning.',
+      bandY: 130, bandH: 53, stroke: 'rgba(160,130,80,0.65)',
+    },
+    thermosphere: {
+      name: 'Thermosphere', alt: '120 – 230 km',
+      desc: 'Solar UV breaks apart CO₂ molecules in this layer. Unlike Earth\'s thermosphere, Venus has no magnetic field, so the solar wind directly shapes this region and strips hydrogen atoms — remnants of ancient water.',
+      fact: '✦ Venus may once have had liquid water oceans; their hydrogen has been slowly escaping through this layer for billions of years.',
+      bandY: 70, bandH: 60, stroke: 'rgba(130,80,210,0.65)',
+    },
+    exosphere: {
+      name: 'Exosphere', alt: '230 km +',
+      desc: 'The outermost diffuse layer merges with interplanetary space. Light hydrogen and oxygen atoms, produced by the breakdown of water vapour below, slowly escape to space here — a process ongoing for billions of years.',
+      fact: '✦ Despite Venus\'s brutal surface, its upper exosphere is one of the least explored regions in the inner solar system.',
+      bandY: 10, bandH: 60, stroke: 'rgba(80,60,200,0.65)',
+    },
+  };
+
+  const vatmoHighlight = document.getElementById('vatmoHighlight');
+  const vatmoInfoName  = document.getElementById('vatmoInfoName');
+  const vatmoInfoAlt   = document.getElementById('vatmoInfoAlt');
+  const vatmoInfoDesc  = document.getElementById('vatmoInfoDesc');
+  const vatmoInfoFact  = document.getElementById('vatmoInfoFact');
+
+  function selectVatmoLayer(key: string) {
+    const layer = vatmoLayers[key];
+    if (!layer) return;
+    if (vatmoHighlight) {
+      vatmoHighlight.setAttribute('y',      String(layer.bandY));
+      vatmoHighlight.setAttribute('height', String(layer.bandH));
+      vatmoHighlight.setAttribute('stroke', layer.stroke);
+    }
+    if (vatmoInfoName) vatmoInfoName.textContent = layer.name;
+    if (vatmoInfoAlt)  vatmoInfoAlt.textContent  = layer.alt;
+    if (vatmoInfoDesc) vatmoInfoDesc.textContent = layer.desc;
+    if (vatmoInfoFact) vatmoInfoFact.textContent = layer.fact;
+  }
+
+  document.querySelectorAll<SVGRectElement>('.vatmo-band').forEach(band => {
+    band.addEventListener('click', () => {
+      const key = band.getAttribute('data-layer');
+      if (key) selectVatmoLayer(key);
+    });
+  });
+
+  selectVatmoLayer('troposphere');
 </script>
 
 <style>
+  /* ── Venus Atmosphere Interactive ── */
+  .vatmo-band { transition: filter 0.15s ease; }
+  .vatmo-band:hover { filter: brightness(1.4); }
+
+  .atmo-interactive { margin: var(--space-xl) 0; padding: var(--space-lg); }
+  .atmo-scene { width: 100%; overflow-x: auto; }
+  .atmo-scene svg { width: 100%; max-width: 500px; height: auto; display: block; margin: 0 auto var(--space-md); }
+  .atmo-info { margin-top: var(--space-md); padding: var(--space-md) var(--space-lg); }
+  .atmo-info-header { display: flex; align-items: baseline; gap: var(--space-md); margin-bottom: var(--space-sm); flex-wrap: wrap; }
+  .atmo-info-name { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 600; color: var(--color-accent-cyan); }
+  .atmo-info-alt { font-size: 0.875rem; font-weight: 400; color: var(--color-text-secondary); }
+  .atmo-info-desc { font-size: 0.9375rem; font-weight: 300; color: var(--color-text-secondary); line-height: 1.7; margin: 0 0 var(--space-sm) 0; }
+  .atmo-info-fact { font-size: 0.875rem; font-weight: 400; color: rgba(56,189,248,0.65); font-style: italic; }
+  .atmo-hint { text-align: center; font-size: 0.8125rem; color: rgba(255,255,255,0.22); margin: var(--space-sm) 0 0 0; letter-spacing: 0.03em; }
+
   /* Progress Bar */
   .progress-container {
     position: fixed;
@@ -839,6 +1007,10 @@ const faqData = [
   @media (max-width: 768px) {
     .hero {
       min-height: 50vh;
+    }
+
+    .hero-image img {
+      object-position: right center;
     }
 
     .hero-content {

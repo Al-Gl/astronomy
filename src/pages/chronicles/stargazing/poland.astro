@@ -1,0 +1,739 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import Schema from '../../../components/Schema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cosmic Chronicles', url: '/chronicles/' },
+  { name: 'Stargazing Guides', url: '/chronicles/stargazing/' },
+  { name: 'Poland', url: '/chronicles/stargazing/poland/' }
+];
+
+const articleData = {
+  headline: 'Stargazing in Poland: Complete Guide to Bieszczady, Tatra Mountains & Białowieża',
+  description: 'Comprehensive guide to stargazing in Poland. Discover the Bieszczady Dark Sky Park, Tatra Mountains, Białowieża Primeval Forest, and the remarkably dark eastern plains of Central Europe.',
+  datePublished: '2026-02-19',
+  dateModified: '2026-02-19',
+  author: 'The Astronomy Space',
+  image: '/images/Hero_poland.jpg',
+  keywords: [
+    'Stargazing Poland',
+    'Bieszczady Dark Sky Park',
+    'Tatra Mountains astronomy',
+    'Białowieża night sky',
+    'dark sky Poland',
+    'Milky Way Poland',
+    'astronomy Poland',
+    'Eastern Europe stargazing',
+    'Bieszczady Mountains night sky',
+    'night sky photography Poland'
+  ]
+};
+
+const faqData = [
+  {
+    question: 'When is the best time for stargazing in Poland?',
+    answer: 'The best stargazing months in Poland are July through October. Summer (July–August) delivers the Milky Way core in Sagittarius above the southern horizon, warm nights, and the Perseid meteor shower peak in mid-August — exceptional from Bieszczady\'s połoniny meadows. September and October bring longer nights, post-summer atmospheric clarity, and the beginning of aurora season from northeastern Poland. Late autumn (October–November) can offer superbly transparent nights when cold anticyclones arrive from the east, though temperatures drop sharply. Winter (December–February) brings the longest nights and the return of winter constellations, but frequent cloud cover from Baltic westerlies and temperatures of −10°C to −20°C in the mountains make cold-weather preparation essential.'
+  },
+  {
+    question: 'What makes Bieszczady one of Europe\'s best dark sky sites?',
+    answer: 'The Bieszczady Mountains in southeastern Poland combine several exceptional factors. First, the geographic location: the Subcarpathian region is one of the least densely populated and least industrialised areas in the entire European Union, with minimal artificial lighting for 100+ km in most directions. Second, the open landscape: above the treeline (approximately 1,150–1,346 m), the połoniny highland meadows offer completely unobstructed 360-degree sky access — no trees, no buildings, just grass and stars to every horizon. Third, the altitude: at 1,100–1,346 m, observers gain some atmospheric advantage without the extreme altitude logistics of Himalayan sites. Sky quality measurements in the core Bieszczady zone regularly reach SQM 21.8–22.1 — genuine Bortle Class 2, making this one of the darkest places accessible by car in all of Central Europe.'
+  },
+  {
+    question: 'Can I see the Northern Lights from Poland?',
+    answer: 'Yes, aurora borealis is visible from Poland during elevated geomagnetic storms, with northeastern Poland being the best location. During moderate Kp 5–6 events, which occur several times per year, the aurora appears as a pale greenish glow or distinct arcs low on the northern horizon from Masuria, Podlaskie, and the Baltic coast area. Strong events (Kp 7+) make the aurora visible across all of Poland, including from Kraków and Warsaw. The record geomagnetic storm of May 2024 (Kp 9) produced spectacular red and green curtains visible throughout Poland. The flat terrain of Masuria and the Biebrza marshlands gives unobstructed northern horizon access — key for aurora visibility. Join aurora alert services (Spaceweather.com, Aurora Service Europe) and be prepared to drive to a dark, north-facing location quickly.'
+  },
+  {
+    question: 'How does Poland compare to other European stargazing destinations?',
+    answer: 'Poland\'s eastern regions are among the darkest in mainland Europe. While the Canary Islands (Spain) and rural Scotland offer excellent conditions, Bieszczady\'s Bortle Class 2 skies put it in the same league as the Scottish Highlands or La Palma\'s darker non-IDA zones — without the travel costs. Compared to Germany (frequently cloudy, less dark outside parks) or the Netherlands (heavily light-polluted), eastern Poland is considerably superior. Compared to Norway (superb but expensive, designed for aurora not Milky Way), Poland offers more reliable Milky Way conditions in summer. Poland\'s biggest advantage over Western European competitors is value: accommodation, food, and transport costs in southeastern Poland are among the lowest in the EU, making multi-day stargazing trips highly economical.'
+  },
+  {
+    question: 'What is the best stargazing location near Warsaw or Kraków?',
+    answer: 'From Warsaw, the best accessible dark-sky destination is the Biebrza National Park marshlands in Podlaskie (200 km northeast, 2.5 hours by car), which delivers Bortle Class 2–3 skies in the marsh interior. Alternatively, the Kampinos National Park (30 km west of Warsaw\'s city centre) offers Bortle Class 4–5 skies with woodland foreground elements — excellent for beginners, reachable by public transport. From Kraków, the Pieniny Mountains (90 km south) give quick access to Bortle Class 3–4 skies with the Dunajec river gorge as a dramatic foreground. For serious dark-sky observing from Kraków, drive the 250 km to Bieszczady — a 3-hour journey but worth it for the quality. The Ojców National Park (25 km from Kraków) is a local escape with surprisingly dark rock-formation settings despite its proximity to the city.'
+  },
+  {
+    question: 'Are there any safety concerns for night-time stargazing in Polish forests?',
+    answer: 'Poland\'s forests are generally safe for night-time activity, but a few specific precautions apply. Ticks are a significant concern from April through October across all of Poland, particularly in forested and meadow areas including Białowieża, Bieszczady, and Masuria. Use DEET repellent on exposed skin, tuck trousers into socks, and perform a full-body tick check after every session in grass or forest. Tick-borne encephalitis (TBE) and Lyme disease are both present in Poland; TBE vaccination is recommended for regular outdoor visitors. European wolves have returned to Poland, including Bieszczady — while attacks on humans are essentially unheard of, making noise when moving through forest at night (talking, using a torch) will cause wolves to avoid you. European bison in Białowieża are large and can be unpredictable at close range; stay on marked paths and maintain safe distance from any animals. Carry a mobile phone (emergency number 112) and inform your accommodation of your planned location.'
+  }
+];
+---
+
+<MainLayout
+  title="Stargazing in Poland: Complete Guide to Bieszczady, Tatra Mountains & Białowieża | The Astronomy Space"
+  description="Comprehensive guide to stargazing in Poland. Discover the Bieszczady Dark Sky Park, Tatra Mountains, Białowieża Primeval Forest, and the remarkably dark eastern plains of Central Europe."
+>
+  <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
+  <Schema type="TechArticle" article={articleData} />
+  <Schema type="FAQPage" faq={faqData} />
+
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-image">
+      <img src="/images/Hero_poland.jpg" alt="Milky Way arching over the Bieszczady Mountains in Poland with a traditional wooden Orthodox church silhouette under a deep indigo starry sky" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/chronicles/">Cosmic Chronicles</a></li>
+          <li><a href="/chronicles/stargazing/">Stargazing Guides</a></li>
+          <li aria-current="page">Poland</li>
+        </ol>
+      </nav>
+      <h1>Stargazing in Poland</h1>
+      <p class="hero-subtitle">A Complete Guide to Bieszczady, Tatra Mountains & Białowieża Primeval Forest</p>
+    </div>
+  </section>
+
+  <div class="content-wrapper">
+    <div class="article-layout">
+      <aside class="toc-sidebar">
+        <nav class="toc" aria-label="Table of Contents">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#bieszczady">Bieszczady Mountains</a></li>
+            <li><a href="#tatra">Tatra Mountains</a></li>
+            <li><a href="#bialowieza">Białowieża Forest</a></li>
+            <li><a href="#mazury">Masuria Lake District</a></li>
+            <li><a href="#other-locations">Other Locations</a></li>
+            <li><a href="#timing">Best Times & Seasons</a></li>
+            <li><a href="#equipment">Essential Equipment</a></li>
+            <li><a href="#planning">Planning Your Trip</a></li>
+            <li><a href="#tips">Practical Tips</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+
+        <aside class="answer-capsule">
+          <div class="capsule-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <p>Poland's eastern regions contain some of the darkest skies in the European Union. The Bieszczady Mountains in southeastern Poland — with their treeless połoniny highland meadows at Bortle Class 2 — rival the Scottish Highlands and far exceed anything available in Western Europe. The Tatra Mountains provide high-altitude astronomy with cable-car access to 2,000 metres, while Białowieża Primeval Forest offers the rare combination of ancient cathedral oaks framing the Milky Way. In northeastern Poland, the flat Masurian Lake District and Biebrza marshlands provide additional exceptional dark-sky environments, all within reach of Warsaw by car.</p>
+        </aside>
+
+        <section id="introduction" class="content-section">
+          <h2>Introduction: Poland's Extraordinary Dark Skies</h2>
+          <p>Poland occupies a unique position in European astronomy: its western half, dominated by the industrial Silesian heartland and major cities like Wrocław, Poznań, and Łódź, suffers significant light pollution. But drive east of Warsaw — into the Podlaskie, Subcarpathian, or Lublin highlands — and within 200 kilometres the skies transform dramatically. Eastern Poland has some of the European continent's lowest population densities outside of Scandinavia: vast forests, marshlands, and agricultural plains with village populations measured in hundreds rather than thousands, and almost no heavy industry.</p>
+          <p>The Bieszczady Mountains in the far southeastern corner of Poland, tucked between Ukraine and Slovakia, represent the pinnacle of Polish dark-sky astronomy. This was the most heavily depopulated region of post-war Poland following the Operation Vistula forced resettlement of 1947, and decades of near-abandonment allowed nature — and darkness — to reclaim the landscape. Today the Bieszczady is one of the last great European wildernesses: wolves, lynx, European bison, and brown bears roam its forests, while above the treeline the open połoniny meadows deliver some of Central Europe's finest naked-eye stargazing.</p>
+          <p>Poland's latitude (49–54°N) gives it similar sky access to Germany or England, but with far less light pollution across its eastern half. The galactic centre in Sagittarius reaches 20–25° elevation in the south, lower than from Mediterranean Europe but high enough for spectacular Milky Way photography. In summer, the flat Masurian landscapes and Bieszczady meadows deliver wide-angle galactic panoramas that rank among Europe's finest. In winter, Poland's position at the edge of continental climate influence gives it surprisingly clear nights when eastern high-pressure systems dominate — colder, but crystalline.</p>
+
+          <div class="info-box glass">
+            <h3>Poland's Top Dark Sky Locations</h3>
+            <ul>
+              <li><strong>Bieszczady Mountains, Subcarpathia (1,100–1,346 m | 49.1°N)</strong> — EU's darkest accessible area; Bortle Class 2; połoniny meadows; wolves and bison</li>
+              <li><strong>Tatra National Park, Lesser Poland (870–2,499 m | 49.2°N)</strong> — Highest peaks in Poland; cable car to 1,987 m; Morskie Oko lake reflection; Bortle Class 3</li>
+              <li><strong>Białowieża Primeval Forest, Podlaskie (150–200 m | 52.7°N)</strong> — UNESCO World Heritage; ancient oak canopy frames; Bortle Class 2; European bison present</li>
+              <li><strong>Biebrza National Park, Podlaskie (100 m | 53.5°N)</strong> — Vast marshlands; flat northern horizon for aurora; Bortle Class 2; extraordinary wildlife</li>
+              <li><strong>Masuria Lake District, Warmia-Masuria (100–200 m | 53.8°N)</strong> — 2,000+ lakes for reflections; flat terrain; Bortle Class 3; accessible from Warsaw</li>
+              <li><strong>Roztocze National Park, Lublin (200–390 m | 50.6°N)</strong> — Rolling wooded hills; horse farms; Bortle Class 2–3; minimal tourism</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="bieszczady" class="content-section">
+          <h2>Bieszczady Mountains & Dark Sky Park</h2>
+          <p>The Bieszczady Mountains in the Subcarpathian voivodeship of southeastern Poland are Poland's — and arguably Central Europe's — finest dark-sky destination. The mountain range extends along the border with Ukraine and Slovakia, culminating at Tarnica (1,346 m), and is dominated above the treeline by the połoniny: vast open highland meadows with no trees, no buildings, and an unbroken 360-degree sky extending from horizon to horizon. These meadows, unique to the Bieszczady and the Carpathian highlands of Ukraine, create a stargazing environment without parallel in Central Europe.</p>
+
+          <div class="inline-image">
+            <img src="/images/poland_bieszczady.jpg" alt="Open połoniny highland meadow in the Bieszczady Mountains under a brilliant Milky Way with treeless rolling hills" loading="lazy" />
+            <p class="image-caption">Bieszczady's połoniny meadows above the treeline — Central Europe's finest dark sky environment at Bortle Class 2</p>
+          </div>
+
+          <h3>Połoniny — Open Highland Meadows</h3>
+          <p>The połoniny begin at approximately 1,150 metres elevation in the Bieszczady, above the upper beech forest limit. The three main ridge trails — Połonina Caryńska, Połonina Wetlińska, and Połonina Szeroka — all run above the treeline for several kilometres, offering extended flat ridgeline observing positions with genuine all-sky access. Sky quality measurements on the Połonina Wetlińska ridge on moonless nights regularly reach SQM 21.8–22.2 mag/arcsec² — Bortle Class 2 conditions that exceed most certified dark sky parks in Western Europe. The galactic core in summer rises to the south over the Ukrainian Carpathian foothills, with no human-made light sources in that direction for hundreds of kilometres.</p>
+
+          <h3>Ustrzyki Górne & Tarnica</h3>
+          <p>Ustrzyki Górne, a small mountain village at 850 metres in the heart of Bieszczadzki National Park, is the standard base for connecting with the połoniny trails. The village has basic guesthouses (from PLN 80–150/night including breakfast) and a PTTK mountain hut that provides dormitory accommodation. The trail to Tarnica (1,346 m, Poland's highest Bieszczady peak) begins here and reaches the połoniny within 45 minutes of walking. Schronisko PTTK Ustrzyki Górne offers mountain hut accommodation at 865 m elevation — the most direct connection to the dark sky ridges. The nearby Wetlina village, 12 km west, provides additional guesthouse options. The national park charges an entry fee (PLN 5–10 per person per day); pay at the park entrance station.</p>
+
+          <h3>Visiting the Bieszczady</h3>
+          <p>The Bieszczady is accessed via the Bieszczady Loop Road (Bieszczadzka Pętla), a winding mountain road connecting Lesko, Ustrzyki Dolne, Ustrzyki Górne, Cisna, and Baligród. From Warsaw, the drive is approximately 380 km (4.5 hours via Lublin and Rzeszów). From Kraków, the journey is 280 km (3.5 hours). There are no direct train connections to the Bieszczady interior; the nearest rail terminus is Sanok (50 km north), from where bus connections run to Lesko and Ustrzyki Dolne. A car is essentially required for the mountain interior. Mobile coverage (Orange/T-Mobile PL) exists in the main villages but disappears on the ridges — download offline maps before departure. The Bieszczady is in the Natura 2000 zone; no off-trail night hiking is permitted in the national park's strict reserve zones, but the main ridge trails are freely accessible 24 hours.</p>
+        </section>
+
+        <section id="tatra" class="content-section">
+          <h2>Tatra Mountains & Zakopane</h2>
+          <p>The Tatry — the Tatra Mountains — form the highest section of the Carpathian range and Poland's only true alpine landscape. The Polish side rises abruptly from the Podhale plateau near Zakopane (868 m) to the summit of Rysy (2,499 m), Poland's highest peak, in barely 8 kilometres of horizontal distance. The dramatic granite spires, cirque lakes, and high-altitude ridges of the Tatra create a stargazing environment quite unlike any other in Poland: observatory-quality altitude combined with world-class mountain scenery and convenient access from Zakopane.</p>
+
+          <div class="inline-image">
+            <img src="/images/poland_tatra.jpg" alt="Jagged Tatra Mountain granite peaks silhouetted against a brilliant Milky Way sky with an alpine lake reflecting the stars" loading="lazy" />
+            <p class="image-caption">The Tatra Mountains — Poland's only high-alpine landscape, with the Milky Way reflected in high-altitude cirque lakes</p>
+          </div>
+
+          <h3>Kasprowy Wierch & Cable Car Access</h3>
+          <p>Kasprowy Wierch (1,987 m) is the highest point in Poland accessible by cable car — one of the defining amenities for high-altitude astronomy. The Polskie Koleje Linowe (PKL) cable car runs from Kuźnice (1 km south of Zakopane) to the Kasprowy Wierch summit year-round, subject to weather and wind conditions. The summit station sits above the typical inversion layer that often fills the Zakopane valley with cloud or haze, delivering clear, dark skies even when the town below is overcast. The Tatra Mountains Observatory (IMGW Kasprowy Wierch), a meteorological and atmospheric research station, operates on the summit — it does not offer public telescope access, but the summit terrace provides outstanding all-sky views. Sky quality at the summit on a good night reaches SQM 21.4–21.6 (Bortle Class 3), and the altitude of nearly 2,000 m gives a tangible improvement in atmospheric transparency over Zakopane valley.</p>
+
+          <h3>Morskie Oko Lake</h3>
+          <p>Morskie Oko — "Eye of the Sea" — is Poland's largest and most famous mountain lake, sitting at 1,395 metres in a glacial cirque beneath the Rysy massif. The lake is surrounded on three sides by sheer granite walls rising 500–700 metres, creating a natural amphitheatre. On still nights, the calm, deep-blue surface of Morskie Oko reflects the Milky Way and surrounding stars in near-perfect symmetry. The lake is accessible via a 9 km trail from the Palenica Białczańska car park (45–60 minutes walking each way for fit hikers), or by horse-drawn carriage from Palenica. The PTTK mountain hut at Morskie Oko (1,395 m) provides overnight accommodation (book well in advance in summer) — staying overnight gives access to pre-dawn sky sessions when the valley lights of Zakopane are completely hidden below the ridge.</p>
+
+          <h3>Zakopane as Base</h3>
+          <p>Zakopane (868 m) is a year-round mountain resort with extensive accommodation, restaurants, and transport connections. From Warsaw, Zakopane is 370 km (4.5 hours by car) or accessible by PKP intercity train to Kraków (2.5 hours) and then a bus connection to Zakopane (1.5 hours). The Tatra National Park charges an entry fee (PLN 6 per person); the cable car costs PLN 42–68 return depending on season. Zakopane itself has significant light pollution from tourism development, but driving 5 km east or west toward less-developed valley ends immediately reduces skyglow. Tatry NP strictly controls access: no off-trail movement in many zones and some areas require guided tours. The main valleys and marked trails are freely accessible, including at night.</p>
+        </section>
+
+        <section id="bialowieza" class="content-section">
+          <h2>Białowieża Primeval Forest</h2>
+          <p>Białowieża Forest on the Belarus border is one of the last and largest remnants of the primeval lowland forest that once covered most of Europe. Designated a UNESCO World Heritage Site and a UNESCO Biosphere Reserve, it is home to the world's largest herd of free-roaming European bison (żubr), as well as wolves, lynx, and over 12,000 animal species. For stargazers, Białowieża offers something unavailable anywhere else in Europe: the combination of ancient forest atmosphere — walking beneath 400–600-year-old oak trees with girths exceeding 5 metres — with genuinely dark Bortle Class 2 skies in the forest clearings.</p>
+
+          <div class="inline-image">
+            <img src="/images/poland_bialowieza.jpg" alt="Ancient primeval forest clearing in Białowieża Poland with enormous old oak trees framing the Milky Way overhead" loading="lazy" />
+            <p class="image-caption">Białowieża's ancient oak canopy creates one of Europe's most atmospheric settings for Milky Way photography</p>
+          </div>
+
+          <h3>Ancient Forest & Canopy Astrophotography</h3>
+          <p>The astrophotography potential of Białowieża is unlike any other European site. The 400–600-year-old oaks and limes of the strict reserve — some of Poland's widest and oldest living trees — create natural frames for the Milky Way when photographed from clearings. The forest interior at night is extraordinarily dark: no street lights, no car headlights, and the tree canopy absorbs any stray light from distant settlements. Sky quality in the open clearings within the strict reserve reaches SQM 21.8–22.0 — genuine Bortle Class 2. Wide-angle compositions placing the Milky Way above an ancient oak silhouette are iconic images from this forest and well worth the logistical effort. Clearings along the main forest roads and the forest museum meadow area are accessible without special permits.</p>
+
+          <h3>European Bison Wildlife</h3>
+          <p>The presence of European bison (żubr) adds a wildlife dimension to night sky observing here. The Białowieża Forest's bison herd numbers around 400–500 animals and regularly enters the meadows and forest edges at dawn and dusk — which overlaps with astronomical twilight viewing sessions. Bison are large (adult bulls reach 900 kg) and can be unpredictable at close range; maintain a minimum 50-metre distance and do not use flash photography. The bison are generally habituated to the presence of humans on the main forest roads and will typically retreat from approaching lights. The European Bison Show Reserve near Białowieża village houses a small semi-wild herd that can be observed more safely from enclosed footpaths.</p>
+
+          <h3>Visitor Logistics</h3>
+          <p>Białowieża village is the main base for forest visits. Access from Warsaw is approximately 220 km (2.5–3 hours via Białystok or Hajnówka). There is a direct PKP train connection to Hajnówka (10 km from Białowieża village) from Warsaw Wschodnia station; bus connections then link Hajnówka to the village. The strict reserve zone — containing the oldest and most intact forest — requires entering with a licensed guide (bookable through the national park visitor centre). The buffer zones and forest road network (hundreds of kilometres of gravel and dirt roads) are freely accessible. Accommodation in Białowieża village ranges from guesthouses to eco-lodges. Tick prevention is critically important here — the forest is one of Poland's highest tick-density areas.</p>
+        </section>
+
+        <section id="mazury" class="content-section">
+          <h2>Masuria Lake District</h2>
+          <p>The Mazury (Masuria) in northeastern Poland is a vast lake district formed by glacial retreat at the end of the last Ice Age. Over 2,000 lakes — ranging from small ponds to the 104 km² Śniardwy lake, Poland's largest — dot a flat forested landscape that stretches across Warmia-Masuria voivodeship toward the Lithuanian border. The combination of flat terrain, abundant water reflections, low population density, and darkness levels of Bortle Class 3 in the best areas makes Masuria one of Poland's most practical — and most scenic — stargazing regions.</p>
+
+          <h3>Wigry National Park</h3>
+          <p>Wigry National Park in the Suwałki region — the far northeastern corner of Poland — encompasses the Wigry lake system and the surrounding post-glacial uplands. The park's core area is among the darkest in Poland proper, with SQM readings of 21.6–21.9 on moonless nights. The Wigry lake complex, with its intricate peninsulas, bays, and islands, offers dozens of spots where the night sky reflects in dead-calm water. The PTTK hostel on the Wigry lake peninsula provides accommodation; the Camaldolese monastery on a forested peninsula (dating from 1667) provides a historical foreground element for night photography. Wigry is accessible from Suwałki (30 km) or from Warsaw (290 km, 3.5 hours).</p>
+
+          <h3>Biebrza NP & Marshlands</h3>
+          <p>The Biebrza National Park to the south of Masuria is one of Poland's most remarkable landscapes — a vast river marsh covering 59,000 hectares, the largest marsh complex in Central Europe. The Biebrza valley's flatness is extreme: the horizon in all directions from the open marshlands is 0–1 degrees above theoretical, giving the clearest possible northern horizon for aurora observation and the widest possible field for Milky Way panoramas. SQM readings in the open marshland at night reach 21.8–22.0 — among the best in Poland. Moose, European crane, and aquatic warblers inhabit the marsh, adding wildlife encounters to observing sessions at dawn. Accessible from Łomża (60 km) or Warsaw (180 km).</p>
+
+          <h3>Mazury Accessibility</h3>
+          <p>Masuria is the most accessible of Poland's major dark-sky regions from Warsaw. The main lake resort town of Mikołajki (230 km from Warsaw, 2.5 hours) serves as a practical base with abundant accommodation. From Mikołajki, the darkest areas begin within 20 km in any direction away from the town. The PKP train network reaches Mrągowo and Giżycko (both near the main lake district) from Warsaw in 3–4 hours. Summer brings tourist crowds to the lakeside towns, but the interior forests and smaller lakes remain quiet. Sailing boats, kayaks, and cycling provide access to remote lake shores far from road noise and residual lighting. The Masuria tourist season peaks July–August; September is ideal for combining comfortable temperatures with low tourist numbers and increasingly dark nights.</p>
+        </section>
+
+        <section id="other-locations" class="content-section">
+          <h2>Other Notable Stargazing Locations</h2>
+
+          <h3>Roztocze National Park</h3>
+          <p>Roztocze is a gentle ridge of hills running from Kraśnik in central Poland to Lviv in Ukraine, forming a natural watershed between the Vistula and Bug river systems. The Polish section contains Roztocze National Park, a landscape of rolling wooded hills, meadows, and free-roaming horse herds (the famous Roztocze konie) at 200–390 metres elevation. Light pollution is minimal — the nearest significant city is Zamość (30 km), and the region lies in one of Poland's least-developed agricultural corridors. SQM readings in the park's open meadows reach 21.6–21.8 (Bortle Class 2–3). The park is accessible from Zamość, which itself is a UNESCO World Heritage Renaissance city worth combining with a stargazing visit.</p>
+
+          <h3>Beskid Niski</h3>
+          <p>The Beskid Niski (Low Beskids) is a low Carpathian range running southeast of Kraków along the Slovak border, characterised by dense mixed forest and small, scattered villages. Unlike the higher Bieszczady and Tatra ranges, the Beskid Niski tops out at just 1,000 metres, but its forest coverage and minimal development give excellent sky quality in clearings and ridge meadows. The area around Magura Małastowska nature reserve and the Krempna village area are particularly dark. The Beskid Niski sits within easy reach of Rzeszów (80 km), making it a practical alternative to the more distant Bieszczady.</p>
+
+          <h3>Kampinos National Park (near Warsaw)</h3>
+          <p>Kampinos National Park lies just 30 kilometres west of central Warsaw — an extraordinary proximity to a capital city for a UNESCO Biosphere Reserve covering 38,500 hectares. The park's sandy dunes, pine forests, and marshes deliver Bortle Class 4–5 skies — not world-class darkness, but a significant improvement over Warsaw's Bortle Class 8–9 urban sky and perfectly adequate for naked-eye Milky Way, M31 Andromeda Galaxy, and binocular deep-sky work. The park is reachable by bus from Warsaw city centre, making it the most accessible dark-sky location from a major European capital. Evening guided tours into the park are available through the Kampinos NP visitor centre.</p>
+
+          <h3>Kurpie Wilderness</h3>
+          <p>The Kurpie (Puszcza Kurpiowska) is a flat forested plain north of Warsaw, one of the most ethnographically distinct regions of Poland. The pine and mixed forests of the Kurpie sit in a relatively undeveloped agricultural region; the nearest major light domes are Ostrołęka (50,000 residents) and Łomża (60,000 residents), both more than 30 km from the forest core. Sky quality in the Kurpie's open marshes and forest clearings can reach SQM 21.3–21.5 (Bortle Class 3–4) — better than almost anything within 200 km of Warsaw in other directions. The flat terrain and numerous forest tracks make the Kurpie an underappreciated destination for Warsaw-based stargazers seeking practical dark-sky access.</p>
+        </section>
+
+        <section id="timing" class="content-section">
+          <h2>Best Times and Seasons</h2>
+          <p>Poland's continental climate — with moderate Atlantic influence in the west and stronger continental character in the east — creates a complex seasonal stargazing calendar. The most important variables are cloud cover, temperature, and the position of the Milky Way and aurora. Eastern Poland (Masuria, Biebrza, Białowieża, Bieszczady) statistically receives more clear nights than western Poland due to its position away from Atlantic frontal tracks.</p>
+
+          <div class="info-box glass">
+            <h3>Month-by-Month Stargazing Guide — Poland</h3>
+            <ul>
+              <li><strong>January–February:</strong> Long nights (darkness 15:30–07:30). Very cold in mountains (−15°C to −25°C in Bieszczady). Continental high-pressure from the east delivers Poland's clearest winter nights. Orion, Taurus, Gemini dominate. Aurora possible from Masuria/Podlaskie during Kp 4+. Roads to Bieszczady may be snow-blocked — check conditions.</li>
+              <li><strong>March–April:</strong> Nights shorten but transparency improves. Leo and Virgo rise in the south. Bieszczady ridge trails accessible (snow lingering above 1,200 m until April). Tatra cable car reopens in April. Tick season begins — use repellent from April onwards.</li>
+              <li><strong>May–June:</strong> Short nights but noctilucent clouds visible in June from Masuria and Baltic coast. Milky Way begins to rise in pre-dawn south. Summer solstice: astronomical darkness lasts only 2–3 hours. Best months for aurora season overlap into May from northeastern Poland.</li>
+              <li><strong>July–August:</strong> Prime Milky Way season. Galactic core above southern horizon. Perseid meteor shower peaks August 11–13 — extraordinary from Bieszczady połoniny. Warm nights on ridges (+10°C to +15°C in Bieszczady). Tick season peak — thorough checks essential. Accommodation in Zakopane and Masuria fills up; book ahead.</li>
+              <li><strong>September–October:</strong> Best overall window. Long dark nights return, Milky Way still visible in early September. Autumn transparency is Poland's best — post-summer, pre-winter dryness. Aurora season begins properly for NE Poland. Cool to cold (0°C to +10°C in mountains). Autumn Milky Way in Scorpius-Sagittarius setting in the southwest.</li>
+              <li><strong>November–December:</strong> Long nights, often cloudy. Eastern continental highs bring Poland's clearest nights. Geminid meteor shower December 13–14 — best annual shower from any Polish dark site. Winter constellations return. Below-zero nights require full cold-weather preparation.</li>
+            </ul>
+          </div>
+
+          <h3>Aurora from Poland</h3>
+          <p>Aurora borealis is a realistic seasonal prospect from northeastern Poland. The Biebrza and Masuria regions at 53–54°N are the best-positioned areas, with the Biebrza marshlands' flat open northern horizon giving optimal visibility. During Kp 4–5 events (which occur several times per year during solar maximum periods), pale green aurora arcs are visible above the northern horizon. Kp 6+ events — rarer but increasingly frequent during solar cycle peaks — produce vivid green and red curtains visible across all of Poland. The May 2024 geomagnetic superstorm (Kp 9) produced aurora visible as far south as Kraków and even central Italy, illustrating that Poland's aurora potential during extreme events is considerable.</p>
+
+          <h3>Noctilucent Clouds</h3>
+          <p>Noctilucent clouds (NLCs) are visible from Poland during the brief summer twilight season (late May to late July). Poland's latitude of 49–54°N puts it in the optimal viewing band for NLCs — too far south and they are invisible; too far north and they are visible from ground level. From the Baltic coast and Masuria (54°N), NLCs appear as brilliant electric-blue or silvery-white structures in the northern sky 1–2 hours after sunset or before sunrise. NLCs are purely a twilight phenomenon — they disappear once full astronomical darkness arrives. The flat northern horizon of the Biebrza and Masuria regions gives the best viewing geometry.</p>
+        </section>
+
+        <section id="equipment" class="content-section">
+          <h2>Essential Equipment</h2>
+          <p>Poland's varied stargazing environments require adaptable equipment strategies. The Bieszczady ridge requires the same cold-weather preparation as moderate alpine environments; Białowieża requires tick and moisture protection; Masuria requires dew heaters and midges/mosquito protection in summer. The following covers the full range.</p>
+
+          <h3>Tick Protection — Critical for Poland</h3>
+          <p>Ticks (Ixodes ricinus) are a genuine health concern for night-time observers in Polish meadows, forests, and reed beds from April through October. Tick-Borne Encephalitis (TBE) is endemic in Poland; vaccination (Encepur or FSME-IMMUN, 3-dose course) is strongly recommended for anyone spending multiple nights outdoors in Polish forests. Lyme disease (Borrelia) is also widespread. Use DEET-based repellent (minimum 20% DEET) on all exposed skin and clothing. Tuck trousers into socks. Perform a full-body tick check after every session, paying particular attention to hairline, behind knees, and under arms. In the Białowieża Forest and Biebrza wetlands, tick encounter risk is among the highest in Europe.</p>
+
+          <h3>Cold and Humidity Management</h3>
+          <p>Bieszczady nights from September onwards require layered clothing: thermal base layer, fleece mid-layer, and a windproof outer jacket. Ridge temperatures at 1,200–1,346 m in October drop to −5°C to −10°C; in November to −10°C to −20°C. Even in July, Bieszczady ridges can see +5°C nights in wind. The Tatra Mountains above 2,000 m experience sub-zero temperatures on any clear summer night — −5°C is typical at Kasprowy Wierch in August. Dew heaters are essential for any observing session in the lowland sites (Białowieża, Biebrza, Masuria) where high humidity causes rapid condensation. Waterproof footwear is important for meadow and marsh sites.</p>
+
+          <div class="info-box glass">
+            <h3>Equipment Checklist for Poland</h3>
+            <h4>Essential (Required):</h4>
+            <ul>
+              <li><strong>Tick repellent (DEET 20%+)</strong> — Applied to all skin and clothing from April–October; non-negotiable for forest and meadow sites</li>
+              <li><strong>Red headlamp</strong> — Preserves dark adaptation; white light ruins 20–30 minutes of adaptation</li>
+              <li><strong>Layered cold-weather clothing</strong> — Thermal base, fleece mid-layer, windproof outer; essential for mountain and autumn/winter sessions</li>
+              <li><strong>Waterproof hiking boots</strong> — For dew-soaked meadows, marsh edges, and forest paths</li>
+              <li><strong>Offline star maps + offline maps (maps.cz or maps.me)</strong> — Mobile signal absent in Bieszczady ridges and forest interiors</li>
+              <li><strong>Power bank (10,000+ mAh)</strong> — For dew heaters, camera, and phone in remote sites</li>
+            </ul>
+            <h4>Recommended (Enhances Experience):</h4>
+            <ul>
+              <li><strong>Dew heaters + controller</strong> — Critical for lowland sites (Białowieża, Masuria, Biebrza) with high humidity</li>
+              <li><strong>7×50 or 10×50 binoculars</strong> — Milky Way sweeping, M31, Pleiades, Hyades from Polish dark skies</li>
+              <li><strong>DSLR/mirrorless + 14–24mm f/2.8 lens</strong> — For Milky Way panoramas over Bieszczady ridges or Białowieża clearings</li>
+              <li><strong>Insect repellent / head net</strong> — Masuria and Biebrza in summer have biting midges and mosquitoes at dusk</li>
+              <li><strong>Aurora alert notifications</strong> — SpaceWeather.com, Aurora Service Europe for northeastern Poland aurora opportunities</li>
+            </ul>
+            <h4>Advanced (For Serious Observers):</h4>
+            <ul>
+              <li><strong>Sky-Watcher Star Adventurer / iOptron SkyGuider Pro</strong> — Tracking mount for long-exposure Milky Way astrophotography from Bieszczady</li>
+              <li><strong>Portable Dobsonian (150–250 mm)</strong> — For deep-sky visual observing from car-accessible dark sites</li>
+              <li><strong>TBE vaccination (recommended for multi-trip visitors)</strong> — 3-dose course; consult travel health clinic at least 4 weeks before first trip</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="planning" class="content-section">
+          <h2>Planning Your Trip</h2>
+          <p>Poland's dark sky sites require no special permits for most areas — a significant advantage. The main planning considerations are weather, road access, and accommodation booking (particularly for popular summer periods in Zakopane and Masuria).</p>
+
+          <h3>No Permits Required for Most Sites</h3>
+          <p>The Bieszczady ridge trails, Białowieża forest buffer zones, and Masuria lake district are all freely accessible without permits. The strict reserve zone of Białowieża National Park requires a licensed guide for entry (bookable at the park's visitor centre in Białowieża village, PLN 60–80 per person). The Tatra National Park charges a daily access fee (PLN 6 per person, free for children under 7 and over 70). Biebrza NP has free access; no overnight camping in the strict reserve, but designated camping areas exist in the buffer zone. The VdS equivalent in Poland is PTM (Polskie Towarzystwo Miłośników Astronomii) which organises public star party events — check polskie-niebo.pl for the calendar.</p>
+
+          <h3>Weather Planning</h3>
+          <p>Polish weather is best forecasted using Meteo.pl — the IMGW-PIB (Polish Institute of Meteorology and Water Management) platform, which provides the highest-accuracy local forecasts for Polish terrain. For astronomy-specific forecasts, Clear Outside (clearoutside.com) covers Poland with seeing and transparency overlays. Eastern Poland generally has more clear nights than western Poland — when Atlantic fronts dominate the west, the Bieszczady and Masuria can still be clear under east-flowing dry air masses. Plan for 3–5 night windows with flexible scheduling; a mid-week visit avoids weekend tourist traffic at popular mountain bases.</p>
+
+          <h3>Astronomy Clubs & Star Parties</h3>
+          <p>The PTM (Polskie Towarzystwo Miłośników Astronomii — Polish Society of Amateur Astronomers) is Poland's main astronomy organisation, with chapters in Warsaw, Kraków, Wrocław, and most major cities. The annual Astrofest Poland star party (held in the Bieszczady region in August) attracts serious astrophotographers from across Central Europe and is Poland's premier public astronomy event. Regional clubs in Rzeszów, Kraków, and Sanok organise Bieszczady-specific dark-sky events; the Kraków chapter has special connections to the Tatra Mountains Observatory on Kasprowy Wierch. Check the PTM website (ptm.org.pl) for upcoming events.</p>
+
+          <h3>Astrophotography Notes for Polish Latitude</h3>
+          <p>From Poland's latitude of 49–54°N, the galactic centre in Sagittarius reaches only 20–25° above the southern horizon at maximum — lower than from Mediterranean Europe or the Middle East. This means the Milky Way core is always photographed through a greater thickness of atmosphere than from southern latitudes, introducing more atmospheric haze and differential refraction. Compensate by using wider apertures (f/2 or f/2.8 maximum), shorter exposures (15–20 seconds maximum before trailing at 14–24mm), and higher ISO (6400–12800 on modern sensors). Shoot the galactic core when it is at maximum elevation (due south, approximately 23:30–01:00 in July–August). The northern Milky Way arm through Cygnus and Cassiopeia, however, passes almost directly overhead from Polish latitudes — creating spectacular zenith compositions impossible from southern Europe.</p>
+        </section>
+
+        <section id="tips" class="content-section">
+          <h2>Practical Tips</h2>
+
+          <h3>The Darkest Triangle in Poland</h3>
+          <p>The area bounded roughly by the cities of Białystok (NE), Rzeszów (SE), and Zamość (E) — often called the "darkest triangle" of Poland by local astronomers — contains the highest concentration of Bortle Class 2 areas in the country. This includes Bieszczady, Roztocze, Biebrza, and the Puszcza Białowieska. If your travel window is flexible, prioritise destinations within this triangle. The overall drive from Warsaw into this zone is 200–400 km — a half-day journey — but delivers conditions unmatched anywhere in Western or Central Europe outside of the Scottish Highlands or Andalusian mountains.</p>
+
+          <h3>Aurora from Northeastern Poland</h3>
+          <p>For aurora observation, northeast Poland — specifically Masuria and Podlaskie — is the strategic target. The Biebrza marshlands at 53.5°N have exceptional flat northern horizons. During a Kp 4 event, the aurora base is typically at 67–68°N geomagnetically, placing it above the horizon from Masuria at 3–5° elevation — visible but low. A Kp 5 event brings the display to 8–12° elevation, very comfortably visible and photographically useful. Download the Spacewarn or SpaceWeather Today app for real-time Kp alerts and allow 30–45 minutes to drive from any accommodation to the darkest flat northern horizon.</p>
+
+          <h3>Bortle 2 Without Altitude — The Eastern Plains Advantage</h3>
+          <p>One of Poland's most remarkable astronomical facts is that Bortle Class 2 skies are accessible from a car at road level without any mountain ascent. From a field outside Rutki-Kossaki village in Podlaskie (190 km from Warsaw), SQM readings on moonless nights exceed 22.0 — darker than most European mountain observatories measured from their valley access roads. This makes Poland uniquely practical for observers who cannot manage high-altitude hikes: simply drive east of Warsaw, find a flat agricultural field well away from any village, and point your equipment at the sky.</p>
+
+          <h3>Language and Navigation</h3>
+          <p>English is widely spoken in Zakopane and Kraków but less common in the Bieszczady, Białowieża, and Biebrza regions. Learn a few Polish phrases for accommodation and directions. Download the Polish OSM layer in maps.cz or OsmAnd for offline navigation — Google Maps works poorly in the Bieszczady without data signal. Polish roads in mountain areas can be rough; check the condition of mountain roads (drogi górskie) in autumn and winter before departure. The Bieszczady Loop Road (Bieszczadzka Pętla) is cleared of snow reasonably quickly, but the minor roads to higher trailheads may be impassable from November to April.</p>
+        </section>
+
+        <section id="resources" class="content-section">
+          <h2>Resources</h2>
+
+          <h3>Astronomy Organisations</h3>
+          <ul class="resource-list">
+            <li><a href="https://www.ptm.org.pl" target="_blank" rel="noopener">PTM — Polskie Towarzystwo Miłośników Astronomii</a> — Polish Society of Amateur Astronomers; events calendar, regional chapters, dark site recommendations</li>
+            <li><a href="https://www.polskie-niebo.pl" target="_blank" rel="noopener">Polskie Niebo</a> — Polish astronomy community with dark sky site database and event listings</li>
+          </ul>
+
+          <h3>National Parks & Visitor Information</h3>
+          <ul class="resource-list">
+            <li><a href="https://www.bdpn.pl" target="_blank" rel="noopener">Bieszczadzki National Park</a> — Trails, entry fees, accommodation, and seasonal access information</li>
+            <li><a href="https://www.tpn.pl" target="_blank" rel="noopener">Tatry National Park (TPN)</a> — Cable car timetables, trail maps, entry fees, and visitor rules</li>
+            <li><a href="https://www.bpn.com.pl" target="_blank" rel="noopener">Białowieża National Park</a> — Strict reserve guided tour booking, visitor centre, and bison trail maps</li>
+            <li><a href="https://www.biebrza.org.pl" target="_blank" rel="noopener">Biebrza National Park</a> — Marsh access, observation towers, and wildlife information</li>
+          </ul>
+
+          <h3>Weather & Sky Forecasting</h3>
+          <ul class="resource-list">
+            <li><a href="https://www.meteo.pl" target="_blank" rel="noopener">Meteo.pl (IMGW-PIB)</a> — Poland's official meteorological institute; most accurate local forecasts</li>
+            <li><a href="https://clearoutside.com" target="_blank" rel="noopener">Clear Outside</a> — Astronomy-specific transparency, seeing, and cloud cover forecasts for Poland</li>
+            <li><a href="https://www.lightpollutionmap.info" target="_blank" rel="noopener">Light Pollution Map</a> — Bortle class overlay; essential for identifying the darkest zones in eastern Poland</li>
+            <li><a href="https://auroraservice.eu" target="_blank" rel="noopener">Aurora Service Europe</a> — Real-time geomagnetic alerts for aurora viewing from northeastern Poland</li>
+          </ul>
+        </section>
+
+        <section id="faq" class="content-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-section">
+            <div class="faq-list">
+              {faqData.map((item) => (
+                <details class="faq-item">
+                  <summary class="faq-question">{item.question}</summary>
+                  <div class="faq-answer">
+                    <p>{item.answer}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      const progressBar = document.getElementById('progressBar');
+      if (progressBar) {
+        progressBar.style.width = scrollPercent + '%';
+      }
+    });
+
+    const sections = document.querySelectorAll('.content-section');
+    const tocLinks = document.querySelectorAll('.toc a');
+
+    const observerOptions = {
+      rootMargin: '-20% 0% -70% 0%'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(link => link.classList.remove('active'));
+          const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+          if (activeLink) activeLink.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+
+  <style>
+    /* Progress Bar */
+    .progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      z-index: 1000;
+      background: transparent;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, rgb(6, 182, 212), rgb(59, 130, 246));
+      transition: width 0.1s ease;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-image {
+      position: absolute;
+      inset: 0;
+    }
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: var(--space-xl);
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-family: var(--font-heading);
+      color: #fff;
+      margin: var(--space-sm) 0;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      line-height: 1.1;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: rgb(6, 182, 212);
+      margin: 0;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumbs ol {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      gap: 0.25rem;
+    }
+    .breadcrumbs li {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.85rem;
+    }
+    .breadcrumbs li + li::before {
+      content: '›';
+      margin-right: 0.25rem;
+    }
+    .breadcrumbs a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .breadcrumbs a:hover {
+      color: rgb(6, 182, 212);
+    }
+    .breadcrumbs li[aria-current="page"] {
+      color: rgb(6, 182, 212);
+    }
+
+    /* Layout */
+    .content-wrapper {
+      padding: var(--space-xl) var(--space-xl);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+    @media (min-width: 1024px) {
+      .article-layout {
+        grid-template-columns: 220px 1fr;
+      }
+    }
+
+    /* TOC */
+    .toc-sidebar {
+      display: none;
+    }
+    @media (min-width: 1024px) {
+      .toc-sidebar {
+        display: block;
+      }
+    }
+    .toc {
+      position: sticky;
+      top: 2rem;
+    }
+    .toc h2 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-sm);
+    }
+    .toc ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+    .toc a {
+      display: block;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .toc a:hover {
+      color: var(--color-text-primary);
+    }
+    .toc a.active {
+      color: rgb(6, 182, 212);
+      border-left-color: rgb(6, 182, 212);
+    }
+
+    /* Main content */
+    .main-content {
+      max-width: 800px;
+    }
+
+    /* Answer Capsule */
+    .answer-capsule {
+      display: flex;
+      gap: var(--space-md);
+      align-items: flex-start;
+      background: linear-gradient(135deg, rgba(6,182,212,0.08), rgba(59,130,246,0.08));
+      border: 1px solid rgba(6,182,212,0.25);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-xl);
+    }
+    .capsule-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      color: rgb(6, 182, 212);
+    }
+    .capsule-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+    .answer-capsule p {
+      margin: 0;
+      color: var(--color-text-primary);
+      line-height: 1.7;
+    }
+
+    /* Content sections */
+    .content-section {
+      margin-bottom: var(--space-xl);
+    }
+    .content-section h2 {
+      font-size: 1.6rem;
+      font-family: var(--font-heading);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-md);
+      padding-bottom: var(--space-sm);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .content-section h3 {
+      font-size: 1.15rem;
+      color: rgb(6, 182, 212);
+      margin: var(--space-lg) 0 var(--space-sm);
+    }
+    .content-section p {
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+      margin-bottom: var(--space-md);
+    }
+    .content-section ul,
+    .content-section ol {
+      color: var(--color-text-secondary);
+      padding-left: 1.5rem;
+      line-height: 1.8;
+    }
+    .content-section li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Info box */
+    .info-box {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: var(--glass-blur);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      margin: var(--space-lg) 0;
+    }
+    .info-box h3 {
+      font-size: 1.1rem;
+      color: rgb(59, 130, 246);
+      margin-bottom: var(--space-sm);
+      margin-top: 0;
+    }
+    .info-box h4 {
+      font-size: 0.95rem;
+      color: var(--color-text-primary);
+      margin: var(--space-md) 0 var(--space-sm);
+    }
+    .info-box ul {
+      color: var(--color-text-secondary);
+      padding-left: 1.25rem;
+      line-height: 1.8;
+    }
+    .info-box li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Inline images */
+    .inline-image {
+      margin: var(--space-lg) 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .inline-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .image-caption {
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+      text-align: center;
+      padding: var(--space-sm) var(--space-md);
+      background: rgba(0,0,0,0.3);
+      margin: 0;
+      font-style: italic;
+    }
+
+    /* Resource list */
+    .resource-list {
+      list-style: none;
+      padding: 0;
+    }
+    .resource-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .resource-list a {
+      color: rgb(6, 182, 212);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .resource-list a:hover {
+      color: rgb(59, 130, 246);
+    }
+
+    /* FAQ */
+    .faq-section {
+      padding-top: var(--space-md);
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .faq-item {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .faq-item[open] {
+      background: rgba(6,182,212,0.05);
+    }
+    .faq-question {
+      padding: var(--space-md) var(--space-lg);
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+      user-select: none;
+    }
+    .faq-question::-webkit-details-marker {
+      display: none;
+    }
+    .faq-question::after {
+      content: '+';
+      font-size: 1.25rem;
+      color: rgb(6, 182, 212);
+      transition: transform 0.2s;
+    }
+    .faq-item[open] .faq-question::after {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      padding: 0 var(--space-lg) var(--space-md);
+    }
+    .faq-answer p {
+      margin: 0;
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+    }
+  </style>
+</MainLayout>

@@ -36,16 +36,72 @@
 - [Binary Star Systems](https://theastronomy.space/atlas/stars/binary-systems/) : Stellar pairs — types, mass transfer, novae
 - [Variable Stars](https://theastronomy.space/atlas/stars/variable-stars/) : Cepheids, RR Lyrae, eclipsing binaries, distance ladder
 
+## Planets (Types & Classification)
+
+- [Planets Overview](https://theastronomy.space/atlas/planets/) : Planetary classification — terrestrial, gas giants, ice giants, dwarf planets, exoplanets, and exotic types
+- [Terrestrial Planets](https://theastronomy.space/atlas/planets/terrestrial-planets/) : Rocky worlds — Mercury, Venus, Earth, Mars; iron cores, silicate mantles, thin atmospheres
+- [Gas Giants](https://theastronomy.space/atlas/planets/gas-giants/) : Jupiter and Saturn — hydrogen/helium composition, Great Red Spot, ring systems, Galilean moons
+- [Ice Giants](https://theastronomy.space/atlas/planets/ice-giants/) : Uranus and Neptune — methane-rich atmospheres, extreme axial tilts, supersonic winds
+- [Dwarf Planets](https://theastronomy.space/atlas/planets/dwarf-planets/) : IAU definition, Pluto's reclassification, Eris, Haumea, Makemake, Ceres, Kuiper Belt context
+- [Exoplanets](https://theastronomy.space/atlas/planets/exoplanets/) : Worlds orbiting other stars — transit/RV/imaging detection, 5,700+ confirmed, JWST, habitability
+- [Super-Earths](https://theastronomy.space/atlas/planets/super-earths/) : 1–10 Earth masses — rocky vs. mini-Neptune ambiguity, radius gap, Kepler-22b, 55 Cancri e
+- [Hot Jupiters](https://theastronomy.space/atlas/planets/hot-jupiters/) : Gas giants in <10-day orbits — tidal locking, puffed atmospheres, 51 Pegasi b, WASP-12b
+- [Rogue Planets](https://theastronomy.space/atlas/planets/rogue-planets/) : Free-floating worlds unbound to any star — ejection mechanisms, microlensing detection, estimated trillions
+
 ## Deep Sky Objects
 
 - [Galaxies](https://theastronomy.space/atlas/galaxies/) : Spiral, elliptical, and irregular galaxies — formation, classification, the Milky Way
-- [Nebulae](https://theastronomy.space/atlas/nebulae/) : Emission, reflection, dark, planetary nebulae, and supernova remnants
+- [Spiral Galaxies](https://theastronomy.space/atlas/galaxies/spiral/) : Disk galaxies with sweeping arms — density waves, Hubble classification, Andromeda, Whirlpool, star formation in arms
+- [Elliptical Galaxies](https://theastronomy.space/atlas/galaxies/elliptical/) : Smooth spheroidal systems of old stars — E0–E7 classification, M87, galaxy mergers, AGN feedback, dark matter halos
+- [Irregular Galaxies](https://theastronomy.space/atlas/galaxies/irregular/) : Galaxies without regular structure — Magellanic Clouds, starburst systems, tidal disruption, Antennae Galaxies
+- [Lenticular Galaxies](https://theastronomy.space/atlas/galaxies/lenticular/) : Disk galaxies without spiral arms — S0 classification, retired spirals, ram-pressure stripping, NGC 5866 Spindle Galaxy
+- [Dwarf Galaxies](https://theastronomy.space/atlas/galaxies/dwarf/) : Small low-luminosity galaxies — dark matter dominance, Sagittarius Dwarf, Local Group satellites, missing satellites problem
+- [The Milky Way](https://theastronomy.space/atlas/galaxies/milky-way/) : Our home barred spiral galaxy — Sagittarius A*, spiral arms, Gaia mission, dark matter halo, Andromeda collision
+- [Active Galaxies](https://theastronomy.space/atlas/galaxies/active/) : Galaxies powered by accreting supermassive black holes — quasars, Seyfert galaxies, blazars, AGN unified model, AGN feedback
+- [Galaxy Clusters](https://theastronomy.space/atlas/galaxies/clusters/) : Largest gravitationally bound structures — Virgo and Coma Clusters, intracluster medium, dark matter, Bullet Cluster, gravitational lensing
+- [Nebulae Overview](https://theastronomy.space/atlas/nebulae/) : All nebula types — emission, reflection, dark, planetary, supernova remnants, HII regions, molecular clouds, protoplanetary
+- [Emission Nebulae](https://theastronomy.space/atlas/nebulae/emission/) : Ionized gas glowing in H-alpha and [OIII] — Orion Nebula, Eagle Nebula, Lagoon Nebula, Carina Nebula
+- [Reflection Nebulae](https://theastronomy.space/atlas/nebulae/reflection/) : Dust clouds scattering starlight blue — Pleiades nebula, Witch Head Nebula, Iris Nebula
+- [Dark Nebulae](https://theastronomy.space/atlas/nebulae/dark/) : Dense dust blocking background light — Horsehead Nebula, Barnard 68, Bok globules, stellar nurseries
+- [Planetary Nebulae](https://theastronomy.space/atlas/nebulae/planetary/) : Shells ejected by dying low-mass stars — Ring Nebula, Helix Nebula, Cat's Eye Nebula, central white dwarfs
+- [Supernova Remnants](https://theastronomy.space/atlas/nebulae/supernova-remnants/) : Expanding shells from massive star explosions — Crab Nebula, Cassiopeia A, Veil Nebula, synchrotron radiation
+- [HII Regions](https://theastronomy.space/atlas/nebulae/hii-regions/) : Vast star-forming ionized hydrogen clouds — Tarantula Nebula, Strömgren spheres, OB star clusters
+- [Molecular Clouds](https://theastronomy.space/atlas/nebulae/molecular-clouds/) : Cold dense H₂/CO clouds (~10 K) — Pillars of Creation, Giant Molecular Clouds, Jeans instability
+- [Protoplanetary Nebulae](https://theastronomy.space/atlas/nebulae/protoplanetary/) : Short-lived AGB-to-PN transition phase — Egg Nebula, Red Rectangle, bipolar morphology
 - [Constellations](https://theastronomy.space/atlas/constellations/) : All 88 IAU constellations — mythology, star patterns, celestial navigation
 
 ## Stargazing Guides
 
 - [Stargazing in Scandinavia](https://theastronomy.space/chronicles/stargazing/scandinavia/) : Dark sky sites, Northern Lights, Norway, Sweden, Finland, Iceland
 - [Stargazing in England](https://theastronomy.space/chronicles/stargazing/england/) : Dark sky reserves, light pollution, seasonal highlights across the UK
+- [Stargazing in India](https://theastronomy.space/chronicles/stargazing/india/) : Dark sky sites across India — Hanle Dark Sky Reserve, Ladakh, Spiti Valley, Rann of Kutch, permits and planning
+- [Stargazing in China](https://theastronomy.space/chronicles/stargazing/china/) : Dark sky sites across China — Tibet Ali Dark Sky Reserve, Qinghai salt lakes, Xinjiang desert, Tibetan Plateau, permits and planning
+- [Stargazing in Germany](https://theastronomy.space/chronicles/stargazing/germany/) : Dark sky parks across Germany — Eifel National Park, Westhavelland, Rhön Biosphere Reserve, Bavarian Forest, aurora from northern Germany
+- [Stargazing in Poland](https://theastronomy.space/chronicles/stargazing/poland/) : Dark sky sites across Poland — Bieszczady Mountains, Tatra Mountains, Białowieża Primeval Forest, Masuria Lake District, eastern plains
+
+## Observatory — Telescopes
+
+- [Telescopes Hub](https://theastronomy.space/observatory/telescopes/) : Telescope types, mounts, and buying guides
+- [Telescope Beginner's Guide](https://theastronomy.space/observatory/telescopes/beginners-guide/) : Introduction to telescope optics, types, and first steps
+- [Choosing Your First Telescope](https://theastronomy.space/observatory/telescopes/choosing-first-telescope/) : Refractors vs. reflectors vs. SCTs — budget and use-case guide
+- [Best Telescopes 2026](https://theastronomy.space/observatory/telescopes/best-telescopes-2026/) : Top-rated telescopes reviewed for beginners through advanced observers
+- [Lunar Observing with a Telescope](https://theastronomy.space/observatory/telescopes/lunar-observing/) : Techniques and targets for Moon observing
+- [Planetary Observing with a Telescope](https://theastronomy.space/observatory/telescopes/planetary-observing/) : Magnification, seeing conditions, and what to look for on each planet
+- [Deep Sky Observing](https://theastronomy.space/observatory/telescopes/deep-sky-observing/) : Nebulae, galaxies, and clusters — aperture, dark skies, and eyepiece selection
+- [GoTo vs Manual Telescopes](https://theastronomy.space/observatory/telescopes/goto-vs-manual/) : Computerised GoTo mounts vs. manual Dobsonians — trade-offs explained
+- [Collimation & Maintenance](https://theastronomy.space/observatory/telescopes/collimation-maintenance/) : Keeping your telescope aligned and in top condition
+
+## Observatory — Binoculars
+
+- [Binoculars Hub](https://theastronomy.space/observatory/binoculars/) : Astronomy binoculars — specifications, types, and buying guides
+- [Binoculars Beginner's Guide](https://theastronomy.space/observatory/binoculars/beginners-guide/) : What to look for in astronomy binoculars
+- [Choosing First Binoculars](https://theastronomy.space/observatory/binoculars/choosing-first-binoculars/) : 7×50 vs 10×50 vs image-stabilized — recommendations by budget
+- [Moon Observing with Binoculars](https://theastronomy.space/observatory/binoculars/moon-observing/) : Craters, maria, and terminator details visible in binoculars
+- [Planetary Observing with Binoculars](https://theastronomy.space/observatory/binoculars/planetary-observing/) : What planets look like through binoculars
+- [Deep Sky Targets for Binoculars](https://theastronomy.space/observatory/binoculars/deep-sky-targets/) : Messier objects, star clusters, and nebulae visible in binoculars
+- [Best Binoculars 2026](https://theastronomy.space/observatory/binoculars/best-binoculars-2026/) : Top astronomy binoculars reviewed across price categories
+- [Binocular Accessories & Maintenance](https://theastronomy.space/observatory/binoculars/accessories-maintenance/) : Tripod adapters, cases, cleaning, and care
+- [Image-Stabilized Binoculars](https://theastronomy.space/observatory/binoculars/image-stabilized/) : Canon IS, Fujinon, and Nikon options — when they're worth the premium
 
 ## Optional
 

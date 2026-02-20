@@ -264,6 +264,89 @@ const faqData = [
 
           <h3>Storms and the Great White Spot</h3>
           <p>Approximately once per Saturnian year (roughly every 30 Earth years), Saturn develops a massive storm system called the Great White Spot. These storms are bright, vast convective events that can encircle the entire planet and last for months. The most recent occurred in 2010-2011 and was visible through amateur telescopes. These periodic storms may be triggered by seasonal changes as Saturn's axial tilt (27 degrees) causes significant seasonal variation in solar heating.</p>
+
+          <!-- Atmospheric Layers Interactive -->
+          <div class="atmo-interactive glass">
+            <div class="atmo-scene">
+              <svg id="satmoSvg" viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg"
+                aria-label="Interactive Saturn atmospheric layers diagram" role="img">
+                <defs>
+                  <linearGradient id="satmoSpaceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#05040d"/>
+                    <stop offset="100%" stop-color="#0a0820"/>
+                  </linearGradient>
+                  <linearGradient id="satmoSurfaceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="rgba(200,180,130,0.85)"/>
+                    <stop offset="100%" stop-color="rgba(170,150,100,0.9)"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- Background -->
+                <rect x="0" y="0" width="500" height="360" fill="url(#satmoSpaceGrad)"/>
+
+                <!-- Stars -->
+                <circle cx="420" cy="20" r="1"   fill="rgba(255,255,255,0.8)"/>
+                <circle cx="460" cy="35" r="1.5" fill="rgba(255,255,255,0.6)"/>
+                <circle cx="480" cy="15" r="1"   fill="rgba(255,255,255,0.7)"/>
+                <circle cx="430" cy="50" r="1"   fill="rgba(255,255,255,0.5)"/>
+                <circle cx="445" cy="8"  r="1.2" fill="rgba(255,255,255,0.65)"/>
+
+                <!-- Layer bands (top→bottom) -->
+                <rect class="satmo-band" data-layer="exosphere"    x="0" y="10"  width="430" height="70" fill="rgba(110,85,160,0.12)"  stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+                <rect class="satmo-band" data-layer="thermosphere" x="0" y="80"  width="430" height="75" fill="rgba(160,130,180,0.20)" stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+                <rect class="satmo-band" data-layer="stratosphere" x="0" y="155" width="430" height="80" fill="rgba(190,160,100,0.28)" stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+                <rect class="satmo-band" data-layer="troposphere"  x="0" y="235" width="430" height="83" fill="rgba(210,185,120,0.38)" stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+
+                <!-- Altitude boundary lines -->
+                <line x1="430" y1="80"  x2="500" y2="80"  stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <line x1="430" y1="155" x2="500" y2="155" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <line x1="430" y1="235" x2="500" y2="235" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <line x1="430" y1="318" x2="500" y2="318" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+
+                <!-- Altitude labels -->
+                <text x="436" y="78"  font-size="11" fill="rgba(255,255,255,0.4)" font-family="inherit">800+ km</text>
+                <text x="436" y="153" font-size="11" fill="rgba(255,255,255,0.4)" font-family="inherit">320 km</text>
+                <text x="436" y="233" font-size="11" fill="rgba(255,255,255,0.4)" font-family="inherit">50 km</text>
+                <text x="436" y="316" font-size="11" fill="rgba(255,255,255,0.4)" font-family="inherit">0 km</text>
+
+                <!-- Space label -->
+                <text x="8" y="22" font-size="10" fill="rgba(255,255,255,0.3)" font-family="inherit">↑ Space</text>
+
+                <!-- Layer name labels -->
+                <text x="215" y="40"  font-size="14" font-weight="600" fill="rgba(150,120,200,0.88)" font-family="inherit" text-anchor="middle" style="pointer-events:none">Exosphere</text>
+                <text x="215" y="56"  font-size="11" fill="rgba(255,255,255,0.38)" font-family="inherit" text-anchor="middle" style="pointer-events:none">800 km + · Magnetosphere boundary</text>
+
+                <text x="215" y="113" font-size="14" font-weight="600" fill="rgba(190,160,210,0.88)" font-family="inherit" text-anchor="middle" style="pointer-events:none">Thermosphere</text>
+                <text x="215" y="129" font-size="11" fill="rgba(255,255,255,0.38)" font-family="inherit" text-anchor="middle" style="pointer-events:none">320 – 800 km · Ring rain detected</text>
+
+                <text x="215" y="190" font-size="14" font-weight="600" fill="rgba(210,185,130,0.88)" font-family="inherit" text-anchor="middle" style="pointer-events:none">Stratosphere</text>
+                <text x="215" y="206" font-size="11" fill="rgba(255,255,255,0.38)" font-family="inherit" text-anchor="middle" style="pointer-events:none">50 – 320 km · Hydrocarbon haze</text>
+
+                <text x="215" y="272" font-size="14" font-weight="600" fill="rgba(230,210,150,0.95)" font-family="inherit" text-anchor="middle" style="pointer-events:none">Upper Cloud Deck</text>
+                <text x="215" y="288" font-size="11" fill="rgba(255,255,255,0.38)" font-family="inherit" text-anchor="middle" style="pointer-events:none">0 – 50 km · 1,800 km/h winds</text>
+
+                <!-- Saturn surface (1-bar level) -->
+                <rect x="0" y="318" width="500" height="42" fill="url(#satmoSurfaceGrad)"/>
+                <text x="215" y="344" font-size="11" fill="rgba(255,255,255,0.35)" font-family="inherit" text-anchor="middle">1-bar Cloud-Top Level</text>
+
+                <!-- Highlight overlay -->
+                <rect id="satmoHighlight" x="0" y="235" width="430" height="83"
+                  fill="none" stroke="rgba(220,195,130,0.7)" stroke-width="2" opacity="1"/>
+              </svg>
+            </div>
+
+            <!-- Info panel -->
+            <div class="atmo-info glass">
+              <div class="atmo-info-header">
+                <span class="atmo-info-name" id="satmoInfoName">Upper Cloud Deck</span>
+                <span class="atmo-info-alt"  id="satmoInfoAlt">0 – 50 km (1-bar level)</span>
+              </div>
+              <p class="atmo-info-desc" id="satmoInfoDesc">The visible weather layer where ammonia ice crystals form Saturn's pale yellow cloud bands. Jet streams reach 1,800 km/h — the fastest sustained winds of any planet. The iconic north-polar hexagonal vortex sits at this level, wider than Earth's diameter.</p>
+              <div class="atmo-info-fact" id="satmoInfoFact">✦ Saturn's hexagonal polar storm has persisted, largely unchanged, for at least four decades since Voyager discovered it.</div>
+            </div>
+
+            <p class="atmo-hint">Click any layer to explore it</p>
+          </div>
         </section>
 
         <!-- Interior Structure -->
@@ -472,6 +555,64 @@ const faqData = [
   }, observerOptions);
 
   sections.forEach(section => observer.observe(section));
+
+  // ─── Saturn Atmosphere Interactive ─────────────────────────────────────────
+  type SatmoLayer = { name:string; alt:string; desc:string; fact:string; bandY:number; bandH:number; stroke:string; };
+  const satmoLayers: Record<string, SatmoLayer> = {
+    troposphere: {
+      name: 'Upper Cloud Deck', alt: '0 – 50 km (1-bar level)',
+      desc: 'The visible weather layer where ammonia ice crystals form Saturn\'s pale yellow cloud bands. Jet streams reach 1,800 km/h — the fastest sustained winds of any planet. The iconic north-polar hexagonal vortex sits at this level, wider than Earth\'s diameter.',
+      fact: '✦ Saturn\'s hexagonal polar storm has persisted, largely unchanged, for at least four decades since Voyager discovered it.',
+      bandY: 235, bandH: 83, stroke: 'rgba(220,195,130,0.7)',
+    },
+    stratosphere: {
+      name: 'Stratosphere', alt: '50 – 320 km',
+      desc: 'Above the cloud tops, temperatures rise with altitude as hydrocarbon haze absorbs sunlight. Complex organic molecules form here when solar UV breaks apart methane and ethane from the lower atmosphere.',
+      fact: '✦ The 2010–2011 Great White Spot was so powerful that Cassini tracked its plumes rising clear through this layer.',
+      bandY: 155, bandH: 80, stroke: 'rgba(200,170,110,0.65)',
+    },
+    thermosphere: {
+      name: 'Thermosphere', alt: '320 – 800 km',
+      desc: 'Heated by solar UV and charged particles from the magnetosphere, this layer reaches several hundred degrees Celsius despite Saturn\'s great distance from the Sun. \'Ring rain\' — charged water particles falling from the rings — was detected here by Cassini.',
+      fact: '✦ Cassini found that ring rain erodes Saturn\'s rings, and at the current rate some rings may disappear within 100 million years.',
+      bandY: 80, bandH: 75, stroke: 'rgba(170,140,200,0.65)',
+    },
+    exosphere: {
+      name: 'Exosphere', alt: '800 km +',
+      desc: 'The outermost diffuse atmosphere blends gradually into Saturn\'s vast magnetosphere, which extends millions of kilometres into space. Saturn\'s moon Enceladus actively feeds water vapour into this region through its south-polar geyser plumes.',
+      fact: '✦ Enceladus\'s geysers are so powerful they supply material for Saturn\'s faint E ring and deposit it onto the planet\'s upper atmosphere.',
+      bandY: 10, bandH: 70, stroke: 'rgba(120,90,190,0.65)',
+    },
+  };
+
+  const satmoHighlight = document.getElementById('satmoHighlight');
+  const satmoInfoName  = document.getElementById('satmoInfoName');
+  const satmoInfoAlt   = document.getElementById('satmoInfoAlt');
+  const satmoInfoDesc  = document.getElementById('satmoInfoDesc');
+  const satmoInfoFact  = document.getElementById('satmoInfoFact');
+
+  function selectSatmoLayer(key: string) {
+    const layer = satmoLayers[key];
+    if (!layer) return;
+    if (satmoHighlight) {
+      satmoHighlight.setAttribute('y',      String(layer.bandY));
+      satmoHighlight.setAttribute('height', String(layer.bandH));
+      satmoHighlight.setAttribute('stroke', layer.stroke);
+    }
+    if (satmoInfoName) satmoInfoName.textContent = layer.name;
+    if (satmoInfoAlt)  satmoInfoAlt.textContent  = layer.alt;
+    if (satmoInfoDesc) satmoInfoDesc.textContent = layer.desc;
+    if (satmoInfoFact) satmoInfoFact.textContent = layer.fact;
+  }
+
+  document.querySelectorAll<SVGRectElement>('.satmo-band').forEach(band => {
+    band.addEventListener('click', () => {
+      const key = band.getAttribute('data-layer');
+      if (key) selectSatmoLayer(key);
+    });
+  });
+
+  selectSatmoLayer('troposphere');
 
   // ── Ring Material Zoom ──────────────────────────────────────────────────────
   const rmzCanvas = document.getElementById('rmzCanvas') as HTMLCanvasElement | null;
@@ -770,6 +911,21 @@ const faqData = [
 </script>
 
 <style>
+  /* ── Saturn Atmosphere Interactive ── */
+  .satmo-band { transition: filter 0.15s ease; }
+  .satmo-band:hover { filter: brightness(1.4); }
+
+  .atmo-interactive { margin: var(--space-xl) 0; padding: var(--space-lg); }
+  .atmo-scene { width: 100%; overflow-x: auto; }
+  .atmo-scene svg { width: 100%; max-width: 500px; height: auto; display: block; margin: 0 auto var(--space-md); }
+  .atmo-info { margin-top: var(--space-md); padding: var(--space-md) var(--space-lg); }
+  .atmo-info-header { display: flex; align-items: baseline; gap: var(--space-md); margin-bottom: var(--space-sm); flex-wrap: wrap; }
+  .atmo-info-name { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 600; color: var(--color-accent-cyan); }
+  .atmo-info-alt { font-size: 0.875rem; font-weight: 400; color: var(--color-text-secondary); }
+  .atmo-info-desc { font-size: 0.9375rem; font-weight: 300; color: var(--color-text-secondary); line-height: 1.7; margin: 0 0 var(--space-sm) 0; }
+  .atmo-info-fact { font-size: 0.875rem; font-weight: 400; color: rgba(56,189,248,0.65); font-style: italic; }
+  .atmo-hint { text-align: center; font-size: 0.8125rem; color: rgba(255,255,255,0.22); margin: var(--space-sm) 0 0 0; letter-spacing: 0.03em; }
+
   /* Progress Bar */
   .progress-container {
     position: fixed;
@@ -1215,6 +1371,10 @@ const faqData = [
   @media (max-width: 768px) {
     .hero {
       min-height: 50vh;
+    }
+
+    .hero-image img {
+      object-position: right center;
     }
 
     .hero-content {

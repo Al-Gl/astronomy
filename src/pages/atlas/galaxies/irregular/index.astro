@@ -1,0 +1,297 @@
+---
+import MainLayout from '../../../../layouts/MainLayout.astro';
+import Schema from '../../../../components/Schema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cosmic Atlas', url: '/atlas/' },
+  { name: 'Galaxies', url: '/atlas/galaxies/' },
+  { name: 'Irregular Galaxies', url: '/atlas/galaxies/irregular/' }
+];
+
+const articleData = {
+  headline: 'Irregular Galaxies: Chaotic Star-Forming Powerhouses',
+  description: 'Complete guide to irregular galaxies — their chaotic structure, intense star formation, gravitational interactions, and famous examples like the Magellanic Clouds.',
+  datePublished: '2026-02-19',
+  dateModified: '2026-02-19',
+  author: 'The Astronomy Space',
+  image: '/images/Hero_irregular.jpg',
+  keywords: ['irregular galaxies', 'Magellanic Clouds', 'LMC', 'SMC', 'Antennae Galaxies', 'starburst galaxies', 'galaxy interactions']
+};
+
+const faqData = [
+  {
+    question: 'What is an irregular galaxy?',
+    answer: 'An irregular galaxy is a galaxy that does not fit into the standard Hubble classification of elliptical, lenticular, or spiral galaxies. They lack a defined, symmetric structure — no prominent bulge, no spiral arms, no smooth ellipsoidal form. Irregular galaxies are typically chaotic in appearance, with patchy regions of star formation, bright blue star clusters, and glowing nebulae distributed unevenly across the galaxy. They are classified as Irr I (showing some structure) or Irr II (completely chaotic).'
+  },
+  {
+    question: 'Why are irregular galaxies shaped the way they are?',
+    answer: 'Most irregular galaxies have their shape due to gravitational interactions or mergers with other galaxies. Tidal forces during close encounters or collisions disrupt the orderly structures that define spirals and ellipticals. Some irregular galaxies are genuinely small systems that never accumulated enough mass or angular momentum to develop a regular structure. Dwarf irregular galaxies, in particular, may be primordial systems that represent galaxies in an early stage of formation.'
+  },
+  {
+    question: 'What are the Magellanic Clouds?',
+    answer: 'The Large Magellanic Cloud (LMC) and Small Magellanic Cloud (SMC) are the two closest irregular galaxies to the Milky Way, at distances of about 160,000 and 200,000 light-years respectively. They are satellite galaxies of the Milky Way, visible to the naked eye as detached patches of the Milky Way from the southern hemisphere. The LMC contains the Tarantula Nebula (30 Doradus), one of the most massive and luminous HII regions in the Local Group, and was the site of Supernova 1987A — the nearest supernova to Earth since 1604.'
+  },
+  {
+    question: 'Do irregular galaxies form a lot of stars?',
+    answer: 'Yes — many irregular galaxies, especially those undergoing interactions, are among the most prolific star-forming systems in the universe. Gravitational interactions compress interstellar gas clouds, triggering widespread star formation in bursts that can be 10–1000 times more intense than in normal spiral galaxies. These "starburst galaxies" convert gas into stars so rapidly that they would exhaust their entire gas supply in less than a billion years at their current rate. The Antennae Galaxies, two colliding spirals in the process of becoming an irregular, produce new stars at a rate of hundreds per year.'
+  },
+  {
+    question: 'Can irregular galaxies evolve into other galaxy types?',
+    answer: 'Yes. The collision and merger of two spiral galaxies typically creates a highly disturbed irregular system before settling into an elliptical galaxy after hundreds of millions of years. Dwarf irregular galaxies can lose their gas through supernova-driven winds or ram-pressure stripping as they move through denser gas, eventually fading into dwarf spheroidal or dwarf elliptical galaxies. The Magellanic Clouds are thought to eventually be captured and absorbed by the Milky Way, losing their structure in the process.'
+  },
+  {
+    question: 'How far away is the nearest irregular galaxy?',
+    answer: 'The nearest irregular galaxy is a subject of some debate, but one of the closest is the Canis Major Dwarf Galaxy at approximately 25,000 light-years from Earth (though its status as a distinct galaxy versus stellar debris from a merger is disputed). The most clearly recognized nearby irregular galaxies are the Large Magellanic Cloud at 160,000 light-years and the Small Magellanic Cloud at 200,000 light-years, both visible to the naked eye from Earth\'s southern hemisphere.'
+  },
+  {
+    question: 'What is a starburst galaxy?',
+    answer: 'A starburst galaxy is one undergoing an unusually high rate of star formation — typically triggered by a gravitational interaction or merger. The Antennae Galaxies are a classic example, forming hundreds of solar masses of new stars per year. M82 (the Cigar Galaxy), a highly disturbed irregular system, is one of the nearest starburst galaxies at 12 million light-years. Its central starburst drives a superwind of hot gas visible in X-rays and H-alpha emission, blowing material thousands of light-years above and below the galaxy plane.'
+  }
+];
+---
+
+<MainLayout
+  title='Irregular Galaxies: Chaotic Star-Forming Powerhouses | The Astronomy Space'
+  description='Complete guide to irregular galaxies — chaotic structure, intense star formation, gravitational interactions, and the Magellanic Clouds as our nearest examples.'
+>
+  <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
+  <Schema type="TechArticle" article={articleData} />
+  <Schema type="FAQPage" faq={faqData} />
+
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-image">
+      <img src="/images/Hero_irregular.jpg" alt="Irregular galaxy with chaotic star formation" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/atlas/">Cosmic Atlas</a></li>
+          <li><a href="/atlas/galaxies/">Galaxies</a></li>
+          <li aria-current="page">Irregular Galaxies</li>
+        </ol>
+      </nav>
+      <h1>Irregular Galaxies</h1>
+      <p class="hero-subtitle">Chaotic Star-Forming Powerhouses</p>
+    </div>
+  </section>
+
+  <article class="content-wrapper">
+    <div class="article-layout">
+
+      <aside class="toc-sidebar">
+        <nav class="toc" aria-label="Table of Contents">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#characteristics">Characteristics</a></li>
+            <li><a href="#evolution">Causes & Formation</a></li>
+            <li><a href="#observation">Notable Examples</a></li>
+            <li><a href="#facts">Interesting Facts</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <div class="main-content">
+
+        <aside class="answer-capsule">
+          <div class="capsule-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <p>Irregular galaxies lack the orderly structure of spirals or ellipticals. Chaotic in appearance, they typically burst with active star formation triggered by gravitational interactions or mergers. The Large and Small Magellanic Clouds — visible to the naked eye from the southern hemisphere — are the nearest irregular galaxies, orbiting the Milky Way as satellites.</p>
+        </aside>
+
+        <section id="intro" class="content-section">
+          <h2>Introduction to Irregular Galaxies</h2>
+          <p>Irregular galaxies are the rule-breakers of the galactic world. Unlike the elegant pinwheels of spiral galaxies or the smooth spheroids of ellipticals, irregular galaxies defy easy classification. They come in all shapes — twisted, distorted, patchy, or simply amorphous — and are united primarily by what they lack: a clear, symmetric structure.</p>
+          <p>Irregular galaxies make up roughly 20–25% of observed galaxies. Many are small dwarf systems, but others are large galaxies caught in the act of violent gravitational interaction. When two galaxies collide or pass close to each other, tidal forces stretch and distort both systems, often triggering spectacular bursts of star formation that light up the disturbed regions with brilliant blue star clusters and glowing nebulae.</p>
+          <p>Our own Local Group contains several notable irregular galaxies. The Large Magellanic Cloud (LMC) and Small Magellanic Cloud (SMC) are satellite galaxies orbiting the Milky Way, visible as smudges of light in the southern night sky. The LMC alone contains the Tarantula Nebula — a star-forming region so energetic that if it were as close as the Orion Nebula, it would cast shadows at night.</p>
+          <p>Irregular galaxies are important laboratories for studying star formation, galaxy evolution, and the early universe. Many high-redshift galaxies observed by the Hubble and James Webb Space Telescopes appear irregular — suggesting that the early universe was dominated by chaotic, interacting systems before galaxies settled into the regular morphologies we see in the local universe today.</p>
+        </section>
+
+        <section id="characteristics" class="content-section">
+          <h2>Characteristics of Irregular Galaxies</h2>
+          <p>Irregular galaxies are defined by their lack of defining structure. Hubble originally classified them into two subtypes, though the distinction is somewhat loose in practice.</p>
+          <div class="info-box glass">
+            <h3>Irregular Galaxy Quick Facts</h3>
+            <ul>
+              <li><strong>Hubble Types:</strong> Irr I (some structure visible), Irr II (completely chaotic)</li>
+              <li><strong>Star Formation:</strong> Often very high — especially in interacting systems</li>
+              <li><strong>Gas Content:</strong> Generally gas-rich, especially dwarf irregulars</li>
+              <li><strong>Stellar Populations:</strong> Mix of old and young stars; blue star clusters prominent</li>
+              <li><strong>Nearest Examples:</strong> LMC (160,000 ly), SMC (200,000 ly)</li>
+              <li><strong>Common in:</strong> Satellite galaxies, galaxy group peripheries, early universe</li>
+            </ul>
+          </div>
+          <p class="data-source">Data: <a href="https://science.nasa.gov/universe/galaxies/" target="_blank" rel="noopener noreferrer">NASA Galaxies</a></p>
+          <h3>Irr I Galaxies</h3>
+          <p>Type I irregular galaxies show some degree of structure — perhaps a hint of rotational symmetry, a partial disk, or an off-center bar — but not enough to classify them as a spiral or lenticular. The Magellanic Clouds are classic Irr I galaxies. The LMC has a bar structure and hints of a single spiral arm, while the SMC is more disordered. Both contain abundant gas and active star formation regions distributed in an irregular pattern.</p>
+          <h3>Irr II Galaxies</h3>
+          <p>Type II irregular galaxies show no discernible structure at all. These are typically systems in the midst of violent gravitational interactions or mergers, where tidal forces have completely disrupted any pre-existing organization. The Antennae Galaxies (NGC 4038/4039) during their collision phase, and M82 (Cigar Galaxy) post-interaction with M81, are good examples. Irr II galaxies often show multiple brightness peaks, extreme asymmetry, and chaotic dust lanes.</p>
+          <h3>Star Formation and Nebulae</h3>
+          <p>One of the most striking features of irregular galaxies is their prominent HII regions — clouds of ionized hydrogen surrounding newly formed massive stars. These glow in vibrant pinks and reds from hydrogen alpha emission and trace the sites of active star formation across the irregular galaxy. The Tarantula Nebula in the LMC is the largest and most luminous HII region in the Local Group, 40 times the diameter of the Orion Nebula.</p>
+        </section>
+
+        <section id="evolution" class="content-section">
+          <h2>Causes and Formation</h2>
+          <p>Irregular galaxies arise through two main pathways: gravitational disruption of existing galaxies, or genuine small dwarf systems that never developed regular structure.</p>
+          <h3>Gravitational Interactions and Mergers</h3>
+          <p>When two galaxies pass close to each other or collide, the gravitational tidal forces acting on each galaxy can stretch, distort, and disrupt their structures. Stars, gas, and dust are pulled into long tidal tails and bridges between the galaxies. Star formation is triggered as gas clouds are compressed by the tidal forces and shocks. The result is an irregular appearance that may last for hundreds of millions of years before the merged system settles into an elliptical galaxy.</p>
+          <h3>Dwarf Irregular Galaxies</h3>
+          <p>Many irregular galaxies are small — dwarf systems containing only a few hundred million to a few billion stars. These dwarf irregulars may be primordial galaxies that never developed enough mass to generate the density waves needed to form spiral arms, or they may have had their structures disrupted by the tidal field of a nearby larger galaxy. They are typically gas-rich and actively star-forming, and they serve as local analogues for the types of galaxies that dominated the early universe.</p>
+          <h3>Ram-Pressure Stripping</h3>
+          <p>As dwarf irregular galaxies orbit within a galaxy group or cluster, they move through the hot diffuse gas of the intragroup medium. This creates a hydrodynamic drag — ram pressure — that can strip gas from the dwarf galaxy, suppressing future star formation. Over time, this process can transform a gas-rich dwarf irregular into a gas-poor dwarf spheroidal. The Magellanic Stream, a vast ribbon of hydrogen gas trailing behind the Magellanic Clouds, is partly the result of such stripping combined with tidal forces from the Milky Way.</p>
+        </section>
+
+        <section id="observation" class="content-section">
+          <h2>Notable Irregular Galaxies</h2>
+          <p><strong>Large Magellanic Cloud (LMC):</strong> At 160,000 light-years, the LMC is the Milky Way's largest satellite galaxy and third-closest galaxy overall. It spans about 14,000 light-years and contains an estimated 30 billion stars. The Tarantula Nebula (30 Doradus) within the LMC is one of the most spectacular objects in the night sky, containing the most massive known star clusters. Supernova 1987A, the nearest supernova observed in modern times, also occurred in the LMC.</p>
+          <p><strong>Small Magellanic Cloud (SMC):</strong> Slightly smaller and more distant at 200,000 light-years, the SMC contains about 3 billion stars and is highly distorted by tidal interactions with both the LMC and the Milky Way. Despite its modest size, it harbors numerous star clusters and HII regions. The Magellanic Stream, a ribbon of gas over 100 degrees long on the sky, connects the Clouds to the Milky Way.</p>
+          <p><strong>Antennae Galaxies (NGC 4038/4039):</strong> Two colliding spiral galaxies in Corvus, 45 million light-years away, caught in the process of merging into an irregular system. Long tidal tails extend outward like insect antennae. The collision has triggered a powerful starburst, producing hundreds of young massive star clusters in the collision zone. This system gives us a preview of what the Milky Way–Andromeda collision might look like.</p>
+          <p><strong>M82 (Cigar Galaxy):</strong> A highly disturbed irregular starburst galaxy 12 million light-years away in Ursa Major, interacting with nearby M81. Tidal forces from M81 have triggered intense star formation in M82's core. Superwinds driven by hundreds of exploding supernovae blow glowing hydrogen filaments thousands of light-years above and below the galaxy plane, creating a spectacular sight in long-exposure images.</p>
+          <p><strong>NGC 1427A:</strong> A small irregular galaxy falling into the Fornax Cluster at high speed. Ram-pressure stripping from the cluster's intracluster medium is visibly distorting the galaxy, pulling a trail of star-forming material behind it like a comet's tail.</p>
+        </section>
+
+        <section id="facts" class="content-section">
+          <h2>Interesting Facts About Irregular Galaxies</h2>
+          <ul class="facts-list">
+            <li><strong>Supernova 1987A:</strong> The nearest supernova since 1604 occurred in the Large Magellanic Cloud on February 23, 1987. The blue supergiant Sanduleak −69° 202 exploded, producing a burst of neutrinos detected by underground detectors on Earth before the optical flash arrived, confirming core-collapse supernova theory. The expanding remnant ring is still being studied today with the Hubble Space Telescope.</li>
+            <li><strong>Dwarf Irregulars as Early Universe Analogues:</strong> Dwarf irregular galaxies like the Magellanic Clouds have metallicities (heavy element abundances) much lower than the Milky Way, more similar to galaxies at high redshift. Studying them gives astronomers a local laboratory for understanding how galaxies formed and evolved in the early universe, billions of years ago.</li>
+            <li><strong>Tarantula Nebula Scale:</strong> If the Tarantula Nebula in the LMC were as close as the Orion Nebula (1,340 light-years), it would span 60 degrees on the sky — from horizon to horizon — and would be bright enough to cast shadows at night. It is powered by over 800,000 young stars, many of them among the most massive known.</li>
+            <li><strong>Magellanic Stream:</strong> The Magellanic Stream is a ribbon of hydrogen gas over 200,000 light-years long, trailing behind the Magellanic Clouds as they orbit the Milky Way. It was created by a combination of tidal forces and ram-pressure stripping over billions of years. The Stream represents a significant reservoir of gas that the Milky Way may eventually accrete, fueling future star formation in our own galaxy.</li>
+            <li><strong>Galaxy Zoo and Irregular Classification:</strong> Modern galaxy surveys containing millions of galaxies find that irregular morphologies increase dramatically at higher redshifts. While only about 5% of nearby galaxies are clearly irregular, over 30% of galaxies at redshift z=1 (about 8 billion years ago) appear irregular or asymmetric, reflecting a more chaotic, merger-driven universe in the past.</li>
+            <li><strong>Blue Compact Dwarf Galaxies:</strong> A subtype of irregular galaxy, blue compact dwarfs (BCDs) are small but undergoing intense localized star formation. They appear blue because of their numerous young massive stars and are among the most chemically pristine galaxies known, with very low heavy element abundances. I Zwicky 18 was once thought to be the nearest primordial galaxy at 59 million light-years.</li>
+            <li><strong>Collisional Ring Galaxies:</strong> A special class of irregular galaxy forms when a smaller galaxy punches through the disk of a larger spiral at near-perpendicular angle. The collision sends a density wave rippling outward in a ring, triggering star formation in an expanding circular ring around the central remnant. Hoag's Object and the Cartwheel Galaxy are famous examples.</li>
+            <li><strong>Interacting Galaxy Pairs:</strong> Many irregular galaxies are found in close pairs or groups where ongoing gravitational interaction is driving their chaotic appearance. Hubble surveyed dozens of such "Arp" galaxies (from Halton Arp's 1966 Atlas of Peculiar Galaxies), which remain important reference objects for studying galaxy interactions and the role of environment in galaxy evolution.</li>
+          </ul>
+        </section>
+
+        <section id="resources" class="content-section">
+          <h2>External Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://science.nasa.gov/universe/galaxies/" target="_blank" rel="noopener">NASA Galaxies</a> — NASA overview including irregular and interacting galaxies</li>
+            <li><a href="https://www.esa.int/Science_Exploration/Space_Science/Hubble/Hubble_sees_galaxies_galore" target="_blank" rel="noopener">ESA Hubble Deep Field</a> — Hubble observations of irregular and distant galaxies</li>
+            <li><a href="https://en.wikipedia.org/wiki/Irregular_galaxy" target="_blank" rel="noopener">Irregular Galaxy on Wikipedia</a> — Overview of types, formation, and notable examples</li>
+            <li><a href="https://en.wikipedia.org/wiki/Large_Magellanic_Cloud" target="_blank" rel="noopener">Large Magellanic Cloud</a> — Detailed article on our nearest irregular galaxy</li>
+          </ul>
+        </section>
+
+        <section id="faq" class="content-section faq-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqData.map((item) => (
+              <details class="faq-item">
+                <summary class="faq-question">{item.question}</summary>
+                <div class="faq-answer">
+                  <p set:html={item.answer}></p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </article>
+</MainLayout>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    const progressBar = document.getElementById('progressBar');
+    if (progressBar) progressBar.style.width = scrollPercent + '%';
+  });
+  const sections = document.querySelectorAll('.content-section');
+  const tocLinks = document.querySelectorAll('.toc a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0% -70% 0%' });
+  sections.forEach(section => observer.observe(section));
+</script>
+
+<style>
+  .progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: rgba(255,255,255,0.1); z-index: 1000; }
+  .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-blue)); transition: width 0.1s ease-out; }
+  .hero { position: relative; min-height: 60vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .hero-image { position: absolute; inset: 0; z-index: 0; }
+  .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.9) 100%); }
+  .hero-content { position: relative; z-index: 1; text-align: center; padding: var(--space-xl); }
+  .hero h1 { font-family: var(--font-heading); font-size: clamp(2.5rem,6vw,4.5rem); font-weight: 700; margin-bottom: var(--space-sm); text-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+  .hero-subtitle { font-size: clamp(1.25rem,3vw,1.75rem); color: var(--color-accent-cyan); font-weight: 500; }
+  .breadcrumbs { margin-bottom: var(--space-lg); }
+  .breadcrumbs ol { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; list-style: none; padding: 0; margin: 0; font-size: 0.9rem; }
+  .breadcrumbs li { display: flex; align-items: center; gap: 0.5rem; }
+  .breadcrumbs li:not(:last-child)::after { content: '\203a'; color: var(--color-text-secondary); }
+  .breadcrumbs a { color: var(--color-text-secondary); text-decoration: none; transition: color 0.2s ease; }
+  .breadcrumbs a:hover { color: var(--color-accent-cyan); }
+  .breadcrumbs li[aria-current="page"] { color: var(--color-text-primary); }
+  .content-wrapper { padding: var(--space-2xl) 0; }
+  .article-layout { display: grid; grid-template-columns: 1fr; max-width: 1200px; margin: 0 auto; padding: 0 var(--space-md); gap: var(--space-xl); }
+  @media (min-width: 1024px) { .article-layout { grid-template-columns: 220px 1fr; gap: var(--space-2xl); } }
+  .toc-sidebar { display: none; }
+  @media (min-width: 1024px) { .toc-sidebar { display: block; } .toc { position: sticky; top: calc(var(--space-xl) + 3px); max-height: calc(100vh - var(--space-2xl)); overflow-y: auto; } }
+  .toc h2 { font-family: var(--font-heading); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-md); color: var(--color-text-secondary); }
+  .toc ol { list-style: none; padding: 0; margin: 0; }
+  .toc li { margin-bottom: 0.25rem; }
+  .toc a { display: block; padding: 0.5rem 0; padding-left: var(--space-sm); color: var(--color-text-secondary); text-decoration: none; font-size: 0.9rem; border-left: 2px solid transparent; transition: all 0.2s ease; }
+  .toc a:hover { color: var(--color-text-primary); border-left-color: rgba(6,182,212,0.5); }
+  .toc a.active { color: var(--color-accent-cyan); border-left-color: var(--color-accent-cyan); }
+  .main-content { max-width: 800px; }
+  .answer-capsule { display: flex; gap: var(--space-md); padding: var(--space-lg); margin-bottom: var(--space-2xl); background: linear-gradient(135deg, rgba(6,182,212,0.1) 0%, rgba(59,130,246,0.1) 100%); border: 1px solid rgba(6,182,212,0.2); border-radius: var(--radius-lg); position: relative; overflow: hidden; }
+  .answer-capsule::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at top left, rgba(6,182,212,0.15) 0%, transparent 50%); pointer-events: none; }
+  .capsule-icon { flex-shrink: 0; width: 40px; height: 40px; color: var(--color-accent-cyan); opacity: 0.8; }
+  .capsule-icon svg { width: 100%; height: 100%; }
+  .answer-capsule p { margin: 0; font-size: 1.1rem; line-height: 1.7; color: var(--color-text-primary); position: relative; }
+  .content-section { margin-bottom: var(--space-2xl); }
+  .content-section h2 { font-family: var(--font-heading); font-size: clamp(1.75rem,4vw,2.25rem); margin-bottom: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 2px solid rgba(6,182,212,0.3); color: var(--color-text-primary); }
+  .content-section h3 { font-family: var(--font-heading); font-size: clamp(1.25rem,3vw,1.5rem); margin-top: var(--space-xl); margin-bottom: var(--space-md); color: var(--color-accent-cyan); }
+  .content-section p { font-size: 1.1rem; line-height: 1.8; color: var(--color-text-secondary); margin-bottom: var(--space-md); }
+  .content-section ul, .content-section ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+  .content-section li { font-size: 1.05rem; line-height: 1.7; color: var(--color-text-secondary); margin-bottom: 0.5rem; }
+  .info-box { padding: var(--space-lg); margin: var(--space-lg) 0; }
+  .info-box h3 { margin-top: 0; font-size: 1.1rem; color: var(--color-accent-blue); }
+  .info-box ul { margin: 0; padding-left: var(--space-md); }
+  .info-box li { font-size: 1rem; margin-bottom: 0.4rem; }
+  .data-source { font-size: 0.8rem; color: var(--color-text-secondary); opacity: 0.7; margin-top: -0.5rem; margin-bottom: var(--space-lg); }
+  .data-source a { color: var(--color-accent-cyan); }
+  .facts-list { list-style: none; padding: 0; }
+  .facts-list li { padding: var(--space-md) 0; border-bottom: 1px solid rgba(148,163,184,0.1); }
+  .facts-list li:last-child { border-bottom: none; }
+  .resource-list { list-style: none; padding: 0; }
+  .resource-list li { padding: var(--space-sm) 0; border-bottom: 1px solid rgba(148,163,184,0.1); }
+  .resource-list li:last-child { border-bottom: none; }
+  .resource-list a { color: var(--color-accent-cyan); font-weight: 500; }
+  .faq-section { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid rgba(148,163,184,0.1); }
+  .faq-list { display: flex; flex-direction: column; gap: var(--space-sm); }
+  .faq-item { background: var(--glass-bg); border: var(--glass-border); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.3s ease; }
+  .faq-item[open] { background: rgba(6,182,212,0.05); border-color: rgba(6,182,212,0.2); }
+  .faq-question { padding: var(--space-md) var(--space-lg); cursor: pointer; font-size: 1.1rem; font-weight: 500; color: var(--color-text-primary); list-style: none; display: flex; justify-content: space-between; align-items: center; transition: color 0.2s ease; }
+  .faq-question::-webkit-details-marker { display: none; }
+  .faq-question::after { content: '+'; font-size: 1.5rem; font-weight: 300; color: var(--color-accent-cyan); transition: transform 0.3s ease; }
+  .faq-item[open] .faq-question::after { transform: rotate(45deg); }
+  .faq-question:hover { color: var(--color-accent-cyan); }
+  .faq-answer { padding: 0 var(--space-lg) var(--space-lg); }
+  .faq-answer p { margin: 0; font-size: 1rem; line-height: 1.7; color: var(--color-text-secondary); }
+  .glass { background: var(--glass-bg); border: var(--glass-border); border-radius: var(--radius-lg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); }
+  @media (max-width: 768px) { .hero { min-height: 50vh; } .hero-content { padding: var(--space-lg); } .article-layout { padding: 0 var(--space-sm); } .answer-capsule { flex-direction: column; align-items: flex-start; } .capsule-icon { width: 32px; height: 32px; } }
+</style>

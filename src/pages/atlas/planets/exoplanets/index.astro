@@ -1,0 +1,323 @@
+---
+import MainLayout from '../../../../layouts/MainLayout.astro';
+import Schema from '../../../../components/Schema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cosmic Atlas', url: '/atlas/' },
+  { name: 'Planets', url: '/atlas/planets/' },
+  { name: 'Exoplanets', url: '/atlas/planets/exoplanets/' }
+];
+
+const articleData = {
+  headline: 'Exoplanets: Worlds Orbiting Other Stars',
+  description: 'Complete guide to exoplanets — worlds orbiting distant stars. Learn about discovery methods (transit, radial velocity, direct imaging), Kepler, TESS, JWST, TRAPPIST-1, and the search for habitable worlds.',
+  datePublished: '2026-02-17',
+  dateModified: '2026-02-17',
+  author: 'The Astronomy Space',
+  image: '/images/Hero_exoplanets.jpg',
+  keywords: ['exoplanets', 'extrasolar planets', 'transit method', 'radial velocity', 'Kepler telescope', 'TESS', 'JWST', 'TRAPPIST-1', 'habitable zone', 'exoplanet discovery']
+};
+
+const faqData = [
+  {
+    question: 'What is an exoplanet?',
+    answer: 'An exoplanet (or extrasolar planet) is any planet that orbits a star outside our solar system. As of 2026, more than 5,700 exoplanets have been confirmed, with thousands more candidates awaiting verification. Exoplanets range from tiny rocky worlds smaller than Earth to gas giants many times the size of Jupiter. The study of exoplanets has revealed that planetary systems are common throughout the galaxy — virtually every star likely hosts planets.'
+  },
+  {
+    question: 'How do astronomers detect exoplanets?',
+    answer: 'The four main detection methods are: (1) Transit method — measuring the tiny dip in a star\'s brightness when a planet passes in front of it (used by Kepler and TESS); (2) Radial velocity — detecting the wobble a planet induces in its star via Doppler shifts in starlight; (3) Direct imaging — capturing actual photos of planets (requires blocking the star\'s light); (4) Gravitational microlensing — detecting the brief brightening of background stars as a planet\'s gravity acts as a lens. The transit method has found the most exoplanets.'
+  },
+  {
+    question: 'What is the TRAPPIST-1 system?',
+    answer: 'TRAPPIST-1 is an ultra-cool red dwarf star 40 light-years from Earth that hosts seven confirmed Earth-sized planets, three of which (TRAPPIST-1e, f, g) orbit within the habitable zone where liquid water could exist. Discovered using the transit method, TRAPPIST-1 became the most studied exoplanet system in the world. The James Webb Space Telescope has begun atmospheric characterization of the TRAPPIST-1 planets, making this system a centerpiece of the search for extraterrestrial life.'
+  },
+  {
+    question: 'Has any exoplanet atmosphere been detected?',
+    answer: "Yes — atmospheric detections are now routine for large, close-in exoplanets, and the James Webb Space Telescope is extending this to smaller worlds. Water vapor was first detected in an exoplanet atmosphere in 1999. Since then, carbon dioxide, methane, sodium, potassium, and helium have been found in various exoplanet atmospheres. In 2023, JWST detected CO₂ in the atmosphere of TRAPPIST-1b — the first atmospheric detection for an Earth-sized exoplanet. Detecting biosignature gases like oxygen or methane together remains a primary goal."
+  },
+  {
+    question: 'What is the habitable zone?',
+    answer: "The habitable zone (also called the Goldilocks zone) is the range of distances from a star where a planet could maintain liquid water on its surface — neither too hot (water boils away) nor too cold (water freezes). Earth sits comfortably in the Sun's habitable zone. The zone's location depends on the star's luminosity: red dwarf stars have much closer habitable zones than Sun-like stars. Thousands of exoplanets in habitable zones have been found, though habitability depends on many other factors including atmosphere, mass, and geological activity."
+  },
+  {
+    question: 'How many Earth-like exoplanets are there?',
+    answer: "Statistical analyses of Kepler data suggest that virtually every star hosts planets, and roughly one in five Sun-like stars has an Earth-sized planet in the habitable zone. For the Milky Way's roughly 200 billion stars, this implies billions of potentially Earth-like planets in our galaxy alone. However, 'Earth-sized' and 'Earth-like' are different — having the right size and distance does not guarantee liquid oceans, a breathable atmosphere, or plate tectonics. The actual number of truly Earth-like worlds with life-supporting conditions remains unknown."
+  }
+];
+---
+
+<MainLayout
+  title='Exoplanets: Worlds Orbiting Other Stars | The Astronomy Space'
+  description='Complete guide to exoplanets — worlds orbiting distant stars. Learn about discovery methods, Kepler, TESS, JWST, TRAPPIST-1, and the search for habitable worlds beyond our solar system.'
+>
+  <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
+  <Schema type="TechArticle" article={articleData} />
+  <Schema type="FAQPage" faq={faqData} />
+
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-image">
+      <img src="/images/Hero_exoplanets.jpg" alt="An alien exoplanet world orbiting a distant star" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/atlas/">Cosmic Atlas</a></li>
+          <li><a href="/atlas/planets/">Planets</a></li>
+          <li aria-current="page">Exoplanets</li>
+        </ol>
+      </nav>
+      <h1>Exoplanets</h1>
+      <p class="hero-subtitle">Worlds Orbiting Other Stars</p>
+    </div>
+  </section>
+
+  <article class="content-wrapper">
+    <div class="article-layout">
+
+      <aside class="toc-sidebar">
+        <nav class="toc" aria-label="Table of Contents">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#characteristics">Types and Statistics</a></li>
+            <li><a href="#transit">Transit Method</a></li>
+            <li><a href="#radial-velocity">Radial Velocity</a></li>
+            <li><a href="#direct-imaging">Direct Imaging</a></li>
+            <li><a href="#missions">Key Missions</a></li>
+            <li><a href="#trappist">TRAPPIST-1 System</a></li>
+            <li><a href="#habitability">Habitability</a></li>
+            <li><a href="#fun-facts">Interesting Facts</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <div class="main-content">
+
+        <aside class="answer-capsule">
+          <div class="capsule-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <p>Exoplanets are planets orbiting stars other than the Sun. Over 5,700 have been confirmed since the first discovery in 1992, with thousands more candidates. They range from scorching hot Jupiters to potentially habitable rocky worlds. Modern space telescopes like Kepler, TESS, and JWST are transforming our understanding of planetary systems across the galaxy.</p>
+        </aside>
+
+        <section id="introduction" class="content-section">
+          <h2>Introduction to Exoplanets</h2>
+          <p>For most of human history, astronomers could only speculate about whether other stars harbored planets. The question — are we alone in a universe of planetary systems, or is Earth unique? — could not be answered observationally. That changed in 1992 when Aleksander Wolszczan and Dale Frail discovered the first confirmed exoplanets orbiting a pulsar (PSR B1257+12), and again in 1995 when Michel Mayor and Didier Queloz discovered 51 Pegasi b — the first exoplanet around a Sun-like star, earning them the 2019 Nobel Prize in Physics.</p>
+          <p>The subsequent three decades have been a revolution. NASA's Kepler Space Telescope alone confirmed over 2,600 exoplanets between 2009 and 2018, statistically demonstrating that planets are ubiquitous — virtually every star likely hosts a planetary system. The diversity of these worlds has been astonishing: from planets with year-long orbits measured in hours to worlds with two suns, from lava worlds hotter than stars to cold super-Earths that may harbor vast ice-covered oceans.</p>
+          <p>Today the confirmed exoplanet count exceeds 5,700, and the NASA Exoplanet Archive grows weekly as TESS (Transiting Exoplanet Survey Satellite) surveys the entire sky. The James Webb Space Telescope, launched in December 2021, is now characterizing exoplanet atmospheres in unprecedented detail, moving the field from detection toward the ultimate goal: finding signs of life.</p>
+          <p>The study of exoplanets has fundamentally changed our understanding of planet formation. Hot Jupiters — gas giants in extremely close orbits — were not predicted by traditional formation theory and required a complete revision of models. The sheer diversity of planetary systems, many completely unlike our own solar system, has shown that our solar system may be unusual rather than typical.</p>
+        </section>
+
+        <section id="characteristics" class="content-section">
+          <h2>Types and Statistics</h2>
+          <p>The confirmed exoplanet population spans an enormous range of sizes, masses, and orbits. Planet classifications have emerged from this diversity.</p>
+          <div class="info-box glass">
+            <h3>Exoplanet Quick Facts</h3>
+            <ul>
+              <li><strong>Confirmed Count:</strong> 5,700+ as of early 2026</li>
+              <li><strong>Most Common Type:</strong> Sub-Neptunes (1.7–4× Earth radius)</li>
+              <li><strong>First Confirmed:</strong> PSR B1257+12 b and c (1992, pulsar)</li>
+              <li><strong>First Sun-like Star:</strong> 51 Pegasi b (1995, hot Jupiter)</li>
+              <li><strong>Nearest Exoplanet:</strong> Proxima Centauri b (4.24 light-years)</li>
+              <li><strong>Habitable Zone Candidates:</strong> Hundreds confirmed</li>
+            </ul>
+          </div>
+          <p class="data-source">Data: <a href="https://exoplanetarchive.ipac.caltech.edu/" target="_blank" rel="noopener noreferrer">NASA Exoplanet Archive</a></p>
+          <p>The most common exoplanet type detected so far is the sub-Neptune (also called mini-Neptune) — planets between 1.7 and 4 times Earth's radius with thick hydrogen-helium envelopes. Interestingly, there is a "radius gap" (Fulton gap) at about 1.6 Earth radii where very few planets are found, suggesting a transition between rocky super-Earths and gas-enveloped mini-Neptunes driven by photoevaporation.</p>
+          <p>Hot Jupiters (gas giants with very short orbits) are rare — only about 1% of Sun-like stars host them — but they were the first type found because they are easiest to detect with radial velocity surveys. Super-Earths (rocky planets 1.2–1.6 Earth radii) may be the most common type of planet in the galaxy.</p>
+        </section>
+
+        <section id="transit" class="content-section">
+          <h2>The Transit Method</h2>
+          <p>The transit method is the most productive exoplanet detection technique, responsible for over 75% of all confirmed discoveries. When a planet passes directly in front of its host star as seen from Earth, it blocks a tiny fraction of the star's light, causing a brief, regular dimming event.</p>
+          <h3>How It Works</h3>
+          <p>A Jupiter-sized planet transiting a Sun-like star blocks about 1% of the star's light — measurable with ground-based telescopes. An Earth-sized planet blocks only 0.008% — requiring space-based photometry. The duration and depth of the transit reveal the planet's orbital period and radius relative to its star. The periodic nature of transits (the planet passes in front on every orbit) allows confirmation with multiple observations.</p>
+          <h3>Limitations</h3>
+          <p>The transit method has a geometric limitation: only planets whose orbits happen to align with the line of sight from Earth are detectable. For a planet at Earth's distance from its star, there is only about a 0.5% chance of the right alignment. This means transit surveys must observe enormous numbers of stars simultaneously, as Kepler did by monitoring 150,000 stars continuously for 9 years.</p>
+        </section>
+
+        <section id="radial-velocity" class="content-section">
+          <h2>Radial Velocity Method</h2>
+          <p>The radial velocity (or Doppler wobble) method detects planets through the gravitational tug they exert on their host star. As a planet orbits, it causes the star to wobble slightly toward and away from Earth. This motion shifts the wavelengths of light in the star's spectrum by tiny amounts — blueshifted as the star moves toward us, redshifted as it moves away.</p>
+          <p>This technique discovered 51 Pegasi b in 1995 and was the dominant method before the Kepler era. It directly measures the planet's minimum mass (combined with inclination uncertainty) and orbital period. Modern spectrographs like ESPRESSO on the Very Large Telescope can detect Doppler shifts of less than 10 cm/s — small enough to potentially find Earth-mass planets in habitable zones of nearby Sun-like stars.</p>
+        </section>
+
+        <section id="direct-imaging" class="content-section">
+          <h2>Direct Imaging</h2>
+          <p>Direct imaging — actually taking a photograph of an exoplanet — is the most intuitive method but the most technically challenging. Stars are billions of times brighter than their planets at the wavelengths we observe, and the two are typically separated by less than an arcsecond on the sky. Blocking the star's overwhelming glare to reveal the planet requires sophisticated coronagraphs and adaptive optics systems.</p>
+          <p>Direct imaging has succeeded for young, massive planets far from their stars — where the planet is still warm from formation and thus relatively bright in infrared, and where the angular separation from the star is large enough to resolve. The HR 8799 system (four directly imaged planets) and Beta Pictoris b are famous examples. Future missions like the Nancy Grace Roman Space Telescope and Habitable Worlds Observatory aim to directly image Earth-like planets in habitable zones using advanced coronagraphs.</p>
+          <h3>Gravitational Microlensing</h3>
+          <p>Microlensing detects planets when the gravity of a foreground star (and its planets) acts as a gravitational lens, briefly brightening a background star. This method can find planets at greater distances from their stars than the transit method and can detect Earth-mass planets, but each event is a one-time opportunity — the alignment never repeats. NASA's Roman Space Telescope will conduct a major microlensing survey.</p>
+        </section>
+
+        <section id="missions" class="content-section">
+          <h2>Key Exoplanet Missions</h2>
+          <h3>Kepler Space Telescope (2009–2018)</h3>
+          <p>Kepler revolutionized exoplanet science by monitoring 150,000 stars simultaneously in a fixed field of view near Cygnus. It confirmed 2,662 exoplanets and found that planets are ubiquitous — statistically every star hosts planets on average. Kepler found that the most common type of planet in the galaxy has no analog in our solar system: the sub-Neptune or super-Earth.</p>
+          <h3>TESS — Transiting Exoplanet Survey Satellite (2018–present)</h3>
+          <p>TESS surveys the entire sky in 27-day sectors, focusing on nearby, bright stars — ideal targets for atmospheric follow-up. TESS has confirmed over 400 planets and identified thousands of candidates. Its priority targets are small rocky planets around nearby red dwarf stars that JWST can study atmospherically.</p>
+          <h3>James Webb Space Telescope (2021–present)</h3>
+          <p>JWST is transforming exoplanet atmospheric science. Its infrared sensitivity and precision allow detection of atmospheric molecules (CO₂, water, methane) in the atmospheres of exoplanets ranging from hot Jupiters to Earth-sized rocky planets. JWST made the first detection of CO₂ in a transiting exoplanet atmosphere (WASP-39b) in 2022 and is characterizing the TRAPPIST-1 planets one by one.</p>
+        </section>
+
+        <section id="trappist" class="content-section">
+          <h2>The TRAPPIST-1 System</h2>
+          <p>TRAPPIST-1 is a tiny, cool red dwarf star 40 light-years from Earth in the constellation Aquarius. In 2017, astronomers announced the discovery of seven Earth-sized planets orbiting this star — the largest number of habitable-zone planets ever found around a single star. Three of the seven planets (e, f, and g) orbit within the habitable zone.</p>
+          <h3>Why TRAPPIST-1 Matters</h3>
+          <p>TRAPPIST-1 has become the most studied exoplanet system in history for several reasons: the planets are Earth-sized (unlike most easier-to-study large planets), the star is small and nearby enough for atmospheric characterization with JWST, and three planets in the habitable zone offer a rare chance to compare multiple potentially habitable worlds simultaneously. The system is also in orbital resonance — the planets orbit in precise integer ratios (8:5:3:2:3:4:2) — suggesting a calm migration history.</p>
+          <h3>JWST Results at TRAPPIST-1</h3>
+          <p>Early JWST results showed that TRAPPIST-1b, the innermost planet, likely has no thick atmosphere — suggesting that red dwarf flares may strip atmospheres from close-in planets. Whether the outer habitable-zone planets retained atmospheres remains one of the most important open questions in exoplanet science, and JWST observations will continue for years.</p>
+        </section>
+
+        <section id="habitability" class="content-section">
+          <h2>The Search for Habitable Worlds</h2>
+          <p>Finding potentially habitable exoplanets is one of science's greatest endeavors. Habitability requires more than simply orbiting in a star's habitable zone — the right distance for liquid water. A planet also needs a suitable atmosphere to stabilize temperatures, protection from stellar radiation, a geological cycle to recycle nutrients, and a stable long-term climate.</p>
+          <p>Red dwarf stars present a particular challenge: their habitable zones are so close that planets are likely tidally locked (one face always toward the star), and red dwarfs emit powerful flares early in their lives that can strip atmospheres. However, red dwarfs are by far the most common type of star, comprising 70% of all stars, so if their planets can be habitable, the universe contains far more potentially life-bearing worlds than otherwise.</p>
+          <p>The "biosignature" gases that might betray life — combinations of oxygen and methane, or nitrous oxide, that would quickly destroy each other without continual biological replenishment — are the ultimate target for atmospheric characterization. No confirmed biosignature has been found yet, but JWST is beginning to have the capability to detect them in favorable systems.</p>
+        </section>
+
+        <section id="fun-facts" class="content-section">
+          <h2>Interesting Facts About Exoplanets</h2>
+          <ul class="facts-list">
+            <li><strong>A Year in 8 Hours:</strong> Some hot Jupiters orbit their stars so closely that their "year" — one complete orbit — takes less than 8 hours. WASP-12b orbits its star in just 1.09 days at a distance of 3.4 million km, compared to Earth's 150 million km from the Sun.</li>
+            <li><strong>Raining Glass:</strong> Exoplanet HD 189733b is a deep blue world where scientists believe it rains silicate particles (glass) sideways at 8,700 km/h due to extreme temperature differences between its day and night sides. Surface temperature is about 1,000°C.</li>
+            <li><strong>The First Confirmed Exoplanet Orbits a Dead Star:</strong> The first confirmed exoplanets orbit a pulsar — PSR B1257+12 — the rapidly spinning remnant of a supernova. These planets survived the violent death of their parent star, or formed from the debris disk surrounding the pulsar after the explosion.</li>
+            <li><strong>Proxima Centauri Has a Planet:</strong> Proxima Centauri b orbits the closest star to the Sun (4.24 light-years away) in the habitable zone. At Earth-like orbital distances, a journey there would take ~75,000 years with current rocket technology, though proposed future missions like Breakthrough Starshot could reach 20% of light speed.</li>
+            <li><strong>Two-Sun Planets Are Real:</strong> Kepler discovered "Tatooine" worlds — planets orbiting binary star systems like the fictional Star Wars planet. Kepler-16b was the first confirmed circumbinary planet, orbiting both stars of a binary system every 229 days.</li>
+            <li><strong>Sub-Neptunes Are the Most Common Planet:</strong> The most common planet type in Kepler data is the sub-Neptune (1.7–4 Earth radii) — a planet type completely absent from our solar system. This has challenged models that predicted solar-system-like architectures would be the norm.</li>
+            <li><strong>JWST Can Smell Exoplanet Atmospheres:</strong> JWST can detect individual molecules in exoplanet atmospheres by analyzing how starlight filters through the atmosphere during transits. In 2022 it detected CO₂, water, sulfur dioxide, and other molecules in the atmosphere of WASP-39b simultaneously — a chemical profile impossible from the ground.</li>
+            <li><strong>Billions of Earth-Like Worlds:</strong> Analysis of Kepler data suggests that about 22% of Sun-like stars host an Earth-sized planet in the habitable zone. With approximately 40 billion Sun-like stars in the Milky Way, this implies roughly 8.8 billion potentially Earth-like worlds in our galaxy alone — before even counting planets around red dwarfs.</li>
+          </ul>
+        </section>
+
+        <section id="resources" class="content-section">
+          <h2>External Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://exoplanets.nasa.gov/" target="_blank" rel="noopener">NASA Exoplanet Exploration</a> - Confirmed exoplanet count, missions, and interactive tools</li>
+            <li><a href="https://exoplanetarchive.ipac.caltech.edu/" target="_blank" rel="noopener">NASA Exoplanet Archive</a> - Complete database of all confirmed exoplanets</li>
+            <li><a href="https://science.nasa.gov/mission/webb/exoplanets/" target="_blank" rel="noopener">JWST Exoplanet Science</a> - James Webb Space Telescope exoplanet results</li>
+            <li><a href="https://www.trappist.one/" target="_blank" rel="noopener">TRAPPIST-1 Official Site</a> - The seven Earth-sized planets of TRAPPIST-1</li>
+          </ul>
+        </section>
+
+        <section id="faq" class="content-section faq-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqData.map((item) => (
+              <details class="faq-item">
+                <summary class="faq-question">{item.question}</summary>
+                <div class="faq-answer">
+                  <p set:html={item.answer}></p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </article>
+</MainLayout>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    const progressBar = document.getElementById('progressBar');
+    if (progressBar) progressBar.style.width = scrollPercent + '%';
+  });
+  const sections = document.querySelectorAll('.content-section');
+  const tocLinks = document.querySelectorAll('.toc a');
+  const observerOptions = { rootMargin: '-20% 0% -70% 0%' };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, observerOptions);
+  sections.forEach(section => observer.observe(section));
+</script>
+
+<style>
+  .progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: rgba(255,255,255,0.1); z-index: 1000; }
+  .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-blue)); transition: width 0.1s ease-out; }
+  .hero { position: relative; min-height: 60vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .hero-image { position: absolute; inset: 0; z-index: 0; }
+  .hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: right center; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.9) 100%); }
+  .hero-content { position: relative; z-index: 1; text-align: center; padding: var(--space-xl); }
+  .hero h1 { font-family: var(--font-heading); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; margin-bottom: var(--space-sm); text-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+  .hero-subtitle { font-size: clamp(1.25rem, 3vw, 1.75rem); color: var(--color-accent-cyan); font-weight: 500; }
+  .breadcrumbs { margin-bottom: var(--space-lg); }
+  .breadcrumbs ol { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; list-style: none; padding: 0; margin: 0; font-size: 0.9rem; }
+  .breadcrumbs li { display: flex; align-items: center; gap: 0.5rem; }
+  .breadcrumbs li:not(:last-child)::after { content: '\203a'; color: var(--color-text-secondary); }
+  .breadcrumbs a { color: var(--color-text-secondary); text-decoration: none; transition: color 0.2s ease; }
+  .breadcrumbs a:hover { color: var(--color-accent-cyan); }
+  .breadcrumbs li[aria-current="page"] { color: var(--color-text-primary); }
+  .content-wrapper { padding: var(--space-2xl) 0; }
+  .article-layout { display: grid; grid-template-columns: 1fr; max-width: 1200px; margin: 0 auto; padding: 0 var(--space-md); gap: var(--space-xl); }
+  @media (min-width: 1024px) { .article-layout { grid-template-columns: 220px 1fr; gap: var(--space-2xl); } }
+  .toc-sidebar { display: none; }
+  @media (min-width: 1024px) { .toc-sidebar { display: block; } .toc { position: sticky; top: calc(var(--space-xl) + 3px); max-height: calc(100vh - var(--space-2xl)); overflow-y: auto; } }
+  .toc h2 { font-family: var(--font-heading); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-md); color: var(--color-text-secondary); }
+  .toc ol { list-style: none; padding: 0; margin: 0; }
+  .toc li { margin-bottom: 0.25rem; }
+  .toc a { display: block; padding: 0.5rem 0; padding-left: var(--space-sm); color: var(--color-text-secondary); text-decoration: none; font-size: 0.9rem; border-left: 2px solid transparent; transition: all 0.2s ease; }
+  .toc a:hover { color: var(--color-text-primary); border-left-color: rgba(6,182,212,0.5); }
+  .toc a.active { color: var(--color-accent-cyan); border-left-color: var(--color-accent-cyan); }
+  .main-content { max-width: 800px; }
+  .answer-capsule { display: flex; gap: var(--space-md); padding: var(--space-lg); margin-bottom: var(--space-2xl); background: linear-gradient(135deg, rgba(6,182,212,0.1) 0%, rgba(59,130,246,0.1) 100%); border: 1px solid rgba(6,182,212,0.2); border-radius: var(--radius-lg); position: relative; overflow: hidden; }
+  .answer-capsule::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at top left, rgba(6,182,212,0.15) 0%, transparent 50%); pointer-events: none; }
+  .capsule-icon { flex-shrink: 0; width: 40px; height: 40px; color: var(--color-accent-cyan); opacity: 0.8; }
+  .capsule-icon svg { width: 100%; height: 100%; }
+  .answer-capsule p { margin: 0; font-size: 1.1rem; line-height: 1.7; color: var(--color-text-primary); position: relative; }
+  .content-section { margin-bottom: var(--space-2xl); }
+  .content-section h2 { font-family: var(--font-heading); font-size: clamp(1.75rem, 4vw, 2.25rem); margin-bottom: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 2px solid rgba(6,182,212,0.3); color: var(--color-text-primary); }
+  .content-section h3 { font-family: var(--font-heading); font-size: clamp(1.25rem, 3vw, 1.5rem); margin-top: var(--space-xl); margin-bottom: var(--space-md); color: var(--color-accent-cyan); }
+  .content-section p { font-size: 1.1rem; line-height: 1.8; color: var(--color-text-secondary); margin-bottom: var(--space-md); }
+  .content-section ul, .content-section ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+  .content-section li { font-size: 1.05rem; line-height: 1.7; color: var(--color-text-secondary); margin-bottom: 0.5rem; }
+  .info-box { padding: var(--space-lg); margin: var(--space-lg) 0; }
+  .info-box h3 { margin-top: 0; font-size: 1.1rem; color: var(--color-accent-blue); }
+  .info-box ul { margin: 0; padding-left: var(--space-md); }
+  .info-box li { font-size: 1rem; margin-bottom: 0.4rem; }
+  .data-source { font-size: 0.8rem; color: var(--color-text-secondary); opacity: 0.7; margin-top: -0.5rem; margin-bottom: var(--space-lg); }
+  .data-source a { color: var(--color-accent-cyan); }
+  .facts-list { list-style: none; padding: 0; }
+  .facts-list li { padding: var(--space-md) 0; border-bottom: 1px solid rgba(148,163,184,0.1); }
+  .facts-list li:last-child { border-bottom: none; }
+  .resource-list { list-style: none; padding: 0; }
+  .resource-list li { padding: var(--space-sm) 0; border-bottom: 1px solid rgba(148,163,184,0.1); }
+  .resource-list li:last-child { border-bottom: none; }
+  .resource-list a { color: var(--color-accent-cyan); font-weight: 500; }
+  .faq-section { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid rgba(148,163,184,0.1); }
+  .faq-list { display: flex; flex-direction: column; gap: var(--space-sm); }
+  .faq-item { background: var(--glass-bg); border: var(--glass-border); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.3s ease; }
+  .faq-item[open] { background: rgba(6,182,212,0.05); border-color: rgba(6,182,212,0.2); }
+  .faq-question { padding: var(--space-md) var(--space-lg); cursor: pointer; font-size: 1.1rem; font-weight: 500; color: var(--color-text-primary); list-style: none; display: flex; justify-content: space-between; align-items: center; transition: color 0.2s ease; }
+  .faq-question::-webkit-details-marker { display: none; }
+  .faq-question::after { content: '+'; font-size: 1.5rem; font-weight: 300; color: var(--color-accent-cyan); transition: transform 0.3s ease; }
+  .faq-item[open] .faq-question::after { transform: rotate(45deg); }
+  .faq-question:hover { color: var(--color-accent-cyan); }
+  .faq-answer { padding: 0 var(--space-lg) var(--space-lg); }
+  .faq-answer p { margin: 0; font-size: 1rem; line-height: 1.7; color: var(--color-text-secondary); }
+  .glass { background: var(--glass-bg); border: var(--glass-border); border-radius: var(--radius-lg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); }
+  @media (max-width: 768px) { .hero { min-height: 50vh; } .hero-content { padding: var(--space-lg); } .article-layout { padding: 0 var(--space-sm); } .answer-capsule { flex-direction: column; align-items: flex-start; } .capsule-icon { width: 32px; height: 32px; } }
+</style>

@@ -1,0 +1,297 @@
+---
+import MainLayout from '../../../../layouts/MainLayout.astro';
+import Schema from '../../../../components/Schema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cosmic Atlas', url: '/atlas/' },
+  { name: 'Galaxies', url: '/atlas/galaxies/' },
+  { name: 'Elliptical Galaxies', url: '/atlas/galaxies/elliptical/' }
+];
+
+const articleData = {
+  headline: 'Elliptical Galaxies: Ancient Giants of the Cosmos',
+  description: 'Complete guide to elliptical galaxies — their smooth featureless structure, old stellar populations, formation through mergers, and role in galaxy clusters.',
+  datePublished: '2026-02-19',
+  dateModified: '2026-02-19',
+  author: 'The Astronomy Space',
+  image: '/images/Hero_elliptical.jpg',
+  keywords: ['elliptical galaxies', 'galaxy mergers', 'Hubble sequence', 'M87', 'giant elliptical', 'E0 to E7', 'galaxy clusters']
+};
+
+const faqData = [
+  {
+    question: 'What is an elliptical galaxy?',
+    answer: 'An elliptical galaxy is a type of galaxy with an approximately ellipsoidal shape and a smooth, almost featureless brightness profile. Unlike spiral galaxies, ellipticals have no disk, no spiral arms, and little gas or dust. They are dominated by old, red Population II stars and show minimal active star formation. Elliptical galaxies range from nearly perfectly round (E0) to highly elongated (E7) and span an enormous range of sizes, from small dwarf ellipticals to the largest galaxies in the known universe.'
+  },
+  {
+    question: 'Why do elliptical galaxies have so few new stars?',
+    answer: 'Elliptical galaxies have depleted most of their gas and dust — the raw material needed for star formation — through a combination of early intense star formation, supernova-driven outflows, and feedback from their central supermassive black holes (AGN feedback). Without cold gas, molecular clouds cannot form and collapse to create new stars. The few giant ellipticals that do contain small amounts of gas typically acquired it through mergers or cannibalism of smaller gas-rich galaxies.'
+  },
+  {
+    question: 'How do elliptical galaxies form?',
+    answer: 'The leading theory is that most massive elliptical galaxies form through mergers of smaller galaxies. When two disk galaxies collide, their ordered rotation is disrupted by gravitational tidal forces. Gas is consumed in intense starbursts, and the merged system settles into the smooth, pressure-supported distribution of an elliptical galaxy. Simulations show that the merger of two roughly equal-mass spiral galaxies (a "major merger") can produce a realistic elliptical galaxy. Some ellipticals may also form in the very early universe when conditions favored rapid, chaotic growth.'
+  },
+  {
+    question: 'What is the difference between E0 and E7 ellipticals?',
+    answer: 'Hubble classified elliptical galaxies by their apparent elongation on the sky, from E0 (perfectly circular in projection) to E7 (the most elongated allowed before an object would be classified as a lenticular). The number is calculated as 10×(1 − b/a) where b/a is the ratio of the minor axis to major axis. Importantly, this is an apparent shape — we see the 2D projection of a 3D object. A perfectly spherical galaxy always appears round, but an elongated galaxy may appear rounder or more elongated depending on viewing angle. True three-dimensional shapes cannot be determined from a single image.'
+  },
+  {
+    question: 'Are elliptical galaxies common?',
+    answer: 'In the overall universe, elliptical galaxies make up roughly 10–15% of all galaxies. However, their prevalence depends strongly on environment. In dense galaxy clusters, ellipticals can make up 80–90% of all large galaxies. The most common galaxy type overall is actually the dwarf elliptical or dwarf spheroidal — tiny, faint systems that vastly outnumber all other types by count but are easily missed in surveys.'
+  },
+  {
+    question: 'What is the largest known elliptical galaxy?',
+    answer: 'IC 1101, located about 1 billion light-years away at the center of the Abell 2029 galaxy cluster, is one of the largest known galaxies. It spans roughly 6 million light-years and contains up to 100 trillion stars — about 60 times the Milky Way\'s stellar count. Such extreme giants, called cD galaxies (brightest cluster galaxies, BCGs), grow by repeatedly consuming smaller galaxies through a process called galactic cannibalism. They are always found at the centers of dense galaxy clusters.'
+  },
+  {
+    question: 'Can elliptical galaxies have supermassive black holes?',
+    answer: 'Yes — essentially all large elliptical galaxies contain supermassive black holes at their centers, typically far more massive than those in spiral galaxies. The most massive known black holes are found in giant ellipticals. M87\'s central black hole (the first to be imaged by the Event Horizon Telescope in 2019) has a mass of 6.5 billion solar masses. NGC 1277, a compact elliptical, hosts a black hole with a mass potentially equal to 17 billion solar masses — about 14% of the galaxy\'s total stellar mass.'
+  }
+];
+---
+
+<MainLayout
+  title='Elliptical Galaxies: Ancient Giants of the Cosmos | The Astronomy Space'
+  description='Complete guide to elliptical galaxies — smooth featureless structure, old stellar populations, formation through galaxy mergers, and their dominance in galaxy clusters.'
+>
+  <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
+  <Schema type="TechArticle" article={articleData} />
+  <Schema type="FAQPage" faq={faqData} />
+
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-image">
+      <img src="/images/Hero_elliptical.jpg" alt="Giant elliptical galaxy" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/atlas/">Cosmic Atlas</a></li>
+          <li><a href="/atlas/galaxies/">Galaxies</a></li>
+          <li aria-current="page">Elliptical Galaxies</li>
+        </ol>
+      </nav>
+      <h1>Elliptical Galaxies</h1>
+      <p class="hero-subtitle">Ancient Giants of the Cosmos</p>
+    </div>
+  </section>
+
+  <article class="content-wrapper">
+    <div class="article-layout">
+
+      <aside class="toc-sidebar">
+        <nav class="toc" aria-label="Table of Contents">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#characteristics">Structure & Properties</a></li>
+            <li><a href="#evolution">Formation & Evolution</a></li>
+            <li><a href="#observation">Notable Examples</a></li>
+            <li><a href="#facts">Interesting Facts</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <div class="main-content">
+
+        <aside class="answer-capsule">
+          <div class="capsule-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <p>Elliptical galaxies are smooth, featureless systems composed almost entirely of old, red stars with little gas or dust and minimal star formation. Ranging from nearly spherical to highly elongated, they dominate dense galaxy clusters and are thought to form primarily through mergers of smaller galaxies. The universe's largest known galaxies are ellipticals.</p>
+        </aside>
+
+        <section id="intro" class="content-section">
+          <h2>Introduction to Elliptical Galaxies</h2>
+          <p>Elliptical galaxies are the elders of the galactic world. Their smooth, rounded profiles reveal stellar populations billions of years old — the product of an early burst of star formation followed by a long, quiet retirement. Unlike the vibrant, star-forming spiral galaxies, ellipticals have used up most of their gas and dust, leaving behind a sedate population of aging red and yellow stars.</p>
+          <p>First classified by Edwin Hubble in the 1920s, elliptical galaxies occupy the left side of his famous "tuning fork" diagram, labeled E0 (nearly spherical) through E7 (most elongated). Despite their apparently simple structure, ellipticals span an extraordinary range of sizes — from compact dwarf ellipticals containing just a few million stars to cD giants like IC 1101 that dwarf entire galaxy clusters, spanning millions of light-years.</p>
+          <p>What ellipticals lack in visual drama they make up for in scientific importance. They host the universe's most massive supermassive black holes, the hottest intracluster gas, and the strongest gravitational lenses. The 2019 Event Horizon Telescope image of M87's central black hole — the first direct image of a black hole — came from one of the most prominent elliptical galaxies in the Virgo Cluster.</p>
+          <p>Understanding elliptical galaxies means understanding how galaxies age, merge, and ultimately cease forming new stars — a process called "quenching" that is central to galaxy evolution theory.</p>
+        </section>
+
+        <section id="characteristics" class="content-section">
+          <h2>Structure and Properties</h2>
+          <p>Elliptical galaxies are structurally simpler than spirals but far more diverse in their physical properties. Their smooth, diffuse appearance conceals a rich internal structure that requires careful analysis to reveal.</p>
+          <div class="info-box glass">
+            <h3>Elliptical Galaxy Quick Facts</h3>
+            <ul>
+              <li><strong>Shape Classification:</strong> E0 (spherical) to E7 (most elongated)</li>
+              <li><strong>Stellar Population:</strong> Predominantly old, red-yellow (Population II)</li>
+              <li><strong>Star Formation:</strong> Minimal to none</li>
+              <li><strong>Gas & Dust:</strong> Very little cold gas; hot X-ray gas in giants</li>
+              <li><strong>Size Range:</strong> ~1,000 to 6,000,000+ light-years</li>
+              <li><strong>Nearest Giant:</strong> M87 in Virgo Cluster — 53 million light-years</li>
+            </ul>
+          </div>
+          <p class="data-source">Data: <a href="https://science.nasa.gov/universe/galaxies/" target="_blank" rel="noopener noreferrer">NASA Galaxies</a></p>
+          <h3>Stellar Populations and Colors</h3>
+          <p>The dominant stellar populations in elliptical galaxies formed very early — most of their stars are 10–12 billion years old, comparable to the age of the universe. These old stars are predominantly red giants and main-sequence stars of spectral types K and M, giving ellipticals their characteristic reddish-yellow color. The absence of hot, blue OB stars indicates that no significant star formation has occurred in billions of years.</p>
+          <h3>Dark Matter and X-ray Halos</h3>
+          <p>Giant elliptical galaxies are enveloped in enormous dark matter halos that can extend to millions of light-years. They are also surrounded by hot, diffuse gas heated to millions of degrees and visible in X-rays — the intracluster medium that pervades galaxy clusters. The X-ray luminosity of large ellipticals can rival that of entire galaxy clusters. This hot gas reservoir is one reason ellipticals struggle to form new stars: the gas is too hot to cool and collapse into star-forming clouds.</p>
+          <h3>Central Black Holes</h3>
+          <p>All sufficiently large elliptical galaxies contain supermassive black holes at their centers, and the black hole mass correlates tightly with the galaxy's stellar velocity dispersion (the M-σ relation). This tight correlation suggests that the growth of the black hole and the galaxy are intimately linked — possibly through AGN feedback, where jets and winds from the black hole heat the surrounding gas, preventing further star formation and regulating the galaxy's own growth.</p>
+        </section>
+
+        <section id="evolution" class="content-section">
+          <h2>Formation and Evolution</h2>
+          <p>The origin of elliptical galaxies remains an active area of research, but the current consensus favors a hierarchical formation scenario in which most ellipticals grew through mergers of smaller galaxies over cosmic time.</p>
+          <h3>Major Mergers</h3>
+          <p>When two disk galaxies of comparable mass collide, their ordered rotation is destroyed by gravitational tidal forces. Stars scatter into random orbits, converting the kinetic energy of rotation into velocity dispersion — the hallmark of elliptical galaxy kinematics. Gas is funneled to the center, triggering a brief but intense starburst that exhausts remaining fuel. Simulations show that such major mergers can reproduce the observed properties of elliptical galaxies remarkably well.</p>
+          <h3>Quenching and AGN Feedback</h3>
+          <p>Once a galaxy's gas supply is exhausted and its stars become red and old, star formation switches off — a process called quenching. AGN feedback from the central supermassive black hole plays a crucial role: as the black hole accretes matter, it drives powerful jets and winds that heat the surrounding gas to millions of degrees, preventing it from cooling and forming new stars. This self-regulating feedback loop is thought to be why many massive galaxies stopped forming stars around 8–10 billion years ago.</p>
+          <h3>Dry Mergers and Growth Since z=1</h3>
+          <p>Since most gas was consumed early, later mergers between evolved ellipticals are "dry" — lacking gas and therefore not triggering new star formation. These dry mergers grow elliptical galaxies in size and mass without significantly changing their stellar populations. Giant ellipticals at the centers of clusters have grown enormously through such mergers over the past several billion years, consuming dozens of smaller galaxies through tidal stripping and cannibalism.</p>
+        </section>
+
+        <section id="observation" class="content-section">
+          <h2>Notable Elliptical Galaxies</h2>
+          <p><strong>M87 (Virgo A):</strong> The giant elliptical at the heart of the Virgo Cluster, 53 million light-years away. M87 hosts a 6.5 billion solar mass black hole whose shadow was imaged by the Event Horizon Telescope in 2019. It also drives a spectacular relativistic jet 5,000 light-years long, visible in radio, optical, and X-ray wavelengths. M87 can be detected through a small telescope as a bright fuzzy blob in Virgo.</p>
+          <p><strong>M60 (NGC 4649):</strong> A massive elliptical interacting with the spiral galaxy NGC 4647 in the Virgo Cluster. M60 contains one of the densest collections of globular clusters known — over 5,000 in its halo. Its central black hole has a mass of about 4.5 billion solar masses.</p>
+          <p><strong>NGC 1052:</strong> A relatively nearby E4 elliptical at 60 million light-years in Cetus, known for being one of the first galaxies to have its AGN radio jet resolved. Two companion galaxies, NGC 1052-DF2 and NGC 1052-DF4, made news as apparent dark-matter-free galaxies, though this remains debated.</p>
+          <p><strong>IC 1101:</strong> One of the largest known galaxies in the universe, located about 1 billion light-years away at the center of the Abell 2029 cluster. This cD supergiant spans approximately 6 million light-years and contains an estimated 100 trillion stars. It has grown so large by consuming countless smaller galaxies over billions of years.</p>
+          <p><strong>Centaurus A (NGC 5128):</strong> The nearest giant elliptical at 13 million light-years, notable for its dramatic dark dust lane (the remnant of a merged spiral) and powerful radio jets from its active nucleus. Centaurus A is the fifth-brightest galaxy in the sky and a premier radio galaxy, visible through a small telescope.</p>
+        </section>
+
+        <section id="facts" class="content-section">
+          <h2>Interesting Facts About Elliptical Galaxies</h2>
+          <ul class="facts-list">
+            <li><strong>Stellar Velocity Dispersion:</strong> Unlike spiral galaxies where stars orbit in an ordered disk, stars in ellipticals move on randomly oriented orbits with a wide distribution of velocities — a property called velocity dispersion. This random motion is what supports the galaxy against gravitational collapse. Measuring velocity dispersion is how astronomers determine elliptical galaxy masses.</li>
+            <li><strong>The Red Sequence:</strong> In color-magnitude diagrams of galaxies, ellipticals cluster along a "red sequence" — a tight relation between color and luminosity. The brightest ellipticals are redder, reflecting more complete quenching of star formation. This sequence contrasts with the "blue cloud" of star-forming spiral galaxies. The so-called "green valley" between them contains transitional galaxies in the process of quenching.</li>
+            <li><strong>Globular Cluster Systems:</strong> Giant elliptical galaxies are surrounded by spectacular systems of globular clusters — often tens of thousands of them. The number of globular clusters correlates with galaxy mass and is thought to reflect the intensity of early star formation and subsequent accretion of smaller galaxies. M87 has over 12,000 globular clusters.</li>
+            <li><strong>Boxy vs. Disky Ellipticals:</strong> When elliptical galaxy isophotes (contours of equal brightness) deviate slightly from perfect ellipses, they can be "boxy" or "disky." Boxy ellipticals tend to be more massive, formed through major mergers, and often have AGN jets. Disky ellipticals are typically less massive, may retain some rotation, and are thought to form through minor mergers with smaller satellites. This subtle difference encodes the assembly history.</li>
+            <li><strong>Fossil Groups:</strong> Some elliptical galaxies are surrounded by an extended X-ray halo that once surrounded an entire group of galaxies. These "fossil galaxy groups" formed when the dominant galaxy consumed all its companions. The extended X-ray emission is the relic of the group's hot intracluster gas, now orbiting a single massive elliptical at the center.</li>
+            <li><strong>Gravitational Lenses:</strong> Giant elliptical galaxies are the universe's most powerful gravitational lenses. Their enormous mass bends light from background objects, creating spectacular arcs, Einstein rings, and multiple images. The Hubble Space Telescope has used clusters of ellipticals as "cosmic zoom lenses" to study galaxies too faint to observe directly, revealing the very early universe in unprecedented detail.</li>
+            <li><strong>Intracluster Stars:</strong> Giant ellipticals at cluster centers are often surrounded by a diffuse population of stars not gravitationally bound to any individual galaxy — the intracluster stellar population, stripped from smaller galaxies by tidal forces. This diffuse starlight can contribute 10–50% of a cluster's total optical luminosity.</li>
+            <li><strong>Two-Phase Formation:</strong> Modern simulations suggest elliptical galaxies formed in two phases. The compact core formed early (z>2), consuming most available gas in a rapid starburst. Then the galaxy grew in size (but not much in mass) over the past 8 billion years through minor dry mergers that deposited stars preferentially in the outer regions. This explains why nearby ellipticals are much larger than their high-redshift counterparts of similar mass.</li>
+          </ul>
+        </section>
+
+        <section id="resources" class="content-section">
+          <h2>External Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://science.nasa.gov/universe/galaxies/" target="_blank" rel="noopener">NASA Galaxies</a> — NASA overview of galaxy types including ellipticals</li>
+            <li><a href="https://www.esa.int/Science_Exploration/Space_Science/Hubble_observes_the_heart_of_the_Virgo_Cluster" target="_blank" rel="noopener">ESA: Virgo Cluster</a> — Hubble observations of M87 and the Virgo Cluster's elliptical galaxies</li>
+            <li><a href="https://en.wikipedia.org/wiki/Elliptical_galaxy" target="_blank" rel="noopener">Elliptical Galaxy on Wikipedia</a> — Detailed overview of classification, properties, and formation theories</li>
+            <li><a href="https://eventhorizontelescope.org/" target="_blank" rel="noopener">Event Horizon Telescope</a> — The project that imaged M87's supermassive black hole</li>
+          </ul>
+        </section>
+
+        <section id="faq" class="content-section faq-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqData.map((item) => (
+              <details class="faq-item">
+                <summary class="faq-question">{item.question}</summary>
+                <div class="faq-answer">
+                  <p set:html={item.answer}></p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </article>
+</MainLayout>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    const progressBar = document.getElementById('progressBar');
+    if (progressBar) progressBar.style.width = scrollPercent + '%';
+  });
+  const sections = document.querySelectorAll('.content-section');
+  const tocLinks = document.querySelectorAll('.toc a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0% -70% 0%' });
+  sections.forEach(section => observer.observe(section));
+</script>
+
+<style>
+  .progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: rgba(255,255,255,0.1); z-index: 1000; }
+  .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-blue)); transition: width 0.1s ease-out; }
+  .hero { position: relative; min-height: 60vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .hero-image { position: absolute; inset: 0; z-index: 0; }
+  .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.9) 100%); }
+  .hero-content { position: relative; z-index: 1; text-align: center; padding: var(--space-xl); }
+  .hero h1 { font-family: var(--font-heading); font-size: clamp(2.5rem,6vw,4.5rem); font-weight: 700; margin-bottom: var(--space-sm); text-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+  .hero-subtitle { font-size: clamp(1.25rem,3vw,1.75rem); color: var(--color-accent-cyan); font-weight: 500; }
+  .breadcrumbs { margin-bottom: var(--space-lg); }
+  .breadcrumbs ol { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; list-style: none; padding: 0; margin: 0; font-size: 0.9rem; }
+  .breadcrumbs li { display: flex; align-items: center; gap: 0.5rem; }
+  .breadcrumbs li:not(:last-child)::after { content: '\203a'; color: var(--color-text-secondary); }
+  .breadcrumbs a { color: var(--color-text-secondary); text-decoration: none; transition: color 0.2s ease; }
+  .breadcrumbs a:hover { color: var(--color-accent-cyan); }
+  .breadcrumbs li[aria-current="page"] { color: var(--color-text-primary); }
+  .content-wrapper { padding: var(--space-2xl) 0; }
+  .article-layout { display: grid; grid-template-columns: 1fr; max-width: 1200px; margin: 0 auto; padding: 0 var(--space-md); gap: var(--space-xl); }
+  @media (min-width: 1024px) { .article-layout { grid-template-columns: 220px 1fr; gap: var(--space-2xl); } }
+  .toc-sidebar { display: none; }
+  @media (min-width: 1024px) { .toc-sidebar { display: block; } .toc { position: sticky; top: calc(var(--space-xl) + 3px); max-height: calc(100vh - var(--space-2xl)); overflow-y: auto; } }
+  .toc h2 { font-family: var(--font-heading); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-md); color: var(--color-text-secondary); }
+  .toc ol { list-style: none; padding: 0; margin: 0; }
+  .toc li { margin-bottom: 0.25rem; }
+  .toc a { display: block; padding: 0.5rem 0; padding-left: var(--space-sm); color: var(--color-text-secondary); text-decoration: none; font-size: 0.9rem; border-left: 2px solid transparent; transition: all 0.2s ease; }
+  .toc a:hover { color: var(--color-text-primary); border-left-color: rgba(6,182,212,0.5); }
+  .toc a.active { color: var(--color-accent-cyan); border-left-color: var(--color-accent-cyan); }
+  .main-content { max-width: 800px; }
+  .answer-capsule { display: flex; gap: var(--space-md); padding: var(--space-lg); margin-bottom: var(--space-2xl); background: linear-gradient(135deg, rgba(6,182,212,0.1) 0%, rgba(59,130,246,0.1) 100%); border: 1px solid rgba(6,182,212,0.2); border-radius: var(--radius-lg); position: relative; overflow: hidden; }
+  .answer-capsule::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at top left, rgba(6,182,212,0.15) 0%, transparent 50%); pointer-events: none; }
+  .capsule-icon { flex-shrink: 0; width: 40px; height: 40px; color: var(--color-accent-cyan); opacity: 0.8; }
+  .capsule-icon svg { width: 100%; height: 100%; }
+  .answer-capsule p { margin: 0; font-size: 1.1rem; line-height: 1.7; color: var(--color-text-primary); position: relative; }
+  .content-section { margin-bottom: var(--space-2xl); }
+  .content-section h2 { font-family: var(--font-heading); font-size: clamp(1.75rem,4vw,2.25rem); margin-bottom: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 2px solid rgba(6,182,212,0.3); color: var(--color-text-primary); }
+  .content-section h3 { font-family: var(--font-heading); font-size: clamp(1.25rem,3vw,1.5rem); margin-top: var(--space-xl); margin-bottom: var(--space-md); color: var(--color-accent-cyan); }
+  .content-section p { font-size: 1.1rem; line-height: 1.8; color: var(--color-text-secondary); margin-bottom: var(--space-md); }
+  .content-section ul, .content-section ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+  .content-section li { font-size: 1.05rem; line-height: 1.7; color: var(--color-text-secondary); margin-bottom: 0.5rem; }
+  .info-box { padding: var(--space-lg); margin: var(--space-lg) 0; }
+  .info-box h3 { margin-top: 0; font-size: 1.1rem; color: var(--color-accent-blue); }
+  .info-box ul { margin: 0; padding-left: var(--space-md); }
+  .info-box li { font-size: 1rem; margin-bottom: 0.4rem; }
+  .data-source { font-size: 0.8rem; color: var(--color-text-secondary); opacity: 0.7; margin-top: -0.5rem; margin-bottom: var(--space-lg); }
+  .data-source a { color: var(--color-accent-cyan); }
+  .facts-list { list-style: none; padding: 0; }
+  .facts-list li { padding: var(--space-md) 0; border-bottom: 1px solid rgba(148,163,184,0.1); }
+  .facts-list li:last-child { border-bottom: none; }
+  .resource-list { list-style: none; padding: 0; }
+  .resource-list li { padding: var(--space-sm) 0; border-bottom: 1px solid rgba(148,163,184,0.1); }
+  .resource-list li:last-child { border-bottom: none; }
+  .resource-list a { color: var(--color-accent-cyan); font-weight: 500; }
+  .faq-section { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid rgba(148,163,184,0.1); }
+  .faq-list { display: flex; flex-direction: column; gap: var(--space-sm); }
+  .faq-item { background: var(--glass-bg); border: var(--glass-border); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.3s ease; }
+  .faq-item[open] { background: rgba(6,182,212,0.05); border-color: rgba(6,182,212,0.2); }
+  .faq-question { padding: var(--space-md) var(--space-lg); cursor: pointer; font-size: 1.1rem; font-weight: 500; color: var(--color-text-primary); list-style: none; display: flex; justify-content: space-between; align-items: center; transition: color 0.2s ease; }
+  .faq-question::-webkit-details-marker { display: none; }
+  .faq-question::after { content: '+'; font-size: 1.5rem; font-weight: 300; color: var(--color-accent-cyan); transition: transform 0.3s ease; }
+  .faq-item[open] .faq-question::after { transform: rotate(45deg); }
+  .faq-question:hover { color: var(--color-accent-cyan); }
+  .faq-answer { padding: 0 var(--space-lg) var(--space-lg); }
+  .faq-answer p { margin: 0; font-size: 1rem; line-height: 1.7; color: var(--color-text-secondary); }
+  .glass { background: var(--glass-bg); border: var(--glass-border); border-radius: var(--radius-lg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); }
+  @media (max-width: 768px) { .hero { min-height: 50vh; } .hero-content { padding: var(--space-lg); } .article-layout { padding: 0 var(--space-sm); } .answer-capsule { flex-direction: column; align-items: flex-start; } .capsule-icon { width: 32px; height: 32px; } }
+</style>

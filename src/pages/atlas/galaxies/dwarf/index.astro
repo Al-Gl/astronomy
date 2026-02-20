@@ -1,0 +1,297 @@
+---
+import MainLayout from '../../../../layouts/MainLayout.astro';
+import Schema from '../../../../components/Schema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cosmic Atlas', url: '/atlas/' },
+  { name: 'Galaxies', url: '/atlas/galaxies/' },
+  { name: 'Dwarf Galaxies', url: '/atlas/galaxies/dwarf/' }
+];
+
+const articleData = {
+  headline: 'Dwarf Galaxies: The Universe\'s Most Common Galaxies',
+  description: 'Complete guide to dwarf galaxies — their types, dark matter content, role as galaxy satellites, and why these small systems are crucial to cosmology.',
+  datePublished: '2026-02-19',
+  dateModified: '2026-02-19',
+  author: 'The Astronomy Space',
+  image: '/images/Hero_dwarf.jpg',
+  keywords: ['dwarf galaxies', 'dwarf elliptical', 'dwarf spheroidal', 'Sagittarius Dwarf', 'dark matter', 'Magellanic Clouds', 'Local Group']
+};
+
+const faqData = [
+  {
+    question: 'What is a dwarf galaxy?',
+    answer: 'A dwarf galaxy is a small galaxy containing anywhere from a few thousand to a few billion stars — far fewer than the hundreds of billions in a large galaxy like the Milky Way. Dwarf galaxies are the most common type of galaxy in the universe, and most large galaxies have multiple dwarf satellites orbiting them. They come in several subtypes: dwarf ellipticals (dE), dwarf spheroidals (dSph), dwarf irregulars (dIrr), and ultra-faint dwarfs (UFDs), each with different structural and stellar properties.'
+  },
+  {
+    question: 'Why are dwarf galaxies important to cosmology?',
+    answer: 'Dwarf galaxies are key cosmological probes for several reasons. They are the most dark-matter-dominated systems known — some dwarf spheroidals have mass-to-light ratios hundreds of times that of the Sun, meaning dark matter vastly outweighs their visible stars. This makes them ideal laboratories for measuring dark matter properties. Additionally, the number and distribution of dwarf satellite galaxies around the Milky Way is a critical test of cosmological models. The observed number of Milky Way satellites was long lower than Lambda-CDM predictions (the "missing satellites problem"), driving research into how galaxy formation suppresses dwarf galaxy formation.'
+  },
+  {
+    question: 'What is the Sagittarius Dwarf Galaxy?',
+    answer: 'The Sagittarius Dwarf Spheroidal Galaxy is a small satellite galaxy of the Milky Way discovered in 1994 by Ibata, Gilmore, and Irwin. Despite being one of our nearest galactic neighbors at about 70,000 light-years, it was discovered so late because it lies almost directly behind the galactic center. It is in the process of being tidally disrupted by the Milky Way — its stars have been stretched into a stream that wraps around the entire sky multiple times. The Sagittarius Stream contains several globular clusters and has been incorporated into the Milky Way\'s disk over billions of years.'
+  },
+  {
+    question: 'How many dwarf galaxies orbit the Milky Way?',
+    answer: 'As of 2025, over 60 dwarf satellite galaxies have been confirmed around the Milky Way, with new ultra-faint systems still being discovered through deep photometric surveys like the Dark Energy Survey (DES) and the Vera C. Rubin Observatory\'s LSST. The Large and Small Magellanic Clouds are the most massive and well-known satellites. Smaller systems include Sculptor, Fornax, Carina, Sextans, Ursa Minor, and dozens of ultra-faint dwarfs containing only a few thousand stars.'
+  },
+  {
+    question: 'Do dwarf galaxies contain black holes?',
+    answer: 'Yes — some dwarf galaxies contain intermediate-mass black holes (IMBHs) with masses of thousands to millions of solar masses, though detections remain rare and controversial. The dwarf Seyfert galaxy NGC 4395 has one of the lowest-mass confirmed active galactic nuclei, with a black hole of only about 300,000 solar masses. Finding IMBHs in dwarf galaxies is important because they may represent the "seeds" from which supermassive black holes in larger galaxies grew through mergers and accretion.'
+  },
+  {
+    question: 'What is the difference between a dwarf elliptical and a dwarf spheroidal?',
+    answer: 'Dwarf elliptical galaxies (dE) are small ellipticals typically found near large galaxies. They are brighter than dwarf spheroidals, show a more defined surface brightness profile, and may contain some gas and active star formation. Dwarf spheroidals (dSph) are fainter, more diffuse, almost completely gas-free, and have the highest dark matter fractions of any galaxy type. The boundary between the two types is somewhat arbitrary and historical; modern studies often treat them as a continuum. Ultra-faint dwarfs (UFDs) are the extreme low-luminosity tail of dwarf spheroidals, containing only a few hundred to a few thousand stars.'
+  },
+  {
+    question: 'Can dwarf galaxies host life?',
+    answer: 'Dwarf irregular galaxies are generally metal-poor (low in heavy elements like carbon and oxygen) compared to larger galaxies, which might affect the development of rocky planets and life. However, some dwarf galaxies do contain regions of higher metallicity, and there is no fundamental barrier to planet formation in a dwarf galaxy. Life as we know it requires heavy elements synthesized in stars, so the most ancient, pristine dwarf spheroidals — dominated by stars formed 12+ billion years ago from near-primordial gas — are probably the least hospitable environments for Earth-like life.'
+  }
+];
+---
+
+<MainLayout
+  title='Dwarf Galaxies: The Universe\'s Most Common Galaxies | The Astronomy Space'
+  description='Complete guide to dwarf galaxies — types, dark matter dominance, role as Milky Way satellites, and their importance for cosmological models of galaxy formation.'
+>
+  <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
+  <Schema type="TechArticle" article={articleData} />
+  <Schema type="FAQPage" faq={faqData} />
+
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-image">
+      <img src="/images/Hero_dwarf.jpg" alt="Dwarf galaxy — small diffuse stellar system" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/atlas/">Cosmic Atlas</a></li>
+          <li><a href="/atlas/galaxies/">Galaxies</a></li>
+          <li aria-current="page">Dwarf Galaxies</li>
+        </ol>
+      </nav>
+      <h1>Dwarf Galaxies</h1>
+      <p class="hero-subtitle">The Universe's Most Common Galaxies</p>
+    </div>
+  </section>
+
+  <article class="content-wrapper">
+    <div class="article-layout">
+
+      <aside class="toc-sidebar">
+        <nav class="toc" aria-label="Table of Contents">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#characteristics">Types & Properties</a></li>
+            <li><a href="#evolution">Dark Matter & Cosmology</a></li>
+            <li><a href="#observation">Notable Examples</a></li>
+            <li><a href="#facts">Interesting Facts</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <div class="main-content">
+
+        <aside class="answer-capsule">
+          <div class="capsule-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <p>Dwarf galaxies are the most numerous galaxy type in the universe, containing from a few thousand to a few billion stars. They orbit larger galaxies as satellites and are the most dark-matter-dominated systems known. Their study is critical for testing cosmological models and understanding how galaxies form and evolve.</p>
+        </aside>
+
+        <section id="intro" class="content-section">
+          <h2>Introduction to Dwarf Galaxies</h2>
+          <p>In a universe populated by cosmic giants — sprawling spirals and massive ellipticals containing hundreds of billions of stars — dwarf galaxies might seem insignificant. But these small, often faint systems are arguably the most scientifically important objects in extragalactic astronomy. They are the most numerous galaxy type in the universe, the most dark-matter-dominated systems known, and key building blocks from which larger galaxies have assembled over cosmic time.</p>
+          <p>Dwarf galaxies range from the familiar — the Large and Small Magellanic Clouds, visible to the naked eye from the southern hemisphere — to the vanishingly faint ultra-faint dwarfs detected only recently through the statistical overdensity of a few hundred stars on a patch of the sky. They orbit larger galaxies as satellites, pepper the voids between galaxy groups, and provided the raw material from which the Milky Way and Andromeda grew through mergers and accretion.</p>
+          <p>One of the most powerful applications of dwarf galaxy science is dark matter detection. Because dwarfs have so few stars and so much dark matter, they are the cleanest environments for measuring the dark matter distribution. The Fermi Gamma-ray Space Telescope has used dwarf spheroidal galaxies as primary targets for detecting gamma-ray signals that might betray the self-annihilation of dark matter particles.</p>
+          <p>New discoveries in this field arrive regularly. Modern all-sky photometric surveys continue to uncover previously unknown ultra-faint satellite galaxies of the Milky Way, with some systems containing fewer stars than a typical globular cluster. Each discovery refines our understanding of galaxy formation at the smallest scales.</p>
+        </section>
+
+        <section id="characteristics" class="content-section">
+          <h2>Types and Properties</h2>
+          <p>Dwarf galaxies come in several morphological subtypes, each reflecting different evolutionary histories and environments.</p>
+          <div class="info-box glass">
+            <h3>Dwarf Galaxy Quick Facts</h3>
+            <ul>
+              <li><strong>Stellar Mass:</strong> 10³ to 10⁹ solar masses (vs. ~10¹¹ for Milky Way)</li>
+              <li><strong>Dark Matter Fraction:</strong> Highest of any galaxy type (up to 99%+)</li>
+              <li><strong>Main Types:</strong> dE, dSph, dIrr, BCD, ultra-faint dwarfs</li>
+              <li><strong>Total in Local Group:</strong> ~70+ known, likely hundreds to thousands total</li>
+              <li><strong>Nearest Example:</strong> Sagittarius Dwarf (~70,000 ly)</li>
+              <li><strong>Most Luminous Satellite:</strong> Large Magellanic Cloud</li>
+            </ul>
+          </div>
+          <p class="data-source">Data: <a href="https://science.nasa.gov/universe/galaxies/" target="_blank" rel="noopener noreferrer">NASA Galaxies</a></p>
+          <h3>Dwarf Ellipticals and Spheroidals</h3>
+          <p>Dwarf elliptical (dE) and dwarf spheroidal (dSph) galaxies are the most common satellites of large galaxies. They are smooth, diffuse systems with old stellar populations, very little gas, and no ongoing star formation. Dwarf spheroidals are the most extreme: some contain only a few thousand stars spread over hundreds of light-years, making them less centrally concentrated than a typical globular cluster. Their mass-to-light ratios — the ratio of total mass (dominated by dark matter) to stellar luminosity — can exceed 1,000, making them the most dark-matter-dominated objects known in the universe.</p>
+          <h3>Dwarf Irregular Galaxies</h3>
+          <p>Dwarf irregular galaxies (dIrr) are gas-rich, star-forming systems. Unlike dwarf spheroidals, they are not satellite galaxies of massive hosts and have not been stripped of their gas. The Magellanic Clouds are the most prominent examples. Dwarf irregulars are often metal-poor and may represent the closest analogues to the small galaxies that populated the early universe.</p>
+          <h3>Blue Compact Dwarfs</h3>
+          <p>Blue compact dwarf galaxies (BCDs) are small but undergoing intense, concentrated star formation. They appear blue because of their young stellar populations and are among the most chemically primitive galaxies known. They are thought to represent dwarf irregular galaxies in a brief phase of heightened star formation, possibly triggered by a minor interaction with another system.</p>
+        </section>
+
+        <section id="evolution" class="content-section">
+          <h2>Dark Matter and Cosmological Significance</h2>
+          <p>Dwarf galaxies sit at the intersection of galaxy formation and cosmology. Their properties provide some of the most stringent tests of the standard Lambda cold dark matter (ΛCDM) cosmological model.</p>
+          <h3>Missing Satellites Problem</h3>
+          <p>ΛCDM simulations predict that a galaxy like the Milky Way should have hundreds to thousands of dark matter subhalos — satellite dark matter clumps — orbiting it. Yet we observe only about 60 confirmed satellite galaxies. This discrepancy, the "missing satellites problem," is thought to be resolved by baryonic physics: reionization heating and supernova-driven winds suppress star formation in the smallest subhalos, leaving them as "dark" halos with no visible stars. Only the most massive subhalos manage to retain enough gas to form dwarf galaxies.</p>
+          <h3>Too-Big-to-Fail Problem</h3>
+          <p>A related tension: the most massive subhalos in ΛCDM simulations are denser in their cores than observed dwarf galaxies. The predicted subhalos are "too big to fail" at forming stars, yet are not observed. This may indicate that dark matter self-interaction, or more efficient baryonic feedback (supernova winds blowing out mass and lowering the central density), modifies the predicted density profiles.</p>
+          <h3>Dark Matter Detection Target</h3>
+          <p>Dwarf spheroidal galaxies are primary targets for indirect dark matter detection via gamma rays. Because they have large dark matter fractions and virtually no astrophysical gamma-ray background, any observed excess gamma radiation could indicate dark matter annihilation or decay. The Fermi-LAT telescope has placed some of the tightest constraints on dark matter properties from stacked analyses of dozens of dwarf spheroidals.</p>
+        </section>
+
+        <section id="observation" class="content-section">
+          <h2>Notable Dwarf Galaxies</h2>
+          <p><strong>Sagittarius Dwarf Spheroidal:</strong> Discovered in 1994, this satellite at ~70,000 light-years is being tidally disrupted by the Milky Way. Its stars form a stream wrapping multiple times around the sky, and it has contributed globular clusters to the Milky Way including M54, which lies at its core.</p>
+          <p><strong>Sculptor Dwarf:</strong> At about 280,000 light-years, the Sculptor dwarf spheroidal is one of the best-studied examples of an extremely dark-matter-dominated system. It has a mass-to-light ratio of about 160 and was among the first dwarfs used to constrain dark matter annihilation cross-sections.</p>
+          <p><strong>Fornax Dwarf:</strong> One of the largest dwarf spheroidals in the Local Group, at about 460,000 light-years. The Fornax dwarf is unusual for its population of 6 confirmed globular clusters — most comparable dwarfs have none. It may also contain a central dark matter core rather than a cusp, a key test of dark matter particle properties.</p>
+          <p><strong>Leo I and Leo II:</strong> Two dwarf spheroidals at about 820,000 and 690,000 light-years respectively. Leo I is one of the youngest dwarfs in terms of its stellar population, having formed stars as recently as 1 billion years ago — unusual for a satellite so deep in the Milky Way's potential well.</p>
+          <p><strong>WLM Galaxy (Wolf-Lundmark-Melotte):</strong> An isolated dwarf irregular at the edge of the Local Group (3 million light-years), not a satellite of either the Milky Way or Andromeda. WLM provides a clean look at a dwarf irregular in an undisturbed environment, making it a valuable comparison object for understanding environmental effects.</p>
+        </section>
+
+        <section id="facts" class="content-section">
+          <h2>Interesting Facts About Dwarf Galaxies</h2>
+          <ul class="facts-list">
+            <li><strong>Ultra-Faint Records:</strong> The faintest known galaxies are ultra-faint dwarf spheroidals like Segue 1 (luminosity ~340 L☉ — less than some individual giant stars) and Willman 1. These systems straddle the boundary between a galaxy and a globular cluster, distinguished primarily by their extended dark matter halos and chemical abundance spreads suggesting multiple epochs of star formation.</li>
+            <li><strong>Fossil Galaxies:</strong> Some dwarf spheroidals are "fossils" of the epoch of reionization — they formed most of their stars in the first billion years of the universe and were then quenched when the UV radiation from the first quasars ionized all remaining gas. They contain the oldest and most metal-poor stars accessible to detailed study, providing a fossil record of early universe nucleosynthesis.</li>
+            <li><strong>Galactic Building Blocks:</strong> In hierarchical galaxy formation, large galaxies like the Milky Way grew by merging with and accreting smaller galaxies over billions of years. The Milky Way's stellar halo — the diffuse population of stars surrounding the disk — is thought to be composed largely of stars stripped from accreted dwarf galaxies. Chemical and kinematic studies of halo stars can identify these ancient merger events.</li>
+            <li><strong>Galaxy Groups in Miniature:</strong> Just as the Milky Way has its own collection of dwarf satellites, the Andromeda Galaxy (M31) has an even larger retinue of dwarf companions. M31's satellite system includes at least 35 confirmed dwarf galaxies, arranged partly in a "Great Plane of Andromeda" — a thin planar structure whose origin (accretion along a cosmic filament, or a past group infall) is still debated.</li>
+            <li><strong>Tidal Streams:</strong> As dwarf satellites orbit larger galaxies, tidal forces continuously strip stars from their outer regions, creating stellar streams that trace the satellite's orbital history. The Milky Way is encircled by dozens of such streams detected in photometric surveys. These streams can be used to map the Milky Way's gravitational potential — and constrain the distribution of dark matter in its halo.</li>
+            <li><strong>Star Formation in Dwarfs:</strong> The star formation histories of dwarf galaxies are extraordinarily diverse. Some dwarfs formed all their stars 12 billion years ago and have been quiescent ever since. Others, like the Magellanic Clouds, continue to form stars actively. And some, like Carina, show evidence for several distinct bursts of star formation separated by long quiet periods — a "bursty" history perhaps driven by tidal encounters or feedback from their own supernovae.</li>
+            <li><strong>New Discoveries:</strong> The Vera C. Rubin Observatory (LSST), now coming online, is expected to discover hundreds of new ultra-faint dwarf galaxies around the Milky Way and throughout the Local Volume. These discoveries will dramatically improve the census of dwarf satellites and provide new cosmological constraints on dark matter substructure on the smallest scales.</li>
+            <li><strong>Dwarf-Dwarf Interactions:</strong> Dwarf galaxies can interact with each other, not just with larger hosts. The Large and Small Magellanic Clouds are themselves in orbit around each other as well as around the Milky Way, and their past interactions have shaped both galaxies' structures and triggered star formation episodes — particularly the unusually intense Tarantula Nebula star-forming region in the LMC.</li>
+          </ul>
+        </section>
+
+        <section id="resources" class="content-section">
+          <h2>External Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://science.nasa.gov/universe/galaxies/" target="_blank" rel="noopener">NASA Galaxies</a> — NASA overview including dwarf and satellite galaxies</li>
+            <li><a href="https://en.wikipedia.org/wiki/Dwarf_galaxy" target="_blank" rel="noopener">Dwarf Galaxy on Wikipedia</a> — Comprehensive article on types, properties, and dark matter</li>
+            <li><a href="https://en.wikipedia.org/wiki/Sagittarius_Dwarf_Spheroidal_Galaxy" target="_blank" rel="noopener">Sagittarius Dwarf Galaxy</a> — The tidally disrupted satellite being absorbed by the Milky Way</li>
+            <li><a href="https://www.sdss.org/" target="_blank" rel="noopener">Sloan Digital Sky Survey</a> — The survey that discovered dozens of ultra-faint Milky Way satellites</li>
+          </ul>
+        </section>
+
+        <section id="faq" class="content-section faq-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqData.map((item) => (
+              <details class="faq-item">
+                <summary class="faq-question">{item.question}</summary>
+                <div class="faq-answer">
+                  <p set:html={item.answer}></p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </article>
+</MainLayout>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    const progressBar = document.getElementById('progressBar');
+    if (progressBar) progressBar.style.width = scrollPercent + '%';
+  });
+  const sections = document.querySelectorAll('.content-section');
+  const tocLinks = document.querySelectorAll('.toc a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0% -70% 0%' });
+  sections.forEach(section => observer.observe(section));
+</script>
+
+<style>
+  .progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: rgba(255,255,255,0.1); z-index: 1000; }
+  .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-blue)); transition: width 0.1s ease-out; }
+  .hero { position: relative; min-height: 60vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .hero-image { position: absolute; inset: 0; z-index: 0; }
+  .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.9) 100%); }
+  .hero-content { position: relative; z-index: 1; text-align: center; padding: var(--space-xl); }
+  .hero h1 { font-family: var(--font-heading); font-size: clamp(2.5rem,6vw,4.5rem); font-weight: 700; margin-bottom: var(--space-sm); text-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+  .hero-subtitle { font-size: clamp(1.25rem,3vw,1.75rem); color: var(--color-accent-cyan); font-weight: 500; }
+  .breadcrumbs { margin-bottom: var(--space-lg); }
+  .breadcrumbs ol { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; list-style: none; padding: 0; margin: 0; font-size: 0.9rem; }
+  .breadcrumbs li { display: flex; align-items: center; gap: 0.5rem; }
+  .breadcrumbs li:not(:last-child)::after { content: '\203a'; color: var(--color-text-secondary); }
+  .breadcrumbs a { color: var(--color-text-secondary); text-decoration: none; transition: color 0.2s ease; }
+  .breadcrumbs a:hover { color: var(--color-accent-cyan); }
+  .breadcrumbs li[aria-current="page"] { color: var(--color-text-primary); }
+  .content-wrapper { padding: var(--space-2xl) 0; }
+  .article-layout { display: grid; grid-template-columns: 1fr; max-width: 1200px; margin: 0 auto; padding: 0 var(--space-md); gap: var(--space-xl); }
+  @media (min-width: 1024px) { .article-layout { grid-template-columns: 220px 1fr; gap: var(--space-2xl); } }
+  .toc-sidebar { display: none; }
+  @media (min-width: 1024px) { .toc-sidebar { display: block; } .toc { position: sticky; top: calc(var(--space-xl) + 3px); max-height: calc(100vh - var(--space-2xl)); overflow-y: auto; } }
+  .toc h2 { font-family: var(--font-heading); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-md); color: var(--color-text-secondary); }
+  .toc ol { list-style: none; padding: 0; margin: 0; }
+  .toc li { margin-bottom: 0.25rem; }
+  .toc a { display: block; padding: 0.5rem 0; padding-left: var(--space-sm); color: var(--color-text-secondary); text-decoration: none; font-size: 0.9rem; border-left: 2px solid transparent; transition: all 0.2s ease; }
+  .toc a:hover { color: var(--color-text-primary); border-left-color: rgba(6,182,212,0.5); }
+  .toc a.active { color: var(--color-accent-cyan); border-left-color: var(--color-accent-cyan); }
+  .main-content { max-width: 800px; }
+  .answer-capsule { display: flex; gap: var(--space-md); padding: var(--space-lg); margin-bottom: var(--space-2xl); background: linear-gradient(135deg, rgba(6,182,212,0.1) 0%, rgba(59,130,246,0.1) 100%); border: 1px solid rgba(6,182,212,0.2); border-radius: var(--radius-lg); position: relative; overflow: hidden; }
+  .answer-capsule::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at top left, rgba(6,182,212,0.15) 0%, transparent 50%); pointer-events: none; }
+  .capsule-icon { flex-shrink: 0; width: 40px; height: 40px; color: var(--color-accent-cyan); opacity: 0.8; }
+  .capsule-icon svg { width: 100%; height: 100%; }
+  .answer-capsule p { margin: 0; font-size: 1.1rem; line-height: 1.7; color: var(--color-text-primary); position: relative; }
+  .content-section { margin-bottom: var(--space-2xl); }
+  .content-section h2 { font-family: var(--font-heading); font-size: clamp(1.75rem,4vw,2.25rem); margin-bottom: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 2px solid rgba(6,182,212,0.3); color: var(--color-text-primary); }
+  .content-section h3 { font-family: var(--font-heading); font-size: clamp(1.25rem,3vw,1.5rem); margin-top: var(--space-xl); margin-bottom: var(--space-md); color: var(--color-accent-cyan); }
+  .content-section p { font-size: 1.1rem; line-height: 1.8; color: var(--color-text-secondary); margin-bottom: var(--space-md); }
+  .content-section ul, .content-section ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+  .content-section li { font-size: 1.05rem; line-height: 1.7; color: var(--color-text-secondary); margin-bottom: 0.5rem; }
+  .info-box { padding: var(--space-lg); margin: var(--space-lg) 0; }
+  .info-box h3 { margin-top: 0; font-size: 1.1rem; color: var(--color-accent-blue); }
+  .info-box ul { margin: 0; padding-left: var(--space-md); }
+  .info-box li { font-size: 1rem; margin-bottom: 0.4rem; }
+  .data-source { font-size: 0.8rem; color: var(--color-text-secondary); opacity: 0.7; margin-top: -0.5rem; margin-bottom: var(--space-lg); }
+  .data-source a { color: var(--color-accent-cyan); }
+  .facts-list { list-style: none; padding: 0; }
+  .facts-list li { padding: var(--space-md) 0; border-bottom: 1px solid rgba(148,163,184,0.1); }
+  .facts-list li:last-child { border-bottom: none; }
+  .resource-list { list-style: none; padding: 0; }
+  .resource-list li { padding: var(--space-sm) 0; border-bottom: 1px solid rgba(148,163,184,0.1); }
+  .resource-list li:last-child { border-bottom: none; }
+  .resource-list a { color: var(--color-accent-cyan); font-weight: 500; }
+  .faq-section { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid rgba(148,163,184,0.1); }
+  .faq-list { display: flex; flex-direction: column; gap: var(--space-sm); }
+  .faq-item { background: var(--glass-bg); border: var(--glass-border); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.3s ease; }
+  .faq-item[open] { background: rgba(6,182,212,0.05); border-color: rgba(6,182,212,0.2); }
+  .faq-question { padding: var(--space-md) var(--space-lg); cursor: pointer; font-size: 1.1rem; font-weight: 500; color: var(--color-text-primary); list-style: none; display: flex; justify-content: space-between; align-items: center; transition: color 0.2s ease; }
+  .faq-question::-webkit-details-marker { display: none; }
+  .faq-question::after { content: '+'; font-size: 1.5rem; font-weight: 300; color: var(--color-accent-cyan); transition: transform 0.3s ease; }
+  .faq-item[open] .faq-question::after { transform: rotate(45deg); }
+  .faq-question:hover { color: var(--color-accent-cyan); }
+  .faq-answer { padding: 0 var(--space-lg) var(--space-lg); }
+  .faq-answer p { margin: 0; font-size: 1rem; line-height: 1.7; color: var(--color-text-secondary); }
+  .glass { background: var(--glass-bg); border: var(--glass-border); border-radius: var(--radius-lg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); }
+  @media (max-width: 768px) { .hero { min-height: 50vh; } .hero-content { padding: var(--space-lg); } .article-layout { padding: 0 var(--space-sm); } .answer-capsule { flex-direction: column; align-items: flex-start; } .capsule-icon { width: 32px; height: 32px; } }
+</style>

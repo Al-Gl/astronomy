@@ -1,0 +1,733 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import Schema from '../../../components/Schema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cosmic Chronicles', url: '/chronicles/' },
+  { name: 'Stargazing Guides', url: '/chronicles/stargazing/' },
+  { name: 'China', url: '/chronicles/stargazing/china/' }
+];
+
+const articleData = {
+  headline: 'Stargazing in China: Complete Guide to Tibet, Qinghai, and Remote Dark Sky Sites',
+  description: 'Comprehensive guide to stargazing in China. Discover the Tibetan Plateau, Ali Dark Sky Reserve, Qinghai salt lakes, Xinjiang desert skies, and practical planning tips for astronomy across China.',
+  datePublished: '2026-02-19',
+  dateModified: '2026-02-19',
+  author: 'The Astronomy Space',
+  image: '/images/Hero_china.jpg',
+  keywords: [
+    'Stargazing China',
+    'Tibet stargazing',
+    'Ali Dark Sky Reserve',
+    'Qinghai night sky',
+    'Xinjiang astronomy',
+    'Chaka Salt Lake stars',
+    'Tibetan Plateau astronomy',
+    'Milky Way China',
+    'dark sky China',
+    'night sky photography China'
+  ]
+};
+
+const faqData = [
+  {
+    question: 'What permits do I need to stargaze in Tibet?',
+    answer: 'Visiting Tibet requires multiple permits beyond the standard Chinese visa. All foreign visitors need a Tibet Tourism Bureau (TTB) permit, which must be obtained through a licensed Chinese travel agency — independent travel to Tibet is not permitted for foreigners. To reach the Ali (Ngari) Prefecture, which contains the best dark sky sites, you additionally need an Aliens Travel Permit (ATP) and an Ali Military Permit (border permit), as Ali borders India and Nepal. Both additional permits are arranged by your tour operator in Lhasa. The full permit process typically takes 10–15 business days. Costs vary but budget USD 80–150 for permits on top of tour operator fees. Chinese nationals do not require TTB permits but do need ATP permits for border areas including Ali.'
+  },
+  {
+    question: 'When is the best time of year for stargazing in China?',
+    answer: 'The optimal time varies significantly by region. The Tibetan Plateau is best from May through October when roads are accessible and temperatures less extreme, with July–September offering the warmest nights. Qinghai Province is excellent from June to October. Xinjiang (including the Gobi Desert areas) has the best transparency from May through September, avoiding winter sandstorms and extreme cold. Yunnan is accessible year-round with the clearest skies from October to April (dry season). For all regions, plan around new moon for maximum darkness. Avoid China\'s national holidays (Golden Weeks in early October and late January/early February) when tourist destinations fill up dramatically.'
+  },
+  {
+    question: 'How do the Tibetan Plateau\'s dark skies compare to other world-class sites?',
+    answer: 'The Tibetan Plateau is legitimately among the finest stargazing environments on Earth. The Ali (Ngari) region averages 4,500 metres altitude, similar to the summit of Mauna Kea in Hawaii (where major world observatories are located) but spread across thousands of square kilometres rather than a single mountain peak. The combination of extreme altitude, minimal human habitation across a vast area, low humidity, and over 250 clear nights per year creates conditions that rival or exceed those at established observatory sites. Sky surveys report naked-eye limiting magnitudes above +7.5 in Ali on the best nights. By comparison, the best dark-sky sites in Western Europe (such as La Palma) achieve +7.0–7.2; most amateur astronomers rarely observe under skies darker than +6.5.'
+  },
+  {
+    question: 'Can I stargaze in China without speaking Mandarin?',
+    answer: 'In remote stargazing destinations (Tibet, Qinghai, Xinjiang), English is rarely spoken outside upmarket hotels in major cities. For Tibet, your tour operator is legally required to accompany you, so language is generally handled. For independent travel in Qinghai and Xinjiang, prepare offline Mandarin phrasebook apps (Pleco is highly recommended), download offline maps (Apple Maps and Google Maps work offline for navigation; Baidu Maps requires data). Most domestic Chinese train and flight bookings require a Chinese phone number for verification — your licensed tour operator or hotel can often assist. In cities like Xining (Qinghai) or Kashgar (Xinjiang), younger hotel staff sometimes speak basic English.'
+  },
+  {
+    question: 'What is the best location in China for astrophotography?',
+    answer: 'Chaka Salt Lake in Qinghai Province is arguably China\'s most photogenic astrophotography location. The perfectly flat, highly reflective salt crust — covered by a thin layer of water in summer — creates mirror-perfect reflections of the night sky, with the Milky Way appearing both above and below, creating a surreal infinite-space effect. The lake sits at 3,100 metres altitude in a high-altitude basin with minimal nearby settlements. For purely technical dark-sky quality rather than scenic beauty, the Ali (Ngari) plateau in Tibet delivers the finest conditions, with virtually zero light pollution and exceptional transparency. Namtso Lake (4,718 m) combines high altitude, extreme darkness, and a scenic lakeside foreground for compelling landscape astrophotography.'
+  },
+  {
+    question: 'Is altitude sickness a concern for stargazing in Tibet and Qinghai?',
+    answer: 'Yes — altitude sickness is a genuine risk and must be planned for carefully. Lhasa, the starting point for Tibet travel, sits at 3,650 metres — already high enough for mild altitude sickness symptoms in unacclimatised visitors. Most tour operators include a mandatory 2-day acclimatisation period in Lhasa before any further ascent. The route from Lhasa to Ali (Ngari) crosses several passes exceeding 5,000 metres, with the Ali town itself at 4,300 m. Symptoms range from mild headache and fatigue to life-threatening High Altitude Pulmonary Oedema (HAPE) or Cerebral Oedema (HACE). Consult a doctor before travel; Diamox (acetazolamide) starting 24 hours before ascent is widely used preventatively. Carry a portable pulse oximeter (SpO₂ monitor) to track blood oxygen saturation — below 80% at altitude warrants serious attention.'
+  }
+];
+---
+
+<MainLayout
+  title="Stargazing in China: Complete Guide to Tibet, Qinghai & Remote Dark Sky Sites | The Astronomy Space"
+  description="Comprehensive guide to stargazing in China. Discover the Tibetan Plateau, Ali Dark Sky Reserve, Qinghai salt lakes, Xinjiang desert skies, and practical planning tips for astronomy across China."
+>
+  <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
+  <Schema type="TechArticle" article={articleData} />
+  <Schema type="FAQPage" faq={faqData} />
+
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-image">
+      <img src="/images/Hero_china.jpg" alt="Blazing Milky Way galaxy over the vast Tibetan Plateau with snow-capped mountains on the horizon and a nomadic yurt silhouetted in the foreground" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/chronicles/">Cosmic Chronicles</a></li>
+          <li><a href="/chronicles/stargazing/">Stargazing Guides</a></li>
+          <li aria-current="page">China</li>
+        </ol>
+      </nav>
+      <h1>Stargazing in China</h1>
+      <p class="hero-subtitle">A Complete Guide to Tibet, Qinghai, Xinjiang & the Tibetan Plateau</p>
+    </div>
+  </section>
+
+  <div class="content-wrapper">
+    <div class="article-layout">
+      <aside class="toc-sidebar">
+        <nav class="toc" aria-label="Table of Contents">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#tibet">Tibet & Ali Prefecture</a></li>
+            <li><a href="#qinghai">Qinghai Province</a></li>
+            <li><a href="#xinjiang">Xinjiang & Gobi Desert</a></li>
+            <li><a href="#yunnan">Yunnan & Sichuan</a></li>
+            <li><a href="#other-locations">Other Locations</a></li>
+            <li><a href="#timing">Best Times & Seasons</a></li>
+            <li><a href="#equipment">Essential Equipment</a></li>
+            <li><a href="#planning">Planning Your Trip</a></li>
+            <li><a href="#tips">Practical Tips</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+
+        <aside class="answer-capsule">
+          <div class="capsule-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <p>China contains some of the planet's most exceptional dark-sky conditions. The Tibetan Plateau — the world's largest and highest plateau, averaging 4,500 metres above sea level — places observers above 40% of Earth's atmosphere across an area larger than Western Europe. The Ali (Ngari) Prefecture in western Tibet hosts international-class dark skies with fewer than 10 people per square kilometre, and the region's cold, hyper-arid climate delivers over 250 clear nights per year. Beyond Tibet, Qinghai's salt lakes offer surreal reflective starscapes, Xinjiang's Gobi Desert provides vast flat horizons, and Yunnan's mountain temples create dramatic foreground subjects for astrophotography.</p>
+        </aside>
+
+        <section id="introduction" class="content-section">
+          <h2>Introduction: China's Extraordinary Dark Skies</h2>
+          <p>China's western half is one of the least light-polluted regions on Earth. While the country's eastern seaboard — home to Shanghai, Beijing, Guangzhou, and hundreds of lesser-known cities — blazes with artificial light visible from space, the vast interior is a different world. The Tibetan Autonomous Region, Qinghai Province, and Xinjiang Uyghur Autonomous Region together cover an area of approximately 3.8 million square kilometres, much of it plateau, desert, or high mountain terrain with population densities measured in single digits per square kilometre.</p>
+          <p>The physics are straightforward: altitude reduces the atmospheric column above the observer, which means less scattering, absorption, and turbulence. At 4,500 metres — typical for the Tibetan plateau's inhabited valleys — the partial pressure of oxygen is 58% of sea level, but so is the partial pressure of atmospheric water vapour that scatters and blurs starlight. The result is that Tibetan skies deliver transparency values normally only achievable at purpose-built observatory sites. The Milky Way's individual dust lanes, the faint outer glow of the Andromeda Galaxy, and the subtle blue colour of the Pleiades reflection nebula are naked-eye sights on a good Tibetan plateau night.</p>
+          <p>The challenges are real: Tibet requires multiple permits for foreign visitors, altitude sickness is a genuine health risk, and logistics in remote areas are demanding. But for the committed stargazer, no destination on Earth outside of Antarctica and a handful of South American desert sites offers darker, higher, or clearer skies within a single country's borders.</p>
+
+          <div class="info-box glass">
+            <h3>China's Top Dark Sky Locations</h3>
+            <ul>
+              <li><strong>Ali (Ngari), Tibet (4,300–4,500 m | 32°N)</strong> — World-class dark sky; Bortle Class 1; multiple permits required for foreigners</li>
+              <li><strong>Namtso Lake, Tibet (4,718 m | 30.7°N)</strong> — Second highest saltwater lake; exceptional reflection photography; day trip from Lhasa</li>
+              <li><strong>Chaka Salt Lake, Qinghai (3,100 m | 36.8°N)</strong> — Reflective salt flat; Milky Way mirror images; accessible by train</li>
+              <li><strong>Qinghai Lake, Qinghai (3,196 m | 36.9°N)</strong> — China's largest lake; dark shores; good transparency</li>
+              <li><strong>Hami, Xinjiang (750 m | 42.8°N)</strong> — Gobi Desert edge; very low humidity; minimal light pollution</li>
+              <li><strong>Shangri-La (Zhongdian), Yunnan (3,300 m | 27.8°N)</strong> — Mountain setting; accessible; Tibetan architecture foregrounds</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="tibet" class="content-section">
+          <h2>Tibet & Ali Prefecture</h2>
+          <p>The Tibet Autonomous Region (TAR) is the crown jewel of Chinese dark-sky observing. The plateau's average elevation of 4,500 metres is not a peak or a ridge — it is the baseline floor of one of Earth's most extraordinary landscapes. Valleys where villages and monasteries sit are typically 4,000–4,600 m; passes on the roads between them regularly exceed 5,000 m. This relentless altitude, combined with the extreme aridity of the plateau's western reaches, creates transparency conditions that rival the summit of Mauna Kea.</p>
+
+          <h3>Ali (Ngari) Dark Sky Reserve</h3>
+          <p>Ali Prefecture (Ngari in Tibetan, 阿里地区 in Mandarin) occupies the far west of the TAR, bordering India and Nepal. Rutog County within Ali is the epicentre of China's finest astronomical conditions. A 2021 scientific survey published in <em>Nature Astronomy</em> identified the Tibetan Plateau, and Ali specifically, as one of the world's premier optical and infrared telescope sites. Median seeing (atmospheric stability) was measured at 0.75 arcseconds — world-class — with the fraction of clear nights exceeding 70% of the year. The prefecture covers 304,683 sq km with a total population of around 100,000 people — a density of 0.3 persons per square kilometre. On the ground, this translates to the most profound darkness most visitors will ever experience. The nearest significant light source, the town of Ali (Shiquanhe), at around 100,000 residents, produces an orange glow but quickly drops below the horizon within 30–40 km of driving into the surrounding plateau.</p>
+
+          <h3>Namtso & Yamdrok Lakes</h3>
+          <p>Namtso Lake (4,718 m) is the second-largest saltwater lake in China and sits in a high basin 112 km north of Lhasa. It is accessible as a day trip or overnight stay from the Tibetan capital, making it the most visited dark-sky location in Tibet. The lake is 70 km long and 30 km wide; the far shore from the main access point (Tashi Dor Peninsula) provides an unobstructed view across the water at a horizon that is among the flattest and darkest in Tibet accessible from the road system. Yamdrok Lake (4,441 m, 72 km from Lhasa) is similarly spectacular and more easily reached. Both lakes are at the limit of accessibility for day visitors, making them viable even for travellers on short Tibet itineraries.</p>
+
+          <h3>Tibet Permits</h3>
+          <p>All foreign nationals require a Tibet Tourism Bureau (TTB) permit to enter the TAR. This must be obtained through a licensed Chinese travel agency; independent travel is prohibited. For Ali Prefecture, two additional permits are required: an Alien Travel Permit (ATP) and an Ali Military Permit (border permit), both of which are arranged by your tour operator in Lhasa after the TTB is approved. The total permit process takes 10–15 business days. Costs run approximately USD 80–150 for the permits themselves, with tour operator fees on top. The requirement to travel with a licensed guide is not merely bureaucratic — it is strictly enforced at frequent checkpoints throughout Tibet and is non-negotiable. Chinese nationals visiting Ali require the ATP and Ali border permit but not the TTB.</p>
+        </section>
+
+        <section id="qinghai" class="content-section">
+          <h2>Qinghai Province</h2>
+          <p>Qinghai Province occupies the northeastern corner of the Tibetan Plateau and is significantly more accessible than the TAR — no special permits are required for Chinese or foreign nationals. The province is dominated by high-altitude grassland (average elevation 3,000–4,500 m), punctuated by several of China's largest lakes. The provincial capital, Xining, is directly connected to Beijing by high-speed rail, and the scenic Qinghai–Tibet Railway runs through the heart of the province.</p>
+
+          <div class="inline-image">
+            <img src="/images/china_qinghai.jpg" alt="Chaka Salt Lake in Qinghai, China — mirror-perfect salt flat reflecting the Milky Way creating a surreal double-sky image" loading="lazy" />
+            <p class="image-caption">Chaka Salt Lake — the Milky Way reflected in a thin water layer over the salt flat creates a mirror double-sky effect</p>
+          </div>
+
+          <h3>Chaka Salt Lake</h3>
+          <p>Chaka (察卡盐湖) has become one of China's most photographed landscapes, often called "China's Sky Mirror." The lake sits at 3,100 metres in a basin flanked by the Qilian Mountains to the north. In late summer and autumn, a thin layer of brine (10–30 cm deep) covers the white salt crust, creating an almost perfectly reflective surface. At night, the Milky Way and individual stars appear simultaneously above and in the reflection below, creating a disorienting but magnificent double-sky effect in photographs. The lake is 290 km from Xining, accessible by hired car or bus. A small tourist admission fee applies (CNY 100–150); early September to mid-October is ideal — tourist crowds thin, but the water layer persists before winter freeze.</p>
+
+          <h3>Qinghai Lake</h3>
+          <p>Qinghai Lake (青海湖, 3,196 m) is China's largest lake at 4,400 sq km, a vast inland sea in a high-altitude basin ringed by mountains. The southern and western shores are the darkest, furthest from Xining's light dome. Bird Island on the western shore and Erlangjian Scenic Area on the southern shore are the main access points. The lake creates a natural flat horizon for panoramic nightscape photography, and its altitude (300 m higher than Denver, Colorado) provides noticeably better transparency than sea-level observing. Xining is 150 km to the east; the lake is reached by bus or private hire. The surrounding grasslands offer camping under regulations; July–August brings crowds for the Tour de Qinghai cycling race — target shoulder seasons in June or September for fewer tourists.</p>
+
+          <h3>Golmud & Sanjiangyuan</h3>
+          <p>Golmud (格尔木, 2,780 m) is a desert city on the Tibetan Plateau edge, often used as a stopover on the Qinghai–Tibet Highway. The surrounding Gobi Desert terrain is extremely dark within 20–30 km of the city, and the altitude provides good transparency. The Sanjiangyuan ("Source of Three Rivers") Nature Reserve to the south covers 395,000 sq km of pristine high-altitude grassland and wetland at 4,200–5,000 m — one of the most remote and pristine areas of China. Designated a national park in 2021, access is limited to guided tours but the skies here are among the absolute darkest in China. The source areas of the Yellow River, Yangtze, and Mekong all lie within this reserve.</p>
+        </section>
+
+        <section id="xinjiang" class="content-section">
+          <h2>Xinjiang & Gobi Desert</h2>
+          <p>Xinjiang Uyghur Autonomous Region covers one-sixth of China's total land area — larger than Alaska. Its northern and eastern reaches shade into the Gobi Desert and Taklamakan Desert, two of Asia's most arid environments. The combination of minimal rainfall, extreme remoteness, and low population density creates outstanding dark-sky conditions across vast areas, though at significantly lower altitude than Tibet (most desert sites are 500–1,500 m above sea level).</p>
+
+          <div class="inline-image">
+            <img src="/images/china_xinjiang.jpg" alt="Brilliant Milky Way over the remote Gobi Desert in Xinjiang, China — vast landscape under crystal-clear dark sky" loading="lazy" />
+            <p class="image-caption">The Gobi Desert in Xinjiang — vast, flat, and dark, providing extraordinary transparency for naked-eye and photographic astronomy</p>
+          </div>
+
+          <h3>Gobi Desert Sites</h3>
+          <p>The Gobi Desert in Xinjiang extends from the Hami Basin eastward, with some of the continent's most extreme aridity — annual rainfall in some areas is below 10 mm. This near-total absence of atmospheric moisture produces atmospheric transparency that rivals high-altitude sites. The Turpan Depression (154 m below sea level near the Turpan Oasis), while not elevated, benefits from the surrounding Flaming Mountains creating topographic shielding from distant city glow. The Hami (哈密) area to the east is particularly promising: the city is modest in size (600,000 population), and within 40 km the Gobi extends into complete wilderness. Bortle Class 2 conditions are achievable on good nights.</p>
+
+          <h3>Tianshan Dark Sky Zones</h3>
+          <p>The Tianshan Mountains divide northern and southern Xinjiang. The Ili Valley on the Tianshan's northern slopes is unusually lush and green by Xinjiang standards, but the mountain passes above 3,000 m offer excellent transparency with dramatic rocky peaks as foreground subjects. The Sayram Lake (2,073 m) in Bortala Prefecture is one of Xinjiang's largest alpine lakes, accessible from Yining city. The lake basin is surrounded by mountains that shield it from most light pollution, and the high-altitude air is clear and dry. Kanas Lake in the Altai Mountains (far northern Xinjiang, 1,400 m) is another exceptional site — the forest-ringed lake and wooden Tuvan village architecture create compelling nightscape foregrounds, and the area is dark enough for Bortle Class 2 conditions.</p>
+
+          <h3>Access & Logistics</h3>
+          <p>Xinjiang is served by major airports at Ürümqi (the provincial capital), Kashgar, and Hami. Direct flights from Beijing and Shanghai take 3.5–4.5 hours. Note that Xinjiang operates on Beijing Standard Time (UTC+8) despite being geographically 2–3 time zones west — in practice this means sunset in summer arrives around 22:00–23:00 local time, and astronomical darkness not until after midnight. Plan observation schedules accordingly. Mobile data and internet are available but some foreign apps may require a VPN. Hiring a local Uyghur or Han guide familiar with the desert terrain is strongly recommended for sites more than 30 km from main highways.</p>
+        </section>
+
+        <section id="yunnan" class="content-section">
+          <h2>Yunnan & Sichuan</h2>
+          <p>Yunnan Province in southwest China offers a gentler approach to high-altitude stargazing. The province's northwestern corner — sometimes called the "Yunnan section of the Tibetan Plateau" — reaches elevations of 3,000–5,000 m while maintaining a warmer climate than Tibet proper due to its more southerly latitude. The region's blend of Tibetan Buddhist culture, dramatic mountain landscapes, and accessible infrastructure makes it one of China's most rewarding stargazing destinations for visitors who cannot obtain Tibet permits or wish to avoid extreme logistics.</p>
+
+          <div class="inline-image">
+            <img src="/images/china_yunnan.jpg" alt="Traditional Tibetan Buddhist white stupa silhouetted against a brilliant Milky Way sky in the mountains of Yunnan, China" loading="lazy" />
+            <p class="image-caption">Yunnan's Tibetan Buddhist architecture — stupas and temples provide dramatic foreground subjects for Milky Way photography</p>
+          </div>
+
+          <h3>Shangri-La & Deqin</h3>
+          <p>Shangri-La (香格里拉, formerly Zhongdian, 3,300 m) in Diqing Tibetan Autonomous Prefecture is the gateway to Yunnan's high-altitude stargazing. The old town, with its wooden Tibetan buildings and Ganden Sumtseling Monastery, provides extraordinarily photogenic foreground subjects for nightscape photography. Outside the town centre, the Napa Lake wetlands and surrounding grasslands offer Bortle Class 3 conditions. Deqin county (3,400 m), 180 km further northwest on the road toward Tibet, is darker still — the small town sits below the snowfields of the Meili Snow Mountain (Kawagebo, 6,740 m), and on clear nights the ice faces reflect starlight and moonlight dramatically. The road from Shangri-La to Deqin passes through some of the deepest river gorges in the world, and viewpoints along the route at 3,800–4,200 m offer exceptional dark-sky access by vehicle.</p>
+
+          <h3>Lijiang & Jade Dragon Snow Mountain</h3>
+          <p>Lijiang (2,400 m) is a UNESCO World Heritage site and well-established tourist destination, which means the town itself carries light pollution. However, the cable car on Jade Dragon Snow Mountain (Yulong Xueshan) ascends to 4,506 m — and the upper reaches above the tree line are both very dark and above most atmospheric haze. The cable car does not operate at night, but the Black Dragon Pool park south of the old town offers a relatively dark foreground with the snow mountain visible to the north, and Lijiang's dark sky is improving as the city manages lighting more carefully. Lijiang Astronomical Observatory (2,650 m), while a research facility, is located in excellent sky territory 25 km from the city.</p>
+
+          <h3>Sichuan Highlands</h3>
+          <p>Western Sichuan Province borders Tibet and shares much of the plateau's altitude and darkness. The Garzê Tibetan Autonomous Prefecture covers 150,000 sq km of high-altitude terrain at 3,000–5,000 m, with Bortle Class 1–2 conditions in its most remote areas. The Litang Grassland (4,000 m) in Litang County is accessible from Chengdu via a long mountain road and offers sweeping 360-degree plateau vistas under dark skies. The Yading Nature Reserve in Daocheng County contains three sacred Tibetan peaks including Chenrezig (6,032 m) and delivers extraordinary high-altitude starscapes. Daocheng Yading Airport (4,411 m — the world's highest commercial airport) makes this area surprisingly accessible despite its remoteness.</p>
+        </section>
+
+        <section id="other-locations" class="content-section">
+          <h2>Other Notable Locations</h2>
+
+          <h3>Hainan Island</h3>
+          <p>Hainan Province — China's southernmost territory — offers a fundamentally different observing experience. At 18°–20°N latitude, observers can view deep southern constellations including Crux (the Southern Cross, just barely above the horizon), Centaurus, Vela, and the lower reaches of the Milky Way's richest southern fields. The eastern highland areas of Hainan (Wuzhishan area, 1,840 m) are relatively dark for an island with 10 million residents. For stargazers wishing to observe objects permanently below China's mainland horizon, Hainan is the accessible solution. The tropical climate means high atmospheric humidity — transparency is lower than on the plateau — but the southern sky access compensates.</p>
+
+          <h3>Inner Mongolia</h3>
+          <p>Inner Mongolia Autonomous Region stretches 2,400 km across northern China and contains vast sections of pristine Gobi and steppe grassland at 1,000–1,500 m elevation. Hulunbuir Grassland in the far northeast and Badain Jaran Desert in the southwest are two contrasting dark-sky environments. Hulunbuir — one of the world's largest and most pristine grasslands — reaches Bortle Class 2–3 in its remote sections, 200 km from the nearest city. The flat terrain provides unobstructed horizon access. Badain Jaran Desert (2,000 m) in Alxa League is even darker, with ancient sand dunes and mysterious deep-blue desert lakes providing evocative foreground subjects.</p>
+
+          <h3>Gansu Dark Sky Corridor</h3>
+          <p>Gansu Province connects central China to Xinjiang via the Hexi Corridor — a narrow band of ancient Silk Road oases between the Tibetan Plateau and Gobi Desert. The Zhangye Danxia National Geological Park (2,100 m), known for its rainbow-coloured rock formations, sits within a dark area several hours from major cities. The corridor's low humidity and altitude (1,500–2,500 m) offer consistently good transparency, and the historical Silk Road landscape (including sections of the Great Wall and the Jiayuguan Fortress) provides dramatic nightscape subjects.</p>
+        </section>
+
+        <section id="timing" class="content-section">
+          <h2>Best Times and Seasons</h2>
+          <p>China's climate varies enormously across its geography, but several general principles apply for stargazing. The East Asian monsoon affects much of eastern and southern China from June to September; western China (Xinjiang, Tibet, Qinghai) is largely spared. Winter brings extreme cold to all high-altitude sites but the atmosphere is often at its clearest and driest. The shoulder seasons of May–June and September–October are typically optimal for combining accessibility, reasonable temperatures, and clear skies.</p>
+
+          <div class="info-box glass">
+            <h3>Seasonal Guide by Region</h3>
+            <ul>
+              <li><strong>Tibet (Ali/Ngari) — Best: June–October.</strong> Roads open and accessible; temperatures at night from −5°C (July) to −20°C (October). November–April: roads may close; extreme cold; but clearest, driest air of the year for those equipped to handle it.</li>
+              <li><strong>Qinghai (Chaka/Qinghai Lake) — Best: July–October.</strong> Water layer on Chaka Salt Lake ideal August–September for reflections. November–April: lake freezes, reflection impossible; temperatures −20°C or lower.</li>
+              <li><strong>Xinjiang (Gobi/Tianshan) — Best: May–September.</strong> Astronomical darkness delayed until after midnight in summer (late sunsets due to timezone offset). Avoid March–May (sandstorm season in desert areas).</li>
+              <li><strong>Yunnan (Shangri-La/Deqin) — Best: October–April (dry season).</strong> May–September brings monsoon cloud cover to southern Yunnan; northern Yunnan (Diqing) is drier but still affected. October delivers post-monsoon clarity throughout.</li>
+              <li><strong>Sichuan Highlands — Best: October–November and April–May.</strong> Summer brings cloud and rain; winter closes mountain passes. The narrow shoulder windows deliver excellent conditions.</li>
+            </ul>
+          </div>
+
+          <h3>Meteor Showers from China</h3>
+          <p>China's latitude range (18°N–53°N) makes it well-positioned for most major meteor showers. The Perseids (August 11–13), with the radiant in Perseus, peak when the constellation is high in the north — from Tibet and Qinghai, Perseus rises conveniently in the northeast by midnight, and the summer Tibetan plateau skies are at their most accessible. The Geminids (December 13–14) are the year's most productive shower; from Tibet's western plateau in December, the air is ferociously cold but phenomenally transparent. The Leonids (November 17–18) radiate from Leo, which reaches a good elevation from Chinese latitudes, and the post-monsoon autumn weather across most of China delivers reasonable clear-sky probabilities.</p>
+        </section>
+
+        <section id="equipment" class="content-section">
+          <h2>Essential Equipment</h2>
+          <p>China's stargazing environments range from the extreme (−30°C winter Tibet) to the merely challenging (Yunnan mountain roads in autumn). Equipment preparation must match the destination.</p>
+
+          <h3>Altitude & Cold Strategy</h3>
+          <p>The Tibetan Plateau's winter temperatures can reach −30°C to −40°C with wind chill in Ali Prefecture. Even summer nights at 4,500 m drop to −5°C to −15°C. The layering system is non-negotiable: thermal underlayer (merino wool or Patagonia Capilene), mid-layer fleece, and a 700-fill-power or higher down jacket rated to −20°C. Down sleeping bags (if camping) should be rated for −30°C minimum. Altitude reduces physical capacity significantly — budget 50% more time for equipment setup at 4,500 m than at sea level. Battery performance drops sharply in cold: camera batteries lose 50–70% capacity at −10°C. Carry minimum three times the batteries you expect to need, kept warm in inner pockets until use. Lithium AA cells (used in some mounts and accessories) perform far better in cold than alkaline.</p>
+
+          <div class="info-box glass">
+            <h3>Equipment Checklist for China</h3>
+            <h4>Essential (Required):</h4>
+            <ul>
+              <li><strong>Red headlamp</strong> — Essential for navigation without destroying dark adaptation</li>
+              <li><strong>Extreme cold clothing system</strong> — Down jacket rated −20°C, insulated trousers, balaclava, insulated gloves</li>
+              <li><strong>Altitude medication (Diamox)</strong> — Consult doctor before travel; start 24 hours before ascent above 3,000 m</li>
+              <li><strong>Pulse oximeter</strong> — Track blood oxygen saturation (SpO₂) above 3,500 m; normal range 90–96% at altitude</li>
+              <li><strong>Offline maps (Maps.me or OsmAnd)</strong> — Google Maps functions offline for navigation; Baidu Maps requires data</li>
+              <li><strong>Offline star atlas</strong> — SkySafari and Stellarium both work offline; download star data before departing WiFi</li>
+              <li><strong>Pleco Mandarin dictionary</strong> — Offline Chinese–English dictionary essential in remote areas</li>
+            </ul>
+            <h4>Recommended (Enhances Experience):</h4>
+            <ul>
+              <li><strong>DSLR/mirrorless camera + 14–24mm f/2.8 lens</strong> — Wide angle essential for Milky Way arches and reflection shots</li>
+              <li><strong>Star tracker (Sky-Watcher Star Adventurer)</strong> — For tracked exposures beyond 30 seconds</li>
+              <li><strong>10×50 binoculars</strong> — For Milky Way sweeping; nitrogen-purged to resist fogging at altitude</li>
+              <li><strong>Battery grip or external battery bank</strong> — Extend camera operation time in cold</li>
+              <li><strong>Portable Bluetooth speaker (red-light mode)</strong> — Audio star atlases work well at dark sites</li>
+            </ul>
+            <h4>Advanced (For Serious Observers):</h4>
+            <ul>
+              <li><strong>Portable 80–100mm apochromatic refractor</strong> — Compact and light for high-altitude travel; avoids mirror misalignment at extreme cold</li>
+              <li><strong>Heated eyepiece kit</strong> — Prevents fogging when warming equipment coming out of cold transport</li>
+              <li><strong>Satellite communicator (Garmin inReach)</strong> — Emergency SOS capability in remote areas outside mobile coverage</li>
+              <li><strong>Solar panel (40–100W portable)</strong> — Charge equipment at remote camps in Tibet where mains power is absent</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="planning" class="content-section">
+          <h2>Planning Your Trip</h2>
+          <p>A successful China stargazing trip — particularly to Tibet — involves more advance logistics than almost any other astronomy destination. Start planning at minimum 3 months ahead for Tibet; 4–6 weeks ahead for Qinghai or Yunnan.</p>
+
+          <h3>Step 1: Choose Region and Obtain Chinese Visa (3+ Months Ahead)</h3>
+          <p>Most nationalities require a Chinese visa; some (notably Japan, South Korea, Singapore, and several EU countries) qualify for visa-free access for short visits as of recent policy changes — check current status. For Tibet, contact licensed Chinese tour operators immediately after visa planning — the operator initiates the TTB permit process, which cannot begin until your visa is approved. Recommended licensed Tibet tour operators include Tibetan travel companies operating from Lhasa. For Qinghai, Xinjiang, and Yunnan, no special permits are needed; standard tourist visa suffices.</p>
+
+          <h3>Step 2: Tibet Permit Process (8–12 Weeks Before Departure)</h3>
+          <p>Tibet Tourism Bureau (TTB) permit: applied through your licensed tour operator; requires passport copy, China visa copy, and travel dates. Processing takes 5–10 business days. Once in Lhasa, your operator arranges the Aliens Travel Permit (ATP) at the Tibet Public Security Bureau — 2 business days. For Ali (Ngari) Prefecture: the Ali Military Permit is arranged in Lhasa and requires 3–5 business days. Your itinerary is locked once permits are issued; last-minute changes are difficult. Total lead time from starting the process to having all Ali permits: minimum 3–4 weeks. Chinese nationals need only the ATP and Ali border permits for Ali; these can be obtained in Lhasa in 3–5 days.</p>
+
+          <h3>Step 3: Plan Acclimatisation (Critical for Tibet)</h3>
+          <p>Lhasa airport sits at 3,656 m; the city is at 3,650 m. All visitors must acclimatise for a minimum of 2 full days in Lhasa before any ascent. Day 1: rest, walk gently, drink 3+ litres of water. Day 2: short walks to 3,800–4,000 m, return to sleep at Lhasa level. Do not fly from coastal China to Ali directly in a single day — the elevation change is too severe. The road from Lhasa to Ali covers 1,600 km, typically driven in 3–5 days, which provides natural acclimatisation if taken at altitude. Flying Lhasa–Ali (there are occasional flights) should only be done after 3+ days acclimatisation in Lhasa.</p>
+
+          <h3>Step 4: Digital Preparation — Apps, VPN, Communications</h3>
+          <p>Google Maps works offline after downloading areas; Google services otherwise require a VPN to function in China. Set up a reputable VPN on your phone and laptop before arriving in China — installing VPN apps within China is restricted. WeChat is the primary communication platform in China; a Chinese phone number for registration is helpful but not essential. Download: Pleco (offline Mandarin dictionary), Maps.me (offline maps with Tibet/Qinghai coverage), SkySafari (star atlas, download catalogues offline), Stellarium (offline), and Meteoblue or Windy for weather forecasting. Baidu Translate has offline functionality for Mandarin and is widely trusted by travellers in remote China.</p>
+
+          <h3>Step 5: Moon Phase and Observation Planning</h3>
+          <p>Use Stellarium or SkySafari to identify new moon dates aligning with your travel window. From Lhasa (29.6°N) and Ali (32.5°N), the Milky Way core in Sagittarius reaches a comfortable 35–45° altitude at meridian transit in summer — far higher than from Europe or Canada, making the galactic centre more detailed and colourful. Deep-sky highlights from the Tibetan plateau: the entire Scorpius–Sagittarius star-forming complex at 35–45° altitude; Omega Centauri (globular cluster, magnitude +3.9) rises to 10–15° in southern Tibet; the Carina Nebula complex visible low on the southern horizon from the most southerly sites. The Andromeda Galaxy (M31) at +7.0 apparent magnitude reaches +65° altitude from Tibet — easily resolvable as a spiral structure in mounted binoculars.</p>
+        </section>
+
+        <section id="tips" class="content-section">
+          <h2>Practical Tips</h2>
+
+          <h3>Navigation and Communication in Remote China</h3>
+          <p>In Tibet and remote Qinghai, the only reliable offline navigation is Maps.me with pre-downloaded regional maps, or Apple Maps with an offline area saved. Google Maps offline works for road navigation but lacks some rural Tibet detail. Satellite phones (Iridium or Thuraya) are the only communication option in the most remote areas — some Tibet tour operators provide them. Garmin inReach satellite communicators with two-way text messaging provide emergency communication anywhere in the world. In an emergency, dial 110 (police) or 120 (ambulance) — these work on any cellular network with any SIM.</p>
+
+          <h3>Astrophotography in Extreme Cold</h3>
+          <p>Cold-weather astrophotography requires specific techniques. Keep camera bodies in insulated bags until just before use; rapid temperature changes cause condensation on optics and sensors. Use Mylar emergency blankets around equipment during long sessions to reduce the rate of temperature drop. Lens fogging at the front element is less common in Tibet's dry air than in humid environments, but maintain dew heater straps on the front lens as insurance. For wide-angle Milky Way shots, the 500 rule becomes the 300 rule on crop-sensor cameras (300 ÷ focal length mm = max seconds before trailing). At 4,500 m, atmospheric colour balance runs cooler and bluer; adjust white balance to 3800–4200K for natural-looking Milky Way colour.</p>
+
+          <h3>Astronomy Apps in China</h3>
+          <p>SkySafari (iOS and Android) works fully offline after catalogue downloads and is highly recommended — the app has no dependency on Google services. Stellarium (open source, iOS/Android/desktop) also works fully offline. Cartes du Ciel (PC/Mac) is the choice for laptop-based planning. For light pollution checking, lightpollutionmap.info works in a browser; download the area as a PNG for offline reference. The Clearsky Chart (Canadian) works from China via VPN for cloud forecasting. Windy.com and Meteoblue both have functioning China servers and do not require VPN.</p>
+
+          <h3>Safety in Remote Tibet and Gobi</h3>
+          <p>Carry minimum 3 litres of water per person per day at altitude — dehydration accelerates at altitude and may be mistaken for AMS. Medical facilities are absent in rural Ali Prefecture; the nearest hospital is Shiquanhe town hospital, with limited emergency capabilities. Serious altitude sickness requires helicopter evacuation — ensure your travel insurance covers high-altitude emergency medical evacuation (standard policies often exclude altitudes above 3,000–4,000 m; verify before travel). For Gobi Desert sites in Xinjiang, the main hazard is getting lost in featureless terrain — always mark your vehicle's GPS coordinates before walking any distance onto the desert surface.</p>
+        </section>
+
+        <section id="resources" class="content-section">
+          <h2>Resources</h2>
+
+          <h3>Astronomy & Science</h3>
+          <ul class="resource-list">
+            <li><a href="https://www.nao.cas.cn" target="_blank" rel="noopener">National Astronomical Observatories of China (NAOC)</a> — Leading Chinese astronomy research institution</li>
+            <li><a href="https://www.nature.com/articles/s41550-021-01491-0" target="_blank" rel="noopener">Nature Astronomy — Tibetan Plateau sky survey (2021)</a> — Scientific study identifying Ali as world-class observatory site</li>
+          </ul>
+
+          <h3>Permits & Official Tourism</h3>
+          <ul class="resource-list">
+            <li><a href="https://www.tibettravelagent.com" target="_blank" rel="noopener">Tibet Travel Agent</a> — Licensed Tibet tour operator facilitating all permit processes</li>
+            <li><a href="https://www.qhta.cn" target="_blank" rel="noopener">Qinghai Tourism Administration</a> — Official tourism information for Qinghai Province</li>
+            <li><a href="https://www.xinjiangtravel.com" target="_blank" rel="noopener">Xinjiang Travel</a> — Travel information and permit guidance for Xinjiang</li>
+          </ul>
+
+          <h3>Weather & Sky Conditions</h3>
+          <ul class="resource-list">
+            <li><a href="https://www.meteoblue.com" target="_blank" rel="noopener">Meteoblue</a> — Accurate cloud cover forecasts for mountain and plateau sites; China servers work without VPN</li>
+            <li><a href="https://www.windy.com" target="_blank" rel="noopener">Windy</a> — Wind, cloud, and weather visualisation; accessible from China without VPN</li>
+            <li><a href="https://clearoutside.com" target="_blank" rel="noopener">Clear Outside</a> — Astronomy-specific transparency and seeing forecasts; use via VPN from China</li>
+            <li><a href="https://www.lightpollutionmap.info" target="_blank" rel="noopener">Light Pollution Map</a> — Visualise Bortle class zones across China; download area maps for offline use</li>
+          </ul>
+        </section>
+
+        <section id="faq" class="content-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-section">
+            <div class="faq-list">
+              {faqData.map((item) => (
+                <details class="faq-item">
+                  <summary class="faq-question">{item.question}</summary>
+                  <div class="faq-answer">
+                    <p>{item.answer}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      const progressBar = document.getElementById('progressBar');
+      if (progressBar) {
+        progressBar.style.width = scrollPercent + '%';
+      }
+    });
+
+    const sections = document.querySelectorAll('.content-section');
+    const tocLinks = document.querySelectorAll('.toc a');
+
+    const observerOptions = {
+      rootMargin: '-20% 0% -70% 0%'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(link => link.classList.remove('active'));
+          const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+          if (activeLink) activeLink.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+
+  <style>
+    /* Progress Bar */
+    .progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      z-index: 1000;
+      background: transparent;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, rgb(6, 182, 212), rgb(59, 130, 246));
+      transition: width 0.1s ease;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-image {
+      position: absolute;
+      inset: 0;
+    }
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: var(--space-xl);
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-family: var(--font-heading);
+      color: #fff;
+      margin: var(--space-sm) 0;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      line-height: 1.1;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: rgb(6, 182, 212);
+      margin: 0;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumbs ol {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      gap: 0.25rem;
+    }
+    .breadcrumbs li {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.85rem;
+    }
+    .breadcrumbs li + li::before {
+      content: '›';
+      margin-right: 0.25rem;
+    }
+    .breadcrumbs a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .breadcrumbs a:hover {
+      color: rgb(6, 182, 212);
+    }
+    .breadcrumbs li[aria-current="page"] {
+      color: rgb(6, 182, 212);
+    }
+
+    /* Layout */
+    .content-wrapper {
+      padding: var(--space-xl) var(--space-xl);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+    @media (min-width: 1024px) {
+      .article-layout {
+        grid-template-columns: 220px 1fr;
+      }
+    }
+
+    /* TOC */
+    .toc-sidebar {
+      display: none;
+    }
+    @media (min-width: 1024px) {
+      .toc-sidebar {
+        display: block;
+      }
+    }
+    .toc {
+      position: sticky;
+      top: 2rem;
+    }
+    .toc h2 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-sm);
+    }
+    .toc ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+    .toc a {
+      display: block;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .toc a:hover {
+      color: var(--color-text-primary);
+    }
+    .toc a.active {
+      color: rgb(6, 182, 212);
+      border-left-color: rgb(6, 182, 212);
+    }
+
+    /* Main content */
+    .main-content {
+      max-width: 800px;
+    }
+
+    /* Answer Capsule */
+    .answer-capsule {
+      display: flex;
+      gap: var(--space-md);
+      align-items: flex-start;
+      background: linear-gradient(135deg, rgba(6,182,212,0.08), rgba(59,130,246,0.08));
+      border: 1px solid rgba(6,182,212,0.25);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-xl);
+    }
+    .capsule-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      color: rgb(6, 182, 212);
+    }
+    .capsule-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+    .answer-capsule p {
+      margin: 0;
+      color: var(--color-text-primary);
+      line-height: 1.7;
+    }
+
+    /* Content sections */
+    .content-section {
+      margin-bottom: var(--space-xl);
+    }
+    .content-section h2 {
+      font-size: 1.6rem;
+      font-family: var(--font-heading);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-md);
+      padding-bottom: var(--space-sm);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .content-section h3 {
+      font-size: 1.15rem;
+      color: rgb(6, 182, 212);
+      margin: var(--space-lg) 0 var(--space-sm);
+    }
+    .content-section p {
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+      margin-bottom: var(--space-md);
+    }
+    .content-section ul,
+    .content-section ol {
+      color: var(--color-text-secondary);
+      padding-left: 1.5rem;
+      line-height: 1.8;
+    }
+    .content-section li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Info box */
+    .info-box {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: var(--glass-blur);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      margin: var(--space-lg) 0;
+    }
+    .info-box h3 {
+      font-size: 1.1rem;
+      color: rgb(59, 130, 246);
+      margin-bottom: var(--space-sm);
+      margin-top: 0;
+    }
+    .info-box h4 {
+      font-size: 0.95rem;
+      color: var(--color-text-primary);
+      margin: var(--space-md) 0 var(--space-sm);
+    }
+    .info-box ul {
+      color: var(--color-text-secondary);
+      padding-left: 1.25rem;
+      line-height: 1.8;
+    }
+    .info-box li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Inline images */
+    .inline-image {
+      margin: var(--space-lg) 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .inline-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .image-caption {
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+      text-align: center;
+      padding: var(--space-sm) var(--space-md);
+      background: rgba(0,0,0,0.3);
+      margin: 0;
+      font-style: italic;
+    }
+
+    /* Resource list */
+    .resource-list {
+      list-style: none;
+      padding: 0;
+    }
+    .resource-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .resource-list a {
+      color: rgb(6, 182, 212);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .resource-list a:hover {
+      color: rgb(59, 130, 246);
+    }
+
+    /* FAQ */
+    .faq-section {
+      padding-top: var(--space-md);
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .faq-item {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .faq-item[open] {
+      background: rgba(6,182,212,0.05);
+    }
+    .faq-question {
+      padding: var(--space-md) var(--space-lg);
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+      user-select: none;
+    }
+    .faq-question::-webkit-details-marker {
+      display: none;
+    }
+    .faq-question::after {
+      content: '+';
+      font-size: 1.25rem;
+      color: rgb(6, 182, 212);
+      transition: transform 0.2s;
+    }
+    .faq-item[open] .faq-question::after {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      padding: 0 var(--space-lg) var(--space-md);
+    }
+    .faq-answer p {
+      margin: 0;
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+    }
+  </style>
+</MainLayout>

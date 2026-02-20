@@ -1,0 +1,305 @@
+---
+import MainLayout from '../../../../layouts/MainLayout.astro';
+import Schema from '../../../../components/Schema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cosmic Atlas', url: '/atlas/' },
+  { name: 'Nebulae', url: '/atlas/nebulae/' },
+  { name: 'Reflection Nebulae', url: '/atlas/nebulae/reflection/' }
+];
+
+const articleData = {
+  headline: 'Reflection Nebulae: Dust Clouds That Scatter Starlight',
+  description: 'Complete guide to reflection nebulae — dust clouds that shine by scattering light from nearby stars. Learn about Rayleigh scattering, blue color physics, and famous examples like the Pleiades nebulosity.',
+  datePublished: '2026-02-17',
+  dateModified: '2026-02-17',
+  author: 'The Astronomy Space',
+  image: '/images/Hero_reflection-nebula.jpg',
+  keywords: ['reflection nebulae', 'Rayleigh scattering', 'dust clouds', 'Pleiades', 'Witch Head Nebula', 'blue nebula', 'interstellar dust', 'astronomy']
+};
+
+const faqData = [
+  {
+    question: 'Why are reflection nebulae blue?',
+    answer: 'Reflection nebulae appear blue because of Rayleigh scattering — the same phenomenon that makes Earth\'s sky blue. Dust grains in the nebula preferentially scatter shorter wavelengths of light more efficiently than longer wavelengths. Blue light (shorter wavelength, ~450 nm) is scattered several times more strongly than red light (longer wavelength, ~700 nm). The illuminating star\'s light is scattered by the dust, and the blue component reaches our eyes more readily than the red component, giving the nebula its characteristic blue hue.'
+  },
+  {
+    question: 'What is the difference between a reflection and emission nebula?',
+    answer: 'Reflection nebulae do not emit their own light — they simply scatter light from nearby stars, like fog around a streetlamp. Emission nebulae, by contrast, actively produce their own light through photoionization: hot stars ionize the surrounding gas, and the recombining electrons emit photons. Reflection nebulae appear blue, while emission nebulae appear red or pink. The key indicator is the spectral type of the illuminating star: stars hotter than about 25,000 K (O and B types) can ionize gas; cooler stars only illuminate dust clouds as reflection nebulae.'
+  },
+  {
+    question: 'Do reflection nebulae have stars inside them?',
+    answer: 'Yes — reflection nebulae are illuminated by one or more nearby stars, though these stars are not always embedded within the nebula itself. In some cases, like the Pleiades, the stars are simply passing through an unrelated interstellar cloud and illuminating it. In other cases, stars genuinely reside within the dusty cloud. The illuminating stars in reflection nebulae are typically cooler than the O-type stars of emission nebulae — B-type stars (surface temperature 10,000–30,000 K) commonly produce reflection nebulae around them.'
+  },
+  {
+    question: 'Can you see a reflection nebula through a telescope?',
+    answer: 'Yes, several reflection nebulae are visible in amateur telescopes from dark sky sites. The Pleiades nebulosity around Merope and other bright cluster stars is detectable in large binoculars or small telescopes under excellent conditions. The Witch Head Nebula (IC 2118) requires a wide-field view. The blue color is rarely visible to the eye — most observers see a faint gray or whitish glow. Long-exposure astrophotography reveals the characteristic blue hue most effectively.'
+  },
+  {
+    question: 'Are reflection nebulae related to star formation?',
+    answer: 'Reflection nebulae are often associated with star-forming regions, but they are not directly involved in the star-formation process themselves. They represent relatively diffuse dust that is being illuminated rather than actively collapsing. However, reflection nebulae frequently surround young stellar objects (YSOs) — newly formed stars still embedded in their birth cloud. As the young star disperses its surrounding envelope, the reflected light from the remnant dust creates a reflection nebula. The Herbig-Haro objects and their associated nebulae are examples of this stage.'
+  },
+  {
+    question: 'What are mixed nebulae?',
+    answer: 'Mixed nebulae — also called combination or composite nebulae — contain both emission and reflection components. The Orion Nebula is the best example: the inner regions where hot Trapezium stars ionize the gas produce emission, while the outer dusty regions scatter the same starlight to produce reflection nebulosity. The Trifid Nebula (M20) dramatically shows both types side by side — its red southern lobe is an emission nebula, while its blue northern lobe is a reflection nebula, separated by dark dust lanes.'
+  }
+];
+---
+
+<MainLayout
+  title='Reflection Nebulae: Dust Clouds Scattering Starlight | The Astronomy Space'
+  description='Complete guide to reflection nebulae — dust clouds that shine by scattering light from nearby stars. Learn about Rayleigh scattering, blue color physics, and famous examples like the Pleiades nebulosity.'
+>
+  <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
+  <Schema type="TechArticle" article={articleData} />
+  <Schema type="FAQPage" faq={faqData} />
+
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-image">
+      <img src="/images/Hero_reflection-nebula.jpg" alt="Pleiades reflection nebula — electric blue dust cloud scattering starlight" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/atlas/">Cosmic Atlas</a></li>
+          <li><a href="/atlas/nebulae/">Nebulae</a></li>
+          <li aria-current="page">Reflection Nebulae</li>
+        </ol>
+      </nav>
+      <h1>Reflection Nebulae</h1>
+      <p class="hero-subtitle">Cosmic Dust Clouds Lit by Scattered Starlight</p>
+    </div>
+  </section>
+
+  <article class="content-wrapper">
+    <div class="article-layout">
+
+      <aside class="toc-sidebar">
+        <nav class="toc" aria-label="Table of Contents">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#characteristics">Characteristics</a></li>
+            <li><a href="#scattering">Scattering Physics</a></li>
+            <li><a href="#vs-emission">vs Emission Nebulae</a></li>
+            <li><a href="#examples">Notable Examples</a></li>
+            <li><a href="#observation">Observing Tips</a></li>
+            <li><a href="#fun-facts">Interesting Facts</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <div class="main-content">
+
+        <aside class="answer-capsule">
+          <div class="capsule-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 8v4m0 4h.01"/>
+            </svg>
+          </div>
+          <p>Reflection nebulae are clouds of interstellar dust that shine by scattering light from nearby stars — not by emitting their own light. The scattered blue light gives them their characteristic electric blue color, following the same Rayleigh scattering physics that makes Earth's daytime sky blue. They appear wherever dust clouds lie close enough to luminous stars to scatter their light toward us.</p>
+        </aside>
+
+        <section id="introduction" class="content-section">
+          <h2>Introduction to Reflection Nebulae</h2>
+          <p>Reflection nebulae occupy a quieter corner of the nebular universe compared to their glowing emission counterparts. They do not ionize, they do not explode — they simply scatter. A nearby star bathes a dust cloud in light, and the dust deflects that light toward the observer, creating a soft, often ethereally beautiful blue glow that reveals the hidden architecture of the interstellar medium.</p>
+          <p>The first reflection nebulae were identified in the early 20th century when astronomers noticed that certain nebulae had spectra identical to the nearby illuminating stars — a clear sign that they were scattering starlight rather than generating their own emission lines. Vesto Slipher made this key observation in 1912, studying the Pleiades nebulosity and the Merope Nebula. The distinction between emission and reflection nebulae has proven fundamental to understanding the composition and conditions of interstellar space.</p>
+          <p>Reflection nebulae are tracers of interstellar dust — the microscopic solid particles of carbon, silicates, and ices that pervade the space between stars. Without this dust, the blue glow would not exist. The density, composition, and grain-size distribution of the dust determine the color and brightness of the reflection nebula. In regions where the dust is particularly dense, the nebula becomes dark — blocking background starlight entirely to form a dark nebula. Reflection nebulae represent an intermediate state where dust is present but not so thick as to block all light.</p>
+        </section>
+
+        <section id="characteristics" class="content-section">
+          <h2>Physical Characteristics</h2>
+          <div class="info-box glass">
+            <h3>Reflection Nebula Quick Facts</h3>
+            <ul>
+              <li><strong>Light Source:</strong> Scattered light from nearby stars (not self-luminous)</li>
+              <li><strong>Color:</strong> Blue — due to preferential scattering of short wavelengths</li>
+              <li><strong>Illuminating Stars:</strong> Typically B-type (10,000–30,000 K); too cool to ionize gas</li>
+              <li><strong>Composition:</strong> Interstellar dust — carbon grains, silicates, ices (~0.1 micron size)</li>
+              <li><strong>Spectrum:</strong> Continuous — matches the illuminating star, with absorption lines</li>
+              <li><strong>Temperature:</strong> 10–100 K (dust); very cold compared to emission nebulae</li>
+            </ul>
+          </div>
+          <p>Reflection nebulae are distinguished spectroscopically by their continuous spectra with absorption lines — identical to the illuminating star. This contrasts sharply with emission nebulae, whose spectra show bright emission lines at specific wavelengths. The spectral match between the nebula and its illuminating star is the definitive diagnostic of a reflection nebula.</p>
+          <p>The dust grains responsible for reflection are predominantly sub-micron particles — carbon grains in the form of graphite or polycyclic aromatic hydrocarbons, silicate grains, and ices. These tiny particles scatter light most efficiently when their size is comparable to the wavelength of light, making them excellent blue-light scatterers. The same grains also absorb ultraviolet and visual light, making reflection nebulae appear darker at UV wavelengths than at optical wavelengths — the opposite of emission nebulae.</p>
+        </section>
+
+        <section id="scattering" class="content-section">
+          <h2>The Physics of Light Scattering</h2>
+          <p>The blue color of reflection nebulae arises from the same fundamental physics that colors Earth's sky. When light encounters particles much smaller than its wavelength, scattering efficiency scales as the inverse fourth power of wavelength (Rayleigh scattering). Blue light at 450 nm is scattered roughly five times more strongly than red light at 700 nm.</p>
+          <h3>Rayleigh vs Mie Scattering</h3>
+          <p>For very small particles (much smaller than the wavelength of light), pure Rayleigh scattering applies, producing intense blue scattering. As particle size increases toward the wavelength of light, Mie scattering dominates — producing more gray or white scattering that is less wavelength-dependent. Interstellar dust grains (~0.1 micron) operate in a regime between these extremes, producing strongly blue-biased scattering that explains the characteristic azure tint of reflection nebulae.</p>
+          <h3>Polarization</h3>
+          <p>Scattered light is partially polarized — a key diagnostic that distinguishes reflection nebulae from other blue celestial objects. Polarimetry measurements confirm the scattering nature of reflection nebulae and provide information about the alignment of dust grains within the nebula's magnetic field. Elongated dust grains tend to align with their long axes perpendicular to magnetic field lines, and the resulting polarization pattern maps the magnetic field structure of the nebula.</p>
+        </section>
+
+        <section id="vs-emission" class="content-section">
+          <h2>Reflection vs Emission Nebulae</h2>
+          <p>The distinction between reflection and emission nebulae depends fundamentally on the temperature of the illuminating star. Stars hotter than about 25,000 K (spectral types O and early B) emit enough ultraviolet radiation to ionize surrounding hydrogen gas, creating emission nebulae. Cooler stars — mid to late B-types and A-types — lack sufficient UV output to ionize gas but can still illuminate dust clouds as reflection nebulae.</p>
+          <h3>Mixed Nebulae</h3>
+          <p>Many real nebulae show both emission and reflection components. The Orion Nebula (M42) is primarily an emission nebula powered by the Trapezium cluster, but its outer regions contain significant reflection components where dust scatters the Trapezium starlight without being ionized. The Trifid Nebula (M20) is a textbook example showing both components side-by-side in a single object.</p>
+          <p>The boundary between the ionized emission zone and the dust-scattered reflection zone in a mixed nebula marks the ionization front — the surface where UV photons are completely absorbed. Inside this boundary lies the glowing emission nebula; outside it, the cooler dust scatters remaining visible light as a reflection nebula. Mapping these boundaries tells astronomers about the geometry of the nebula and the intensity of the ionizing radiation field.</p>
+        </section>
+
+        <section id="examples" class="content-section">
+          <h2>Notable Reflection Nebulae</h2>
+          <ul class="facts-list">
+            <li><strong>Pleiades Nebulosity (multiple ICs) — 444 light-years:</strong> The most famous reflection nebula, surrounding the bright Pleiades star cluster. Once thought to be leftover material from the cluster's formation, we now know the Pleiades is passing through an unrelated interstellar cloud. The brightest region, the Merope Nebula (IC 349), is separated from the star Merope by only 3,500 AU and glows brilliantly blue.</li>
+            <li><strong>Witch Head Nebula (IC 2118) — 900 light-years:</strong> A ghostly blue reflection nebula in Eridanus, illuminated by the blue supergiant Rigel in Orion. Its shape vaguely resembles a witch in profile. It spans nearly 50 light-years and is most striking in photographs — virtually invisible to the naked eye.</li>
+            <li><strong>Iris Nebula (NGC 7023) — 1,300 light-years:</strong> A beautiful blue reflection nebula in Cepheus surrounding the star SAO 19158. Hubble images reveal complex filamentary structure and extensive polycyclic aromatic hydrocarbon (PAH) emission. One of the best-studied reflection nebulae due to its relative proximity and isolation.</li>
+            <li><strong>NGC 1999 — 1,500 light-years:</strong> A compact reflection nebula in Orion surrounding the young star V380 Orionis, famous for its dark keyhole-shaped Bok globule. Initial interpretations thought the dark region was a dense protostellar cloud; later observations found it to be a true hole in the nebula blown by stellar winds.</li>
+          </ul>
+        </section>
+
+        <section id="observation" class="content-section">
+          <h2>Observing Reflection Nebulae</h2>
+          <p>Reflection nebulae are among the more challenging deep-sky objects for visual observation. Unlike the bright emission nebulae visible even in binoculars, most reflection nebulae require dark skies, wide fields of view, and averted vision. Narrowband filters actually reduce contrast on reflection nebulae since they block the continuous scattered light. Broadband or no filters work best.</p>
+          <h3>Best Targets</h3>
+          <ul>
+            <li><strong>Pleiades nebulosity:</strong> Wide-field binoculars from very dark sites can reveal a faint glow around Merope. Best captured photographically with 20–50mm lenses.</li>
+            <li><strong>Witch Head Nebula:</strong> Requires 6-inch or larger telescope and excellent dark skies. Very wide, low surface brightness object.</li>
+            <li><strong>Iris Nebula (NGC 7023):</strong> Visible in 4-inch telescope under good skies as a faint smudge around a 7th-magnitude star. Blue color visible photographically.</li>
+          </ul>
+        </section>
+
+        <section id="fun-facts" class="content-section">
+          <h2>Interesting Facts About Reflection Nebulae</h2>
+          <ul class="facts-list">
+            <li><strong>Blue Like Earth's Sky:</strong> Reflection nebulae are blue for exactly the same reason as Earth's daytime sky — Rayleigh scattering of sunlight by small particles. The physics is identical; only the scale differs by a factor of trillions.</li>
+            <li><strong>No Filters, Please:</strong> Unlike emission nebulae that dramatically benefit from narrowband filters, reflection nebulae look worse through them. Narrowband filters suppress the continuous scattered light while passing emission lines the nebula does not produce.</li>
+            <li><strong>Pleiades Cosmic Coincidence:</strong> The Pleiades and their surrounding reflection nebula are not physically related — the cluster is passing through an independent interstellar cloud at relative velocity. The beautiful illumination is a temporary coincidence.</li>
+            <li><strong>Spectral Twin:</strong> A reflection nebula has exactly the same spectrum as its illuminating star, just much fainter. This was the original discovery that led Slipher in 1912 to realize the Pleiades nebulosity was scattered starlight, not an emission cloud.</li>
+            <li><strong>Polarized Light:</strong> Light from reflection nebulae is partially polarized — a direct consequence of the scattering geometry. This polarization is unmeasurable with the naked eye but easily detected with polarizing filters on a telescope, providing definitive proof of the scattering nature.</li>
+            <li><strong>Carbon and Silicate Grains:</strong> The dust particles causing reflection are primarily sub-micron carbon (graphite) and silicate grains — the same materials that make up sand and soot on Earth, dispersed at concentrations of roughly one particle per million cubic meters of space.</li>
+            <li><strong>Dust is Most of the Story:</strong> Despite looking uniform, reflection nebulae are vastly more transparent than they appear. A parcel of gas the size of Earth from a typical reflection nebula would be virtually undetectable — the visual effect comes from the cumulative scattering along enormous path lengths.</li>
+            <li><strong>Young Stars Wrapped in Blue:</strong> Many newly formed stars (T Tauri stars and Herbig Ae/Be stars) are still surrounded by dusty envelopes that reflect their light, creating small reflection nebulae called circumstellar reflection nebulae or nebular halos — literally the birthshroud of a young star.</li>
+          </ul>
+        </section>
+
+        <section id="resources" class="content-section">
+          <h2>External Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://hubblesite.org/contents/media/images/gallery/topics/nebulas" target="_blank" rel="noopener">Hubble Nebula Gallery</a> - HST images including reflection nebulae</li>
+            <li><a href="https://www.nasa.gov/image-article/witch-head-nebula/" target="_blank" rel="noopener">NASA — Witch Head Nebula</a> - WISE infrared image of IC 2118</li>
+            <li><a href="https://en.wikipedia.org/wiki/Reflection_nebula" target="_blank" rel="noopener">Reflection Nebula — Wikipedia</a> - Detailed scientific overview</li>
+            <li><a href="https://www.eso.org/public/images/archive/category/nebulae/" target="_blank" rel="noopener">ESO Nebula Images</a> - European Southern Observatory deep images</li>
+          </ul>
+        </section>
+
+        <section id="faq" class="content-section faq-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqData.map((item) => (
+              <details class="faq-item">
+                <summary class="faq-question">{item.question}</summary>
+                <div class="faq-answer">
+                  <p set:html={item.answer}></p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </article>
+</MainLayout>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    const progressBar = document.getElementById('progressBar');
+    if (progressBar) progressBar.style.width = scrollPercent + '%';
+  });
+  const sections = document.querySelectorAll('.content-section');
+  const tocLinks = document.querySelectorAll('.toc a');
+  const observerOptions = { rootMargin: '-20% 0% -70% 0%' };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, observerOptions);
+  sections.forEach(section => observer.observe(section));
+</script>
+
+<style>
+  .progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: rgba(255,255,255,0.1); z-index: 1000; }
+  .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-blue)); transition: width 0.1s ease-out; }
+  .hero { position: relative; min-height: 60vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .hero-image { position: absolute; inset: 0; z-index: 0; }
+  .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.9) 100%); }
+  .hero-content { position: relative; z-index: 1; text-align: center; padding: var(--space-xl); }
+  .hero h1 { font-family: var(--font-heading); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; margin-bottom: var(--space-sm); text-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+  .hero-subtitle { font-size: clamp(1.25rem, 3vw, 1.75rem); color: var(--color-accent-cyan); font-weight: 500; }
+  .breadcrumbs { margin-bottom: var(--space-lg); }
+  .breadcrumbs ol { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; list-style: none; padding: 0; margin: 0; font-size: 0.9rem; }
+  .breadcrumbs li { display: flex; align-items: center; gap: 0.5rem; }
+  .breadcrumbs li:not(:last-child)::after { content: '\203a'; color: var(--color-text-secondary); }
+  .breadcrumbs a { color: var(--color-text-secondary); text-decoration: none; transition: color 0.2s ease; }
+  .breadcrumbs a:hover { color: var(--color-accent-cyan); }
+  .breadcrumbs li[aria-current="page"] { color: var(--color-text-primary); }
+  .content-wrapper { padding: var(--space-2xl) 0; }
+  .article-layout { display: grid; grid-template-columns: 1fr; max-width: 1200px; margin: 0 auto; padding: 0 var(--space-md); gap: var(--space-xl); }
+  @media (min-width: 1024px) { .article-layout { grid-template-columns: 220px 1fr; gap: var(--space-2xl); } }
+  .toc-sidebar { display: none; }
+  @media (min-width: 1024px) { .toc-sidebar { display: block; } .toc { position: sticky; top: calc(var(--space-xl) + 3px); max-height: calc(100vh - var(--space-2xl)); overflow-y: auto; } }
+  .toc h2 { font-family: var(--font-heading); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-md); color: var(--color-text-secondary); }
+  .toc ol { list-style: none; padding: 0; margin: 0; }
+  .toc li { margin-bottom: 0.25rem; }
+  .toc a { display: block; padding: 0.5rem 0; padding-left: var(--space-sm); color: var(--color-text-secondary); text-decoration: none; font-size: 0.9rem; border-left: 2px solid transparent; transition: all 0.2s ease; }
+  .toc a:hover { color: var(--color-text-primary); border-left-color: rgba(6,182,212,0.5); }
+  .toc a.active { color: var(--color-accent-cyan); border-left-color: var(--color-accent-cyan); }
+  .main-content { max-width: 800px; }
+  .answer-capsule { display: flex; gap: var(--space-md); padding: var(--space-lg); margin-bottom: var(--space-2xl); background: linear-gradient(135deg, rgba(6,182,212,0.1) 0%, rgba(59,130,246,0.1) 100%); border: 1px solid rgba(6,182,212,0.2); border-radius: var(--radius-lg); position: relative; overflow: hidden; }
+  .answer-capsule::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at top left, rgba(6,182,212,0.15) 0%, transparent 50%); pointer-events: none; }
+  .capsule-icon { flex-shrink: 0; width: 40px; height: 40px; color: var(--color-accent-cyan); opacity: 0.8; }
+  .capsule-icon svg { width: 100%; height: 100%; }
+  .answer-capsule p { margin: 0; font-size: 1.1rem; line-height: 1.7; color: var(--color-text-primary); position: relative; }
+  .content-section { margin-bottom: var(--space-2xl); }
+  .content-section h2 { font-family: var(--font-heading); font-size: clamp(1.75rem, 4vw, 2.25rem); margin-bottom: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 2px solid rgba(6,182,212,0.3); color: var(--color-text-primary); }
+  .content-section h3 { font-family: var(--font-heading); font-size: clamp(1.25rem, 3vw, 1.5rem); margin-top: var(--space-xl); margin-bottom: var(--space-md); color: var(--color-accent-cyan); }
+  .content-section p { font-size: 1.1rem; line-height: 1.8; color: var(--color-text-secondary); margin-bottom: var(--space-md); }
+  .content-section ul, .content-section ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+  .content-section li { font-size: 1.05rem; line-height: 1.7; color: var(--color-text-secondary); margin-bottom: 0.5rem; }
+  .info-box { padding: var(--space-lg); margin: var(--space-lg) 0; }
+  .info-box h3 { margin-top: 0; font-size: 1.1rem; color: var(--color-accent-blue); }
+  .info-box ul { margin: 0; padding-left: var(--space-md); }
+  .info-box li { font-size: 1rem; margin-bottom: 0.4rem; }
+  .facts-list { list-style: none; padding: 0; }
+  .facts-list li { padding: var(--space-md) 0; border-bottom: 1px solid rgba(148,163,184,0.1); }
+  .facts-list li:last-child { border-bottom: none; }
+  .resource-list { list-style: none; padding: 0; }
+  .resource-list li { padding: var(--space-sm) 0; border-bottom: 1px solid rgba(148,163,184,0.1); }
+  .resource-list li:last-child { border-bottom: none; }
+  .resource-list a { color: var(--color-accent-cyan); font-weight: 500; }
+  .faq-section { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid rgba(148,163,184,0.1); }
+  .faq-list { display: flex; flex-direction: column; gap: var(--space-sm); }
+  .faq-item { background: var(--glass-bg); border: var(--glass-border); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.3s ease; }
+  .faq-item[open] { background: rgba(6,182,212,0.05); border-color: rgba(6,182,212,0.2); }
+  .faq-question { padding: var(--space-md) var(--space-lg); cursor: pointer; font-size: 1.1rem; font-weight: 500; color: var(--color-text-primary); list-style: none; display: flex; justify-content: space-between; align-items: center; transition: color 0.2s ease; }
+  .faq-question::-webkit-details-marker { display: none; }
+  .faq-question::after { content: '+'; font-size: 1.5rem; font-weight: 300; color: var(--color-accent-cyan); transition: transform 0.3s ease; }
+  .faq-item[open] .faq-question::after { transform: rotate(45deg); }
+  .faq-question:hover { color: var(--color-accent-cyan); }
+  .faq-answer { padding: 0 var(--space-lg) var(--space-lg); }
+  .faq-answer p { margin: 0; font-size: 1rem; line-height: 1.7; color: var(--color-text-secondary); }
+  .glass { background: var(--glass-bg); border: var(--glass-border); border-radius: var(--radius-lg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); }
+  @media (max-width: 768px) { .hero { min-height: 50vh; } .hero-content { padding: var(--space-lg); } .article-layout { padding: 0 var(--space-sm); } .answer-capsule { flex-direction: column; align-items: flex-start; } .capsule-icon { width: 32px; height: 32px; } }
+</style>

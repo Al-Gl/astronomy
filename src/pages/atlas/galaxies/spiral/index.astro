@@ -1,0 +1,313 @@
+---
+import MainLayout from '../../../../layouts/MainLayout.astro';
+import Schema from '../../../../components/Schema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cosmic Atlas', url: '/atlas/' },
+  { name: 'Galaxies', url: '/atlas/galaxies/' },
+  { name: 'Spiral Galaxies', url: '/atlas/galaxies/spiral/' }
+];
+
+const articleData = {
+  headline: 'Spiral Galaxies: The Most Iconic Shape in the Universe',
+  description: 'Complete guide to spiral galaxies — their structure, spiral arms, Hubble classification, star formation, and famous examples like the Milky Way and Andromeda.',
+  datePublished: '2026-02-19',
+  dateModified: '2026-02-19',
+  author: 'The Astronomy Space',
+  image: '/images/Hero_spiral.jpg',
+  keywords: ['spiral galaxies', 'Milky Way', 'Andromeda', 'spiral arms', 'density waves', 'barred spiral', 'Hubble sequence']
+};
+
+const faqData = [
+  {
+    question: 'What is a spiral galaxy?',
+    answer: 'A spiral galaxy is a type of galaxy characterized by a central bulge of older stars surrounded by a flat, rotating disk containing spiral arms of gas, dust, and younger stars. The arms appear to wind outward from the center like a pinwheel. Spiral galaxies are among the most visually striking objects in the universe and include our own Milky Way and the nearby Andromeda Galaxy (M31).'
+  },
+  {
+    question: 'What are spiral arms made of?',
+    answer: 'Spiral arms are regions of enhanced density containing stars, gas, and interstellar dust. Crucially, spiral arms are not solid structures — stars and gas move in and out of them over millions of years. The arms are actually density waves, similar to a traffic jam on a highway, where material piles up and compresses. This compression triggers the formation of new stars, making spiral arms home to brilliant blue star clusters, glowing nebulae, and other signs of active star formation.'
+  },
+  {
+    question: 'What is the difference between a spiral and barred spiral galaxy?',
+    answer: 'In a standard spiral galaxy (classified as SA), the arms emerge directly from a rounded central bulge. In a barred spiral (SB), the arms originate from the ends of an elongated rectangular bar of stars that bisects the nucleus. Barred spirals are actually more common than pure spirals — roughly two-thirds of spiral galaxies, including the Milky Way, are barred spirals. The bar acts as a conduit, funneling gas toward the galactic center and potentially feeding star formation and central black holes.'
+  },
+  {
+    question: 'How big are spiral galaxies?',
+    answer: 'Spiral galaxies span an enormous range of sizes. The Milky Way, a mid-sized spiral, is about 100,000 light-years across. Andromeda (M31) is slightly larger at around 220,000 light-years. Giant spirals like Messier 101 (Pinwheel Galaxy) can reach 170,000 light-years in diameter. Some ultra-large spirals like NGC 6872 span over 500,000 light-years. The number of stars ranges from a few billion to over a trillion in the largest examples.'
+  },
+  {
+    question: 'Why do spiral galaxies have their distinctive shape?',
+    answer: 'The disk and spiral arm structure of spiral galaxies results from their angular momentum. When the primordial gas cloud that formed a spiral galaxy collapsed under gravity, conservation of angular momentum caused it to spin and flatten into a disk — just as a spinning pizza dough flattens when tossed. Material in the disk orbits the galactic center at different speeds at different distances, and density waves within this rotating disk create the characteristic spiral arm pattern.'
+  },
+  {
+    question: 'Can spiral galaxies become elliptical galaxies?',
+    answer: 'Yes — galaxy mergers can transform spiral galaxies into elliptical galaxies. When two spiral galaxies collide and merge, their orderly disk structures are disrupted by gravitational tidal forces. Gas is consumed in starbursts, and the merged system settles into the smooth, pressure-supported distribution characteristic of an elliptical galaxy. The Milky Way and Andromeda are expected to collide in about 4.5 billion years, eventually merging into a large elliptical or lenticular galaxy sometimes nicknamed "Milkomeda."'
+  },
+  {
+    question: 'What are the best spiral galaxies to observe?',
+    answer: 'Several spiral galaxies are showpieces through amateur telescopes. The Andromeda Galaxy (M31) is the most distant object visible to the naked eye at 2.5 million light-years. The Whirlpool Galaxy (M51) in Canes Venatici shows a classic face-on spiral with a companion galaxy. The Pinwheel Galaxy (M101) and Triangulum Galaxy (M33) are other favorites. In the southern sky, the Sculptor Galaxy (NGC 253) and Centaurus A region offer spectacular views. A dark sky and at least a 6-inch telescope reveal spiral structure in the best examples.'
+  }
+];
+---
+
+<MainLayout
+  title='Spiral Galaxies: The Most Iconic Shape in the Universe | The Astronomy Space'
+  description='Complete guide to spiral galaxies — structure, spiral arms, Hubble classification, star formation, and famous examples like the Milky Way and Andromeda.'
+>
+  <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
+  <Schema type="TechArticle" article={articleData} />
+  <Schema type="FAQPage" faq={faqData} />
+
+  <!-- Reading Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-image">
+      <img src="/images/Hero_spiral.jpg" alt="Spiral galaxy with sweeping arms" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/atlas/">Cosmic Atlas</a></li>
+          <li><a href="/atlas/galaxies/">Galaxies</a></li>
+          <li aria-current="page">Spiral Galaxies</li>
+        </ol>
+      </nav>
+      <h1>Spiral Galaxies</h1>
+      <p class="hero-subtitle">The Most Iconic Shape in the Universe</p>
+    </div>
+  </section>
+
+  <!-- Main Article Content -->
+  <article class="content-wrapper">
+    <div class="article-layout">
+
+      <!-- Sticky Table of Contents -->
+      <aside class="toc-sidebar">
+        <nav class="toc" aria-label="Table of Contents">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#characteristics">Structure & Characteristics</a></li>
+            <li><a href="#arms">Spiral Arms & Density Waves</a></li>
+            <li><a href="#classification">Hubble Classification</a></li>
+            <li><a href="#observation">Notable Examples</a></li>
+            <li><a href="#facts">Interesting Facts</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-content">
+
+        <!-- Answer Capsule -->
+        <aside class="answer-capsule">
+          <div class="capsule-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <p>Spiral galaxies are rotating disk-shaped systems with sweeping arms of gas, dust, and star formation winding outward from a dense central bulge. They contain both ancient stars in the bulge and newborn stars in the arms. The Milky Way and Andromeda are both spiral galaxies, making this the most familiar galaxy type.</p>
+        </aside>
+
+        <section id="intro" class="content-section">
+          <h2>Introduction to Spiral Galaxies</h2>
+          <p>When most people picture a galaxy, they picture a spiral. The graceful pinwheel shape — a glowing central hub surrounded by curving arms of stars, nebulae, and star clusters — is the most recognizable structure in the universe beyond our solar system. Spiral galaxies account for roughly 60–70% of all bright galaxies observed in the nearby universe, and they include the two dominant members of our Local Group: the Milky Way and the Andromeda Galaxy.</p>
+          <p>Spiral galaxies are dynamic systems defined by rotation. Unlike elliptical galaxies, which are pressure-supported spheroidal swarms of old stars, spirals have organized disk-like rotation where most stars, gas, and dust orbit the galactic center in roughly the same plane and direction. This angular momentum — inherited from the original gas cloud that collapsed to form the galaxy — is what gives spirals their flat disk shape and drives the density waves that sculpt their arms.</p>
+          <p>The arms themselves are not solid structures rotating like clock hands. They are regions of higher density — cosmic traffic jams — through which individual stars and clouds of gas pass over hundreds of millions of years. As material compresses in these density waves, it triggers the formation of massive new stars whose brilliant blue-white glow makes the arms stand out against the older stellar population of the disk.</p>
+          <p>Our own Milky Way is a barred spiral galaxy of type SBbc — a moderately wound spiral with a central bar structure. From our position about 26,000 light-years from the galactic center, we see the galaxy as the pale band of the Milky Way stretching across the night sky, a perspective that gave rise to the term "galaxy" itself from the Greek for "milky way."</p>
+        </section>
+
+        <section id="characteristics" class="content-section">
+          <h2>Structure and Characteristics</h2>
+          <p>A typical spiral galaxy consists of several distinct structural components, each with its own stellar population, age distribution, and role in the galaxy's evolution.</p>
+          <div class="info-box glass">
+            <h3>Spiral Galaxy Quick Facts</h3>
+            <ul>
+              <li><strong>Diameter Range:</strong> 10,000 to 500,000+ light-years</li>
+              <li><strong>Star Count:</strong> Billions to over a trillion stars</li>
+              <li><strong>Main Components:</strong> Bulge, disk, spiral arms, halo</li>
+              <li><strong>Star Formation:</strong> Active — concentrated in spiral arms</li>
+              <li><strong>Hubble Types:</strong> Sa/SBa (tightly wound) to Sd/SBd (loosely wound)</li>
+              <li><strong>Nearest Example:</strong> Andromeda Galaxy (M31) — 2.5 million light-years</li>
+            </ul>
+          </div>
+          <p class="data-source">Data: <a href="https://science.nasa.gov/universe/galaxies/" target="_blank" rel="noopener noreferrer">NASA Galaxies</a></p>
+          <h3>The Central Bulge</h3>
+          <p>The bulge is the densely packed spheroidal core of a spiral galaxy. It contains mostly old, red stars (Population II) with very little ongoing star formation. Bulges range from large and prominent in early-type spirals (Sa/SBa) to small and compact in late-type spirals (Sc/SBc). At the very center of most spiral galaxies — including the Milky Way — lurks a supermassive black hole, though it remains dormant in most spirals today.</p>
+          <h3>The Disk and Spiral Arms</h3>
+          <p>The flat disk surrounding the bulge contains the spiral arms along with the inter-arm regions. The disk contains a mix of old and young stars, gas, and dust. Star formation is concentrated in the arms, where the density wave compression triggers cloud collapse. The inter-arm regions are not empty — they contain older stars that have drifted away from their birthplaces — but they are less luminous and have less active star formation.</p>
+          <h3>The Stellar Halo</h3>
+          <p>Surrounding the entire disk is a large, diffuse, roughly spherical stellar halo. This contains the oldest stars in the galaxy (Population II), globular clusters, and a vast reservoir of dark matter extending well beyond the visible disk. The dark matter halo provides the majority of the galaxy's total mass and is responsible for the flat rotation curves observed in spiral galaxies — stars at large radii orbit just as fast as those near the center, contrary to what Newtonian gravity would predict from visible matter alone.</p>
+        </section>
+
+        <section id="arms" class="content-section">
+          <h2>Spiral Arms and Density Waves</h2>
+          <p>The spiral arm pattern is not a solid structure — individual stars are not locked into the arms. Instead, spiral arms are standing density waves that rotate through the galactic disk at a different speed (the pattern speed) than the stars and gas. Material enters the arm, slows down as it passes through the denser region, and then exits the other side, much like cars in a motorway traffic jam that moves slowly even as individual cars pass through it at normal speed.</p>
+          <h3>Star Formation Triggered by Compression</h3>
+          <p>As interstellar gas clouds enter the leading edge of a spiral arm, the increased density compresses them. When a cloud reaches a critical density, it can no longer resist its own self-gravity and collapses, triggering star formation. The most massive of these new stars (OB stars) live fast and die young — they complete their entire lives in just a few million years, exploding as supernovae before they have time to drift far from the arm where they were born. Their blue-white glow makes the arms appear bright and young.</p>
+          <h3>Grand Design vs. Flocculent Spirals</h3>
+          <p>Grand design spirals like M51 (Whirlpool Galaxy) display two prominent, well-defined arms that can be traced all the way around the galaxy. These symmetric patterns are often sustained by the gravitational influence of a companion galaxy or a bar structure. Flocculent spirals, like NGC 2841, have patchy, fragmented arms with no clear global pattern — their arm structure arises from local instabilities rather than a global density wave. Many spirals fall between these extremes.</p>
+        </section>
+
+        <section id="classification" class="content-section">
+          <h2>Hubble Classification</h2>
+          <p>Edwin Hubble introduced his galaxy classification system in 1926, and spiral galaxies occupy two main branches of what he called the "tuning fork diagram." Standard spirals (S) and barred spirals (SB) are each subdivided into types a, b, c, and d based on how tightly wound the arms are and how large the central bulge is relative to the disk.</p>
+          <h3>Type Sa/SBa to Sd/SBd</h3>
+          <p>Early-type spirals (Sa, SBa) have large prominent bulges and tightly wound arms. They contain fewer hot blue stars and less gas than later types, suggesting lower rates of star formation. Late-type spirals (Sc, Sd, SBc, SBd) have smaller bulges, loosely wound and often fragmentary arms, more gas and dust, and higher rates of active star formation. The Milky Way is classified as SBbc — intermediate, with a bar and moderately open arms. The Andromeda Galaxy (M31) is an Sb type, with somewhat tighter arms and a more prominent bulge.</p>
+          <p>Hubble originally thought his "tuning fork" represented an evolutionary sequence from ellipticals (E0-E7) through lenticulars (S0) to spirals, but this interpretation is now known to be incorrect. Galaxy evolution is far more complex, involving mergers, accretion, and environmental effects.</p>
+        </section>
+
+        <section id="observation" class="content-section">
+          <h2>Notable Spiral Galaxies</h2>
+          <p><strong>Andromeda Galaxy (M31):</strong> Our nearest large spiral neighbor at 2.54 million light-years, Andromeda is the most distant object visible to the naked eye. Covering an area six times the full Moon's diameter in the sky, most of it is too faint to see without optical aid. Through binoculars, its bright core and inner disk are readily visible. M31 is a type Sb spiral somewhat larger than the Milky Way, with at least two major satellite galaxies, M32 and M110.</p>
+          <p><strong>Whirlpool Galaxy (M51):</strong> One of the most photographed galaxies, M51 in Canes Venatici is a classic grand design spiral with a prominent companion galaxy (NGC 5195) interacting with one of its arms. The gravitational interaction has helped maintain the grand spiral pattern. At 23 million light-years, it can be detected through a 4-inch telescope under good conditions.</p>
+          <p><strong>Triangulum Galaxy (M33):</strong> The third-largest member of the Local Group at 2.7 million light-years, M33 is a loosely wound Scd spiral. It contains NGC 604, one of the largest known HII regions, 40 times larger than the Orion Nebula. M33 is challenging to observe despite its proximity because its surface brightness is very low.</p>
+          <p><strong>Pinwheel Galaxy (M101):</strong> A face-on Scd spiral 21 million light-years away in Ursa Major, M101 is known for its dramatic asymmetry caused by gravitational interactions with smaller neighbor galaxies. Its disk spans about 170,000 light-years — nearly twice the Milky Way's diameter.</p>
+          <p><strong>Sombrero Galaxy (M104):</strong> This Sa spiral is seen almost edge-on, revealing a brilliant white nucleus surrounded by a prominent dark dust lane that gives it the appearance of a brimmed hat. The Sombrero has an unusually large and bright bulge for a spiral and an unusually massive central black hole of about 1 billion solar masses.</p>
+        </section>
+
+        <section id="facts" class="content-section">
+          <h2>Interesting Facts About Spiral Galaxies</h2>
+          <ul class="facts-list">
+            <li><strong>Flat Rotation Curves:</strong> Stars in the outer parts of spiral galaxies orbit at nearly the same speed as inner stars — the opposite of what Kepler's laws would predict if only visible matter existed. This "flat rotation curve" is one of the strongest pieces of evidence for dark matter, which provides the extra gravitational mass needed to explain the observed orbital speeds.</li>
+            <li><strong>The Milky Way's Bar:</strong> For decades, astronomers debated whether the Milky Way had a bar. Infrared surveys from the COBE and Spitzer space telescopes confirmed a prominent central bar about 27,000 light-years long, oriented at roughly 44 degrees to our line of sight to the galactic center. The bar rotates as a rigid structure, different from the surrounding disk's differential rotation.</li>
+            <li><strong>Galactic Cannibalism:</strong> Large spiral galaxies grow by absorbing smaller satellite galaxies. The Milky Way has consumed dozens of dwarf galaxies throughout its history — streams of stars from past mergers, like the Sagittarius Stream, loop around the galaxy as ghostly remnants of these ancient meals. The Magellanic Clouds are likely destined to be absorbed in the next few billion years.</li>
+            <li><strong>Winding Problem:</strong> If spiral arms were material rotating with the disk, differential rotation (inner regions rotating faster than outer regions) would wind them up so tightly that they'd disappear in just a few galactic rotations — about a billion years. The fact that spiral galaxies we see billions of years old still have arms shows that the pattern regenerates continuously, supporting the density wave theory.</li>
+            <li><strong>Tidal Tails:</strong> When two spiral galaxies interact gravitationally, tidal forces can pull out long streams of stars and gas called tidal tails or tidal bridges. The Antennae Galaxies (NGC 4038/4039) are a famous example of two colliding spirals, their interaction having torn out 150,000-light-year-long stellar tails that give the system its insect-like appearance.</li>
+            <li><strong>Polar Ring Galaxies:</strong> A rare variant, polar ring galaxies have an outer ring of stars, gas, and dust rotating perpendicular to the main disk. They form when a spiral galaxy captures a smaller galaxy or stream of gas at right angles to its own rotation. NGC 660 is one of the nearest examples. These systems provide a unique three-dimensional view of a galaxy's dark matter distribution.</li>
+            <li><strong>Interstellar Medium:</strong> Spiral arms are rich in the raw material for star formation — the interstellar medium (ISM). Giant molecular clouds (GMCs) up to millions of solar masses lurk within the arms, containing dense cold cores that can collapse to form stars. The Milky Way alone contains enough molecular gas to form roughly a billion more stars.</li>
+            <li><strong>Supernovae Factories:</strong> The active star formation in spiral arms produces many massive stars that quickly explode as supernovae, seeding the galaxy with heavy elements. Spiral galaxies have core-collapse supernova rates of one to several per century. These explosions also drive powerful winds that can push gas out of the galaxy entirely, regulating the overall rate of star formation.</li>
+          </ul>
+        </section>
+
+        <section id="resources" class="content-section">
+          <h2>External Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://science.nasa.gov/universe/galaxies/" target="_blank" rel="noopener">NASA Galaxies</a> — NASA's guide to galaxy types, formation, and current research</li>
+            <li><a href="https://www.esa.int/Science_Exploration/Space_Science/Herschel/The_Milky_Way_s_spiral_arms" target="_blank" rel="noopener">ESA on Spiral Arms</a> — European Space Agency research on Milky Way spiral structure</li>
+            <li><a href="https://en.wikipedia.org/wiki/Spiral_galaxy" target="_blank" rel="noopener">Spiral Galaxy on Wikipedia</a> — Comprehensive overview of spiral galaxy classification and properties</li>
+            <li><a href="https://www.messier.seds.org/" target="_blank" rel="noopener">SEDS Messier Catalog</a> — Detailed information on Messier spirals and other deep sky objects</li>
+          </ul>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="content-section faq-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqData.map((item) => (
+              <details class="faq-item">
+                <summary class="faq-question">{item.question}</summary>
+                <div class="faq-answer">
+                  <p set:html={item.answer}></p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </article>
+</MainLayout>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    const progressBar = document.getElementById('progressBar');
+    if (progressBar) progressBar.style.width = scrollPercent + '%';
+  });
+
+  const sections = document.querySelectorAll('.content-section');
+  const tocLinks = document.querySelectorAll('.toc a');
+  const observerOptions = { rootMargin: '-20% 0% -70% 0%' };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, observerOptions);
+  sections.forEach(section => observer.observe(section));
+</script>
+
+<style>
+  .progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: rgba(255,255,255,0.1); z-index: 1000; }
+  .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-blue)); transition: width 0.1s ease-out; }
+  .hero { position: relative; min-height: 60vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .hero-image { position: absolute; inset: 0; z-index: 0; }
+  .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.9) 100%); }
+  .hero-content { position: relative; z-index: 1; text-align: center; padding: var(--space-xl); }
+  .hero h1 { font-family: var(--font-heading); font-size: clamp(2.5rem,6vw,4.5rem); font-weight: 700; margin-bottom: var(--space-sm); text-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+  .hero-subtitle { font-size: clamp(1.25rem,3vw,1.75rem); color: var(--color-accent-cyan); font-weight: 500; }
+  .breadcrumbs { margin-bottom: var(--space-lg); }
+  .breadcrumbs ol { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; list-style: none; padding: 0; margin: 0; font-size: 0.9rem; }
+  .breadcrumbs li { display: flex; align-items: center; gap: 0.5rem; }
+  .breadcrumbs li:not(:last-child)::after { content: '\203a'; color: var(--color-text-secondary); }
+  .breadcrumbs a { color: var(--color-text-secondary); text-decoration: none; transition: color 0.2s ease; }
+  .breadcrumbs a:hover { color: var(--color-accent-cyan); }
+  .breadcrumbs li[aria-current="page"] { color: var(--color-text-primary); }
+  .content-wrapper { padding: var(--space-2xl) 0; }
+  .article-layout { display: grid; grid-template-columns: 1fr; max-width: 1200px; margin: 0 auto; padding: 0 var(--space-md); gap: var(--space-xl); }
+  @media (min-width: 1024px) { .article-layout { grid-template-columns: 220px 1fr; gap: var(--space-2xl); } }
+  .toc-sidebar { display: none; }
+  @media (min-width: 1024px) { .toc-sidebar { display: block; } .toc { position: sticky; top: calc(var(--space-xl) + 3px); max-height: calc(100vh - var(--space-2xl)); overflow-y: auto; } }
+  .toc h2 { font-family: var(--font-heading); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-md); color: var(--color-text-secondary); }
+  .toc ol { list-style: none; padding: 0; margin: 0; }
+  .toc li { margin-bottom: 0.25rem; }
+  .toc a { display: block; padding: 0.5rem 0; padding-left: var(--space-sm); color: var(--color-text-secondary); text-decoration: none; font-size: 0.9rem; border-left: 2px solid transparent; transition: all 0.2s ease; }
+  .toc a:hover { color: var(--color-text-primary); border-left-color: rgba(6,182,212,0.5); }
+  .toc a.active { color: var(--color-accent-cyan); border-left-color: var(--color-accent-cyan); }
+  .main-content { max-width: 800px; }
+  .answer-capsule { display: flex; gap: var(--space-md); padding: var(--space-lg); margin-bottom: var(--space-2xl); background: linear-gradient(135deg, rgba(6,182,212,0.1) 0%, rgba(59,130,246,0.1) 100%); border: 1px solid rgba(6,182,212,0.2); border-radius: var(--radius-lg); position: relative; overflow: hidden; }
+  .answer-capsule::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at top left, rgba(6,182,212,0.15) 0%, transparent 50%); pointer-events: none; }
+  .capsule-icon { flex-shrink: 0; width: 40px; height: 40px; color: var(--color-accent-cyan); opacity: 0.8; }
+  .capsule-icon svg { width: 100%; height: 100%; }
+  .answer-capsule p { margin: 0; font-size: 1.1rem; line-height: 1.7; color: var(--color-text-primary); position: relative; }
+  .content-section { margin-bottom: var(--space-2xl); }
+  .content-section h2 { font-family: var(--font-heading); font-size: clamp(1.75rem,4vw,2.25rem); margin-bottom: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 2px solid rgba(6,182,212,0.3); color: var(--color-text-primary); }
+  .content-section h3 { font-family: var(--font-heading); font-size: clamp(1.25rem,3vw,1.5rem); margin-top: var(--space-xl); margin-bottom: var(--space-md); color: var(--color-accent-cyan); }
+  .content-section p { font-size: 1.1rem; line-height: 1.8; color: var(--color-text-secondary); margin-bottom: var(--space-md); }
+  .content-section ul, .content-section ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+  .content-section li { font-size: 1.05rem; line-height: 1.7; color: var(--color-text-secondary); margin-bottom: 0.5rem; }
+  .info-box { padding: var(--space-lg); margin: var(--space-lg) 0; }
+  .info-box h3 { margin-top: 0; font-size: 1.1rem; color: var(--color-accent-blue); }
+  .info-box ul { margin: 0; padding-left: var(--space-md); }
+  .info-box li { font-size: 1rem; margin-bottom: 0.4rem; }
+  .data-source { font-size: 0.8rem; color: var(--color-text-secondary); opacity: 0.7; margin-top: -0.5rem; margin-bottom: var(--space-lg); }
+  .data-source a { color: var(--color-accent-cyan); }
+  .facts-list { list-style: none; padding: 0; }
+  .facts-list li { padding: var(--space-md) 0; border-bottom: 1px solid rgba(148,163,184,0.1); }
+  .facts-list li:last-child { border-bottom: none; }
+  .resource-list { list-style: none; padding: 0; }
+  .resource-list li { padding: var(--space-sm) 0; border-bottom: 1px solid rgba(148,163,184,0.1); }
+  .resource-list li:last-child { border-bottom: none; }
+  .resource-list a { color: var(--color-accent-cyan); font-weight: 500; }
+  .faq-section { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid rgba(148,163,184,0.1); }
+  .faq-list { display: flex; flex-direction: column; gap: var(--space-sm); }
+  .faq-item { background: var(--glass-bg); border: var(--glass-border); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.3s ease; }
+  .faq-item[open] { background: rgba(6,182,212,0.05); border-color: rgba(6,182,212,0.2); }
+  .faq-question { padding: var(--space-md) var(--space-lg); cursor: pointer; font-size: 1.1rem; font-weight: 500; color: var(--color-text-primary); list-style: none; display: flex; justify-content: space-between; align-items: center; transition: color 0.2s ease; }
+  .faq-question::-webkit-details-marker { display: none; }
+  .faq-question::after { content: '+'; font-size: 1.5rem; font-weight: 300; color: var(--color-accent-cyan); transition: transform 0.3s ease; }
+  .faq-item[open] .faq-question::after { transform: rotate(45deg); }
+  .faq-question:hover { color: var(--color-accent-cyan); }
+  .faq-answer { padding: 0 var(--space-lg) var(--space-lg); }
+  .faq-answer p { margin: 0; font-size: 1rem; line-height: 1.7; color: var(--color-text-secondary); }
+  .glass { background: var(--glass-bg); border: var(--glass-border); border-radius: var(--radius-lg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); }
+  @media (max-width: 768px) { .hero { min-height: 50vh; } .hero-content { padding: var(--space-lg); } .article-layout { padding: 0 var(--space-sm); } .answer-capsule { flex-direction: column; align-items: flex-start; } .capsule-icon { width: 32px; height: 32px; } }
+</style>

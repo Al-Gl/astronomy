@@ -1,0 +1,317 @@
+---
+import MainLayout from '../../../../layouts/MainLayout.astro';
+import Schema from '../../../../components/Schema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cosmic Atlas', url: '/atlas/' },
+  { name: 'Nebulae', url: '/atlas/nebulae/' },
+  { name: 'HII Regions', url: '/atlas/nebulae/hii-regions/' }
+];
+
+const articleData = {
+  headline: 'HII Regions: Giant Clouds of Ionized Hydrogen',
+  description: 'Complete guide to HII regions — the largest and brightest emission nebulae in galaxies. Learn about ionization physics, Stromgren spheres, and famous examples like the Tarantula Nebula and Orion Nebula.',
+  datePublished: '2026-02-17',
+  dateModified: '2026-02-17',
+  author: 'The Astronomy Space',
+  image: '/images/Hero_hii-regions.jpg',
+  keywords: ['HII regions', 'ionized hydrogen', 'Tarantula Nebula', 'Orion Nebula', 'star formation', 'Stromgren spheres', 'OB associations', 'astronomy']
+};
+
+const faqData = [
+  {
+    question: 'What does HII mean in HII region?',
+    answer: 'HII (pronounced "H-two") refers to ionized hydrogen — hydrogen atoms that have lost their single electron. In spectroscopic notation, "I" means neutral and "II" means singly ionized (one electron removed). So HI is neutral atomic hydrogen, HII is ionized hydrogen (a bare proton), and H2 (with a subscript 2) is molecular hydrogen. The term "HII region" was coined by Bengt Stromgren in 1939 to describe regions of the interstellar medium where hydrogen is predominantly ionized by radiation from hot young stars.'
+  },
+  {
+    question: 'How are HII regions different from regular emission nebulae?',
+    answer: 'HII regions are a subset of emission nebulae — specifically large, luminous regions of ionized hydrogen powered by clusters of multiple massive O and B-type stars. The distinction is somewhat informal: all HII regions are emission nebulae, but emission nebulae is the broader category that also includes planetary nebulae (powered by a single dying star) and other ionized gas clouds. HII regions are specifically associated with active star formation and young stellar clusters, making them tracers of the most active regions of a galaxy.'
+  },
+  {
+    question: 'What is a Stromgren sphere?',
+    answer: 'A Stromgren sphere is the idealized spherical region of ionized gas surrounding a hot star embedded in a uniform gas cloud. Bengt Stromgren showed in 1939 that the boundary between ionized and neutral hydrogen is remarkably sharp — within the sphere, essentially all hydrogen is ionized; outside it, the hydrogen is almost entirely neutral. The radius of this sphere depends on the luminosity of the ionizing star and the density of the surrounding gas. Real HII regions are more complex due to non-uniform gas distributions, multiple ionizing sources, and the presence of dust.'
+  },
+  {
+    question: 'How are HII regions used to map galaxies?',
+    answer: 'HII regions are excellent tracers of spiral arm structure in galaxies. They are concentrated in spiral arms where giant molecular clouds and massive star formation are most active. Because they can be seen at great distances — they are among the most luminous objects per unit mass in a galaxy — HII regions are used to map the spiral structure of the Milky Way and nearby galaxies. The H-alpha emission line at 656.3 nm is the primary wavelength used for HII region surveys, and modern surveys have identified hundreds of thousands of HII regions in nearby galaxies.'
+  },
+  {
+    question: 'What happens to an HII region over time?',
+    answer: 'HII regions evolve and are ultimately destroyed by the very stars that create them. The ionizing radiation and stellar winds from massive O and B stars heat and disperse the surrounding gas. As the most massive stars exhaust their hydrogen fuel (after a few million years), they explode as supernovae, injecting additional energy into the HII region. Eventually the remaining gas is dispersed, the HII region fades, and only the star cluster remains. The process takes roughly 10–30 million years from the initial formation of the HII region to its complete dispersal.'
+  },
+  {
+    question: 'Can we see HII regions in other galaxies?',
+    answer: 'Yes — HII regions are among the most easily detected objects in other galaxies. Their H-alpha emission is bright enough to be detected in galaxies tens of millions of light-years away with modern telescopes. In face-on spiral galaxies like M51 (the Whirlpool) and M33 (the Triangulum), HII regions are clearly visible as pink or red knots tracing the spiral arms. The Tarantula Nebula (30 Doradus) in the Large Magellanic Cloud — a satellite galaxy of the Milky Way 168,000 light-years away — is the most luminous HII region in the Local Group of galaxies.'
+  }
+];
+---
+
+<MainLayout
+  title='HII Regions: Giant Clouds of Ionized Hydrogen | The Astronomy Space'
+  description='Complete guide to HII regions — the largest and brightest emission nebulae in galaxies. Learn about ionization physics, Stromgren spheres, and famous examples like the Tarantula Nebula and Orion Nebula.'
+>
+  <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
+  <Schema type="TechArticle" article={articleData} />
+  <Schema type="FAQPage" faq={faqData} />
+
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-image">
+      <img src="/images/Hero_hii-regions.jpg" alt="Tarantula Nebula 30 Doradus — the most luminous HII region in the Local Group" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/atlas/">Cosmic Atlas</a></li>
+          <li><a href="/atlas/nebulae/">Nebulae</a></li>
+          <li aria-current="page">HII Regions</li>
+        </ol>
+      </nav>
+      <h1>HII Regions</h1>
+      <p class="hero-subtitle">Vast Cauldrons of Ionized Hydrogen</p>
+    </div>
+  </section>
+
+  <article class="content-wrapper">
+    <div class="article-layout">
+
+      <aside class="toc-sidebar">
+        <nav class="toc" aria-label="Table of Contents">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#characteristics">Characteristics</a></li>
+            <li><a href="#stromgren">Stromgren Spheres</a></li>
+            <li><a href="#structure">Internal Structure</a></li>
+            <li><a href="#galactic">Galactic Role</a></li>
+            <li><a href="#examples">Notable Examples</a></li>
+            <li><a href="#observation">Observing Tips</a></li>
+            <li><a href="#fun-facts">Interesting Facts</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <div class="main-content">
+
+        <aside class="answer-capsule">
+          <div class="capsule-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 8v4m0 4h.01"/>
+            </svg>
+          </div>
+          <p>HII regions are vast clouds of ionized hydrogen gas surrounding clusters of newly formed massive stars. They are the most luminous and largest emission nebulae in the universe — some spanning hundreds of light-years and containing enough mass to form thousands of stars. They trace the active star-forming regions of galaxies and are the brightest signs of ongoing stellar birth visible across cosmic distances.</p>
+        </aside>
+
+        <section id="introduction" class="content-section">
+          <h2>Introduction to HII Regions</h2>
+          <p>HII regions are the most spectacular star-forming environments in the universe. They are enormous clouds of ionized hydrogen gas — the "H" stands for hydrogen, and "II" indicates the ionized state — powered by the combined ultraviolet radiation of dozens or hundreds of massive young stars. These cosmic furnaces are simultaneously the birthplaces of new stellar generations and the engines that will ultimately destroy the gas clouds that birthed them.</p>
+          <p>The name comes from Bengt Stromgren's 1939 theoretical work showing that hydrogen around hot stars exists in a sharply bounded ionized state. The ionized region — the Stromgren sphere — is where hydrogen atoms are stripped of their electrons by UV photons, creating the plasma that glows with the characteristic red H-alpha emission that makes HII regions so recognizable in astronomical photographs.</p>
+          <p>HII regions are among the most important objects in observational astronomy. Because they are so luminous — a single giant HII region can outshine thousands of ordinary emission nebulae — they can be detected in galaxies hundreds of millions of light-years away. This makes them invaluable tracers of star formation activity across cosmic time and fundamental probes of galactic structure and evolution.</p>
+        </section>
+
+        <section id="characteristics" class="content-section">
+          <h2>Physical Characteristics</h2>
+          <div class="info-box glass">
+            <h3>HII Region Quick Facts</h3>
+            <ul>
+              <li><strong>Ionizing Source:</strong> Clusters of O and B-type stars (surface temp >25,000 K)</li>
+              <li><strong>Temperature:</strong> 8,000–10,000 K (electron temperature)</li>
+              <li><strong>Density:</strong> 10–10,000 particles per cubic centimeter</li>
+              <li><strong>Size Range:</strong> A few to hundreds of light-years</li>
+              <li><strong>Mass:</strong> 100 to millions of solar masses</li>
+              <li><strong>Primary Emission:</strong> H-alpha (656.3 nm, red), [OIII] (500.7 nm, blue-green)</li>
+            </ul>
+          </div>
+          <p>HII regions span a vast range in physical properties. Small compact HII regions a few light-years across surround individual O-type stars and contain a few hundred solar masses of ionized gas. At the other extreme, giant HII regions like the Tarantula Nebula (30 Doradus) extend nearly 1,000 light-years, contain over a million solar masses of material, and are powered by hundreds of O-type stars in multiple young clusters. Between these extremes lies a continuous distribution reflecting the enormous range of initial cloud masses and star cluster properties.</p>
+        </section>
+
+        <section id="stromgren" class="content-section">
+          <h2>Stromgren Spheres and Ionization Fronts</h2>
+          <p>Bengt Stromgren's 1939 analysis revealed a fundamental property of HII regions: the transition from ionized to neutral hydrogen is extremely sharp — occurring over a distance of less than 0.1 light-year even in a region spanning hundreds of light-years. This sharp boundary, the ionization front, marks the surface where the number of ionizing UV photons exactly balances the rate of hydrogen recombination.</p>
+          <h3>The Stromgren Radius</h3>
+          <p>The radius of the ionized sphere depends on two quantities: the ionizing photon luminosity of the central stars (Q) and the density of the surrounding hydrogen (n). The Stromgren radius scales as Q^(1/3) / n^(2/3). For a single O5 star emitting 10^49 ionizing photons per second, the Stromgren radius in a cloud of density 100 atoms/cm³ is approximately 30 light-years. A cluster of 100 such stars would ionize a region with 10 times the radius.</p>
+          <h3>Evolution of the Ionization Front</h3>
+          <p>When a massive star first ignites, the ionization front expands supersonically through the surrounding neutral gas. Initially, the ionized region grows rapidly as the front races outward. As it expands, the swept-up neutral gas forms a shell around the HII region. Eventually the front slows as the density of ionizable gas decreases, and the HII region reaches approximate equilibrium — its size determined by the balance between ionization and recombination.</p>
+        </section>
+
+        <section id="structure" class="content-section">
+          <h2>Internal Structure of HII Regions</h2>
+          <p>Real HII regions are far more complex than the idealized Stromgren sphere model suggests. They contain a rich variety of structures created by the interplay of ionizing radiation, stellar winds, magnetic fields, and the inhomogeneous distribution of the natal molecular cloud.</p>
+          <h3>Pillars and Globules</h3>
+          <p>The most dramatic internal structures are the pillars and evaporating gaseous globules (EGGs) sculpted by the intense radiation fields and stellar winds from the young hot stars. Dense concentrations of gas resist the ionization and photoevaporation, projecting as pillar-like structures pointing toward the ionizing cluster. The famous "Pillars of Creation" in the Eagle Nebula (M16) are the best-known example, but virtually all giant HII regions contain similar features. The tips of these pillars often harbor embedded protostars, shielded from the destructive radiation by the surrounding dense gas.</p>
+          <h3>Photodissociation Regions</h3>
+          <p>At the boundary of an HII region lies a thin photodissociation region (PDR) — a zone where far-ultraviolet radiation (below the ionization threshold) dissociates molecular hydrogen and creates a complex chemistry involving carbon and oxygen compounds. PDRs are bright in infrared emission from polycyclic aromatic hydrocarbons (PAHs) and fine-structure lines of [CII] and [OI], making them detectable with infrared telescopes like the James Webb Space Telescope.</p>
+        </section>
+
+        <section id="galactic" class="content-section">
+          <h2>Role in Galactic Structure and Evolution</h2>
+          <p>HII regions are fundamental tracers of galactic structure and probes of star formation across cosmic time.</p>
+          <h3>Tracing Spiral Arms</h3>
+          <p>The distribution of HII regions in spiral galaxies closely follows the spiral arms, where the density wave triggers molecular cloud collapse and star formation. In the Milky Way, HII regions have been used since the 1950s to map our galaxy's spiral structure — radio observations of the 21 cm HI line and the recombination lines from HII regions trace the pattern of spiral arms that we cannot see directly from our embedded position within the galactic disk.</p>
+          <h3>Feedback and the Star Formation Rate</h3>
+          <p>HII regions represent a critical feedback mechanism in galaxy evolution. The energy injected by the ionizing stars — through radiation, stellar winds, and ultimately supernovae — heats and disperses the parent molecular cloud, limiting the efficiency of star formation to just a few percent of the cloud mass. Without this feedback, galaxies would convert all their gas into stars far more rapidly than observed. HII regions are thus the agents that regulate the star formation rate of entire galaxies.</p>
+        </section>
+
+        <section id="examples" class="content-section">
+          <h2>Notable HII Regions</h2>
+          <ul class="facts-list">
+            <li><strong>Tarantula Nebula (30 Doradus) — 168,000 light-years:</strong> The most luminous HII region in the Local Group of galaxies, located in the Large Magellanic Cloud. If it were as close as the Orion Nebula, it would cast shadows on Earth. Powered by the super star cluster R136 containing some of the most massive stars known, including stars exceeding 150 solar masses. Spans nearly 1,000 light-years.</li>
+            <li><strong>Orion Nebula (M42) — 1,350 light-years:</strong> The nearest major HII region to Earth, visible to the naked eye. The Trapezium cluster of four O-type stars provides the ionizing photons that illuminate the 24-light-year-wide nebula. Hubble observations have revealed hundreds of protoplanetary disks (proplyds) — solar systems in formation — embedded within the ionized gas.</li>
+            <li><strong>Carina Nebula (NGC 3372) — 7,500 light-years:</strong> One of the largest and brightest HII regions in the Milky Way, spanning over 300 light-years. Contains the exceptional star Eta Carinae — one of the most massive and luminous known, expected to explode as a supernova or hypernova. The James Webb Space Telescope captured spectacular views of the Carina Nebula edge-on, revealing thousands of previously hidden stars forming within the nebula.</li>
+            <li><strong>Lagoon Nebula (M8) — 4,100 light-years:</strong> A large HII region in Sagittarius visible to the naked eye from dark sites. Contains the young open cluster NGC 6530 and numerous Bok globules — dense dark knots in the process of collapsing to form stars. One of the finest examples of an HII region showing active star formation at multiple stages simultaneously.</li>
+          </ul>
+        </section>
+
+        <section id="observation" class="content-section">
+          <h2>Observing HII Regions</h2>
+          <p>HII regions are among the most accessible and rewarding deep-sky objects for observers at all experience levels. The brightest examples are naked-eye objects from dark sites; many dozens are visible in binoculars and small telescopes.</p>
+          <h3>Visual vs Photographic</h3>
+          <p>Visually, HII regions appear gray-green rather than the vivid red seen in photographs. The eye is more sensitive to the [OIII] green emission than to H-alpha red in dim light. This means the visual appearance and the photographic appearance of the same nebula can be dramatically different. H-alpha filters are most effective photographically; OIII and UHC filters improve visual contrast at the eyepiece.</p>
+          <h3>Best Seasonal Targets</h3>
+          <ul>
+            <li><strong>Winter (Orion):</strong> M42, M43, NGC 2024 (Flame Nebula), IC 434 (emission behind Horsehead)</li>
+            <li><strong>Summer (Sagittarius/Scorpius):</strong> M8, M20, M17 — densest concentration of bright HII regions visible from northern latitudes</li>
+            <li><strong>Summer (Cygnus):</strong> North America Nebula (NGC 7000), IC 5070 Pelican, IC 1318 Gamma Cygni — best in H-alpha photography</li>
+          </ul>
+        </section>
+
+        <section id="fun-facts" class="content-section">
+          <h2>Interesting Facts About HII Regions</h2>
+          <ul class="facts-list">
+            <li><strong>Galaxy Fingerprints:</strong> The pattern of HII regions in a spiral galaxy traces its spiral arms. Astronomers can determine a galaxy's star formation rate from the total H-alpha luminosity of its HII region population alone.</li>
+            <li><strong>Tarantula Would Cast Shadows:</strong> If the Tarantula Nebula (30 Doradus) in the LMC were as close as the Orion Nebula, it would span 60 degrees across the sky — covering a third of the entire visible hemisphere — and would be bright enough to cast shadows on Earth at night.</li>
+            <li><strong>Stromgren Nobel:</strong> Bengt Stromgren, who developed the theory of HII regions in 1939, never won a Nobel Prize despite his fundamental contribution to astrophysics. The Nobel Committee has historically underrepresented astronomers, a noted gap in the prize history.</li>
+            <li><strong>Solar System Formation:</strong> Our solar system formed within an HII region about 4.6 billion years ago. Evidence in meteorites for short-lived radioactive isotopes like aluminum-26 suggests a nearby supernova (which could only occur in an HII region rich in massive stars) contaminated the nascent solar nebula just before or during its collapse.</li>
+            <li><strong>Proplyds in Orion:</strong> Hubble Space Telescope images of the Orion Nebula reveal over 150 protoplanetary disks (proplyds) surrounding young stars — each one a potential future solar system. The intense radiation from the Trapezium cluster is photoevaporating these disks, racing against the planet-formation process.</li>
+            <li><strong>Seeing into Other Galaxies:</strong> The brightest HII regions in galaxies like M31 (Andromeda) and M33 (Triangulum) can be individually detected and spectroscopically studied from Earth. Their oxygen and hydrogen abundances tell us about the chemical enrichment history of those galaxies — billions of years of stellar evolution written in glowing gas.</li>
+            <li><strong>Star Formation Efficiency:</strong> Despite being called star nurseries, HII regions convert only 1–5% of their mass into stars before feedback disperses the remaining gas. This astonishingly low efficiency prevents galaxies from burning through all their gas quickly — without it, the Milky Way would have consumed all its star-forming material billions of years ago.</li>
+            <li><strong>Ionization Front Speed:</strong> When a massive star first ignites, the ionization front expands at near the speed of light initially, slowing to roughly 10 km/s as it approaches its equilibrium Stromgren radius. This means an HII region inflates to its full size within about a million years of its ionizing stars forming.</li>
+          </ul>
+        </section>
+
+        <section id="resources" class="content-section">
+          <h2>External Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://hubblesite.org/contents/media/images/gallery/topics/nebulas" target="_blank" rel="noopener">Hubble Nebula Gallery</a> - Spectacular HST images of HII regions</li>
+            <li><a href="https://webbtelescope.org/contents/media/images/2022/031/01G77PKB8NKR7S8Z6HBXMYATGJ" target="_blank" rel="noopener">Webb — Carina Nebula</a> - JWST edge-on view of the Carina HII region</li>
+            <li><a href="https://en.wikipedia.org/wiki/H_II_region" target="_blank" rel="noopener">HII Region — Wikipedia</a> - Detailed scientific overview with Stromgren theory</li>
+            <li><a href="https://www.eso.org/public/images/archive/category/nebulae/" target="_blank" rel="noopener">ESO Nebula Images</a> - ESO deep imaging of HII regions</li>
+          </ul>
+        </section>
+
+        <section id="faq" class="content-section faq-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqData.map((item) => (
+              <details class="faq-item">
+                <summary class="faq-question">{item.question}</summary>
+                <div class="faq-answer">
+                  <p set:html={item.answer}></p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </article>
+</MainLayout>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    const progressBar = document.getElementById('progressBar');
+    if (progressBar) progressBar.style.width = scrollPercent + '%';
+  });
+  const sections = document.querySelectorAll('.content-section');
+  const tocLinks = document.querySelectorAll('.toc a');
+  const observerOptions = { rootMargin: '-20% 0% -70% 0%' };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, observerOptions);
+  sections.forEach(section => observer.observe(section));
+</script>
+
+<style>
+  .progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: rgba(255,255,255,0.1); z-index: 1000; }
+  .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-blue)); transition: width 0.1s ease-out; }
+  .hero { position: relative; min-height: 60vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .hero-image { position: absolute; inset: 0; z-index: 0; }
+  .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.9) 100%); }
+  .hero-content { position: relative; z-index: 1; text-align: center; padding: var(--space-xl); }
+  .hero h1 { font-family: var(--font-heading); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; margin-bottom: var(--space-sm); text-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+  .hero-subtitle { font-size: clamp(1.25rem, 3vw, 1.75rem); color: var(--color-accent-cyan); font-weight: 500; }
+  .breadcrumbs { margin-bottom: var(--space-lg); }
+  .breadcrumbs ol { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; list-style: none; padding: 0; margin: 0; font-size: 0.9rem; }
+  .breadcrumbs li { display: flex; align-items: center; gap: 0.5rem; }
+  .breadcrumbs li:not(:last-child)::after { content: '\203a'; color: var(--color-text-secondary); }
+  .breadcrumbs a { color: var(--color-text-secondary); text-decoration: none; transition: color 0.2s ease; }
+  .breadcrumbs a:hover { color: var(--color-accent-cyan); }
+  .breadcrumbs li[aria-current="page"] { color: var(--color-text-primary); }
+  .content-wrapper { padding: var(--space-2xl) 0; }
+  .article-layout { display: grid; grid-template-columns: 1fr; max-width: 1200px; margin: 0 auto; padding: 0 var(--space-md); gap: var(--space-xl); }
+  @media (min-width: 1024px) { .article-layout { grid-template-columns: 220px 1fr; gap: var(--space-2xl); } }
+  .toc-sidebar { display: none; }
+  @media (min-width: 1024px) { .toc-sidebar { display: block; } .toc { position: sticky; top: calc(var(--space-xl) + 3px); max-height: calc(100vh - var(--space-2xl)); overflow-y: auto; } }
+  .toc h2 { font-family: var(--font-heading); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-md); color: var(--color-text-secondary); }
+  .toc ol { list-style: none; padding: 0; margin: 0; }
+  .toc li { margin-bottom: 0.25rem; }
+  .toc a { display: block; padding: 0.5rem 0; padding-left: var(--space-sm); color: var(--color-text-secondary); text-decoration: none; font-size: 0.9rem; border-left: 2px solid transparent; transition: all 0.2s ease; }
+  .toc a:hover { color: var(--color-text-primary); border-left-color: rgba(6,182,212,0.5); }
+  .toc a.active { color: var(--color-accent-cyan); border-left-color: var(--color-accent-cyan); }
+  .main-content { max-width: 800px; }
+  .answer-capsule { display: flex; gap: var(--space-md); padding: var(--space-lg); margin-bottom: var(--space-2xl); background: linear-gradient(135deg, rgba(6,182,212,0.1) 0%, rgba(59,130,246,0.1) 100%); border: 1px solid rgba(6,182,212,0.2); border-radius: var(--radius-lg); position: relative; overflow: hidden; }
+  .answer-capsule::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at top left, rgba(6,182,212,0.15) 0%, transparent 50%); pointer-events: none; }
+  .capsule-icon { flex-shrink: 0; width: 40px; height: 40px; color: var(--color-accent-cyan); opacity: 0.8; }
+  .capsule-icon svg { width: 100%; height: 100%; }
+  .answer-capsule p { margin: 0; font-size: 1.1rem; line-height: 1.7; color: var(--color-text-primary); position: relative; }
+  .content-section { margin-bottom: var(--space-2xl); }
+  .content-section h2 { font-family: var(--font-heading); font-size: clamp(1.75rem, 4vw, 2.25rem); margin-bottom: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 2px solid rgba(6,182,212,0.3); color: var(--color-text-primary); }
+  .content-section h3 { font-family: var(--font-heading); font-size: clamp(1.25rem, 3vw, 1.5rem); margin-top: var(--space-xl); margin-bottom: var(--space-md); color: var(--color-accent-cyan); }
+  .content-section p { font-size: 1.1rem; line-height: 1.8; color: var(--color-text-secondary); margin-bottom: var(--space-md); }
+  .content-section ul, .content-section ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+  .content-section li { font-size: 1.05rem; line-height: 1.7; color: var(--color-text-secondary); margin-bottom: 0.5rem; }
+  .info-box { padding: var(--space-lg); margin: var(--space-lg) 0; }
+  .info-box h3 { margin-top: 0; font-size: 1.1rem; color: var(--color-accent-blue); }
+  .info-box ul { margin: 0; padding-left: var(--space-md); }
+  .info-box li { font-size: 1rem; margin-bottom: 0.4rem; }
+  .facts-list { list-style: none; padding: 0; }
+  .facts-list li { padding: var(--space-md) 0; border-bottom: 1px solid rgba(148,163,184,0.1); }
+  .facts-list li:last-child { border-bottom: none; }
+  .resource-list { list-style: none; padding: 0; }
+  .resource-list li { padding: var(--space-sm) 0; border-bottom: 1px solid rgba(148,163,184,0.1); }
+  .resource-list li:last-child { border-bottom: none; }
+  .resource-list a { color: var(--color-accent-cyan); font-weight: 500; }
+  .faq-section { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid rgba(148,163,184,0.1); }
+  .faq-list { display: flex; flex-direction: column; gap: var(--space-sm); }
+  .faq-item { background: var(--glass-bg); border: var(--glass-border); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.3s ease; }
+  .faq-item[open] { background: rgba(6,182,212,0.05); border-color: rgba(6,182,212,0.2); }
+  .faq-question { padding: var(--space-md) var(--space-lg); cursor: pointer; font-size: 1.1rem; font-weight: 500; color: var(--color-text-primary); list-style: none; display: flex; justify-content: space-between; align-items: center; transition: color 0.2s ease; }
+  .faq-question::-webkit-details-marker { display: none; }
+  .faq-question::after { content: '+'; font-size: 1.5rem; font-weight: 300; color: var(--color-accent-cyan); transition: transform 0.3s ease; }
+  .faq-item[open] .faq-question::after { transform: rotate(45deg); }
+  .faq-question:hover { color: var(--color-accent-cyan); }
+  .faq-answer { padding: 0 var(--space-lg) var(--space-lg); }
+  .faq-answer p { margin: 0; font-size: 1rem; line-height: 1.7; color: var(--color-text-secondary); }
+  .glass { background: var(--glass-bg); border: var(--glass-border); border-radius: var(--radius-lg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); }
+  @media (max-width: 768px) { .hero { min-height: 50vh; } .hero-content { padding: var(--space-lg); } .article-layout { padding: 0 var(--space-sm); } .answer-capsule { flex-direction: column; align-items: flex-start; } .capsule-icon { width: 32px; height: 32px; } }
+</style>

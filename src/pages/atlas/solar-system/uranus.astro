@@ -190,6 +190,89 @@ const faqData = [
 
           <h3>Wind Speeds</h3>
           <p>Wind speeds on Uranus reach up to 900 km/h (560 mph), though this is slower than the winds on <a href="/atlas/solar-system/saturn/">Saturn</a> and <a href="/atlas/solar-system/neptune/">Neptune</a>. Interestingly, winds blow in the direction of the planet's rotation at the equator but in the opposite direction near the poles, creating a complex wind pattern influenced by the planet's unusual orientation and extreme seasons.</p>
+
+          <!-- Atmospheric Layers Interactive -->
+          <div class="atmo-interactive glass">
+            <div class="atmo-scene">
+              <svg id="uatmoSvg" viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg"
+                aria-label="Interactive Uranus atmospheric layers diagram" role="img">
+                <defs>
+                  <linearGradient id="uatmoSpaceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#00080f"/>
+                    <stop offset="100%" stop-color="#001520"/>
+                  </linearGradient>
+                  <linearGradient id="uatmoSurfaceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="rgba(80,190,200,0.85)"/>
+                    <stop offset="100%" stop-color="rgba(50,150,170,0.9)"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- Background -->
+                <rect x="0" y="0" width="500" height="360" fill="url(#uatmoSpaceGrad)"/>
+
+                <!-- Stars -->
+                <circle cx="420" cy="20" r="1"   fill="rgba(255,255,255,0.8)"/>
+                <circle cx="460" cy="35" r="1.5" fill="rgba(255,255,255,0.6)"/>
+                <circle cx="480" cy="15" r="1"   fill="rgba(255,255,255,0.7)"/>
+                <circle cx="430" cy="50" r="1"   fill="rgba(255,255,255,0.5)"/>
+                <circle cx="445" cy="8"  r="1.2" fill="rgba(255,255,255,0.65)"/>
+
+                <!-- Layer bands (top→bottom) -->
+                <rect class="uatmo-band" data-layer="exosphere"    x="0" y="10"  width="430" height="70" fill="rgba(40,80,160,0.12)"   stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+                <rect class="uatmo-band" data-layer="thermosphere" x="0" y="80"  width="430" height="75" fill="rgba(60,120,180,0.20)"  stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+                <rect class="uatmo-band" data-layer="stratosphere" x="0" y="155" width="430" height="80" fill="rgba(80,160,180,0.28)"  stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+                <rect class="uatmo-band" data-layer="troposphere"  x="0" y="235" width="430" height="83" fill="rgba(100,190,200,0.38)" stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+
+                <!-- Altitude boundary lines -->
+                <line x1="430" y1="80"  x2="500" y2="80"  stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <line x1="430" y1="155" x2="500" y2="155" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <line x1="430" y1="235" x2="500" y2="235" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <line x1="430" y1="318" x2="500" y2="318" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+
+                <!-- Altitude labels -->
+                <text x="436" y="78"  font-size="11" fill="rgba(255,255,255,0.4)" font-family="inherit">500+ km</text>
+                <text x="436" y="153" font-size="11" fill="rgba(255,255,255,0.4)" font-family="inherit">300 km</text>
+                <text x="436" y="233" font-size="11" fill="rgba(255,255,255,0.4)" font-family="inherit">50 km</text>
+                <text x="436" y="316" font-size="11" fill="rgba(255,255,255,0.4)" font-family="inherit">0 km</text>
+
+                <!-- Space label -->
+                <text x="8" y="22" font-size="10" fill="rgba(255,255,255,0.3)" font-family="inherit">↑ Space</text>
+
+                <!-- Layer name labels -->
+                <text x="215" y="40"  font-size="14" font-weight="600" fill="rgba(90,140,210,0.88)" font-family="inherit" text-anchor="middle" style="pointer-events:none">Exosphere / Corona</text>
+                <text x="215" y="56"  font-size="11" fill="rgba(255,255,255,0.38)" font-family="inherit" text-anchor="middle" style="pointer-events:none">500 km + · 42-year polar summer</text>
+
+                <text x="215" y="113" font-size="14" font-weight="600" fill="rgba(100,160,220,0.88)" font-family="inherit" text-anchor="middle" style="pointer-events:none">Thermosphere</text>
+                <text x="215" y="129" font-size="11" fill="rgba(255,255,255,0.38)" font-family="inherit" text-anchor="middle" style="pointer-events:none">300 – 500 km · Anomalously warm</text>
+
+                <text x="215" y="190" font-size="14" font-weight="600" fill="rgba(120,185,210,0.88)" font-family="inherit" text-anchor="middle" style="pointer-events:none">Stratosphere</text>
+                <text x="215" y="206" font-size="11" fill="rgba(255,255,255,0.38)" font-family="inherit" text-anchor="middle" style="pointer-events:none">50 – 300 km · Hydrocarbon haze</text>
+
+                <text x="215" y="272" font-size="14" font-weight="600" fill="rgba(140,210,220,0.95)" font-family="inherit" text-anchor="middle" style="pointer-events:none">Troposphere</text>
+                <text x="215" y="288" font-size="11" fill="rgba(255,255,255,0.38)" font-family="inherit" text-anchor="middle" style="pointer-events:none">0 – 50 km · −224 °C · Coldest planet</text>
+
+                <!-- Uranus 1-bar level -->
+                <rect x="0" y="318" width="500" height="42" fill="url(#uatmoSurfaceGrad)"/>
+                <text x="215" y="344" font-size="11" fill="rgba(255,255,255,0.35)" font-family="inherit" text-anchor="middle">1-bar Level (−224 °C)</text>
+
+                <!-- Highlight overlay -->
+                <rect id="uatmoHighlight" x="0" y="235" width="430" height="83"
+                  fill="none" stroke="rgba(110,200,210,0.7)" stroke-width="2" opacity="1"/>
+              </svg>
+            </div>
+
+            <!-- Info panel -->
+            <div class="atmo-info glass">
+              <div class="atmo-info-header">
+                <span class="atmo-info-name" id="uatmoInfoName">Troposphere</span>
+                <span class="atmo-info-alt"  id="uatmoInfoAlt">0 – 50 km (1-bar level)</span>
+              </div>
+              <p class="atmo-info-desc" id="uatmoInfoDesc">The main weather layer where temperatures plunge to −224°C — the coldest planetary atmosphere in the solar system. Methane ice clouds form here; hydrogen sulphide clouds form slightly deeper. Wind speeds reach 900 km/h, blowing in opposite directions at the equator and poles.</p>
+              <div class="atmo-info-fact" id="uatmoInfoFact">✦ Uranus is colder than Neptune despite being closer to the Sun — it emits almost no internal heat, a mystery that still puzzles planetary scientists.</div>
+            </div>
+
+            <p class="atmo-hint">Click any layer to explore it</p>
+          </div>
         </section>
 
         <!-- Interior Structure -->
@@ -410,9 +493,82 @@ const faqData = [
   }, observerOptions);
 
   sections.forEach(section => observer.observe(section));
+
+  // ─── Uranus Atmosphere Interactive ─────────────────────────────────────────
+  type UatmoLayer = { name:string; alt:string; desc:string; fact:string; bandY:number; bandH:number; stroke:string; };
+  const uatmoLayers: Record<string, UatmoLayer> = {
+    troposphere: {
+      name: 'Troposphere', alt: '0 – 50 km (1-bar level)',
+      desc: 'The main weather layer where temperatures plunge to −224°C — the coldest planetary atmosphere in the solar system. Methane ice clouds form here; hydrogen sulphide clouds form slightly deeper. Wind speeds reach 900 km/h, blowing in opposite directions at the equator and poles.',
+      fact: '✦ Uranus is colder than Neptune despite being closer to the Sun — it emits almost no internal heat, a mystery that still puzzles planetary scientists.',
+      bandY: 235, bandH: 83, stroke: 'rgba(110,200,210,0.7)',
+    },
+    stratosphere: {
+      name: 'Stratosphere', alt: '50 – 300 km',
+      desc: 'A haze of complex hydrocarbons — acetylene, ethylene, and diacetylene — forms here as solar UV breaks apart methane. Temperatures rise with altitude through this layer, reversing the tropospheric trend.',
+      fact: '✦ Improved telescopes have revealed storm systems invisible to Voyager 2 during its 1986 flyby, showing Uranus is more active than once thought.',
+      bandY: 155, bandH: 80, stroke: 'rgba(90,170,200,0.65)',
+    },
+    thermosphere: {
+      name: 'Thermosphere', alt: '300 – 500 km',
+      desc: 'Temperatures rise dramatically here, reaching hundreds of degrees Celsius despite Uranus\'s great distance from the Sun. Charged particles from the magnetosphere and solar UV both contribute to heating this anomalously warm layer.',
+      fact: '✦ Uranus\'s magnetic field is tilted 59° from its rotational axis and offset from the planet\'s centre — one of the most unusual field configurations in the solar system.',
+      bandY: 80, bandH: 75, stroke: 'rgba(70,130,210,0.65)',
+    },
+    exosphere: {
+      name: 'Exosphere / Corona', alt: '500 km +',
+      desc: 'The outermost atmosphere transitions gradually into the magnetosphere and interplanetary space. Uranus\'s extreme axial tilt means one pole points directly at the Sun for 42 years at a time, driving dramatic seasonal changes even in this diffuse outer region.',
+      fact: '✦ During Uranus\'s polar summer, one hemisphere receives continuous sunlight for 42 Earth years while the other sits in complete darkness.',
+      bandY: 10, bandH: 70, stroke: 'rgba(50,90,200,0.65)',
+    },
+  };
+
+  const uatmoHighlight = document.getElementById('uatmoHighlight');
+  const uatmoInfoName  = document.getElementById('uatmoInfoName');
+  const uatmoInfoAlt   = document.getElementById('uatmoInfoAlt');
+  const uatmoInfoDesc  = document.getElementById('uatmoInfoDesc');
+  const uatmoInfoFact  = document.getElementById('uatmoInfoFact');
+
+  function selectUatmoLayer(key: string) {
+    const layer = uatmoLayers[key];
+    if (!layer) return;
+    if (uatmoHighlight) {
+      uatmoHighlight.setAttribute('y',      String(layer.bandY));
+      uatmoHighlight.setAttribute('height', String(layer.bandH));
+      uatmoHighlight.setAttribute('stroke', layer.stroke);
+    }
+    if (uatmoInfoName) uatmoInfoName.textContent = layer.name;
+    if (uatmoInfoAlt)  uatmoInfoAlt.textContent  = layer.alt;
+    if (uatmoInfoDesc) uatmoInfoDesc.textContent = layer.desc;
+    if (uatmoInfoFact) uatmoInfoFact.textContent = layer.fact;
+  }
+
+  document.querySelectorAll<SVGRectElement>('.uatmo-band').forEach(band => {
+    band.addEventListener('click', () => {
+      const key = band.getAttribute('data-layer');
+      if (key) selectUatmoLayer(key);
+    });
+  });
+
+  selectUatmoLayer('troposphere');
 </script>
 
 <style>
+  /* ── Uranus Atmosphere Interactive ── */
+  .uatmo-band { transition: filter 0.15s ease; }
+  .uatmo-band:hover { filter: brightness(1.4); }
+
+  .atmo-interactive { margin: var(--space-xl) 0; padding: var(--space-lg); }
+  .atmo-scene { width: 100%; overflow-x: auto; }
+  .atmo-scene svg { width: 100%; max-width: 500px; height: auto; display: block; margin: 0 auto var(--space-md); }
+  .atmo-info { margin-top: var(--space-md); padding: var(--space-md) var(--space-lg); }
+  .atmo-info-header { display: flex; align-items: baseline; gap: var(--space-md); margin-bottom: var(--space-sm); flex-wrap: wrap; }
+  .atmo-info-name { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 600; color: var(--color-accent-cyan); }
+  .atmo-info-alt { font-size: 0.875rem; font-weight: 400; color: var(--color-text-secondary); }
+  .atmo-info-desc { font-size: 0.9375rem; font-weight: 300; color: var(--color-text-secondary); line-height: 1.7; margin: 0 0 var(--space-sm) 0; }
+  .atmo-info-fact { font-size: 0.875rem; font-weight: 400; color: rgba(56,189,248,0.65); font-style: italic; }
+  .atmo-hint { text-align: center; font-size: 0.8125rem; color: rgba(255,255,255,0.22); margin: var(--space-sm) 0 0 0; letter-spacing: 0.03em; }
+
   /* Progress Bar */
   .progress-container {
     position: fixed;
@@ -850,6 +1006,10 @@ const faqData = [
   @media (max-width: 768px) {
     .hero {
       min-height: 50vh;
+    }
+
+    .hero-image img {
+      object-position: right center;
     }
 
     .hero-content {

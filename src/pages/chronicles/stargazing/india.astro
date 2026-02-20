@@ -1,0 +1,742 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import Schema from '../../../components/Schema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cosmic Chronicles', url: '/chronicles/' },
+  { name: 'Stargazing Guides', url: '/chronicles/stargazing/' },
+  { name: 'India', url: '/chronicles/stargazing/india/' }
+];
+
+const articleData = {
+  headline: 'Stargazing in India: Complete Guide to Dark Sky Sites, Ladakh & Himalayan Observing',
+  description: 'Comprehensive guide to stargazing in India. Discover Hanle Dark Sky Reserve, Ladakh, Spiti Valley, Rann of Kutch, and practical tips for astronomy across India\'s diverse landscapes.',
+  datePublished: '2026-02-19',
+  dateModified: '2026-02-19',
+  author: 'The Astronomy Space',
+  image: '/images/Hero_india.jpg',
+  keywords: [
+    'Stargazing India',
+    'Hanle Dark Sky Reserve',
+    'Ladakh astronomy',
+    'Spiti Valley stars',
+    'Rann of Kutch night sky',
+    'Indian Astronomical Observatory Hanle',
+    'dark sky sites India',
+    'Milky Way India',
+    'astronomy India travel',
+    'night sky photography India'
+  ]
+};
+
+const faqData = [
+  {
+    question: 'When is the best time to go stargazing in India?',
+    answer: 'The best time varies by region. For Himalayan sites like Ladakh and Spiti Valley, October to February offers the clearest skies but extreme cold. The post-monsoon window of September to November is ideal for most of India — skies are crystal clear, temperatures are moderate, and the Milky Way core is still visible low on the horizon. For Rann of Kutch, October through March coincides with the Rann Utsav festival and the driest, clearest nights. Avoid the monsoon season (June–September) across most of India as it brings persistent cloud cover.'
+  },
+  {
+    question: 'Do I need special permits to visit Hanle or Ladakh for stargazing?',
+    answer: 'Yes. Both Ladakh and the Hanle Dark Sky Reserve require an Inner Line Permit (ILP), which must be obtained in advance from the Ladakh Autonomous Hill Development Council or online through official government portals. The ILP is required for Indian citizens visiting border-sensitive districts including Hanle (Changthang region) and parts of Nubra Valley. Foreign nationals require additional permits including an Inner Line Permit and must register with the local police. Plan permit applications at least two weeks ahead of travel. Tour operators in Leh can facilitate permits efficiently.'
+  },
+  {
+    question: 'How does altitude affect stargazing conditions in Ladakh and Spiti Valley?',
+    answer: 'Altitude is a major advantage for stargazing: at 3,500–4,500 metres you are above roughly 40% of Earth\'s atmosphere, meaning far less atmospheric absorption and turbulence. The result is extraordinary seeing conditions — stars appear pinpoint-sharp rather than twinkling, and faint objects like the Andromeda Galaxy are visible to the naked eye. However, altitude also brings real health risks. Acute Mountain Sickness (AMS) is common above 3,000 m; symptoms include headache, nausea, and fatigue. Allow 48–72 hours acclimatisation at Leh (3,524 m) before travelling further to Hanle (4,500 m) or Spiti (3,800–4,500 m). Diamox (acetazolamide) is widely recommended; consult your doctor before travel.'
+  },
+  {
+    question: 'What celestial objects are uniquely visible from India\'s dark skies?',
+    answer: 'India\'s latitude (8°N–37°N) gives access to parts of the sky invisible from Europe or North America. From southern India and the Rann of Kutch, the Centaurus region including Alpha Centauri (our nearest star system) rises well above the horizon. The galactic centre in Sagittarius reaches higher overhead than from northern latitudes, making the Milky Way core more spectacular. Large Magellanic Cloud and Small Magellanic Cloud are visible from the southernmost tip of India (Tamil Nadu, Kerala). The Carina Nebula and Omega Centauri globular cluster — among the finest deep-sky objects — are accessible from Indian skies but invisible from most of Europe.'
+  },
+  {
+    question: 'Is Rann of Kutch good for astrophotography?',
+    answer: 'Rann of Kutch is exceptional for astrophotography, particularly during October to March. The vast flat white salt desert acts as a natural reflective surface — when a thin layer of water covers the flats (common in winter), the Milky Way and stars reflect perfectly, creating surreal double-sky images. The horizon is absolutely flat in all 360 degrees with zero obstructions, ideal for wide-angle Milky Way panoramas. Light pollution is minimal except for distant glow from Bhuj to the north. The nearest Bortle Class 1 zones are near Dholavira and Khavda. Pack for sand/dust protection for your equipment and bring a spare sensor-cleaning kit.'
+  },
+  {
+    question: 'What equipment do I need for stargazing in India\'s cold mountain regions?',
+    answer: 'For Ladakh and Spiti Valley, cold-weather preparation is essential. Temperatures drop to −15°C to −25°C on winter nights even in October–November. Layer with thermal base layers, fleece mid-layers, and a down-filled outer jacket rated to −20°C or lower. Hand warmers are vital for operating camera controls. Lithium batteries perform far better than alkaline in cold; carry spares kept warm in an inner pocket. For optics, use nitrogen-purged binoculars or telescopes to prevent internal fogging. Dew heaters are less relevant in Ladakh\'s dry air than moisture-related issues, but condensation can occur when bringing cold equipment into warm accommodation — allow gradual temperature equalisation. Oxygen saturation monitors are useful above 4,000 m.'
+  }
+];
+---
+
+<MainLayout
+  title="Stargazing in India: Complete Guide to Dark Sky Sites, Ladakh & Himalayan Observing | The Astronomy Space"
+  description="Comprehensive guide to stargazing in India. Discover Hanle Dark Sky Reserve, Ladakh, Spiti Valley, Rann of Kutch, and practical tips for astronomy across India's diverse landscapes."
+>
+  <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
+  <Schema type="TechArticle" article={articleData} />
+  <Schema type="FAQPage" faq={faqData} />
+
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-image">
+      <img src="/images/Hero_india.jpg" alt="Milky Way arching over snow-capped Himalayan peaks in Ladakh, India under a deep indigo starry sky" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/chronicles/">Cosmic Chronicles</a></li>
+          <li><a href="/chronicles/stargazing/">Stargazing Guides</a></li>
+          <li aria-current="page">India</li>
+        </ol>
+      </nav>
+      <h1>Stargazing in India</h1>
+      <p class="hero-subtitle">A Complete Guide to Dark Sky Sites, Himalayan Observing & Rann of Kutch</p>
+    </div>
+  </section>
+
+  <div class="content-wrapper">
+    <div class="article-layout">
+      <aside class="toc-sidebar">
+        <nav class="toc" aria-label="Table of Contents">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#ladakh">Ladakh</a></li>
+            <li><a href="#hanle">Hanle Dark Sky Reserve</a></li>
+            <li><a href="#spiti">Spiti Valley</a></li>
+            <li><a href="#rann">Rann of Kutch</a></li>
+            <li><a href="#other-locations">Other Locations</a></li>
+            <li><a href="#timing">Best Times & Seasons</a></li>
+            <li><a href="#equipment">Essential Equipment</a></li>
+            <li><a href="#planning">Planning Your Trip</a></li>
+            <li><a href="#tips">Practical Tips</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+
+        <aside class="answer-capsule">
+          <div class="capsule-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <p>India offers some of the world's finest stargazing conditions. The Himalayan plateau of Ladakh reaches 4,500 metres altitude — above 40% of Earth's atmosphere — giving access to skies that rival professional observatory sites. The Hanle Dark Sky Reserve, declared in 2022, is one of Asia's highest and darkest certified reserves. Beyond the mountains, the Rann of Kutch salt desert provides a flat, 360-degree horizon for panoramic Milky Way photography, while Spiti Valley and Coorg offer equally exceptional dark-sky experiences accessible to the dedicated traveller.</p>
+        </aside>
+
+        <section id="introduction" class="content-section">
+          <h2>Introduction: Why India is Extraordinary for Stargazing</h2>
+          <p>India's sheer geographic diversity creates stargazing opportunities that few countries can match. In the north, the Himalayan highlands of Ladakh and Spiti Valley rise above 4,000 metres, putting observers above the densest and most light-scattering layers of the atmosphere. Here, even modest binoculars reveal globular clusters that require telescopes at sea level, and the naked eye can resolve the spiral structure of the Andromeda Galaxy on moonless nights.</p>
+          <p>To the west, the vast Rann of Kutch — the world's largest salt desert — offers a uniquely flat, obstruction-free horizon across 360 degrees. With virtually zero vertical terrain and minimal human habitation for hundreds of kilometres, the darkness ratings here regularly fall into the Bortle Class 1–2 range. Meanwhile in the south, India's low latitude (some regions dip below 10°N) opens up a portion of the southern sky permanently hidden from European and North American observers, including the rich star fields of Centaurus and the lower reaches of Scorpius.</p>
+          <p>India is also home to the world's highest optical research observatory. The Indian Astronomical Observatory (IAO) at Hanle, operated by the Indian Institute of Astrophysics, sits at 4,500 metres in the Changthang plateau of Ladakh — and the surrounding area was declared India's first Dark Sky Reserve in 2022, placing it among Asia's most protected night-sky regions.</p>
+
+          <div class="info-box glass">
+            <h3>India's Top Dark Sky Locations</h3>
+            <ul>
+              <li><strong>Hanle, Ladakh (4,500 m | 32.8°N)</strong> — Asia's highest dark sky reserve; Bortle Class 1; Inner Line Permit required</li>
+              <li><strong>Pangong Tso, Ladakh (4,350 m | 33.7°N)</strong> — High-altitude lake with mirror reflections; exceptional transparency</li>
+              <li><strong>Spiti Valley — Hikkim (4,440 m | 32.2°N)</strong> — World's highest post office; arid plateau darkness; ILP required</li>
+              <li><strong>Rann of Kutch, Gujarat (sea level | 23.5°N)</strong> — Flat salt desert; Bortle 1–2; best Oct–Mar</li>
+              <li><strong>Coorg (Kodagu), Karnataka (1,100 m | 12.4°N)</strong> — Southern sky access; low latitude; accessible year-round</li>
+              <li><strong>Chopta, Uttarakhand (2,700 m | 30.5°N)</strong> — Meadow-top clearing; accessible from Rishikesh; Oct–Dec best</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="ladakh" class="content-section">
+          <h2>Ladakh: The Himalayan Dark Sky Capital</h2>
+          <p>Ladakh is India's premier stargazing destination — a remote high-altitude plateau in the far north of the country, bordered by the Karakoram Range to the north and the Great Himalayan Range to the south. The district sits predominantly between 3,000 and 5,000 metres above sea level, in a rain shadow that makes it one of the driest inhabited regions on Earth. Annual precipitation in Leh, the regional capital, is a mere 100 mm. This extreme aridity translates directly into exceptional atmospheric transparency — moisture is the enemy of clear skies, and Ladakh has almost none.</p>
+
+          <h3>Leh & Nubra Valley</h3>
+          <p>Leh (3,524 m) is the logical base for Ladakh stargazing. While the town itself has grown and carries noticeable light pollution from street lights and vehicles, the surrounding plateau within 20 km becomes extremely dark very quickly. Drive 30 minutes south towards Thiksey Monastery and the orange glow of Leh drops below the Stok Range; the Milky Way becomes immediately visible to the naked eye. Nubra Valley — accessible via the Khardung La pass (5,359 m, among the world's highest motorable roads) — adds another dimension. The sand dunes near Hunder at around 3,000 m are surrounded by dark mountains, and on new-moon nights the galactic centre blazes directly overhead from June through August.</p>
+
+          <h3>Pangong Tso Lake</h3>
+          <p>Pangong Tso (4,350 m) is one of the world's highest saltwater lakes, stretching 134 km from India into Tibet. Its mirror-calm surface on still nights creates extraordinary reflected-sky vistas. The Bortle rating on the Indian bank hovers at Class 1–2, and the thin air at altitude makes even the zodiacal light — the faint glow of interplanetary dust along the ecliptic — readily visible. The lake is a 5-hour drive from Leh. Overnight camping on the shore is permitted (with appropriate permits) and offers the most dramatic stargazing conditions in India. Expect temperatures to drop to −10°C or below even in late September.</p>
+
+          <h3>Getting There & Logistics</h3>
+          <p>Leh is served by Kushok Bakula Rimpochee Airport with daily flights from Delhi, Mumbai, and Srinagar. The alternative overland route — Manali–Leh Highway (479 km) — is spectacular but requires 2 days and is open only from June to late October due to snow. Inner Line Permits are required for Nubra Valley, Pangong Tso, and Hanle; these must be obtained online or in Leh. Accommodation ranges from basic guesthouses (from INR 600/night) to luxury eco-camps near Pangong. Mobile connectivity is limited; download offline maps (Maps.me, OsmAnd) before departure.</p>
+        </section>
+
+        <section id="hanle" class="content-section">
+          <h2>Hanle Dark Sky Reserve</h2>
+          <p>Hanle is the crown jewel of Indian astronomy — both for professional researchers and visiting stargazers. Located in the Changthang plateau at 4,500 metres, this remote village near the Chinese border hosts the Indian Astronomical Observatory (IAO), operated by the Indian Institute of Astrophysics (IIA), Bengaluru. The IAO's 2-metre Himalayan Chandra Telescope (HCT) and the associated GROWTH-India 0.7-metre telescope are among the world's highest-altitude optical telescopes.</p>
+
+          <div class="inline-image">
+            <img src="/images/india_hanle.jpg" alt="Astronomical observatory dome silhouetted against a brilliant star-filled night sky at Hanle, Ladakh" loading="lazy" />
+            <p class="image-caption">The Hanle observatory complex at 4,500 m — one of the world's highest optical telescope sites</p>
+          </div>
+
+          <h3>Indian Astronomical Observatory</h3>
+          <p>The IAO at Hanle has been operational since 2001. At 4,500 m altitude, it benefits from over 250 clear nights per year — far more than most observatory sites in the world. The atmospheric column above is thin and dry, providing seeing conditions (the stability of the atmosphere that affects image sharpness) measured at median 0.8 arcseconds — world-class by any standard. Professional telescopes here have observed gamma-ray burst afterglows, near-Earth asteroids, and exoplanet transits. The observatory is not normally open for public visits, but the surrounding Hanle Dark Sky Reserve, gazetted in 2022, protects an area of approximately 1,073 sq km from light pollution under formal regulation.</p>
+
+          <h3>Visiting Hanle as a Stargazer</h3>
+          <p>Despite the professional installations, Hanle village and the surrounding plateau are open to visitors holding the appropriate permits. The village has a handful of simple homestays (basic meals and lodging, INR 800–1,200/night). The road from Leh via Chumur is approximately 260 km and takes 7–8 hours on a good day; the last 100 km is a rough mountain track with no petrol stations. A 4WD vehicle is essential. Night temperatures even in August can reach −5°C; from October, sub-zero conditions are the norm. The reward is some of the most extraordinary night skies on Earth — naked-eye limiting magnitude regularly exceeds +7.0, meaning thousands of stars invisible from cities are plainly visible without any optical aid.</p>
+
+          <h3>Inner Line Permit for Hanle</h3>
+          <p>Hanle falls within a restricted border zone requiring an Inner Line Permit (ILP) for all visitors, including Indian nationals. Permits can be obtained at the DC Office in Leh (takes 1 day) or via the official online portal at ladhakheadquarters.nic.in. Foreign nationals additionally require a Protected Area Permit (PAP), which must be applied for separately and typically requires booking through a licensed Ladakh tour operator. Permits are usually valid for one week and specify exact villages you are permitted to visit. Keep paper copies; checkposts between Leh and Hanle are staffed by the Indian Army.</p>
+        </section>
+
+        <section id="spiti" class="content-section">
+          <h2>Spiti Valley</h2>
+          <p>Spiti Valley in Himachal Pradesh is Ladakh's quieter, more accessible sibling — a high-altitude cold desert at 3,800–4,500 metres surrounded by barren brown mountains and ancient Buddhist monasteries. The valley sees fewer foreign tourists than Ladakh, which means darker skies in its villages and a more intimate stargazing experience. The Spiti River carves through a landscape so arid that some ancient monasteries here date back a thousand years with minimal weathering damage — testament to the near-total absence of rain.</p>
+
+          <div class="inline-image">
+            <img src="/images/india_spiti.jpg" alt="Ancient Buddhist monastery on an eroded rocky hillside in Spiti Valley under a brilliant Milky Way sky" loading="lazy" />
+            <p class="image-caption">Ki Monastery (3,800 m) in Spiti Valley — one of India's most atmospheric stargazing settings</p>
+          </div>
+
+          <h3>Key Monastery & Kaza</h3>
+          <p>Ki Gompa (Ki Monastery), perched on a rocky spur at 4,166 m above Spiti Valley, is one of India's most iconic stargazing backdrops. The 1,000-year-old monastery illuminated by moonlight against a Milky Way sky is a photographer's dream. Kaza, the district headquarters at 3,800 m, serves as the main base for Spiti Valley exploration. The town is small enough (around 5,000 residents) to have minimal light pollution once you walk 500 metres from the main street. Several agencies in Kaza organise night-sky photography camps, and the local astronomical awareness has grown considerably since Spiti gained recognition in astrophotography communities.</p>
+
+          <h3>Hikkim & Komic</h3>
+          <p>Hikkim (4,440 m) is home to the world's highest post office — a charming corrugated-iron building where you can mail postcards from the rooftop of the world. More importantly for stargazers, the surrounding plateau offers completely unobstructed sky access at an altitude where even the Milky Way's dust lanes are clearly resolved without optical aid. Komic village (4,587 m) is one of the highest permanently inhabited villages in the world, and its position above the main valley means no light scatter from Kaza reaches it. Both villages have basic homestay accommodation (INR 600–1,000/night including meals), and locals are warm hosts to visiting astronomers.</p>
+
+          <h3>Permits and Road Access</h3>
+          <p>Indian nationals do not require permits for Spiti Valley. Foreign nationals need an Inner Line Permit for some restricted areas near the Chinese border. Spiti is accessed via two routes: the Manali–Kaza highway (200 km, open June–October only due to Rohtang and Kunzum passes) and the Shimla–Kaza road (412 km, open year-round except during heavy snowfall). The Shimla route passes through Kinnaur district and is reliable for October–November stargazing travel. The road from Kaza to Hikkim/Komic is a rough 18 km track requiring a sturdy vehicle. Mobile network (Airtel/BSNL) works in Kaza but disappears beyond.</p>
+        </section>
+
+        <section id="rann" class="content-section">
+          <h2>Rann of Kutch</h2>
+          <p>The Rann of Kutch is one of the world's most unusual landscapes — a vast seasonal salt marsh covering approximately 30,000 square kilometres in Gujarat, stretching into Pakistan's Sindh province. During the winter dry season (October–March), the white salt crust is exposed, creating an utterly flat, blindingly white plain that extends to every horizon. At night, the absence of any terrain feature means the sky appears to wrap completely around the observer, and with light pollution virtually absent for 200 km in every direction, the effect is profoundly immersive.</p>
+
+          <div class="inline-image">
+            <img src="/images/india_rann.jpg" alt="Milky Way reflected in the mirror-like water layer over the Rann of Kutch salt desert at night" loading="lazy" />
+            <p class="image-caption">The Rann of Kutch — the Milky Way reflected in a thin water layer over the salt flats creates a surreal double-sky scene</p>
+          </div>
+
+          <h3>Great Rann of Kutch</h3>
+          <p>The Great Rann is the larger northern section, accessible primarily from Bhuj (80 km south). The town of Dhordo serves as the main gateway for the annual Rann Utsav festival (November–February), a cultural celebration that transforms the salt desert with camps and lighting. While the festival adds some light pollution to the Dhordo area, moving 20–30 km further into the Rann via 4WD delivers conditions approaching Bortle Class 1. The flat horizon gives unobstructed access to objects from the southern horizon (+/-90° declination from this latitude), including a full view of the Scorpius–Sagittarius Milky Way region when it is above the horizon.</p>
+
+          <h3>Little Rann of Kutch</h3>
+          <p>The Little Rann, southeast of the Great Rann, is also the home of the Indian Wild Ass Sanctuary — one of India's most remote protected areas. Stargazing here is equally spectacular and somewhat easier to access via Dhrangadhra (50 km to the east). The sanctuary's lack of roads and settlements means darkness is preserved. The flat terrain is accessible on foot or by jeep from the sanctuary edges. Note that entry into the core sanctuary requires forest department permission.</p>
+
+          <h3>Best Season & Rann Utsav</h3>
+          <p>October through March is peak season. The monsoon floods the Rann between June and September, making access impossible. By October, the salt crust reappears and temperatures drop to comfortable 15–20°C days and 5–10°C nights. The Rann Utsav (November–February) brings folk performances, camel rides, and significant visitor numbers to Dhordo — excellent for combining cultural tourism with stargazing. For the darkest conditions, plan around new moon, and consider staying in the remote eco-camps rather than the main festival area. Bhuj is the nearest major city with flights from Mumbai and Ahmedabad.</p>
+        </section>
+
+        <section id="other-locations" class="content-section">
+          <h2>Other Notable Stargazing Locations</h2>
+
+          <h3>Coorg (Kodagu), Karnataka</h3>
+          <p>Coorg is India's most accessible dark-sky location for stargazers based in Bengaluru or Chennai. The coffee-growing hills of Kodagu district rise to 1,100–1,700 metres and are far enough from city light domes that Bortle Class 3–4 conditions are achievable. The India's latitude here (12°N) pushes the galactic centre high overhead in summer and gives access to the Centaurus constellation and Alpha Centauri, invisible from Europe. Homestays and eco-resorts in villages like Polibetta, Madikeri, and Virajpet make comfortable bases; the area is accessible year-round except during heavy monsoon rains (June–August).</p>
+
+          <h3>Rajasthan Deserts</h3>
+          <p>The Thar Desert of Rajasthan offers dark, dry skies from October to March. The Sam Sand Dunes near Jaisalmer (25 km) sit within a Bortle Class 2–3 zone; dune camping is commercially available with some operators running dedicated stargazing nights with laser pointer tours. Khimsar, a heritage village 100 km north of Jodhpur, offers dune camping with good sky quality away from Jodhpur's orange glow. Daytime temperatures are warm enough for comfortable observing even in December–January. The Thar's extreme aridity mirrors the atmospheric transparency of Ladakh, though without the altitude advantage.</p>
+
+          <h3>Meghalaya (Cherrapunji & Meghalaya Plateau)</h3>
+          <p>Meghalaya — "abode of clouds" — is paradoxically one of India's wettest places, yet the post-monsoon months of October through February deliver exceptionally clear skies over the plateau at 1,400–1,900 metres. The Meghalayan plateau faces south with low-latitude access to the Centaurus and Vela constellations. The living root bridges of Cherrapunji provide unique foreground objects for astrophotography. Mawsynram and Nongriat village offer homestay accommodation; the area is best visited October–January when skies reliably clear after the monsoon.</p>
+
+          <h3>Chopta, Uttarakhand</h3>
+          <p>Chopta is an alpine meadow at 2,700 metres in Rudraprayag district, often called the "Mini Switzerland of Uttarakhand." The surrounding Kedarnath Wildlife Sanctuary means no development, no street lights, and Bortle Class 2 darkness just 250 km from Delhi. The meadow opens up a 180-degree skyview looking south across the Kedar Range. October–November offers stable weather before winter snow closes the approach road; March–April can also be good. Guesthouses and forest rest houses are available in Chopta; the trailhead for Tungnath Temple (3,680 m) is 2 km above Chopta, offering even higher viewing if weather permits.</p>
+        </section>
+
+        <section id="timing" class="content-section">
+          <h2>Best Times and Seasons</h2>
+          <p>India's size and topographic range mean there is always good stargazing somewhere — but choosing the right season for your chosen region is critical. The Indian monsoon (June–September) brings persistent cloud cover to most of the subcontinent except Ladakh, which lies in a rain shadow. During this window, the Himalayan sites remain viable while the rest of India is mostly overcast.</p>
+
+          <div class="info-box glass">
+            <h3>Month-by-Month Stargazing Guide — India</h3>
+            <ul>
+              <li><strong>January–February:</strong> Excellent for Rann of Kutch and Rajasthan (cold, clear, dry). Ladakh accessible but extreme cold (−20°C at Hanle). Winter constellations (Orion, Taurus, Gemini) dominate. Geminid and Quadrantid meteor showers from late December/early January.</li>
+              <li><strong>March–May:</strong> Good for Coorg and Meghalaya before monsoon. Ladakh road season opens in May. Leo and Virgo overhead; Milky Way begins to rise in pre-dawn sky. Warm nights in plains and Rajasthan.</li>
+              <li><strong>June–August:</strong> Ladakh and Spiti Valley at their best — roads open, wildflowers blooming, Milky Way core overhead. Monsoon blocks skies everywhere else. Perseids peak around 11–13 August; exceptional from Ladakh.</li>
+              <li><strong>September–October:</strong> Post-monsoon clarity across all India. Best overall window: Milky Way still above horizon, cooler comfortable temperatures, roads still open. Ladakh and Spiti before winter closure.</li>
+              <li><strong>November–December:</strong> Rann Utsav begins. Ladakh roads close but Leh airport remains open. Geminid meteor shower (13–14 December) — best annual shower from Indian dark sites. Short nights, crisp clear air.</li>
+            </ul>
+          </div>
+
+          <h3>The Monsoon and Stargazing</h3>
+          <p>The Indian Summer Monsoon (ISM) brings cloud cover to 85–90% of India's land area from June through September. The only region reliably spared is trans-Himalayan Ladakh, which sits north of the Great Himalayan Range in a cold desert rain shadow. Spiti Valley similarly receives only trace monsoon rain. For stargazers tied to summer travel, this makes Leh, Hanle, Kaza, and Pangong essentially the only viable Indian options during these months. The post-monsoon period (late September onwards) delivers India's clearest skies nationally, as the washed atmosphere has minimal dust and aerosols — a phenomenon observable even from cities where stars appear dramatically brighter after the first post-monsoon rain.</p>
+
+          <h3>Meteor Showers from India</h3>
+          <p>Several major meteor showers are particularly well-placed from India's latitude. The Perseids (August 11–13) are exceptional from Ladakh with the radiant high in the sky during a clear, dry Himalayan summer night. The Leonids (November 17–18) radiate from Leo, which rises conveniently in the east by midnight from most of India. The Geminids (December 13–14) — the year's most productive shower at up to 150 meteors/hour — occur during the best stargazing month for Rann of Kutch and Rajasthan, with the radiant near-overhead from India's latitude. The Southern Taurids (late October–November) are also well-placed from India's southern regions.</p>
+        </section>
+
+        <section id="equipment" class="content-section">
+          <h2>Essential Equipment</h2>
+          <p>India's range of stargazing environments demands different approaches. High-altitude Himalayan sites require cold-weather preparation and altitude safety gear; the Rann of Kutch requires dust and sand protection; southern sites are temperate and accessible. The following covers the full spectrum.</p>
+
+          <h3>Altitude Considerations</h3>
+          <p>At Hanle (4,500 m) or Komic (4,587 m), the partial pressure of oxygen is approximately 57% of sea-level values. Physical exertion — including setting up a telescope tripod, walking to a viewing spot, or carrying equipment — elevates heart rate significantly more than at sea level. Plan for slower setup times, more rest breaks, and lower overall energy. Altitude sickness symptoms (headache, nausea, shortness of breath) can strike at night when the body is resting and oxygenation naturally drops. Keep a headache medication and hydration water within reach. Never ascend to Hanle from sea level in a single day; rest for 48–72 hours at Leh (3,524 m) first.</p>
+
+          <h3>Cold Weather Gear</h3>
+          <p>For Himalayan sites, prepare for temperatures from −5°C (September) to −25°C (January). The layering system is essential: thermal underwear (merino wool or synthetic), a fleece mid-layer, and a down jacket rated to −20°C. Balaclava, gloves (consider thin liner gloves for operating camera controls, with thick mitts over them), and insulated boots with wool socks are non-negotiable. Bring chemical hand warmers (HotHands) to wrap around batteries and keep telescope focusers moving. Eyepiece fogging can be managed with a dew heater or simply breathing warm air carefully across the eyepiece before use.</p>
+
+          <div class="info-box glass">
+            <h3>Equipment Checklist for India</h3>
+            <h4>Essential (Required):</h4>
+            <ul>
+              <li><strong>Red torch / headlamp</strong> — Preserves dark adaptation; use exclusively for navigation</li>
+              <li><strong>Layered clothing system</strong> — Thermal base, fleece, down outer; essential for Himalayan sites</li>
+              <li><strong>Altitude medication</strong> — Diamox (consult doctor); Dexamethasone for emergencies at high altitude</li>
+              <li><strong>Water (2+ litres)</strong> — Altitude and dry air increase dehydration risk significantly</li>
+              <li><strong>Offline star maps</strong> — Stellarium, SkySafari, or printed charts; no data signal at most dark sites</li>
+              <li><strong>Power bank (high-capacity)</strong> — Cold reduces battery life; lithium batteries mandatory above 3,500 m</li>
+            </ul>
+            <h4>Recommended (Enhances Experience):</h4>
+            <ul>
+              <li><strong>7×50 or 10×50 binoculars</strong> — Ideal for Milky Way sweeping, the Andromeda Galaxy, and star clusters</li>
+              <li><strong>Camera (DSLR/mirrorless) + wide-angle lens</strong> — 14–24mm f/2.8 ideal for astrophotography</li>
+              <li><strong>Intervalometer / remote shutter</strong> — For star trails and long exposures without camera shake</li>
+              <li><strong>Portable telescope (80–100mm refractor or 150mm Dobsonian)</strong> — For planetary and deep-sky observing</li>
+              <li><strong>Oxygen saturation monitor (pulse oximeter)</strong> — Essential safety check above 4,000 m</li>
+            </ul>
+            <h4>Advanced (For Serious Observers):</h4>
+            <ul>
+              <li><strong>Sky-Watcher Star Adventurer / iOptron SkyGuider Pro</strong> — Compact tracking mount for astrophotography</li>
+              <li><strong>Narrowband filters (H-alpha, OIII)</strong> — Enhance nebula detail at altitude; reduce any residual airglow</li>
+              <li><strong>Dew controller system</strong> — Less critical in Ladakh's dry air but useful for coastal and southern sites</li>
+              <li><strong>Sand/dust covers for all optics</strong> — Critical for Rann of Kutch and Rajasthan desert sites</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="planning" class="content-section">
+          <h2>Planning Your Trip</h2>
+          <p>A successful Indian stargazing trip requires advance planning, particularly for the permit-restricted Himalayan zones. The following step-by-step guide applies to a Ladakh/Hanle itinerary — the most complex case. Rann of Kutch and other sites require far simpler logistics.</p>
+
+          <h3>Step 1: Choose Region and Season (3+ Months Ahead)</h3>
+          <p>Define your primary destination: Himalayan high-altitude (Ladakh/Spiti), desert (Rann/Rajasthan), or accessible (Coorg/Uttarakhand). Cross-reference your travel dates against the monsoon map and temperature ranges. For Himalayan sites, flight and accommodation availability in Leh becomes constrained 2–3 months before peak season (July–September); book early. For Rann of Kutch, November–January coincides with Rann Utsav festival accommodation at Dhordo which sells out weeks in advance.</p>
+
+          <h3>Step 2: Apply for Permits (4–6 Weeks Ahead)</h3>
+          <p>Inner Line Permits for Ladakh are obtained from the District Commissioner's office in Leh, or online at ladhakheadquarters.nic.in. You need a valid photo ID and details of your intended route. Permits for Hanle (Changthang Restricted Zone), Nubra Valley, and Pangong Tso are each separate; apply for all simultaneously. Foreign nationals should also initiate Protected Area Permit applications through a licensed Ladakh tour operator — this process can take 2–4 weeks. Print hard copies; electronic permits are not always accepted at checkposts.</p>
+
+          <h3>Step 3: Plan Acclimatisation (Critical for Altitude Sites)</h3>
+          <p>Follow the standard high-altitude acclimatisation protocol: arrive at Leh (3,524 m) by air and rest for 2 full days before any onward travel to higher elevations. Do not drive straight from Leh to Hanle (4,500 m) on day one. On rest days in Leh, take short gentle walks to 3,700–3,800 m and return to sleep at Leh altitude. Symptoms of AMS (acute mountain sickness) typically include persistent headache, loss of appetite, and disturbed sleep. Mild AMS is manageable with Diamox and rest; severe AMS (confusion, ataxia, pulmonary oedema) requires immediate descent. Never ascend with AMS symptoms.</p>
+
+          <h3>Step 4: Vehicle and Navigation</h3>
+          <p>A 4WD vehicle is essential for Hanle, parts of Nubra Valley, and Pangong Tso. Hire locally in Leh — self-drive is possible for Indian nationals; foreign nationals typically require a licensed driver. Download offline maps (Maps.me, OsmAnd) before leaving Leh as mobile data ceases beyond Karu (45 km from Leh). Fuel up fully in Leh; petrol stations are absent between Leh and Hanle. Carry 20 litres of spare petrol. Road conditions can deteriorate after rain; river crossings on the Leh–Hanle route can be impassable in the hours immediately after heavy upstream rain.</p>
+
+          <h3>Step 5: Moon Phase and Target Planning</h3>
+          <p>Use Stellarium, SkySafari, or Cartes du Ciel to plan observations around new moon. At Hanle's latitude (~32.8°N), the Milky Way core in Sagittarius is best from May through September; from October, winter constellations (Perseus, Auriga, Orion) dominate. Deep-sky highlights from Ladakh include: M31 (Andromeda Galaxy) resolves spiral arms in large binoculars; the Double Cluster (NGC 869/884) is magnificent in any optics; Omega Nebula (M17) and Lagoon Nebula (M8) are high enough for detailed observation; and from the Changthang plateau, the zodiacal light stretches prominently along the ecliptic on any moonless night.</p>
+        </section>
+
+        <section id="tips" class="content-section">
+          <h2>Practical Tips</h2>
+
+          <h3>Light Pollution Mapping</h3>
+          <p>Use Light Pollution Map (lightpollutionmap.info) and the Globe at Night app to identify the darkest accessible zones before your trip. The Nagaland, Mizoram, and Arunachal Pradesh highlands in northeast India contain pockets of extreme darkness (Bortle Class 1) but are far from major airports and require separate permits. For southern India, head at least 100 km from Bengaluru, Chennai, or Hyderabad to reach Bortle Class 4–5 conditions. The Clear Outside app provides useful cloud and transparency forecasts for Indian locations, though accuracy in mountain areas can be variable.</p>
+
+          <h3>Dark Adaptation</h3>
+          <p>Allow 20–30 minutes of complete darkness for full dark adaptation before attempting to observe faint objects. At high altitude, the thinner oxygen supply slightly reduces the eye's sensitivity; give an extra 5–10 minutes. Avoid using any white light — use a red torch exclusively. The human eye at full dark adaptation can detect stars to about magnitude +6.5 at sea level; from Hanle at +7.0 or higher, you are observing with your naked eye what requires a small telescope from a city.</p>
+
+          <h3>Astrophotography Settings</h3>
+          <p>For nightscape photography at high altitude: ISO 3200–6400, aperture f/2.8 or wider, exposures of 15–25 seconds (use the 500 rule: 500 ÷ focal length in mm = maximum seconds before trailing). At Ladakh's altitude, airglow is minimal; colour balance runs cooler and bluer than at sea level. Use a star tracker (Sky-Watcher Star Adventurer) for exposures beyond 30 seconds without trailing. The thin air at altitude means the Milky Way core appears higher contrast and more colourful than in astrophotography from sea level — the galactic centre's dust lanes and emission nebulae regions are visibly pink-red even in 30-second untracked exposures.</p>
+
+          <h3>Safety in Remote Areas</h3>
+          <p>Always inform your accommodation host of your intended night-sky location and expected return time. Carry a whistle and a fully charged phone (even without data signal, emergency calls to 112 work in most of India). In Ladakh, temperatures can drop unexpectedly fast after sunset; always carry extra insulation even if conditions seem mild at dusk. In the Rann of Kutch, getting turned around on the featureless salt flats is genuinely disorienting — use GPS coordinates to mark your entry point and vehicle location before walking onto the flats. In Rajasthan desert sites, watch for scorpions when setting down equipment at ground level.</p>
+        </section>
+
+        <section id="resources" class="content-section">
+          <h2>Resources</h2>
+
+          <h3>Official & Astronomy Organisations</h3>
+          <ul class="resource-list">
+            <li><a href="https://www.iiap.res.in" target="_blank" rel="noopener">Indian Institute of Astrophysics (IIA)</a> — Operates IAO Hanle; research publications and observatory information</li>
+            <li><a href="https://www.tifr.res.in" target="_blank" rel="noopener">Tata Institute of Fundamental Research (TIFR)</a> — Major Indian astronomy research institute</li>
+            <li><a href="https://www.spaceindiaonline.com" target="_blank" rel="noopener">SPACE India</a> — Astronomy outreach, night sky camps, and dark-site events across India</li>
+          </ul>
+
+          <h3>Permits & Tourism</h3>
+          <ul class="resource-list">
+            <li><a href="https://ladhakheadquarters.nic.in" target="_blank" rel="noopener">Ladakh HQ — Inner Line Permit portal</a> — Official portal for ILP applications</li>
+            <li><a href="https://hptdc.in" target="_blank" rel="noopener">Himachal Pradesh Tourism (HPTDC)</a> — Spiti Valley accommodation and travel information</li>
+            <li><a href="https://gujarattourism.com" target="_blank" rel="noopener">Gujarat Tourism</a> — Rann Utsav festival booking and Rann of Kutch travel information</li>
+          </ul>
+
+          <h3>Weather & Sky Forecasting</h3>
+          <ul class="resource-list">
+            <li><a href="https://www.meteoblue.com" target="_blank" rel="noopener">Meteoblue</a> — Excellent cloud cover and transparency forecasts for mountain sites</li>
+            <li><a href="https://clearoutside.com" target="_blank" rel="noopener">Clear Outside</a> — Astronomy-specific cloud, seeing, and transparency forecasts</li>
+            <li><a href="https://www.windy.com" target="_blank" rel="noopener">Windy</a> — Wind and weather visualisation; useful for monsoon front tracking</li>
+            <li><a href="https://www.lightpollutionmap.info" target="_blank" rel="noopener">Light Pollution Map</a> — Interactive Bortle class map; use to identify darkest zones</li>
+          </ul>
+        </section>
+
+        <section id="faq" class="content-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-section">
+            <div class="faq-list">
+              {faqData.map((item) => (
+                <details class="faq-item">
+                  <summary class="faq-question">{item.question}</summary>
+                  <div class="faq-answer">
+                    <p>{item.answer}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      const progressBar = document.getElementById('progressBar');
+      if (progressBar) {
+        progressBar.style.width = scrollPercent + '%';
+      }
+    });
+
+    const sections = document.querySelectorAll('.content-section');
+    const tocLinks = document.querySelectorAll('.toc a');
+
+    const observerOptions = {
+      rootMargin: '-20% 0% -70% 0%'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(link => link.classList.remove('active'));
+          const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+          if (activeLink) activeLink.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+
+  <style>
+    /* Progress Bar */
+    .progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      z-index: 1000;
+      background: transparent;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, rgb(6, 182, 212), rgb(59, 130, 246));
+      transition: width 0.1s ease;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-image {
+      position: absolute;
+      inset: 0;
+    }
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: var(--space-xl);
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-family: var(--font-heading);
+      color: #fff;
+      margin: var(--space-sm) 0;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      line-height: 1.1;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: rgb(6, 182, 212);
+      margin: 0;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumbs ol {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      gap: 0.25rem;
+    }
+    .breadcrumbs li {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.85rem;
+    }
+    .breadcrumbs li + li::before {
+      content: '›';
+      margin-right: 0.25rem;
+    }
+    .breadcrumbs a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .breadcrumbs a:hover {
+      color: rgb(6, 182, 212);
+    }
+    .breadcrumbs li[aria-current="page"] {
+      color: rgb(6, 182, 212);
+    }
+
+    /* Layout */
+    .content-wrapper {
+      padding: var(--space-xl) var(--space-xl);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+    @media (min-width: 1024px) {
+      .article-layout {
+        grid-template-columns: 220px 1fr;
+      }
+    }
+
+    /* TOC */
+    .toc-sidebar {
+      display: none;
+    }
+    @media (min-width: 1024px) {
+      .toc-sidebar {
+        display: block;
+      }
+    }
+    .toc {
+      position: sticky;
+      top: 2rem;
+    }
+    .toc h2 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-sm);
+    }
+    .toc ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+    .toc a {
+      display: block;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .toc a:hover {
+      color: var(--color-text-primary);
+    }
+    .toc a.active {
+      color: rgb(6, 182, 212);
+      border-left-color: rgb(6, 182, 212);
+    }
+
+    /* Main content */
+    .main-content {
+      max-width: 800px;
+    }
+
+    /* Answer Capsule */
+    .answer-capsule {
+      display: flex;
+      gap: var(--space-md);
+      align-items: flex-start;
+      background: linear-gradient(135deg, rgba(6,182,212,0.08), rgba(59,130,246,0.08));
+      border: 1px solid rgba(6,182,212,0.25);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-xl);
+    }
+    .capsule-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      color: rgb(6, 182, 212);
+    }
+    .capsule-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+    .answer-capsule p {
+      margin: 0;
+      color: var(--color-text-primary);
+      line-height: 1.7;
+    }
+
+    /* Content sections */
+    .content-section {
+      margin-bottom: var(--space-xl);
+    }
+    .content-section h2 {
+      font-size: 1.6rem;
+      font-family: var(--font-heading);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-md);
+      padding-bottom: var(--space-sm);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .content-section h3 {
+      font-size: 1.15rem;
+      color: rgb(6, 182, 212);
+      margin: var(--space-lg) 0 var(--space-sm);
+    }
+    .content-section p {
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+      margin-bottom: var(--space-md);
+    }
+    .content-section ul,
+    .content-section ol {
+      color: var(--color-text-secondary);
+      padding-left: 1.5rem;
+      line-height: 1.8;
+    }
+    .content-section li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Info box */
+    .info-box {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: var(--glass-blur);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      margin: var(--space-lg) 0;
+    }
+    .info-box h3 {
+      font-size: 1.1rem;
+      color: rgb(59, 130, 246);
+      margin-bottom: var(--space-sm);
+      margin-top: 0;
+    }
+    .info-box h4 {
+      font-size: 0.95rem;
+      color: var(--color-text-primary);
+      margin: var(--space-md) 0 var(--space-sm);
+    }
+    .info-box ul {
+      color: var(--color-text-secondary);
+      padding-left: 1.25rem;
+      line-height: 1.8;
+    }
+    .info-box li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Inline images */
+    .inline-image {
+      margin: var(--space-lg) 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .inline-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .image-caption {
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+      text-align: center;
+      padding: var(--space-sm) var(--space-md);
+      background: rgba(0,0,0,0.3);
+      margin: 0;
+      font-style: italic;
+    }
+
+    /* Resource list */
+    .resource-list {
+      list-style: none;
+      padding: 0;
+    }
+    .resource-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .resource-list a {
+      color: rgb(6, 182, 212);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .resource-list a:hover {
+      color: rgb(59, 130, 246);
+    }
+
+    /* FAQ */
+    .faq-section {
+      padding-top: var(--space-md);
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .faq-item {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .faq-item[open] {
+      background: rgba(6,182,212,0.05);
+    }
+    .faq-question {
+      padding: var(--space-md) var(--space-lg);
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+      user-select: none;
+    }
+    .faq-question::-webkit-details-marker {
+      display: none;
+    }
+    .faq-question::after {
+      content: '+';
+      font-size: 1.25rem;
+      color: rgb(6, 182, 212);
+      transition: transform 0.2s;
+    }
+    .faq-item[open] .faq-question::after {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      padding: 0 var(--space-lg) var(--space-md);
+    }
+    .faq-answer p {
+      margin: 0;
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+    }
+  </style>
+</MainLayout>

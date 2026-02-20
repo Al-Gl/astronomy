@@ -1,0 +1,316 @@
+---
+import MainLayout from '../../../../layouts/MainLayout.astro';
+import Schema from '../../../../components/Schema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cosmic Atlas', url: '/atlas/' },
+  { name: 'Planets', url: '/atlas/planets/' },
+  { name: 'Dwarf Planets', url: '/atlas/planets/dwarf-planets/' }
+];
+
+const articleData = {
+  headline: 'Dwarf Planets: Too Small for Full Planetary Status',
+  description: 'Complete guide to dwarf planets — Pluto, Eris, Haumea, Makemake, and Ceres. Learn about the IAU 2006 definition, the Kuiper Belt, New Horizons at Pluto, and what makes a dwarf planet.',
+  datePublished: '2026-02-17',
+  dateModified: '2026-02-17',
+  author: 'The Astronomy Space',
+  image: '/images/Hero_dwarf-planets.jpg',
+  keywords: ['dwarf planets', 'Pluto', 'Eris', 'Haumea', 'Makemake', 'Ceres', 'Kuiper Belt', 'IAU definition', 'New Horizons', 'planetary classification']
+};
+
+const faqData = [
+  {
+    question: 'What is the official definition of a dwarf planet?',
+    answer: 'The International Astronomical Union (IAU) defined a dwarf planet in 2006 as a body that: (1) orbits the Sun, (2) has sufficient mass for its self-gravity to overcome rigid body forces so that it assumes a hydrostatic equilibrium (roughly round) shape, (3) has NOT cleared the neighbourhood around its orbit, and (4) is not a satellite. Planets meet all four criteria; dwarf planets fail criterion 3. Pluto, Eris, Haumea, Makemake, and Ceres are the five officially recognized dwarf planets.'
+  },
+  {
+    question: 'Why was Pluto reclassified as a dwarf planet in 2006?',
+    answer: "Pluto was reclassified because it shares its orbital neighborhood with thousands of other Kuiper Belt Objects and has not gravitationally cleared that region. The discovery of Eris in 2005 — a Kuiper Belt Object slightly more massive than Pluto — forced astronomers to confront the question: if Pluto is a planet, so is Eris, and so are dozens of other similar objects. Rather than expanding the planet count, the IAU created the dwarf planet category to handle these bodies scientifically."
+  },
+  {
+    question: 'How many dwarf planets are there?',
+    answer: 'The IAU officially recognizes 5 dwarf planets: Pluto, Eris, Haumea, Makemake, and Ceres. However, many astronomers believe there are hundreds or even thousands more in the outer solar system. Bodies like Sedna, Quaoar, Gonggong, Orcus, and Salacia are strong candidates. The true count is uncertain because confirming round shapes requires detailed observations, and many distant Kuiper Belt Objects have not been studied closely enough.'
+  },
+  {
+    question: "What did New Horizons discover at Pluto?",
+    answer: "NASA's New Horizons spacecraft flew past Pluto in July 2015, revealing a surprisingly complex world. The most striking feature is the heart-shaped Tombaugh Regio — a nitrogen ice plain the size of Texas. New Horizons found mountains of water ice up to 3,500 meters tall, evidence of geological activity, a thin nitrogen atmosphere with blue hazes, and a diverse landscape of plains, ridges, and craters. Pluto has 5 moons, the largest being Charon, which is so large relative to Pluto that they are sometimes called a double dwarf planet system."
+  },
+  {
+    question: 'What is the Kuiper Belt?',
+    answer: "The Kuiper Belt is a vast region of the outer solar system extending from Neptune's orbit (30 AU) to about 50 AU from the Sun. It contains hundreds of thousands of icy bodies — remnants from the solar system's formation that never coalesced into a full planet due to the gravitational influence of Neptune. Pluto, Eris, Haumea, and Makemake all reside in the Kuiper Belt. The asteroid Ceres is different — it orbits in the asteroid belt between Mars and Jupiter."
+  },
+  {
+    question: 'Could any dwarf planets support life?',
+    answer: "Most dwarf planets are too cold and small to support life as we know it. However, Ceres — the closest and best-studied dwarf planet — has surprised scientists. NASA's Dawn mission found evidence of briny water pockets beneath its surface and organic compounds. Some scientists speculate that Ceres could have a small subsurface liquid water reservoir. For the outer dwarf planets, temperatures are far too cold for liquid water, though internal tidal heating from moons could theoretically warm subsurface regions."
+  }
+];
+---
+
+<MainLayout
+  title='Dwarf Planets: Too Small for Full Planetary Status | The Astronomy Space'
+  description='Complete guide to dwarf planets — Pluto, Eris, Haumea, Makemake, and Ceres. Learn about the IAU 2006 definition, the Kuiper Belt, New Horizons at Pluto, and what makes a dwarf planet.'
+>
+  <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
+  <Schema type="TechArticle" article={articleData} />
+  <Schema type="FAQPage" faq={faqData} />
+
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-image">
+      <img src="/images/Hero_dwarf-planets.jpg" alt="Pluto — the most famous dwarf planet" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/atlas/">Cosmic Atlas</a></li>
+          <li><a href="/atlas/planets/">Planets</a></li>
+          <li aria-current="page">Dwarf Planets</li>
+        </ol>
+      </nav>
+      <h1>Dwarf Planets</h1>
+      <p class="hero-subtitle">Too Small to Clear Their Orbital Neighborhood</p>
+    </div>
+  </section>
+
+  <article class="content-wrapper">
+    <div class="article-layout">
+
+      <aside class="toc-sidebar">
+        <nav class="toc" aria-label="Table of Contents">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#definition">The IAU Definition</a></li>
+            <li><a href="#pluto">Pluto</a></li>
+            <li><a href="#eris">Eris</a></li>
+            <li><a href="#haumea">Haumea</a></li>
+            <li><a href="#makemake">Makemake</a></li>
+            <li><a href="#ceres">Ceres</a></li>
+            <li><a href="#kuiper-belt">The Kuiper Belt</a></li>
+            <li><a href="#fun-facts">Interesting Facts</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <div class="main-content">
+
+        <aside class="answer-capsule">
+          <div class="capsule-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <p>Dwarf planets are round bodies that orbit the Sun but have not gravitationally cleared their orbital neighborhoods — the key distinction from full planets. The five officially recognized dwarf planets are Pluto, Eris, Haumea, Makemake, and Ceres. Most dwell in the Kuiper Belt beyond Neptune, remnants of the solar system's formation.</p>
+        </aside>
+
+        <section id="introduction" class="content-section">
+          <h2>Introduction to Dwarf Planets</h2>
+          <p>Dwarf planets occupy a fascinating middle ground in the solar system — bodies large enough to be pulled into a roughly spherical shape by their own gravity, yet not massive enough to dominate their orbital regions as the eight major planets do. For decades, Pluto was considered the ninth planet. Its demotion in 2006 was not a demotion of Pluto's scientific importance, but rather a recognition that it belongs to an entirely new class of objects — one that is far more numerous than the traditional planets.</p>
+          <p>The story of dwarf planets begins with the discovery of Pluto in 1930 by Clyde Tombaugh at Lowell Observatory. For 76 years, Pluto was the ninth planet. But in 2003, astronomer Mike Brown and his team at Caltech discovered Eris — an object slightly more massive than Pluto in the far outer solar system. This discovery forced the astronomical community to confront a critical question: if Pluto is a planet, then so is Eris, and potentially dozens of similar objects not yet discovered.</p>
+          <p>In August 2006, the International Astronomical Union voted to create a formal definition of "planet" for the first time. Under the new definition, Pluto, Eris, and several other bodies were reclassified as "dwarf planets" — a new category capturing their unique nature. The decision remains controversial among some planetary scientists and the public, but it brought scientific clarity to a solar system that contains far more diverse objects than originally appreciated.</p>
+          <p>Beyond the five officially recognized dwarf planets, hundreds more candidates await confirmation. The outer solar system likely contains thousands of spherical icy bodies — each a frozen time capsule from the solar system's formation 4.5 billion years ago.</p>
+        </section>
+
+        <section id="definition" class="content-section">
+          <h2>The IAU Definition</h2>
+          <p>In 2006, the International Astronomical Union (IAU) established the first formal definition of a planet, creating three criteria that a body must meet to be called a planet in our solar system:</p>
+          <div class="info-box glass">
+            <h3>Dwarf Planet Quick Facts</h3>
+            <ul>
+              <li><strong>Official Count:</strong> 5 recognized (Pluto, Eris, Haumea, Makemake, Ceres)</li>
+              <li><strong>Pluto Diameter:</strong> 2,377 km</li>
+              <li><strong>Eris Diameter:</strong> ~2,326 km (slightly smaller than Pluto)</li>
+              <li><strong>Ceres Diameter:</strong> 945 km (in asteroid belt)</li>
+              <li><strong>Location:</strong> 4 in Kuiper Belt, 1 in asteroid belt (Ceres)</li>
+              <li><strong>Estimated Total:</strong> Hundreds to thousands yet to be confirmed</li>
+            </ul>
+          </div>
+          <p class="data-source">Data: <a href="https://science.nasa.gov/solar-system/dwarf-planets/" target="_blank" rel="noopener noreferrer">NASA Dwarf Planets Overview</a></p>
+          <p>The three criteria for a planet: (1) orbits the Sun, (2) has sufficient mass for gravity to make it roughly round (hydrostatic equilibrium), and (3) has cleared the neighborhood around its orbit. A dwarf planet satisfies criteria 1 and 2 but not 3. Jupiter, for example, is so massive that its gravity has cleared its orbital zone of other significant bodies; Pluto, despite being round and orbiting the Sun, shares its orbital region with thousands of other Kuiper Belt Objects.</p>
+          <p>The key metric is a body's dominance parameter — its mass relative to all other objects in its orbital zone. Earth's dominance parameter is about 1.7 million; Pluto's is 0.077. This enormous difference captures why Earth "clears" its neighborhood and Pluto does not.</p>
+        </section>
+
+        <section id="pluto" class="content-section">
+          <h2>Pluto — The Former Ninth Planet</h2>
+          <p>Pluto is the most famous dwarf planet and the largest by volume (though Eris is slightly more massive). Discovered in 1930, it was classified as the ninth planet for 76 years before its reclassification in 2006. Pluto orbits the Sun every 248 years at an average distance of 39.5 AU, in a highly elliptical orbit that sometimes brings it closer to the Sun than Neptune.</p>
+          <h3>New Horizons Reveals a Complex World</h3>
+          <p>Before 2015, Pluto was little more than a blurry dot even in the Hubble Space Telescope. NASA's New Horizons spacecraft changed that forever when it flew past at 57,936 km/h on July 14, 2015, capturing stunning images of a geologically active world with diverse terrain. The most iconic feature is Tombaugh Regio — a heart-shaped nitrogen ice plain roughly 1,600 km across, named after Pluto's discoverer.</p>
+          <h3>Mountains, Glaciers, and Hazes</h3>
+          <p>New Horizons found water-ice mountains up to 3,500 meters tall (as high as the Rocky Mountains), nitrogen glaciers slowly flowing into impact basins, and a surprisingly thin but complex atmosphere of nitrogen with blue hydrocarbon hazes rising 200 km above the surface. Despite surface temperatures of -229°C, Pluto shows signs of ongoing geological activity driven by radiogenic heat from its interior.</p>
+          <h3>Charon and the Moon System</h3>
+          <p>Pluto's largest moon Charon is 1,212 km across — roughly half Pluto's diameter and 1/8 its mass. Their mutual gravity causes both to orbit a point in space between them (their barycenter lies outside Pluto's surface), making them arguably a double dwarf planet system. Pluto also has four tiny moons: Styx, Nix, Kerberos, and Hydra.</p>
+        </section>
+
+        <section id="eris" class="content-section">
+          <h2>Eris — The Troublemaker</h2>
+          <p>Eris is the dwarf planet that effectively triggered Pluto's reclassification. Discovered by Mike Brown, Chad Trujillo, and David Rabinowitz on January 5, 2005, using images from the Palomar Observatory, Eris was initially reported to be larger than Pluto and was briefly called the "tenth planet" in media headlines.</p>
+          <p>Eris orbits in the scattered disk, a distant region beyond the Kuiper Belt, at an average distance of 68 AU — but its highly elliptical orbit ranges from 38 to 97 AU. Its year is 559 Earth years. Eris has one known moon, Dysnomia. Occultation measurements in 2010 refined Eris's diameter to approximately 2,326 km — slightly smaller than Pluto but more massive due to higher rock content. Eris's surface is one of the most reflective in the solar system, covered in methane frost.</p>
+        </section>
+
+        <section id="haumea" class="content-section">
+          <h2>Haumea — The Spinning Egg</h2>
+          <p>Haumea is one of the most unusual objects in the outer solar system. Instead of being nearly spherical like other dwarf planets, Haumea is elongated — roughly shaped like a rugby ball, with dimensions of about 1,960 km × 1,518 km × 996 km. This strange shape results from its extraordinarily fast rotation: Haumea completes one rotation in just 3.9 hours, making it the fastest-rotating large body in the solar system. The centrifugal force from this rapid spin has stretched it into its distinctive ellipsoidal form.</p>
+          <p>Haumea orbits at about 43 AU and has a year of 285 Earth years. It has two moons (Hi'iaka and Namaka) and is remarkable for having a ring system — only the second non-giant planet known to have rings, discovered by stellar occultation in 2017. Haumea's surface is covered in crystalline water ice.</p>
+        </section>
+
+        <section id="makemake" class="content-section">
+          <h2>Makemake — The Distant Reddish World</h2>
+          <p>Makemake was discovered on March 31, 2005 — just months after Eris — by Mike Brown's team at Palomar Observatory. It orbits at 45.8 AU with a year of 310 Earth years. Makemake is the second-brightest Kuiper Belt Object after Pluto and was found to have a thin, temporary nitrogen atmosphere during certain parts of its orbit when closer to the Sun.</p>
+          <p>Makemake has a reddish-brown surface coloration, similar to Pluto, caused by complex organic compounds called tholins produced when methane ice is irradiated by solar ultraviolet and cosmic rays. In 2016, Hubble Space Telescope discovered a small, dark moon temporarily nicknamed MK2, now formally designated (174567) Makemake I. The moon's dark color — contrasting with Makemake's bright surface — suggests different surface compositions.</p>
+        </section>
+
+        <section id="ceres" class="content-section">
+          <h2>Ceres — The Asteroid Belt Giant</h2>
+          <p>Ceres stands apart from the other four dwarf planets in being located in the inner solar system, within the asteroid belt between Mars and Jupiter at 2.77 AU. It was discovered in 1801 by Giuseppe Piazzi and was classified as a planet for about 50 years before being reclassified as an asteroid when smaller objects were found in its vicinity. In 2006 it was elevated again to dwarf planet status.</p>
+          <p>With a diameter of 945 km, Ceres contains about one-third of the total mass of the asteroid belt. NASA's Dawn spacecraft orbited Ceres from 2015 to 2018, finding dozens of bright spots in craters caused by highly reflective salt deposits from briny water that migrated to the surface. Dawn also detected organic compounds and confirmed the presence of water ice in permanently shadowed polar craters. Some scientists believe Ceres may have a small liquid water reservoir deep beneath its surface.</p>
+        </section>
+
+        <section id="kuiper-belt" class="content-section">
+          <h2>The Kuiper Belt Context</h2>
+          <p>Four of the five recognized dwarf planets — Pluto, Eris, Haumea, and Makemake — reside in or beyond the Kuiper Belt, a vast ring of icy bodies extending from Neptune's orbit (30 AU) to about 50 AU. The Kuiper Belt is the source region for short-period comets and contains hundreds of thousands of icy bodies, each a pristine sample of the solar system's primordial building material.</p>
+          <p>Neptune's gravity has sculpted the Kuiper Belt through resonances. Pluto and many other Kuiper Belt Objects are in a 3:2 orbital resonance with Neptune — for every 2 orbits Pluto completes, Neptune completes 3. Objects in this resonance are called "plutinos." This resonance is stable and has prevented Neptune from scattering Pluto out of the solar system despite billions of years of interaction.</p>
+          <p>Astronomers estimate there may be 100,000 or more Kuiper Belt Objects larger than 100 km in diameter, and perhaps several hundred dwarf planet candidates waiting to be formally recognized as their shapes are confirmed through better observations.</p>
+        </section>
+
+        <section id="fun-facts" class="content-section">
+          <h2>Interesting Facts About Dwarf Planets</h2>
+          <ul class="facts-list">
+            <li><strong>Pluto's Heart:</strong> The heart-shaped Tombaugh Regio on Pluto is a nitrogen ice plain larger than Texas. The left lobe (Sputnik Planitia) is an impact basin 1,000 km wide that has filled with nitrogen ice over millions of years, creating a remarkably smooth, young-looking surface nearly devoid of craters.</li>
+            <li><strong>Eris Discovered on Three Kings Day:</strong> Eris was discovered on January 6, 2005 — Three Kings Day (Epiphany). Its moon Dysnomia is named after the daughter of Eris (the Greek goddess of discord). The name Eris was chosen because the discovery caused such discord in planetary science.</li>
+            <li><strong>Haumea Has Rings:</strong> Haumea became only the second trans-Neptunian object known to have a ring system (after Chariklo) when stellar occultation observations in 2017 revealed a narrow ring about 2,287 km from Haumea's center. The ring may have formed from a collision billions of years ago.</li>
+            <li><strong>Ceres Has Bright Spots:</strong> NASA's Dawn spacecraft found dozens of bright white patches inside craters on Ceres, especially the famous Occator Crater. These "faculae" are deposits of sodium carbonate salts left behind as briny water migrated up from below and evaporated — evidence of surprisingly recent geological activity on a body once considered entirely inert.</li>
+            <li><strong>Pluto Is Smaller Than Earth's Moon:</strong> Pluto's diameter (2,377 km) is smaller than Earth's Moon (3,474 km) — about two-thirds as wide. This is one reason Pluto cannot gravitationally dominate its orbital neighborhood the way even modest-sized planets do.</li>
+            <li><strong>More Dwarf Planets Await:</strong> The IAU recognizes only 5 dwarf planets, but the actual number in the solar system is likely in the hundreds or thousands. Bodies like Sedna (84 AU), Gonggong, Quaoar, and many others are candidate dwarf planets awaiting formal confirmation of their shapes and orbital classifications.</li>
+            <li><strong>Charon and Pluto Are Co-Orbiting:</strong> Pluto and Charon are tidally locked to each other — both always showing the same face to their companion, and they orbit their common center of mass (barycenter) which lies above Pluto's surface in space. No other body in the solar system has this double-planet geometry with its satellite.</li>
+            <li><strong>New Horizons Is Still Traveling:</strong> After its Pluto flyby in 2015, New Horizons continued to the Kuiper Belt Object Arrokoth (2014 MU69), flying past it on January 1, 2019. Arrokoth turned out to be a contact binary — two lobes that gently merged in the early solar system — providing direct insight into how planetesimals form.</li>
+          </ul>
+        </section>
+
+        <section id="resources" class="content-section">
+          <h2>External Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://science.nasa.gov/solar-system/dwarf-planets/" target="_blank" rel="noopener">NASA Dwarf Planets</a> - Overview of all recognized dwarf planets</li>
+            <li><a href="https://www.nasa.gov/mission_pages/newhorizons/main/index.html" target="_blank" rel="noopener">NASA New Horizons Mission</a> - Pluto flyby results and Arrokoth encounter</li>
+            <li><a href="https://dawn.jpl.nasa.gov/" target="_blank" rel="noopener">NASA Dawn Mission — Ceres</a> - Dawn spacecraft results from Ceres</li>
+            <li><a href="https://en.wikipedia.org/wiki/Dwarf_planet" target="_blank" rel="noopener">Dwarf Planet on Wikipedia</a> - Comprehensive overview of classification and all candidates</li>
+          </ul>
+        </section>
+
+        <section id="faq" class="content-section faq-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqData.map((item) => (
+              <details class="faq-item">
+                <summary class="faq-question">{item.question}</summary>
+                <div class="faq-answer">
+                  <p set:html={item.answer}></p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </article>
+</MainLayout>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    const progressBar = document.getElementById('progressBar');
+    if (progressBar) progressBar.style.width = scrollPercent + '%';
+  });
+  const sections = document.querySelectorAll('.content-section');
+  const tocLinks = document.querySelectorAll('.toc a');
+  const observerOptions = { rootMargin: '-20% 0% -70% 0%' };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, observerOptions);
+  sections.forEach(section => observer.observe(section));
+</script>
+
+<style>
+  .progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: rgba(255,255,255,0.1); z-index: 1000; }
+  .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-blue)); transition: width 0.1s ease-out; }
+  .hero { position: relative; min-height: 60vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .hero-image { position: absolute; inset: 0; z-index: 0; }
+  .hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: right center; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.9) 100%); }
+  .hero-content { position: relative; z-index: 1; text-align: center; padding: var(--space-xl); }
+  .hero h1 { font-family: var(--font-heading); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; margin-bottom: var(--space-sm); text-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+  .hero-subtitle { font-size: clamp(1.25rem, 3vw, 1.75rem); color: var(--color-accent-cyan); font-weight: 500; }
+  .breadcrumbs { margin-bottom: var(--space-lg); }
+  .breadcrumbs ol { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; list-style: none; padding: 0; margin: 0; font-size: 0.9rem; }
+  .breadcrumbs li { display: flex; align-items: center; gap: 0.5rem; }
+  .breadcrumbs li:not(:last-child)::after { content: '\203a'; color: var(--color-text-secondary); }
+  .breadcrumbs a { color: var(--color-text-secondary); text-decoration: none; transition: color 0.2s ease; }
+  .breadcrumbs a:hover { color: var(--color-accent-cyan); }
+  .breadcrumbs li[aria-current="page"] { color: var(--color-text-primary); }
+  .content-wrapper { padding: var(--space-2xl) 0; }
+  .article-layout { display: grid; grid-template-columns: 1fr; max-width: 1200px; margin: 0 auto; padding: 0 var(--space-md); gap: var(--space-xl); }
+  @media (min-width: 1024px) { .article-layout { grid-template-columns: 220px 1fr; gap: var(--space-2xl); } }
+  .toc-sidebar { display: none; }
+  @media (min-width: 1024px) { .toc-sidebar { display: block; } .toc { position: sticky; top: calc(var(--space-xl) + 3px); max-height: calc(100vh - var(--space-2xl)); overflow-y: auto; } }
+  .toc h2 { font-family: var(--font-heading); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-md); color: var(--color-text-secondary); }
+  .toc ol { list-style: none; padding: 0; margin: 0; }
+  .toc li { margin-bottom: 0.25rem; }
+  .toc a { display: block; padding: 0.5rem 0; padding-left: var(--space-sm); color: var(--color-text-secondary); text-decoration: none; font-size: 0.9rem; border-left: 2px solid transparent; transition: all 0.2s ease; }
+  .toc a:hover { color: var(--color-text-primary); border-left-color: rgba(6,182,212,0.5); }
+  .toc a.active { color: var(--color-accent-cyan); border-left-color: var(--color-accent-cyan); }
+  .main-content { max-width: 800px; }
+  .answer-capsule { display: flex; gap: var(--space-md); padding: var(--space-lg); margin-bottom: var(--space-2xl); background: linear-gradient(135deg, rgba(6,182,212,0.1) 0%, rgba(59,130,246,0.1) 100%); border: 1px solid rgba(6,182,212,0.2); border-radius: var(--radius-lg); position: relative; overflow: hidden; }
+  .answer-capsule::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at top left, rgba(6,182,212,0.15) 0%, transparent 50%); pointer-events: none; }
+  .capsule-icon { flex-shrink: 0; width: 40px; height: 40px; color: var(--color-accent-cyan); opacity: 0.8; }
+  .capsule-icon svg { width: 100%; height: 100%; }
+  .answer-capsule p { margin: 0; font-size: 1.1rem; line-height: 1.7; color: var(--color-text-primary); position: relative; }
+  .content-section { margin-bottom: var(--space-2xl); }
+  .content-section h2 { font-family: var(--font-heading); font-size: clamp(1.75rem, 4vw, 2.25rem); margin-bottom: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 2px solid rgba(6,182,212,0.3); color: var(--color-text-primary); }
+  .content-section h3 { font-family: var(--font-heading); font-size: clamp(1.25rem, 3vw, 1.5rem); margin-top: var(--space-xl); margin-bottom: var(--space-md); color: var(--color-accent-cyan); }
+  .content-section p { font-size: 1.1rem; line-height: 1.8; color: var(--color-text-secondary); margin-bottom: var(--space-md); }
+  .content-section ul, .content-section ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+  .content-section li { font-size: 1.05rem; line-height: 1.7; color: var(--color-text-secondary); margin-bottom: 0.5rem; }
+  .info-box { padding: var(--space-lg); margin: var(--space-lg) 0; }
+  .info-box h3 { margin-top: 0; font-size: 1.1rem; color: var(--color-accent-blue); }
+  .info-box ul { margin: 0; padding-left: var(--space-md); }
+  .info-box li { font-size: 1rem; margin-bottom: 0.4rem; }
+  .data-source { font-size: 0.8rem; color: var(--color-text-secondary); opacity: 0.7; margin-top: -0.5rem; margin-bottom: var(--space-lg); }
+  .data-source a { color: var(--color-accent-cyan); }
+  .facts-list { list-style: none; padding: 0; }
+  .facts-list li { padding: var(--space-md) 0; border-bottom: 1px solid rgba(148,163,184,0.1); }
+  .facts-list li:last-child { border-bottom: none; }
+  .resource-list { list-style: none; padding: 0; }
+  .resource-list li { padding: var(--space-sm) 0; border-bottom: 1px solid rgba(148,163,184,0.1); }
+  .resource-list li:last-child { border-bottom: none; }
+  .resource-list a { color: var(--color-accent-cyan); font-weight: 500; }
+  .faq-section { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid rgba(148,163,184,0.1); }
+  .faq-list { display: flex; flex-direction: column; gap: var(--space-sm); }
+  .faq-item { background: var(--glass-bg); border: var(--glass-border); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.3s ease; }
+  .faq-item[open] { background: rgba(6,182,212,0.05); border-color: rgba(6,182,212,0.2); }
+  .faq-question { padding: var(--space-md) var(--space-lg); cursor: pointer; font-size: 1.1rem; font-weight: 500; color: var(--color-text-primary); list-style: none; display: flex; justify-content: space-between; align-items: center; transition: color 0.2s ease; }
+  .faq-question::-webkit-details-marker { display: none; }
+  .faq-question::after { content: '+'; font-size: 1.5rem; font-weight: 300; color: var(--color-accent-cyan); transition: transform 0.3s ease; }
+  .faq-item[open] .faq-question::after { transform: rotate(45deg); }
+  .faq-question:hover { color: var(--color-accent-cyan); }
+  .faq-answer { padding: 0 var(--space-lg) var(--space-lg); }
+  .faq-answer p { margin: 0; font-size: 1rem; line-height: 1.7; color: var(--color-text-secondary); }
+  .glass { background: var(--glass-bg); border: var(--glass-border); border-radius: var(--radius-lg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); }
+  @media (max-width: 768px) { .hero { min-height: 50vh; } .hero-content { padding: var(--space-lg); } .article-layout { padding: 0 var(--space-sm); } .answer-capsule { flex-direction: column; align-items: flex-start; } .capsule-icon { width: 32px; height: 32px; } }
+</style>

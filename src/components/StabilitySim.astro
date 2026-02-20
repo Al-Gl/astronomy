@@ -94,11 +94,13 @@
 
   /* Moon image — shake animation always running, controlled via CSS vars */
   .ssim-img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
-    transform-origin: center;
+    object-position: center center;
+    transform-origin: center center;
     animation: ssimShake 999s linear infinite; /* starts still at 7× */
     --scale: 1;
     --shake-px: 0px;

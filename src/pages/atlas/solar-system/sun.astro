@@ -187,6 +187,89 @@ const faqData = [
           <p>The corona is the Sun's outer atmosphere, extending millions of kilometers into space. During total solar eclipses, it appears as a beautiful, pearly white halo around the dark disk of the Moon. The corona is incredibly hot—reaching 1 to 2 million degrees Celsius—much hotter than the Sun's surface below it. This "coronal heating problem" has puzzled scientists for decades, though recent research suggests magnetic waves may transfer energy from the Sun's interior to heat the corona.</p>
 
           <p>The corona is extremely tenuous—even though it's incredibly hot, it contains very little mass. The density is so low that if you could magically stand in the corona, you wouldn't feel the heat despite the extreme temperatures because there are so few particles to transfer thermal energy to you.</p>
+
+          <!-- Atmospheric Layers Interactive -->
+          <div class="atmo-interactive glass">
+            <div class="atmo-scene">
+              <svg id="sunatmoSvg" viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg"
+                aria-label="Interactive Sun atmospheric layers diagram" role="img">
+                <defs>
+                  <linearGradient id="sunatmoSpaceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#0d0500"/>
+                    <stop offset="100%" stop-color="#1a0800"/>
+                  </linearGradient>
+                  <linearGradient id="sunatmoSurfaceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="rgba(255,200,30,0.95)"/>
+                    <stop offset="100%" stop-color="rgba(255,130,0,0.98)"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- Background -->
+                <rect x="0" y="0" width="500" height="360" fill="url(#sunatmoSpaceGrad)"/>
+
+                <!-- Stars -->
+                <circle cx="420" cy="20" r="1"   fill="rgba(255,255,255,0.8)"/>
+                <circle cx="460" cy="35" r="1.5" fill="rgba(255,255,255,0.6)"/>
+                <circle cx="480" cy="15" r="1"   fill="rgba(255,255,255,0.7)"/>
+                <circle cx="430" cy="50" r="1"   fill="rgba(255,255,255,0.5)"/>
+                <circle cx="445" cy="8"  r="1.2" fill="rgba(255,255,255,0.65)"/>
+
+                <!-- Layer bands (top→bottom) -->
+                <rect class="sunatmo-band" data-layer="corona"        x="0" y="10"  width="430" height="70" fill="rgba(200,80,80,0.18)"   stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+                <rect class="sunatmo-band" data-layer="transition"    x="0" y="80"  width="430" height="75" fill="rgba(240,100,60,0.26)"  stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+                <rect class="sunatmo-band" data-layer="chromosphere"  x="0" y="155" width="430" height="80" fill="rgba(255,140,40,0.32)"  stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+                <rect class="sunatmo-band" data-layer="photosphere"   x="0" y="235" width="430" height="83" fill="rgba(255,210,50,0.40)"  stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+
+                <!-- Altitude boundary lines -->
+                <line x1="430" y1="80"  x2="500" y2="80"  stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <line x1="430" y1="155" x2="500" y2="155" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <line x1="430" y1="235" x2="500" y2="235" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <line x1="430" y1="318" x2="500" y2="318" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+
+                <!-- Altitude labels -->
+                <text x="436" y="78"  font-size="11" fill="rgba(255,255,255,0.4)" font-family="inherit">millions km</text>
+                <text x="436" y="153" font-size="11" fill="rgba(255,255,255,0.4)" font-family="inherit">3,000 km</text>
+                <text x="436" y="233" font-size="11" fill="rgba(255,255,255,0.4)" font-family="inherit">500 km</text>
+                <text x="436" y="316" font-size="11" fill="rgba(255,255,255,0.4)" font-family="inherit">0 km</text>
+
+                <!-- Space label -->
+                <text x="8" y="22" font-size="10" fill="rgba(255,255,255,0.3)" font-family="inherit">↑ Interplanetary Space</text>
+
+                <!-- Layer name labels -->
+                <text x="215" y="40"  font-size="14" font-weight="600" fill="rgba(220,120,100,0.88)" font-family="inherit" text-anchor="middle" style="pointer-events:none">Corona</text>
+                <text x="215" y="56"  font-size="11" fill="rgba(255,255,255,0.38)" font-family="inherit" text-anchor="middle" style="pointer-events:none">3,000 km – millions km · 1–2 million °C</text>
+
+                <text x="215" y="113" font-size="14" font-weight="600" fill="rgba(245,130,80,0.88)" font-family="inherit" text-anchor="middle" style="pointer-events:none">Transition Region</text>
+                <text x="215" y="129" font-size="11" fill="rgba(255,255,255,0.38)" font-family="inherit" text-anchor="middle" style="pointer-events:none">2,500 – 3,000 km · Coronal heating mystery</text>
+
+                <text x="215" y="190" font-size="14" font-weight="600" fill="rgba(255,170,60,0.88)" font-family="inherit" text-anchor="middle" style="pointer-events:none">Chromosphere</text>
+                <text x="215" y="206" font-size="11" fill="rgba(255,255,255,0.38)" font-family="inherit" text-anchor="middle" style="pointer-events:none">500 – 2,500 km · Visible at eclipses</text>
+
+                <text x="215" y="272" font-size="14" font-weight="600" fill="rgba(255,230,80,0.95)" font-family="inherit" text-anchor="middle" style="pointer-events:none">Photosphere</text>
+                <text x="215" y="288" font-size="11" fill="rgba(255,255,255,0.38)" font-family="inherit" text-anchor="middle" style="pointer-events:none">0 – 500 km · 5,500 °C · Visible surface</text>
+
+                <!-- Sun photosphere bar -->
+                <rect x="0" y="318" width="500" height="42" fill="url(#sunatmoSurfaceGrad)"/>
+                <text x="215" y="344" font-size="11" fill="rgba(255,255,255,0.35)" font-family="inherit" text-anchor="middle">Photosphere (visible surface)</text>
+
+                <!-- Highlight overlay -->
+                <rect id="sunatmoHighlight" x="0" y="235" width="430" height="83"
+                  fill="none" stroke="rgba(255,220,60,0.70)" stroke-width="2" opacity="1"/>
+              </svg>
+            </div>
+
+            <!-- Info panel -->
+            <div class="atmo-info glass">
+              <div class="atmo-info-header">
+                <span class="atmo-info-name" id="sunatmoInfoName">Photosphere</span>
+                <span class="atmo-info-alt"  id="sunatmoInfoAlt">0 – 500 km</span>
+              </div>
+              <p class="atmo-info-desc" id="sunatmoInfoDesc">The visible 'surface' of the Sun — a 500 km-thick layer of plasma radiating at 5,500°C. Convection cells called granules (~1,000 km across) give it a churning texture. Sunspots appear as darker patches where strong magnetic fields suppress convection, cooling the region to about 4,000°C.</p>
+              <div class="atmo-info-fact" id="sunatmoInfoFact">✦ Sunspots look dark only by contrast — at 4,000°C they would be blindingly bright compared to any light source on Earth.</div>
+            </div>
+
+            <p class="atmo-hint">Click any layer to explore it</p>
+          </div>
         </section>
 
         <!-- Nuclear Fusion -->
@@ -356,9 +439,82 @@ const faqData = [
   }, observerOptions);
 
   sections.forEach(section => observer.observe(section));
+
+  // ─── Sun Atmosphere Interactive ─────────────────────────────────────────────
+  type SunatmoLayer = { name:string; alt:string; desc:string; fact:string; bandY:number; bandH:number; stroke:string; };
+  const sunatmoLayers: Record<string, SunatmoLayer> = {
+    photosphere: {
+      name: 'Photosphere', alt: '0 – 500 km',
+      desc: 'The visible \'surface\' of the Sun — a 500 km-thick layer of plasma radiating at 5,500°C. Convection cells called granules (~1,000 km across) give it a churning texture. Sunspots appear as darker patches where strong magnetic fields suppress convection, cooling the region to about 4,000°C.',
+      fact: '✦ Sunspots look dark only by contrast — at 4,000°C they would be blindingly bright compared to any light source on Earth.',
+      bandY: 235, bandH: 83, stroke: 'rgba(255,220,60,0.70)',
+    },
+    chromosphere: {
+      name: 'Chromosphere', alt: '500 – 2,500 km',
+      desc: 'A thin reddish layer visible during total solar eclipses. Temperature paradoxically increases from 4,000°C at the base to 20,000°C at the top. Spicules — jets of plasma — constantly shoot upward through this layer at 20 km/s, lasting just a few minutes each.',
+      fact: '✦ The chromosphere was named for its vivid reddish-pink colour, visible to the naked eye only in the brief seconds of totality during a solar eclipse.',
+      bandY: 155, bandH: 80, stroke: 'rgba(255,150,50,0.65)',
+    },
+    transition: {
+      name: 'Transition Region', alt: '2,500 – 3,000 km',
+      desc: 'An extremely thin zone where temperature rockets from ~20,000°C to over 1,000,000°C across just a few hundred kilometres. This dramatic leap — the coronal heating problem — remains one of the greatest unsolved mysteries in all of solar physics.',
+      fact: '✦ The transition region emits most of its energy in extreme ultraviolet, invisible to the eye but routinely imaged by space telescopes like SOHO and SDO.',
+      bandY: 80, bandH: 75, stroke: 'rgba(250,110,70,0.65)',
+    },
+    corona: {
+      name: 'Corona', alt: '3,000 km – millions of km',
+      desc: 'The Sun\'s outer atmosphere, reaching 1–2 million°C. Despite this extreme temperature, its density is so low that you would not feel warm standing in it — there are too few particles to transfer heat. The corona streams outward as the solar wind, bathing every planet in the solar system.',
+      fact: '✦ NASA\'s Parker Solar Probe has flown directly through the corona, surviving by sheltering behind a carbon heat shield while instruments sample the surrounding plasma.',
+      bandY: 10, bandH: 70, stroke: 'rgba(220,100,80,0.65)',
+    },
+  };
+
+  const sunatmoHighlight = document.getElementById('sunatmoHighlight');
+  const sunatmoInfoName  = document.getElementById('sunatmoInfoName');
+  const sunatmoInfoAlt   = document.getElementById('sunatmoInfoAlt');
+  const sunatmoInfoDesc  = document.getElementById('sunatmoInfoDesc');
+  const sunatmoInfoFact  = document.getElementById('sunatmoInfoFact');
+
+  function selectSunatmoLayer(key: string) {
+    const layer = sunatmoLayers[key];
+    if (!layer) return;
+    if (sunatmoHighlight) {
+      sunatmoHighlight.setAttribute('y',      String(layer.bandY));
+      sunatmoHighlight.setAttribute('height', String(layer.bandH));
+      sunatmoHighlight.setAttribute('stroke', layer.stroke);
+    }
+    if (sunatmoInfoName) sunatmoInfoName.textContent = layer.name;
+    if (sunatmoInfoAlt)  sunatmoInfoAlt.textContent  = layer.alt;
+    if (sunatmoInfoDesc) sunatmoInfoDesc.textContent = layer.desc;
+    if (sunatmoInfoFact) sunatmoInfoFact.textContent = layer.fact;
+  }
+
+  document.querySelectorAll<SVGRectElement>('.sunatmo-band').forEach(band => {
+    band.addEventListener('click', () => {
+      const key = band.getAttribute('data-layer');
+      if (key) selectSunatmoLayer(key);
+    });
+  });
+
+  selectSunatmoLayer('photosphere');
 </script>
 
 <style>
+  /* ── Sun Atmosphere Interactive ── */
+  .sunatmo-band { transition: filter 0.15s ease; }
+  .sunatmo-band:hover { filter: brightness(1.4); }
+
+  .atmo-interactive { margin: var(--space-xl) 0; padding: var(--space-lg); }
+  .atmo-scene { width: 100%; overflow-x: auto; }
+  .atmo-scene svg { width: 100%; max-width: 500px; height: auto; display: block; margin: 0 auto var(--space-md); }
+  .atmo-info { margin-top: var(--space-md); padding: var(--space-md) var(--space-lg); }
+  .atmo-info-header { display: flex; align-items: baseline; gap: var(--space-md); margin-bottom: var(--space-sm); flex-wrap: wrap; }
+  .atmo-info-name { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 600; color: var(--color-accent-cyan); }
+  .atmo-info-alt { font-size: 0.875rem; font-weight: 400; color: var(--color-text-secondary); }
+  .atmo-info-desc { font-size: 0.9375rem; font-weight: 300; color: var(--color-text-secondary); line-height: 1.7; margin: 0 0 var(--space-sm) 0; }
+  .atmo-info-fact { font-size: 0.875rem; font-weight: 400; color: rgba(56,189,248,0.65); font-style: italic; }
+  .atmo-hint { text-align: center; font-size: 0.8125rem; color: rgba(255,255,255,0.22); margin: var(--space-sm) 0 0 0; letter-spacing: 0.03em; }
+
   /* Progress Bar */
   .progress-container {
     position: fixed;
@@ -799,6 +955,10 @@ const faqData = [
   @media (max-width: 768px) {
     .hero {
       min-height: 50vh;
+    }
+
+    .hero-image img {
+      object-position: right center;
     }
 
     .hero-content {

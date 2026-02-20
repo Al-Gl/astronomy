@@ -197,6 +197,89 @@ const faqData = [
 
           <h3>Bright Cloud Features</h3>
           <p>Neptune displays bright, white methane clouds that form at high altitudes where temperatures are cold enough for methane to condense. These clouds cast shadows on the cloud deck below, a phenomenon Voyager 2 captured in remarkable detail. Some clouds move around the planet at different speeds, creating a dynamic, ever-changing appearance. Ground-based observations with adaptive optics have revealed that Neptune's cloud activity varies seasonally, despite the planet's 165-year orbit.</p>
+
+          <!-- Atmospheric Layers Interactive -->
+          <div class="atmo-interactive glass">
+            <div class="atmo-scene">
+              <svg id="natmoSvg" viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg"
+                aria-label="Interactive Neptune atmospheric layers diagram" role="img">
+                <defs>
+                  <linearGradient id="natmoSpaceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#000510"/>
+                    <stop offset="100%" stop-color="#000b20"/>
+                  </linearGradient>
+                  <linearGradient id="natmoSurfaceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="rgba(30,50,180,0.90)"/>
+                    <stop offset="100%" stop-color="rgba(15,25,140,0.95)"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- Background -->
+                <rect x="0" y="0" width="500" height="360" fill="url(#natmoSpaceGrad)"/>
+
+                <!-- Stars -->
+                <circle cx="420" cy="20" r="1"   fill="rgba(255,255,255,0.8)"/>
+                <circle cx="460" cy="35" r="1.5" fill="rgba(255,255,255,0.6)"/>
+                <circle cx="480" cy="15" r="1"   fill="rgba(255,255,255,0.7)"/>
+                <circle cx="430" cy="50" r="1"   fill="rgba(255,255,255,0.5)"/>
+                <circle cx="445" cy="8"  r="1.2" fill="rgba(255,255,255,0.65)"/>
+
+                <!-- Layer bands (top→bottom) -->
+                <rect class="natmo-band" data-layer="exosphere"    x="0" y="10"  width="430" height="70" fill="rgba(10,20,120,0.12)"  stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+                <rect class="natmo-band" data-layer="thermosphere" x="0" y="80"  width="430" height="75" fill="rgba(20,40,160,0.20)"  stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+                <rect class="natmo-band" data-layer="stratosphere" x="0" y="155" width="430" height="80" fill="rgba(30,60,180,0.28)"  stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+                <rect class="natmo-band" data-layer="troposphere"  x="0" y="235" width="430" height="83" fill="rgba(40,80,200,0.40)"  stroke="transparent" stroke-width="2" style="cursor:pointer"/>
+
+                <!-- Altitude boundary lines -->
+                <line x1="430" y1="80"  x2="500" y2="80"  stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <line x1="430" y1="155" x2="500" y2="155" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <line x1="430" y1="235" x2="500" y2="235" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <line x1="430" y1="318" x2="500" y2="318" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+
+                <!-- Altitude labels -->
+                <text x="436" y="78"  font-size="11" fill="rgba(255,255,255,0.4)" font-family="inherit">500+ km</text>
+                <text x="436" y="153" font-size="11" fill="rgba(255,255,255,0.4)" font-family="inherit">300 km</text>
+                <text x="436" y="233" font-size="11" fill="rgba(255,255,255,0.4)" font-family="inherit">50 km</text>
+                <text x="436" y="316" font-size="11" fill="rgba(255,255,255,0.4)" font-family="inherit">0 km</text>
+
+                <!-- Space label -->
+                <text x="8" y="22" font-size="10" fill="rgba(255,255,255,0.3)" font-family="inherit">↑ Space</text>
+
+                <!-- Layer name labels -->
+                <text x="215" y="40"  font-size="14" font-weight="600" fill="rgba(60,80,190,0.88)" font-family="inherit" text-anchor="middle" style="pointer-events:none">Exosphere</text>
+                <text x="215" y="56"  font-size="11" fill="rgba(255,255,255,0.38)" font-family="inherit" text-anchor="middle" style="pointer-events:none">500 km + · Triton's retrograde orbit</text>
+
+                <text x="215" y="113" font-size="14" font-weight="600" fill="rgba(60,100,210,0.88)" font-family="inherit" text-anchor="middle" style="pointer-events:none">Thermosphere</text>
+                <text x="215" y="129" font-size="11" fill="rgba(255,255,255,0.38)" font-family="inherit" text-anchor="middle" style="pointer-events:none">300 – 500 km · Anomalously warm</text>
+
+                <text x="215" y="190" font-size="14" font-weight="600" fill="rgba(80,130,230,0.88)" font-family="inherit" text-anchor="middle" style="pointer-events:none">Stratosphere</text>
+                <text x="215" y="206" font-size="11" fill="rgba(255,255,255,0.38)" font-family="inherit" text-anchor="middle" style="pointer-events:none">50 – 300 km · Hydrocarbon haze</text>
+
+                <text x="215" y="272" font-size="14" font-weight="600" fill="rgba(100,160,250,0.95)" font-family="inherit" text-anchor="middle" style="pointer-events:none">Troposphere</text>
+                <text x="215" y="288" font-size="11" fill="rgba(255,255,255,0.38)" font-family="inherit" text-anchor="middle" style="pointer-events:none">0 – 50 km · 2,100 km/h winds</text>
+
+                <!-- Neptune 1-bar level -->
+                <rect x="0" y="318" width="500" height="42" fill="url(#natmoSurfaceGrad)"/>
+                <text x="215" y="344" font-size="11" fill="rgba(255,255,255,0.35)" font-family="inherit" text-anchor="middle">1-bar Level (−218 °C)</text>
+
+                <!-- Highlight overlay -->
+                <rect id="natmoHighlight" x="0" y="235" width="430" height="83"
+                  fill="none" stroke="rgba(50,100,230,0.70)" stroke-width="2" opacity="1"/>
+              </svg>
+            </div>
+
+            <!-- Info panel -->
+            <div class="atmo-info glass">
+              <div class="atmo-info-header">
+                <span class="atmo-info-name" id="natmoInfoName">Troposphere</span>
+                <span class="atmo-info-alt"  id="natmoInfoAlt">0 – 50 km (1-bar level)</span>
+              </div>
+              <p class="atmo-info-desc" id="natmoInfoDesc">The most violent weather layer in the solar system, with sustained winds reaching 2,100 km/h — nearly supersonic. White methane clouds cast shadows on the cloud deck below, first captured by Voyager 2 in 1989. The Great Dark Spot storms appear and disappear over years, unlike Jupiter's centuries-old Great Red Spot.</p>
+              <div class="atmo-info-fact" id="natmoInfoFact">✦ Neptune's extreme winds are powered almost entirely by its internal heat — the planet receives only 1/900th of the solar energy Earth does.</div>
+            </div>
+
+            <p class="atmo-hint">Click any layer to explore it</p>
+          </div>
         </section>
 
         <!-- Interior -->
@@ -418,9 +501,82 @@ const faqData = [
   }, observerOptions);
 
   sections.forEach(section => observer.observe(section));
+
+  // ─── Neptune Atmosphere Interactive ────────────────────────────────────────
+  type NatmoLayer = { name:string; alt:string; desc:string; fact:string; bandY:number; bandH:number; stroke:string; };
+  const natmoLayers: Record<string, NatmoLayer> = {
+    troposphere: {
+      name: 'Troposphere', alt: '0 – 50 km (1-bar level)',
+      desc: 'The most violent weather layer in the solar system, with sustained winds reaching 2,100 km/h — nearly supersonic. White methane clouds cast shadows on the cloud deck below, first captured by Voyager 2 in 1989. The Great Dark Spot storms appear and disappear over years, unlike Jupiter\'s centuries-old Great Red Spot.',
+      fact: '✦ Neptune\'s extreme winds are powered almost entirely by its internal heat — the planet receives only 1/900th of the solar energy Earth does.',
+      bandY: 235, bandH: 83, stroke: 'rgba(50,100,230,0.70)',
+    },
+    stratosphere: {
+      name: 'Stratosphere', alt: '50 – 300 km',
+      desc: 'Hydrocarbon haze — acetylene, ethane, and methyl acetylene — forms as solar UV breaks apart methane rising from below. Temperatures increase with altitude, creating a thermal inversion above the cloud tops.',
+      fact: '✦ Ground-based telescopes show Neptune\'s cloud cover varies significantly over decades, hinting at long-period seasonal cycles despite its 165-year orbit.',
+      bandY: 155, bandH: 80, stroke: 'rgba(40,70,210,0.65)',
+    },
+    thermosphere: {
+      name: 'Thermosphere', alt: '300 – 500 km',
+      desc: 'Temperatures here are anomalously high — far above what solar heating alone could produce at Neptune\'s extreme distance. The source of this extra energy remains one of the open questions of planetary science.',
+      fact: '✦ Neptune radiates 2.6× more energy than it receives from the Sun, the highest ratio of any planet, driving its thermosphere\'s unexpected warmth.',
+      bandY: 80, bandH: 75, stroke: 'rgba(25,50,200,0.65)',
+    },
+    exosphere: {
+      name: 'Exosphere', alt: '500 km +',
+      desc: 'The outermost diffuse layer merges with the highly tilted and offset magnetosphere. Neptune\'s moon Triton orbits in the retrograde direction — proof it was captured from the Kuiper Belt — and its decaying orbit will eventually cause it to break apart and form a new ring system.',
+      fact: '✦ Triton\'s orbit is decaying due to tidal interactions. In roughly 3.6 billion years it will cross the Roche limit and disintegrate into a spectacular ring system.',
+      bandY: 10, bandH: 70, stroke: 'rgba(15,30,170,0.65)',
+    },
+  };
+
+  const natmoHighlight = document.getElementById('natmoHighlight');
+  const natmoInfoName  = document.getElementById('natmoInfoName');
+  const natmoInfoAlt   = document.getElementById('natmoInfoAlt');
+  const natmoInfoDesc  = document.getElementById('natmoInfoDesc');
+  const natmoInfoFact  = document.getElementById('natmoInfoFact');
+
+  function selectNatmoLayer(key: string) {
+    const layer = natmoLayers[key];
+    if (!layer) return;
+    if (natmoHighlight) {
+      natmoHighlight.setAttribute('y',      String(layer.bandY));
+      natmoHighlight.setAttribute('height', String(layer.bandH));
+      natmoHighlight.setAttribute('stroke', layer.stroke);
+    }
+    if (natmoInfoName) natmoInfoName.textContent = layer.name;
+    if (natmoInfoAlt)  natmoInfoAlt.textContent  = layer.alt;
+    if (natmoInfoDesc) natmoInfoDesc.textContent = layer.desc;
+    if (natmoInfoFact) natmoInfoFact.textContent = layer.fact;
+  }
+
+  document.querySelectorAll<SVGRectElement>('.natmo-band').forEach(band => {
+    band.addEventListener('click', () => {
+      const key = band.getAttribute('data-layer');
+      if (key) selectNatmoLayer(key);
+    });
+  });
+
+  selectNatmoLayer('troposphere');
 </script>
 
 <style>
+  /* ── Neptune Atmosphere Interactive ── */
+  .natmo-band { transition: filter 0.15s ease; }
+  .natmo-band:hover { filter: brightness(1.4); }
+
+  .atmo-interactive { margin: var(--space-xl) 0; padding: var(--space-lg); }
+  .atmo-scene { width: 100%; overflow-x: auto; }
+  .atmo-scene svg { width: 100%; max-width: 500px; height: auto; display: block; margin: 0 auto var(--space-md); }
+  .atmo-info { margin-top: var(--space-md); padding: var(--space-md) var(--space-lg); }
+  .atmo-info-header { display: flex; align-items: baseline; gap: var(--space-md); margin-bottom: var(--space-sm); flex-wrap: wrap; }
+  .atmo-info-name { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 600; color: var(--color-accent-cyan); }
+  .atmo-info-alt { font-size: 0.875rem; font-weight: 400; color: var(--color-text-secondary); }
+  .atmo-info-desc { font-size: 0.9375rem; font-weight: 300; color: var(--color-text-secondary); line-height: 1.7; margin: 0 0 var(--space-sm) 0; }
+  .atmo-info-fact { font-size: 0.875rem; font-weight: 400; color: rgba(56,189,248,0.65); font-style: italic; }
+  .atmo-hint { text-align: center; font-size: 0.8125rem; color: rgba(255,255,255,0.22); margin: var(--space-sm) 0 0 0; letter-spacing: 0.03em; }
+
   /* Progress Bar */
   .progress-container {
     position: fixed;
@@ -858,6 +1014,10 @@ const faqData = [
   @media (max-width: 768px) {
     .hero {
       min-height: 50vh;
+    }
+
+    .hero-image img {
+      object-position: right center;
     }
 
     .hero-content {
