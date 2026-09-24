@@ -21,7 +21,11 @@ Audited all 44 leaf pages under `/atlas/{planets,stars,galaxies,nebulae,constell
 - `npm run build` completes; every Atlas leaf page's hero `src` resolves to an existing file; no `u203a` left in `dist/`.
 - Visual check via a contact sheet of all 44 heroes at desktop crop.
 
+### Follow-up: nebulae hub card images
+- The `atlas/nebulae.astro` hub referenced 8 `card_*.jpg` thumbnails that never existed (broken images). Created them by cropping each new nebula hero tightly around its subject and centering it on black at the standard 870×656 card size. No code changes.
+
 ### Next
+- Stars + constellations hubs have the same missing `card_*.jpg` problem (same crop-from-hero fix would work).
 - Observatory section (telescopes/binoculars, ~10 style variants across 18 pages) — deferred to a later pass per owner.
 
 ---
