@@ -154,6 +154,11 @@ const faqData = [
           <h2>Northumberland International Dark Sky Park</h2>
           <p>Northumberland International Dark Sky Park, centered around Kielder Water & Forest Park (55.2°N, 2.3°W), is England's premier stargazing destination and Europe's largest protected dark sky area at 572 square miles. Awarded gold-tier status by the International Dark-Sky Association—the highest possible certification—Northumberland provides some of the darkest skies in England, with Bortle Class 1-2 ratings in core areas.</p>
 
+          <div class="inline-image">
+            <img src="/images/england_northumberland.jpg" alt="Milky Way arching over open moorland in Northumberland, one of England's darkest sky regions" loading="lazy" />
+            <p class="image-caption">Northumberland's vast moorland and Kielder Forest provide some of England's darkest skies — Bortle Class 1–2 in core areas</p>
+          </div>
+
           <h3>Kielder Observatory</h3>
           <p>The crown jewel of Northumberland's dark sky infrastructure is Kielder Observatory, opened in 2008 and purpose-built for public astronomy. Located on Black Fell (250m elevation), the observatory features multiple telescopes including a 20-inch Meade reflector, one of England's largest public-access telescopes. The facility hosts nightly events (weather permitting) including stargazing sessions, telescope viewing, and planetarium shows.</p>
 
@@ -180,6 +185,11 @@ const faqData = [
           <h2>Exmoor National Park</h2>
           <p>Exmoor National Park (51.1°N, 3.6°W), straddling the Devon-Somerset border, earned the distinction of becoming Europe's first International Dark Sky Reserve in 2011. Remarkably, Exmoor has recorded some of the darkest skies ever measured in England, with some areas achieving the exceptionally rare Bortle Class 1 rating—true pristine dark sky, where zodiacal light and airglow become visible.</p>
 
+          <div class="inline-image">
+            <img src="/images/england_exmoor.jpg" alt="Starry night sky over heather-covered moorland on Exmoor, England's first International Dark Sky Reserve" loading="lazy" />
+            <p class="image-caption">Exmoor's open moorland and coastal hills were awarded International Dark Sky Reserve status in 2011 — Europe's first</p>
+          </div>
+
           <p>The park's 267 square miles combine dramatic coastline, heather-covered moorland, and deep wooded valleys. This topographic diversity creates numerous microclimates, meaning if one area is cloudy, another nearby location might have clear skies. The south-facing hills offer unobstructed views across the Bristol Channel, providing excellent southern horizon visibility for observing celestial objects near the ecliptic.</p>
 
           <h3>Best Viewing Locations</h3>
@@ -201,6 +211,11 @@ const faqData = [
         <section id="south-downs" class="content-section">
           <h2>South Downs National Park</h2>
           <p>The South Downs National Park (51°N, 0.7°W) achieved Dark Sky Reserve status in 2016, becoming England's newest protected dark sky area. Stretching across 628 square miles of rolling chalk hills from Winchester to Eastbourne, the South Downs offers the remarkable distinction of being the world's largest populated Dark Sky Reserve and England's most accessible dark sky location—just one hour from central London.</p>
+
+          <div class="inline-image">
+            <img src="/images/england_southdowns.jpg" alt="Rolling chalk hills of the South Downs under a wide starry sky at night" loading="lazy" />
+            <p class="image-caption">The South Downs — the world's largest populated Dark Sky Reserve, just one hour from central London</p>
+          </div>
 
           <p>The South Downs' elevation (reaching 280m at Butser Hill) combined with low population density across the high downs creates surprisingly dark skies despite proximity to the heavily populated southeast. The chalk grasslands reflect minimal light, and the National Park Authority has worked extensively with local councils to implement dark-sky-friendly lighting in surrounding villages.</p>
 
@@ -823,6 +838,26 @@ const faqData = [
     line-height: 1.7;
     color: var(--color-text-primary);
     position: relative;
+  }
+
+  /* Inline Images */
+  .inline-image {
+    margin: var(--space-lg) 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .inline-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .image-caption {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+    padding: var(--space-sm) var(--space-md);
+    font-style: italic;
   }
 
   /* Content Sections */

@@ -112,15 +112,17 @@ const faqData = [
   </section>
 
   <!-- Answer Capsule -->
-  <aside class="answer-capsule">
-    <div class="capsule-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <circle cx="12" cy="12" r="10"/>
-        <path d="M12 6v6l4 2" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <p>Binoculars reveal 60-70 deep sky objects from Charles Messier's famous catalog plus hundreds more accessible targets. Open clusters like the Pleiades (M45) and Beehive (M44) appear as stunning star fields fully resolved into individual points. The Orion Nebula (M42) shows obvious greenish-gray structure in stellar birth clouds. Globular clusters appear as fuzzy round patches with bright centers. The Andromeda Galaxy (M31) spans three Moon-widths as an elongated glow. Expect gray appearances, not colorful photos—human night vision lacks color sensitivity. Dark skies are essential for faint objects; open clusters survive light pollution better than galaxies. 10x50 binoculars offer optimal balance of aperture, magnification, and field width. Organize observing by season: winter features Orion and Taurus clusters, spring showcases galaxy fields, summer offers Milky Way riches from Sagittarius through Cygnus, autumn presents Andromeda and the Double Cluster. Manage expectations realistically, and binocular deep sky observing provides endless rewards under starry skies.</p>
-  </aside>
+  <div class="container">
+    <aside class="answer-capsule">
+      <div class="capsule-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 6v6l4 2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p>Binoculars reveal 60-70 deep sky objects from Charles Messier's famous catalog plus hundreds more accessible targets. Open clusters like the Pleiades (M45) and Beehive (M44) appear as stunning star fields fully resolved into individual points. The Orion Nebula (M42) shows obvious greenish-gray structure in stellar birth clouds. Globular clusters appear as fuzzy round patches with bright centers. The Andromeda Galaxy (M31) spans three Moon-widths as an elongated glow. Expect gray appearances, not colorful photos—human night vision lacks color sensitivity. Dark skies are essential for faint objects; open clusters survive light pollution better than galaxies. 10x50 binoculars offer optimal balance of aperture, magnification, and field width. Organize observing by season: winter features Orion and Taurus clusters, spring showcases galaxy fields, summer offers Milky Way riches from Sagittarius through Cygnus, autumn presents Andromeda and the Double Cluster. Manage expectations realistically, and binocular deep sky observing provides endless rewards under starry skies.</p>
+    </aside>
+  </div>
 
   <!-- Main Content with Sidebar -->
   <div class="content-wrapper">
@@ -280,6 +282,11 @@ const faqData = [
             </div>
           </section>
 
+          <figure class="article-image">
+            <img src="/images/Bino_deepsky_orion.jpg" alt="The Orion Nebula M42 as seen through binoculars — glowing nebula cloud with bright core in a rich star field" loading="lazy" />
+            <figcaption>The Orion Nebula (M42) is one of the finest binocular deep sky objects — visible to the naked eye, it reveals wispy gas structure and the young Trapezium star cluster through 10x50 binoculars</figcaption>
+          </figure>
+
           <!-- Equipment Optimization -->
           <section id="equipment" class="content-section">
             <h2>Equipment Optimization for Deep Sky Observing</h2>
@@ -394,6 +401,11 @@ const faqData = [
             </div>
           </section>
 
+          <figure class="article-image">
+            <img src="/images/Bino_deepsky_andromeda.jpg" alt="The Andromeda Galaxy M31 as seen through binoculars — an elongated oval glow with a brighter nucleus spanning several Moon-widths" loading="lazy" />
+            <figcaption>The Andromeda Galaxy (M31) — 2.5 million light-years away — spans three Moon-widths through binoculars, making it the most distant object visible to the naked eye</figcaption>
+          </figure>
+
           <!-- Finding Techniques -->
           <section id="finding-techniques" class="content-section">
             <h2>Finding Techniques and Dark Sky Skills</h2>
@@ -491,6 +503,11 @@ const faqData = [
               </div>
             </div>
           </section>
+
+          <figure class="article-image">
+            <img src="/images/Bino_deepsky_globular.jpg" alt="Globular cluster M13 in Hercules as seen through binoculars — fuzzy round ball of stars with a brighter compressed centre" loading="lazy" />
+            <figcaption>Globular cluster M13 in Hercules contains 300,000 stars packed into a sphere 145 light-years across — through binoculars it appears as a fuzzy round glow with a brighter core</figcaption>
+          </figure>
 
           <!-- Winter Sky Tour -->
           <section id="winter-sky" class="content-section">
@@ -1669,6 +1686,26 @@ const faqData = [
   /* Article Content */
   .article-content {
     max-width: 900px;
+  }
+
+  /* Article Images */
+  .article-image {
+    margin: 2rem 0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+  }
+  .article-image figcaption {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.45);
+    text-align: center;
+    margin-top: 0.5rem;
+    font-style: italic;
   }
 
   .content-section {

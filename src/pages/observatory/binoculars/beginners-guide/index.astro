@@ -107,15 +107,17 @@ const faqData = [
   </section>
 
   <!-- Answer Capsule -->
-  <aside class="answer-capsule">
-    <div class="capsule-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <circle cx="12" cy="12" r="10"/>
-        <path d="M12 6v6l4 2"/>
-      </svg>
-    </div>
-    <p>Begin binocular stargazing by learning steady-holding techniques (elbows braced or using tripod), allowing 20-30 minutes for dark adaptation, and starting with easy targets like the Moon, Pleiades cluster, and Orion Nebula. Use free apps like Stellarium Mobile or SkySafari to locate objects, observe from dark locations away from lights, and dress warmly for extended sessions. With basic techniques mastered, binoculars reveal hundreds of celestial wonders visible from any backyard.</p>
-  </aside>
+  <div class="container">
+    <aside class="answer-capsule">
+      <div class="capsule-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 6v6l4 2"/>
+        </svg>
+      </div>
+      <p>Begin binocular stargazing by learning steady-holding techniques (elbows braced or using tripod), allowing 20-30 minutes for dark adaptation, and starting with easy targets like the Moon, Pleiades cluster, and Orion Nebula. Use free apps like Stellarium Mobile or SkySafari to locate objects, observe from dark locations away from lights, and dress warmly for extended sessions. With basic techniques mastered, binoculars reveal hundreds of celestial wonders visible from any backyard.</p>
+    </aside>
+  </div>
 
   <!-- Main Content with Sidebar -->
   <div class="content-wrapper">
@@ -223,6 +225,11 @@ const faqData = [
             <p>Tripod mounting eliminates shake entirely and represents the gold standard for serious binocular astronomy. A simple L-bracket adapter ($20-40) connects to the central hinge of most binoculars via a standard tripod socket. Screw the adapter into any photo tripod, video tripod, or even some monopods, and your binoculars become a stable instrument rivaling entry-level telescopes. Video tripods with fluid heads excel for astronomy because their smooth panning allows effortless target tracking across the sky. The setup takes 2-3 minutes initially, but once positioned, you enjoy completely shake-free views, relaxed posture, and the ability to study fine details indefinitely. Tripod mounting becomes essential rather than optional for magnifications above 15x, for detailed lunar and planetary observation, and for elderly or mobility-impaired observers.</p>
 
             <p>Practice these techniques during the daytime first. Find terrestrial targets at various distances and elevations—distant buildings, treetops, telephone wires—and experiment with different support positions. Notice how dramatically stability improves with proper bracing compared to freestanding handheld viewing. Develop muscle memory for the motions: locating supports, positioning your body, bringing binoculars to your eyes smoothly. When you transition to nighttime observing, these movements will feel natural, allowing you to focus mental energy on finding and observing celestial targets rather than fighting equipment shake.</p>
+
+          <figure class="article-image">
+            <img src="/images/Bino_beginners_holding.jpg" alt="Person sitting in a field at night with elbows on knees, holding binoculars steady under the Milky Way" loading="lazy" />
+            <figcaption>Seated with elbows braced on knees is one of the most stable handheld positions for binocular stargazing</figcaption>
+          </figure>
           </section>
 
           <!-- Dark Adaptation -->
@@ -328,6 +335,11 @@ const faqData = [
             <p>These five targets alone provide weeks of rewarding observing. Master locating them consistently before expanding to more challenging objects. Each represents a different category: Moon (rocky surface), Jupiter (planet with moons), Pleiades (open star cluster), Orion Nebula (emission nebula), and Andromeda (external galaxy). Successfully finding and observing each category builds specific navigation and viewing skills transferable to thousands of similar objects throughout your astronomy journey. Rush toward exotic targets before mastering these basics, and you'll experience more frustration than discovery.</p>
 
             <p>Recording your first observations in a simple notebook or digital file serves multiple purposes. Write the date, time, sky conditions, equipment used, and brief descriptions of what you saw. Include sketches if artistically inclined, but even stick figures and ovals preserve useful information. Note which objects you found easily versus which proved frustrating—this data guides future sessions. Months or years later, reading early observing logs reveals both how much you've learned and how consistently rewarding certain targets remain. Many observers treasure their logs as much as any astronomical equipment.</p>
+
+          <figure class="article-image">
+            <img src="/images/Bino_beginners_pleiades.jpg" alt="The Pleiades star cluster as seen through binoculars — dozens of blue-white stars on a velvet black sky" loading="lazy" />
+            <figcaption>The Pleiades (M45) is one of the most rewarding first targets — binoculars resolve the cluster into dozens of individual stellar jewels</figcaption>
+          </figure>
           </section>
 
           <!-- Navigation Techniques -->
@@ -429,6 +441,11 @@ const faqData = [
             <p>Seasonal observing cycles encourage systematic coverage of all sky regions. Design three-month campaigns: winter (December-February) focuses on Orion region, Taurus, Auriga, and Gemini; spring (March-May) emphasizes Leo, Virgo galaxy cluster, and Coma Berenices; summer (June-August) explores Sagittarius, Scorpius, Cygnus, and Milky Way core; autumn (September-November) covers Cassiopeia, Perseus, Andromeda, and Pegasus. Each season brings different challenges and rewards. This cyclical approach ensures you don't neglect entire regions while repeatedly observing familiar favorites.</p>
 
             <p>Learning from experienced observers accelerates skill development far beyond solo practice. Join local astronomy clubs or attend public star parties where experienced members share knowledge freely. Watch how veterans navigate the sky, hold their equipment, and problem-solve when targets prove elusive. Don't hesitate to ask questions; virtually all amateur astronomers enthusiastically help beginners because someone once helped them. Online communities provide virtual mentorship through forums, social media groups, and video tutorials. Observing reports from experienced observers reveal practical techniques and realistic descriptions of what objects actually look like—information rarely found in formal guides.</p>
+
+          <figure class="article-image">
+            <img src="/images/Bino_beginners_logbook.jpg" alt="Astronomer writing in an observing logbook by red flashlight beside binoculars and a star chart under the night sky" loading="lazy" />
+            <figcaption>Keeping an observing log transforms casual stargazing into a rewarding long-term pursuit — red flashlights preserve your night vision</figcaption>
+          </figure>
           </section>
 
           <!-- First Month Plan -->
@@ -737,6 +754,26 @@ const faqData = [
   /* Article Content */
   .article-content {
     max-width: 900px;
+  }
+
+  /* Article Images */
+  .article-image {
+    margin: 2rem 0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+  }
+  .article-image figcaption {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.45);
+    text-align: center;
+    margin-top: 0.5rem;
+    font-style: italic;
   }
 
   .content-section {

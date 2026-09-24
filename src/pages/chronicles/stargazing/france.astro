@@ -1,0 +1,835 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import Schema from '../../../components/Schema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cosmic Chronicles', url: '/chronicles/' },
+  { name: 'Stargazing Guides', url: '/chronicles/stargazing/' },
+  { name: 'Stargazing in France', url: '/chronicles/stargazing/france/' }
+];
+
+const articleData = {
+  headline: 'Stargazing in France: Complete Guide to Dark Sky Reserves and Best Locations',
+  description: 'Comprehensive guide to stargazing in France. Discover the Cévennes International Dark Sky Reserve, Provence\'s legendary clear skies, and the Pyrenees highlands — with practical tips for watching stars across rural France.',
+  datePublished: '2026-03-26',
+  dateModified: '2026-03-26',
+  author: 'The Astronomy Space',
+  image: '/images/Hero_france.jpg',
+  keywords: [
+    'Stargazing France', 'Dark Sky France', 'France stargazing locations',
+    'Cévennes Dark Sky Reserve', 'Provence stargazing', 'Pyrenees astronomy',
+    'Pic du Midi Observatory', 'Best stargazing France', 'Rural France astronomy',
+    'Milky Way France', 'French countryside dark skies', 'Mont Aigoual'
+  ]
+};
+
+const faqData = [
+  {
+    question: 'When is the best time for stargazing in France?',
+    answer: 'Summer (June–August) offers the warmest nights and is ideal for high-altitude sites like the Pyrenees, where evenings stay clear. Autumn (September–October) brings excellent transparency across Provence and the Cévennes. Winter nights are longest (14–15 hours in the south) and often very clear under anticyclonic conditions, though cold at elevation. Avoid July–August in Provence if you prefer cooler temperatures; nights in the Cévennes and Pyrenees remain pleasant even in midsummer.'
+  },
+  {
+    question: 'What are the best dark sky locations in France?',
+    answer: 'The Cévennes National Park (44.3°N, 3.6°E) is France\'s first International Dark Sky Reserve, with exceptional darkness across its granite plateaux. The Luberon and Verdon Gorge area in Provence offers reliable clear skies and low humidity. The Pyrenees, particularly around the Pic du Midi Observatory (2877m), give access to high-altitude transparency. The Causses du Quercy and Millevaches Plateau are lesser-known gems with very little light pollution.'
+  },
+  {
+    question: 'Do I need a permit to observe in French national parks?',
+    answer: 'No permit is required for casual visual stargazing in French national parks. You can access viewing areas freely, though some sites require driving on unpaved roads. For overnight camping, check park rules as some zones have restrictions. Astrophotographers setting up large tripod rigs near restricted zones should verify local regulations. The Pic du Midi Observatory requires booking for public visits; it does not allow independent access to the summit.'
+  },
+  {
+    question: 'How clear are French skies compared to other European countries?',
+    answer: 'Southern France has some of the clearest skies in mainland Europe. Provence averages 300+ clear nights per year, comparable to parts of southern Spain. The Pyrenees and Massif Central benefit from altitude and distance from major urban centers. Northern France is cloudier, comparable to England. The Mediterranean coast brings dry, stable air masses in summer. Overall, France offers excellent conditions for European standards, especially south of the Loire.'
+  },
+  {
+    question: 'Can I see the Milky Way from France?',
+    answer: 'Yes — from dark sky reserves like the Cévennes or Causses du Quercy, the Milky Way is spectacular on moonless summer nights. The galactic core is visible from around May to October from southern France. The Cévennes reserve, with Bortle 2–3 skies in its core, provides outstanding Milky Way views. Even from moderate dark sky areas (Bortle 4), the Milky Way arch is clearly visible. Avoid France\'s Côte d\'Azur, Paris basin, and Lyon corridor for dark sky purposes.'
+  },
+  {
+    question: 'What equipment should I bring for stargazing in France?',
+    answer: 'For summer in Provence or the Cévennes: light layers, insect repellent, and red LED torch are sufficient. For the Pyrenees above 1500m: warm jacket, windproof outer layer, and waterproof boots even in summer, as temperatures drop sharply at altitude. Binoculars (10×50) reveal the full richness of France\'s dark skies. A tripod and camera for astrophotography benefit greatly from the stable conditions. Astronomy apps like Stellarium work well; mobile reception varies in remote areas.'
+  }
+];
+---
+
+<MainLayout
+  title="Stargazing in France: Complete Guide | Dark Sky Reserves & Best Locations"
+  description="Comprehensive guide to stargazing in France — Cévennes Dark Sky Reserve, Provence's legendary clear skies, the Pyrenees highlands, and practical tips for watching stars across rural France."
+>
+  <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
+  <Schema type="TechArticle" article={articleData} />
+  <Schema type="FAQPage" faq={faqData} />
+
+  <!-- Reading Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-image">
+      <img src="/images/Hero_france.jpg" alt="Starry night sky over lavender fields and rolling hills in southern France" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/chronicles/">Cosmic Chronicles</a></li>
+          <li><a href="/chronicles/stargazing/">Stargazing Guides</a></li>
+          <li aria-current="page">France</li>
+        </ol>
+      </nav>
+      <h1>Stargazing in France</h1>
+      <p class="hero-subtitle">A Complete Guide to Dark Sky Reserves and Best Viewing Locations</p>
+    </div>
+  </section>
+
+  <!-- Main Article Content -->
+  <article class="content-wrapper">
+    <div class="article-layout">
+
+      <!-- Sticky Table of Contents (Left Sidebar) -->
+      <aside class="toc-sidebar">
+        <nav class="toc" aria-label="Table of Contents">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#cevennes">Cévennes Dark Sky Reserve</a></li>
+            <li><a href="#provence">Provence & Verdon Gorge</a></li>
+            <li><a href="#pyrenees">The Pyrenees</a></li>
+            <li><a href="#other-locations">Other Notable Locations</a></li>
+            <li><a href="#timing">Best Times & Seasons</a></li>
+            <li><a href="#equipment">Essential Equipment</a></li>
+            <li><a href="#planning">Planning Your Trip</a></li>
+            <li><a href="#weather">Weather & Conditions</a></li>
+            <li><a href="#tips">Practical Tips</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-content">
+
+        <!-- Answer Capsule -->
+        <aside class="answer-capsule">
+          <div class="capsule-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <p>France offers some of Europe's finest dark skies, particularly across the Massif Central, Provence, and the Pyrenees. The Cévennes National Park holds France's first International Dark Sky Reserve designation, with Bortle 2–3 skies over its granite plateaux. Southern France benefits from 300+ clear nights per year in favourable areas, and high-altitude sites like the Pic du Midi Observatory (2877m) in the Pyrenees provide exceptional atmospheric transparency. The best viewing period is May through October, with autumn offering the ideal balance of clear skies and comfortable temperatures.</p>
+        </aside>
+
+        <!-- Introduction -->
+        <section id="introduction" class="content-section">
+          <h2>Introduction: Why France is Outstanding for Stargazing</h2>
+          <p>France's sheer geographic diversity makes it one of Europe's most rewarding stargazing destinations. From the sun-baked limestone plateaux of the Massif Central to the high granite peaks of the Pyrenees, the country offers an extraordinary range of dark sky environments. Much of rural France — particularly south of the Loire valley — sits far from major light-pollution sources, and entire regions preserve naturally dark horizons that are becoming increasingly rare across the continent.</p>
+
+          <p>Unlike Britain's cloudy maritime climate, southern France benefits from a Mediterranean influence that brings dry, stable air masses across Provence, Languedoc, and the Pyrenean foothills. The result is extraordinary astronomical transparency — the clarity of sky that allows the faintest objects to show through. Observers at high-altitude sites like the Pic du Midi in the Hautes-Pyrénées regularly achieve seeing conditions comparable to observatory-grade nights.</p>
+
+          <p>France has moved deliberately to protect its dark sky heritage. The Cévennes National Park became France's first International Dark Sky Reserve in 2018, and the country's network of regional natural parks increasingly incorporates astronomy-friendly lighting policies. Several communes across the Midi-Pyrénées and Auvergne-Rhône-Alpes regions have adopted full shielding for all public lighting — a remarkable commitment that makes observing from rural roads and hilltop meadows a genuine pleasure.</p>
+
+          <div class="info-box glass">
+            <h3>France's Key Stargazing Regions</h3>
+            <ul>
+              <li><strong>Cévennes National Park (44.3°N, 3.6°E)</strong> — France's first IDA Dark Sky Reserve; granite plateaux with Bortle 2–3 core zones</li>
+              <li><strong>Luberon & Verdon Gorge, Provence (43.7°N, 5.8°E)</strong> — 300+ clear nights per year, low humidity, stone-village landscapes</li>
+              <li><strong>Hautes-Pyrénées / Pic du Midi (42.9°N, 0.1°E)</strong> — 2877m summit observatory, exceptional high-altitude transparency</li>
+              <li><strong>Causses du Quercy (44.5°N, 1.8°E)</strong> — UNESCO Geopark with certified dark sky status, limestone karst landscape</li>
+              <li><strong>Millevaches Plateau, Corrèze (45.6°N, 2.0°E)</strong> — "Land of a thousand springs," minimal light pollution across 3000km²</li>
+              <li><strong>Pic du Canigou, Pyrénées-Orientales (42.5°N, 2.5°E)</strong> — Southern Pyrenean peak with views into Spain and the Mediterranean</li>
+            </ul>
+          </div>
+
+          <p>The challenge in France is not weather or darkness — it is geography. The best sites often require slow driving on narrow departmental roads, and some of the darkest skies lie well away from tourist infrastructure. Planning and a willingness to venture off the main routes rewards stargazers handsomely, with dark skies that feel genuinely wild and remote, even when they lie only an hour from a major city.</p>
+        </section>
+
+        <!-- Cévennes -->
+        <section id="cevennes" class="content-section">
+          <h2>Cévennes National Park — France's First Dark Sky Reserve</h2>
+          <p>The Cévennes National Park (44.3°N, 3.6°E) in the Occitanie and Auvergne-Rhône-Alpes regions covers 3,620 km² of granite plateaux, chestnut-forested valleys, and limestone causses. It became France's first International Dark Sky Reserve in 2018, recognising exceptional darkness across its interior zones and community commitment to reducing light pollution. Core areas of the reserve regularly measure Bortle Class 2–3 — conditions under which the zodiacal light is clearly visible and the Milky Way casts a faint shadow.</p>
+
+          <div class="inline-image">
+            <img src="/images/france_cevennes.jpg" alt="Milky Way arching over the rolling hills and forests of the Cévennes plateau in southern France" loading="lazy" />
+            <p class="image-caption">The Cévennes plateau — France's first International Dark Sky Reserve, with Bortle 2–3 skies across its granite interior</p>
+          </div>
+
+          <h3>Mont Aigoual Observatory</h3>
+          <p>The centrepiece of Cévennes astronomy is the Mont Aigoual Observatory (44.12°N, 3.58°E), perched at 1567m on the summit of Mont Aigoual — the highest point in the Cévennes. Built in 1894, it is one of the oldest continuously operating meteorological stations in France. The observatory now functions as a public science and astronomy centre, hosting evening stargazing sessions and telescope observations throughout the summer months.</p>
+
+          <p>The summit provides a 360-degree horizon with views extending across the Massif Central, the Rhône valley, and on clear days, the Mediterranean coast 100km to the south. The elevation places observers above much of the low-lying haze and humidity that affects valley sites, dramatically improving sky transparency. The D269 road to the summit is open from spring through autumn; check access conditions before visiting in winter.</p>
+
+          <h3>Best Viewing Locations in the Cévennes</h3>
+          <p><strong>Causse Méjean (44.3°N, 3.4°E)</strong> — The largest and highest of the Cévennes limestone causses (plateau) at 1000–1100m, offering vast open horizons across a near-treeless landscape. Pull-offs along the D986 road provide excellent access. The plateau's isolation from even small towns ensures genuinely dark skies — on moonless nights, the horizon glow from Millau (35km north) is barely perceptible.</p>
+
+          <p><strong>Pont de Montvert (44.37°N, 3.77°E)</strong> — Small village in the heart of the reserve with minimal local lighting. The meadows above the village on the Col de la Croix de Berthel provide wide southern and western horizons. The village hosts occasional public astronomy evenings during summer.</p>
+
+          <p><strong>Florac / Gorges du Tarn</strong> — The market town of Florac sits at the confluence of several dark causse plateaux. Drive 10–15 minutes onto any of the surrounding heights for excellent dark sky access with the convenience of town accommodation below.</p>
+
+          <h3>Visitor Practical Information</h3>
+          <p>The Cévennes reserve is most comfortably visited April through October. Summer temperatures on the causses are pleasant (18–25°C by day, 8–14°C at night). The Maison du Parc National in Florac provides astronomy information. Several gîtes and chambres d'hôtes in the area cater specifically to astronomers, offering equipment storage and garden access for late-night sessions. The reserve is approximately 3 hours by car from Montpellier, Lyon, or Toulouse.</p>
+        </section>
+
+        <!-- Provence -->
+        <section id="provence" class="content-section">
+          <h2>Provence & Verdon Gorge</h2>
+          <p>Provence-Alpes-Côte d'Azur is France's sunniest region, recording over 300 clear days per year in its interior departments. While the coastal strip from Nice to Marseille is heavily light-polluted, the interior — the Luberon hills, the Verdon plateau, and the Haute-Provence highlands — offers surprisingly dark skies paired with exceptional atmospheric conditions. Low humidity from the Mistral wind system keeps the air clean and transparent, often producing seeing conditions rivalling mountain sites elsewhere in Europe.</p>
+
+          <div class="inline-image">
+            <img src="/images/france_provence.jpg" alt="Wide starry night sky over the limestone hills and lavender country of Haute-Provence, France" loading="lazy" />
+            <p class="image-caption">Haute-Provence's clear, dry air and distance from coastal light pollution make it one of France's most reliable stargazing regions</p>
+          </div>
+
+          <h3>Observatoire de Haute-Provence</h3>
+          <p>The Observatoire de Haute-Provence (OHP) at Saint-Michel-l'Observatoire (43.93°N, 5.71°E) is one of Europe's premier professional astronomical sites and has hosted public visits since the 1980s. Situated on a plateau at 650m above sea level, surrounded by lavender fields and garrigue scrubland, the OHP uses multiple research telescopes and runs a dedicated public programme including guided evening visits and night-sky observation sessions.</p>
+
+          <p>The surrounding Saint-Michel-l'Observatoire village has adopted some of the most progressive dark sky lighting policies in France, becoming a "village étoilé" (star village) with fully shielded public lighting. The village and observatory are accessible year-round; public observation evenings run April through September. Advance booking is essential for evening programmes.</p>
+
+          <h3>Verdon Gorge and Plateau de Valensole</h3>
+          <p>The Gorges du Verdon (43.76°N, 6.3°E) — France's "Grand Canyon" — creates a dramatic landscape of 700m limestone cliffs dropping to the turquoise Verdon river. The surrounding plateau sits at 800–1000m and offers outstanding dark sky access. The Lac de Sainte-Croix at the gorge's western end provides reflective foreground for astrophotography. Drive above the gorge on the D23 for open plateau viewing with minimal lighting.</p>
+
+          <p>The Plateau de Valensole to the west is famous for its lavender fields in July, creating a spectacular foreground for summer Milky Way photography. The plateau's flat terrain provides unobstructed horizons and very low skyline light domes. Many astrophotographers specifically plan July visits to combine the lavender bloom with Milky Way season.</p>
+
+          <h3>Practical Information</h3>
+          <p>Provence is best visited for stargazing in late spring (May–June) and autumn (September–October), when tourist crowds are manageable, the Mistral clears the atmosphere, and temperatures at observing elevation are comfortable. The coastal autoroutes (A8, A51) provide fast access; plan on 1–2 hours from the autoroute exit to reach interior plateau sites. Accommodation is plentiful in Manosque, Digne-les-Bains, and Moustiers-Sainte-Marie.</p>
+        </section>
+
+        <!-- Pyrenees -->
+        <section id="pyrenees" class="content-section">
+          <h2>The Pyrenees — High-Altitude Observing</h2>
+          <p>The Pyrenean mountain chain stretching 430km from the Atlantic to the Mediterranean offers France's most extreme stargazing conditions. At altitudes above 1500m, observers rise above the bulk of atmospheric water vapour, dramatically improving transparency and seeing. The high Pyrenean valleys — particularly the Hautes-Pyrénées department around Pic du Midi — experience some of the lowest sky brightness values measured anywhere in Western Europe.</p>
+
+          <div class="inline-image">
+            <img src="/images/france_pyrenees.jpg" alt="Breathtaking starry night sky above the Pyrenean mountain peaks on the French-Spanish border" loading="lazy" />
+            <p class="image-caption">The high Pyrenees offer France's finest high-altitude dark skies — the Pic du Midi Observatory at 2877m holds professional-grade seeing conditions</p>
+          </div>
+
+          <h3>Pic du Midi Observatory</h3>
+          <p>The Pic du Midi de Bigorre (42.94°N, 0.14°E) at 2877m is France's most celebrated astronomical site. Built between 1878 and 1908, it has contributed major discoveries including the first high-resolution photographs of the Moon's surface and foundational research into solar physics. Today, the observatory is partly open to the public via a cable car from La Mongie — visitors can stay overnight in the "B&B in the stars" experience, watching the sunset from the summit and observing through the night before sunrise.</p>
+
+          <p>At 2877m, the Pic du Midi sits above 70% of the Earth's atmospheric column, giving visibility comparable to many professional observatories. Winds can be strong and temperatures drop to 0°C even in summer; the B&B experience provides heated accommodation within the observatory building itself. The cable car does not operate in all weather conditions — check access before travelling.</p>
+
+          <h3>Gavarnie and the High Pyrenean Valleys</h3>
+          <p>For independent stargazing without booking an observatory visit, the Cirque de Gavarnie (42.73°N, 0.01°E) — a UNESCO World Heritage Site and one of the most dramatic natural amphitheatres in Europe — provides an extraordinary setting. The village of Gavarnie at 1375m sits within the Pyrénées National Park. The meadows above the village and the plateau approaching the Cirque offer Bortle 2 skies on clear moonless nights.</p>
+
+          <p>The Vallée d'Ossau (42.84°N, 0.44°W) near the Spanish border provides another excellent high-altitude base. The valley floor at 1000m already offers very dark skies; drive the D934 to mountain passes above 1800m for even darker conditions. The Pic d'Ossau (2884m) dominates the southern skyline and creates a spectacular silhouette against the Milky Way on summer nights.</p>
+
+          <h3>Practical Information</h3>
+          <p>The high Pyrenees are accessible June through September; many mountain roads close in winter. Summer evenings are cool (5–12°C above 2000m); bring warm layers regardless of daytime temperatures. The D918 and D935 provide access from Pau and Lourdes. Book Pic du Midi B&B experiences months in advance — they are extremely popular. Gavarnie village offers hotels and gîtes; parking at the Cirque trailhead is available.</p>
+        </section>
+
+        <!-- Other Locations -->
+        <section id="other-locations" class="content-section">
+          <h2>Other Notable Stargazing Locations</h2>
+
+          <h3>Causses du Quercy Dark Sky Park</h3>
+          <p>The Causses du Quercy UNESCO Geopark (44.5°N, 1.8°E) in the Lot department received IDA Dark Sky Park designation for its exceptionally preserved dark sky over limestone karst terrain. The area's low population density and minimal industry have kept artificial light pollution very low. The market town of Cahors provides a comfortable base; drive 30 minutes onto the causse for Bortle 3–4 conditions. The Gouffre de Padirac area offers particularly clear eastern and southern horizons.</p>
+
+          <h3>Millevaches Plateau, Corrèze</h3>
+          <p>The Parc Naturel Régional de Millevaches en Limousin (45.6°N, 2.0°E) covers 3000km² of ancient Massif Central upland. At 700–970m elevation, the plateau combines altitude advantage with near-total absence of urban light sources within 50km. The name "Millevaches" (thousand springs) reflects the landscape's remoteness. The D978 and D982 roads cross the plateau; pull-offs near the summit of the Plateau de Millevaches provide outstanding 360-degree dark sky access.</p>
+
+          <h3>Luberon Regional Natural Park</h3>
+          <p>The Parc Naturel Régional du Luberon (43.8°N, 5.3°E) southeast of Avignon combines Provence's clear skies with a protected landscape designation limiting development and lighting. The hilltop villages of Bonnieux, Ménerbes, and Lacoste sit at 300–450m and provide convenient bases. Drive onto the Grand Luberon ridge (1125m summit at Mourre Nègre) for some of the darkest accessible skies within two hours of Marseille or Aix-en-Provence.</p>
+
+          <h3>Corsica</h3>
+          <p>Corsica's mountainous interior — particularly the Alta Rocca region and the Bavella Needles area — offers Bortle 2–3 skies paired with the Mediterranean island's exceptionally stable summer atmosphere. The Cap Corse peninsula and the Niolo plateau above 1000m both provide excellent viewing locations. Summers are warm and dry; the Mistral does not reach Corsica, but the island's own mountain winds keep the air clear. Ferries from Nice, Marseille, and Toulon make Corsica easily accessible.</p>
+        </section>
+
+        <!-- Timing -->
+        <section id="timing" class="content-section">
+          <h2>Best Times and Seasons for Stargazing in France</h2>
+          <p>France's diverse climate creates significantly different stargazing conditions between its northern, central, and southern regions. The Mediterranean south and the mountain ranges offer markedly superior conditions to Atlantic-influenced northern and western France.</p>
+
+          <div class="info-box glass">
+            <h3>Seasonal Stargazing Guide — Southern France</h3>
+            <ul>
+              <li><strong>Spring (April–May):</strong> Excellent transparency as spring systems clear residual winter moisture. Galaxy season opens — Virgo cluster, Leo Triplet visible. Comfortable temperatures 10–18°C. Longer evenings than winter but nights remain dark from 21:00.</li>
+              <li><strong>Summer (June–August):</strong> Peak season. Milky Way galactic core visible from 22:00. Warm, dry nights (14–22°C) in Provence and Pyrenees. Lavender fields provide spectacular astrophotography foreground in July. Nights shorter (only 6–8 hours truly dark at the solstice).</li>
+              <li><strong>Autumn (September–October):</strong> Ideal balance. Nights lengthen rapidly, temperatures remain pleasant (8–15°C), Mistral wind clears sky consistently. Galaxy season continues with Andromeda Galaxy visible to naked eye. October meteor showers (Draconids, Orionids).</li>
+              <li><strong>Winter (November–March):</strong> Longest nights (13–14 hours in the south). Orion, Taurus, and winter deep-sky objects dominate. Cold at altitude (often -5 to -10°C above 1500m). Low humidity brings exceptional transparency on anticyclonic nights. Mountain roads may be closed.</li>
+            </ul>
+          </div>
+
+          <h3>Moon Phase Planning</h3>
+          <p>New moon periods provide the best conditions for Milky Way and deep-sky observation from France. The galactic core is best seen June through September when the Milky Way stands high in the south. Plan Pyrenean visits around new moon in July and August for the combination of dark skies and warm mountain nights. The Cévennes and Provence are rewarding year-round — their darkness means even a gibbous moon leaves significant dark window in the early evening and pre-dawn hours.</p>
+
+          <h3>Meteor Showers from France</h3>
+          <p>France's southern latitude and clear skies make it an excellent location for meteor shower observation. The Perseids (August 12–13) are best from the south, where Perseus rises early and the radiant stays high throughout the night. The Geminids (December 13–14) peak in winter but are rewarding even under partly cloudy conditions due to the shower's exceptional rate (up to 120/hour). The Leonids (November 17–18) and Eta Aquariids (May 6–7) benefit from southern France's lower latitude horizon advantage.</p>
+        </section>
+
+        <!-- Equipment -->
+        <section id="equipment" class="content-section">
+          <h2>Essential Equipment for Stargazing in France</h2>
+          <p>France's generally benign climate (particularly in the south) demands less defensive gear than northern European stargazing, but mountain sites and winter conditions require proper preparation. The primary variables are altitude and season.</p>
+
+          <div class="info-box glass">
+            <h3>Equipment Checklist — French Stargazing</h3>
+            <h4>Essential (All Sites):</h4>
+            <ul>
+              <li><strong>Red LED torch/headlamp</strong> — Preserves night vision; essential for navigating dark country roads and terrain</li>
+              <li><strong>Warm mid-layer</strong> — Even in summer, southern France nights cool to 10–14°C; mountain sites to 5°C or below</li>
+              <li><strong>Insect repellent</strong> — Particularly important in the Cévennes, Quercy, and Provençal maquis during warm months</li>
+              <li><strong>Reclining chair or mat</strong> — Comfort for extended viewing on flat causse terrain</li>
+              <li><strong>Water and snacks</strong> — Remote causse locations often 30–60 minutes from services</li>
+            </ul>
+            <h4>Recommended:</h4>
+            <ul>
+              <li><strong>Binoculars (10×50)</strong> — Ideal for the Milky Way, Virgo cluster, and Pyrenean globular clusters</li>
+              <li><strong>Astronomy app (Stellarium)</strong> — Signal patchy at remote sites; download offline sky maps in advance</li>
+              <li><strong>Camera with wide-angle lens</strong> — France's landscapes (lavender fields, gorges, mountain silhouettes) make exceptional astrophotography foregrounds</li>
+              <li><strong>Offline navigation</strong> — Maps.me or downloaded Google Maps; many causse roads are unmarked</li>
+            </ul>
+            <h4>For Mountain and Winter Sites:</h4>
+            <ul>
+              <li><strong>Windproof outer layer</strong> — Pyrenean summits experience strong winds year-round</li>
+              <li><strong>Waterproof boots</strong> — Mountain meadows can be damp; rocky terrain requires ankle support</li>
+              <li><strong>Thermal layers</strong> — Below-zero temperatures at elevation in winter; cold even on summer mountain nights</li>
+              <li><strong>Dew heater or anti-dew solution</strong> — Provence's summer nights can have significant dew formation after midnight</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Planning -->
+        <section id="planning" class="content-section">
+          <h2>Planning Your Stargazing Trip to France</h2>
+
+          <h3>Choosing Your Region</h3>
+          <p>The Cévennes suits travellers wanting a dedicated dark sky reserve experience with established visitor infrastructure. Provence and Haute-Provence reward those who combine astronomy with other cultural interests (lavender, wine, hilltop villages). The Pyrenees suit those willing to drive on mountain roads and handle altitude conditions for elite transparency. The Causses du Quercy and Millevaches are best for travellers who want extreme remoteness with minimal other visitors.</p>
+
+          <h3>Driving in Rural France at Night</h3>
+          <p>France's departmental road network is well-maintained but often lacks road lighting outside towns — an advantage for astronomers. Carry a detailed road atlas or downloaded maps for areas without mobile signal. Wildlife (deer, wild boar) is active at night across Cévennes and Pyrenean roads — drive cautiously. Many of the best sites involve stopping on a chemin (unpaved track) leading to a plateau or hilltop; check track quality before committing with low-clearance vehicles.</p>
+
+          <h3>Accommodation Options</h3>
+          <p>Gîtes (self-catering cottages) offer the best base for astronomy trips — you can observe from the garden without disturbing neighbours, store equipment, and stay multiple nights for weather flexibility. Many Cévennes and Quercy gîte owners are sympathetic to astronomers and can advise on local sites. Camping in designated areas within national parks provides maximum sky access. The Pic du Midi "B&B in the stars" experience is unique and worth booking well in advance for a once-in-a-lifetime high-altitude observing night.</p>
+
+          <h3>Language and Logistics</h3>
+          <p>English is widely spoken at tourist sites but less so in deep rural France. Learning a few astronomical terms in French (étoile = star, ciel = sky, jumelles = binoculars, télescope = telescope) helps when asking locals about viewing spots. Fuel stations close early in rural areas — fill up before heading onto the causses at night. French pharmacies are excellent sources of insect repellent and dew-prevention products for lenses.</p>
+        </section>
+
+        <!-- Weather -->
+        <section id="weather" class="content-section">
+          <h2>Weather and Sky Conditions in France</h2>
+
+          <h3>Regional Climate Differences</h3>
+          <p>France's climate divides sharply between north and south. Brittany and Normandy experience Atlantic-dominated weather comparable to southern England — frequent cloud cover and rain, with clear windows concentrated in high-pressure periods. The Loire valley and Île-de-France are modestly better but still cloudy compared to European averages. South of the Massif Central, conditions improve dramatically: Provence, Languedoc, and the Pyrenean foothills can expect clear nights several times per week in summer and autumn.</p>
+
+          <h3>The Mistral</h3>
+          <p>The Mistral wind — a cold, dry northerly that funnels down the Rhône valley into Provence — is the stargazer's friend despite its ferocity. After a Mistral event (which can last 3, 6, or 9 days by French meteorological tradition), the sky over Provence and the Verdon plateau is spectacularly clear, with transparency exceeding 5 on a 1–5 scale. Seeing (atmospheric stability) may be reduced by the wind itself, but for visual observation of stars, clusters, and galaxies, post-Mistral nights are outstanding. Check Météo-France for Mistral forecasts as part of your planning.</p>
+
+          <h3>Forecasting Tools</h3>
+          <ul>
+            <li><strong>Météo-France (meteofrance.fr)</strong> — Official national forecast; detailed hourly forecasts for mountain areas</li>
+            <li><strong>Clear Outside (clearoutside.com)</strong> — Astronomy-specific cloud cover, transparency, and seeing forecasts for French locations</li>
+            <li><strong>Astroplanner / Meteo Blue</strong> — Detailed cloud layer predictions useful for mountain and plateau sites</li>
+            <li><strong>Windy.com</strong> — Wind and cloud visualisation; useful for identifying Mistral onset and decay</li>
+            <li><strong>Sat24 Europe</strong> — Real-time satellite imagery showing cloud patterns over France</li>
+          </ul>
+
+          <h3>High-Altitude Weather Considerations</h3>
+          <p>Mountain weather in the Pyrenees can change rapidly. Afternoon thunderstorms are common in summer (12:00–18:00); these typically clear by evening, leaving excellent post-storm transparency. Never commit to a summit location without checking the mountain-specific forecast from Météo-France (prevision montagne). Snow can fall at above 2000m even in June; the cable car to Pic du Midi suspends operation in severe winds or icing conditions. Always have a lower-altitude backup plan for mountain visits.</p>
+        </section>
+
+        <!-- Tips -->
+        <section id="tips" class="content-section">
+          <h2>Practical Tips for Stargazing in France</h2>
+
+          <h3>Finding Dark Sky Spots</h3>
+          <p>The Causse Méjean in the Cévennes and the Plateau de Valensole in Provence are accessible by well-signed routes yet genuinely dark. Use lightpollutionmap.info before your trip to identify Bortle 2–3 zones and plan driving routes onto the plateau from your accommodation. In France, the best dark spots are often 10–30 minutes off the main road on a plateau or ridge, not at the end of a long expedition.</p>
+
+          <h3>Astrophotography Opportunities</h3>
+          <p>France offers world-class astrophotography foregrounds. The lavender fields of the Plateau de Valensole during peak bloom (late June to mid-July) combined with the Milky Way above create some of the most photographed nightscapes in the world. The Gorges du Verdon, the stone-built villages of the Luberon, the megalithic alignments of Brittany (Carnac), and the volcanic craters of the Auvergne all offer dramatic foregrounds for creative night photography. Plan using PhotoPills to calculate Milky Way arc direction and position relative to your chosen foreground.</p>
+
+          <h3>Astronomy Clubs and Events</h3>
+          <p>France has an active amateur astronomy community. The Société Astronomique de France (SAF) is the main national body with regional sections across all departments. Many clubs run public "nuit des étoiles" (night of stars) events in August, coinciding with the Perseids — free stargazing evenings open to all. The Rencontres du Ciel et de l'Espace in Lyon is France's largest annual astronomy meeting. Local tourist offices in dark sky areas often maintain lists of astronomy events.</p>
+
+          <h3>Combining Stargazing with French Culture</h3>
+          <p>France rewards the approach of combining dark sky visits with its broader attractions. Arriving at a Cévennes gîte two days early allows daytime exploration of the gorges, chestnut forests, and traditional villages before the main observing session. A Provence astronomy trip pairs naturally with wine tourism in the Luberon and Ventoux AOC regions. The Pyrenees combine stargazing with spectacular hiking on the GR10 long-distance trail. France's exceptional restaurant and market culture means well-fed observers are the norm rather than the exception.</p>
+        </section>
+
+        <!-- Resources -->
+        <section id="resources" class="content-section">
+          <h2>Resources and Useful Links</h2>
+
+          <h3>Dark Sky Sites and Observatories</h3>
+          <ul class="resource-list">
+            <li><a href="https://www.cevennes-parcnational.fr/" target="_blank" rel="noopener">Cévennes National Park</a> — Dark sky reserve information, Mont Aigoual Observatory events</li>
+            <li><a href="https://www.obs-hp.fr/" target="_blank" rel="noopener">Observatoire de Haute-Provence</a> — Public visit bookings and education programmes</li>
+            <li><a href="https://picdumidi.com/" target="_blank" rel="noopener">Pic du Midi Observatory</a> — Cable car, B&B in the stars, and public visit booking</li>
+            <li><a href="https://www.causses-du-quercy.fr/" target="_blank" rel="noopener">Causses du Quercy Geopark</a> — Dark sky park information</li>
+          </ul>
+
+          <h3>Weather and Forecasting</h3>
+          <ul class="resource-list">
+            <li><a href="https://meteofrance.fr/" target="_blank" rel="noopener">Météo-France</a> — Official national weather service, mountain forecasts</li>
+            <li><a href="https://clearoutside.com/" target="_blank" rel="noopener">Clear Outside</a> — Astronomy-specific forecasts for French locations</li>
+            <li><a href="https://www.windy.com/" target="_blank" rel="noopener">Windy</a> — Mistral wind and cloud layer visualisation</li>
+          </ul>
+
+          <h3>Light Pollution and Sky Maps</h3>
+          <ul class="resource-list">
+            <li><a href="https://www.lightpollutionmap.info/" target="_blank" rel="noopener">Light Pollution Map</a> — Bortle scale interactive map for planning French locations</li>
+            <li><a href="https://stellarium.org/" target="_blank" rel="noopener">Stellarium</a> — Free planetarium software (essential for offline use in remote areas)</li>
+          </ul>
+
+          <h3>Organizations</h3>
+          <ul class="resource-list">
+            <li><a href="https://www.saf-lastronomie.com/" target="_blank" rel="noopener">Société Astronomique de France</a> — National astronomy society with regional clubs</li>
+            <li><a href="https://www.darksky.org/" target="_blank" rel="noopener">International Dark-Sky Association</a> — Certification body for French dark sky sites</li>
+          </ul>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="content-section faq-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqData.map((item) => (
+              <details class="faq-item">
+                <summary class="faq-question">{item.question}</summary>
+                <div class="faq-answer">
+                  <p>{item.answer}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </article>
+</MainLayout>
+
+<script>
+  // Reading Progress Bar
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    const progressBar = document.getElementById('progressBar');
+    if (progressBar) {
+      progressBar.style.width = scrollPercent + '%';
+    }
+  });
+
+  // Active TOC Highlighting
+  const sections = document.querySelectorAll('.content-section');
+  const tocLinks = document.querySelectorAll('.toc a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+        if (activeLink) {
+          activeLink.classList.add('active');
+        }
+      }
+    });
+  }, {
+    rootMargin: '-20% 0% -70% 0%'
+  });
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
+<style>
+  /* Progress Bar */
+  .progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+  }
+
+  .progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-blue));
+    transition: width 0.1s ease-out;
+  }
+
+  /* Hero Section */
+  .hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: var(--space-xl);
+  }
+
+  .hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    color: var(--color-accent-cyan);
+    font-weight: 500;
+  }
+
+  /* Breadcrumbs */
+  .breadcrumbs {
+    margin-bottom: var(--space-lg);
+  }
+
+  .breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumbs li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .breadcrumbs li:not(:last-child)::after {
+    content: '›';
+    color: var(--color-text-secondary);
+  }
+
+  .breadcrumbs a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+  }
+
+  .breadcrumbs a:hover {
+    color: var(--color-text-primary);
+  }
+
+  /* Content Layout */
+  .content-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  /* TOC Sidebar */
+  .toc-sidebar {
+    position: sticky;
+    top: var(--space-xl);
+  }
+
+  .toc {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+  }
+
+  .toc h2 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+  }
+
+  .toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: toc-counter;
+  }
+
+  .toc li {
+    counter-increment: toc-counter;
+    margin-bottom: var(--space-xs);
+  }
+
+  .toc a {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.35rem var(--space-sm);
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+  }
+
+  .toc a::before {
+    content: counter(toc-counter);
+    font-size: 0.75rem;
+    color: var(--color-accent-cyan);
+    font-weight: 600;
+    min-width: 1.2rem;
+  }
+
+  .toc a:hover,
+  .toc a.active {
+    color: var(--color-text-primary);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .toc a.active {
+    color: var(--color-accent-cyan);
+  }
+
+  /* Content Sections */
+  .content-section {
+    margin-bottom: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .content-section:last-child {
+    border-bottom: none;
+  }
+
+  .content-section h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    margin-bottom: var(--space-lg);
+    color: var(--color-text-primary);
+  }
+
+  .content-section h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+    color: var(--color-accent-cyan);
+  }
+
+  .content-section h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-sm);
+    color: var(--color-text-primary);
+  }
+
+  .content-section p {
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+  }
+
+  .content-section ul,
+  .content-section ol {
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    padding-left: var(--space-lg);
+    margin-bottom: var(--space-md);
+  }
+
+  .content-section li {
+    margin-bottom: var(--space-xs);
+  }
+
+  /* Answer Capsule */
+  .answer-capsule {
+    display: flex;
+    gap: var(--space-md);
+    background: rgba(0, 212, 255, 0.05);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .capsule-icon {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    color: var(--color-accent-cyan);
+  }
+
+  .capsule-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .answer-capsule p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* Info Boxes */
+  .info-box {
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    margin: var(--space-lg) 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .info-box h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 0 !important;
+    margin-bottom: var(--space-md);
+    color: var(--color-text-primary) !important;
+  }
+
+  .info-box h4 {
+    font-size: 0.95rem;
+  }
+
+  /* Inline Images */
+  .inline-image {
+    margin: var(--space-lg) 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .inline-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .image-caption {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+    padding: var(--space-sm) var(--space-md);
+    font-style: italic;
+  }
+
+  /* Resource List */
+  .resource-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .resource-list li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.95rem;
+  }
+
+  .resource-list a {
+    color: var(--color-accent-cyan);
+    text-decoration: none;
+  }
+
+  .resource-list a:hover {
+    text-decoration: underline;
+  }
+
+  /* FAQ */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .faq-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .faq-question {
+    padding: var(--space-md) var(--space-lg);
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question::after {
+    content: '+';
+    font-size: 1.2rem;
+    color: var(--color-accent-cyan);
+  }
+
+  details[open] .faq-question::after {
+    content: '−';
+  }
+
+  .faq-answer {
+    padding: 0 var(--space-lg) var(--space-md);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .toc-sidebar {
+      position: static;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .content-wrapper {
+      padding: var(--space-lg) var(--space-md);
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+    }
+  }
+</style>

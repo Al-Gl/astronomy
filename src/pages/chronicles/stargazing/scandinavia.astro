@@ -153,6 +153,11 @@ const faqData = [
           <h2>Stargazing in Norway</h2>
           <p>Norway's dramatic landscapes and extreme northern latitude make it one of the world's premier stargazing destinations. The country extends from 58°N to 71°N, with parts of Svalbard reaching 81°N—well within the Arctic Circle. This northern position provides exceptional dark sky conditions and makes Norway a global hotspot for aurora viewing.</p>
 
+          <div class="inline-image">
+            <img src="/images/scandinavia_norway.jpg" alt="Northern lights aurora borealis dancing over a Norwegian fjord with mountain reflections in calm water" loading="lazy" />
+            <p class="image-caption">The Lofoten Islands and Norwegian fjords offer some of the world's most dramatic aurora viewing conditions</p>
+          </div>
+
           <h3>Tromsø: Gateway to Arctic Stargazing</h3>
           <p>Tromsø (69.65°N, 18.96°E) is often called the "Gateway to the Arctic" and serves as the perfect base for stargazing expeditions. Located 350 km north of the Arctic Circle, this vibrant city of 75,000 people offers the rare combination of urban amenities and dark sky access. Despite being a city, Tromsø experiences the aurora borealis regularly from September through March, with the northern lights visible right from the city center on clear nights.</p>
 
@@ -178,6 +183,11 @@ const faqData = [
           <h2>Stargazing in Sweden</h2>
           <p>Sweden's vast northern wilderness, particularly Swedish Lapland, ranks among the world's finest stargazing locations. The country's northern regions benefit from exceptionally clear skies, low humidity, and minimal light pollution, creating ideal conditions for observing both stars and aurora.</p>
 
+          <div class="inline-image">
+            <img src="/images/scandinavia_sweden.jpg" alt="Snowy birch forest in Swedish Lapland under a clear star-filled winter night sky" loading="lazy" />
+            <p class="image-caption">Swedish Lapland's ancient birch forests and vast wilderness provide pristine dark skies far from any light pollution</p>
+          </div>
+
           <h3>Abisko National Park: The Aurora Capital</h3>
           <p>Abisko National Park (68.35°N, 18.82°E) holds the unofficial title of aurora capital of the world, thanks to a unique microclimate that creates an "Abisko blue hole"—a statistical tendency for clear skies even when surrounding areas are cloudy. The park averages over 200 clear nights annually, far exceeding most other arctic locations.</p>
 
@@ -191,12 +201,19 @@ const faqData = [
           <p>Beyond Abisko, Swedish Lapland encompasses vast wilderness areas with exceptional dark skies. The region extends across northern Sweden, covering an area larger than Denmark with a population of just 250,000 people—providing virtually unlimited dark sky locations. Towns like Jokkmokk, Kiruna, and Jukkasjärvi serve as bases for exploring these remote areas.</p>
 
           <p>The ICEHOTEL in Jukkasjärvi offers unique stargazing experiences from ice rooms and heated aurora viewing lounges. The nearby Esrange Space Center occasionally hosts public events, combining space science education with practical astronomy. For DIY stargazers, thousands of square kilometers of wilderness await, though proper preparation for arctic conditions is essential.</p>
+
+          <p>For a deeper dive into Sweden specifically — including Abisko, Gotland, southern Sweden dark skies, and a full seasonal planning guide — see our dedicated <a href="/chronicles/stargazing/sweden/">Stargazing in Sweden</a> guide.</p>
         </section>
 
         <!-- Finland -->
         <section id="finland" class="content-section">
           <h2>Stargazing in Finland</h2>
           <p>Finland's northern region, Finnish Lapland, extends beyond the Arctic Circle and offers some of Europe's most accessible arctic stargazing. The country's well-developed tourism infrastructure makes arctic astronomy comfortable and safe, even for first-time winter travelers.</p>
+
+          <div class="inline-image">
+            <img src="/images/scandinavia_finland.jpg" alt="Northern lights aurora reflected in a still frozen lake in Finnish Lapland, surrounded by snow-covered pine trees" loading="lazy" />
+            <p class="image-caption">Finnish Lapland's frozen lakes create perfect reflections of the aurora — Kakslauttanen and Saariselkä are among Europe's premier dark sky destinations</p>
+          </div>
 
           <h3>Kakslauttanen: Glass Igloo Stargazing</h3>
           <p>The Kakslauttanen Arctic Resort (68.5°N, 27.9°E) revolutionized arctic stargazing tourism with its famous glass igloos—thermal glass domes designed specifically for watching the aurora and stars from the warmth of your bed. These structures combine the comfort of hotel rooms with unobstructed sky views, allowing you to watch the aurora in -30°C temperatures while staying cozy under a duvet.</p>
@@ -769,6 +786,26 @@ const faqData = [
     line-height: 1.7;
     color: var(--color-text-primary);
     position: relative;
+  }
+
+  /* Inline Images */
+  .inline-image {
+    margin: var(--space-lg) 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .inline-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .image-caption {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+    padding: var(--space-sm) var(--space-md);
+    font-style: italic;
   }
 
   /* Content Sections */

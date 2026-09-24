@@ -91,15 +91,17 @@ const faqData = [
   </section>
 
   <!-- Answer Capsule -->
-  <aside class="answer-capsule">
-    <div class="capsule-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <circle cx="12" cy="12" r="10"/>
-        <path d="M12 6v6l4 2" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <p>Essential astronomy binocular accessories include tripod adapters ($15-$120) for steady high-magnification viewing, dew shields ($20-$60) preventing lens condensation, and proper storage cases with desiccant. Maintenance requires gentle lens cleaning using microfiber cloths and lens solution, collimation checks ensuring optical alignment, and dry storage preventing fungus. Quality accessories protect your investment and dramatically improve observing comfort and optical performance.</p>
-  </aside>
+  <div class="container">
+    <aside class="answer-capsule">
+      <div class="capsule-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 6v6l4 2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p>Essential astronomy binocular accessories include tripod adapters ($15-$120) for steady high-magnification viewing, dew shields ($20-$60) preventing lens condensation, and proper storage cases with desiccant. Maintenance requires gentle lens cleaning using microfiber cloths and lens solution, collimation checks ensuring optical alignment, and dry storage preventing fungus. Quality accessories protect your investment and dramatically improve observing comfort and optical performance.</p>
+    </aside>
+  </div>
 
   <!-- Main Content with Sidebar -->
   <div class="content-wrapper">
@@ -180,6 +182,11 @@ const faqData = [
           <p>Astronomy tripods should extend to 55-65 inches maximum height enabling comfortable overhead viewing without excessive neck bending. Most photography tripods max out at 50-55 inches insufficient for zenith observations. When evaluating tripod height, measure maximum height WITHOUT extending center column—extended center columns significantly reduce stability, amplifying vibration and making precise targeting difficult.</p>
 
           <p>For parallelogram mount use, tripod height less critical since mount adds 12-18 inches elevation, but minimum 48-inch tripod height still recommended. For L-bracket mounting, 60+ inch tripod height essential for overhead comfort. Adjustable-height tripods with leg angle settings provide flexibility for uneven terrain and sitting vs standing observation.</p>
+
+          <figure class="article-image">
+            <img src="/images/Bino_accessories_tripod.jpg" alt="Binocular tripod adapter mounted on an astronomy tripod" loading="lazy" />
+            <figcaption>A quality tripod adapter transforms handheld binoculars into a stable observing platform for extended sessions</figcaption>
+          </figure>
 
           <h3>Stability and Load Capacity</h3>
           <p>Tripod stability matters more than absolute load capacity specifications. Manufacturers often overstate load capacity—a tripod rated "10kg capacity" may vibrate excessively with 3kg binoculars in moderate wind. Conservative approach: select tripod rated 3-4x your binocular+mount weight. For 1.5kg binoculars + 0.8kg parallelogram mount (2.3kg total), choose tripod rated minimum 7-10kg capacity.</p>
@@ -342,6 +349,11 @@ const faqData = [
             <li>Never clean immediately after bringing binoculars from cold to warm environment—condensation forms causing smearing</li>
           </ul>
 
+          <figure class="article-image">
+            <img src="/images/Bino_accessories_cleaning.jpg" alt="Hands cleaning a binocular lens with microfiber cloth and cleaning solution" loading="lazy" />
+            <figcaption>Proper lens cleaning uses a microfiber cloth with optical cleaning solution — never household glass cleaner or paper towels</figcaption>
+          </figure>
+
           <h3>Internal Cleaning and Professional Service</h3>
           <p>Internal optical surfaces (prisms, internal lens elements) occasionally require cleaning if fungus appears or internal dust accumulation becomes severe. Internal cleaning requires complete disassembly—avoid DIY attempts on valuable binoculars. Professional optical service technicians charge $100-$200 for complete disassembly, internal cleaning, reassembly, and collimation verification. For binoculars over $300 value, professional service worthwhile every 5-10 years maintaining optical performance.</p>
         </section>
@@ -419,6 +431,11 @@ const faqData = [
           <p>Prevention strategies: maintain storage humidity 30-50% RH (above 60% fungus risk increases significantly); inspect binoculars every 2-3 months in humid climates, every 6 months in dry climates; ensure adequate air circulation around stored binoculars (avoid sealing in airtight containers long-term without desiccant); and occasionally use binoculars (monthly) as light exposure inhibits fungus growth.</p>
 
           <p>If fungus detected early (few small spots), professional cleaning removes it completely with proper solvents and techniques. Established fungus with extensive growth may cause permanent coating damage even after removal. Prevention infinitely preferable to treatment.</p>
+
+          <figure class="article-image">
+            <img src="/images/Bino_accessories_maintenance.jpg" alt="Binoculars laid out with desiccant packs, lens caps and storage accessories for preventive maintenance" loading="lazy" />
+            <figcaption>Storing binoculars with silica gel desiccant packs prevents moisture and fungus — the most common cause of long-term optical damage</figcaption>
+          </figure>
         </section>
 
         <!-- Troubleshooting -->
@@ -720,6 +737,26 @@ const faqData = [
   /* Main Content */
   .main-content {
     max-width: 800px;
+  }
+
+  /* Article Images */
+  .article-image {
+    margin: 2rem 0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+  }
+  .article-image figcaption {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.45);
+    text-align: center;
+    margin-top: 0.5rem;
+    font-style: italic;
   }
 
   /* Answer Capsule */

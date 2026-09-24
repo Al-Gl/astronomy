@@ -109,15 +109,17 @@ const faqData = [
   </section>
 
   <!-- Answer Capsule -->
-  <aside class="answer-capsule">
-    <div class="capsule-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <circle cx="12" cy="12" r="10"/>
-        <path d="M12 6v6l4 2" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <p>Binoculars excel at planetary tracking and phenomena observation rather than surface detail. Jupiter's four Galilean moons appear clearly in any binoculars, changing positions nightly. Venus displays obvious phases (crescent to full) in 10x50+ binoculars. Saturn shows distinct elongation from its rings when tilted favorably. Mars blazes orange-red at opposition every 26 months. Track planets as they move along the ecliptic through constellations, witness spectacular conjunctions when planets align, and observe oppositions when planets reach peak brightness and size. Manage expectations—don't anticipate telescope-level surface detail—but discover rewarding planetary phenomena accessible through modest optics demonstrating our solar system's constant motion.</p>
-  </aside>
+  <div class="container">
+    <aside class="answer-capsule">
+      <div class="capsule-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 6v6l4 2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p>Binoculars excel at planetary tracking and phenomena observation rather than surface detail. Jupiter's four Galilean moons appear clearly in any binoculars, changing positions nightly. Venus displays obvious phases (crescent to full) in 10x50+ binoculars. Saturn shows distinct elongation from its rings when tilted favorably. Mars blazes orange-red at opposition every 26 months. Track planets as they move along the ecliptic through constellations, witness spectacular conjunctions when planets align, and observe oppositions when planets reach peak brightness and size. Manage expectations—don't anticipate telescope-level surface detail—but discover rewarding planetary phenomena accessible through modest optics demonstrating our solar system's constant motion.</p>
+    </aside>
+  </div>
 
   <!-- Main Content with Sidebar -->
   <div class="content-wrapper">
@@ -247,6 +249,11 @@ const faqData = [
 
             <p>At inferior conjunction's closest approach (0.28 AU from Earth), Venus spans 60+ arcseconds as a very thin crescent, but it's positioned too near the Sun for safe observation. After inferior conjunction, Venus reappears in morning skies showing large crescent phase, then progresses back through half-illuminated dichotomy at greatest western elongation, then gibbous phases, then full but small as it recedes toward superior conjunction. This 19-month phase cycle provides endless fascination—you can follow Venus from tiny full disk to large crescent over months of evening observations, then pick it up months later in morning sky working back from crescent to full.</p>
 
+            <figure class="article-image">
+              <img src="/images/Bino_planetary_venus.jpg" alt="Venus showing a prominent crescent phase as seen through binoculars against a deep blue twilight sky" loading="lazy" />
+              <figcaption>Venus displays obvious phases through 10x50 binoculars — from a thin crescent near inferior conjunction to a tiny fully-lit disc at superior conjunction</figcaption>
+            </figure>
+
             <div class="info-box glass">
               <h3>Understanding Venus Phases</h3>
               <div style="margin-top: 1rem;">
@@ -347,6 +354,11 @@ const faqData = [
             <p>Jupiter reaches opposition every 13 months (398 days), spending about 4-6 months per year in good evening viewing position. Unlike Mars, Jupiter shows relatively consistent brightness and size at all oppositions because its orbit is far from the Sun (5.2 AU) and nearly circular—Earth-Jupiter distance varies only between about 4.2 and 6.2 AU depending on whether opposition occurs when Earth and Jupiter are on the same or opposite sides of their orbits. Maximum magnitude -2.9, minimum magnitude -2.0—still spectacularly bright. Angular diameter varies from 50 arcseconds at closest to 30 arcseconds at farthest—always easily disk-shaped.</p>
 
             <p>Track Jupiter's motion through the zodiac constellations—the planet takes 12 years to complete one orbit, spending roughly one year per zodiac constellation (hence "Jupiter" representing kingship and annual cycles in astrology). Jupiter retrograde loops occur annually around opposition, demonstrating orbital mechanics similarly to Mars but less dramatically because Jupiter's slower orbital speed means retrograde loops are less pronounced. The planet's long visibility each year (4-6 months per apparition) allows extended observation programs without the frustrating seasonal gaps Mars imposes.</p>
+
+            <figure class="article-image">
+              <img src="/images/Hero_planetary_observing.jpg" alt="Jupiter with cloud bands and Galilean moons as seen through binoculars" loading="lazy" />
+              <figcaption>Jupiter's four Galilean moons — Io, Europa, Ganymede, and Callisto — are visible in any binoculars, changing configuration noticeably from night to night</figcaption>
+            </figure>
           </section>
 
           <!-- Saturn -->
@@ -385,6 +397,11 @@ const faqData = [
             <p>Saturn's other moons remain too faint or too close to Saturn for binocular observation. Rhea (magnitude 9.7), Tethys (magnitude 10.2), Dione (magnitude 10.4), and Iapetus (magnitude 10.2-11.9 depending on orbital position) all exceed typical binocular limits. Advanced observers under pristine dark skies with large binoculars (20x80) might glimpse Rhea, but for most observers, Titan represents the only accessible Saturnian satellite.</p>
 
             <p>Track Saturn's 29.5-year journey through the zodiac—the planet progresses eastward through constellations at about 12-13 degrees per year, spending 2-3 years per zodiac constellation. Saturn's retrograde loops occur annually around opposition, similar to Jupiter, demonstrating Earth's inside-passing orbit. The planet remains visible for 4-6 months per year around opposition before fading into evening/morning twilight then reappearing months later as the next opposition approaches. Unlike Mars's dramatic opposition cycle variations, Saturn provides consistent appearance year after year—reliable, stately, and dependable as befits the ancient symbol of time and order.</p>
+
+            <figure class="article-image">
+              <img src="/images/Bino_planetary_saturn.jpg" alt="Saturn seen through binoculars showing its distinctly oval elongated shape from the ring system" loading="lazy" />
+              <figcaption>Saturn's ring system makes the planet appear distinctly oval through binoculars — the rings extend beyond the circular planetary disc, creating an unmistakable elongated shape</figcaption>
+            </figure>
           </section>
 
           <!-- Uranus & Neptune -->
@@ -828,6 +845,26 @@ const faqData = [
   /* Article Content */
   .article-content {
     max-width: 900px;
+  }
+
+  /* Article Images */
+  .article-image {
+    margin: 2rem 0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+  }
+  .article-image figcaption {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.45);
+    text-align: center;
+    margin-top: 0.5rem;
+    font-style: italic;
   }
 
   .content-section {

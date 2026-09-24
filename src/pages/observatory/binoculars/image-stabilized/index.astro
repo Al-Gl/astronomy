@@ -91,15 +91,17 @@ const faqData = [
   </section>
 
   <!-- Answer Capsule -->
-  <aside class="answer-capsule">
-    <div class="capsule-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <circle cx="12" cy="12" r="10"/>
-        <path d="M12 6v6l4 2" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <p>Image-stabilized binoculars eliminate hand shake electronically, delivering rock-steady handheld views at 12x-18x magnifications impossible with conventional binoculars. Canon dominates the market with proven models: 15x50 IS All-Weather ($1,100-$1,300) for serious astronomy, 10x30 IS II ($380-$450) for budget/portability, and 18x50 IS ($1,400-$1,600) for maximum handheld magnification. IS technology transforms lunar/planetary observing and deep sky work through convenience and steadiness rivaling tripod-mounted views.</p>
-  </aside>
+  <div class="container">
+    <aside class="answer-capsule">
+      <div class="capsule-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 6v6l4 2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p>Image-stabilized binoculars eliminate hand shake electronically, delivering rock-steady handheld views at 12x-18x magnifications impossible with conventional binoculars. Canon dominates the market with proven models: 15x50 IS All-Weather ($1,100-$1,300) for serious astronomy, 10x30 IS II ($380-$450) for budget/portability, and 18x50 IS ($1,400-$1,600) for maximum handheld magnification. IS technology transforms lunar/planetary observing and deep sky work through convenience and steadiness rivaling tripod-mounted views.</p>
+    </aside>
+  </div>
 
   <!-- Main Content with Sidebar -->
   <div class="content-wrapper">
@@ -165,6 +167,11 @@ const faqData = [
 
           <h3>Alternative Stabilization Technologies</h3>
           <p>While Canon dominates astronomy IS binocular market, alternative stabilization technologies exist. Fujinon's Techno-Stabi system uses mechanical gyroscopes (spinning wheels) rather than electronic sensors, providing stabilization without battery requirement through mechanical angular momentum conservation. However, mechanical gyroscopes add significant weight, introduce rotating component vibration, and offer inferior stabilization precision compared to Canon's electronic approach. Nikon and Sony have produced IS binoculars primarily for terrestrial use with limited astronomy optimization.</p>
+
+          <figure class="article-image">
+            <img src="/images/Bino_IS_technology.jpg" alt="Technical cutaway illustration of image-stabilized binoculars showing internal gyroscope, sensors and optics" loading="lazy" />
+            <figcaption>Canon's Vari-Angle Prism system uses electronic gyro sensors and a fluid-filled optical prism to counteract hand movement in real-time</figcaption>
+          </figure>
         </section>
 
         <!-- Benefits Section -->
@@ -237,6 +244,10 @@ const faqData = [
         </section>
 
         <!-- Comparison Section -->
+        <figure class="article-image">
+          <img src="/images/Bino_IS_canon.jpg" alt="Canon 15x50 IS All-Weather image-stabilized binoculars product shot against dark blue background" loading="lazy" />
+          <figcaption>The Canon 15x50 IS All-Weather — the benchmark IS binocular for astronomy, with 50mm aperture and effective 15x handheld stabilization</figcaption>
+        </figure>
         <section id="comparison" class="content-section">
           <h2>Image-Stabilized vs Conventional Binoculars</h2>
           <p>Selecting between IS and conventional binoculars requires understanding each approach's strengths, weaknesses, and optimal use cases. Neither categorically superior—choice depends on observing priorities, budget, and usage patterns.</p>
@@ -314,6 +325,11 @@ const faqData = [
 
           <h3>Complementary Conventional Binoculars</h3>
           <p>Many experienced observers own both IS and conventional binoculars using each for optimal applications. Common pairings: Canon 15x50 IS (handheld spontaneous) + Celestron SkyMaster Pro 20x80 (tripod-mounted deep sky); Canon 10x30 IS II (travel/portable) + Oberwerk 15x70 (serious dark site observing); or Canon 12x36 IS III (multipurpose/grab-and-go) + APM 100mm (ultimate aperture for special occasions). This dual-system approach maximizes versatility without forcing single-instrument compromise.</p>
+
+          <figure class="article-image">
+            <img src="/images/Bino_IS_handheld.jpg" alt="Person holding IS binoculars handheld under a night sky, relaxed and steady without a tripod" loading="lazy" />
+            <figcaption>Image stabilization makes 15x magnification genuinely usable handheld — no tripod required for comfortable extended observing</figcaption>
+          </figure>
         </section>
 
         <!-- Maintenance Section -->
@@ -609,6 +625,26 @@ const faqData = [
   /* Main Content */
   .main-content {
     max-width: 800px;
+  }
+
+  /* Article Images */
+  .article-image {
+    margin: 2rem 0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+  }
+  .article-image figcaption {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.45);
+    text-align: center;
+    margin-top: 0.5rem;
+    font-style: italic;
   }
 
   /* Answer Capsule */

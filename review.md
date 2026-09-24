@@ -1,3 +1,110 @@
+# Review: Atlas Leaf Pages — Design Consistency (2026-09-24)
+
+## What changed
+
+Audited all 44 leaf pages under `/atlas/{planets,stars,galaxies,nebulae,constellations,small-bodies}/*`. HTML structure and CSS rules were already identical on every page; the visible differences came from one CSS bug and the hero images.
+
+### CSS fix
+- **Stars (8 pages)** — breadcrumb separator was `content: '›'` (a JS escape, invalid in CSS → rendered the literal text "u203a"). Changed to `'\203a'` (›) to match every other category. One line per file.
+
+### Hero images — all now "one compact subject on seamless black"
+- **Constellations (8)** — hero files had never been generated (empty black hero). Created: zodiac, circumpolar (star trails), orion-family, ursa-major (Big Dipper), perseus (Double Cluster), hercules (M13), heavenly-waters (Fomalhaut + dust ring), la-caille (Large Magellanic Cloud).
+- **Small bodies (4)** — all reused the wide `Hero_solar.jpg` planet-lineup banner. New `Hero_asteroids.jpg`, `Hero_comets.jpg`, `Hero_ceres.jpg` (named ceres to avoid clashing with the planets category's `Hero_dwarf-planets.jpg`), `Hero_meteors.jpg`; `src` + `image` meta + alt text updated on each page.
+- **Nebulae (8)** — replaced the full-bleed/letterboxed scenes with compact subjects on black (same filenames, so no page edits): Horsehead, Lagoon, Orion Nebula, Pillars of Creation, Ring, Egg, Pleiades, Crab. Emission and HII-region heroes were near-duplicates before; now distinct. Alt text updated on emission (→ Lagoon) and hii-regions (→ Orion Nebula) to match the new images. Old nebula heroes backed up to the session scratchpad.
+- **Stars/supergiants + galaxies/clusters** — the only two older heroes that were full-frame instead of subject-on-black; regenerated to match.
+
+### Left as-is (intentional)
+- Planets keep `object-position: right center` on the hero — their images have the subject on the right; only affects the mobile crop.
+- Stars + small-bodies CSS is written long-form vs. one-line elsewhere — renders identically, not worth touching 12 files.
+
+### Verification
+- `npm run build` completes; every Atlas leaf page's hero `src` resolves to an existing file; no `u203a` left in `dist/`.
+- Visual check via a contact sheet of all 44 heroes at desktop crop.
+
+### Next
+- Observatory section (telescopes/binoculars, ~10 style variants across 18 pages) — deferred to a later pass per owner.
+
+---
+
+# Review: Constellation Family Sub-Pages (2026-07-24)
+
+## What changed
+
+The `atlas/constellations.astro` hub linked to 8 constellation-family pages that had never been built, leaving 8 dead links. Built all 8 as full articles, closing the last incomplete branch of the Cosmic Atlas (stars, galaxies, nebulae, and planets each already had their 8 sub-pages).
+
+### New Pages Created (8)
+All at `src/pages/atlas/constellations/{slug}/index.astro`, following the `galaxies/spiral/index.astro` leaf template exactly (4-level import paths, identical CSS/JS boilerplate, hero + sticky TOC + answer capsule + content sections + FAQ):
+
+- **zodiac** — The 12 ecliptic constellations, the ecliptic, Ophiuchus as the "13th sign," and precession vs. astrology. 6 FAQs.
+- **circumpolar** — Stars that never set; the circumpolar rule (distance-from-pole < latitude), northern six (Ursa Major/Minor, Cassiopeia, Cepheus, Draco, Camelopardalis) and southern group (Crux, Centaurus, Carina, Octans), navigation and star trails. 5 FAQs.
+- **orion-family** — Orion, Canis Major, Canis Minor, Monoceros, Lepus. Sirius, Betelgeuse, Rigel, the Winter Triangle, and the Orion Nebula/Horsehead/Flame. 5 FAQs.
+- **ursa-major-family** — The Great Bear group (10 constellations). Big Dipper, Pointers→Polaris, "arc to Arcturus," Mizar/Alcor, and the region's galaxies (M51, M81/M82, M101). 6 FAQs.
+- **perseus-family** — The autumn myth cycle (Perseus, Andromeda, Cassiopeia, Cepheus, Pegasus, Cetus, Auriga, Triangulum, Lacerta). Andromeda Galaxy, Algol, Cepheid variables, the Perseids. 6 FAQs.
+- **hercules-family** — The largest family (19 constellations). Hercules/Keystone, the Summer Triangle (Lyra/Cygnus/Aquila), Ophiuchus & Serpens, the southern members (Centaurus, Crux), M13. 6 FAQs.
+- **heavenly-waters** — Water/nautical group. Argo Navis split into Carina/Puppis/Vela, the river Eridanus, Delphinus, Piscis Austrinus/Fomalhaut, Canopus, the Carina Nebula. 6 FAQs.
+- **la-caille-family** — 13 southern instrument constellations (Telescopium, Microscopium, Sculptor, Fornax, Antlia, Octans, etc.), Lacaille's Cape catalogue, and the Hubble Ultra Deep Field in Fornax. 6 FAQs.
+
+### Other Updates
+- **sitemap.xml.ts** — Added the constellations hub plus all 8 sub-page URLs (the hub itself had been missing from the sitemap).
+- **llms.txt** — Added 8 descriptive entries under the existing Constellations line.
+- **todo.md** — Marked the 8 pages + sitemap/llms complete; logged remaining image work.
+
+### Verification
+- `npx astro build` completed with no errors; all 8 pages emit to `dist/atlas/constellations/`.
+
+### Template / simplicity notes
+- Zero new components and no new CSS patterns — each page reuses the exact style/script block from the galaxy leaf template, so the only real differences are frontmatter (schema, breadcrumbs, FAQ) and the prose content. Each has a bespoke inline SVG for the answer-capsule icon.
+- Schema: every page uses `BreadcrumbList` + `TechArticle` + `FAQPage`, consistent with the other Atlas articles.
+
+### Pending (follow-up, not done here)
+- **Images:** the pages reference `/images/Hero_{slug}.jpg` (zodiac, circumpolar, orion-family, ursa-major, perseus, hercules, heavenly-waters, la-caille) which do not exist yet — heroes will show broken until generated (same staged approach used for the star/galaxy pages). The hub's `card_*.jpg` thumbnails are also still missing (pre-existing).
+
+---
+
+# Review: France, Spain & Sweden Stargazing Pages (2026-03-26)
+
+## What changed
+
+### New Pages Created (3)
+- **france.astro** — Full stargazing guide covering Cévennes Dark Sky Reserve (France's first IDA reserve), Provence/Observatoire de Haute-Provence, and the Pyrenees/Pic du Midi Observatory. 12 sections, 3 info-boxes, 6 FAQs, Schema markup, 3 inline images.
+- **spain.astro** — Full guide covering Teide Observatory on Tenerife, Extremadura's Monfragüe Dark Sky Reserve (mainland Spain's darkest skies), and Sierra Nevada/Alpujarras. Includes Starlight Foundation context, calima/dust section. 12 sections, 3 info-boxes, 6 FAQs, Schema markup.
+- **sweden.astro** — Full guide covering Abisko National Park (world-class aurora site), Swedish Lapland/Jokkmokk, and southern Sweden/Gotland. Detailed aurora borealis and midnight sun content. 12 sections, 4 info-boxes, 6 FAQs, Schema markup.
+
+### Images (12 total, all from nanobanana-output, copied to public/images/)
+- Hero_france.jpg, france_cevennes.jpg, france_pyrenees.jpg, france_provence.jpg
+- Hero_spain.jpg, spain_teide.jpg, spain_extremadura.jpg, spain_sierra_nevada.jpg
+- Hero_sweden.jpg, sweden_abisko.jpg, sweden_lapland.jpg, sweden_southern.jpg
+
+### Other Updates
+- **index.astro** — Added 3 new article cards for France, Spain, Sweden (total now 9 guides)
+- **scandinavia.astro** — Added inline link to new /chronicles/stargazing/sweden/ page in the Sweden section
+- **llms.txt** — Added entries for France, Spain, Sweden stargazing guides
+
+### Template Followed
+All three pages follow the England template exactly: same section structure, CSS, TOC sidebar, answer capsule, FAQ, progress bar script, and inline-image styling.
+
+---
+
+# Review: Binoculars Pages — Bug Fix + Hero Images (2026-03-24)
+
+## What changed
+
+### Bug Fix: Answer Capsule width
+- **Problem:** 6 binoculars sub-pages had `<aside class="answer-capsule">` placed directly after the `</section>` hero tag, outside any `.container` div, causing it to stretch full viewport width.
+- **Fix:** Wrapped the `<aside>` in `<div class="container">` on all 6 affected pages: `accessories-maintenance`, `beginners-guide`, `deep-sky-targets`, `image-stabilized`, `moon-observing`, `planetary-observing`.
+- **Not affected:** `best-binoculars-2026` and `choosing-first-binoculars` already had the capsule inside a container.
+
+### Hero Images (6 generated via nano-banana)
+All saved to `public/images/` as `.jpg`:
+- `Hero_binocular_accessories.jpg` — binoculars + cleaning kit on dark table, purple nebula backdrop
+- `Hero_beginners_guide.jpg` — person silhouette with binoculars under Milky Way
+- `Hero_deep_sky_targets.jpg` — binocular field-of-view circular vignette of a dense star cluster
+- `Hero_image_stabilized_binoculars.jpg` — IS binoculars against twilight sky with Jupiter
+- `Hero_moon_observing.jpg` — lunar mountain range through circular binocular eyepiece, terminator shadows
+- `Hero_planetary_observing.jpg` — Jupiter with Galilean moons in circular binocular view
+
+---
+
 # Review: Homepage Redesign - Minimalist & Sophisticated
 
 ## Second Iteration: Less is More Approach

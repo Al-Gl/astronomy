@@ -69,6 +69,14 @@
 - [Molecular Clouds](https://theastronomy.space/atlas/nebulae/molecular-clouds/) : Cold dense H₂/CO clouds (~10 K) — Pillars of Creation, Giant Molecular Clouds, Jeans instability
 - [Protoplanetary Nebulae](https://theastronomy.space/atlas/nebulae/protoplanetary/) : Short-lived AGB-to-PN transition phase — Egg Nebula, Red Rectangle, bipolar morphology
 - [Constellations](https://theastronomy.space/atlas/constellations/) : All 88 IAU constellations — mythology, star patterns, celestial navigation
+- [Zodiac Constellations](https://theastronomy.space/atlas/constellations/zodiac/) : The 12 ecliptic constellations — Aries to Pisces, the Sun's path, Ophiuchus, precession vs astrology
+- [Circumpolar Constellations](https://theastronomy.space/atlas/constellations/circumpolar/) : Stars that never set — Ursa Major, Cassiopeia, Polaris, the Southern Cross, latitude and star trails
+- [Orion Family](https://theastronomy.space/atlas/constellations/orion-family/) : Orion, Canis Major, Canis Minor, Monoceros, Lepus — Sirius, Betelgeuse, Rigel, the Orion Nebula
+- [Ursa Major Family](https://theastronomy.space/atlas/constellations/ursa-major-family/) : The Great Bear group — Big Dipper, Polaris, Draco, Boötes, Arcturus, and the region's galaxies
+- [Perseus Family](https://theastronomy.space/atlas/constellations/perseus-family/) : Perseus, Andromeda, Cassiopeia, Cepheus, Pegasus, Cetus — Andromeda Galaxy, Algol, the Perseids
+- [Hercules Family](https://theastronomy.space/atlas/constellations/hercules-family/) : The largest family — Lyra, Cygnus, Aquila, Hydra, Ophiuchus, Centaurus, the Summer Triangle, M13
+- [Heavenly Waters](https://theastronomy.space/atlas/constellations/heavenly-waters/) : Water-themed constellations — Eridanus, Carina, Puppis, Vela, Delphinus, Argo Navis, Canopus
+- [La Caille Family](https://theastronomy.space/atlas/constellations/la-caille-family/) : Southern scientific-instrument constellations — Telescopium, Sculptor, Fornax, Octans, Lacaille's legacy
 
 ## Stargazing Guides
 
@@ -78,6 +86,9 @@
 - [Stargazing in China](https://theastronomy.space/chronicles/stargazing/china/) : Dark sky sites across China — Tibet Ali Dark Sky Reserve, Qinghai salt lakes, Xinjiang desert, Tibetan Plateau, permits and planning
 - [Stargazing in Germany](https://theastronomy.space/chronicles/stargazing/germany/) : Dark sky parks across Germany — Eifel National Park, Westhavelland, Rhön Biosphere Reserve, Bavarian Forest, aurora from northern Germany
 - [Stargazing in Poland](https://theastronomy.space/chronicles/stargazing/poland/) : Dark sky sites across Poland — Bieszczady Mountains, Tatra Mountains, Białowieża Primeval Forest, Masuria Lake District, eastern plains
+- [Stargazing in France](https://theastronomy.space/chronicles/stargazing/france/) : Dark sky sites across France — Cévennes Dark Sky Reserve, Provence, Pic du Midi Observatory in the Pyrenees, Causses du Quercy
+- [Stargazing in Spain](https://theastronomy.space/chronicles/stargazing/spain/) : Dark sky sites across Spain — Teide Observatory Tenerife, Extremadura Monfragüe Dark Sky Reserve, Sierra Nevada, Alpujarras, Bardenas Reales
+- [Stargazing in Sweden](https://theastronomy.space/chronicles/stargazing/sweden/) : Dark sky sites across Sweden — Abisko National Park aurora borealis, Swedish Lapland, Jokkmokk, Gotland, midnight sun and seasonal guide
 
 ## Observatory — Telescopes
 

@@ -1,0 +1,334 @@
+---
+import MainLayout from '../../../../layouts/MainLayout.astro';
+import Schema from '../../../../components/Schema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cosmic Atlas', url: '/atlas/' },
+  { name: 'Constellations', url: '/atlas/constellations/' },
+  { name: 'Circumpolar Constellations', url: '/atlas/constellations/circumpolar/' }
+];
+
+const articleData = {
+  headline: 'Circumpolar Constellations: The Stars That Never Set',
+  description: 'Guide to circumpolar constellations — the star patterns that circle the celestial poles and stay visible all night, all year. Learn the northern and southern circumpolar groups and how latitude decides what you see.',
+  datePublished: '2026-07-24',
+  dateModified: '2026-07-24',
+  author: 'The Astronomy Space',
+  image: '/images/Hero_circumpolar.jpg',
+  keywords: ['circumpolar constellations', 'Ursa Major', 'Cassiopeia', 'Polaris', 'Southern Cross', 'celestial pole', 'star trails', 'latitude']
+};
+
+const faqData = [
+  {
+    question: 'What does circumpolar mean?',
+    answer: 'A circumpolar constellation is one that never sets below the horizon as seen from a given location. Instead of rising and setting, it appears to circle the celestial pole throughout the night, remaining visible every clear night of the year. The word literally means "around the pole." Which constellations are circumpolar depends entirely on your latitude.'
+  },
+  {
+    question: 'Why are some constellations circumpolar and others not?',
+    answer: 'It comes down to how close a star lies to the celestial pole relative to your latitude. A star is circumpolar from your location if its angular distance from the pole is less than your latitude. From 50°N, for example, any star within 50 degrees of the north celestial pole never dips below the horizon. Stars farther from the pole rise and set, and stars in the opposite hemisphere never rise at all.'
+  },
+  {
+    question: 'Which constellations are circumpolar from the northern hemisphere?',
+    answer: 'From mid-northern latitudes (around 40–50°N), the main circumpolar constellations are Ursa Major (the Great Bear, containing the Big Dipper), Ursa Minor (the Little Bear, containing Polaris), Cassiopeia, Cepheus, Draco, and Camelopardalis. These six patterns wheel around Polaris and are visible on any clear night of the year, though their orientation changes with the seasons and the hour.'
+  },
+  {
+    question: 'Is there a South Star like Polaris?',
+    answer: 'No bright star marks the south celestial pole the way Polaris marks the north. The nearest naked-eye star to the southern pole is Sigma Octantis in the constellation Octans, but it is so faint (magnitude 5.4) that it is nearly useless for navigation. Instead, southern-hemisphere observers use the Southern Cross (Crux) as a pointer: extending the long axis of the cross about 4.5 times its length locates the pole.'
+  },
+  {
+    question: 'Does the number of circumpolar constellations change with location?',
+    answer: 'Yes, dramatically. At the North Pole (90°N), the entire visible sky is circumpolar — every star simply circles overhead and none ever rise or set. At the equator (0° latitude), no stars are circumpolar at all; every constellation rises and sets, and over the year you can see the whole sky. Between these extremes, the higher your latitude, the larger the cap of circumpolar sky around your pole.'
+  },
+  {
+    question: 'What causes star trails to circle the pole?',
+    answer: 'Star trails are the apparent arcs traced by stars in a long-exposure photograph. They are caused by Earth’s rotation on its axis. Because the celestial poles lie directly above Earth’s geographic poles, stars appear to pivot around them. A star exactly at the pole would barely move, while stars farther away sweep out longer arcs. Pointing a camera at Polaris and taking a long exposure produces the classic set of concentric circular trails.'
+  }
+];
+---
+
+<MainLayout
+  title='Circumpolar Constellations: The Stars That Never Set | The Astronomy Space'
+  description='Guide to circumpolar constellations that circle the celestial poles and never set. Northern and southern circumpolar groups, Polaris, the Southern Cross, and the role of latitude.'
+>
+  <Schema type="BreadcrumbList" breadcrumbs={breadcrumbs} />
+  <Schema type="TechArticle" article={articleData} />
+  <Schema type="FAQPage" faq={faqData} />
+
+  <!-- Reading Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-image">
+      <img src="/images/Hero_circumpolar.jpg" alt="Circular star trails around the north celestial pole" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/atlas/">Cosmic Atlas</a></li>
+          <li><a href="/atlas/constellations/">Constellations</a></li>
+          <li aria-current="page">Circumpolar</li>
+        </ol>
+      </nav>
+      <h1>Circumpolar Constellations</h1>
+      <p class="hero-subtitle">The Stars That Never Set</p>
+    </div>
+  </section>
+
+  <!-- Main Article Content -->
+  <article class="content-wrapper">
+    <div class="article-layout">
+
+      <!-- Sticky Table of Contents -->
+      <aside class="toc-sidebar">
+        <nav class="toc" aria-label="Table of Contents">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#how">How Circumpolar Works</a></li>
+            <li><a href="#northern">Northern Circumpolar</a></li>
+            <li><a href="#southern">Southern Circumpolar</a></li>
+            <li><a href="#navigation">Poles & Navigation</a></li>
+            <li><a href="#observation">Observing Tips</a></li>
+            <li><a href="#facts">Interesting Facts</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-content">
+
+        <!-- Answer Capsule -->
+        <aside class="answer-capsule">
+          <div class="capsule-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="9"/>
+              <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+              <path d="M12 3v2M12 19v2M3 12h2M19 12h2"/>
+            </svg>
+          </div>
+          <p>Circumpolar constellations circle the celestial pole and never dip below the horizon, staying visible every clear night of the year. Which ones you can see depends on your latitude. In the north, Ursa Major, Ursa Minor, Cassiopeia, Cepheus and Draco wheel around Polaris; in the south, Crux and Centaurus circle a pole with no bright star.</p>
+        </aside>
+
+        <section id="intro" class="content-section">
+          <h2>Introduction to Circumpolar Constellations</h2>
+          <p>Most constellations are seasonal visitors — they rise in the east, arc across the sky, and set in the west, appearing at night for only part of the year. Circumpolar constellations are the exception. Lying close to a celestial pole, they never touch the horizon from a given latitude. Instead they wheel endlessly around the pole, always above the ground, always available to the patient observer.</p>
+          <p>This permanence made the circumpolar stars profoundly important to ancient cultures. Because they never disappeared, they came to symbolize immortality and constancy. The Egyptians called them the "Indestructibles" and aligned features of the pyramids toward them. For navigators and travellers, the circumpolar stars provided a fixed, ever-present frame of reference in a sky where almost everything else came and went.</p>
+          <p>The circumpolar region is not a fixed set of constellations for everyone — it is a personal circle centred on your local celestial pole, and its size grows with your latitude. An observer in northern Scandinavia sees a far larger cap of never-setting stars than someone in the tropics, while at the poles the whole visible sky becomes circumpolar.</p>
+        </section>
+
+        <section id="how" class="content-section">
+          <h2>How Circumpolar Motion Works</h2>
+          <p>Earth rotates once a day about an axis that points toward the two celestial poles. Extend Earth's axis into space and it marks the north and south celestial poles — the pivot points about which the entire sky appears to turn. The north celestial pole happens to lie very close to the star Polaris, which is why Polaris appears almost motionless while everything else circles it.</p>
+          <div class="info-box glass">
+            <h3>The Circumpolar Rule</h3>
+            <ul>
+              <li>A star is circumpolar if its distance from the pole is <strong>less than your latitude</strong></li>
+              <li>At latitude L, the pole sits L degrees above the horizon</li>
+              <li>At the poles (90°), the whole sky is circumpolar — nothing rises or sets</li>
+              <li>At the equator (0°), nothing is circumpolar — every star rises and sets</li>
+              <li>The higher your latitude, the wider your cap of never-setting stars</li>
+            </ul>
+          </div>
+          <p>Consider an observer at 50°N. The north celestial pole stands 50 degrees above their northern horizon. Any star within 50 degrees of that pole traces a complete circle without ever setting — these are the circumpolar constellations. A star exactly opposite, near the south celestial pole, never rises for them at all. Everything in between rises and sets, spending part of the day hidden below the horizon.</p>
+        </section>
+
+        <section id="northern" class="content-section">
+          <h2>Northern Circumpolar Constellations</h2>
+          <p>From mid-northern latitudes, five or six constellations form the classic circumpolar family, forever revolving around Polaris. They are among the first patterns most northern observers ever learn.</p>
+          <div class="info-box glass">
+            <h3>The Northern Circumpolar Six</h3>
+            <ul>
+              <li><strong>Ursa Major (Great Bear):</strong> Home of the Big Dipper, whose two "pointer" stars lead directly to Polaris</li>
+              <li><strong>Ursa Minor (Little Bear):</strong> The Little Dipper, with Polaris at the tip of its handle</li>
+              <li><strong>Cassiopeia:</strong> A bright, easily spotted "W" or "M" opposite the Big Dipper across the pole</li>
+              <li><strong>Cepheus:</strong> A house-shaped pattern next to Cassiopeia, the mythical king</li>
+              <li><strong>Draco (Dragon):</strong> A long winding chain of stars snaking between the two bears</li>
+              <li><strong>Camelopardalis (Giraffe):</strong> A large but faint modern constellation filling the gap near the pole</li>
+            </ul>
+          </div>
+          <p>Because Cassiopeia and the Big Dipper sit on opposite sides of Polaris, they act as a natural clock and calendar. When the Big Dipper rides high overhead on spring evenings, Cassiopeia lies low near the horizon, and six months later the roles reverse. Learning to picture this see-saw is one of the most useful skills in northern-sky observing.</p>
+          <p>Draco deserves special mention: around 3000 BCE its star Thuban was the pole star, aligned with the entrance shafts of the Great Pyramid. Precession has since carried the pole away from Thuban to Polaris, and in the distant future it will move on toward Vega — a reminder that even the "fixed" pole slowly wanders.</p>
+        </section>
+
+        <section id="southern" class="content-section">
+          <h2>Southern Circumpolar Constellations</h2>
+          <p>The southern sky has its own circumpolar family, but with a crucial difference: there is no bright pole star. The south celestial pole sits in the dim constellation Octans, marked only by the faint Sigma Octantis. Southern observers therefore rely on brighter neighbouring patterns to find their bearings.</p>
+          <div class="info-box glass">
+            <h3>Southern Circumpolar Highlights</h3>
+            <ul>
+              <li><strong>Crux (Southern Cross):</strong> The smallest constellation, but the most famous southern pattern; its long axis points toward the pole</li>
+              <li><strong>Centaurus:</strong> A large, bright constellation containing Alpha Centauri, the closest star system to the Sun</li>
+              <li><strong>Carina (Keel):</strong> Home to Canopus, the second-brightest star in the entire night sky</li>
+              <li><strong>Octans (Octant):</strong> Holds the south celestial pole itself, but is faint and unremarkable</li>
+              <li><strong>Musca (Fly):</strong> A small constellation tucked beside the Southern Cross</li>
+              <li><strong>Chamaeleon &amp; Apus:</strong> Faint patterns close to the southern pole</li>
+            </ul>
+          </div>
+          <p>The two "Pointers," Alpha and Beta Centauri, blaze near the Southern Cross and help distinguish the true cross from the similar "False Cross" nearby. Together with the Cross itself, they make an unmistakable signpost that has guided navigators across the southern oceans for centuries — famously immortalized on the flags of Australia, New Zealand, Brazil, and Papua New Guinea.</p>
+        </section>
+
+        <section id="navigation" class="content-section">
+          <h2>Celestial Poles and Navigation</h2>
+          <p>Circumpolar stars have served as navigational anchors for millennia because they reveal both direction and latitude. In the north, Polaris does the work almost single-handedly; in the south, a little geometry with the Southern Cross achieves the same result.</p>
+          <h3>Finding North with Polaris</h3>
+          <p>Locate the Big Dipper and follow its two pointer stars, Dubhe and Merak, straight to Polaris — the only moderately bright star in that empty patch of sky. Polaris marks true north to within about one degree, and it never wanders more than a fraction of a degree throughout the night, making it the single most reliable direction indicator in the sky.</p>
+          <h3>Finding South with the Cross</h3>
+          <p>Draw an imaginary line down the long axis of the Southern Cross, from Gacrux through Acrux, and extend it about 4.5 times the length of the cross. That point marks the south celestial pole; drop straight down from it to the horizon to find true south.</p>
+          <h3>Reading Your Latitude</h3>
+          <p>The altitude of the celestial pole above the horizon equals your latitude. Measure how high Polaris sits above the northern horizon and you have read your latitude directly from the sky — the same trick that let generations of sailors fix their position with nothing but a sextant and the stars.</p>
+        </section>
+
+        <section id="observation" class="content-section">
+          <h2>Observing Circumpolar Stars</h2>
+          <p>Circumpolar constellations are the ideal starting point for a beginner because they are available on any clear night, all year round — you never have to wait for the right season.</p>
+          <h3>Getting Started</h3>
+          <ul>
+            <li><strong>Learn the anchor first:</strong> In the north, master the Big Dipper and Polaris before anything else; in the south, learn the Southern Cross and the Pointers.</li>
+            <li><strong>Watch the rotation:</strong> Note the position of a circumpolar constellation, then check again a few hours later to see how it has swung around the pole.</li>
+            <li><strong>Track the seasons:</strong> The same constellations appear at different orientations depending on the month — a natural sky calendar.</li>
+            <li><strong>Try star-trail photography:</strong> Aim a camera at the pole and take a long exposure to capture the graceful concentric arcs.</li>
+          </ul>
+          <h3>Star Trails and Time-Lapse</h3>
+          <p>Because circumpolar stars never set, they are perfect subjects for long-exposure and time-lapse photography. A camera on a tripod pointed at Polaris, with an exposure of 30 minutes or more (or many stacked shorter frames), records the stars as a set of nested circles centred on the pole — a striking visual proof of Earth's rotation that requires no telescope at all.</p>
+        </section>
+
+        <section id="facts" class="content-section">
+          <h2>Interesting Facts About Circumpolar Constellations</h2>
+          <ul class="facts-list">
+            <li><strong>The pole star changes:</strong> Precession moves the celestial pole in a 26,000-year circle. Thuban in Draco was the pole star of the pyramid builders, Polaris holds the role today, and in about 12,000 years brilliant Vega will take over.</li>
+            <li><strong>Polaris is not exactly at the pole:</strong> It currently sits about 0.7 degrees from the true north celestial pole and is slowly getting closer — it will be nearest around the year 2100 before precession carries it away again.</li>
+            <li><strong>Polaris is a triple star:</strong> The North Star is actually a system of at least three stars, dominated by a yellow supergiant that is also a Cepheid variable, subtly pulsing in brightness.</li>
+            <li><strong>The Egyptians honoured them:</strong> Ancient Egyptian texts called the northern circumpolar stars the "Imperishable Ones," and airshafts in the Great Pyramid were aligned toward them as symbols of the eternal afterlife.</li>
+            <li><strong>No southern pole star:</strong> The dimness of Sigma Octantis is one reason southern-hemisphere navigation historically leaned so heavily on the Southern Cross instead of any single pole star.</li>
+            <li><strong>Bears that never bathe:</strong> A Greek myth explains why Ursa Major never sets — a jealous Hera forbade the bear from ever descending into the sea to rest, condemning it to circle the pole forever.</li>
+            <li><strong>Your latitude sets the boundary:</strong> Travel far enough north or south and constellations that rise and set at home become permanently circumpolar — or vanish entirely below the horizon.</li>
+          </ul>
+        </section>
+
+        <section id="resources" class="content-section">
+          <h2>External Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://www.iau.org/public/themes/constellations/" target="_blank" rel="noopener">IAU Constellations</a> — Official constellation names and boundaries</li>
+            <li><a href="https://science.nasa.gov/skywatching/" target="_blank" rel="noopener">NASA Skywatching</a> — Guides to finding and identifying stars and constellations</li>
+            <li><a href="https://en.wikipedia.org/wiki/Circumpolar_star" target="_blank" rel="noopener">Circumpolar Stars on Wikipedia</a> — The geometry and history of circumpolar stars</li>
+            <li><a href="https://stellarium.org/" target="_blank" rel="noopener">Stellarium</a> — Simulate your local sky and watch the circumpolar stars turn</li>
+          </ul>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="content-section faq-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqData.map((item) => (
+              <details class="faq-item">
+                <summary class="faq-question">{item.question}</summary>
+                <div class="faq-answer">
+                  <p set:html={item.answer}></p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </article>
+</MainLayout>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    const progressBar = document.getElementById('progressBar');
+    if (progressBar) progressBar.style.width = scrollPercent + '%';
+  });
+
+  const sections = document.querySelectorAll('.content-section');
+  const tocLinks = document.querySelectorAll('.toc a');
+  const observerOptions = { rootMargin: '-20% 0% -70% 0%' };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, observerOptions);
+  sections.forEach(section => observer.observe(section));
+</script>
+
+<style>
+  .progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: rgba(255,255,255,0.1); z-index: 1000; }
+  .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-blue)); transition: width 0.1s ease-out; }
+  .hero { position: relative; min-height: 60vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .hero-image { position: absolute; inset: 0; z-index: 0; }
+  .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.9) 100%); }
+  .hero-content { position: relative; z-index: 1; text-align: center; padding: var(--space-xl); }
+  .hero h1 { font-family: var(--font-heading); font-size: clamp(2.5rem,6vw,4.5rem); font-weight: 700; margin-bottom: var(--space-sm); text-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+  .hero-subtitle { font-size: clamp(1.25rem,3vw,1.75rem); color: var(--color-accent-cyan); font-weight: 500; }
+  .breadcrumbs { margin-bottom: var(--space-lg); }
+  .breadcrumbs ol { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; list-style: none; padding: 0; margin: 0; font-size: 0.9rem; }
+  .breadcrumbs li { display: flex; align-items: center; gap: 0.5rem; }
+  .breadcrumbs li:not(:last-child)::after { content: '\203a'; color: var(--color-text-secondary); }
+  .breadcrumbs a { color: var(--color-text-secondary); text-decoration: none; transition: color 0.2s ease; }
+  .breadcrumbs a:hover { color: var(--color-accent-cyan); }
+  .breadcrumbs li[aria-current="page"] { color: var(--color-text-primary); }
+  .content-wrapper { padding: var(--space-2xl) 0; }
+  .article-layout { display: grid; grid-template-columns: 1fr; max-width: 1200px; margin: 0 auto; padding: 0 var(--space-md); gap: var(--space-xl); }
+  @media (min-width: 1024px) { .article-layout { grid-template-columns: 220px 1fr; gap: var(--space-2xl); } }
+  .toc-sidebar { display: none; }
+  @media (min-width: 1024px) { .toc-sidebar { display: block; } .toc { position: sticky; top: calc(var(--space-xl) + 3px); max-height: calc(100vh - var(--space-2xl)); overflow-y: auto; } }
+  .toc h2 { font-family: var(--font-heading); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-md); color: var(--color-text-secondary); }
+  .toc ol { list-style: none; padding: 0; margin: 0; }
+  .toc li { margin-bottom: 0.25rem; }
+  .toc a { display: block; padding: 0.5rem 0; padding-left: var(--space-sm); color: var(--color-text-secondary); text-decoration: none; font-size: 0.9rem; border-left: 2px solid transparent; transition: all 0.2s ease; }
+  .toc a:hover { color: var(--color-text-primary); border-left-color: rgba(6,182,212,0.5); }
+  .toc a.active { color: var(--color-accent-cyan); border-left-color: var(--color-accent-cyan); }
+  .main-content { max-width: 800px; }
+  .answer-capsule { display: flex; gap: var(--space-md); padding: var(--space-lg); margin-bottom: var(--space-2xl); background: linear-gradient(135deg, rgba(6,182,212,0.1) 0%, rgba(59,130,246,0.1) 100%); border: 1px solid rgba(6,182,212,0.2); border-radius: var(--radius-lg); position: relative; overflow: hidden; }
+  .answer-capsule::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at top left, rgba(6,182,212,0.15) 0%, transparent 50%); pointer-events: none; }
+  .capsule-icon { flex-shrink: 0; width: 40px; height: 40px; color: var(--color-accent-cyan); opacity: 0.8; }
+  .capsule-icon svg { width: 100%; height: 100%; }
+  .answer-capsule p { margin: 0; font-size: 1.1rem; line-height: 1.7; color: var(--color-text-primary); position: relative; }
+  .content-section { margin-bottom: var(--space-2xl); }
+  .content-section h2 { font-family: var(--font-heading); font-size: clamp(1.75rem,4vw,2.25rem); margin-bottom: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 2px solid rgba(6,182,212,0.3); color: var(--color-text-primary); }
+  .content-section h3 { font-family: var(--font-heading); font-size: clamp(1.25rem,3vw,1.5rem); margin-top: var(--space-xl); margin-bottom: var(--space-md); color: var(--color-accent-cyan); }
+  .content-section p { font-size: 1.1rem; line-height: 1.8; color: var(--color-text-secondary); margin-bottom: var(--space-md); }
+  .content-section ul, .content-section ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+  .content-section li { font-size: 1.05rem; line-height: 1.7; color: var(--color-text-secondary); margin-bottom: 0.5rem; }
+  .info-box { padding: var(--space-lg); margin: var(--space-lg) 0; }
+  .info-box h3 { margin-top: 0; font-size: 1.1rem; color: var(--color-accent-blue); }
+  .info-box ul { margin: 0; padding-left: var(--space-md); }
+  .info-box li { font-size: 1rem; margin-bottom: 0.4rem; }
+  .facts-list { list-style: none; padding: 0; }
+  .facts-list li { padding: var(--space-md) 0; border-bottom: 1px solid rgba(148,163,184,0.1); }
+  .facts-list li:last-child { border-bottom: none; }
+  .resource-list { list-style: none; padding: 0; }
+  .resource-list li { padding: var(--space-sm) 0; border-bottom: 1px solid rgba(148,163,184,0.1); }
+  .resource-list li:last-child { border-bottom: none; }
+  .resource-list a { color: var(--color-accent-cyan); font-weight: 500; }
+  .faq-section { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid rgba(148,163,184,0.1); }
+  .faq-list { display: flex; flex-direction: column; gap: var(--space-sm); }
+  .faq-item { background: var(--glass-bg); border: var(--glass-border); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.3s ease; }
+  .faq-item[open] { background: rgba(6,182,212,0.05); border-color: rgba(6,182,212,0.2); }
+  .faq-question { padding: var(--space-md) var(--space-lg); cursor: pointer; font-size: 1.1rem; font-weight: 500; color: var(--color-text-primary); list-style: none; display: flex; justify-content: space-between; align-items: center; transition: color 0.2s ease; }
+  .faq-question::-webkit-details-marker { display: none; }
+  .faq-question::after { content: '+'; font-size: 1.5rem; font-weight: 300; color: var(--color-accent-cyan); transition: transform 0.3s ease; }
+  .faq-item[open] .faq-question::after { transform: rotate(45deg); }
+  .faq-question:hover { color: var(--color-accent-cyan); }
+  .faq-answer { padding: 0 var(--space-lg) var(--space-lg); }
+  .faq-answer p { margin: 0; font-size: 1rem; line-height: 1.7; color: var(--color-text-secondary); }
+  .glass { background: var(--glass-bg); border: var(--glass-border); border-radius: var(--radius-lg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); }
+  @media (max-width: 768px) { .hero { min-height: 50vh; } .hero-content { padding: var(--space-lg); } .article-layout { padding: 0 var(--space-sm); } .answer-capsule { flex-direction: column; align-items: flex-start; } .capsule-icon { width: 32px; height: 32px; } }
+</style>

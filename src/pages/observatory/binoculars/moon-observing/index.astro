@@ -109,16 +109,18 @@ const faqData = [
   </section>
 
   <!-- Answer Capsule -->
-  <aside class="answer-capsule">
-    <div class="capsule-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M2 17L12 22L22 17" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M2 12L12 17L22 12" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-    <p>Observe the Moon during crescent, quarter, and gibbous phases when the terminator (day/night line) creates dramatic shadows revealing craters, mountains, and surface relief. Avoid full moon's flat, shadowless lighting. Use any binoculars—even modest 7x50 or 10x50 models reveal hundreds of features including major craters (Tycho, Copernicus, Clavius), dark maria (ancient lava plains), and bright ray systems. Scan along the terminator where low-angle sunlight emphasizes three-dimensional structure. The Moon's brightness allows observation from light-polluted cities and requires no dark adaptation, making it the most accessible astronomy target. Spend several sessions exploring different phases to build feature recognition.</p>
-  </aside>
+  <div class="container">
+    <aside class="answer-capsule">
+      <div class="capsule-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 17L12 22L22 17" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 12L12 17L22 12" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <p>Observe the Moon during crescent, quarter, and gibbous phases when the terminator (day/night line) creates dramatic shadows revealing craters, mountains, and surface relief. Avoid full moon's flat, shadowless lighting. Use any binoculars—even modest 7x50 or 10x50 models reveal hundreds of features including major craters (Tycho, Copernicus, Clavius), dark maria (ancient lava plains), and bright ray systems. Scan along the terminator where low-angle sunlight emphasizes three-dimensional structure. The Moon's brightness allows observation from light-polluted cities and requires no dark adaptation, making it the most accessible astronomy target. Spend several sessions exploring different phases to build feature recognition.</p>
+    </aside>
+  </div>
 
   <!-- Main Content with Sidebar -->
   <div class="content-wrapper">
@@ -171,6 +173,11 @@ const faqData = [
             <p>Lunar phases result from the Moon's orbital position relative to the Sun and Earth, determining which portion of the sunlit lunar hemisphere faces Earth. New moon occurs when the Moon lies between Earth and Sun—the sunlit side faces away from us, rendering the Moon essentially invisible (except during the rare solar eclipse when it passes directly in front of the Sun). As the Moon orbits eastward, a growing sliver of sunlit surface becomes visible from Earth, progressing through waxing crescent, first quarter (half illuminated), waxing gibbous, and finally full moon when Earth lies between the Moon and Sun, showing the entire sunlit hemisphere.</p>
 
             <p>After full moon, the illuminated portion shrinks through waning gibbous, last quarter (again half illuminated but opposite side from first quarter), waning crescent, and back to new moon completing the 29.5-day synodic month. Crucially for observers, the terminator—the boundary between lunar day and night—progresses across the surface during this cycle, illuminating features sequentially from west to east limb during waxing phases, then crossing back east to west during waning phases. This progression means every lunar feature experiences optimal low-angle illumination twice monthly, once during waxing (evening observation) and once during waning (morning observation).</p>
+
+            <figure class="article-image">
+              <img src="/images/Bino_moon_crescent.jpg" alt="Crescent Moon with Earthshine — thin bright crescent with soft glow on the dark limb, as seen through binoculars" loading="lazy" />
+              <figcaption>The crescent Moon with Earthshine — sunlight reflected from Earth illuminates the dark lunar surface with a ghostly glow, best seen 2–4 days after new moon</figcaption>
+            </figure>
 
             <div class="info-box glass">
               <h3>Lunar Phases for Observing</h3>
@@ -247,6 +254,11 @@ const faqData = [
             <p>Maria—Latin for "seas," named by early astronomers who mistook them for bodies of water—are vast dark plains of solidified basaltic lava filling ancient impact basins. They appear dark because basalt rock reflects only 7-10% of sunlight compared to 15-18% for the brighter highland anorthosite. Fourteen major maria cover roughly 31% of the lunar near side, concentrated on the Earth-facing hemisphere (the far side contains only a few small maria). Maria formed 3.0-3.8 billion years ago when massive impacts fractured the crust, allowing molten basalt from the mantle to flood the resulting basins over millions of years.</p>
 
             <p>The largest and most obvious maria include Mare Imbrium (Sea of Rains, 1,100km diameter), Oceanus Procellarum (Ocean of Storms, 2,500km across), Mare Serenitatis (Sea of Serenity, 700km), Mare Tranquillitatis (Sea of Tranquility, 873km—Apollo 11's landing site), Mare Crisium (Sea of Crises, 555km), and Mare Nectaris (Sea of Nectar, 339km). Through binoculars, these appear as large dark patches obvious even to the naked eye. Within the maria, look for subtle color variations (some maria appear slightly browner or bluer than others), ghost craters (ancient craters almost completely buried by later lava flows leaving only faint circular outlines), and wrinkle ridges (low ridges formed when cooling lava contracted).</p>
+
+            <figure class="article-image">
+              <img src="/images/Bino_moon_maria.jpg" alt="Full Moon surface through binoculars showing dark basalt maria contrasting with bright highland regions" loading="lazy" />
+              <figcaption>Dark basaltic maria (lava plains) contrast sharply with bright highland regions — the large dark patches visible to the naked eye become richly detailed through binoculars</figcaption>
+            </figure>
 
             <h3>Craters</h3>
 
@@ -389,6 +401,11 @@ const faqData = [
             <p>Neutral density (moon) filters reduce brightness during gibbous and full phases, improving comfort and potentially enhancing contrast. They typically reduce light by 25-50%, bringing the Moon's brightness from eye-watering to comfortable without altering colors or introducing aberrations. Filters screw into threaded eyepieces (check your binoculars for thread compatibility—not all models accept filters). Variable polarizing filters allow adjustment by rotation, adapting to different phases. Budget $15-40 for quality filters.</p>
 
             <p>Most observers find filters unnecessary, simply observing during favorable crescent and quarter phases when brightness remains manageable. Try unfiltered viewing first; purchase filters only if brightness genuinely causes discomfort or if you observe primarily during brighter phases. Some observers report slight contrast enhancement with filters even beyond brightness reduction, but this varies by individual physiology.</p>
+
+            <figure class="article-image">
+              <img src="/images/Bino_moon_craters.jpg" alt="Lunar terminator with dramatic shadows on crater walls and mountain ranges as seen through binoculars" loading="lazy" />
+              <figcaption>The terminator line creates the most dramatic lunar views — low-angle sunlight casts long shadows from crater walls and mountain peaks, revealing surface relief impossible to see at full moon</figcaption>
+            </figure>
           </section>
 
           <!-- Sketching -->
@@ -482,7 +499,7 @@ const faqData = [
 
             <div class="faq-list">
               {faqData.map((faq, index) => (
-                <details class="faq-item" key={index}>
+                <details class="faq-item">
                   <summary class="faq-question">
                     {faq.question}
                     <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -727,6 +744,26 @@ const faqData = [
   /* Article Content */
   .article-content {
     max-width: 900px;
+  }
+
+  /* Article Images */
+  .article-image {
+    margin: 2rem 0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+  }
+  .article-image figcaption {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.45);
+    text-align: center;
+    margin-top: 0.5rem;
+    font-style: italic;
   }
 
   .content-section {
