@@ -2,51 +2,13 @@ import type { APIRoute } from 'astro';
 
 const site = 'https://theastronomy.space';
 
-// All pages on the site
-const pages = [
-  '',
-  '/atlas',
-  '/atlas/solar-system',
-  '/atlas/solar-system/sun',
-  '/atlas/solar-system/mercury',
-  '/atlas/solar-system/venus',
-  '/atlas/solar-system/earth',
-  '/atlas/solar-system/earth/moon',
-  '/atlas/solar-system/mars',
-  '/atlas/solar-system/jupiter',
-  '/atlas/solar-system/saturn',
-  '/atlas/solar-system/uranus',
-  '/atlas/solar-system/neptune',
-  '/atlas/constellations',
-  '/atlas/constellations/zodiac',
-  '/atlas/constellations/circumpolar',
-  '/atlas/constellations/orion',
-  '/atlas/constellations/big-dipper',
-  '/atlas/constellations/orion-family',
-  '/atlas/constellations/ursa-major-family',
-  '/atlas/constellations/perseus-family',
-  '/atlas/constellations/hercules-family',
-  '/atlas/constellations/heavenly-waters',
-  '/atlas/constellations/la-caille-family',
-  '/atlas/stars/betelgeuse',
-  '/atlas/galaxies/andromeda',
-  '/observatory',
-  '/observatory/binoculars',
-  '/observatory/binoculars/beginners-guide',
-  '/observatory/binoculars/choosing-first-binoculars',
-  '/observatory/binoculars/moon-observing',
-  '/observatory/binoculars/planetary-observing',
-  '/observatory/binoculars/deep-sky-targets',
-  '/observatory/binoculars/best-binoculars-2026',
-  '/observatory/binoculars/accessories-maintenance',
-  '/observatory/binoculars/image-stabilized',
-  '/chronicles',
-  '/chronicles/stargazing',
-  '/chronicles/stargazing/england',
-  '/chronicles/stargazing/scandinavia',
-  '/contact',
-  '/our-collaborators',
-];
+// Every page on the site, read from the page files (so new pages are added automatically).
+// "atlas/stars/index.astro" -> "/atlas/stars/", "atlas/planets.astro" -> "/atlas/planets/"
+const pages = Object.keys(import.meta.glob("./**/*.astro"))
+  .map((file) => file.replace(/^\.\//, "").replace(/\.astro$/, "").replace(/(^|\/)index$/, ""))
+  .filter((p) => p !== "404")
+  .map((p) => (p === "" ? "/" : `/${p}/`))
+  .sort();
 
 export const GET: APIRoute = () => {
   const today = new Date().toISOString().split('T')[0];
@@ -56,8 +18,8 @@ export const GET: APIRoute = () => {
 ${pages.map(page => `  <url>
     <loc>${site}${page}</loc>
     <lastmod>${today}</lastmod>
-    <changefreq>${page === '' ? 'daily' : 'weekly'}</changefreq>
-    <priority>${page === '' ? '1.0' : page.split('/').length <= 2 ? '0.8' : '0.6'}</priority>
+    <changefreq>${page === '/' ? 'daily' : 'weekly'}</changefreq>
+    <priority>${page === '/' ? '1.0' : page.split('/').length <= 3 ? '0.8' : '0.6'}</priority>
   </url>`).join('\n')}
 </urlset>`;
 

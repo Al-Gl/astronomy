@@ -1,0 +1,74 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout
+  title="Page Not Found - The Astronomy Space"
+  description="This page drifted out of orbit. Head back to the Cosmic Atlas, the Observatory or the Chronicles."
+  noindex
+>
+  <section class="nf">
+    <div class="container">
+      <p class="nf-code">404</p>
+      <h1 class="nf-title">Lost in space</h1>
+      <p class="nf-sub">This page has drifted out of orbit, or it never existed. Try one of these instead:</p>
+      <nav class="nf-links">
+        <a href="/">Home</a>
+        <a href="/atlas/">Cosmic Atlas</a>
+        <a href="/observatory/">Observatory</a>
+        <a href="/chronicles/">Chronicles</a>
+      </nav>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .nf {
+    padding: 8rem 0 8rem 0;
+    text-align: center;
+  }
+
+  .nf-code {
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0 0 1rem 0;
+  }
+
+  .nf-title {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 400;
+    color: white;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.1;
+  }
+
+  .nf-sub {
+    font-size: 1.0625rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 36rem;
+    margin: 0 auto 2.5rem auto;
+    line-height: 1.8;
+  }
+
+  .nf-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .nf-links a {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    color: white;
+    text-decoration: none;
+    transition: border-color 0.2s ease;
+  }
+
+  .nf-links a:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+</style>

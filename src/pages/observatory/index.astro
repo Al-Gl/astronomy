@@ -26,7 +26,7 @@ import MainLayout from '../../layouts/MainLayout.astro';
     <div class="container">
       <div class="categories-grid">
 
-        <a href="/observatory/telescopes" class="category-card">
+        <a href="/observatory/telescopes/" class="category-card">
           <div class="card-icon">
             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="8" y="20" width="32" height="8" rx="2" stroke="currentColor" stroke-width="1.5"/>
@@ -41,7 +41,7 @@ import MainLayout from '../../layouts/MainLayout.astro';
           <p>Reviews, comparisons, and buying guides for telescopes</p>
         </a>
 
-        <a href="/observatory/binoculars" class="category-card">
+        <a href="/observatory/binoculars/" class="category-card">
           <div class="card-icon">
             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="6" y="12" width="10" height="24" rx="2" stroke="currentColor" stroke-width="1.5"/>
@@ -55,7 +55,7 @@ import MainLayout from '../../layouts/MainLayout.astro';
           <p>Astronomy binoculars for wide-field observing</p>
         </a>
 
-        <a href="/observatory/cameras" class="category-card">
+        <div class="category-card soon">
           <div class="card-icon">
             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="6" y="14" width="36" height="24" rx="2" stroke="currentColor" stroke-width="1.5"/>
@@ -68,9 +68,9 @@ import MainLayout from '../../layouts/MainLayout.astro';
           </div>
           <h2>Cameras & Imaging</h2>
           <p>Astrophotography cameras, sensors, and imaging equipment</p>
-        </a>
+        </div>
 
-        <a href="/observatory/accessories" class="category-card">
+        <div class="category-card soon">
           <div class="card-icon">
             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="1.5"/>
@@ -84,9 +84,9 @@ import MainLayout from '../../layouts/MainLayout.astro';
           </div>
           <h2>Accessories</h2>
           <p>Eyepieces, filters, mounts, and essential accessories</p>
-        </a>
+        </div>
 
-        <a href="/observatory/software" class="category-card">
+        <div class="category-card soon">
           <div class="card-icon">
             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="8" y="10" width="32" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/>
@@ -100,9 +100,9 @@ import MainLayout from '../../layouts/MainLayout.astro';
           </div>
           <h2>Software & Apps</h2>
           <p>Planetarium software, stacking tools, and mobile apps</p>
-        </a>
+        </div>
 
-        <a href="/observatory/guides" class="category-card">
+        <div class="category-card soon">
           <div class="card-icon">
             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="12" y="8" width="24" height="32" rx="2" stroke="currentColor" stroke-width="1.5"/>
@@ -115,7 +115,7 @@ import MainLayout from '../../layouts/MainLayout.astro';
           </div>
           <h2>Observing Guides</h2>
           <p>How-to guides for setting up and using your equipment</p>
-        </a>
+        </div>
 
       </div>
     </div>
@@ -194,6 +194,9 @@ import MainLayout from '../../layouts/MainLayout.astro';
     text-decoration: none;
     transition: background 0.3s ease;
   }
+
+  .category-card.soon { opacity: 0.55; cursor: default; }
+  .category-card.soon::after { content: "Coming soon"; display: block; margin-top: 1rem; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255, 255, 255, 0.5); }
 
   .category-card:hover {
     background: rgba(255, 255, 255, 0.02);

@@ -26,7 +26,7 @@ import MainLayout from '../../layouts/MainLayout.astro';
     <div class="container">
       <div class="categories-grid">
 
-        <a href="/chronicles/stargazing" class="category-card">
+        <a href="/chronicles/stargazing/" class="category-card">
           <div class="card-icon">
             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
@@ -44,7 +44,7 @@ import MainLayout from '../../layouts/MainLayout.astro';
           <p>Best locations, timing, and tips for observing the night sky</p>
         </a>
 
-        <a href="/chronicles/phenomena" class="category-card">
+        <div class="category-card soon">
           <div class="card-icon">
             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="24" cy="24" r="8" stroke="currentColor" stroke-width="1.5"/>
@@ -58,9 +58,9 @@ import MainLayout from '../../layouts/MainLayout.astro';
           </div>
           <h2>Celestial Events</h2>
           <p>Eclipses, meteor showers, and other astronomical phenomena</p>
-        </a>
+        </div>
 
-        <a href="/chronicles/exploration" class="category-card">
+        <div class="category-card soon">
           <div class="card-icon">
             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M24 6 L28 18 L40 18 L30 26 L34 38 L24 30 L14 38 L18 26 L8 18 L20 18 Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
@@ -70,9 +70,9 @@ import MainLayout from '../../layouts/MainLayout.astro';
           </div>
           <h2>Space Exploration</h2>
           <p>Missions, discoveries, and the future of space travel</p>
-        </a>
+        </div>
 
-        <a href="/chronicles/astrophotography" class="category-card">
+        <div class="category-card soon">
           <div class="card-icon">
             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="8" y="16" width="32" height="22" rx="2" stroke="currentColor" stroke-width="1.5"/>
@@ -86,9 +86,9 @@ import MainLayout from '../../layouts/MainLayout.astro';
           </div>
           <h2>Astrophotography</h2>
           <p>Techniques, showcases, and tutorials for capturing the cosmos</p>
-        </a>
+        </div>
 
-        <a href="/chronicles/history" class="category-card">
+        <div class="category-card soon">
           <div class="card-icon">
             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="1.5"/>
@@ -103,9 +103,9 @@ import MainLayout from '../../layouts/MainLayout.astro';
           </div>
           <h2>Astronomy History</h2>
           <p>Historical discoveries and the pioneers of astronomy</p>
-        </a>
+        </div>
 
-        <a href="/chronicles/science" class="category-card">
+        <div class="category-card soon">
           <div class="card-icon">
             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="24" cy="24" r="3" fill="currentColor"/>
@@ -119,7 +119,7 @@ import MainLayout from '../../layouts/MainLayout.astro';
           </div>
           <h2>Cosmic Science</h2>
           <p>Deep dives into astronomical concepts and theories</p>
-        </a>
+        </div>
 
       </div>
     </div>
@@ -198,6 +198,9 @@ import MainLayout from '../../layouts/MainLayout.astro';
     text-decoration: none;
     transition: background 0.3s ease;
   }
+
+  .category-card.soon { opacity: 0.55; cursor: default; }
+  .category-card.soon::after { content: "Coming soon"; display: block; margin-top: 1rem; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255, 255, 255, 0.5); }
 
   .category-card:hover {
     background: rgba(255, 255, 255, 0.02);
