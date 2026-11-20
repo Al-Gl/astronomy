@@ -20,12 +20,16 @@ const pages = [
   '/atlas/constellations',
   '/atlas/constellations/zodiac',
   '/atlas/constellations/circumpolar',
+  '/atlas/constellations/orion',
+  '/atlas/constellations/big-dipper',
   '/atlas/constellations/orion-family',
   '/atlas/constellations/ursa-major-family',
   '/atlas/constellations/perseus-family',
   '/atlas/constellations/hercules-family',
   '/atlas/constellations/heavenly-waters',
   '/atlas/constellations/la-caille-family',
+  '/atlas/stars/betelgeuse',
+  '/atlas/galaxies/andromeda',
   '/observatory',
   '/observatory/binoculars',
   '/observatory/binoculars/beginners-guide',
@@ -41,6 +45,7 @@ const pages = [
   '/chronicles/stargazing/england',
   '/chronicles/stargazing/scandinavia',
   '/contact',
+  '/our-collaborators',
 ];
 
 export const GET: APIRoute = () => {

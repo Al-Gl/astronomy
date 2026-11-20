@@ -1,0 +1,126 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+
+const partners = [
+  {
+    name: 'Ude og Fiske',
+    url: 'https://udeogfiske.dk/',
+    desc: 'A Danish fishing guide covering sea trout, fishing spots and gear. A lot of the best dark-sky nights start with an evening on the coast. The site is in Danish.',
+  },
+  {
+    name: 'The Drunken Connoisseurs',
+    url: 'https://thedrunkenconnoisseurs.dk/',
+    desc: 'A Danish tasting club for whisky, rum and cognac, with honest reviews and ratings. A good dram for a cold night under the stars. The site is in Danish.',
+  },
+  {
+    name: 'The Balkan Pour',
+    url: 'https://thebalkanpour.com/',
+    desc: 'A field guide to the beers, wines and rakija of Croatia, Serbia, Bosnia & Herzegovina and Montenegro, with brewery profiles and honest ratings.',
+  },
+];
+---
+
+<MainLayout
+  title="Our Collaborators - The Astronomy Space"
+  description="Sites we work with: Ude og Fiske (fishing in Denmark), The Drunken Connoisseurs (whisky, rum and cognac) and The Balkan Pour (Balkan beer, wine and rakija)."
+>
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-title">Our Collaborators</h1>
+      <p class="hero-subtitle">
+        A few other sites we work with, for the hours when you're not looking up.
+      </p>
+    </div>
+  </section>
+
+  <section class="collab-content">
+    <div class="container">
+      <div class="collab-grid">
+        {partners.map((p) => (
+          <a class="collab-card" href={p.url} target="_blank" rel="noopener">
+            <h2>{p.name}</h2>
+            <p>{p.desc}</p>
+            <span class="collab-link">Visit site →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .hero {
+    padding: 6rem 0 4rem 0;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 400;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: 0.02em;
+    color: white;
+    line-height: 1.1;
+  }
+
+  .hero-subtitle {
+    font-size: 1.0625rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 40rem;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  .collab-content {
+    padding: 2rem 0 6rem 0;
+  }
+
+  .collab-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .collab-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    text-decoration: none;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .collab-card:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .collab-card h2 {
+    font-size: 1.375rem;
+    font-weight: 400;
+    color: white;
+    margin: 0;
+    letter-spacing: 0.01em;
+  }
+
+  .collab-card p {
+    font-size: 0.9375rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.8;
+    margin: 0;
+    flex: 1;
+  }
+
+  .collab-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+  }
+</style>
